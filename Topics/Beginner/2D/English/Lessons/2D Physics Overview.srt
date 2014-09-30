@@ -1,0 +1,479 @@
+1
+00:00:01,298 --> 00:00:04,351
+To have convincing physical behaviour a game object must
+
+2
+00:00:04,351 --> 00:00:07,226
+accelerate correctly, have a feeling of proper mass
+
+3
+00:00:07,226 --> 00:00:09,750
+and be affected by collisions, gravity and other
+
+4
+00:00:09,750 --> 00:00:11,750
+forces in a realistic way.
+
+5
+00:00:13,300 --> 00:00:16,257
+Unity's built-in physics engines provide components
+
+6
+00:00:16,257 --> 00:00:19,083
+that handle these physical simulations.
+
+7
+00:00:21,713 --> 00:00:24,524
+There are two separate physics engines in Unity.
+
+8
+00:00:24,524 --> 00:00:27,977
+One for 2D physics and one for 2D physics.
+
+9
+00:00:29,320 --> 00:00:31,870
+The main concepts are identical between these two
+
+10
+00:00:31,870 --> 00:00:33,870
+physics engines, except for the extra
+
+11
+00:00:33,870 --> 00:00:36,119
+third dimension in 3D physics.
+
+12
+00:00:36,840 --> 00:00:38,840
+These systems are implemented however with
+
+13
+00:00:38,840 --> 00:00:40,840
+completely different components.
+
+14
+00:00:41,685 --> 00:00:45,467
+When using 2D physics the physic 2D components
+
+15
+00:00:45,467 --> 00:00:48,895
+will seem familiar to those who have used the 3D physics engine.
+
+16
+00:00:49,657 --> 00:00:51,657
+Most of the physics 2D components
+
+17
+00:00:51,657 --> 00:00:54,783
+behave in a similar way to their 3D counterparts.
+
+18
+00:00:54,783 --> 00:00:56,921
+Except in 2 dimensions.
+
+19
+00:00:56,921 --> 00:00:59,475
+And have similar names, except with 2D after
+
+20
+00:00:59,475 --> 00:01:01,475
+the descriptive part of the name.
+
+21
+00:01:01,795 --> 00:01:04,002
+For example, in 3D physics
+
+22
+00:01:04,002 --> 00:01:06,002
+there is a rigidbody component.
+
+23
+00:01:06,502 --> 00:01:08,866
+In 2D physics there is analogous
+
+24
+00:01:08,866 --> 00:01:10,866
+rigidbody 2D component.
+
+25
+00:01:11,463 --> 00:01:13,853
+This pattern will hold true for most of the  physics
+
+26
+00:01:13,853 --> 00:01:16,462
+2D components and scripting methods.
+
+27
+00:01:16,462 --> 00:01:20,384
+Including box collider and box collider 2D.
+
+28
+00:01:20,384 --> 00:01:24,099
+Or OnTriggerEnter and OnTriggerEnter2D.
+
+29
+00:01:25,013 --> 00:01:27,677
+It is important to note that these 2 physics systems
+
+30
+00:01:27,677 --> 00:01:30,133
+are comparable but not compatible.
+
+31
+00:01:30,826 --> 00:01:33,229
+3D physics and 2D physics can be present
+
+32
+00:01:33,229 --> 00:01:36,437
+in the same scene, but they will not interact with each other.
+
+33
+00:01:40,887 --> 00:01:42,887
+There are some important differences between
+
+34
+00:01:42,887 --> 00:01:45,318
+2D physics and 3D physics.
+
+35
+00:01:45,318 --> 00:01:47,318
+The most critical difference is that there is no
+
+36
+00:01:47,318 --> 00:01:49,930
+concept of depth in 2D physics.
+
+37
+00:01:50,840 --> 00:01:53,668
+All 2D physics plays out on the X/Y plane
+
+38
+00:01:53,668 --> 00:01:57,472
+with this 2D plane at 0 along the Z axis.
+
+39
+00:01:58,276 --> 00:02:01,311
+Game object under control of the 2D physics engine
+
+40
+00:02:01,311 --> 00:02:03,311
+can only move on an X/Y plane
+
+41
+00:02:03,311 --> 00:02:06,209
+and can only rotate around the Z axis.
+
+42
+00:02:07,096 --> 00:02:09,096
+As it is possible to view a 2D game
+
+43
+00:02:09,096 --> 00:02:11,432
+when the editor is in 3D mode
+
+44
+00:02:11,432 --> 00:02:13,432
+and it is possible to change the transform
+
+45
+00:02:13,432 --> 00:02:15,805
+position Z of a game object
+
+46
+00:02:15,805 --> 00:02:17,612
+that is using 2D physics
+
+47
+00:02:17,612 --> 00:02:19,612
+it is important to remember that all of the
+
+48
+00:02:19,612 --> 00:02:22,083
+physics interaction takes place at the
+
+49
+00:02:22,083 --> 00:02:24,601
+Z axis position of 0.
+
+50
+00:02:26,144 --> 00:02:29,081
+2D physics has a number of project-wide settings.
+
+51
+00:02:29,081 --> 00:02:30,956
+These can be edited by selecting
+
+52
+00:02:30,956 --> 00:02:34,266
+Edit - Project Settings - Physics 2D.
+
+53
+00:02:34,987 --> 00:02:36,987
+These settings contain details on the
+
+54
+00:02:36,987 --> 00:02:39,647
+properties like strength and direction of gravity,
+
+55
+00:02:39,647 --> 00:02:44,095
+the default material and the layer collision matrix, and more.
+
+56
+00:02:44,871 --> 00:02:47,759
+For more information on the physics 2D settings
+
+57
+00:02:47,759 --> 00:02:50,422
+please see the information linked below.
+
+58
+00:02:51,488 --> 00:02:53,752
+One of the primary components used in physics 2D
+
+59
+00:02:53,752 --> 00:02:56,166
+is the rigidbody 2D.
+
+60
+00:02:56,597 --> 00:02:58,887
+Attaching a rigidbody 2D component
+
+61
+00:02:58,887 --> 00:03:00,887
+places a game object under the control
+
+62
+00:03:00,887 --> 00:03:02,887
+of the 2D physics engine.
+
+63
+00:03:05,625 --> 00:03:08,518
+The rigidbody 2D component works with colliders
+
+64
+00:03:08,518 --> 00:03:11,774
+to detect collisions, can receive forces and torque
+
+65
+00:03:11,774 --> 00:03:13,456
+operate various types of joints
+
+66
+00:03:13,456 --> 00:03:16,643
+and other specialised 2D physics behaviour.
+
+67
+00:03:17,378 --> 00:03:19,570
+This component is also used to keep track
+
+68
+00:03:19,570 --> 00:03:21,890
+of important physical properties about the game
+
+69
+00:03:21,890 --> 00:03:23,890
+object the component is attached to.
+
+70
+00:03:24,708 --> 00:03:27,309
+It has properties for the object's mass
+
+71
+00:03:27,309 --> 00:03:30,915
+linear and angular drag, gravity scale and many others.
+
+72
+00:03:31,664 --> 00:03:34,644
+For more information on the rigidbody 2D component
+
+73
+00:03:34,644 --> 00:03:37,114
+please see the information linked below.
+
+74
+00:03:38,373 --> 00:03:40,799
+Every 2D project has a default value in the
+
+75
+00:03:40,799 --> 00:03:42,799
+physics 2D setting for Gravity.
+
+76
+00:03:43,520 --> 00:03:46,547
+Gravity will effect all game objects with a rigidbody,
+
+77
+00:03:46,547 --> 00:03:49,747
+unless that rigidbody is set to ignore gravity.
+
+78
+00:03:50,620 --> 00:03:54,936
+This is done by setting the gravity scale to 0.
+
+79
+00:03:58,737 --> 00:04:01,098
+Any other value for gravity scale
+
+80
+00:04:01,098 --> 00:04:03,098
+will be used to modify the default value
+
+81
+00:04:03,098 --> 00:04:05,699
+for gravity, and this can be done on a
+
+82
+00:04:05,699 --> 00:04:08,399
+game object per game object basis.
+
+83
+00:04:09,373 --> 00:04:12,042
+If the game object has a collider 2D attached
+
+84
+00:04:12,042 --> 00:04:15,787
+it can participate in physical collisions or trigger events.
+
+85
+00:04:16,536 --> 00:04:18,896
+2D colliders allow game objects to have
+
+86
+00:04:18,896 --> 00:04:22,292
+physical shape, or presence, in the scene's 2D environment.
+
+87
+00:04:26,576 --> 00:04:28,535
+There are several types of 2D colliders
+
+88
+00:04:28,535 --> 00:04:30,535
+that work with a rigidbody 2D.
+
+89
+00:04:31,822 --> 00:04:36,327
+The circle, the box, the edge and the polygon collider.
+
+90
+00:04:37,089 --> 00:04:39,632
+Each collider type has a different set of behaviours
+
+91
+00:04:39,632 --> 00:04:42,295
+and can be used in different circumstances.
+
+92
+00:04:43,016 --> 00:04:45,785
+For more information on the collider 2D component
+
+93
+00:04:45,785 --> 00:04:48,018
+please see the information linked below.
+
+94
+00:04:49,058 --> 00:04:52,051
+When a game object has a rigidbody 2D attached
+
+95
+00:04:52,051 --> 00:04:55,880
+it can use one of the several joint 2D components available.
+
+96
+00:04:56,560 --> 00:04:58,753
+When using a joint 2D component
+
+97
+00:04:58,753 --> 00:05:01,487
+the game object can participate in complex and
+
+98
+00:05:01,487 --> 00:05:04,147
+specialised physical behaviour, like hinges,
+
+99
+00:05:04,147 --> 00:05:06,717
+springs, sliders and couplings.
+
+100
+00:05:07,420 --> 00:05:09,420
+2D joints allow a game object to be
+
+101
+00:05:09,420 --> 00:05:11,420
+anchored to either a point in the scene
+
+102
+00:05:11,420 --> 00:05:13,088
+or another game object,
+
+103
+00:05:13,088 --> 00:05:15,088
+and react physically to that anchor.
+
+104
+00:05:15,975 --> 00:05:18,154
+In some cases several game objects
+
+105
+00:05:18,154 --> 00:05:20,814
+with a joint 2D can be attached to each other
+
+106
+00:05:20,814 --> 00:05:24,093
+for more interesting and complex behaviours like chains.
+
+107
+00:05:24,883 --> 00:05:27,269
+For more information on the joint 2D components
+
+108
+00:05:27,269 --> 00:05:28,363
+and how to use them,
+
+109
+00:05:28,363 --> 00:05:30,612
+please see the information linked below.
+
+110
+00:05:32,327 --> 00:05:34,617
+The surface properties of a collider 2D are
+
+111
+00:05:34,617 --> 00:05:36,617
+defined by a special type of material.
+
+112
+00:05:37,573 --> 00:05:41,296
+This material is the physics material 2D asset.
+
+113
+00:05:42,032 --> 00:05:44,887
+A physics material 3D is used to control the
+
+114
+00:05:44,887 --> 00:05:47,766
+friction and bounce that occurs between  2 game objects
+
+115
+00:05:47,766 --> 00:05:51,345
+with collider 2D components attached when they collider.
+
+116
+00:05:51,804 --> 00:05:55,691
+To make a bouncing ball, or slippery ice covered 
+
+117
+00:05:55,691 --> 00:05:57,691
+use a different physics material 2D
+
+118
+00:05:57,691 --> 00:05:59,691
+on each game object.
+
+119
+00:06:00,108 --> 00:06:02,288
+For more information on material assets
+
+120
+00:06:02,288 --> 00:06:06,152
+and physics materials please see the information linked below.

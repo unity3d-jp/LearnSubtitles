@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:02,210
+Detecting a collision in Unity requires
+
+2
+00:00:02,210 --> 00:00:04,210
+one of the two colliding objects
+
+3
+00:00:04,210 --> 00:00:05,751
+to contain a script with an
+
+4
+00:00:05,751 --> 00:00:07,724
+OnCollisionEnter function in.
+
+5
+00:00:07,810 --> 00:00:10,368
+The basic syntax takes a single argument
+
+6
+00:00:10,368 --> 00:00:12,368
+of type Collision.
+
+7
+00:00:12,868 --> 00:00:14,868
+From this you can query the collision
+
+8
+00:00:14,868 --> 00:00:16,868
+to find out information about the object
+
+9
+00:00:16,868 --> 00:00:18,299
+that has been collided with.
+
+10
+00:00:18,758 --> 00:00:21,248
+In this example our samoflange ball is
+
+11
+00:00:21,248 --> 00:00:24,091
+bouncing around with a bouncy physic material
+
+12
+00:00:24,091 --> 00:00:26,091
+and hitting power cubes.
+
+13
+00:00:27,033 --> 00:00:29,665
+The script attached to the ball looks like this.
+
+14
+00:00:30,800 --> 00:00:32,800
+Currently we have nothing inside the function.
+
+15
+00:00:33,300 --> 00:00:35,300
+We can make use of the collision argument to
+
+16
+00:00:35,300 --> 00:00:37,300
+check for when it has hit a power cube.
+
+17
+00:00:37,800 --> 00:00:40,007
+We simply use an IF statement and check
+
+18
+00:00:40,007 --> 00:00:42,244
+'col', our variable, for the data
+
+19
+00:00:42,244 --> 00:00:44,932
+it contains. One example of which
+
+20
+00:00:44,932 --> 00:00:47,277
+is the game object that it's collided with
+
+21
+00:00:47,277 --> 00:00:49,664
+and as a result, the name. We would say
+
+22
+00:00:49,664 --> 00:00:53,648
+if(col.gameobject.name) is equal to
+
+23
+00:00:53,648 --> 00:00:55,648
+the hierarchical name of the power cube
+
+24
+00:00:55,648 --> 00:00:58,677
+which is 'prop_powercube'
+
+25
+00:00:58,677 --> 00:01:00,677
+and now this IF statement will only activate
+
+26
+00:01:00,677 --> 00:01:02,677
+when our ball collides with our power cube.
+
+27
+00:01:02,677 --> 00:01:04,677
+If it does collide, we'll make use of the
+
+28
+00:01:04,677 --> 00:01:06,677
+Destroy command. You can check what
+
+29
+00:01:06,677 --> 00:01:08,162
+types of data you can retrieve
+
+30
+00:01:08,162 --> 00:01:10,523
+from the collision by typing the name of the
+
+31
+00:01:10,523 --> 00:01:13,162
+variable and then typing a dot (period) in the script editor.
+
+32
+00:01:13,662 --> 00:01:15,086
+You'll then see a list of the various
+
+33
+00:01:15,086 --> 00:01:17,086
+different data you can retrieve from the collision.
+
+34
+00:01:17,379 --> 00:01:19,379
+Also remember to check the script reference
+
+35
+00:01:19,379 --> 00:01:21,379
+page linked below on the collision
+
+36
+00:01:21,379 --> 00:01:23,379
+class to see other data that you can retrieve.
+
+37
+00:01:23,713 --> 00:01:26,447
+For now we'll simply destroy the game object.
+
+38
+00:01:26,892 --> 00:01:28,892
+And when we save our script
+
+39
+00:01:29,986 --> 00:01:31,986
+you'll see that whenever a collision occurs
+
+40
+00:01:32,486 --> 00:01:34,789
+our ball destroys a power cube.

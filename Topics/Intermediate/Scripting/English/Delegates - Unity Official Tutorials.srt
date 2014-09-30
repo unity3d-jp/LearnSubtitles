@@ -1,0 +1,439 @@
+1
+00:00:00,580 --> 00:00:02,320
+Delegates allow you to create robust
+
+2
+00:00:02,320 --> 00:00:04,667
+and complex behaviours in your scripts.
+
+3
+00:00:05,442 --> 00:00:07,442
+A delegate can be thought of simply as a container
+
+4
+00:00:07,442 --> 00:00:09,931
+for a function that can be parsed around
+
+5
+00:00:09,931 --> 00:00:11,931
+or used like a variable.
+
+6
+00:00:11,931 --> 00:00:13,931
+Just like variables, delegates can
+
+7
+00:00:13,931 --> 00:00:15,321
+values assigned to them
+
+8
+00:00:15,321 --> 00:00:17,321
+and these values can be changed at run-time.
+
+9
+00:00:18,083 --> 00:00:20,083
+The difference is that while variables contain
+
+10
+00:00:20,083 --> 00:00:22,985
+data delegates contain functions.
+
+11
+00:00:23,720 --> 00:00:25,720
+Here we have a scene with a game object in it.
+
+12
+00:00:26,289 --> 00:00:28,955
+The game object has a delegate script attached to it.
+
+13
+00:00:29,455 --> 00:00:31,455
+We will be monitoring the output of the scene
+
+14
+00:00:31,455 --> 00:00:33,455
+in the console view.
+
+15
+00:00:34,300 --> 00:00:36,300
+In the delegate script the first thing we do
+
+16
+00:00:36,300 --> 00:00:38,174
+is to declare our delegate template.
+
+17
+00:00:38,674 --> 00:00:40,674
+This template will dictate exactly what types of
+
+18
+00:00:40,674 --> 00:00:42,674
+methods we can assign to our delegate.
+
+19
+00:00:43,906 --> 00:00:46,804
+We create a delegate with the Delegate keyword.
+
+20
+00:00:47,304 --> 00:00:49,304
+What follows the delegate keyword is the
+
+21
+00:00:49,304 --> 00:00:52,305
+delegate's signature. Just like a function
+
+22
+00:00:52,305 --> 00:00:54,680
+our delegate has a return type, a name
+
+23
+00:00:54,680 --> 00:00:56,485
+and a parameter list.
+
+24
+00:00:56,485 --> 00:00:58,485
+In this example we can see that in
+
+25
+00:00:58,485 --> 00:01:01,217
+order for a method to be assigned to this delegate
+
+26
+00:01:01,217 --> 00:01:03,217
+it must have a return type of void and
+
+27
+00:01:03,217 --> 00:01:05,673
+take a single integer parameter.
+
+28
+00:01:07,167 --> 00:01:09,167
+After we create our delegate type we then
+
+29
+00:01:09,167 --> 00:01:10,999
+declare a member variable.
+
+30
+00:01:10,999 --> 00:01:12,999
+This member variable has the type of
+
+31
+00:01:12,999 --> 00:01:14,999
+the delegate we just created.
+
+32
+00:01:16,176 --> 00:01:18,888
+At the bottom of our script we have two methods,
+
+33
+00:01:18,888 --> 00:01:20,888
+PrintNum and DoubleNum.
+
+34
+00:01:21,816 --> 00:01:23,816
+We can see that each of these methods has a return
+
+35
+00:01:23,816 --> 00:01:26,490
+type of void and takes a single integer parameter
+
+36
+00:01:26,490 --> 00:01:28,338
+just like our delegate.
+
+37
+00:01:28,338 --> 00:01:30,656
+Additionally, each of these methods does something
+
+38
+00:01:30,656 --> 00:01:33,273
+slightly different with the integer data parsed in.
+
+39
+00:01:35,059 --> 00:01:36,200
+Now it's time for us to see
+
+40
+00:01:36,200 --> 00:01:38,035
+exactly what delegates do.
+
+41
+00:01:38,535 --> 00:01:40,535
+In the Start method you can see that we
+
+42
+00:01:40,535 --> 00:01:42,884
+assign the name of our PrintNum method
+
+43
+00:01:42,884 --> 00:01:44,884
+to the myDelegate variable.
+
+44
+00:01:45,481 --> 00:01:47,481
+We then use the myDelegate variable
+
+45
+00:01:47,481 --> 00:01:49,857
+as if it was a function, and we parse in
+
+46
+00:01:49,857 --> 00:01:51,857
+the value of 50.
+
+47
+00:01:52,923 --> 00:01:55,287
+We then assign the name of the DoubleNum method
+
+48
+00:01:55,287 --> 00:01:57,287
+to the myDelegate variable.
+
+49
+00:01:57,828 --> 00:02:00,242
+Again we call it just like a function.
+
+50
+00:02:00,977 --> 00:02:02,977
+Let's take a look at this code in action.
+
+51
+00:02:04,389 --> 00:02:06,692
+Back in Unity we can run our scene
+
+52
+00:02:06,692 --> 00:02:08,307
+and look at the console view.
+
+53
+00:02:08,807 --> 00:02:10,807
+We can see that we are able to call 2
+
+54
+00:02:10,807 --> 00:02:12,807
+different methods using the same
+
+55
+00:02:12,807 --> 00:02:14,346
+delegate variable.
+
+56
+00:02:15,426 --> 00:02:17,786
+This gives us a lot of power to dynamically 
+
+57
+00:02:17,786 --> 00:02:20,190
+control which functions get called in our game.
+
+58
+00:02:22,154 --> 00:02:25,048
+Delegates also have the ability to be multicast.
+
+59
+00:02:25,548 --> 00:02:27,864
+Multicasting allows a single delegate variable
+
+60
+00:02:27,864 --> 00:02:30,513
+to represent multiple methods at the same time.
+
+61
+00:02:31,207 --> 00:02:33,207
+Here we have a scene with an orb in it.
+
+62
+00:02:33,707 --> 00:02:36,632
+The orb has a script called MutlicastScript
+
+63
+00:02:36,632 --> 00:02:38,076
+attached to it.
+
+64
+00:02:39,035 --> 00:02:41,581
+In our MulticastScript we can see that we have
+
+65
+00:02:41,581 --> 00:02:43,965
+created a delegate template.
+
+66
+00:02:43,965 --> 00:02:45,965
+This template defines a delegate named
+
+67
+00:02:45,965 --> 00:02:48,646
+MultiDelegate which takes no parameters
+
+68
+00:02:48,646 --> 00:02:50,646
+and has a return type of void.
+
+69
+00:02:51,657 --> 00:02:53,657
+Next we create a member variable
+
+70
+00:02:53,657 --> 00:02:55,657
+named MyMultiDelegate
+
+71
+00:02:55,657 --> 00:02:57,768
+that is of the type of the delegate template
+
+72
+00:02:57,768 --> 00:02:59,768
+we just created.
+
+73
+00:03:00,696 --> 00:03:02,696
+At the bottom of our script we have 2
+
+74
+00:03:02,696 --> 00:03:05,585
+methods named PowerUp and TurnRed.
+
+75
+00:03:06,085 --> 00:03:08,085
+Both of these methods take no parameters
+
+76
+00:03:08,085 --> 00:03:09,905
+and have a return type of void,
+
+77
+00:03:09,905 --> 00:03:11,905
+just like our delegate type.
+
+78
+00:03:12,695 --> 00:03:14,475
+The PowerUp method prints
+
+79
+00:03:14,475 --> 00:03:16,889
+'Orb is powering up' to the screen.
+
+80
+00:03:17,237 --> 00:03:19,237
+The TurnRed method changes the colour
+
+81
+00:03:19,237 --> 00:03:21,237
+of the object to red.
+
+82
+00:03:22,911 --> 00:03:25,077
+In the start method we will multicast
+
+83
+00:03:25,077 --> 00:03:27,077
+our delegate variable.
+
+84
+00:03:27,077 --> 00:03:29,751
+We do this by assigning both the PowerUp method
+
+85
+00:03:29,751 --> 00:03:32,100
+and the TurnRed method to the same
+
+86
+00:03:32,100 --> 00:03:36,086
+delegate variable using the += operator.
+
+87
+00:03:37,801 --> 00:03:41,072
+In this way the variable myMultiDelegate
+
+88
+00:03:41,072 --> 00:03:44,776
+contains both the PowerUp and TurnRed method.
+
+89
+00:03:46,036 --> 00:03:48,353
+We then call the variable myMultiDelegate
+
+90
+00:03:48,353 --> 00:03:50,035
+as if it were a function.
+
+91
+00:03:50,963 --> 00:03:53,747
+If we go back in to Unity and run our scene
+
+92
+00:03:53,747 --> 00:03:56,440
+we can see the multicasting our delegate variable
+
+93
+00:03:56,440 --> 00:03:58,440
+allowed it to call both the PowerUp
+
+94
+00:03:58,440 --> 00:04:01,276
+and the TurnRed methods with a single call.
+
+95
+00:04:01,807 --> 00:04:03,807
+In this manner we were able to
+
+96
+00:04:03,807 --> 00:04:05,807
+stack functionality.
+
+97
+00:04:06,763 --> 00:04:09,617
+If we want to remove a method from a delegate variable
+
+98
+00:04:09,617 --> 00:04:12,175
+we can do so using the -= operator
+
+99
+00:04:12,175 --> 00:04:14,175
+in conjunction with the method's name.
+
+100
+00:04:15,904 --> 00:04:17,821
+One thing we must be careful of is
+
+101
+00:04:17,821 --> 00:04:20,333
+attempting to call a delegate variable like a function
+
+102
+00:04:20,333 --> 00:04:22,333
+before we have assigned anything to it.
+
+103
+00:04:22,833 --> 00:04:24,639
+Doing so will cause an error
+
+104
+00:04:24,639 --> 00:04:26,639
+and we like to avoid those.
+
+105
+00:04:27,457 --> 00:04:29,457
+Any delegate variable that doesn't currently
+
+106
+00:04:29,457 --> 00:04:31,457
+have a method assigned to it will have
+
+107
+00:04:31,457 --> 00:04:33,347
+a value of null.
+
+108
+00:04:33,347 --> 00:04:35,990
+Therefore it is a good idea to always
+
+109
+00:04:35,990 --> 00:04:38,363
+check to make sure delegate does not equal null
+
+110
+00:04:38,363 --> 00:04:40,363
+before using it.

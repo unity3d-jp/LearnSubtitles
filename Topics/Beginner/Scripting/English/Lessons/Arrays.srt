@@ -1,0 +1,479 @@
+1
+00:00:00,773 --> 00:00:02,768
+Arrays are a way of storing a collection
+
+2
+00:00:02,768 --> 00:00:04,768
+of data of the same type together.
+
+3
+00:00:05,268 --> 00:00:07,932
+Let's say we need to store five integers.
+
+4
+00:00:07,932 --> 00:00:09,932
+Rather than storing them individually as
+
+5
+00:00:09,932 --> 00:00:13,360
+myIntA, myIntB, myIntC etcetera,
+
+6
+00:00:13,360 --> 00:00:15,360
+we can store them in an array.
+
+7
+00:00:15,360 --> 00:00:17,360
+We declare an array in a similar way to
+
+8
+00:00:17,360 --> 00:00:19,360
+declaring an individual variable.
+
+9
+00:00:19,360 --> 00:00:21,360
+However after the type of the variable
+
+10
+00:00:21,360 --> 00:00:24,492
+we use open and closed square brackets.
+
+11
+00:00:24,492 --> 00:00:26,115
+It's important to make the distinction
+
+12
+00:00:26,115 --> 00:00:28,879
+that an array is not a type but a collection
+
+13
+00:00:28,879 --> 00:00:30,879
+of variables of a certain type.
+
+14
+00:00:30,879 --> 00:00:32,879
+Before an array can be used we need to know
+
+15
+00:00:32,879 --> 00:00:34,879
+it's length, i.e., how many elements
+
+16
+00:00:34,879 --> 00:00:37,460
+will be stored in it. Elements are what we
+
+17
+00:00:37,460 --> 00:00:39,180
+call items in an array.
+
+18
+00:00:39,846 --> 00:00:43,088
+To specify the length we use the 'new' keyword
+
+19
+00:00:43,088 --> 00:00:45,088
+followed by the type of the array
+
+20
+00:00:45,088 --> 00:00:48,150
+and the number of elements in square brackets.
+
+21
+00:00:49,106 --> 00:00:51,018
+We can now initialise our array
+
+22
+00:00:51,018 --> 00:00:52,727
+in the Start function.
+
+23
+00:00:52,727 --> 00:00:55,977
+We can access and initialise elements of the array
+
+24
+00:00:55,977 --> 00:00:57,739
+by using the name of the array followed 
+
+25
+00:00:57,739 --> 00:01:00,086
+by square brackets containing the index
+
+26
+00:01:00,086 --> 00:01:01,447
+of the element. 
+
+27
+00:01:01,447 --> 00:01:04,016
+The index of an element is simply an integer
+
+28
+00:01:04,016 --> 00:01:06,016
+with the first index being 0.
+
+29
+00:01:06,016 --> 00:01:08,016
+When thinking of an element's index
+
+30
+00:01:08,016 --> 00:01:10,016
+think about how many steps away from
+
+31
+00:01:10,016 --> 00:01:11,589
+the first element the one you're trying 
+
+32
+00:01:11,589 --> 00:01:14,970
+to access is. So to access the first element
+
+33
+00:01:14,970 --> 00:01:17,772
+use the index 0, since it's 0 steps away
+
+34
+00:01:17,772 --> 00:01:19,179
+from the first.
+
+35
+00:01:19,179 --> 00:01:21,808
+For the second element use the index 1
+
+36
+00:01:21,808 --> 00:01:24,114
+and so on. Now I'm going to initialise
+
+37
+00:01:24,114 --> 00:01:26,114
+the five elements in my array.
+
+38
+00:01:27,650 --> 00:01:29,650
+So that is one way of declaring and
+
+39
+00:01:29,650 --> 00:01:32,542
+initialising my array. However, if I want to
+
+40
+00:01:32,542 --> 00:01:34,542
+I can do it all in one line.
+
+41
+00:01:35,042 --> 00:01:37,303
+This means that I can initialise my array
+
+42
+00:01:37,303 --> 00:01:39,303
+at the same time as declaring it.
+
+43
+00:01:39,803 --> 00:01:42,251
+We do this by using braces as we normally
+
+44
+00:01:42,251 --> 00:01:45,037
+would for a function, loop or if statement.
+
+45
+00:01:45,037 --> 00:01:47,037
+Between the braces we put the values for our
+
+46
+00:01:47,037 --> 00:01:49,037
+elements in the order that we'd like them to
+
+47
+00:01:49,037 --> 00:01:51,037
+appear in the array.
+
+48
+00:01:51,037 --> 00:01:52,829
+This will create an array of five Ints
+
+49
+00:01:52,829 --> 00:01:54,829
+just as before, starting with 12
+
+50
+00:01:54,829 --> 00:01:56,732
+then 76 and so on.
+
+51
+00:01:57,136 --> 00:01:58,929
+Note that we didn't specifically state
+
+52
+00:01:58,929 --> 00:02:00,929
+the length this time. This is defined
+
+53
+00:02:00,929 --> 00:02:02,542
+by the number of elements within 
+
+54
+00:02:02,542 --> 00:02:03,976
+our curly braces.
+
+55
+00:02:04,476 --> 00:02:06,476
+Arrays declared in this way can still be
+
+56
+00:02:06,476 --> 00:02:08,476
+accessed in the same way as demonstrated
+
+57
+00:02:08,476 --> 00:02:11,211
+in our first example, by using.
+
+58
+00:02:12,968 --> 00:02:15,451
+There are a few things to note about arrays.
+
+59
+00:02:15,451 --> 00:02:18,080
+If you make an array public you will be
+
+60
+00:02:18,080 --> 00:02:19,638
+able to see it in the inspector
+
+61
+00:02:19,638 --> 00:02:21,638
+and allocate values to it.
+
+62
+00:02:22,138 --> 00:02:24,626
+So if I save my script and switch back,
+
+63
+00:02:25,126 --> 00:02:26,710
+I can see that where it's assigned to an 
+
+64
+00:02:26,710 --> 00:02:28,710
+object my player's array is showing
+
+65
+00:02:28,710 --> 00:02:30,710
+publicly in the inspector and I 
+
+66
+00:02:30,710 --> 00:02:33,681
+can assign a length by using the size value.
+
+67
+00:02:33,681 --> 00:02:36,472
+So if I type in a value of 1 in to Size
+
+68
+00:02:36,472 --> 00:02:39,055
+I get 1 element in my array on to which I
+
+69
+00:02:39,055 --> 00:02:41,055
+can drop a game object, because that's 
+
+70
+00:02:41,055 --> 00:02:43,470
+the type of this array. However we can use
+
+71
+00:02:43,470 --> 00:02:45,136
+the script to initialise it.
+
+72
+00:02:45,136 --> 00:02:47,136
+Unity has some functions that can help us
+
+73
+00:02:47,136 --> 00:02:49,765
+to do this. We want our players array to
+
+74
+00:02:49,765 --> 00:02:51,765
+store all of the players in our scene.
+
+75
+00:02:51,765 --> 00:02:54,335
+The function FindGameObjectsWithTag
+
+76
+00:02:54,335 --> 00:02:56,335
+returns an array of all the gameobjects
+
+77
+00:02:56,335 --> 00:02:58,792
+in the scene with a specified tag.
+
+78
+00:02:59,292 --> 00:03:01,292
+Since our player gameobjects all have the
+
+79
+00:03:01,292 --> 00:03:04,248
+player tag we can pass this in and get all
+
+80
+00:03:04,248 --> 00:03:06,248
+of the players in the scene. We can use the
+
+81
+00:03:06,248 --> 00:03:08,248
+array that this function returns to
+
+82
+00:03:08,248 --> 00:03:11,134
+initialise our new public players array.
+
+83
+00:03:11,134 --> 00:03:14,274
+So simply by doing this we have assigned
+
+84
+00:03:14,274 --> 00:03:16,274
+everything that this function has returned
+
+85
+00:03:16,274 --> 00:03:18,274
+to our players array.
+
+86
+00:03:18,274 --> 00:03:20,274
+That means that it's collected the objects
+
+87
+00:03:20,274 --> 00:03:23,405
+Aaron, Bob and Charlie as they all
+
+88
+00:03:23,405 --> 00:03:25,405
+contain the tag Player.
+
+89
+00:03:25,905 --> 00:03:27,905
+Another great feature of arrays is that
+
+90
+00:03:27,905 --> 00:03:29,643
+they work really well with loops. 
+
+91
+00:03:29,643 --> 00:03:31,643
+Let's say that we want to log the name of all
+
+92
+00:03:31,643 --> 00:03:34,554
+of the players in our scene. We will use a
+
+93
+00:03:34,554 --> 00:03:36,306
+For loop to iterate through each element
+
+94
+00:03:36,306 --> 00:03:37,301
+of the array.
+
+95
+00:03:37,801 --> 00:03:39,801
+Array's have a property for their length.
+
+96
+00:03:40,478 --> 00:03:42,295
+This will return the number of elements
+
+97
+00:03:42,295 --> 00:03:44,295
+in an array. This means that if we
+
+98
+00:03:44,295 --> 00:03:46,829
+start our loops iterater at 0 and continue
+
+99
+00:03:46,829 --> 00:03:48,745
+to loop whilst it's less than the length
+
+100
+00:03:48,745 --> 00:03:50,745
+of the array, we can perform a number of
+
+101
+00:03:50,745 --> 00:03:52,745
+actions equal to the number of 
+
+102
+00:03:52,745 --> 00:03:54,481
+elements in our array.
+
+103
+00:03:54,900 --> 00:03:57,626
+What's more, our iterate variable, 'i', 
+
+104
+00:03:57,626 --> 00:04:00,289
+will also be equal to the index number
+
+105
+00:04:00,289 --> 00:04:03,024
+in our array. This will print out a 
+
+106
+00:04:03,024 --> 00:04:06,423
+sentence that says 'Player Number 0 is named Aaron'.
+
+107
+00:04:06,854 --> 00:04:10,040
+It does this by taking the text Player Number
+
+108
+00:04:10,040 --> 00:04:12,873
+followed by the 'i' variable, representing
+
+109
+00:04:12,873 --> 00:04:15,454
+the number, or index, and finally it 
+
+110
+00:04:15,454 --> 00:04:17,454
+retrieves the player's name by looking at
+
+111
+00:04:17,454 --> 00:04:20,135
+a particular index in the 'players'
+
+112
+00:04:20,135 --> 00:04:22,135
+gameobjects array.
+
+113
+00:04:23,284 --> 00:04:25,884
+So I'll save my script and return.
+
+114
+00:04:26,384 --> 00:04:28,995
+I'll press play and here we can see that
+
+115
+00:04:28,995 --> 00:04:31,491
+the For loop has logged three messages.
+
+116
+00:04:31,491 --> 00:04:33,683
+One for each item in the array until it's
+
+117
+00:04:33,683 --> 00:04:36,028
+reached the end of the array of elements.
+
+118
+00:04:36,028 --> 00:04:38,028
+You can also see that the array is assigned
+
+119
+00:04:38,028 --> 00:04:40,028
+to our public variable in the inspector
+
+120
+00:04:40,028 --> 00:04:42,430
+as it was initialised by the script.

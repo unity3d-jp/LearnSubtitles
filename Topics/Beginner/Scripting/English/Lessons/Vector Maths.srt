@@ -1,0 +1,843 @@
+1
+00:00:00,387 --> 00:00:02,715
+In game development we use vectors to
+
+2
+00:00:02,715 --> 00:00:05,186
+find meshes, directions and all manner
+
+3
+00:00:05,186 --> 00:00:07,598
+of other calculations, which makes them
+
+4
+00:00:07,598 --> 00:00:09,025
+essential to understand.
+
+5
+00:00:09,025 --> 00:00:11,964
+A vector is a line drawn between two points.
+
+6
+00:00:11,964 --> 00:00:13,964
+Vectors also have a length, known 
+
+7
+00:00:13,964 --> 00:00:16,533
+as their magnitude. Let's start off by 
+
+8
+00:00:16,533 --> 00:00:18,533
+simply looking at 2D vectors.
+
+9
+00:00:18,867 --> 00:00:20,867
+A 2D vector is a way of representing a
+
+10
+00:00:20,867 --> 00:00:23,592
+point from the origin, the 0, 0 point
+
+11
+00:00:23,592 --> 00:00:27,026
+on a graph, to any point on a 2D plane.
+
+12
+00:00:27,026 --> 00:00:29,411
+Since it is from the origin, it has an 
+
+13
+00:00:29,411 --> 00:00:32,050
+implied direction. It's made up of two
+
+14
+00:00:32,050 --> 00:00:35,138
+components, X and Y. These represent the
+
+15
+00:00:35,138 --> 00:00:39,617
+distance from 0 along the X and Y in each axis.
+
+16
+00:00:39,617 --> 00:00:42,086
+In this example our vector goes from the
+
+17
+00:00:42,086 --> 00:00:45,166
+origin to position 12, 5.
+
+18
+00:00:45,166 --> 00:00:46,932
+The length of the distance between these
+
+19
+00:00:46,932 --> 00:00:48,932
+points is called the magnitude.
+
+20
+00:00:48,932 --> 00:00:50,932
+This can be worked out mathematically by
+
+21
+00:00:50,932 --> 00:00:53,223
+using Pythagoras's Theorem, which states
+
+22
+00:00:53,223 --> 00:00:55,513
+that the square of the hypotenuse
+
+23
+00:00:55,513 --> 00:00:57,513
+is equal to the sum of the squares
+
+24
+00:00:57,513 --> 00:00:59,154
+on the other two sides.
+
+25
+00:00:59,154 --> 00:01:01,183
+The hypotenuse in vector maths is the
+
+26
+00:01:01,183 --> 00:01:03,183
+magnitude that we're trying to find.
+
+27
+00:01:03,476 --> 00:01:05,906
+Imagine that there are two people in a field
+
+28
+00:01:05,906 --> 00:01:07,906
+called Charles and Quentin
+
+29
+00:01:07,906 --> 00:01:09,389
+with a lethal vendetta.
+
+30
+00:01:09,889 --> 00:01:11,651
+Being gentlemen they've agreed to a 
+
+31
+00:01:11,651 --> 00:01:14,243
+pistol duel, but their guns only have a 
+
+32
+00:01:14,243 --> 00:01:17,363
+range of 12 units. So can they shoot one another?
+
+33
+00:01:17,573 --> 00:01:20,236
+Let's find out. As you can see
+
+34
+00:01:20,236 --> 00:01:22,389
+the magnitude is the square root of
+
+35
+00:01:22,389 --> 00:01:25,240
+the sum of the X and Y positions on the grid
+
+36
+00:01:25,240 --> 00:01:28,173
+squared, which when added together
+
+37
+00:01:28,173 --> 00:01:32,793
+makes 169. The square root of 169 is 13
+
+38
+00:01:32,793 --> 00:01:34,793
+so Charles and Quentin will be unable 
+
+39
+00:01:34,793 --> 00:01:37,280
+to shoot one another, which is excellent
+
+40
+00:01:37,280 --> 00:01:39,788
+as violence has no place in this tutorial.
+
+41
+00:01:40,039 --> 00:01:43,136
+Also, Charles totally had a crossbow the whole time.
+
+42
+00:01:43,136 --> 00:01:45,136
+Let's look at another example of using
+
+43
+00:01:45,136 --> 00:01:47,967
+vectors to solve a problem in 2D space.
+
+44
+00:01:47,967 --> 00:01:49,507
+We've already learned that vectors can
+
+45
+00:01:49,507 --> 00:01:51,507
+be used to denote a position in space
+
+46
+00:01:51,507 --> 00:01:53,285
+relative to the origin point.
+
+47
+00:01:53,785 --> 00:01:55,261
+But you should also know that a moving
+
+48
+00:01:55,261 --> 00:01:57,574
+object has a velocity, a change in 
+
+49
+00:01:57,574 --> 00:02:00,147
+position over time. This can also be
+
+50
+00:02:00,147 --> 00:02:02,920
+expressed as a vector. In this diagram 
+
+51
+00:02:02,920 --> 00:02:05,401
+Frederick is at position 5, 6
+
+52
+00:02:05,401 --> 00:02:08,533
+and has a velocity of 12, 5 per hour.
+
+53
+00:02:09,033 --> 00:02:10,661
+This means that he will travel in a direction
+
+54
+00:02:10,661 --> 00:02:13,268
+that is 12 further in the X axis
+
+55
+00:02:13,268 --> 00:02:15,712
+and 5 further in the Y axis.
+
+56
+00:02:15,712 --> 00:02:17,864
+So in order to find his new position after
+
+57
+00:02:17,864 --> 00:02:20,442
+one hour we'd add his current position
+
+58
+00:02:20,442 --> 00:02:22,442
+vector to his velocity vector
+
+59
+00:02:22,442 --> 00:02:24,442
+to discover where he will end up.
+
+60
+00:02:24,942 --> 00:02:26,679
+17, 11.
+
+61
+00:02:26,679 --> 00:02:28,679
+Remember that all vectors are expressed
+
+62
+00:02:28,679 --> 00:02:32,204
+relative to the origin, the 0 point in space.
+
+63
+00:02:32,566 --> 00:02:35,206
+And this is no different for velocity vectors.
+
+64
+00:02:35,206 --> 00:02:37,206
+In the same way that 5, 6 is a position
+
+65
+00:02:37,206 --> 00:02:39,206
+relative to the 0 position,
+
+66
+00:02:39,706 --> 00:02:43,174
+12, 5 is a velocity relative to 0 motion.
+
+67
+00:02:43,174 --> 00:02:44,912
+So whilst he may still have the same
+
+68
+00:02:44,912 --> 00:02:48,511
+velocity, 17, 11 is Frederick's new position
+
+69
+00:02:48,511 --> 00:02:50,456
+vector after 1 hour.
+
+70
+00:02:50,456 --> 00:02:52,456
+This is useful in game development tasks
+
+71
+00:02:52,456 --> 00:02:53,939
+that involve prediction.
+
+72
+00:02:54,439 --> 00:02:55,986
+You should note that the components of
+
+73
+00:02:55,986 --> 00:02:58,400
+the final position are equal to the sum
+
+74
+00:02:58,400 --> 00:03:00,400
+of the components of the two vectors.
+
+75
+00:03:01,052 --> 00:03:03,052
+5 plus 12 is 17
+
+76
+00:03:03,052 --> 00:03:06,297
+in the X axis, and 6 plus 5 is 11 
+
+77
+00:03:06,297 --> 00:03:07,910
+in the Y axis.
+
+78
+00:03:08,631 --> 00:03:10,811
+This also applies to subtraction.
+
+79
+00:03:11,311 --> 00:03:13,311
+3 dimensional vectors work the same as
+
+80
+00:03:13,311 --> 00:03:16,540
+2D but extrapolated in to the Z axis,
+
+81
+00:03:16,540 --> 00:03:18,276
+which represents depth.
+
+82
+00:03:18,791 --> 00:03:21,890
+The X and Z axes make up a horizontal plane
+
+83
+00:03:21,890 --> 00:03:24,484
+and Y is the direction that points up.
+
+84
+00:03:25,136 --> 00:03:28,067
+Unity works on a left-handed coordinate system.
+
+85
+00:03:28,567 --> 00:03:30,567
+This means that if you hold your left hand
+
+86
+00:03:30,567 --> 00:03:33,037
+with your index finger pointed upwards
+
+87
+00:03:33,037 --> 00:03:35,037
+and your thumb pointed out to form an
+
+88
+00:03:35,037 --> 00:03:36,940
+L shape, and your middle finger 
+
+89
+00:03:36,940 --> 00:03:39,135
+pointing away from you then the thumb
+
+90
+00:03:39,135 --> 00:03:42,109
+represents the X axis, the index finger
+
+91
+00:03:42,109 --> 00:03:45,650
+Y axis and the middle finger the Z axis.
+
+92
+00:03:45,650 --> 00:03:47,650
+This hand gesture can be helpful to
+
+93
+00:03:47,650 --> 00:03:49,650
+remind you of the order of the axes -
+
+94
+00:03:49,650 --> 00:03:51,650
+X, Y and Z.
+
+95
+00:03:51,901 --> 00:03:53,901
+Given that Z represents depth
+
+96
+00:03:53,901 --> 00:03:56,827
+in our previous example, Charles and Quentin
+
+97
+00:03:56,827 --> 00:03:58,827
+would have actually been stood on the
+
+98
+00:03:58,827 --> 00:04:00,827
+X - Z plane, keeping in mind that any
+
+99
+00:04:00,827 --> 00:04:03,539
+coordinates stated in 3D will be ordered
+
+100
+00:04:03,553 --> 00:04:08,147
+X, Y, Z. Quentin would have been stood at (0, 0, 0) -
+
+101
+00:04:08,147 --> 00:04:12,453
+the 3D origin. And Charles at (12, 0, 5).
+
+102
+00:04:12,453 --> 00:04:14,453
+To make things more 3 dimensional
+
+103
+00:04:14,453 --> 00:04:16,285
+we could imagine that Charles was on a higher
+
+104
+00:04:16,285 --> 00:04:19,091
+vantage point. Now stood upon his 7 unit
+
+105
+00:04:19,091 --> 00:04:23,164
+tall podium, Charles is at position (12, 7, 5).
+
+106
+00:04:23,164 --> 00:04:25,164
+The calculation to find the magnitude
+
+107
+00:04:25,164 --> 00:04:27,164
+of the vector between the Charles and Quentin
+
+108
+00:04:27,164 --> 00:04:31,228
+is the same as in 2D but now features the Z axis.
+
+109
+00:04:31,228 --> 00:04:33,582
+Unity makes it easy to perform calculations
+
+110
+00:04:33,582 --> 00:04:35,582
+like this with it's helper function
+
+111
+00:04:35,582 --> 00:04:37,637
+Vector3.magnitude.
+
+112
+00:04:37,637 --> 00:04:39,637
+See the documentation link below
+
+113
+00:04:39,637 --> 00:04:40,882
+for more details.
+
+114
+00:04:40,882 --> 00:04:42,621
+There are a couple of useful functions
+
+115
+00:04:42,621 --> 00:04:45,761
+for 3D vectors, the Dot and Cross products.
+
+116
+00:04:45,761 --> 00:04:47,761
+The dot product takes two vectors
+
+117
+00:04:47,761 --> 00:04:50,946
+and produces a scalar, a single value from them.
+
+118
+00:04:50,946 --> 00:04:52,946
+To find the dot product of two vectors
+
+119
+00:04:52,946 --> 00:04:55,030
+we take their component parts, the
+
+120
+00:04:55,030 --> 00:04:57,030
+X, Y and Z values
+
+121
+00:04:57,406 --> 00:05:00,116
+and multiply them together to find the sum
+
+122
+00:05:00,116 --> 00:05:02,590
+of the resultant values. This is expressed
+
+123
+00:05:02,590 --> 00:05:11,804
+for example as (Ax*Bx)+(Ay*By)+(Az*Bz).
+
+124
+00:05:11,804 --> 00:05:13,457
+With this product you can find out 
+
+125
+00:05:13,457 --> 00:05:15,191
+information about the two vectors you've
+
+126
+00:05:15,191 --> 00:05:18,205
+specified. One example of this is finding 
+
+127
+00:05:18,205 --> 00:05:20,205
+out whether the two vectors are perpendicular
+
+128
+00:05:20,205 --> 00:05:22,205
+to one another. If the dot product
+
+129
+00:05:22,205 --> 00:05:25,176
+of two vectors equals 0, the vectors are 
+
+130
+00:05:25,176 --> 00:05:27,655
+perpendicular. In this example we have
+
+131
+00:05:27,655 --> 00:05:30,081
+two vectors, A and B.
+
+132
+00:05:30,081 --> 00:05:35,693
+Vector A is (0, 7, 1). B is (0, 0, 6).
+
+133
+00:05:35,693 --> 00:05:37,693
+We can see in this example that the sum
+
+134
+00:05:37,693 --> 00:05:40,013
+of the multiplied components is 6,
+
+135
+00:05:40,013 --> 00:05:41,707
+which means that the vectors are not
+
+136
+00:05:41,707 --> 00:05:45,603
+perpendicular. If vector A was (0, 7, 0)
+
+137
+00:05:45,603 --> 00:05:49,141
+and B was (0, 0, 6) then we can see that
+
+138
+00:05:49,141 --> 00:05:51,400
+the dot product equals 0 and the vectors
+
+139
+00:05:51,400 --> 00:05:53,400
+are indeed perpendicular. 
+
+140
+00:05:53,400 --> 00:05:54,987
+Here is another example of using the
+
+141
+00:05:54,987 --> 00:05:57,615
+dot product in this way, this time vector A
+
+142
+00:05:57,615 --> 00:06:03,127
+is (4, 5, 11) and B is (-3, -2, 2).
+
+143
+00:06:03,127 --> 00:06:05,127
+Multiplying these components gives us
+
+144
+00:06:05,127 --> 00:06:10,587
+(-12, -10, 22), the sum of which is 0.
+
+145
+00:06:10,587 --> 00:06:13,524
+So these two vectors are also perpendicular.
+
+146
+00:06:14,024 --> 00:06:16,024
+An example of using the dot product could be
+
+147
+00:06:16,024 --> 00:06:18,024
+when creating a flight simulator.
+
+148
+00:06:18,524 --> 00:06:20,524
+You would check the world up vector, 
+
+149
+00:06:20,524 --> 00:06:22,524
+with the forward vector of the plane.
+
+150
+00:06:23,024 --> 00:06:24,873
+If the two were perpendicular -
+
+151
+00:06:24,873 --> 00:06:26,873
+if the dot product equalled 0,
+
+152
+00:06:26,873 --> 00:06:28,388
+then the plane should have the
+
+153
+00:06:28,388 --> 00:06:31,037
+least amount of drag. As the dot product
+
+154
+00:06:31,037 --> 00:06:33,037
+increases in a positive value
+
+155
+00:06:33,037 --> 00:06:35,037
+we would know that the plane is pulling up
+
+156
+00:06:35,037 --> 00:06:37,037
+and we could add more drag.
+
+157
+00:06:37,037 --> 00:06:39,037
+If the dot product increases in negative
+
+158
+00:06:39,037 --> 00:06:41,037
+values we would know that the plane
+
+159
+00:06:41,037 --> 00:06:44,043
+is in a dive. Unity has a helper function
+
+160
+00:06:44,043 --> 00:06:47,198
+to perform dot product calculations easily.
+
+161
+00:06:47,198 --> 00:06:48,851
+For details of this see the
+
+162
+00:06:48,851 --> 00:06:50,851
+documentation link below.
+
+163
+00:06:52,428 --> 00:06:54,428
+The cross product is a different way of
+
+164
+00:06:54,428 --> 00:06:56,734
+combining two vectors. Instead of producing
+
+165
+00:06:56,734 --> 00:06:59,803
+a scalar, a single value, the cross product
+
+166
+00:06:59,803 --> 00:07:02,669
+produces another vector, specifically a vector
+
+167
+00:07:02,669 --> 00:07:05,474
+that is perpendicular to the original two. 
+
+168
+00:07:05,974 --> 00:07:08,473
+For example if we took vector A and
+
+169
+00:07:08,473 --> 00:07:11,457
+vector B and crossed them then the product
+
+170
+00:07:11,457 --> 00:07:14,481
+would be vector C, one that is perpendicular
+
+171
+00:07:14,481 --> 00:07:17,283
+to A and B. This is mathematically denoted
+
+172
+00:07:17,283 --> 00:07:20,249
+by the caret symbol, the 'up arrow' shown here.
+
+173
+00:07:20,249 --> 00:07:22,332
+Since Unity's coordinates system is left
+
+174
+00:07:22,332 --> 00:07:24,664
+handed so is it's cross product.
+
+175
+00:07:25,026 --> 00:07:27,026
+Putting your left hand in to the same pose
+
+176
+00:07:27,026 --> 00:07:29,820
+as to determine the alignment of the axis
+
+177
+00:07:29,820 --> 00:07:31,820
+you can determine the direction of a 
+
+178
+00:07:31,820 --> 00:07:34,581
+cross product vector. In this example your
+
+179
+00:07:34,581 --> 00:07:37,753
+thumb and index finger represent vectors A and B,
+
+180
+00:07:37,753 --> 00:07:39,153
+the known vectors,
+
+181
+00:07:39,515 --> 00:07:41,515
+and your middle finger represents the cross
+
+182
+00:07:41,515 --> 00:07:44,237
+product result, C. To look in to the cross
+
+183
+00:07:44,237 --> 00:07:46,237
+product in detail we would arrange
+
+184
+00:07:46,237 --> 00:07:48,859
+our vector A and B components like this.
+
+185
+00:07:49,359 --> 00:07:51,359
+But how does it work mathematically?
+
+186
+00:07:51,859 --> 00:07:53,859
+To work out the cross product we place
+
+187
+00:07:53,859 --> 00:07:55,859
+our two vectors next to each other
+
+188
+00:07:55,859 --> 00:07:57,916
+and then repeat this below.
+
+189
+00:07:58,485 --> 00:08:00,583
+From here we can combine the components
+
+190
+00:08:00,583 --> 00:08:03,013
+one at a time to find the cross product.
+
+191
+00:08:03,732 --> 00:08:06,793
+First we multiply Ay and Bz.
+
+192
+00:08:07,210 --> 00:08:10,554
+We then subtract Az multiplied by By.
+
+193
+00:08:11,192 --> 00:08:12,890
+This gives us the X component of
+
+194
+00:08:12,890 --> 00:08:15,934
+the cross product. Next we do the same with
+
+195
+00:08:15,934 --> 00:08:18,895
+Az and Bx, and Ax and Bz
+
+196
+00:08:18,895 --> 00:08:20,545
+to give us the Y component.
+
+197
+00:08:21,188 --> 00:08:24,385
+Finally we do the same again with Ax and By,
+
+198
+00:08:24,885 --> 00:08:28,110
+and Ay and Bx to get the Z component.
+
+199
+00:08:28,941 --> 00:08:30,610
+The good news is that whilst this is a
+
+200
+00:08:30,610 --> 00:08:33,215
+detailed calculation, Unity has another
+
+201
+00:08:33,215 --> 00:08:36,119
+helper function to perform this for you.
+
+202
+00:08:36,119 --> 00:08:38,119
+It looks like this.
+
+203
+00:08:38,619 --> 00:08:40,619
+One example of using the cross product
+
+204
+00:08:40,619 --> 00:08:42,619
+is finding the axis around which
+
+205
+00:08:42,619 --> 00:08:45,107
+to apply torque in order to
+
+206
+00:08:45,107 --> 00:08:46,920
+rotate a tank's turret.
+
+207
+00:08:47,349 --> 00:08:48,985
+Given that you have the direction that the
+
+208
+00:08:48,985 --> 00:08:51,959
+turret is currently facing, and the direction
+
+209
+00:08:51,959 --> 00:08:53,959
+that it needs to face, you would cross
+
+210
+00:08:53,959 --> 00:08:55,959
+these two vectors to find the axis
+
+211
+00:08:55,959 --> 00:08:58,889
+around which to apply rotational torque.

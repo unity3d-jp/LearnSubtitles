@@ -1,0 +1,175 @@
+1
+00:00:00,442 --> 00:00:02,715
+With inheritance members of the parent class are
+
+2
+00:00:02,715 --> 00:00:04,715
+automatically available, or inherited
+
+3
+00:00:04,715 --> 00:00:06,715
+in a child class.
+
+4
+00:00:06,715 --> 00:00:09,419
+Recreating, otherwise known as redeclaring
+
+5
+00:00:09,419 --> 00:00:11,874
+members of a parent class in the child class
+
+6
+00:00:11,874 --> 00:00:13,874
+is known as member hiding.
+
+7
+00:00:14,236 --> 00:00:16,236
+Hiding a member requires a lightly different
+
+8
+00:00:16,236 --> 00:00:18,236
+use of the keyword new.
+
+9
+00:00:18,639 --> 00:00:21,053
+In order to hide a member of a base class
+
+10
+00:00:21,053 --> 00:00:23,053
+the child classes member should be
+
+11
+00:00:23,053 --> 00:00:25,954
+declared with new before the type of the member.
+
+12
+00:00:26,675 --> 00:00:28,675
+Under normal circumstances this doesn't
+
+13
+00:00:28,675 --> 00:00:31,285
+effect the use of members declared in this way.
+
+14
+00:00:31,785 --> 00:00:34,316
+However, when a child class is upcast to a
+
+15
+00:00:34,316 --> 00:00:36,786
+parent class and the member is used
+
+16
+00:00:36,786 --> 00:00:38,786
+it will be the member from the parent class
+
+17
+00:00:38,786 --> 00:00:41,724
+despite the instance being a child class.
+
+18
+00:00:41,724 --> 00:00:43,571
+Consider an inheritance hierarchy
+
+19
+00:00:43,571 --> 00:00:46,268
+where Orc inherits from Enemy, which in turn
+
+20
+00:00:46,268 --> 00:00:48,128
+inherits from Humanoid.
+
+21
+00:00:48,128 --> 00:00:50,779
+In humanoid we have the method Yell,
+
+22
+00:00:50,779 --> 00:00:54,164
+which plays an audio clip and moves the model's arms.
+
+23
+00:00:54,664 --> 00:00:57,892
+In Enemy we have another function called Yell
+
+24
+00:00:57,892 --> 00:00:59,892
+which this time changes the colour of the
+
+25
+00:00:59,892 --> 00:01:01,892
+enemy's main texture to yellow
+
+26
+00:01:01,892 --> 00:01:04,926
+and has been declared using new.
+
+27
+00:01:04,926 --> 00:01:07,945
+Orc also has a new Yell function
+
+28
+00:01:07,945 --> 00:01:09,945
+but this time it sets the destination
+
+29
+00:01:09,945 --> 00:01:13,236
+of the nav mesh to a Northern Shetland Isle.
+
+30
+00:01:13,236 --> 00:01:15,236
+Suppose we have a collection of Humanoid objects
+
+31
+00:01:15,236 --> 00:01:17,236
+which includes some Humanoids,
+
+32
+00:01:17,236 --> 00:01:19,512
+some Enemies and some Orcs.
+
+33
+00:01:19,512 --> 00:01:21,512
+If we call the Yell function on all of
+
+34
+00:01:21,512 --> 00:01:23,718
+the objects in the collection
+
+35
+00:01:23,718 --> 00:01:26,959
+each of them will call the Humanoid version of Yell.
+
+36
+00:01:26,959 --> 00:01:28,959
+This is because we declared the Orc and Enemy
+
+37
+00:01:28,959 --> 00:01:30,959
+object as Humanoid and they have
+
+38
+00:01:30,959 --> 00:01:33,943
+been implicitly upcast to a Humanoid.
+
+39
+00:01:33,943 --> 00:01:35,943
+This sort of behaviour is not usually desired
+
+40
+00:01:35,943 --> 00:01:37,943
+and is therefore not commonly used
+
+41
+00:01:37,943 --> 00:01:40,164
+though it is important to be aware of.
+
+42
+00:01:40,164 --> 00:01:44,401
+In fact, this behaviour is the exact opposite of overriding.
+
+43
+00:01:44,401 --> 00:01:46,401
+More information on Overriding can be found
+
+44
+00:01:46,401 --> 00:01:49,112
+in the lesson on Overriding linked below.

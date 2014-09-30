@@ -1,0 +1,143 @@
+1
+00:00:00,193 --> 00:00:03,026
+The Build Settings can be accessed from the File menu
+
+2
+00:00:03,026 --> 00:00:05,320
+by going to File - Build Settings.
+
+3
+00:00:05,481 --> 00:00:08,448
+A build in development is a term used to describe
+
+4
+00:00:08,448 --> 00:00:11,524
+an exported executable form of your project.
+
+5
+00:00:11,524 --> 00:00:14,000
+And given Unity's multiplatform nature
+
+6
+00:00:14,000 --> 00:00:15,597
+this varies for each platform.
+
+7
+00:00:16,007 --> 00:00:19,073
+For webplayers Unity will export an HTML file
+
+8
+00:00:19,073 --> 00:00:20,942
+with example embedding code
+
+9
+00:00:21,580 --> 00:00:24,538
+and a .Unity 3D file which contains your game
+
+10
+00:00:24,538 --> 00:00:27,115
+and will be run by the Unity webplayer plug-in
+
+11
+00:00:27,115 --> 00:00:28,280
+in your browser.
+
+12
+00:00:29,065 --> 00:00:32,746
+For standalone Unity will export an executable version of your game
+
+13
+00:00:32,746 --> 00:00:37,312
+for PC, Mac and Linux.
+
+14
+00:00:38,446 --> 00:00:41,450
+For iOS Unity exports an Xcode project
+
+15
+00:00:41,450 --> 00:00:44,402
+that can be opened in Apple's Xcode SDK
+
+16
+00:00:44,402 --> 00:00:46,402
+and run on the device for testing
+
+17
+00:00:46,402 --> 00:00:48,055
+and submission to the app store.
+
+18
+00:00:48,639 --> 00:00:51,588
+For Android Unity exports an APK file
+
+19
+00:00:51,588 --> 00:00:54,157
+that can be opened in the Android SDK.
+
+20
+00:00:54,822 --> 00:00:57,227
+Flash exports an SWF file
+
+21
+00:00:57,227 --> 00:00:58,779
+associated assets,
+
+22
+00:00:58,779 --> 00:01:02,789
+and yet again an HTML file with example embedding code.
+
+23
+00:01:03,667 --> 00:01:06,742
+Google Native Client exports a Google Chrome browser
+
+24
+00:01:06,742 --> 00:01:08,481
+compatible webplayer game.
+
+25
+00:01:08,960 --> 00:01:11,935
+And for consoles Unity builds directly to your
+
+26
+00:01:11,935 --> 00:01:13,611
+hardware development kit.
+
+27
+00:01:15,116 --> 00:01:17,928
+The build settings work with Unity's player settings
+
+28
+00:01:17,928 --> 00:01:19,928
+to define settings for the build that you create.
+
+29
+00:01:20,600 --> 00:01:23,144
+Split in to cross-platform and per-platform
+
+30
+00:01:23,144 --> 00:01:26,986
+you can set some basic values at the top and then choose settings below
+
+31
+00:01:26,986 --> 00:01:29,375
+that are specific for the platform you are developing for.
+
+32
+00:01:29,881 --> 00:01:31,648
+One thing to note as a beginner
+
+33
+00:01:31,648 --> 00:01:35,119
+is that the resolution in the Resolution and Presentation area
+
+34
+00:01:35,119 --> 00:01:38,191
+is the setting you can select for the game view.
+
+35
+00:01:44,423 --> 00:01:47,093
+For details of other per-platform settings
+
+36
+00:01:47,093 --> 00:01:49,093
+refer to the manual link below.

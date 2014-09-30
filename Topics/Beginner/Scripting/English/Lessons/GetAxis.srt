@@ -1,0 +1,227 @@
+1
+00:00:00,249 --> 00:00:03,080
+Input.GetAxis works in a similar fashion
+
+2
+00:00:03,080 --> 00:00:05,080
+to GetButton and GetKey
+
+3
+00:00:05,080 --> 00:00:07,080
+but with some fundamental differences.
+
+4
+00:00:07,080 --> 00:00:10,240
+GetKey and GetButton both return a bool,
+
+5
+00:00:10,240 --> 00:00:12,502
+the button is either pressed or not pressed.
+
+6
+00:00:13,085 --> 00:00:15,085
+Whilst GetAxis returns a float value
+
+7
+00:00:15,085 --> 00:00:17,085
+between -1 and positive 1.
+
+8
+00:00:17,461 --> 00:00:19,910
+We setup axes in the input manager,
+
+9
+00:00:19,910 --> 00:00:21,765
+which can be accessed via the
+
+10
+00:00:21,765 --> 00:00:26,672
+Edit - Project Settings - Input top menu.
+
+11
+00:00:27,172 --> 00:00:29,711
+With a button press you'd only consider 
+
+12
+00:00:29,711 --> 00:00:31,711
+the positive button value.
+
+13
+00:00:32,211 --> 00:00:34,542
+But with an axis we should consider
+
+14
+00:00:34,542 --> 00:00:36,960
+the both positive and negative buttons.
+
+15
+00:00:36,960 --> 00:00:39,772
+As well as gravity, sensitivity, 
+
+16
+00:00:39,772 --> 00:00:41,772
+dead and snap.
+
+17
+00:00:42,673 --> 00:00:44,426
+This is the standard behaviour of
+
+18
+00:00:44,426 --> 00:00:46,426
+GetAxis Horizontal.
+
+19
+00:00:48,791 --> 00:00:51,453
+Remember that GetAxis returns a float,
+
+20
+00:00:51,453 --> 00:00:54,534
+as such it is a sliding scale between -1
+
+21
+00:00:54,534 --> 00:00:57,086
+and 1. The gravity of the axis
+
+22
+00:00:57,086 --> 00:00:59,802
+affects how fast this scale returns to 0
+
+23
+00:00:59,802 --> 00:01:01,802
+after the button has been released.
+
+24
+00:01:01,802 --> 00:01:03,998
+The higher the gravity, the faster the return
+
+25
+00:01:03,998 --> 00:01:07,339
+so if we increase the gravity from 3 to 100
+
+26
+00:01:07,687 --> 00:01:11,207
+we will see this axis returns to 0 more quickly.
+
+27
+00:01:15,754 --> 00:01:17,918
+Likewise if we lower the value from the
+
+28
+00:01:17,918 --> 00:01:20,729
+default of 3 to 0.1 the axis
+
+29
+00:01:20,729 --> 00:01:23,403
+value will return to 0 more slowly.
+
+30
+00:01:28,406 --> 00:01:30,739
+Sensitivity is the opposite of gravity
+
+31
+00:01:30,739 --> 00:01:32,739
+and controls how quickly the return value
+
+32
+00:01:32,739 --> 00:01:35,753
+of the input reaches 1 or -1.
+
+33
+00:01:36,433 --> 00:01:39,045
+The higher the number the more responsive,
+
+34
+00:01:39,045 --> 00:01:41,601
+the lower the number the more smooth.
+
+35
+00:02:02,292 --> 00:02:04,427
+If we were using a joystick to represent
+
+36
+00:02:04,427 --> 00:02:07,444
+our axis then we wouldn't necessarily want to
+
+37
+00:02:07,444 --> 00:02:09,444
+to feel an effect from very small amounts
+
+38
+00:02:09,444 --> 00:02:10,619
+of joystick movement.
+
+39
+00:02:10,619 --> 00:02:12,837
+To avoid this we have a dead zone.
+
+40
+00:02:13,191 --> 00:02:15,615
+The higher the dead value is the larger
+
+41
+00:02:15,615 --> 00:02:17,945
+the dead zone and the further the joystick
+
+42
+00:02:17,945 --> 00:02:19,945
+must be moved in order for GetAxis to
+
+43
+00:02:19,945 --> 00:02:21,593
+return a non 0 value.
+
+44
+00:02:21,911 --> 00:02:23,911
+The snap option allows you to return
+
+45
+00:02:23,911 --> 00:02:27,347
+0 if both positive and negative buttons are held.
+
+46
+00:02:28,321 --> 00:02:30,321
+To receive a value from horizontal or 
+
+47
+00:02:30,321 --> 00:02:33,222
+vertical axis simply add an instance of
+
+48
+00:02:33,222 --> 00:02:36,056
+Input.GetAxis(''Horizontal'')
+
+49
+00:02:36,056 --> 00:02:38,384
+or Input.GetAxis(''Vertical'')
+
+50
+00:02:38,384 --> 00:02:40,384
+to your code as seen here.
+
+51
+00:02:44,271 --> 00:02:47,366
+You can also use Input.GetAxisRaw
+
+52
+00:02:47,366 --> 00:02:49,087
+to only return whole numbers
+
+53
+00:02:49,087 --> 00:02:51,087
+and nothing in between. This is useful
+
+54
+00:02:51,087 --> 00:02:53,394
+for 2D games that need precise control
+
+55
+00:02:53,394 --> 00:02:55,394
+rather than smoothed values.
+
+56
+00:02:55,394 --> 00:02:57,394
+Note that this does not require the use
+
+57
+00:02:57,394 --> 00:02:59,394
+of gravity or sensitivity.

@@ -1,0 +1,475 @@
+1
+00:00:00,304 --> 00:00:02,072
+Sometimes when making a game you'll need
+
+2
+00:00:02,072 --> 00:00:04,513
+a smooth transition between two values.
+
+3
+00:00:04,513 --> 00:00:06,513
+A common example is smoothing a change
+
+4
+00:00:06,513 --> 00:00:08,513
+in position. You can do this using a
+
+5
+00:00:08,513 --> 00:00:10,918
+function called Lerp. Lerp is short for
+
+6
+00:00:10,918 --> 00:00:13,555
+Linear Interpolation. In this scene we have
+
+7
+00:00:13,555 --> 00:00:16,359
+a light and script that lerps three
+
+8
+00:00:16,359 --> 00:00:19,287
+properties of the light. It's position,
+
+9
+00:00:19,287 --> 00:00:21,287
+colour and intensity.
+
+10
+00:00:23,679 --> 00:00:25,679
+Let's take a look at how we use lerp for
+
+11
+00:00:25,679 --> 00:00:27,360
+each of these properties.
+
+12
+00:00:27,737 --> 00:00:30,327
+First off, position. In this unfinished
+
+13
+00:00:30,327 --> 00:00:33,659
+example I have a variable to store
+
+14
+00:00:33,659 --> 00:00:35,659
+a new vector3 position
+
+15
+00:00:35,659 --> 00:00:37,659
+holding X, Y and Z
+
+16
+00:00:38,159 --> 00:00:40,879
+In Awake I set this value to the current
+
+17
+00:00:40,879 --> 00:00:43,185
+position of the object by using 
+
+18
+00:00:43,185 --> 00:00:45,034
+transform.position.
+
+19
+00:00:45,408 --> 00:00:48,237
+Then in update we're running a position changing
+
+20
+00:00:48,237 --> 00:00:49,837
+function every frame.
+
+21
+00:00:50,157 --> 00:00:52,157
+So what happens here? Well we have
+
+22
+00:00:52,157 --> 00:00:54,944
+two more vector3 variables position A
+
+23
+00:00:54,944 --> 00:00:57,573
+and position B. These are two positions
+
+24
+00:00:57,573 --> 00:00:59,393
+that I want to switch the light between.
+
+25
+00:00:59,797 --> 00:01:01,619
+Then I simply check for input when I
+
+26
+00:01:01,619 --> 00:01:03,413
+press the key Q,
+
+27
+00:01:03,413 --> 00:01:05,849
+I move to position A. And when I press
+
+28
+00:01:05,849 --> 00:01:08,154
+the key E I move to position B.
+
+29
+00:01:08,530 --> 00:01:10,640
+And you can see here I'm setting the current
+
+30
+00:01:10,640 --> 00:01:13,446
+position to this variable and constantly
+
+31
+00:01:13,446 --> 00:01:16,385
+changing between it. So let's see how that works.
+
+32
+00:01:17,134 --> 00:01:21,485
+If I press Q I move here, -5 in X.
+
+33
+00:01:21,985 --> 00:01:24,906
+And when I press E I get positive 5.
+
+34
+00:01:25,461 --> 00:01:27,929
+But, as you can see, we're just jumping 
+
+35
+00:01:27,929 --> 00:01:29,929
+between those two positions, which is not
+
+36
+00:01:29,929 --> 00:01:33,434
+what we want. So this is where we use a Lerp
+
+37
+00:01:33,434 --> 00:01:35,434
+to smoothly interpolate between
+
+38
+00:01:35,434 --> 00:01:36,744
+those two values.
+
+39
+00:01:37,244 --> 00:01:39,244
+So instead of setting transform position
+
+40
+00:01:39,244 --> 00:01:41,767
+to the value of new position
+
+41
+00:01:42,267 --> 00:01:47,144
+we're going to say vector3.lerp.
+
+42
+00:01:47,644 --> 00:01:49,410
+And the basic properties of a lerp are 
+
+43
+00:01:49,410 --> 00:01:52,961
+threefold. The 'from' value, the 'to' value
+
+44
+00:01:52,961 --> 00:01:54,961
+and a 'time' value.
+
+45
+00:01:55,461 --> 00:01:58,014
+So the starting value of this, because
+
+46
+00:01:58,014 --> 00:02:00,014
+it's the position will be the current
+
+47
+00:02:00,014 --> 00:02:02,963
+transform.position. That's the 'from' value.
+
+48
+00:02:02,963 --> 00:02:04,963
+Then we'll set the 'to' value
+
+49
+00:02:04,963 --> 00:02:06,963
+with the variable newPosition.
+
+50
+00:02:06,963 --> 00:02:09,369
+And finally we need a value for 'time'.
+
+51
+00:02:09,731 --> 00:02:12,660
+So we'll use Time.deltaTime.
+
+52
+00:02:13,160 --> 00:02:15,160
+Let's see how this looks.
+
+53
+00:02:18,837 --> 00:02:21,507
+Now you can see we're smoothly interpolating
+
+54
+00:02:21,507 --> 00:02:23,271
+between those two points.
+
+55
+00:02:23,771 --> 00:02:25,561
+We might want to increase the speed at
+
+56
+00:02:25,561 --> 00:02:28,248
+which this occurs, so we could add in
+
+57
+00:02:28,248 --> 00:02:30,248
+a variable to help us do this.
+
+58
+00:02:30,248 --> 00:02:32,689
+I am going to add in a public float
+
+59
+00:02:32,689 --> 00:02:34,689
+and I am going to call it smooth and
+
+60
+00:02:34,689 --> 00:02:36,522
+I will start off with a value of 2.
+
+61
+00:02:36,522 --> 00:02:39,514
+Then I will simply multiply my delta time
+
+62
+00:02:39,931 --> 00:02:41,931
+by that value.
+
+63
+00:02:43,840 --> 00:02:45,524
+And now you can see our interpolation 
+
+64
+00:02:45,524 --> 00:02:49,273
+between those two points is a lot quicker.
+
+65
+00:02:51,651 --> 00:02:53,651
+And because it's a public variable we
+
+66
+00:02:53,651 --> 00:02:55,305
+can crank up the speed and do it
+
+67
+00:02:55,305 --> 00:02:57,305
+nice and fast too.
+
+68
+00:02:58,455 --> 00:03:00,884
+Now let's look at changing the intensity.
+
+69
+00:03:00,884 --> 00:03:02,663
+This once is slightly different because
+
+70
+00:03:02,663 --> 00:03:06,045
+we're using Mathf.Lerp rather than using
+
+71
+00:03:06,045 --> 00:03:09,236
+vector3.Lerp. Mathf.Lerp will go between
+
+72
+00:03:09,236 --> 00:03:12,594
+two float values rather than going between
+
+73
+00:03:12,594 --> 00:03:14,248
+two vector3 values.
+
+74
+00:03:14,582 --> 00:03:15,872
+So if you have something that's using a 
+
+75
+00:03:15,872 --> 00:03:18,644
+float you would used Mathf.Lerp, and something
+
+76
+00:03:18,644 --> 00:03:20,644
+that is using a vector3 you'd use
+
+77
+00:03:20,644 --> 00:03:23,213
+vector3.Lerp. This time around we've setup
+
+78
+00:03:23,213 --> 00:03:25,060
+our code for changing the intensity
+
+79
+00:03:25,060 --> 00:03:27,563
+of the light. We have a new intensity
+
+80
+00:03:27,563 --> 00:03:30,091
+variable. We set it equal to the light
+
+81
+00:03:30,091 --> 00:03:32,091
+intensity at the start of the game
+
+82
+00:03:32,591 --> 00:03:35,491
+and we're running intensity changing every frame.
+
+83
+00:03:36,198 --> 00:03:38,683
+This time we have two different intensities
+
+84
+00:03:38,683 --> 00:03:41,916
+0.5 and positive 5.
+
+85
+00:03:41,916 --> 00:03:43,916
+And then we're using the keys A and D
+
+86
+00:03:44,596 --> 00:03:47,139
+to set between these two intensity values.
+
+87
+00:03:47,501 --> 00:03:48,969
+So you can see that we're simply addressing
+
+88
+00:03:48,969 --> 00:03:52,278
+the light component, it's intensity property
+
+89
+00:03:52,278 --> 00:03:55,636
+and setting it equal to a Mathf.Lerp.
+
+90
+00:03:56,136 --> 00:03:58,541
+The 'from' value is the current intensity
+
+91
+00:03:59,041 --> 00:04:01,041
+and the value to interpolate towards
+
+92
+00:04:01,041 --> 00:04:04,096
+is the value of the new intensity variable.
+
+93
+00:04:04,096 --> 00:04:06,544
+And yet again we are using Time.deltaTime
+
+94
+00:04:06,544 --> 00:04:08,544
+multiplied by our smoothing variable.
+
+95
+00:04:08,544 --> 00:04:10,544
+Let's see how this looks.
+
+96
+00:04:12,605 --> 00:04:15,539
+And as usual if our smoothing value differs
+
+97
+00:04:15,539 --> 00:04:17,291
+we can increase the speed at which this
+
+98
+00:04:17,291 --> 00:04:19,291
+interpolation occurs.
+
+99
+00:04:22,208 --> 00:04:24,847
+Finally let's look at interpolating the colour.
+
+100
+00:04:25,292 --> 00:04:28,052
+This time around we have setup a new colour
+
+101
+00:04:28,052 --> 00:04:31,010
+variable at the top. We have set it equal to
+
+102
+00:04:31,010 --> 00:04:32,734
+the light component's colour value when 
+
+103
+00:04:32,734 --> 00:04:35,110
+the game starts. And yet again we have
+
+104
+00:04:35,110 --> 00:04:37,110
+a function that is running every frame.
+
+105
+00:04:37,472 --> 00:04:39,472
+We have two colour shortcuts
+
+106
+00:04:39,472 --> 00:04:41,472
+Colour.red and Colour.green
+
+107
+00:04:41,472 --> 00:04:43,472
+stored in A and B variables
+
+108
+00:04:43,472 --> 00:04:45,902
+and we're switching them with Z and C
+
+109
+00:04:45,902 --> 00:04:48,609
+on the keyboard. As with our other lerps
+
+110
+00:04:48,609 --> 00:04:51,009
+we have a 'from' and a 'to' value,
+
+111
+00:04:51,481 --> 00:04:54,516
+the original light.colour and the new colour.
+
+112
+00:04:54,516 --> 00:04:57,001
+And again we're using Time.deltaTime
+
+113
+00:04:57,001 --> 00:04:58,514
+multiplied by smooth.
+
+114
+00:04:58,990 --> 00:05:01,391
+Simple. So when I press play
+
+115
+00:05:01,391 --> 00:05:03,391
+I can move between those values.
+
+116
+00:05:03,391 --> 00:05:05,764
+And if I want to increase the speed
+
+117
+00:05:05,764 --> 00:05:07,764
+I crank up my smooth value.
+
+118
+00:05:12,753 --> 00:05:14,173
+Let's take a look at the finished scene
+
+119
+00:05:14,173 --> 00:05:16,173
+with all of those included.

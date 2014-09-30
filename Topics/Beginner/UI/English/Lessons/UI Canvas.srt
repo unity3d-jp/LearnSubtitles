@@ -1,0 +1,492 @@
+1
+00:00:02,210 --> 00:00:04,740
+The canvas is a component that controls how
+
+2
+00:00:04,740 --> 00:00:07,074
+a group of UI elements will be rendered.
+
+3
+00:00:08,331 --> 00:00:11,900
+All UI elements must be children of a canvas.
+
+4
+00:00:13,229 --> 00:00:16,780
+It is possible to have more than one canvas in a scene.
+
+5
+00:00:16,780 --> 00:00:19,429
+But to use a UI element there needs to be at least
+
+6
+00:00:19,429 --> 00:00:21,596
+one available canvas.
+
+7
+00:00:21,596 --> 00:00:23,513
+If a new UI element is created 
+
+8
+00:00:23,513 --> 00:00:25,443
+and no canvas exists
+
+9
+00:00:25,443 --> 00:00:27,443
+a new canvas will be created
+
+10
+00:00:27,443 --> 00:00:29,443
+and the new UI element will be attached
+
+11
+00:00:29,443 --> 00:00:31,443
+to that canvas as a child.
+
+12
+00:00:32,882 --> 00:00:34,703
+Each canvas has a number of different
+
+13
+00:00:34,703 --> 00:00:36,703
+possible render modes.
+
+14
+00:00:37,203 --> 00:00:39,203
+The render mode can be set by using
+
+15
+00:00:39,203 --> 00:00:41,203
+the Render Mode pop-up menu.
+
+16
+00:00:41,772 --> 00:00:44,729
+Scene Space - Overlay is the most common render mode
+
+17
+00:00:44,729 --> 00:00:46,549
+and it is the default render mode setting
+
+18
+00:00:46,549 --> 00:00:47,923
+for a canvas.
+
+19
+00:00:48,731 --> 00:00:50,731
+With Screen Space - Overlay selected
+
+20
+00:00:50,731 --> 00:00:52,731
+the UI will overlay the scene.
+
+21
+00:00:53,231 --> 00:00:55,231
+And all of the UI elements will be drawn
+
+22
+00:00:55,231 --> 00:00:58,197
+on top of 
+everything else rendered in that scene.
+
+23
+00:00:59,056 --> 00:01:01,056
+In this mode the canvas will
+
+24
+00:01:01,056 --> 00:01:03,056
+fill the screen automatically
+
+25
+00:01:03,056 --> 00:01:05,056
+and will resize automatically if
+
+26
+00:01:05,056 --> 00:01:07,056
+the screen settings change.
+
+27
+00:01:11,672 --> 00:01:15,382
+It is worth noting that in Screen Space - Overlay mode
+
+28
+00:01:15,382 --> 00:01:18,441
+the canvas will drive the Rect Transform component.
+
+29
+00:01:18,941 --> 00:01:20,941
+And the entire rect transform component
+
+30
+00:01:20,941 --> 00:01:22,447
+is uneditable.
+
+31
+00:01:23,041 --> 00:01:25,041
+The canvas will set all of the values
+
+32
+00:01:25,041 --> 00:01:28,430
+in the rect transform to fill the screen automatically.
+
+33
+00:01:29,234 --> 00:01:32,122
+For more information on the rect transform component
+
+34
+00:01:32,122 --> 00:01:34,696
+please see the information linked below.
+
+35
+00:01:36,004 --> 00:01:38,973
+This render mode has the option of Pixel Perfect.
+
+36
+00:01:39,473 --> 00:01:42,064
+When Pixel Perfect is selected UI elements
+
+37
+00:01:42,064 --> 00:01:45,407
+will be adjusted to the nearest pixel when they are rendered.
+
+38
+00:01:45,407 --> 00:01:47,720
+Which can, in some cases, sharpen the look
+
+39
+00:01:47,720 --> 00:01:49,720
+of the UI element.
+
+40
+00:01:50,662 --> 00:01:52,662
+Screen Space - Camera is very similar
+
+41
+00:01:52,662 --> 00:01:54,662
+to Screen Space - Overlay.
+
+42
+00:01:54,662 --> 00:01:57,051
+It is, however, rendered by a specific
+
+43
+00:01:57,051 --> 00:01:59,051
+camera in the scene.
+
+44
+00:01:59,051 --> 00:02:01,550
+This will allow camera-specific settings to be
+
+45
+00:02:01,550 --> 00:02:03,802
+applied to a screen space UI.
+
+46
+00:02:04,975 --> 00:02:07,701
+The most common being the use of a perspective camera
+
+47
+00:02:07,701 --> 00:02:10,037
+to give the UI a feeling of depth.
+
+48
+00:02:16,058 --> 00:02:18,058
+In this mode the canvas will fill the
+
+49
+00:02:18,058 --> 00:02:20,419
+camera's viewport automatically
+
+50
+00:02:20,419 --> 00:02:22,419
+and will resize automatically if the camera's
+
+51
+00:02:22,419 --> 00:02:24,419
+viewport settings change.
+
+52
+00:02:31,314 --> 00:02:33,314
+In this render mode the rect transform
+
+53
+00:02:33,314 --> 00:02:36,419
+is also being driven entirely by the canvas.
+
+54
+00:02:37,913 --> 00:02:39,913
+This render mode has several options,
+
+55
+00:02:39,913 --> 00:02:41,732
+including Pixel Perfect,
+
+56
+00:02:41,732 --> 00:02:44,843
+which acts just the same as in screen space - overlay.
+
+57
+00:02:45,302 --> 00:02:47,302
+Render Camera is for setting the camera
+
+58
+00:02:47,302 --> 00:02:50,172
+that will render the UI elements on this canvas.
+
+59
+00:02:50,172 --> 00:02:53,128
+If this is none, the canvas component will use the
+
+60
+00:02:53,128 --> 00:02:55,128
+screen space - overlay settings
+
+61
+00:02:55,128 --> 00:02:56,839
+to render this canvas.
+
+62
+00:02:57,408 --> 00:02:59,834
+When Screen Space - Camera is selected
+
+63
+00:02:59,834 --> 00:03:02,779
+and a camera is assigned to the canvas component
+
+64
+00:03:02,779 --> 00:03:04,779
+the UI elements will be moved
+
+65
+00:03:04,779 --> 00:03:08,035
+in to the camera's frustum and resized to fit.
+
+66
+00:03:08,535 --> 00:03:10,978
+This allows for the UI to be rendered relative
+
+67
+00:03:10,978 --> 00:03:12,978
+to game object in the scene view.
+
+68
+00:03:13,575 --> 00:03:15,166
+To control where in the scene the UI
+
+69
+00:03:15,166 --> 00:03:18,298
+elements will be rendered use Plane Distance
+
+70
+00:03:18,298 --> 00:03:20,118
+to move the canvas closer to,
+
+71
+00:03:20,118 --> 00:03:22,449
+or further away from, the camera.
+
+72
+00:03:22,853 --> 00:03:24,853
+The canvas and it's UI elements will be
+
+73
+00:03:24,853 --> 00:03:27,407
+automatically resized to fit the frustum
+
+74
+00:03:27,407 --> 00:03:29,983
+based on their position in front of the camera.
+
+75
+00:03:31,053 --> 00:03:33,318
+It is worth noting that the plane distance must
+
+76
+00:03:33,318 --> 00:03:35,318
+be within the rendering camera's near and far
+
+77
+00:03:35,318 --> 00:03:37,318
+clipping planes to be rendered.
+
+78
+00:03:38,578 --> 00:03:40,578
+When using Screen Space - Camera
+
+79
+00:03:41,078 --> 00:03:44,168
+the canvas can be rendered by any camera in the scene.
+
+80
+00:03:44,668 --> 00:03:46,931
+To isolate a canvas and it's contents
+
+81
+00:03:46,931 --> 00:03:49,481
+from any other cameras rendering the scene
+
+82
+00:03:49,481 --> 00:03:52,032
+use the camera's clear flags culling mask
+
+83
+00:03:52,032 --> 00:03:53,285
+and depth properties.
+
+84
+00:03:53,785 --> 00:03:55,785
+For more information on how to use these
+
+85
+00:03:55,785 --> 00:03:57,785
+camera properties please see the information
+
+86
+00:03:57,785 --> 00:04:00,387
+on cameras linked below.
+
+87
+00:04:01,542 --> 00:04:04,030
+Render Mode World Space renders UI elements
+
+88
+00:04:04,030 --> 00:04:05,808
+in the scene volume.
+
+89
+00:04:05,808 --> 00:04:08,908
+These UI elements could be static objects in the scene
+
+90
+00:04:08,908 --> 00:04:10,908
+or mobile objects like speech bubbles
+
+91
+00:04:10,908 --> 00:04:14,324
+or player tags that follow game objects in the scene.
+
+92
+00:04:15,183 --> 00:04:18,429
+The first thing to note about a canvas in world space mode
+
+93
+00:04:18,429 --> 00:04:22,030
+is that the canvas no longer drives the rect transform
+
+94
+00:04:22,030 --> 00:04:25,236
+and the canvas can be set anywhere in world space.
+
+95
+00:04:25,736 --> 00:04:27,736
+With the understanding that there can be more than
+
+96
+00:04:27,736 --> 00:04:30,604
+one canvas in the scene it is not uncommon to go
+
+97
+00:04:30,604 --> 00:04:33,399
+create new world space canvas' as necessary for
+
+98
+00:04:33,399 --> 00:04:35,704
+world space UI elements.
+
+99
+00:04:41,106 --> 00:04:43,314
+Event Camera is required to received
+
+100
+00:04:43,314 --> 00:04:45,646
+events and determine which camera will be used
+
+101
+00:04:45,646 --> 00:04:49,001
+to detect events like clicking on a UI element.
+
+102
+00:04:49,349 --> 00:04:52,946
+In most cases, with screen space world selected
+
+103
+00:04:52,946 --> 00:04:56,766
+this event camera will be the camera rendering the scene.
+
+104
+00:04:57,846 --> 00:04:59,846
+Receives Events indicates whether the
+
+105
+00:04:59,846 --> 00:05:01,846
+UI elements on this canvas will
+
+106
+00:05:01,846 --> 00:05:04,560
+receive events like clicks and hovers.
+
+107
+00:05:05,019 --> 00:05:07,350
+Disable this property to ignore events on
+
+108
+00:05:07,350 --> 00:05:10,363
+all UI elements that are children of this canvas.
+
+109
+00:05:11,346 --> 00:05:13,346
+Sorting Order and Order in Layer are
+
+110
+00:05:13,346 --> 00:05:15,858
+for controlling the render order of the canvas
+
+111
+00:05:15,858 --> 00:05:18,812
+when compared to other renderers in the scene.
+
+112
+00:05:18,812 --> 00:05:21,502
+Sorting Order and Order in Layer are exposed on the
+
+113
+00:05:21,502 --> 00:05:23,502
+canvas component and are available for
+
+114
+00:05:23,502 --> 00:05:26,181
+canvas' set to either screen space - camera
+
+115
+00:05:26,181 --> 00:05:27,767
+or world space.
+
+116
+00:05:28,336 --> 00:05:30,336
+For more information on Sorting Layers
+
+117
+00:05:30,336 --> 00:05:34,278
+and Order in Layer please see the information linked below.
+
+118
+00:05:35,455 --> 00:05:37,455
+UI elements on a canvas will be rendered
+
+119
+00:05:37,455 --> 00:05:39,455
+in a top-down order,
+
+120
+00:05:39,955 --> 00:05:42,422
+where the first items are rendered at the back
+
+121
+00:05:42,422 --> 00:05:45,896
+and lower items are rendered later and appear on top.
+
+122
+00:05:45,896 --> 00:05:48,492
+To change the order in which a UI element renders
+
+123
+00:05:48,492 --> 00:05:50,995
+simply change it's order in the hierarchy

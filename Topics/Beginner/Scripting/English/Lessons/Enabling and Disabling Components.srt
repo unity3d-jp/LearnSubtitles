@@ -1,0 +1,111 @@
+1
+00:00:00,318 --> 00:00:03,116
+To enable or disable a component in Unity
+
+2
+00:00:03,116 --> 00:00:05,116
+simply use the Enabled flag.
+
+3
+00:00:05,395 --> 00:00:07,395
+In this example we have a reference
+
+4
+00:00:07,395 --> 00:00:09,797
+to a light, called myLight
+
+5
+00:00:10,476 --> 00:00:12,476
+and in Start we're setting this variable
+
+6
+00:00:12,476 --> 00:00:14,476
+using the GetComponent function
+
+7
+00:00:14,476 --> 00:00:17,098
+to the light component attached to our object.
+
+8
+00:00:17,764 --> 00:00:20,820
+In update I'm waiting for the key press space
+
+9
+00:00:20,820 --> 00:00:22,958
+and then I'm setting the Enabled flag
+
+10
+00:00:22,958 --> 00:00:24,546
+on myLight to false.
+
+11
+00:00:25,237 --> 00:00:27,237
+Let's see it in action.
+
+12
+00:00:31,314 --> 00:00:33,562
+I could also set this to true, but it
+
+13
+00:00:33,562 --> 00:00:34,967
+would be even more efficient to make
+
+14
+00:00:34,967 --> 00:00:36,967
+it a toggle. So I'll set it to
+
+15
+00:00:36,967 --> 00:00:39,945
+the inverse of myLight.enabled.
+
+16
+00:00:39,945 --> 00:00:42,476
+So by using the exclamation mark
+
+17
+00:00:42,476 --> 00:00:45,138
+not keyword I'm effectively saying
+
+18
+00:00:45,138 --> 00:00:47,414
+set this to whatever it's not at the moment.
+
+19
+00:00:47,845 --> 00:00:49,383
+So I'll save my script.
+
+20
+00:00:51,160 --> 00:00:53,699
+And now you can see that when I press play
+
+21
+00:00:55,746 --> 00:00:57,746
+the spacebar acts as a toggle
+
+22
+00:00:57,746 --> 00:01:00,022
+switching the light component on and off
+
+23
+00:01:00,022 --> 00:01:02,450
+signified by the checking and unchecking
+
+24
+00:01:02,450 --> 00:01:04,450
+of the checkbox next to the name of
+
+25
+00:01:04,450 --> 00:01:05,978
+the component in the inspector. 
+
+26
+00:01:05,978 --> 00:01:07,978
+Keep in mind that because scripts are also
+
+27
+00:01:07,978 --> 00:01:10,325
+components you can use the dot enabled
+
+28
+00:01:10,325 --> 00:01:12,697
+flag to disable those too.

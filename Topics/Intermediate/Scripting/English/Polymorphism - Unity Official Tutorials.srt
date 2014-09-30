@@ -1,0 +1,299 @@
+1
+00:00:00,649 --> 00:00:02,635
+Polymorphism is a feature of inheritance that
+
+2
+00:00:02,635 --> 00:00:05,475
+allows classes to have more than one type.
+
+3
+00:00:05,475 --> 00:00:07,475
+Within an inheritance hierarchy
+
+4
+00:00:07,475 --> 00:00:11,109
+any child class can be said to be a parent class.
+
+5
+00:00:11,109 --> 00:00:14,068
+This means that any time a base class is needed
+
+6
+00:00:14,068 --> 00:00:16,732
+a derived class can be used in it's place.
+
+7
+00:00:17,232 --> 00:00:19,232
+Let's say we have a game that uses an inheritance
+
+8
+00:00:19,232 --> 00:00:21,232
+hierarchy where Orc and Goblin are derived
+
+9
+00:00:21,232 --> 00:00:24,289
+from Enemy, which in turn is derived from Humanoid.
+
+10
+00:00:25,024 --> 00:00:27,024
+One thing you might want to do is create a collection of
+
+11
+00:00:27,024 --> 00:00:29,024
+all the enemy objects in the scene.
+
+12
+00:00:29,524 --> 00:00:31,524
+Rather than having 2 collections, 1 for
+
+13
+00:00:31,524 --> 00:00:33,952
+all the Orcs and 1 for all the Goblins,
+
+14
+00:00:33,952 --> 00:00:35,952
+you could have 1 collection of enemy objects
+
+15
+00:00:35,952 --> 00:00:38,862
+that both Orc objects and Goblin objects
+
+16
+00:00:38,862 --> 00:00:40,335
+could be elements of.
+
+17
+00:00:41,125 --> 00:00:43,708
+Similarly, if you also had a player class
+
+18
+00:00:43,708 --> 00:00:45,708
+that inherited from Humanoid then you
+
+19
+00:00:45,708 --> 00:00:47,708
+could create a collection of all of the humanoid
+
+20
+00:00:47,708 --> 00:00:50,968
+objects in a scene and it could contain all Orcs,
+
+21
+00:00:50,968 --> 00:00:52,968
+Goblins and Players.
+
+22
+00:00:52,968 --> 00:00:54,968
+Polymorphism also works for things like
+
+23
+00:00:54,968 --> 00:00:56,029
+function parameters.
+
+24
+00:00:56,029 --> 00:00:58,029
+Consider the OnTrigger functions.
+
+25
+00:00:58,029 --> 00:01:00,029
+Generally they have a collider parameter
+
+26
+00:01:00,029 --> 00:01:02,849
+which is usually called something like Other.
+
+27
+00:01:03,459 --> 00:01:06,289
+Game objects do not have a collider component
+
+28
+00:01:06,289 --> 00:01:08,622
+on them, however they could have a box collider,
+
+29
+00:01:08,622 --> 00:01:11,985
+sphere collider, mesh collider or something similar.
+
+30
+00:01:12,485 --> 00:01:14,693
+When the OnTrigger functions are called
+
+31
+00:01:14,693 --> 00:01:17,662
+we don't know which type of collider is being used/
+
+32
+00:01:17,662 --> 00:01:20,651
+In fact, each object's specific collider is
+
+33
+00:01:20,651 --> 00:01:22,358
+parsed in to the function.
+
+34
+00:01:22,358 --> 00:01:24,358
+Since all of these different colliders inherit functions
+
+35
+00:01:24,358 --> 00:01:27,488
+from the collider parent class any of them will work.
+
+36
+00:01:27,988 --> 00:01:31,090
+It is important to know that the opposite is not possible.
+
+37
+00:01:31,424 --> 00:01:33,687
+Using our previous example
+
+38
+00:01:33,687 --> 00:01:35,687
+an Orc is an enemy
+
+39
+00:01:35,687 --> 00:01:37,948
+but an enemy is not an Orc.
+
+40
+00:01:37,948 --> 00:01:40,448
+You cannot have something expecting a child class
+
+41
+00:01:40,448 --> 00:01:42,198
+and give it a parent class.
+
+42
+00:01:42,808 --> 00:01:44,808
+One slightly clever use of polymorphism
+
+43
+00:01:44,808 --> 00:01:47,662
+involves constructors and object references.
+
+44
+00:01:47,662 --> 00:01:50,132
+You can declare an object of a base class type and
+
+45
+00:01:50,132 --> 00:01:53,574
+then call the constructor of one of it's derived classes.
+
+46
+00:01:53,574 --> 00:01:55,574
+This is because the variable reference is expecting
+
+47
+00:01:55,574 --> 00:01:57,905
+something of the base classes type
+
+48
+00:01:57,905 --> 00:01:59,905
+and the constructor of the child class creates
+
+49
+00:01:59,905 --> 00:02:01,780
+something of a derived type.
+
+50
+00:02:01,780 --> 00:02:03,780
+If this seems confusing just remember
+
+51
+00:02:03,780 --> 00:02:07,206
+that child class is a parent class
+
+52
+00:02:07,206 --> 00:02:09,592
+therefore this conversion works
+
+53
+00:02:09,592 --> 00:02:12,468
+and is a process known as upcasting.
+
+54
+00:02:13,175 --> 00:02:15,175
+While an object is upcasted it can only
+
+55
+00:02:15,175 --> 00:02:18,097
+be treated as an object of it's parent class.
+
+56
+00:02:18,097 --> 00:02:21,635
+In this example, while ChildClass is upcasted
+
+57
+00:02:21,635 --> 00:02:24,355
+it can only be treated as a parent class.
+
+58
+00:02:24,717 --> 00:02:26,717
+This means that only the variables and methods available
+
+59
+00:02:26,717 --> 00:02:28,884
+in the parent class can be used
+
+60
+00:02:28,884 --> 00:02:30,884
+and they will be treated as if they were in
+
+61
+00:02:30,884 --> 00:02:33,203
+an object of the parent class
+
+62
+00:02:33,203 --> 00:02:35,203
+The exception to this is virtual functions,
+
+63
+00:02:35,203 --> 00:02:37,825
+which will call the most overridden version.
+
+64
+00:02:37,825 --> 00:02:39,825
+For more information about virtual functions
+
+65
+00:02:39,825 --> 00:02:41,825
+and overriding them see the lesson
+
+66
+00:02:41,825 --> 00:02:44,141
+on Overriding linked below.
+
+67
+00:02:44,141 --> 00:02:47,591
+In order to treat this child class like a child class
+
+68
+00:02:47,591 --> 00:02:50,077
+we need to downcast the ChildClass variable
+
+69
+00:02:50,077 --> 00:02:51,773
+back in to the child class type.
+
+70
+00:02:52,370 --> 00:02:54,370
+We do this by enclosing the name
+
+71
+00:02:54,370 --> 00:02:58,266
+of the type in brackets and putting it in front of the variable.
+
+72
+00:02:58,266 --> 00:03:01,122
+We can either enclose this in another set of brackets
+
+73
+00:03:01,122 --> 00:03:03,941
+and use the .operator to access members
+
+74
+00:03:03,941 --> 00:03:05,941
+or we can create a reference
+
+75
+00:03:05,941 --> 00:03:07,941
+to this new version.

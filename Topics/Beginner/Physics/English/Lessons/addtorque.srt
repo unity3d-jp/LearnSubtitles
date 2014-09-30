@@ -1,0 +1,287 @@
+1
+00:00:00,000 --> 00:00:02,204
+The AddTorque function is similar to
+
+2
+00:00:02,204 --> 00:00:04,479
+AddForce, but the force works by rotating
+
+3
+00:00:04,479 --> 00:00:07,463
+the game object around a defined axis.
+
+4
+00:00:07,562 --> 00:00:09,727
+AddTorque has two components, 
+
+5
+00:00:09,727 --> 00:00:11,907
+the second being optional. The first is
+
+6
+00:00:11,907 --> 00:00:14,251
+a vector that defines the axis around
+
+7
+00:00:14,251 --> 00:00:16,184
+which the torque will be applied
+
+8
+00:00:16,184 --> 00:00:18,184
+and the magnitude of the torque applied.
+
+9
+00:00:18,184 --> 00:00:20,184
+In this example our power cube
+
+10
+00:00:20,184 --> 00:00:21,960
+has this script attached.
+
+11
+00:00:22,322 --> 00:00:24,322
+We are using the AddTorque function
+
+12
+00:00:24,322 --> 00:00:26,667
+and specifying that transform.up,
+
+13
+00:00:26,667 --> 00:00:28,667
+the local up direction of the object,
+
+14
+00:00:28,667 --> 00:00:30,950
+will be the axis to add torque to.
+
+15
+00:00:30,950 --> 00:00:34,020
+Because Unity uses the left-hand screw rule
+
+16
+00:00:34,020 --> 00:00:36,186
+torque will be added around this axis
+
+17
+00:00:36,186 --> 00:00:37,841
+as shown in this diagram.
+
+18
+00:00:37,841 --> 00:00:39,967
+Try for yourself by making a thumbs-up
+
+19
+00:00:39,967 --> 00:00:42,342
+gesture with your left hand. Then imagine
+
+20
+00:00:42,342 --> 00:00:44,342
+that the torque is added in the direction
+
+21
+00:00:44,342 --> 00:00:47,243
+that your fingers are curled in to your palm.
+
+22
+00:00:48,503 --> 00:00:50,696
+Here we are simply multiplying by the 
+
+23
+00:00:50,696 --> 00:00:53,101
+variable H, which is a variable used 
+
+24
+00:00:53,101 --> 00:00:55,363
+to get input from the horizontal axis,
+
+25
+00:00:55,363 --> 00:00:58,197
+multiplied by the amount variable over time.
+
+26
+00:00:58,197 --> 00:01:00,542
+On the other AddTorque line we are applying
+
+27
+00:01:00,542 --> 00:01:02,778
+it to the transform.right axis.
+
+28
+00:01:02,778 --> 00:01:05,237
+The local X axis of the object.
+
+29
+00:01:05,844 --> 00:01:07,844
+Let's see this in action.
+
+30
+00:01:08,883 --> 00:01:11,298
+When I press the horizontal keys
+
+31
+00:01:12,268 --> 00:01:15,409
+I can apply torque and as you can see
+
+32
+00:01:15,409 --> 00:01:17,409
+once the torque is applied and I let go of
+
+33
+00:01:17,409 --> 00:01:19,409
+the key the inertia will
+
+34
+00:01:19,409 --> 00:01:20,885
+keep going because this is part of
+
+35
+00:01:20,885 --> 00:01:22,885
+the physics simulation.
+
+36
+00:01:23,827 --> 00:01:27,532
+Similarly I can apply it to the X axis
+
+37
+00:01:27,532 --> 00:01:30,255
+and because this is local it will spin
+
+38
+00:01:30,255 --> 00:01:32,158
+around that axis depending on wherever
+
+39
+00:01:32,158 --> 00:01:34,158
+it happens to be.
+
+40
+00:01:34,658 --> 00:01:36,658
+You should also keep in mind that the angular
+
+41
+00:01:36,658 --> 00:01:39,126
+drag component of the rigidbody
+
+42
+00:01:39,126 --> 00:01:41,350
+would define how effective the torque is
+
+43
+00:01:41,350 --> 00:01:43,350
+when applied to the object.
+
+44
+00:01:44,043 --> 00:01:46,043
+For example I can apply a lot of torque
+
+45
+00:01:46,043 --> 00:01:48,557
+around this axis, leave it running under
+
+46
+00:01:48,557 --> 00:01:51,598
+inertia, but when I increase angular drag
+
+47
+00:01:51,598 --> 00:01:53,598
+it becomes a lot harder to get that object
+
+48
+00:01:53,598 --> 00:01:56,054
+moving because of the angular drag.
+
+49
+00:02:00,518 --> 00:02:02,518
+Whereas if we have no angular drag
+
+50
+00:02:02,518 --> 00:02:04,518
+it's easy to keep the object spinning
+
+51
+00:02:04,518 --> 00:02:06,518
+in a particular direction because there's
+
+52
+00:02:06,518 --> 00:02:08,518
+very little drag slowing it down.
+
+53
+00:02:12,001 --> 00:02:13,808
+The second parameter is an optional
+
+54
+00:02:13,808 --> 00:02:15,808
+parameter used to effect the type of
+
+55
+00:02:15,808 --> 00:02:17,614
+force that's going to be applied.
+
+56
+00:02:17,614 --> 00:02:19,614
+If this is left out it will default to 
+
+57
+00:02:19,614 --> 00:02:21,222
+the type Force.
+
+58
+00:02:21,722 --> 00:02:23,722
+This is used for continuous changes
+
+59
+00:02:23,722 --> 00:02:25,528
+that are effected by mass.
+
+60
+00:02:25,793 --> 00:02:28,169
+Acceleration is for continuous changes
+
+61
+00:02:28,169 --> 00:02:30,072
+that aren't effected by mass.
+
+62
+00:02:30,296 --> 00:02:32,420
+Impulse is for an instant change that
+
+63
+00:02:32,420 --> 00:02:34,033
+is effected by mass.
+
+64
+00:02:34,243 --> 00:02:36,381
+And Velocity Change is for an instant
+
+65
+00:02:36,381 --> 00:02:38,934
+change that isn't effected by mass.
+
+66
+00:02:39,530 --> 00:02:42,439
+Let's see the effect of adding this to our script.
+
+67
+00:02:44,638 --> 00:02:47,345
+Now when rotating the cube using our torque
+
+68
+00:02:47,345 --> 00:02:49,165
+when I press the opposite key to apply
+
+69
+00:02:49,165 --> 00:02:51,249
+torque in the other direction it responds
+
+70
+00:02:51,249 --> 00:02:52,378
+far more quickly.
+
+71
+00:02:52,378 --> 00:02:54,378
+So it's worth always considering the type
+
+72
+00:02:54,378 --> 00:02:57,572
+of force that you're applying when adding torque.

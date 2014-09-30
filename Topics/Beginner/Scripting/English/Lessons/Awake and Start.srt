@@ -1,0 +1,147 @@
+1
+00:00:00,221 --> 00:00:02,465
+Awake and Start are two functions that
+
+2
+00:00:02,465 --> 00:00:04,174
+are called automatically when a script 
+
+3
+00:00:04,174 --> 00:00:06,644
+is loaded. Awake is called first
+
+4
+00:00:06,644 --> 00:00:09,311
+even if the script component is not enabled
+
+5
+00:00:09,311 --> 00:00:11,311
+and is best used for setting up any references
+
+6
+00:00:11,311 --> 00:00:13,756
+between scripts and initialisation.
+
+7
+00:00:14,256 --> 00:00:16,561
+Start is called after Awake, immediately
+
+8
+00:00:16,561 --> 00:00:18,561
+before the first Update, but only if
+
+9
+00:00:18,561 --> 00:00:20,561
+the script component is enabled.
+
+10
+00:00:21,061 --> 00:00:22,690
+This means that you can use Start for
+
+11
+00:00:22,690 --> 00:00:24,690
+anything you need to occur when the script
+
+12
+00:00:24,690 --> 00:00:26,089
+component is enabled. 
+
+13
+00:00:26,382 --> 00:00:28,271
+This allows you to delay any part of your 
+
+14
+00:00:28,271 --> 00:00:31,228
+initalisation code until it's really needed.
+
+15
+00:00:31,228 --> 00:00:33,228
+For example an enemy character could enter
+
+16
+00:00:33,228 --> 00:00:35,897
+the game and use Awake to have ammo
+
+17
+00:00:35,897 --> 00:00:37,897
+count assigned to him, but only
+
+18
+00:00:37,897 --> 00:00:40,245
+get the ability to shoot, using Start
+
+19
+00:00:40,245 --> 00:00:42,245
+at a defined time when that script component
+
+20
+00:00:42,245 --> 00:00:44,245
+is enabled. It should be noted 
+
+21
+00:00:44,245 --> 00:00:46,245
+however that Start and Awake will only
+
+22
+00:00:46,245 --> 00:00:48,245
+ever be called once in the lifetime of
+
+23
+00:00:48,245 --> 00:00:50,245
+a script attached to an object.
+
+24
+00:00:50,245 --> 00:00:52,245
+So you cannot repeat the Start function
+
+25
+00:00:52,245 --> 00:00:55,405
+by disabling and re-enabling a script.
+
+26
+00:00:56,181 --> 00:00:58,377
+In this example we have a script that
+
+27
+00:00:58,377 --> 00:01:00,377
+has Awake and Start functions.
+
+28
+00:01:02,576 --> 00:01:04,576
+We're using Debug.Log to show
+
+29
+00:01:04,576 --> 00:01:06,576
+when those two things occur.
+
+30
+00:01:07,076 --> 00:01:09,076
+For example without this script component
+
+31
+00:01:09,076 --> 00:01:12,208
+enabled we will simply see the Awake function.
+
+32
+00:01:19,061 --> 00:01:21,061
+But if I enable the script I will see that
+
+33
+00:01:21,061 --> 00:01:23,061
+both functions have been called.
+
+34
+00:01:27,773 --> 00:01:30,193
+This is useful as it allows you to initialise
+
+35
+00:01:30,193 --> 00:01:32,193
+settings for an object before enabling
+
+36
+00:01:32,193 --> 00:01:34,818
+that script component without the need for
+
+37
+00:01:34,818 --> 00:01:38,080
+splitting the script in to several different scripts.

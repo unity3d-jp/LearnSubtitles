@@ -1,0 +1,107 @@
+1
+00:00:00,000 --> 00:00:02,293
+LookAt can be used to make a gameobject's
+
+2
+00:00:02,293 --> 00:00:04,083
+forward direction point at another 
+
+3
+00:00:04,083 --> 00:00:06,609
+transform in the world. In this example
+
+4
+00:00:06,609 --> 00:00:08,678
+our samoflange prop is falling and
+
+5
+00:00:08,678 --> 00:00:10,678
+bouncing off of our hoverpad.
+
+6
+00:00:14,203 --> 00:00:16,203
+Our camera is pointing at the hoverpad,
+
+7
+00:00:16,203 --> 00:00:17,995
+as you can see in the game view.
+
+8
+00:00:17,995 --> 00:00:19,637
+But what if we want to make it look at the
+
+9
+00:00:19,637 --> 00:00:21,817
+falling object? We can use the LookAt
+
+10
+00:00:21,817 --> 00:00:23,817
+function inside of update in order to
+
+11
+00:00:23,817 --> 00:00:26,219
+achieve this. In this script you can see
+
+12
+00:00:26,219 --> 00:00:27,843
+that we make a reference to the object
+
+13
+00:00:27,843 --> 00:00:29,481
+that we wish to look for.
+
+14
+00:00:30,136 --> 00:00:33,371
+A variable called 'target' of type transform.
+
+15
+00:00:33,371 --> 00:00:35,909
+We then use the transform.LookAt function
+
+16
+00:00:35,909 --> 00:00:38,493
+to tell our object to look at the target.
+
+17
+00:00:39,818 --> 00:00:41,818
+Now we'll simply apply this to our camera
+
+18
+00:00:41,818 --> 00:00:44,890
+and drag on the prop samoflange object
+
+19
+00:00:44,890 --> 00:00:46,890
+as the object to track.
+
+20
+00:00:48,343 --> 00:00:50,343
+Now when I press play
+
+21
+00:00:52,901 --> 00:00:56,291
+our camera is constantly facing the object.
+
+22
+00:00:56,667 --> 00:00:58,667
+Remember that you can toggle between global
+
+23
+00:00:58,667 --> 00:01:01,275
+and local axis representation at the top
+
+24
+00:01:01,275 --> 00:01:02,771
+of the interface.
+
+25
+00:01:04,438 --> 00:01:08,013
+This is with global, and if I toggle to local
+
+26
+00:01:08,013 --> 00:01:09,724
+you can see my forward direction is 
+
+27
+00:01:09,724 --> 00:01:12,003
+facing the object.

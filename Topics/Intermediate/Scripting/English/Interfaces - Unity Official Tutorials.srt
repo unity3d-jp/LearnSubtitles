@@ -1,0 +1,387 @@
+1
+00:00:00,249 --> 00:00:01,952
+Interfaces can be thought of as a
+
+2
+00:00:01,952 --> 00:00:03,648
+contract on functionality.
+
+3
+00:00:04,148 --> 00:00:06,148
+Any class that implements an interface
+
+4
+00:00:06,148 --> 00:00:08,690
+must have all of it's methods and properties.
+
+5
+00:00:08,690 --> 00:00:10,871
+In exchange the implementing class
+
+6
+00:00:10,871 --> 00:00:13,382
+can be treated like the interface by other classes
+
+7
+00:00:13,382 --> 00:00:15,079
+using polymorphism.
+
+8
+00:00:15,079 --> 00:00:17,079
+It is important to note that interfaces are
+
+9
+00:00:17,079 --> 00:00:20,462
+not classes and cannot have their own instances.
+
+10
+00:00:21,100 --> 00:00:24,075
+While inheritance is an Is A relationship
+
+11
+00:00:24,075 --> 00:00:26,075
+where one class inherits from another
+
+12
+00:00:26,075 --> 00:00:29,697
+interfaces use an Implements relationship.
+
+13
+00:00:29,697 --> 00:00:32,432
+Where one class implements an interface.
+
+14
+00:00:32,808 --> 00:00:36,073
+Interfaces are usually declared outside of a class.
+
+15
+00:00:36,073 --> 00:00:38,073
+When declaring interfaces you would
+
+16
+00:00:38,073 --> 00:00:40,458
+commonly use one script per interface,
+
+17
+00:00:40,458 --> 00:00:42,458
+but for the purpose of this example we're going
+
+18
+00:00:42,458 --> 00:00:44,458
+to show two in the same script.
+
+19
+00:00:44,958 --> 00:00:46,958
+By convention interfaces are declared
+
+20
+00:00:46,958 --> 00:00:49,837
+using a name that starts with a capital I
+
+21
+00:00:49,837 --> 00:00:53,088
+followed by a name that starts with another capital letter.
+
+22
+00:00:53,088 --> 00:00:55,687
+Since interfaces normally describe some functionality
+
+23
+00:00:55,687 --> 00:00:57,687
+that the implementing classes will have
+
+24
+00:00:57,687 --> 00:01:00,901
+a lot of interfaces end in the postfix 'able'.
+
+25
+00:01:01,291 --> 00:01:03,291
+It is worth noting however that this is not
+
+26
+00:01:03,291 --> 00:01:05,291
+mandatory and could potentially be
+
+27
+00:01:05,291 --> 00:01:07,710
+misleading depending on the interface.
+
+28
+00:01:07,710 --> 00:01:09,960
+We have declared two interfaces here,
+
+29
+00:01:09,960 --> 00:01:12,722
+IKillable and IDamageable.
+
+30
+00:01:13,222 --> 00:01:16,234
+In IKillable we have a function called Kill,
+
+31
+00:01:16,234 --> 00:01:19,450
+which has a return type of void and no parameters.
+
+32
+00:01:19,798 --> 00:01:22,650
+Any class which implements the IKillable interface
+
+33
+00:01:22,650 --> 00:01:26,195
+must have a public function which matches this signature.
+
+34
+00:01:26,695 --> 00:01:30,356
+The IDamageable interface has a generic type T.
+
+35
+00:01:30,356 --> 00:01:32,356
+This means that anything in the interface
+
+36
+00:01:32,356 --> 00:01:33,818
+can have a generic type
+
+37
+00:01:33,818 --> 00:01:35,818
+The function we have in IDamageable,
+
+38
+00:01:35,818 --> 00:01:38,984
+Damage, takes a parameter of type T.
+
+39
+00:01:39,484 --> 00:01:41,484
+When an interface with a generic type is
+
+40
+00:01:41,484 --> 00:01:43,484
+implemented by a class
+
+41
+00:01:43,484 --> 00:01:45,484
+the type must be chosen.
+
+42
+00:01:45,484 --> 00:01:48,701
+Then the corresponding type must be used throughout.
+
+43
+00:01:49,611 --> 00:01:51,611
+Implementing an interface comes with some
+
+44
+00:01:51,611 --> 00:01:53,486
+requirements and some benefits.
+
+45
+00:01:53,486 --> 00:01:56,595
+In order to implement an interface a class must
+
+46
+00:01:56,595 --> 00:01:58,595
+publicly declare all of the methods,
+
+47
+00:01:58,595 --> 00:02:00,595
+properties, events and indexers 
+
+48
+00:02:00,595 --> 00:02:02,843
+that exist in that interface.
+
+49
+00:02:02,843 --> 00:02:05,729
+Failure to do so will result in an error.
+
+50
+00:02:05,729 --> 00:02:07,729
+The major advantage of interfaces is
+
+51
+00:02:07,729 --> 00:02:10,160
+that they allow you to define common functionality
+
+52
+00:02:10,160 --> 00:02:12,577
+across many classes, therefore,
+
+53
+00:02:12,577 --> 00:02:14,577
+you are able to safely make assumptions
+
+54
+00:02:14,577 --> 00:02:16,577
+about what classes can do based on
+
+55
+00:02:16,577 --> 00:02:18,577
+the interfaces that they implement.
+
+56
+00:02:19,077 --> 00:02:21,077
+To implement an interface simply add a
+
+57
+00:02:21,077 --> 00:02:23,818
+comma after any inheritance the class has
+
+58
+00:02:23,818 --> 00:02:25,818
+followed by the name of the interface.
+
+59
+00:02:25,818 --> 00:02:27,818
+If the class doesn't inherit then the comma
+
+60
+00:02:27,818 --> 00:02:29,280
+is not required.
+
+61
+00:02:29,280 --> 00:02:31,280
+If the interface has a generic type
+
+62
+00:02:31,280 --> 00:02:33,280
+then the name should be followed by angle brackets
+
+63
+00:02:33,280 --> 00:02:35,210
+with the type in them.
+
+64
+00:02:35,210 --> 00:02:38,020
+In this case we have class Avatar,
+
+65
+00:02:38,020 --> 00:02:40,020
+which inherits from monobehaviour
+
+66
+00:02:40,020 --> 00:02:43,600
+and implements IKillable and IDamageable
+
+67
+00:02:43,600 --> 00:02:45,475
+with the type Float.
+
+68
+00:02:45,475 --> 00:02:47,475
+We must also declare both of the functions
+
+69
+00:02:47,475 --> 00:02:49,213
+required for these interfaces.
+
+70
+00:02:49,213 --> 00:02:51,213
+Note that the body of the functions is
+
+71
+00:02:51,213 --> 00:02:53,213
+independent of the interfaces and can be
+
+72
+00:02:53,213 --> 00:02:55,213
+implemented however you would like.
+
+73
+00:02:55,213 --> 00:02:57,213
+These sorts of interfaces might be useful
+
+74
+00:02:57,213 --> 00:02:59,213
+if there was a situation in your game where you
+
+75
+00:02:59,213 --> 00:03:01,654
+wanted to do damage or kill everything.
+
+76
+00:03:01,654 --> 00:03:03,654
+Simply by finding everything that implemented
+
+77
+00:03:03,654 --> 00:03:06,150
+IKillable or IDamageable
+
+78
+00:03:06,150 --> 00:03:07,499
+you could be sure that they will have the
+
+79
+00:03:07,499 --> 00:03:09,499
+kill or damage functions.
+
+80
+00:03:10,220 --> 00:03:12,054
+You may be wondering to yourself why you would
+
+81
+00:03:12,054 --> 00:03:14,054
+implement an interface in a class when you could
+
+82
+00:03:14,054 --> 00:03:16,054
+just define a function once in a class
+
+83
+00:03:16,054 --> 00:03:18,499
+and have other classes inherit from it.
+
+84
+00:03:18,499 --> 00:03:20,499
+The easy answer is that you can implement
+
+85
+00:03:20,499 --> 00:03:22,982
+multiple interfaces, but you cannot inherit
+
+86
+00:03:22,982 --> 00:03:25,537
+from multiple classes, therefore,
+
+87
+00:03:25,537 --> 00:03:27,537
+interfaces are a nice way to provide a wide
+
+88
+00:03:27,537 --> 00:03:29,537
+range of functionality.
+
+89
+00:03:29,537 --> 00:03:31,537
+The better answer though is that interfaces are
+
+90
+00:03:31,537 --> 00:03:33,537
+used to define common functionality across
+
+91
+00:03:33,537 --> 00:03:36,317
+many classes that are unrelated to each other.
+
+92
+00:03:36,317 --> 00:03:39,822
+Consider two classes, Wall and Car.
+
+93
+00:03:39,822 --> 00:03:41,822
+Wall and Car have very little in common with
+
+94
+00:03:41,822 --> 00:03:44,408
+each other except that they both are damageable.
+
+95
+00:03:44,408 --> 00:03:46,701
+Since they are so different from each other
+
+96
+00:03:46,701 --> 00:03:49,433
+inheriting from a parent class makes little sense.
+
+97
+00:03:50,030 --> 00:03:52,818
+Implementing an interface however works great.

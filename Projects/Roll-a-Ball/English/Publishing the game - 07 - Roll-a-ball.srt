@@ -1,0 +1,391 @@
+1
+00:00:01,243 --> 00:00:03,090
+Now that we've finished our game we need to 
+
+2
+00:00:03,090 --> 00:00:04,797
+present it to our players.
+
+3
+00:00:04,797 --> 00:00:07,034
+One of the greatest things about Unity is that
+
+4
+00:00:07,034 --> 00:00:09,326
+once we have created our game we can deploy
+
+5
+00:00:09,326 --> 00:00:11,326
+it to many of the current platforms.
+
+6
+00:00:11,826 --> 00:00:13,826
+For more detailed information on building and
+
+7
+00:00:13,826 --> 00:00:16,630
+build targets please see the lesson linked below.
+
+8
+00:00:17,240 --> 00:00:19,240
+Before we build our game we should
+
+9
+00:00:19,240 --> 00:00:20,725
+save our scene.
+
+10
+00:00:20,725 --> 00:00:22,725
+To build our game we must first open
+
+11
+00:00:22,725 --> 00:00:24,725
+the Build Settings window.
+
+12
+00:00:24,725 --> 00:00:29,029
+We can do this by selecting File - Build Settings
+
+13
+00:00:29,029 --> 00:00:30,735
+or by using the key combination of
+
+14
+00:00:30,735 --> 00:00:34,895
+shift plus command or control plus B.
+
+15
+00:00:35,980 --> 00:00:38,709
+This brings up the Build Settings window.
+
+16
+00:00:38,709 --> 00:00:42,126
+Our current build target is indicated by the Unity logo.
+
+17
+00:00:42,126 --> 00:00:44,126
+The blue highlight indicates our focus and
+
+18
+00:00:44,126 --> 00:00:46,896
+shows us on the right hand side the build
+
+19
+00:00:46,896 --> 00:00:49,484
+options for the currently selected platform.
+
+20
+00:00:50,487 --> 00:00:52,487
+We want to build to the web player.
+
+21
+00:00:52,904 --> 00:00:54,904
+Our current build target is PC, Mac and
+
+22
+00:00:54,904 --> 00:00:56,656
+Linux Standalone.
+
+23
+00:00:57,308 --> 00:00:59,947
+To change build targets, select the desired platform
+
+24
+00:00:59,947 --> 00:01:02,899
+from the list and click the Switch Platform button
+
+25
+00:01:02,899 --> 00:01:04,899
+at the bottom of the window.
+
+26
+00:01:05,813 --> 00:01:07,813
+Once we have selected our new build target
+
+27
+00:01:07,813 --> 00:01:10,034
+we need to add the scenes we want to build
+
+28
+00:01:10,034 --> 00:01:12,034
+to the Build Settings window.
+
+29
+00:01:12,034 --> 00:01:14,351
+We can add the current scene by clicking the
+
+30
+00:01:14,351 --> 00:01:16,032
+Add Current button.
+
+31
+00:01:16,032 --> 00:01:18,032
+Or we can drag and drop any scene from our
+
+32
+00:01:18,032 --> 00:01:20,372
+project view in to the field at the top of
+
+33
+00:01:20,372 --> 00:01:21,861
+the Build Settings window.
+
+34
+00:01:22,623 --> 00:01:24,623
+It's worth noting that we don't need to
+
+35
+00:01:24,623 --> 00:01:26,859
+include every scene in our project.
+
+36
+00:01:26,859 --> 00:01:28,389
+We only need to include the scenes we
+
+37
+00:01:28,389 --> 00:01:30,210
+we want in our game.
+
+38
+00:01:30,210 --> 00:01:32,210
+It is also possible to perform a build
+
+39
+00:01:32,210 --> 00:01:34,681
+with no scenes in the build Settings window.
+
+40
+00:01:35,414 --> 00:01:38,093
+If we do this, Unity will simply build our game
+
+41
+00:01:38,093 --> 00:01:40,815
+using the current scene we have open for editing.
+
+42
+00:01:42,600 --> 00:01:44,781
+Now we are ready to build our game.
+
+43
+00:01:44,781 --> 00:01:46,587
+Let's return to the Build Settings window
+
+44
+00:01:46,587 --> 00:01:48,421
+and click the Build button.
+
+45
+00:01:48,421 --> 00:01:50,421
+This will bring up a dialogue box asking us
+
+46
+00:01:50,421 --> 00:01:52,421
+to choose a build location.
+
+47
+00:01:52,421 --> 00:01:54,421
+I like to associate my build location with
+
+48
+00:01:54,421 --> 00:01:57,355
+my project, so I will create a new folder
+
+49
+00:01:57,355 --> 00:02:00,063
+inside my project called Builds.
+
+50
+00:02:00,063 --> 00:02:01,980
+This folder must be placed only on the
+
+51
+00:02:01,980 --> 00:02:03,980
+root of our project alongside the
+
+52
+00:02:03,980 --> 00:02:05,980
+assets and library folders.
+
+53
+00:02:05,980 --> 00:02:09,600
+With the build folder selected let's name the build
+
+54
+00:02:12,241 --> 00:02:14,241
+and then click save.
+
+55
+00:02:14,741 --> 00:02:16,741
+Unity will now build the web player and
+
+56
+00:02:16,741 --> 00:02:18,741
+save it to our Builds folder
+
+57
+00:02:20,995 --> 00:02:23,215
+When building a web player Unity creates a
+
+58
+00:02:23,215 --> 00:02:25,215
+folder with the name of our game
+
+59
+00:02:25,215 --> 00:02:27,704
+and in that folder are 2 files.
+
+60
+00:02:27,704 --> 00:02:30,492
+1 is the Unity3D data file,
+
+61
+00:02:30,492 --> 00:02:32,492
+which contains the game data,
+
+62
+00:02:32,492 --> 00:02:34,492
+and an HTML file which holds the code
+
+63
+00:02:34,492 --> 00:02:37,617
+to make a webpage with our game embedded in it.
+
+64
+00:02:37,617 --> 00:02:40,823
+We must have both the data file and the HTML file
+
+65
+00:02:40,823 --> 00:02:42,823
+to run our game in a browser.
+
+66
+00:02:42,823 --> 00:02:45,576
+However we can write a custom HTML file
+
+67
+00:02:45,576 --> 00:02:48,215
+to replace the page build by Unity.
+
+68
+00:02:48,215 --> 00:02:50,215
+It is also possible to create a custom
+
+69
+00:02:50,215 --> 00:02:53,333
+web player template which Unity can use to build
+
+70
+00:02:53,333 --> 00:02:55,333
+that custom page automatically.
+
+71
+00:02:56,261 --> 00:02:58,796
+To run the game open the HTML file.
+
+72
+00:03:00,097 --> 00:03:02,097
+And now we are running a local copy of the
+
+73
+00:03:02,097 --> 00:03:04,097
+game in our browser.
+
+74
+00:03:05,522 --> 00:03:07,522
+To present this to our audience we need
+
+75
+00:03:07,522 --> 00:03:09,522
+to place both the HTML file and the
+
+76
+00:03:09,522 --> 00:03:11,522
+data file up on the internet.
+
+77
+00:03:12,257 --> 00:03:14,257
+I'm going to open an FTP client and
+
+78
+00:03:14,257 --> 00:03:16,713
+place the folder with both the HTML file and 
+
+79
+00:03:16,713 --> 00:03:19,962
+the data file in it up on my website.
+
+80
+00:03:23,155 --> 00:03:25,155
+When the folder has been uploaded we can simply
+
+81
+00:03:25,155 --> 00:03:27,404
+enter the address in to our browser
+
+82
+00:03:27,404 --> 00:03:29,404
+and play our game.
+
+83
+00:03:33,454 --> 00:03:36,891
+And, we win!
+
+84
+00:03:40,692 --> 00:03:42,692
+So in these assignments we have learned how to
+
+85
+00:03:42,692 --> 00:03:44,547
+create new game objects,
+
+86
+00:03:44,547 --> 00:03:46,284
+how to position them in the scene,
+
+87
+00:03:46,284 --> 00:03:47,869
+add new components to them,
+
+88
+00:03:47,869 --> 00:03:49,869
+write our own custom behaviours for them
+
+89
+00:03:49,869 --> 00:03:51,547
+using simple scripting.
+
+90
+00:03:51,547 --> 00:03:53,699
+We've seen how to use lights, cameras,
+
+91
+00:03:53,699 --> 00:03:56,047
+colliders, triggers, rigid bodies.
+
+92
+00:03:56,047 --> 00:03:58,253
+We can collect and count objects.
+
+93
+00:03:58,253 --> 00:04:00,253
+Though this is a very simple example
+
+94
+00:04:00,253 --> 00:04:02,253
+it covers a large set of basic
+
+95
+00:04:02,253 --> 00:04:05,526
+subjects important to understanding how to use Unity.
+
+96
+00:04:06,399 --> 00:04:08,190
+For continued learning about Unity
+
+97
+00:04:08,190 --> 00:04:10,190
+check the Learn site for more lessons,
+
+98
+00:04:10,190 --> 00:04:11,746
+assignments and projects.

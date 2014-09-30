@@ -1,0 +1,139 @@
+1
+00:00:00,193 --> 00:00:02,974
+Prefabs in Unity are preconfigured game objects
+
+2
+00:00:02,974 --> 00:00:04,545
+that you create in the scene
+
+3
+00:00:04,545 --> 00:00:06,270
+and store in the project.
+
+4
+00:00:06,860 --> 00:00:09,287
+They can then be instantiated or cloned,
+
+5
+00:00:09,287 --> 00:00:11,402
+meaning to create an instance of them
+
+6
+00:00:11,402 --> 00:00:12,349
+during the game.
+
+7
+00:00:12,503 --> 00:00:14,772
+They have all manner of uses and are a key part
+
+8
+00:00:14,772 --> 00:00:16,032
+of development in Unity.
+
+9
+00:00:16,429 --> 00:00:18,188
+They are used for everything from rockets
+
+10
+00:00:18,188 --> 00:00:20,188
+to enemies, to procedural levels.
+
+11
+00:00:20,563 --> 00:00:23,562
+To make a prefab simply create your game object
+
+12
+00:00:23,562 --> 00:00:26,013
+in it's desired configuration in your scene,
+
+13
+00:00:26,013 --> 00:00:28,013
+from whatever components you need,
+
+14
+00:00:28,013 --> 00:00:30,013
+and then drag it to the project panel
+
+15
+00:00:30,013 --> 00:00:31,637
+to save it as a prefab.
+
+16
+00:00:32,060 --> 00:00:34,460
+It can then be deleted from the scene.
+
+17
+00:00:35,889 --> 00:00:39,585
+To edit a prefab you can either select it in the project,
+
+18
+00:00:39,585 --> 00:00:41,856
+and adjust properties in the inspector.
+
+19
+00:00:42,307 --> 00:00:45,425
+Or drag an instance of it back in to the scene,
+
+20
+00:00:46,383 --> 00:00:48,383
+edit it in the inspector,
+
+21
+00:00:49,228 --> 00:00:51,764
+and then press the apply button at the top.
+
+22
+00:00:52,818 --> 00:00:55,032
+This saves changes back in to the prefab
+
+23
+00:00:55,032 --> 00:00:57,042
+and you can then remove the instance from the scene
+
+24
+00:00:57,042 --> 00:00:58,316
+yet again.
+
+25
+00:01:00,696 --> 00:01:04,043
+Also, if you have many instances of a prefab,
+
+26
+00:01:06,598 --> 00:01:08,598
+and you make edits to one of them,
+
+27
+00:01:11,286 --> 00:01:13,968
+and decide you would like others to be the same
+
+28
+00:01:13,968 --> 00:01:15,064
+you can hit apply.
+
+29
+00:01:15,200 --> 00:01:16,893
+The other instances will inherit this update
+
+30
+00:01:16,893 --> 00:01:18,361
+from the prefab's settings.
+
+31
+00:01:18,572 --> 00:01:20,893
+Likewise if you make a change to
+
+32
+00:01:20,893 --> 00:01:22,893
+one of your instances
+
+33
+00:01:24,547 --> 00:01:26,623
+and you decide you don't like it anymore
+
+34
+00:01:26,623 --> 00:01:29,093
+you can revert to the settings of the prefab
+
+35
+00:01:29,093 --> 00:01:31,396
+by clicking the revert button at the top.

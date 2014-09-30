@@ -1,0 +1,867 @@
+1
+00:00:00,124 --> 00:00:02,099
+Now let's finish our level dynamics chapter
+
+2
+00:00:02,099 --> 00:00:04,698
+by making the lift itself, start by dragging
+
+3
+00:00:04,698 --> 00:00:06,698
+the model in to the scene and positioning it.
+
+4
+00:00:06,698 --> 00:00:09,229
+In the Models folder, locate the model
+
+5
+00:00:09,229 --> 00:00:11,229
+prop_lift_exit and
+
+6
+00:00:11,229 --> 00:00:13,229
+drag this in to the scene
+
+7
+00:00:14,931 --> 00:00:21,383
+Position it at (-21.85, 1.5, 48).
+
+8
+00:00:22,753 --> 00:00:25,678
+We will also need to rotate it by 270 
+
+9
+00:00:25,678 --> 00:00:27,402
+degrees in the Y axis.
+
+10
+00:00:27,402 --> 00:00:29,926
+As always with dynamic objects in the scene
+
+11
+00:00:29,926 --> 00:00:32,304
+we wish to use light probes to light them.
+
+12
+00:00:32,304 --> 00:00:34,925
+Expand the parent object of the lift
+
+13
+00:00:35,425 --> 00:00:38,040
+and the inner doors and then select
+
+14
+00:00:38,040 --> 00:00:40,342
+door_exitInner left and right,
+
+15
+00:00:40,342 --> 00:00:43,239
+the carriage, the mechanism and the wires.
+
+16
+00:00:43,239 --> 00:00:45,239
+Then in the mesh renderer component check
+
+17
+00:00:45,239 --> 00:00:47,239
+the box for Use Light Probes.
+
+18
+00:00:51,469 --> 00:00:53,469
+The next thing to address with the lift is to
+
+19
+00:00:53,469 --> 00:00:55,469
+make sure that the player can collider with it
+
+20
+00:00:55,469 --> 00:00:57,469
+and be carried to safety.
+
+21
+00:00:57,469 --> 00:00:59,469
+As such it will need a collider.
+
+22
+00:00:59,469 --> 00:01:01,469
+However, since we are going to need a trigger
+
+23
+00:01:01,469 --> 00:01:03,469
+collider on the parent game object
+
+24
+00:01:03,469 --> 00:01:05,469
+we will need to add the physical collider
+
+25
+00:01:05,469 --> 00:01:07,469
+to a child game object.
+
+26
+00:01:07,469 --> 00:01:09,469
+To keep this collider separate from the more
+
+27
+00:01:09,469 --> 00:01:11,469
+complex meshes of the existing child game objects
+
+28
+00:01:11,469 --> 00:01:13,886
+we will make an empty game object
+
+29
+00:01:13,886 --> 00:01:15,886
+and add a simple convex box mesh
+
+30
+00:01:15,886 --> 00:01:18,065
+that we've prepared for this purpose.
+
+31
+00:01:18,065 --> 00:01:21,140
+Go to Game Object - Create Empty
+
+32
+00:01:21,889 --> 00:01:23,889
+and then drag and drop this on to the parent
+
+33
+00:01:23,889 --> 00:01:26,511
+object prop_lift_exit.
+
+34
+00:01:26,511 --> 00:01:28,511
+Now that this is a child game object it needs
+
+35
+00:01:28,511 --> 00:01:31,091
+to be set at the same position as the parent.
+
+36
+00:01:31,091 --> 00:01:36,364
+So reset it's position to (0, 0, 0) as well as it's rotation.
+
+37
+00:01:36,364 --> 00:01:40,021
+And finally rename it prop_lift_collider.
+
+38
+00:01:41,336 --> 00:01:43,932
+Now we can add a mesh collider to this game object
+
+39
+00:01:43,932 --> 00:01:45,932
+and use the circle select button to
+
+40
+00:01:45,932 --> 00:01:49,509
+search for the prop_lift_exit collision mesh.
+
+41
+00:01:49,509 --> 00:01:51,881
+Click Add Component - Physics
+
+42
+00:01:51,881 --> 00:01:53,715
+and Mesh Collider.
+
+43
+00:01:53,715 --> 00:01:57,174
+Then under Mesh click the selection button
+
+44
+00:01:57,174 --> 00:02:00,950
+search for prop_lift and choose 
+
+45
+00:02:00,950 --> 00:02:03,858
+prop_lift_exit_collision.
+
+46
+00:02:03,858 --> 00:02:06,736
+Close the window and you should see that this
+
+47
+00:02:06,736 --> 00:02:08,930
+mesh is outlined in green
+
+48
+00:02:09,858 --> 00:02:12,220
+and has three walls and a floor.
+
+49
+00:02:12,220 --> 00:02:15,016
+This is all that we need collision-wise for the lift.
+
+50
+00:02:15,778 --> 00:02:17,778
+Now reselect the parent game object
+
+51
+00:02:17,778 --> 00:02:20,520
+prop_lift_exit. We'll add a box trigger
+
+52
+00:02:20,520 --> 00:02:22,520
+collider so that we know when the player has
+
+53
+00:02:22,520 --> 00:02:23,651
+entered the lift.
+
+54
+00:02:23,651 --> 00:02:27,766
+Click Add Component - Physics - Box Collider.
+
+55
+00:02:27,766 --> 00:02:31,382
+Finally ensure that the Is Trigger box is checked.
+
+56
+00:02:31,382 --> 00:02:33,382
+We want the trigger to be just over the 
+
+57
+00:02:33,382 --> 00:02:35,715
+floor of the carriage, so set it's centre to 
+
+58
+00:02:35,715 --> 00:02:40,146
+(0, -1.1, 0).
+
+59
+00:02:40,146 --> 00:02:45,948
+and the size to (3.3 0.5, 3.5)
+
+60
+00:02:47,898 --> 00:02:49,898
+Since the colliders will be moving we
+
+61
+00:02:49,898 --> 00:02:51,898
+need a rigidbody component.
+
+62
+00:02:51,898 --> 00:02:54,215
+And since we don't want it to react to collisions
+
+63
+00:02:54,215 --> 00:02:56,215
+we will make it kinematic.
+
+64
+00:02:56,215 --> 00:02:59,976
+Click Add Component - Physics - Rigidbody
+
+65
+00:02:59,976 --> 00:03:03,426
+uncheck Use Gravity and check Is Kinematic.
+
+66
+00:03:03,426 --> 00:03:05,426
+The lift should make a whirring noise as it
+
+67
+00:03:05,426 --> 00:03:07,426
+moves and as such it will require
+
+68
+00:03:07,426 --> 00:03:09,688
+an audio source component.
+
+69
+00:03:09,688 --> 00:03:11,688
+Add this now.
+
+70
+00:03:14,094 --> 00:03:16,289
+We don't want this to play on awake
+
+71
+00:03:16,289 --> 00:03:18,289
+but we do want the clip to loop.
+
+72
+00:03:19,383 --> 00:03:21,383
+Also, since this audio source is only going
+
+73
+00:03:21,383 --> 00:03:23,383
+to play one clip we can apply it
+
+74
+00:03:23,383 --> 00:03:25,593
+directly to the source.
+
+75
+00:03:25,593 --> 00:03:30,089
+In the Audio folder, the clip is called lift_raise.
+
+76
+00:03:30,089 --> 00:03:33,293
+Drag and drop this on to the Audio Clip property.
+
+77
+00:03:34,083 --> 00:03:36,572
+Next apply the lift door tracking script
+
+78
+00:03:36,572 --> 00:03:38,572
+that we made in the last assignment.
+
+79
+00:03:39,072 --> 00:03:41,072
+Remember that you can collapse your components by
+
+80
+00:03:41,072 --> 00:03:43,072
+clicking on their names.
+
+81
+00:03:43,072 --> 00:03:45,072
+We can then go in to the Scripts folder
+
+82
+00:03:45,710 --> 00:03:48,270
+and Level Dynamics and drag and drop
+
+83
+00:03:48,270 --> 00:03:51,919
+LiftDoorsTracking on to the Inspector for this object.
+
+84
+00:03:51,919 --> 00:03:53,919
+The last thing we need for the lift is a script
+
+85
+00:03:53,919 --> 00:03:55,919
+to trigger it's movement.
+
+86
+00:03:55,919 --> 00:03:59,560
+Choose Add Component - New Script
+
+87
+00:03:59,560 --> 00:04:02,411
+and we'll name our new script LiftTrigger.
+
+88
+00:04:02,411 --> 00:04:05,194
+Double click it's icon to launch for editing
+
+89
+00:04:05,194 --> 00:04:07,194
+and prepare it as usual.
+
+90
+00:04:08,481 --> 00:04:10,481
+For this script we are going to need a few
+
+91
+00:04:10,481 --> 00:04:12,703
+public variables that we can tweak.
+
+92
+00:04:12,703 --> 00:04:14,703
+The first one we want is a float to control
+
+93
+00:04:14,703 --> 00:04:16,703
+how long before the doors close
+
+94
+00:04:16,703 --> 00:04:18,703
+after the player enters the lift.
+
+95
+00:04:19,990 --> 00:04:21,990
+We don't want the lift to start the instant
+
+96
+00:04:21,990 --> 00:04:23,990
+doors close so we need an amount
+
+97
+00:04:23,990 --> 00:04:25,990
+of time before the lift starts.
+
+98
+00:04:27,250 --> 00:04:29,250
+Also we don't want the level to end as soon as
+
+99
+00:04:29,250 --> 00:04:33,778
+the lift starts moving so we need a variable for that too.
+
+100
+00:04:34,872 --> 00:04:36,872
+It would also be nice to be able to tweak the
+
+101
+00:04:36,872 --> 00:04:38,872
+speed that the lift moves at
+
+102
+00:04:38,872 --> 00:04:41,544
+so we will have that as a public float as well.
+
+103
+00:04:42,491 --> 00:04:44,491
+Next we need some private variables
+
+104
+00:04:44,491 --> 00:04:46,270
+including some references.
+
+105
+00:04:46,270 --> 00:04:48,270
+First we need a reference to the player.
+
+106
+00:04:49,668 --> 00:04:51,876
+And also a reference to the player's animator
+
+107
+00:04:51,876 --> 00:04:53,876
+component so that we can stop the player from
+
+108
+00:04:53,876 --> 00:04:56,527
+moving when the lift starts to move.
+
+109
+00:04:57,067 --> 00:04:59,416
+Since we will be referencing an animator
+
+110
+00:04:59,416 --> 00:05:02,236
+we want to use our HashIDs script.
+
+111
+00:05:02,236 --> 00:05:04,236
+When the lift moves we would like it to disappear
+
+112
+00:05:04,236 --> 00:05:06,809
+at the top of the screen, instead of being
+
+113
+00:05:06,809 --> 00:05:08,809
+tracked by the camera all the way up.
+
+114
+00:05:08,809 --> 00:05:11,469
+So we will need a reference to the CameraMovement script
+
+115
+00:05:11,469 --> 00:05:14,201
+so that we can disable it when the lift moves.
+
+116
+00:05:14,922 --> 00:05:16,922
+To end the level with our fade to black
+
+117
+00:05:16,922 --> 00:05:20,554
+we need a reference to our SceneFadeInOut script.
+
+118
+00:05:21,413 --> 00:05:23,413
+So that we can control when the lift doors
+
+119
+00:05:23,413 --> 00:05:25,413
+are opening and closing we need a reference
+
+120
+00:05:25,413 --> 00:05:28,352
+to the LiftDoorsTracking script.
+
+121
+00:05:29,073 --> 00:05:31,073
+We don't need any more references but we do
+
+122
+00:05:31,073 --> 00:05:33,073
+need a Boolean variable to store
+
+123
+00:05:33,073 --> 00:05:35,073
+whether the player is in the lift or not.
+
+124
+00:05:36,098 --> 00:05:38,098
+And finally a timer that will set
+
+125
+00:05:38,098 --> 00:05:41,437
+the doors closing, when the lift can start moving
+
+126
+00:05:41,437 --> 00:05:43,437
+and when the level should end.
+
+127
+00:05:44,793 --> 00:05:48,671
+Now we can setup our references in the Awake function.
+
+128
+00:06:00,842 --> 00:06:03,373
+The next two functions we will use in this script
+
+129
+00:06:03,373 --> 00:06:06,049
+are OnTriggerEnter and OnTriggerExit.
+
+130
+00:06:06,049 --> 00:06:08,049
+to handle detection of the player entering and 
+
+131
+00:06:08,049 --> 00:06:10,695
+exiting the lift's internal trigger zone.
+
+132
+00:06:10,695 --> 00:06:13,446
+Firstly we will use OnTriggerEnter.
+
+133
+00:06:13,446 --> 00:06:15,446
+If it is the player that is the triggering
+
+134
+00:06:15,446 --> 00:06:17,446
+game object then we can set the
+
+135
+00:06:17,446 --> 00:06:19,446
+playerInLift variable to true.
+
+136
+00:06:20,305 --> 00:06:22,607
+Next we set this variable back to false
+
+137
+00:06:22,607 --> 00:06:24,355
+when the player leaves the trigger zone
+
+138
+00:06:24,355 --> 00:06:26,355
+by using OnTriggerExit.
+
+139
+00:06:28,595 --> 00:06:30,595
+If the player leaves the lift we will
+
+140
+00:06:30,595 --> 00:06:33,686
+need to reset the timer that controls it's actions.
+
+141
+00:06:33,686 --> 00:06:35,686
+So that when the player returns to the lift
+
+142
+00:06:35,686 --> 00:06:38,402
+the process can start over again.
+
+143
+00:06:39,457 --> 00:06:42,605
+Next we're going to add an Update function.
+
+144
+00:06:43,602 --> 00:06:46,452
+We're going to use Update for a couple of things.
+
+145
+00:06:46,452 --> 00:06:48,452
+Primarily we will use it to check whether the
+
+146
+00:06:48,452 --> 00:06:50,452
+player is in the left and if they are
+
+147
+00:06:50,452 --> 00:06:52,923
+we will call a function to activate the lift.
+
+148
+00:06:52,923 --> 00:06:54,923
+We will create this function first and
+
+149
+00:06:54,923 --> 00:06:57,875
+then come back and add the call to it later.
+
+150
+00:06:57,875 --> 00:07:01,025
+We will call the function liftActivation.
+
+151
+00:07:01,025 --> 00:07:03,025
+The first thing we need to do when the function is called
+
+152
+00:07:03,025 --> 00:07:06,655
+is to start the timer counting upward.
+
+153
+00:07:06,655 --> 00:07:08,655
+Then we only need to worry about doing anything
+
+154
+00:07:08,655 --> 00:07:10,655
+if the timer exceeds the
+
+155
+00:07:10,655 --> 00:07:12,655
+timeToLiftStart variable.
+
+156
+00:07:13,942 --> 00:07:15,942
+If the lift has started then we want
+
+157
+00:07:15,942 --> 00:07:18,492
+to stop the player from moving and we can do this
+
+158
+00:07:18,492 --> 00:07:20,492
+by setting the Speed parameter of 
+
+159
+00:07:20,492 --> 00:07:22,492
+their animator to 0.
+
+160
+00:07:23,655 --> 00:07:26,228
+We also want the camera to stop tracking the player
+
+161
+00:07:26,228 --> 00:07:28,910
+so we will disable the CameraMovement script.
+
+162
+00:07:29,811 --> 00:07:32,241
+In order that the player moves upward with the lift
+
+163
+00:07:32,241 --> 00:07:34,797
+we're going to parent the player to the lift.
+
+164
+00:07:34,797 --> 00:07:36,797
+This means that his position will be local
+
+165
+00:07:36,797 --> 00:07:38,797
+to that of the lift.
+
+166
+00:07:40,222 --> 00:07:42,222
+To move the lift we are simply going to use
+
+167
+00:07:42,222 --> 00:07:44,222
+the Translate function. We are moving the lift
+
+168
+00:07:44,222 --> 00:07:47,203
+in an upwards direction multiplied by an amount
+
+169
+00:07:47,203 --> 00:07:49,203
+of lift speed per second.
+
+170
+00:07:50,518 --> 00:07:52,518
+This function is going to be called every
+
+171
+00:07:52,518 --> 00:07:55,149
+frame once the player is in the lift.
+
+172
+00:07:55,149 --> 00:07:57,149
+And this part of the function will be called
+
+173
+00:07:57,149 --> 00:08:00,323
+every frame once the lift starts moving.
+
+174
+00:08:00,323 --> 00:08:02,323
+To play the audio of the lift we only
+
+175
+00:08:02,323 --> 00:08:04,323
+need to start the audio source playing
+
+176
+00:08:04,323 --> 00:08:06,891
+so we will add a call to the Play function
+
+177
+00:08:06,891 --> 00:08:10,076
+but only call this if it is not already playing.
+
+178
+00:08:10,076 --> 00:08:12,076
+So that each frame after this we are
+
+179
+00:08:12,076 --> 00:08:14,639
+not trying to play it unnessisarily.
+
+180
+00:08:15,722 --> 00:08:17,722
+The last part of this function will end
+
+181
+00:08:17,722 --> 00:08:19,392
+the level when an appropriate amount
+
+182
+00:08:19,392 --> 00:08:21,157
+of time has elapsed.
+
+183
+00:08:21,157 --> 00:08:23,157
+To actually end the level we will call
+
+184
+00:08:23,157 --> 00:08:25,157
+the EndScene function from the 
+
+185
+00:08:25,157 --> 00:08:27,996
+SceneFadeInOut script, which fades to black
+
+186
+00:08:27,996 --> 00:08:29,596
+and reloads the scene.
+
+187
+00:08:29,596 --> 00:08:32,136
+Now that the LiftActivation function is finished
+
+188
+00:08:32,136 --> 00:08:35,194
+we can put a call to it in the Update function.
+
+189
+00:08:35,194 --> 00:08:37,194
+We only want to do so however
+
+190
+00:08:37,194 --> 00:08:39,194
+when the player is in the lift.
+
+191
+00:08:41,075 --> 00:08:43,075
+The last thing to do in this script is
+
+192
+00:08:43,075 --> 00:08:46,245
+control when the inner lift doors open and close.
+
+193
+00:08:46,245 --> 00:08:49,036
+We will do this in the Update function as well.
+
+194
+00:08:49,036 --> 00:08:51,036
+If the timer is less than the time before
+
+195
+00:08:51,036 --> 00:08:53,036
+the doors should close then the
+
+196
+00:08:53,036 --> 00:08:55,690
+inner doors should be tracking the outer doors.
+
+197
+00:08:55,690 --> 00:08:57,397
+We can make this happen by calling the
+
+198
+00:08:57,397 --> 00:08:59,205
+Door Following function from the
+
+199
+00:08:59,205 --> 00:09:02,408
+LiftDoorsTracking Script that we wrote previously.
+
+200
+00:09:03,806 --> 00:09:05,806
+However if the timer has exceed the
+
+201
+00:09:05,806 --> 00:09:09,348
+TimeToClose variable then we want the doors to close.
+
+202
+00:09:10,525 --> 00:09:13,257
+That completes the lift. Save your script now
+
+203
+00:09:13,257 --> 00:09:15,257
+and return to the Editor.
+
+204
+00:09:18,133 --> 00:09:20,981
+We will also store the lift as a prefab
+
+205
+00:09:20,981 --> 00:09:22,981
+Drag and drop it in to the Prefabs folder
+
+206
+00:09:22,981 --> 00:09:24,981
+in the Project panel to do this.
+
+207
+00:09:24,981 --> 00:09:27,984
+Now we want to save the scene and the project.
+
+208
+00:09:28,650 --> 00:09:31,547
+Now we have a scene with working level dynamics.
+
+209
+00:09:31,547 --> 00:09:33,628
+We can explore the level with the doors
+
+210
+00:09:33,628 --> 00:09:35,628
+opening and closing and pick up the key
+
+211
+00:09:35,628 --> 00:09:37,957
+so that we can escape in the lift.
+
+212
+00:10:03,086 --> 00:10:06,504
+One final thing to do is to tidy up our script.
+
+213
+00:10:06,504 --> 00:10:08,947
+Select the Assets folder in the Project panel
+
+214
+00:10:08,947 --> 00:10:10,947
+and then drag the LiftTrigger script
+
+215
+00:10:10,947 --> 00:10:14,719
+in to the Scripts - Level Dynamics folder.
+
+216
+00:10:21,710 --> 00:10:23,710
+In the next and final chapter we will
+
+217
+00:10:23,710 --> 00:10:26,559
+create the robot guards that patrol the level.

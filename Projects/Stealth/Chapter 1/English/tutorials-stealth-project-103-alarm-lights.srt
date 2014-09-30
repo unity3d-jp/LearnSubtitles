@@ -1,0 +1,687 @@
+1
+00:00:00,000 --> 00:00:01,856
+Now we can get started creating some
+
+2
+00:00:01,856 --> 00:00:04,357
+scripts for the game. The first one we're
+
+3
+00:00:04,357 --> 00:00:06,975
+going to make will be to control the alarm light.
+
+4
+00:00:06,975 --> 00:00:08,975
+When the player triggers the alarm we want
+
+5
+00:00:08,975 --> 00:00:12,531
+the light to pulse. So create a new C# script
+
+6
+00:00:12,531 --> 00:00:14,531
+called AlarmLight on the alarm
+
+7
+00:00:14,531 --> 00:00:17,206
+light game object by selecting it,
+
+8
+00:00:18,079 --> 00:00:21,300
+and then clicking Add Component - New Script.
+
+9
+00:00:21,300 --> 00:00:23,300
+Name the script AlarmLight.
+
+10
+00:00:27,240 --> 00:00:29,060
+Remember to match the capitalisation
+
+11
+00:00:29,060 --> 00:00:31,060
+exactly as we're doing it.
+
+12
+00:00:31,060 --> 00:00:33,060
+Click Create and Add
+
+13
+00:00:33,560 --> 00:00:35,393
+and then double click on the icon to 
+
+14
+00:00:35,393 --> 00:00:37,393
+launch it for editing. We will start this
+
+15
+00:00:37,393 --> 00:00:39,393
+script by removing the defaults that Unity
+
+16
+00:00:39,393 --> 00:00:42,423
+puts in so that we can start afresh.
+
+17
+00:00:43,572 --> 00:00:45,572
+Remove the Start and Update function
+
+18
+00:00:45,572 --> 00:00:47,572
+and the comments that are there with it.
+
+19
+00:00:50,434 --> 00:00:52,434
+Now we have an empty class we can add
+
+20
+00:00:52,434 --> 00:00:53,828
+some class variables.
+
+21
+00:00:54,425 --> 00:00:56,425
+Firstly we'll need to make the public one.
+
+22
+00:00:57,270 --> 00:00:59,270
+We're going to make a series of floats 
+
+23
+00:00:59,270 --> 00:01:01,270
+as the parameters that control the different
+
+24
+00:01:01,270 --> 00:01:03,270
+intensities of the light and how
+
+25
+00:01:03,270 --> 00:01:05,284
+fast we fade between them.
+
+26
+00:01:05,284 --> 00:01:07,284
+Firstly, the fade speed. 
+
+27
+00:01:08,336 --> 00:01:10,818
+We'll set a default of 2, but this can be
+
+28
+00:01:10,818 --> 00:01:13,967
+tweaked later in the inspector if we like. 
+
+29
+00:01:13,967 --> 00:01:15,967
+Next we'll need a couple more floats
+
+30
+00:01:15,967 --> 00:01:17,967
+to represent the high and low intensities
+
+31
+00:01:17,967 --> 00:01:19,967
+we want to light to fade between.
+
+32
+00:01:20,578 --> 00:01:23,820
+2 and 0.5 should be appropriate defaults,
+
+33
+00:01:23,820 --> 00:01:25,820
+but again we can tweak them later in the
+
+34
+00:01:25,820 --> 00:01:27,372
+inspector if we want.
+
+35
+00:01:28,555 --> 00:01:30,555
+we will be using the Lerp function
+
+36
+00:01:30,555 --> 00:01:32,898
+to change between these two values.
+
+37
+00:01:32,898 --> 00:01:34,898
+The way that we are using this means that
+
+38
+00:01:34,898 --> 00:01:37,230
+the change in value slows down as it 
+
+39
+00:01:37,230 --> 00:01:38,873
+reaches it's target. 
+
+40
+00:01:38,873 --> 00:01:41,109
+As such we will want to change the fade
+
+41
+00:01:41,109 --> 00:01:43,480
+to the opposite intensity before we reach
+
+42
+00:01:43,480 --> 00:01:45,133
+the target intensity. 
+
+43
+00:01:45,621 --> 00:01:47,925
+We will need to have a margin within which
+
+44
+00:01:47,925 --> 00:01:49,925
+we are able to change the target
+
+45
+00:01:49,925 --> 00:01:51,078
+to it's opposite.
+
+46
+00:01:51,951 --> 00:01:53,951
+The last public variable we will need is
+
+47
+00:01:53,951 --> 00:01:55,270
+a boolean that says whether or not
+
+48
+00:01:55,270 --> 00:01:58,232
+the alarm is on. This needs to be public,
+
+49
+00:01:58,232 --> 00:02:00,232
+not for tweaking in the inspector but 
+
+50
+00:02:00,232 --> 00:02:02,232
+because we want to effect it from another script,
+
+51
+00:02:02,232 --> 00:02:04,232
+which decides whether the alarm needs
+
+52
+00:02:04,232 --> 00:02:05,569
+to be on or not.
+
+53
+00:02:07,105 --> 00:02:09,105
+We still need another class variable, although
+
+54
+00:02:09,105 --> 00:02:11,105
+we can make this one private.
+
+55
+00:02:11,105 --> 00:02:13,105
+This will be to store the intensity we are
+
+56
+00:02:13,105 --> 00:02:15,105
+trying to fade the light towards.
+
+57
+00:02:16,461 --> 00:02:18,461
+Now that we have our class variables
+
+58
+00:02:18,461 --> 00:02:20,461
+we can setup any behaviours we want at
+
+59
+00:02:20,461 --> 00:02:22,461
+the start of the scene. We do this
+
+60
+00:02:22,461 --> 00:02:25,128
+in the Awake function. Add this now.
+
+61
+00:02:25,128 --> 00:02:26,934
+Since at the start of the scene the alarm
+
+62
+00:02:26,934 --> 00:02:29,636
+will be off. We want the lights intensity
+
+63
+00:02:29,636 --> 00:02:31,110
+to be 0.
+
+64
+00:02:31,900 --> 00:02:33,900
+We also want the first intensity the light
+
+65
+00:02:33,900 --> 00:02:36,584
+transitions to when the alarm is activated
+
+66
+00:02:36,598 --> 00:02:38,264
+to be high intensity.
+
+67
+00:02:39,084 --> 00:02:41,545
+Now we have our Update function where we
+
+68
+00:02:41,545 --> 00:02:43,545
+perform most of the script's operations.
+
+69
+00:02:44,045 --> 00:02:45,077
+Add this now.
+
+70
+00:02:46,088 --> 00:02:48,088
+The first thing we want to do in each update
+
+71
+00:02:48,088 --> 00:02:50,391
+is to check whether the AlarmOn variable
+
+72
+00:02:50,391 --> 00:02:52,391
+has been set to True.
+
+73
+00:02:53,885 --> 00:02:55,885
+If it has then we want to lerp the light's
+
+74
+00:02:55,885 --> 00:02:57,885
+intensity between it's current setting
+
+75
+00:02:57,885 --> 00:03:01,124
+and the target intensity. We want to include
+
+76
+00:03:01,124 --> 00:03:03,124
+the fade speed in the last parameter
+
+77
+00:03:03,124 --> 00:03:06,159
+so that we can tweak how fast this lerp happens.
+
+78
+00:03:08,662 --> 00:03:10,662
+Next, given that the light's intensity
+
+79
+00:03:10,662 --> 00:03:12,662
+has been updated, we want to check
+
+80
+00:03:12,662 --> 00:03:14,662
+if it's near enough to the target intensity
+
+81
+00:03:14,662 --> 00:03:17,477
+for us to switch the target to it's opposite.
+
+82
+00:03:18,322 --> 00:03:19,861
+For example if it's heading towards
+
+83
+00:03:19,861 --> 00:03:23,211
+the high intensity - if we are within the margin -
+
+84
+00:03:23,211 --> 00:03:25,211
+then we will head towards the low intensity.
+
+85
+00:03:25,211 --> 00:03:27,708
+To do this we are going to make a new function
+
+86
+00:03:27,708 --> 00:03:29,708
+which we will call in the update.
+
+87
+00:03:29,708 --> 00:03:32,377
+Move below the closing of the update function
+
+88
+00:03:32,377 --> 00:03:33,947
+and add a new function called
+
+89
+00:03:33,947 --> 00:03:35,947
+CheckTargetIntensity.
+
+90
+00:03:35,947 --> 00:03:37,947
+So in this function we need to know if
+
+91
+00:03:37,947 --> 00:03:39,947
+the difference between the target intensity
+
+92
+00:03:39,947 --> 00:03:41,947
+and the light's current intensity
+
+93
+00:03:41,947 --> 00:03:44,294
+is less than the change margin.
+
+94
+00:03:44,294 --> 00:03:46,294
+To get the difference between the target intensity
+
+95
+00:03:46,294 --> 00:03:48,294
+and the light's intensity
+
+96
+00:03:48,294 --> 00:03:50,294
+we will use a function called Abs
+
+97
+00:03:50,294 --> 00:03:52,294
+in the Mathf class.
+
+98
+00:03:52,294 --> 00:03:54,752
+It simply returns the absolute value,
+
+99
+00:03:54,752 --> 00:03:57,606
+that is, the positive version of whatever is
+
+100
+00:03:57,606 --> 00:03:59,206
+passed as a parameter.
+
+101
+00:03:59,206 --> 00:04:01,252
+If this is the case then we need to set
+
+102
+00:04:01,252 --> 00:04:03,666
+the target intensity to the opposite
+
+103
+00:04:03,666 --> 00:04:04,953
+of what it was. 
+
+104
+00:04:05,577 --> 00:04:07,941
+So we check if the target is high.
+
+105
+00:04:08,699 --> 00:04:11,468
+And if it is, then we set the target to low.
+
+106
+00:04:12,548 --> 00:04:15,122
+Otherwise we set the target to high.
+
+107
+00:04:18,854 --> 00:04:21,513
+With the CheckTargetIntensity function finished
+
+108
+00:04:21,513 --> 00:04:23,513
+we can put a call to it if the alarm
+
+109
+00:04:23,513 --> 00:04:25,513
+is on in our Update function.
+
+110
+00:04:27,436 --> 00:04:29,282
+Note that in this approach the light's
+
+111
+00:04:29,282 --> 00:04:31,858
+intensity will fade in and out smoothly
+
+112
+00:04:31,858 --> 00:04:33,858
+as the lerp's value will slow as it
+
+113
+00:04:33,858 --> 00:04:35,304
+reaches it's target. 
+
+114
+00:04:35,304 --> 00:04:37,304
+To simplify this we could have implemented
+
+115
+00:04:37,304 --> 00:04:41,076
+another useful function called Mathf.PingPong.
+
+116
+00:04:41,076 --> 00:04:42,965
+This is designed to simply return values 
+
+117
+00:04:42,965 --> 00:04:45,628
+that loop between 0 and a given value.
+
+118
+00:04:45,628 --> 00:04:47,628
+But this would not look smooth as it's
+
+119
+00:04:47,628 --> 00:04:49,809
+transitions have a constant speed.
+
+120
+00:04:49,809 --> 00:04:51,809
+That concludes what needs to happen if the alarm
+
+121
+00:04:51,809 --> 00:04:54,322
+is on. But when the alarm is off
+
+122
+00:04:54,322 --> 00:04:56,845
+we need to turn the intensity back down to 0.
+
+123
+00:04:56,845 --> 00:04:58,845
+Add an Else to the If statement
+
+124
+00:04:58,845 --> 00:05:00,553
+in the Update function. 
+
+125
+00:05:01,362 --> 00:05:03,211
+And here we will put a similar line to our 
+
+126
+00:05:03,211 --> 00:05:06,919
+light intensity lerp, but set the value to 0.
+
+127
+00:05:15,067 --> 00:05:16,814
+That's all we need to do with this script,
+
+128
+00:05:16,814 --> 00:05:19,838
+so save the script and return to the editor.
+
+129
+00:05:20,917 --> 00:05:22,917
+You'll notice that all of our public variables
+
+130
+00:05:22,917 --> 00:05:24,917
+will appear on the script component
+
+131
+00:05:24,917 --> 00:05:26,336
+in the inspector.
+
+132
+00:05:27,061 --> 00:05:28,225
+Now we have something else we need
+
+133
+00:05:28,225 --> 00:05:29,820
+to do for the alarm.
+
+134
+00:05:29,820 --> 00:05:32,498
+We need it to actually make an alarm sound
+
+135
+00:05:32,498 --> 00:05:34,498
+You may have noticed that there are some
+
+136
+00:05:34,498 --> 00:05:36,064
+megaphone towers around the level.
+
+137
+00:05:36,668 --> 00:05:37,955
+Each of these is going to play an
+
+138
+00:05:37,955 --> 00:05:40,792
+alarm sound effect. For this we need to setup
+
+139
+00:05:40,792 --> 00:05:43,906
+a few things. Start by expanding
+
+140
+00:05:43,906 --> 00:05:47,895
+env_stealth_static. Then expand props
+
+141
+00:05:50,667 --> 00:05:54,651
+and locate all of the prop_megaphone game objects.
+
+142
+00:05:54,651 --> 00:05:56,651
+Highlight them all with shift-selection
+
+143
+00:05:57,819 --> 00:05:59,553
+and now that they're highlighted we can 
+
+144
+00:05:59,553 --> 00:06:01,553
+effect them all simultaneously.
+
+145
+00:06:03,390 --> 00:06:04,837
+We will start by tagging them all
+
+146
+00:06:04,837 --> 00:06:06,837
+with the tag Siren.
+
+147
+00:06:09,268 --> 00:06:11,865
+We also want to add an audio source component
+
+148
+00:06:11,865 --> 00:06:15,236
+to each of them so that they can play audio clips.
+
+149
+00:06:15,236 --> 00:06:17,821
+Click on the Add Component button in the inspector
+
+150
+00:06:17,821 --> 00:06:19,970
+and go to Audio - Audio Source.
+
+151
+00:06:20,559 --> 00:06:22,559
+Lastly we want to make sure that the audio
+
+152
+00:06:22,559 --> 00:06:24,455
+source is setup correctly.
+
+153
+00:06:24,455 --> 00:06:26,455
+In the Audio folder in the project panel
+
+154
+00:06:26,455 --> 00:06:29,615
+you will see a clip called AlarmTriggered.
+
+155
+00:06:29,615 --> 00:06:32,921
+Drag and drop this to the audio clip property.
+
+156
+00:06:34,060 --> 00:06:36,060
+We don't want them to play this sound on awake,
+
+157
+00:06:36,060 --> 00:06:38,060
+meaning 'when the game begins', but we
+
+158
+00:06:38,060 --> 00:06:40,060
+do want them to loop when they are playing it.
+
+159
+00:06:40,060 --> 00:06:42,880
+Now is a good time to adjust the range of the towers.
+
+160
+00:06:42,880 --> 00:06:44,880
+Do so by opening the 3D sound settings
+
+161
+00:06:44,880 --> 00:06:46,880
+on the audio source component.
+
+162
+00:06:46,880 --> 00:06:50,343
+And set the Min Distance value to a value of 5.
+
+163
+00:06:50,343 --> 00:06:52,343
+You should see in the scene view that there
+
+164
+00:06:52,343 --> 00:06:54,343
+are blue spherical outlines showing
+
+165
+00:06:54,343 --> 00:06:56,343
+you the reach of these towers.
+
+166
+00:06:56,343 --> 00:06:58,343
+If you want them to be louder in the game you
+
+167
+00:06:58,343 --> 00:07:00,542
+can adjust this value later.
+
+168
+00:07:00,542 --> 00:07:02,868
+That's all we need to do for the setup of the alarm.
+
+169
+00:07:02,868 --> 00:07:04,868
+Remember to save your scene now by going to
+
+170
+00:07:04,868 --> 00:07:07,293
+File - Save Scene and move on the next
+
+171
+00:07:07,293 --> 00:07:09,293
+assignment where we will be creating a library
+
+172
+00:07:09,293 --> 00:07:11,812
+of tags for use within our game controller.

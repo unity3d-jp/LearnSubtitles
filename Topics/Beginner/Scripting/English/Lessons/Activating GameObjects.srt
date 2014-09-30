@@ -1,0 +1,223 @@
+1
+00:00:00,331 --> 00:00:01,926
+To activate or deactivate an object
+
+2
+00:00:01,926 --> 00:00:04,228
+via scripting you can use the
+
+3
+00:00:04,228 --> 00:00:05,783
+SetActive function.
+
+4
+00:00:06,283 --> 00:00:08,005
+This will switch your object on or off
+
+5
+00:00:08,005 --> 00:00:10,491
+in terms of it being active in the scene.
+
+6
+00:00:10,491 --> 00:00:12,781
+In this example we have a simple Start
+
+7
+00:00:12,781 --> 00:00:14,106
+function that contains 
+
+8
+00:00:14,106 --> 00:00:16,527
+gameObject.SetActive(false).
+
+9
+00:00:17,027 --> 00:00:19,027
+And you can see that my gameobject
+
+10
+00:00:19,027 --> 00:00:20,496
+is currently active.
+
+11
+00:00:20,996 --> 00:00:24,523
+If I press play, the object is deactivated.
+
+12
+00:00:24,885 --> 00:00:26,803
+However when working with hierarchies of 
+
+13
+00:00:26,803 --> 00:00:28,803
+objects, it's important to know that
+
+14
+00:00:28,803 --> 00:00:30,803
+a parent object can be deactivated,
+
+15
+00:00:30,803 --> 00:00:32,803
+which will stop a child object being active
+
+16
+00:00:32,803 --> 00:00:36,025
+in the scene. However it will remain active
+
+17
+00:00:36,025 --> 00:00:37,622
+within it's hierarchy.
+
+18
+00:00:38,152 --> 00:00:39,886
+This is so that you can disable individual
+
+19
+00:00:39,886 --> 00:00:42,676
+objects but maintain control over groups
+
+20
+00:00:42,676 --> 00:00:44,676
+of them using the parent object.
+
+21
+00:00:44,676 --> 00:00:46,676
+You can see here that if I select the Physics
+
+22
+00:00:46,676 --> 00:00:49,944
+door and select the child Door Object
+
+23
+00:00:49,944 --> 00:00:51,944
+and deactivate it in the inspector
+
+24
+00:00:51,944 --> 00:00:54,540
+it becomes deselected, the icon is greyed
+
+25
+00:00:54,540 --> 00:00:57,711
+out and I've unchecked the box next to it's name.
+
+26
+00:00:58,211 --> 00:01:00,211
+However if I deactivate the parent object
+
+27
+00:01:00,211 --> 00:01:03,373
+instead of the child you can see that I've
+
+28
+00:01:03,373 --> 00:01:06,320
+deactivated all of the child objects but 
+
+29
+00:01:06,320 --> 00:01:08,764
+it remains active within the hierarchy,
+
+30
+00:01:08,764 --> 00:01:11,264
+as does the other child object, the frame.
+
+31
+00:01:11,764 --> 00:01:13,764
+To check if an object is active within
+
+32
+00:01:13,764 --> 00:01:15,764
+the scene or in a hierarchy,
+
+33
+00:01:15,764 --> 00:01:17,152
+you can query using the using the
+
+34
+00:01:17,152 --> 00:01:20,181
+activeSelf and activeInHierarchy states.
+
+35
+00:01:20,181 --> 00:01:22,768
+In this 'check states' script I have a public
+
+36
+00:01:22,768 --> 00:01:25,335
+variable for a gameobject and I'm checking
+
+37
+00:01:25,335 --> 00:01:27,335
+that gameobject as to whether it's
+
+38
+00:01:27,335 --> 00:01:29,251
+active self or active in the Hierarchy.
+
+39
+00:01:30,290 --> 00:01:32,012
+We're referring to the physics door we
+
+40
+00:01:32,012 --> 00:01:35,226
+mentioned previously and debug logging
+
+41
+00:01:35,226 --> 00:01:37,226
+the state of those to the console. 
+
+42
+00:01:37,726 --> 00:01:39,726
+So when I press play
+
+43
+00:01:41,234 --> 00:01:43,234
+the door itself is active
+
+44
+00:01:43,234 --> 00:01:45,234
+and the hierarchy that it's in is 
+
+45
+00:01:45,234 --> 00:01:48,218
+also active. However, if I deactivate the 
+
+46
+00:01:48,218 --> 00:01:50,877
+parent and press play again,
+
+47
+00:01:51,653 --> 00:01:54,334
+the door itself is active but the hierarchy
+
+48
+00:01:54,334 --> 00:01:56,334
+that it's in is not active
+
+49
+00:01:56,334 --> 00:01:58,334
+because the parent is deactivated,
+
+50
+00:01:58,334 --> 00:02:01,270
+and is therefore not active in the scene.
+
+51
+00:02:01,270 --> 00:02:03,270
+It should also be noted that when a child
+
+52
+00:02:03,270 --> 00:02:05,201
+object is inactive because it's 
+
+53
+00:02:05,201 --> 00:02:07,201
+parent is inactive using setActive
+
+54
+00:02:07,201 --> 00:02:09,561
+to true will not make that child object
+
+55
+00:02:09,561 --> 00:02:12,467
+active. It can only become active again
+
+56
+00:02:12,467 --> 00:02:14,745
+once it's parent is made active.

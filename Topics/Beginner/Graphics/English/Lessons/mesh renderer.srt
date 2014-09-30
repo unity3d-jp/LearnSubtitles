@@ -1,0 +1,331 @@
+1
+00:00:01,575 --> 00:00:03,070
+The Mesh Renderer.
+
+2
+00:00:03,446 --> 00:00:05,916
+To render a mesh we need 2 components.
+
+3
+00:00:06,126 --> 00:00:07,549
+The Mesh Filter
+
+4
+00:00:08,049 --> 00:00:10,049
+and the Mesh Renderer.
+
+5
+00:00:11,806 --> 00:00:13,363
+When importing a mesh model
+
+6
+00:00:13,363 --> 00:00:15,100
+Unity will automatically create a
+
+7
+00:00:15,100 --> 00:00:17,100
+prefab asset that includes a mesh filter
+
+8
+00:00:17,100 --> 00:00:20,077
+component to hold the mesh data for the model
+
+9
+00:00:20,077 --> 00:00:22,077
+and a mesh renderer component
+
+10
+00:00:22,077 --> 00:00:24,712
+to render this mesh data in our scene.
+
+11
+00:00:25,281 --> 00:00:26,728
+The mesh renderer does not
+
+12
+00:00:26,728 --> 00:00:28,015
+render skinned meshes.
+
+13
+00:00:28,211 --> 00:00:30,692
+Skinned meshes are used for rendering characters.
+
+14
+00:00:30,692 --> 00:00:32,692
+Characters are animated using bones
+
+15
+00:00:32,692 --> 00:00:34,692
+and every bone effects part of the mesh.
+
+16
+00:00:35,192 --> 00:00:36,748
+If the model is skinned, 
+
+17
+00:00:36,748 --> 00:00:38,915
+Unity will create a skinned mesh renderer
+
+18
+00:00:38,915 --> 00:00:40,694
+for the imported model instead.
+
+19
+00:00:41,153 --> 00:00:43,153
+Information on skinned mesh renderers
+
+20
+00:00:43,153 --> 00:00:45,153
+can be found in another lesson.
+
+21
+00:00:46,026 --> 00:00:48,026
+Each mesh asset needs it's own mesh filter
+
+22
+00:00:48,026 --> 00:00:49,384
+and mesh renderer.
+
+23
+00:00:49,780 --> 00:00:51,422
+If the model is made of several
+
+24
+00:00:51,422 --> 00:00:53,727
+separate meshes each will have it's own
+
+25
+00:00:53,727 --> 00:00:55,727
+prefab game object with it's own
+
+26
+00:00:55,727 --> 00:00:57,727
+mesh filter - mesh renderer pair.
+
+27
+00:00:59,042 --> 00:01:01,900
+The mesh filter holds the mesh data of the model
+
+28
+00:01:01,900 --> 00:01:03,900
+and passes it to the mesh renderer
+
+29
+00:01:03,900 --> 00:01:05,417
+for rendering on screen.
+
+30
+00:01:05,972 --> 00:01:07,415
+The mesh filter component
+
+31
+00:01:07,415 --> 00:01:09,540
+has only one property and this is
+
+32
+00:01:09,540 --> 00:01:12,132
+a reference to the mesh asset itself.
+
+33
+00:01:14,179 --> 00:01:16,123
+The mesh renderer takes the mesh model 
+
+34
+00:01:16,123 --> 00:01:18,123
+data from the mesh filter and renders
+
+35
+00:01:18,123 --> 00:01:20,123
+it in our scene at the position,
+
+36
+00:01:20,123 --> 00:01:22,123
+rotation and scale defined by
+
+37
+00:01:22,123 --> 00:01:24,123
+the object's transform component. 
+
+38
+00:01:25,272 --> 00:01:27,272
+The mesh renderer has properties that
+
+39
+00:01:27,272 --> 00:01:29,037
+define how the model will be rendered
+
+40
+00:01:29,037 --> 00:01:31,037
+or drawn in our scene.
+
+41
+00:01:31,261 --> 00:01:33,261
+These fall in to 3 broad categories.
+
+42
+00:01:33,261 --> 00:01:37,323
+Shadows, materials and light probes.
+
+43
+00:01:38,196 --> 00:01:40,238
+With shadows, if there is a shadow
+
+44
+00:01:40,238 --> 00:01:42,238
+casting light on the object we can
+
+45
+00:01:42,238 --> 00:01:44,210
+set whether the mesh renderer will
+
+46
+00:01:44,210 --> 00:01:46,210
+cast and or receive shadows.
+
+47
+00:01:46,420 --> 00:01:48,656
+Next there is a list of materials
+
+48
+00:01:48,656 --> 00:01:50,335
+to render the object with.
+
+49
+00:01:50,614 --> 00:01:52,820
+Unity needs at least one material assigned
+
+50
+00:01:52,820 --> 00:01:54,820
+to the mesh renderer to be able to draw
+
+51
+00:01:54,820 --> 00:01:56,294
+that object in our scene.
+
+52
+00:01:56,518 --> 00:01:58,878
+For more information on materials themselves
+
+53
+00:01:58,878 --> 00:02:00,878
+see the appropriate lesson.
+
+54
+00:02:02,082 --> 00:02:04,082
+Meshes imported in to Unity can
+
+55
+00:02:04,082 --> 00:02:06,082
+use multiple materials, if the mesh
+
+56
+00:02:06,082 --> 00:02:07,761
+model has been setup to do so
+
+57
+00:02:07,761 --> 00:02:09,761
+in the original modelling application.
+
+58
+00:02:10,261 --> 00:02:12,497
+The mesh renderer maintains a list
+
+59
+00:02:12,497 --> 00:02:14,993
+simply called Materials for all materials
+
+60
+00:02:14,993 --> 00:02:16,687
+used by the mesh model.
+
+61
+00:02:17,629 --> 00:02:20,658
+Often this list only contains one material.
+
+62
+00:02:22,995 --> 00:02:25,324
+This materials list should have one slot
+
+63
+00:02:25,324 --> 00:02:27,212
+in the list for each sub mesh
+
+64
+00:02:27,212 --> 00:02:28,395
+on the mesh model.
+
+65
+00:02:28,895 --> 00:02:31,536
+If any given slot has no material assigned
+
+66
+00:02:31,536 --> 00:02:33,924
+the associated mesh will show pink
+
+67
+00:02:33,924 --> 00:02:35,924
+indicating that the material is missing.
+
+68
+00:02:36,907 --> 00:02:39,602
+Lastly, there are light probes.
+
+69
+00:02:40,088 --> 00:02:42,088
+A mesh can be lit by light probes.
+
+70
+00:02:42,781 --> 00:02:45,004
+Light probes sample the lighting of a scene
+
+71
+00:02:45,004 --> 00:02:47,004
+at a point and cast that light on
+
+72
+00:02:47,004 --> 00:02:48,260
+on to the rendered mesh.
+
+73
+00:02:48,539 --> 00:02:50,207
+This is often used in conjunction
+
+74
+00:02:50,207 --> 00:02:51,254
+with light mapping.
+
+75
+00:02:51,644 --> 00:02:53,644
+Light probes light dynamic objects
+
+76
+00:02:53,644 --> 00:02:55,924
+such as characters that would not receive
+
+77
+00:02:55,924 --> 00:02:57,924
+baked lighting information from a light map.
+
+78
+00:02:58,907 --> 00:03:00,514
+To use light probes,
+
+79
+00:03:00,514 --> 00:03:03,306
+the Use Light Probes option must be enabled.
+
+80
+00:03:03,668 --> 00:03:05,445
+For more information on light probes,
+
+81
+00:03:05,445 --> 00:03:07,445
+including the Anchor Override property,
+
+82
+00:03:07,445 --> 00:03:09,196
+please see the appropriate lesson
+
+83
+00:03:09,196 --> 00:03:11,196
+and documentation link below.

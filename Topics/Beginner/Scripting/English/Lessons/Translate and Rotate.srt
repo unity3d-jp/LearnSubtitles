@@ -1,0 +1,259 @@
+1
+00:00:00,276 --> 00:00:02,423
+Translate and Rotate are two functions 
+
+2
+00:00:02,423 --> 00:00:04,256
+that are commonly used to change the
+
+3
+00:00:04,256 --> 00:00:06,256
+position and rotation of a game object.
+
+4
+00:00:06,256 --> 00:00:08,256
+In this example we begin by looking at
+
+5
+00:00:08,256 --> 00:00:10,658
+translate. You can see that the argument
+
+6
+00:00:10,658 --> 00:00:12,658
+of translate takes a vector3.
+
+7
+00:00:12,658 --> 00:00:15,367
+So this example simply translates down
+
+8
+00:00:15,367 --> 00:00:18,566
+the Z axis, so you can see we've used 0
+
+9
+00:00:18,566 --> 00:00:20,048
+for X and Y,
+
+10
+00:00:20,548 --> 00:00:23,794
+by 1 every frame because it's inside update.
+
+11
+00:00:23,794 --> 00:00:26,213
+So let's see how that works. It's applied
+
+12
+00:00:26,213 --> 00:00:28,914
+to our floorbot object.
+
+13
+00:00:29,110 --> 00:00:31,028
+And you can see that if I press play
+
+14
+00:00:31,028 --> 00:00:33,028
+it moves very quickly because it's updating
+
+15
+00:00:33,028 --> 00:00:35,028
+every frame. Now what we'd normally
+
+16
+00:00:35,028 --> 00:00:37,528
+do with a translate operation is to 
+
+17
+00:00:37,528 --> 00:00:39,528
+multiply it by Time.DeltaTime.
+
+18
+00:00:39,528 --> 00:00:41,528
+This means that it will be moved in
+
+19
+00:00:41,528 --> 00:00:44,935
+metres per second rather than metres per frame.
+
+20
+00:00:48,377 --> 00:00:50,377
+Then instead of specifically saying
+
+21
+00:00:50,377 --> 00:00:52,765
+Vector3(0, 0, 1)
+
+22
+00:00:52,765 --> 00:00:57,408
+we can use vector3.forward as a shortcut to this.
+
+23
+00:00:58,060 --> 00:01:00,857
+And we can then multiply by another value,
+
+24
+00:01:01,842 --> 00:01:04,935
+which we can establish as a separate variable.
+
+25
+00:01:08,432 --> 00:01:10,432
+That way we can control it by using
+
+26
+00:01:10,432 --> 00:01:12,432
+the variable inside the inspector.
+
+27
+00:01:12,780 --> 00:01:14,114
+But what if we don't want this to happen
+
+28
+00:01:14,114 --> 00:01:15,489
+every frame and we want it to be
+
+29
+00:01:15,489 --> 00:01:16,937
+based on a key press?
+
+30
+00:01:17,478 --> 00:01:19,202
+Meaning that it only occurs when I press
+
+31
+00:01:19,202 --> 00:01:20,653
+the up arrow?
+
+32
+00:01:24,313 --> 00:01:26,404
+Then I could do the exact same,
+
+33
+00:01:26,404 --> 00:01:28,032
+checking for the down arrow.
+
+34
+00:01:28,600 --> 00:01:31,033
+This time I've used a negative value of
+
+35
+00:01:31,033 --> 00:01:32,887
+vector3.forward in order to move
+
+36
+00:01:32,887 --> 00:01:34,887
+backwards when I press down.
+
+37
+00:01:38,661 --> 00:01:42,111
+Transform.rotate works in a very similar way.
+
+38
+00:01:42,111 --> 00:01:45,314
+Again taking in a Vector3 into it's argument.
+
+39
+00:01:45,717 --> 00:01:48,555
+This time we're using the Vector3 shortcut
+
+40
+00:01:48,555 --> 00:01:50,389
+Vector3.up.
+
+41
+00:01:50,389 --> 00:01:53,584
+This represents the axis around which to turn.
+
+42
+00:01:54,278 --> 00:01:56,590
+This is the first argument, and amount 
+
+43
+00:01:56,590 --> 00:01:58,590
+to turn by is the second argument.
+
+44
+00:01:59,366 --> 00:02:02,830
+Now we'll add in our variable called TurnSpeed
+
+45
+00:02:03,993 --> 00:02:05,993
+and when I press play
+
+46
+00:02:06,700 --> 00:02:08,700
+I can move the object around and
+
+47
+00:02:08,700 --> 00:02:11,409
+rotate it using the left and right arrows.
+
+48
+00:02:11,909 --> 00:02:13,826
+And again because I've set these as
+
+49
+00:02:13,826 --> 00:02:16,269
+public variables I can adjust them
+
+50
+00:02:16,269 --> 00:02:19,103
+without having to go back to edit the scripts.
+
+51
+00:02:21,449 --> 00:02:23,449
+It should be noted that these functions work
+
+52
+00:02:23,449 --> 00:02:27,334
+on the local axis rather than in the world axis.
+
+53
+00:02:27,334 --> 00:02:29,504
+So where I'm using Vector3.forward
+
+54
+00:02:29,504 --> 00:02:32,291
+or Vector3.up - this is relative to the
+
+55
+00:02:32,291 --> 00:02:34,291
+axis of the object it's applied to.
+
+56
+00:02:35,413 --> 00:02:37,413
+It's also notable that if you want
+
+57
+00:02:37,413 --> 00:02:39,413
+to move an object with a collider,
+
+58
+00:02:39,413 --> 00:02:41,413
+so something that's going to be interacting
+
+59
+00:02:41,413 --> 00:02:43,068
+with physics - then you should not use 
+
+60
+00:02:43,068 --> 00:02:44,790
+translate or rotate.
+
+61
+00:02:45,055 --> 00:02:47,776
+You should use the physics functions instead.
+
+62
+00:02:47,986 --> 00:02:49,986
+And you can see these in a separate lesson.
+
+63
+00:02:50,679 --> 00:02:52,204
+The only time that you would want to effect
+
+64
+00:02:52,204 --> 00:02:54,820
+transform is if you had a rigid body
+
+65
+00:02:54,820 --> 00:02:56,820
+that is kinematic.

@@ -1,0 +1,607 @@
+1
+00:00:00,994 --> 00:00:03,570
+Let's begin by creating a new project.
+
+2
+00:00:03,570 --> 00:00:06,985
+We can create a new project from File - New Project.
+
+3
+00:00:07,706 --> 00:00:10,037
+This will bring up the new project window.
+
+4
+00:00:10,037 --> 00:00:11,857
+The first thing we need to do is set the
+
+5
+00:00:11,857 --> 00:00:14,552
+destination or path to our new project.
+
+6
+00:00:15,577 --> 00:00:18,283
+I'm going to put this new project on my desktop.
+
+7
+00:00:18,283 --> 00:00:21,428
+I'm going to call the new project Roll-a-ball.
+
+8
+00:00:23,793 --> 00:00:26,025
+And then I will click on Create Project
+
+9
+00:00:26,025 --> 00:00:28,205
+to make a new project.
+
+10
+00:00:28,205 --> 00:00:31,083
+We now have our new project with a new empty scene.
+
+11
+00:00:31,083 --> 00:00:33,083
+Before creating anything in the new scene
+
+12
+00:00:33,083 --> 00:00:34,444
+we need to save our scene.
+
+13
+00:00:34,444 --> 00:00:37,662
+We can save our scene by going to File - Save Scene
+
+14
+00:00:37,662 --> 00:00:39,662
+or by using the keyboard shortcut.
+
+15
+00:00:41,184 --> 00:00:43,541
+I'm going to save this scene in the Assets directory
+
+16
+00:00:43,541 --> 00:00:46,638
+in a new folder called _scenes.
+
+17
+00:00:46,638 --> 00:00:49,420
+The underscore is optional, I use it to sort this
+
+18
+00:00:49,420 --> 00:00:52,074
+folder to the top of my project window.
+
+19
+00:00:52,074 --> 00:00:54,795
+Now I'm going to call the scene MiniGame.
+
+20
+00:00:57,919 --> 00:00:59,919
+We can now see in our Scenes folder
+
+21
+00:00:59,919 --> 00:01:01,919
+the scene called MiniGame.
+
+22
+00:01:02,419 --> 00:01:05,549
+Let's create our game board, or play field.
+
+23
+00:01:05,549 --> 00:01:08,383
+To do this we will use a stock Unity plane.
+
+24
+00:01:08,883 --> 00:01:10,741
+We can create this plane from either
+
+25
+00:01:10,741 --> 00:01:13,527
+Game Object - Create Other - Plane.
+
+26
+00:01:15,450 --> 00:01:19,267
+Or from inside the Hierarchy view using the Create menu.
+
+27
+00:01:20,485 --> 00:01:23,457
+Rename this game object Ground.
+
+28
+00:01:23,457 --> 00:01:25,457
+We can do this by either selecting the game object
+
+29
+00:01:25,457 --> 00:01:27,637
+and using the enter or return keys
+
+30
+00:01:27,637 --> 00:01:30,145
+to allow editing, or by clicking on the
+
+31
+00:01:30,145 --> 00:01:32,338
+game object twice, slowly.
+
+32
+00:01:32,338 --> 00:01:34,712
+Type in the new name or hit enter or return
+
+33
+00:01:34,712 --> 00:01:36,712
+to confirm this change.
+
+34
+00:01:37,212 --> 00:01:39,914
+Reset the transform component using the context
+
+35
+00:01:39,914 --> 00:01:42,312
+sensitive gear menu in the upper right.
+
+36
+00:01:42,312 --> 00:01:44,770
+This will place the game object at the location of
+
+37
+00:01:44,770 --> 00:01:47,278
+(0, 0, 0) in our scene.
+
+38
+00:01:47,278 --> 00:01:49,278
+This point is known as the origin point
+
+39
+00:01:49,278 --> 00:01:51,650
+of the world and this is where all of the
+
+40
+00:01:51,650 --> 00:01:54,341
+coordinates in the scene are calculated from.
+
+41
+00:01:54,341 --> 00:01:56,341
+Now with the game object selected and the
+
+42
+00:01:56,341 --> 00:01:59,599
+cursor over the Scene view type the F key, or choose
+
+43
+00:01:59,599 --> 00:02:02,112
+Frame Selected from the Edit menu
+
+44
+00:02:02,112 --> 00:02:05,025
+to see the entire game object in the Scene view.
+
+45
+00:02:06,602 --> 00:02:09,034
+We need to change the scale of the ground plane.
+
+46
+00:02:09,034 --> 00:02:11,356
+We can do this in a number of ways..
+
+47
+00:02:11,356 --> 00:02:13,356
+We can use the Scale tool,
+
+48
+00:02:13,356 --> 00:02:15,714
+simply grab the axis handle you want to change
+
+49
+00:02:15,714 --> 00:02:18,419
+and drag the handle rescaling the plane.
+
+50
+00:02:18,419 --> 00:02:20,419
+We can click and drag on the title of
+
+51
+00:02:20,419 --> 00:02:22,419
+the fields we want to change.
+
+52
+00:02:23,499 --> 00:02:25,347
+Or we can type a number directly in to the
+
+53
+00:02:25,347 --> 00:02:26,753
+field we want to change.
+
+54
+00:02:26,753 --> 00:02:29,517
+You can tab between fields and hit enter or return
+
+55
+00:02:29,517 --> 00:02:31,517
+to confirm your choice.
+
+56
+00:02:31,517 --> 00:02:34,070
+Now remember a plane has no volume
+
+57
+00:02:34,070 --> 00:02:36,525
+and scale does not work on the Y axis.
+
+58
+00:02:36,525 --> 00:02:39,435
+There will be no change unless you go in to negative numbers.
+
+59
+00:02:39,435 --> 00:02:41,699
+In this case the plane, which is a single
+
+60
+00:02:41,699 --> 00:02:45,158
+sided object will simply face the other direction.
+
+61
+00:02:45,158 --> 00:02:47,629
+If you place a plane in the scene and you can't see it
+
+62
+00:02:47,629 --> 00:02:50,620
+check your orientation between the plane and camera
+
+63
+00:02:50,620 --> 00:02:52,620
+and make sure that you have the correct values
+
+64
+00:02:52,620 --> 00:02:54,287
+for the Y axis of scale.
+
+65
+00:02:54,287 --> 00:02:56,881
+This is usually the value of 1.
+
+66
+00:02:57,478 --> 00:02:59,687
+Let's create our player object.
+
+67
+00:02:59,687 --> 00:03:01,687
+In this assignment our player object
+
+68
+00:03:01,687 --> 00:03:03,687
+will be a Unity sphere.
+
+69
+00:03:03,687 --> 00:03:07,672
+From the Hierarchy - Create menu select Sphere.
+
+70
+00:03:08,752 --> 00:03:10,752
+Rename the sphere Player.
+
+71
+00:03:12,813 --> 00:03:15,529
+Reset the transform to make sure it's a origin.
+
+72
+00:03:16,402 --> 00:03:18,402
+Select Edit - Frame Selected
+
+73
+00:03:18,402 --> 00:03:20,402
+or use the F key while the cursor is
+
+74
+00:03:20,402 --> 00:03:22,653
+over the Scene view to focus our Scene view
+
+75
+00:03:22,653 --> 00:03:24,653
+camera on our game object.
+
+76
+00:03:24,653 --> 00:03:26,653
+See how the sphere is buried in the plane?
+
+77
+00:03:26,653 --> 00:03:28,653
+This is because both game objects
+
+78
+00:03:28,653 --> 00:03:31,237
+are in the exact same location in the scene,
+
+79
+00:03:31,237 --> 00:03:33,763
+the origin point, or (0, 0, 0)
+
+80
+00:03:33,763 --> 00:03:35,763
+on the X, Y and Z axis.
+
+81
+00:03:35,763 --> 00:03:37,763
+We need to move the player's sphere up
+
+82
+00:03:37,763 --> 00:03:39,763
+until it rests on the plane.
+
+83
+00:03:40,263 --> 00:03:44,003
+All Unity primitive objects, cubes, spheres, capsules,
+
+84
+00:03:44,003 --> 00:03:46,279
+have a standard size, they are either
+
+85
+00:03:46,279 --> 00:03:51,188
+1 by 1 by 1 or 1 by 2 by 1 Unity units.
+
+86
+00:03:51,188 --> 00:03:53,188
+As such we simply lift the player object up
+
+87
+00:03:53,188 --> 00:03:55,188
+by half a unit in the Y axis
+
+88
+00:03:55,188 --> 00:03:58,363
+and we know it is laying perfectly on top of plane.
+
+89
+00:04:00,852 --> 00:04:04,220
+If we look in the Game view we can see it's very dark.
+
+90
+00:04:04,220 --> 00:04:06,220
+There are no lights in the scene.
+
+91
+00:04:06,220 --> 00:04:10,108
+Add a new directional light from the Hierarchy - Create menu.
+
+92
+00:04:11,975 --> 00:04:14,716
+Rename this Main Light.
+
+93
+00:04:15,566 --> 00:04:18,838
+Reset the game object's transform to Origin.
+
+94
+00:04:21,921 --> 00:04:25,148
+Set the X axis and the transform's rotation to 30
+
+95
+00:04:25,148 --> 00:04:27,524
+so it shines down on the game board.
+
+96
+00:04:27,524 --> 00:04:30,404
+Now this light does not give shape to the player's sphere
+
+97
+00:04:30,404 --> 00:04:32,991
+so set the transform's Y axis to 60
+
+98
+00:04:32,991 --> 00:04:34,991
+so the light comes in from 1 side.
+
+99
+00:04:34,991 --> 00:04:37,481
+This gives a better shape to the ball.
+
+100
+00:04:38,113 --> 00:04:41,150
+The player's position over the plane is some what ambiguous.
+
+101
+00:04:41,150 --> 00:04:44,248
+It's hard to tell the player's exact position over the plane.
+
+102
+00:04:44,248 --> 00:04:45,874
+Shadows will help with this.
+
+103
+00:04:45,874 --> 00:04:48,823
+Set the shadow type on the main light to soft shadows
+
+104
+00:04:48,823 --> 00:04:51,927
+and set the resolution to very high resolution.
+
+105
+00:04:52,745 --> 00:04:54,745
+Now it's hard to see the separation between
+
+106
+00:04:54,745 --> 00:04:56,745
+the ball and it's shadow.
+
+107
+00:04:56,745 --> 00:04:58,745
+To help with this let's add what is
+
+108
+00:04:58,745 --> 00:05:00,510
+called a fill light.
+
+109
+00:05:00,510 --> 00:05:02,510
+Duplicate the main light.
+
+110
+00:05:04,391 --> 00:05:07,755
+Rename Main Light to Fill Light.
+
+111
+00:05:10,037 --> 00:05:13,779
+Reverse the transform rotation values to -30
+
+112
+00:05:14,693 --> 00:05:16,319
+and -60.
+
+113
+00:05:16,319 --> 00:05:20,172
+so the light shines up from below but still from the front.
+
+114
+00:05:21,818 --> 00:05:23,818
+Change the colour value for the light
+
+115
+00:05:24,318 --> 00:05:26,318
+to give a hint of blue.
+
+116
+00:05:27,812 --> 00:05:31,009
+And lower the intensity to 0.1.
+
+117
+00:05:33,042 --> 00:05:35,042
+Finally, turn off shadows.
+
+118
+00:05:35,542 --> 00:05:37,542
+This will now act as a gentle fill light on the
+
+119
+00:05:37,542 --> 00:05:39,942
+ball separating it from it's shadow.
+
+120
+00:05:41,907 --> 00:05:44,600
+Let's look at the organisation of our hierarchy.
+
+121
+00:05:44,600 --> 00:05:46,600
+Even with only 5 game objects
+
+122
+00:05:46,600 --> 00:05:48,600
+the hierarchy is already getting confusing
+
+123
+00:05:48,600 --> 00:05:50,600
+and is disorganised.
+
+124
+00:05:50,600 --> 00:05:52,600
+Organisation in our projects and in our hierarchy
+
+125
+00:05:52,600 --> 00:05:54,420
+are very important.
+
+126
+00:05:54,420 --> 00:05:57,583
+We need to understand the organisation at a glance.
+
+127
+00:05:57,583 --> 00:06:00,119
+We organise our projects using folders or directories
+
+128
+00:06:00,119 --> 00:06:02,119
+created by our operating system.
+
+129
+00:06:02,119 --> 00:06:03,905
+We add these to our project using the
+
+130
+00:06:03,905 --> 00:06:05,905
+Project Views - Create menu.
+
+131
+00:06:07,441 --> 00:06:11,141
+We organise our hierarchies by using game objects.
+
+132
+00:06:11,141 --> 00:06:14,671
+In our scene game objects can hold other game objects.
+
+133
+00:06:14,671 --> 00:06:16,671
+Don't be afraid to use an empty game object
+
+134
+00:06:16,671 --> 00:06:19,336
+as a directory or folder in the hierarchy.
+
+135
+00:06:19,891 --> 00:06:23,223
+To do this, first create a new empty game object.
+
+136
+00:06:24,538 --> 00:06:26,538
+Rename it Lighting.
+
+137
+00:06:28,143 --> 00:06:30,323
+Reset the transform to origin,
+
+138
+00:06:30,323 --> 00:06:33,085
+and this step is important, we want the transforms of
+
+139
+00:06:33,085 --> 00:06:35,085
+all of our container game objects to be at
+
+140
+00:06:35,085 --> 00:06:37,085
+origin before we use them.
+
+141
+00:06:38,510 --> 00:06:39,952
+Add the Fill Light and the Main Light
+
+142
+00:06:39,952 --> 00:06:42,638
+to the lighting parent game object.
+
+143
+00:06:45,159 --> 00:06:48,288
+Now see how these lights are in the middle of the game board?
+
+144
+00:06:48,288 --> 00:06:50,094
+They are some what in the way.
+
+145
+00:06:50,094 --> 00:06:52,094
+Remember directional lights light all of the game
+
+146
+00:06:52,094 --> 00:06:54,678
+objects in the scene based on their rotation
+
+147
+00:06:54,678 --> 00:06:56,358
+not their position.
+
+148
+00:06:56,358 --> 00:06:58,358
+We can simply move their parent game object
+
+149
+00:06:58,358 --> 00:07:01,054
+up 100 units above the game board.
+
+150
+00:07:01,444 --> 00:07:03,444
+There they are, out of the way.
+
+151
+00:07:03,944 --> 00:07:05,944
+Next we will find a way to move the player game
+
+152
+00:07:05,944 --> 00:07:07,944
+object using player input.

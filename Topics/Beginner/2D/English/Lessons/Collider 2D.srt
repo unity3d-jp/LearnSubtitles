@@ -1,0 +1,479 @@
+1
+00:00:01,215 --> 00:00:03,701
+To have any physical presence in the scene
+
+2
+00:00:03,701 --> 00:00:05,701
+a game object must use one of the
+
+3
+00:00:05,701 --> 00:00:08,826
+collider components to define it's physical shape
+
+4
+00:00:08,826 --> 00:00:11,783
+and to interact with the relevant physics engine.
+
+5
+00:00:12,504 --> 00:00:14,904
+Unity has 2 physics engines.
+
+6
+00:00:14,904 --> 00:00:17,719
+One for 3D and one for 2D.
+
+7
+00:00:18,371 --> 00:00:21,909
+These two physics engines do not interact with each other.
+
+8
+00:00:22,754 --> 00:00:25,783
+For more information on physics and physics 2D
+
+9
+00:00:25,783 --> 00:00:28,446
+please see the information linked below.
+
+10
+00:00:29,429 --> 00:00:31,429
+When using the 2D physics engine
+
+11
+00:00:31,429 --> 00:00:34,535
+a collider 2D component must be used.
+
+12
+00:00:35,574 --> 00:00:39,215
+There are 4 collider 2D components to choose from.
+
+13
+00:00:39,950 --> 00:00:41,950
+The circle collider 2D,
+
+14
+00:00:41,950 --> 00:00:43,950
+the box collider 2D,
+
+15
+00:00:43,950 --> 00:00:46,335
+the polygon collider 2D
+
+16
+00:00:46,335 --> 00:00:48,623
+and the edge collider 2D.
+
+17
+00:00:49,636 --> 00:00:52,905
+All of these collider components share many properties
+
+18
+00:00:52,905 --> 00:00:54,905
+as they all derive from the same generic
+
+19
+00:00:54,905 --> 00:00:56,905
+base collider 2D.
+
+20
+00:00:57,723 --> 00:01:00,112
+Each collider 2D component however is
+
+21
+00:01:00,112 --> 00:01:02,112
+optimised for a particular shape.
+
+22
+00:01:03,040 --> 00:01:04,777
+The circle collider 2D works with
+
+23
+00:01:04,777 --> 00:01:06,777
+round circular objects.
+
+24
+00:01:07,898 --> 00:01:11,607
+The box collider 2D works well with rectangular objects.
+
+25
+00:01:12,357 --> 00:01:14,357
+The polygon collider 2D work
+
+26
+00:01:14,357 --> 00:01:16,357
+best with complex shapes.
+
+27
+00:01:17,451 --> 00:01:21,263
+And the edge collider 2D works well for surfaces.
+
+28
+00:01:22,821 --> 00:01:26,458
+The edge collider and polygon colliders are very similar.
+
+29
+00:01:27,197 --> 00:01:30,000
+They are created by several points, or vertices,
+
+30
+00:01:30,000 --> 00:01:32,000
+with edges connecting them.
+
+31
+00:01:32,721 --> 00:01:36,020
+The main difference between them is that the polygon collider
+
+32
+00:01:36,020 --> 00:01:38,882
+must be a closed shape covering an area.
+
+33
+00:01:39,921 --> 00:01:41,921
+And the edge collider must be open,
+
+34
+00:01:41,921 --> 00:01:45,207
+defining an edge of one or more segments.
+
+35
+00:01:45,969 --> 00:01:48,093
+One good use of the edge collider
+
+36
+00:01:48,093 --> 00:01:50,385
+is to make a single solid surface
+
+37
+00:01:50,385 --> 00:01:53,130
+rather than a series of 2D colliders
+
+38
+00:01:53,130 --> 00:01:55,379
+even if several sprites are used to create
+
+39
+00:01:55,379 --> 00:01:57,807
+the visual aspect of the surface.
+
+40
+00:01:59,744 --> 00:02:01,744
+When comparing all 2D colliders
+
+41
+00:02:01,744 --> 00:02:04,299
+there are 2 properties exposed in the inspector
+
+42
+00:02:04,299 --> 00:02:05,883
+that they all share.
+
+43
+00:02:06,383 --> 00:02:09,134
+Is Trigger and Material.
+
+44
+00:02:09,808 --> 00:02:11,808
+The other unique properties are for defining
+
+45
+00:02:11,808 --> 00:02:14,840
+the shape of that particular 2D collider.
+
+46
+00:02:15,658 --> 00:02:18,160
+The Is Trigger property will set the collider
+
+47
+00:02:18,160 --> 00:02:20,160
+to behave as a trigger collider.
+
+48
+00:02:21,157 --> 00:02:23,462
+With normal 2D physics collisions
+
+49
+00:02:23,462 --> 00:02:25,462
+the 2D physics engine will prevent
+
+50
+00:02:25,462 --> 00:02:28,332
+2D colliders from passing through each other.
+
+51
+00:02:29,965 --> 00:02:31,965
+2D trigger colliders will not participate
+
+52
+00:02:31,965 --> 00:02:35,036
+in physical collisions and will send 2D
+
+53
+00:02:35,036 --> 00:02:38,685
+trigger messages rather than 2D collision messages.
+
+54
+00:02:39,420 --> 00:02:41,420
+These trigger messages can be used to
+
+55
+00:02:41,420 --> 00:02:43,904
+initiate new actions in the scene.
+
+56
+00:02:44,597 --> 00:02:46,707
+For more information on Is Trigger
+
+57
+00:02:46,707 --> 00:02:48,707
+and the messages sent by colliders
+
+58
+00:02:48,707 --> 00:02:51,138
+please see the information linked below.
+
+59
+00:02:53,362 --> 00:02:56,381
+The material property is a reference to the
+
+60
+00:02:56,381 --> 00:02:59,556
+physics material 2D being used by the collider 2D
+
+61
+00:02:59,556 --> 00:03:01,556
+and this can be none.
+
+62
+00:03:02,056 --> 00:03:04,056
+Physics materials define how colliders
+
+63
+00:03:04,056 --> 00:03:06,056
+will react when they collider
+
+64
+00:03:06,056 --> 00:03:08,056
+and define both the bounciness and
+
+65
+00:03:08,056 --> 00:03:10,473
+the friction of the collider's surface.
+
+66
+00:03:11,274 --> 00:03:14,886
+To make a bouncy ball or slippery ice covered platform
+
+67
+00:03:14,886 --> 00:03:17,277
+use a different physics material 2D
+
+68
+00:03:17,277 --> 00:03:19,277
+with each collider 2D.
+
+69
+00:03:20,150 --> 00:03:23,281
+For more information on physics material 2D
+
+70
+00:03:23,281 --> 00:03:25,833
+please see the information linked below.
+
+71
+00:03:27,121 --> 00:03:30,188
+To use a collider 2D it must be attached
+
+72
+00:03:30,188 --> 00:03:31,649
+to a game object.
+
+73
+00:03:32,412 --> 00:03:35,013
+One way of attaching a collider 2D component
+
+74
+00:03:35,013 --> 00:03:37,342
+is to use the Add Component button
+
+75
+00:03:37,342 --> 00:03:39,342
+and select Physics 2D
+
+76
+00:03:39,342 --> 00:03:42,402
+and select a Collider 2D Component.
+
+77
+00:03:43,261 --> 00:03:45,442
+For more information on game objects,
+
+78
+00:03:45,442 --> 00:03:47,442
+components and how to use them
+
+79
+00:03:47,442 --> 00:03:49,856
+please see the information linked below.
+
+80
+00:03:50,674 --> 00:03:52,883
+When a collider 2D component is attached
+
+81
+00:03:52,883 --> 00:03:56,542
+Unity will try to size the collider 2D to the sprite.
+
+82
+00:03:57,480 --> 00:03:59,480
+If the size and shape of the collider 2D
+
+83
+00:03:59,480 --> 00:04:03,319
+is undesirable then the shape can be edited by either
+
+84
+00:04:03,319 --> 00:04:05,319
+changing the values in the inspector
+
+85
+00:04:07,021 --> 00:04:10,501
+or changing the collider 2D itself in the scene view.
+
+86
+00:04:11,360 --> 00:04:14,157
+To edit a collider 2D in the scene view
+
+87
+00:04:14,157 --> 00:04:16,157
+hold down the shift key.
+
+88
+00:04:16,657 --> 00:04:19,279
+This will display handles on the 2D collider's
+
+89
+00:04:19,279 --> 00:04:21,279
+gizmo in the scene view.
+
+90
+00:04:21,779 --> 00:04:23,779
+These handles are drag-able.
+
+91
+00:04:26,310 --> 00:04:29,362
+In the case of the edge collider and the polygon collider
+
+92
+00:04:29,362 --> 00:04:31,362
+dragging an existing handle will move
+
+93
+00:04:31,362 --> 00:04:34,389
+the collider's vertex, and change the collider's shape
+
+94
+00:04:34,389 --> 00:04:36,722
+rather than resizing the collider.
+
+95
+00:04:37,593 --> 00:04:40,121
+By moving the cursor over an empty edge
+
+96
+00:04:40,121 --> 00:04:43,024
+on either the edge collider or the polygon collider
+
+97
+00:04:43,024 --> 00:04:45,814
+a new vertex can be created by clicking.
+
+98
+00:04:46,673 --> 00:04:49,404
+This is indicated by a new handle appearing
+
+99
+00:04:49,404 --> 00:04:51,946
+and the edge highlighting in green.
+
+100
+00:04:57,720 --> 00:05:00,752
+In the case of the edge collider and the polygon collider
+
+101
+00:05:00,752 --> 00:05:02,628
+holding the control key will allow a
+
+102
+00:05:02,628 --> 00:05:04,628
+vertex to the be deleted when clicked.
+
+103
+00:05:05,529 --> 00:05:07,529
+This is indicated by the handle
+
+104
+00:05:07,529 --> 00:05:09,529
+and the edge highlighting in red.
+
+105
+00:05:16,451 --> 00:05:18,784
+A game object does not need a rigidbodied
+
+106
+00:05:18,784 --> 00:05:21,340
+2D to use a collider 2D.
+
+107
+00:05:22,196 --> 00:05:24,778
+To participate in 2D collision and trigger events
+
+108
+00:05:24,778 --> 00:05:26,778
+however at least 1 of the game objects
+
+109
+00:05:26,778 --> 00:05:30,359
+involved must have a rigidbody 2D attached.
+
+110
+00:05:31,025 --> 00:05:33,025
+A common pattern for best performance
+
+111
+00:05:33,025 --> 00:05:35,507
+would be to attach collider 2D components
+
+112
+00:05:35,507 --> 00:05:37,507
+but not rigidbody components
+
+113
+00:05:37,507 --> 00:05:40,102
+to all of the static, or non-moving game objects
+
+114
+00:05:40,102 --> 00:05:42,648
+that need to interact with 2D physics.
+
+115
+00:05:43,431 --> 00:05:46,451
+And attach a collider 2D and a rigidbody 2D
+
+116
+00:05:46,451 --> 00:05:48,828
+to the dynamic, or moving, game object
+
+117
+00:05:48,828 --> 00:05:50,828
+that need to interact in the scene.
+
+118
+00:05:53,524 --> 00:05:55,840
+For more information on physics 2D
+
+119
+00:05:55,840 --> 00:05:58,254
+collider 2D, collisions and triggers
+
+120
+00:05:58,254 --> 00:06:00,707
+please see the information linked below.

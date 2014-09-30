@@ -1,0 +1,383 @@
+1
+00:00:00,000 --> 00:00:02,084
+Colliders are a component that allows
+
+2
+00:00:02,084 --> 00:00:03,874
+the game object they're attached to
+
+3
+00:00:03,874 --> 00:00:05,585
+to react to other colliders
+
+4
+00:00:05,585 --> 00:00:07,585
+provided that one of the game objects
+
+5
+00:00:07,585 --> 00:00:09,585
+has a rigidbody component attached.
+
+6
+00:00:10,209 --> 00:00:12,828
+Colliders come in various shapes and types,
+
+7
+00:00:12,828 --> 00:00:14,828
+and are denoted in the scene view
+
+8
+00:00:14,828 --> 00:00:16,235
+by a green outline.
+
+9
+00:00:16,459 --> 00:00:18,982
+They can have the following primitive shapes:
+
+10
+00:00:18,982 --> 00:00:31,062
+a sphere, a capsule and a box.
+
+11
+00:00:32,663 --> 00:00:35,273
+For more complex shapes you have two options
+
+12
+00:00:35,474 --> 00:00:37,406
+You can either combine several of these
+
+13
+00:00:37,406 --> 00:00:39,708
+primitive shapes together by applying
+
+14
+00:00:41,730 --> 00:00:42,852
+primitive colliders to different objects.
+
+15
+00:00:39,708 --> 00:00:41,730
+in our hierarchy.
+
+16
+00:00:42,852 --> 00:00:44,852
+For example this workbench
+
+17
+00:00:44,852 --> 00:00:46,852
+has a number of objects which simply
+
+18
+00:00:46,852 --> 00:00:49,156
+serve to make up it's different colliders
+
+19
+00:00:49,156 --> 00:00:50,682
+for various areas.
+
+20
+00:00:50,782 --> 00:00:54,156
+The other option is to use a mesh collider,
+
+21
+00:00:54,156 --> 00:00:55,988
+which will fit the exact shape of the
+
+22
+00:00:55,988 --> 00:00:57,686
+mesh that you specify.
+
+23
+00:00:58,186 --> 00:01:00,620
+The workbench on the right has no hierarchy
+
+24
+00:01:00,620 --> 00:01:02,620
+but instead uses a mesh collider.
+
+25
+00:01:02,620 --> 00:01:04,620
+The reason not to use a mesh collider
+
+26
+00:01:04,620 --> 00:01:06,620
+is that it will fit the exact shape
+
+27
+00:01:06,620 --> 00:01:08,620
+of the mesh that you specify. So if you
+
+28
+00:01:08,620 --> 00:01:11,073
+only specify the mesh of your detailed model
+
+29
+00:01:11,073 --> 00:01:13,073
+then it may be providing too detailed
+
+30
+00:01:13,073 --> 00:01:15,611
+a collision mesh and effecting performance.
+
+31
+00:01:15,794 --> 00:01:17,693
+This is the reason why it's often better
+
+32
+00:01:17,693 --> 00:01:19,693
+to make a compound setup instead.
+
+33
+00:01:20,076 --> 00:01:21,840
+However it should be noted that a third
+
+34
+00:01:21,840 --> 00:01:24,463
+option for creating collision geometry
+
+35
+00:01:24,463 --> 00:01:26,861
+is to use a separate, simpler set of
+
+36
+00:01:26,861 --> 00:01:29,664
+geometry and still use a mesh collider.
+
+37
+00:01:29,997 --> 00:01:32,248
+In this example we have this complex
+
+38
+00:01:32,248 --> 00:01:33,997
+robot arm asset.
+
+39
+00:01:34,331 --> 00:01:36,196
+It's a very detailed mesh
+
+40
+00:01:36,196 --> 00:01:38,196
+but we don't want a mesh as complex
+
+41
+00:01:38,196 --> 00:01:39,929
+as this for the collisions.
+
+42
+00:01:40,162 --> 00:01:43,428
+So what we've done is built
+
+43
+00:01:43,428 --> 00:01:45,827
+a secondary set of geometry which we've 
+
+44
+00:01:45,827 --> 00:01:48,279
+then applied to a series of mesh colliders.
+
+45
+00:01:48,279 --> 00:01:50,279
+For example this part of the claw is more
+
+46
+00:01:50,279 --> 00:01:51,809
+detailed than the collision mesh
+
+47
+00:01:51,809 --> 00:01:53,275
+that we've created for it.
+
+48
+00:01:53,625 --> 00:01:55,547
+And this has been done in two separate
+
+49
+00:01:55,547 --> 00:01:59,642
+FBX files -The original artwork and 
+
+50
+00:01:59,642 --> 00:02:01,557
+a simplified set of geometry.
+
+51
+00:02:01,742 --> 00:02:03,591
+We've then gone through each one,
+
+52
+00:02:03,591 --> 00:02:05,591
+applied a mesh collider and dragged
+
+53
+00:02:05,591 --> 00:02:07,524
+these meshes over as the
+
+54
+00:02:07,524 --> 00:02:09,121
+collision meshes to use.
+
+55
+00:02:09,206 --> 00:02:10,935
+This means that we get the kind of accuracy
+
+56
+00:02:10,935 --> 00:02:12,935
+that we need in terms of collision
+
+57
+00:02:12,935 --> 00:02:14,935
+without the performance overhead.
+
+58
+00:02:15,602 --> 00:02:17,602
+When collisions occur in the game engine
+
+59
+00:02:17,602 --> 00:02:20,024
+one collider strikes another and an event
+
+60
+00:02:20,024 --> 00:02:22,024
+called OnCollisionEnter is called.
+
+61
+00:02:22,307 --> 00:02:26,087
+In this scene our 'prop samoflange' object
+
+62
+00:02:26,087 --> 00:02:28,928
+has a sphere collider component and a rigidbody component.
+
+63
+00:02:29,061 --> 00:02:31,695
+The rigidbody provides mass and gravity.
+
+64
+00:02:31,961 --> 00:02:34,378
+When I play the game, one falls down
+
+65
+00:02:34,378 --> 00:02:36,108
+and strikes the other.
+
+66
+00:02:36,608 --> 00:02:39,725
+The power cube has a box collider attached to it.
+
+67
+00:02:43,061 --> 00:02:45,533
+Also attached to our falling object
+
+68
+00:02:45,533 --> 00:02:47,334
+is this script.
+
+69
+00:02:47,733 --> 00:02:50,383
+This script checks for three collision events.
+
+70
+00:02:50,383 --> 00:02:53,573
+OnCollisionEnter, OnCollisionStay
+
+71
+00:02:53,573 --> 00:02:54,935
+and OnCollisionExit. 
+
+72
+00:02:55,135 --> 00:02:57,135
+When each of these occurs it writes
+
+73
+00:02:57,135 --> 00:02:59,418
+to the console using Debug.Log.
+
+74
+00:02:59,568 --> 00:03:01,805
+It will register when Enter is called,
+
+75
+00:03:01,805 --> 00:03:03,805
+when Stay is occurring
+
+76
+00:03:03,805 --> 00:03:05,805
+and when Exit is called.
+
+77
+00:03:09,809 --> 00:03:11,936
+So if we look at our console you can see
+
+78
+00:03:11,936 --> 00:03:14,477
+that Enter is called, Stay has occurred
+
+79
+00:03:14,477 --> 00:03:16,946
+for a while and then Exit is called.
+
+80
+00:03:17,162 --> 00:03:19,635
+If we pause the game and play we can look
+
+81
+00:03:19,635 --> 00:03:21,635
+at this example slowly.
+
+82
+00:03:22,135 --> 00:03:24,431
+As I step through the frames
+
+83
+00:03:25,682 --> 00:03:27,429
+when the collision occurs you can see
+
+84
+00:03:27,429 --> 00:03:30,315
+that Enter is called, so OnCollisionEnter
+
+85
+00:03:30,315 --> 00:03:32,315
+has just occurred.
+
+86
+00:03:32,815 --> 00:03:36,509
+As I continue OnCollisionStay is occurring.
+
+87
+00:03:37,259 --> 00:03:39,027
+You can see on the right here that it's
+
+88
+00:03:39,027 --> 00:03:41,027
+happening several times because these
+
+89
+00:03:41,027 --> 00:03:43,344
+two colliders are still in contact.
+
+90
+00:03:43,344 --> 00:03:45,344
+As we continue to step through
+
+91
+00:03:45,344 --> 00:03:48,126
+eventually OnCollisionExit is called
+
+92
+00:03:48,126 --> 00:03:49,925
+when the two colliders are no longer
+
+93
+00:03:49,925 --> 00:03:51,925
+in contact.
+
+94
+00:03:53,142 --> 00:03:54,906
+Note that for an OnCollision message to
+
+95
+00:03:54,906 --> 00:03:57,461
+to be sent, one of the two objects colliding
+
+96
+00:03:57,461 --> 00:04:00,016
+must have a rigidbody component.

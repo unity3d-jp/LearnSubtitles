@@ -1,0 +1,131 @@
+1
+00:00:13,284 --> 00:00:15,726
+ Welcome to the Space Shooter project.
+
+2
+00:00:15,726 --> 00:00:17,726
+In this project we will build this
+
+3
+00:00:17,726 --> 00:00:20,026
+top down arcade style shooter.
+
+4
+00:00:20,811 --> 00:00:22,811
+In the foundation assignments we will
+
+5
+00:00:22,811 --> 00:00:24,773
+import the assets we need,
+
+6
+00:00:24,773 --> 00:00:26,984
+setup our base project and set the
+
+7
+00:00:26,984 --> 00:00:28,984
+build target for our game.
+
+8
+00:00:31,026 --> 00:00:33,865
+We will then setup the basic player game object,
+
+9
+00:00:33,865 --> 00:00:36,105
+preparing it to move, shoot and interact
+
+10
+00:00:36,105 --> 00:00:38,105
+with the other objects in the scene.
+
+11
+00:00:40,933 --> 00:00:43,134
+To prepare the scene we will setup
+
+12
+00:00:43,134 --> 00:00:45,565
+the camera, lights and background.
+
+13
+00:00:47,674 --> 00:00:49,912
+We will show how to setup game object,
+
+14
+00:00:49,912 --> 00:00:51,912
+attach pre-made components,
+
+15
+00:00:51,912 --> 00:00:54,673
+and use our models and artwork in our scene.
+
+16
+00:00:57,098 --> 00:00:59,550
+With our scene setup we will write simple
+
+17
+00:00:59,550 --> 00:01:01,550
+custom code in C#
+
+18
+00:01:01,550 --> 00:01:03,838
+to capture the player's input and use it
+
+19
+00:01:03,838 --> 00:01:05,838
+to move our player's ship.
+
+20
+00:01:06,338 --> 00:01:09,491
+We will create lazerbolts for our player to shoot.
+
+21
+00:01:09,491 --> 00:01:11,347
+We will create asteroid hazards 
+
+22
+00:01:11,347 --> 00:01:13,347
+to challenge our player.
+
+23
+00:01:14,776 --> 00:01:17,826
+We will write a game controller to control out game,
+
+24
+00:01:17,826 --> 00:01:20,251
+spawn our hazards in waves,
+
+25
+00:01:20,251 --> 00:01:22,615
+count and display our score and manage
+
+26
+00:01:22,615 --> 00:01:26,243
+how we end and when we can restart our game.
+
+27
+00:01:27,873 --> 00:01:31,304
+We will add audio effects and a background music track.
+
+28
+00:01:32,551 --> 00:01:35,681
+Finally we will build and deploy the game to the web.
+
+29
+00:01:38,336 --> 00:01:40,857
+In more advanced lessons and live sessions
+
+30
+00:01:40,857 --> 00:01:43,619
+we will use this project for further learning,
+
+31
+00:01:43,619 --> 00:01:45,369
+where we will add enemy ships,
+
+32
+00:01:45,369 --> 00:01:48,758
+scroll the background and add the star field and more.
+
+33
+00:01:49,785 --> 00:01:54,265
+To get started begin with Assignment 1 - Setting Up The Game.

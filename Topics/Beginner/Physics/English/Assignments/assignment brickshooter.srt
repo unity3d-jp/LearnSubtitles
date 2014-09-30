@@ -1,0 +1,1267 @@
+1
+00:00:00,373 --> 00:00:02,007
+In this assignment you will create a
+
+2
+00:00:02,007 --> 00:00:04,007
+brick shooting game using the power cube
+
+3
+00:00:04,007 --> 00:00:05,745
+and samoflange assets.
+
+4
+00:00:06,051 --> 00:00:07,607
+You will learn about the rigidbody and
+
+5
+00:00:07,607 --> 00:00:09,718
+collider components, the instantiate,
+
+6
+00:00:09,718 --> 00:00:11,718
+destroy and translate functions,
+
+7
+00:00:11,718 --> 00:00:13,484
+as well as using prefabs.
+
+8
+00:00:13,666 --> 00:00:15,986
+For more details on these individual elements
+
+9
+00:00:15,986 --> 00:00:17,986
+see the lessons on them linked below.
+
+10
+00:00:18,486 --> 00:00:20,486
+You'll need the Robot Lab asset package
+
+11
+00:00:20,486 --> 00:00:22,486
+for this. See the link on this page
+
+12
+00:00:22,486 --> 00:00:24,041
+if you don't already have it. 
+
+13
+00:00:24,041 --> 00:00:26,624
+To begin open the empty scene
+
+14
+00:00:26,624 --> 00:00:29,218
+and then go to File - Save Scene As
+
+15
+00:00:29,218 --> 00:00:31,521
+to save it as our new scene. Save it in to
+
+16
+00:00:31,521 --> 00:00:33,521
+the scenes folder of the project and call
+
+17
+00:00:33,521 --> 00:00:35,093
+it Brick Shooter.
+
+18
+00:00:35,662 --> 00:00:37,858
+As we've used Save As we are now inside
+
+19
+00:00:37,858 --> 00:00:39,858
+the Brick Shooter scene. Let's start by
+
+20
+00:00:39,858 --> 00:00:41,858
+making our wall of cubes.
+
+21
+00:00:42,358 --> 00:00:44,358
+For this we'll use the power cube.
+
+22
+00:00:44,858 --> 00:00:46,858
+In the Models folder you will find various
+
+23
+00:00:46,858 --> 00:00:49,245
+assets. So locate the asset called
+
+24
+00:00:49,245 --> 00:00:51,245
+Prop_PowerCube.
+
+25
+00:00:51,690 --> 00:00:53,237
+It looks like this.
+
+26
+00:00:53,831 --> 00:00:55,831
+Drag and drop it in to the scene
+
+27
+00:00:56,538 --> 00:00:58,538
+and with your mouse cursor over the scene view
+
+28
+00:00:58,538 --> 00:01:00,538
+press F to focus on it.
+
+29
+00:01:00,538 --> 00:01:02,538
+To begin we'll setup the lighting to work
+
+30
+00:01:02,538 --> 00:01:04,538
+with this. Place this object
+
+31
+00:01:04,538 --> 00:01:06,538
+on the Dynamic Objects layer
+
+32
+00:01:06,538 --> 00:01:08,304
+at the top of the inspector
+
+33
+00:01:08,804 --> 00:01:10,804
+and in the mesh renderer for this object
+
+34
+00:01:10,804 --> 00:01:12,804
+check the box for Use Light Probes.
+
+35
+00:01:13,138 --> 00:01:15,472
+Let's position this first brick in the wall
+
+36
+00:01:15,472 --> 00:01:21,244
+at (-3, 0.5, 0).
+
+37
+00:01:22,255 --> 00:01:24,517
+Again you can always reselect your object
+
+38
+00:01:24,517 --> 00:01:26,517
+in the hierarchy and with your mouse cursor
+
+39
+00:01:26,517 --> 00:01:29,125
+over the scene, press F to refocus.
+
+40
+00:01:29,125 --> 00:01:31,056
+Now that it's nicely lit we'll add a
+
+41
+00:01:31,056 --> 00:01:33,056
+collider and rigidbody component to
+
+42
+00:01:33,056 --> 00:01:34,622
+give it a physical mass.
+
+43
+00:01:34,956 --> 00:01:37,903
+Using the Add Component button on the inspector
+
+44
+00:01:38,403 --> 00:01:41,416
+go to Physics and Box Collider
+
+45
+00:01:41,916 --> 00:01:43,707
+and then Add Component again
+
+46
+00:01:43,707 --> 00:01:45,707
+and choose Physics - Rigidbody.
+
+47
+00:01:45,707 --> 00:01:47,707
+We'll be making many of these power cubes
+
+48
+00:01:47,707 --> 00:01:49,985
+via duplication to form our wall.
+
+49
+00:01:49,985 --> 00:01:51,817
+But we may want to go back and adjust
+
+50
+00:01:51,817 --> 00:01:53,817
+properties for all of them, so we should
+
+51
+00:01:53,817 --> 00:01:55,719
+turn this into a prefab now.
+
+52
+00:01:55,719 --> 00:01:57,468
+Drag and drop this object into the
+
+53
+00:01:57,468 --> 00:01:59,719
+Prefabs folder in the project panel.
+
+54
+00:02:03,683 --> 00:02:05,683
+This saves the object as a prefab
+
+55
+00:02:05,683 --> 00:02:07,947
+and we'll rename it to differentiate it
+
+56
+00:02:07,947 --> 00:02:10,365
+from our model. We'll call it
+
+57
+00:02:10,365 --> 00:02:12,805
+Physics_PowerCube
+
+58
+00:02:12,805 --> 00:02:14,805
+because it has the two crucial components,
+
+59
+00:02:14,805 --> 00:02:16,805
+the collider and the rigidbody
+
+60
+00:02:16,805 --> 00:02:18,372
+which mean that it's controlled by
+
+61
+00:02:18,372 --> 00:02:20,221
+the physics engine. You should note that
+
+62
+00:02:20,221 --> 00:02:22,511
+because this is now a prefab it's text
+
+63
+00:02:22,511 --> 00:02:24,511
+is shown in blue in the hierarchy.
+
+64
+00:02:24,735 --> 00:02:26,291
+Now let's make the duplicates of this
+
+65
+00:02:26,291 --> 00:02:27,903
+to form our wall.
+
+66
+00:02:27,903 --> 00:02:29,863
+Select the object in the hierarchy
+
+67
+00:02:30,363 --> 00:02:33,078
+and we'll use the hand tool briefly to zoom out.
+
+68
+00:02:33,868 --> 00:02:35,566
+We can duplicate this by going to
+
+69
+00:02:35,566 --> 00:02:37,705
+Edit - Duplicate
+
+70
+00:02:38,371 --> 00:02:40,580
+or by using shortcut Control-D on PC
+
+71
+00:02:40,580 --> 00:02:42,580
+or Command-D on Mac.
+
+72
+00:02:43,080 --> 00:02:44,734
+Now we're going to position the bricks
+
+73
+00:02:44,734 --> 00:02:46,734
+in our wall by using Snapping.
+
+74
+00:02:47,110 --> 00:02:49,110
+You can use snapping by holding down the
+
+75
+00:02:49,110 --> 00:02:51,978
+Command key on Mac or Control on PC
+
+76
+00:02:51,978 --> 00:02:54,508
+and by dragging with the Translate tool
+
+77
+00:02:54,746 --> 00:02:56,746
+You can see that if I hold down the key
+
+78
+00:02:58,144 --> 00:03:00,739
+and pull the handle the object only moves
+
+79
+00:03:00,739 --> 00:03:03,866
+in increments of 1. And because our object
+
+80
+00:03:03,866 --> 00:03:05,866
+is modelled to a scale of 1 it will snap
+
+81
+00:03:05,866 --> 00:03:07,866
+in to that position perfectly. We will
+
+82
+00:03:07,866 --> 00:03:09,866
+then continue to repeat this step
+
+83
+00:03:10,518 --> 00:03:13,336
+until we have 7 in our first row.
+
+84
+00:03:13,836 --> 00:03:15,168
+Duplicate
+
+85
+00:03:15,585 --> 00:03:18,507
+Command drag or Control drag to snap.
+
+86
+00:03:19,338 --> 00:03:22,251
+Duplicate, snap drag
+
+87
+00:03:22,654 --> 00:03:24,654
+Duplicate, snap drag
+
+88
+00:03:24,974 --> 00:03:27,736
+Duplicate, snap drag and once more.
+
+89
+00:03:27,987 --> 00:03:29,987
+This is our first row of cubes.
+
+90
+00:03:30,183 --> 00:03:32,458
+And to organise them nicely we're going to
+
+91
+00:03:32,458 --> 00:03:34,780
+create an empty game object to
+
+92
+00:03:34,780 --> 00:03:38,144
+store our row. So go to Game Object - Create Empty
+
+93
+00:03:39,721 --> 00:03:41,721
+hit the Return key on Mac or F2 on PC
+
+94
+00:03:41,721 --> 00:03:45,045
+to rename and we'll call this Row.
+
+95
+00:03:46,153 --> 00:03:48,694
+I'm going to position this in the middle of our row,
+
+96
+00:03:49,194 --> 00:03:53,149
+so we'll place this at (0, 0.5, 0).
+
+97
+00:03:53,456 --> 00:03:55,882
+Then to add our power cubes to this row
+
+98
+00:03:56,479 --> 00:03:58,025
+we will select them,
+
+99
+00:03:58,718 --> 00:04:01,496
+so select the first one, hold down Shift
+
+100
+00:04:01,496 --> 00:04:03,273
+and select the last.
+
+101
+00:04:03,637 --> 00:04:06,876
+And then drag them on to the row in the hierarchy.
+
+102
+00:04:08,108 --> 00:04:10,703
+Now they are all child objects of Row.
+
+103
+00:04:10,885 --> 00:04:13,304
+Now we can conveniently duplicate Row
+
+104
+00:04:13,304 --> 00:04:15,304
+and use snap drag in order to 
+
+105
+00:04:15,304 --> 00:04:16,958
+create the rest of the wall.
+
+106
+00:04:16,958 --> 00:04:18,958
+So select Row in the hierarchy,
+
+107
+00:04:19,251 --> 00:04:21,251
+and duplicate.
+
+108
+00:04:22,262 --> 00:04:24,262
+Snap drag up
+
+109
+00:04:25,218 --> 00:04:28,086
+Duplicate, snap drag up
+
+110
+00:04:28,710 --> 00:04:32,818
+and continue this until we have 5 rows.
+
+111
+00:04:34,533 --> 00:04:36,811
+Now that our wall is complete, let's work
+
+112
+00:04:36,811 --> 00:04:38,019
+on our projectile.
+
+113
+00:04:38,019 --> 00:04:40,789
+In the Models folder find the 'prop_samoflange'
+
+114
+00:04:40,789 --> 00:04:43,355
+asset and drag it in to the scene.
+
+115
+00:04:44,408 --> 00:04:46,408
+Let's drag it up so that we can see it
+
+116
+00:04:46,908 --> 00:04:49,409
+and hover and press F to focus.
+
+117
+00:04:50,641 --> 00:04:52,641
+We'll set up the lighting by putting
+
+118
+00:04:52,641 --> 00:04:54,641
+it on the Dynamic Objects layer
+
+119
+00:04:54,641 --> 00:04:56,989
+and checking Use Light Probes
+
+120
+00:04:56,989 --> 00:04:58,989
+in the mesh renderer.
+
+121
+00:05:01,077 --> 00:05:03,552
+We need this to be a Physics Object as well
+
+122
+00:05:04,116 --> 00:05:09,068
+So go to Add Component - Physics - Sphere Collider
+
+123
+00:05:09,068 --> 00:05:13,047
+and then Add Component - Physics - Rigidbody.
+
+124
+00:05:13,047 --> 00:05:15,308
+Our projectile is now ready but because
+
+125
+00:05:15,308 --> 00:05:17,308
+we're going to use a script to create and launch
+
+126
+00:05:17,308 --> 00:05:19,749
+this we do not want it in the scene when
+
+127
+00:05:19,749 --> 00:05:22,026
+it begins. So let's save this as a
+
+128
+00:05:22,026 --> 00:05:23,373
+prefab as well.
+
+129
+00:05:23,873 --> 00:05:26,301
+Drag it from the hierarchy and drop it in
+
+130
+00:05:26,301 --> 00:05:29,032
+to the Prefabs folder. Then we'll rename
+
+131
+00:05:29,032 --> 00:05:32,793
+this Physics_Samoflange as well.
+
+132
+00:05:34,205 --> 00:05:36,136
+You can now delete this from the scene
+
+133
+00:05:36,136 --> 00:05:38,136
+by selecting it in the hierarchy
+
+134
+00:05:38,136 --> 00:05:40,136
+and using Command-Backspace on Mac
+
+135
+00:05:40,136 --> 00:05:41,764
+or Delete on PC.
+
+136
+00:05:41,764 --> 00:05:43,598
+Now let's setup our shooting mechanic. 
+
+137
+00:05:43,598 --> 00:05:46,044
+Begin by expanding the Cameras object
+
+138
+00:05:46,044 --> 00:05:49,013
+in the hierarchy and select Camera 01.
+
+139
+00:05:49,013 --> 00:05:53,216
+We will reposition this camera at (0, 3, 10).
+
+140
+00:05:53,216 --> 00:05:58,532
+And set the rotation to (0, 180, 0).
+
+141
+00:05:59,253 --> 00:06:01,253
+So that now our camera - as you can see
+
+142
+00:06:01,253 --> 00:06:04,538
+in the game view - is facing our wall of bricks.
+
+143
+00:06:04,538 --> 00:06:06,538
+Because our camera will move around and shoot
+
+144
+00:06:06,538 --> 00:06:08,427
+at the wall of bricks we'll place the
+
+145
+00:06:08,427 --> 00:06:10,860
+code for the shooting onto the camera.
+
+146
+00:06:11,512 --> 00:06:15,124
+So let's go to Add Component - New Script.
+
+147
+00:06:15,124 --> 00:06:17,991
+And we'll call this script Shooter.
+
+148
+00:06:21,654 --> 00:06:23,654
+Double click on the script icon in order
+
+149
+00:06:23,654 --> 00:06:25,654
+to open it for editing.
+
+150
+00:06:27,604 --> 00:06:29,604
+We do not need the Start function for this
+
+151
+00:06:29,604 --> 00:06:31,604
+so we'll begin by removing that
+
+152
+00:06:31,604 --> 00:06:33,604
+and also remove the comment
+
+153
+00:06:33,604 --> 00:06:35,135
+above the Update function.
+
+154
+00:06:35,135 --> 00:06:37,135
+We'll begin with some public variables
+
+155
+00:06:37,135 --> 00:06:39,357
+so that you can tweak settings or assign
+
+156
+00:06:39,357 --> 00:06:41,012
+prefabs in the inspector.
+
+157
+00:06:41,484 --> 00:06:43,718
+First, add a public Rigidbody
+
+158
+00:06:43,718 --> 00:06:45,482
+variable called Projectile.
+
+159
+00:06:45,831 --> 00:06:48,138
+We will drag and drop our Physics Samoflange
+
+160
+00:06:48,138 --> 00:06:50,596
+prefab on to this and use it in our
+
+161
+00:06:50,596 --> 00:06:52,596
+instantiate function in order to create
+
+162
+00:06:52,596 --> 00:06:54,596
+instances of our projectile.
+
+163
+00:06:55,455 --> 00:06:57,762
+Next add a public transform variable
+
+164
+00:06:57,762 --> 00:06:59,306
+called shotPos.
+
+165
+00:06:59,615 --> 00:07:01,615
+We will create an empty game object
+
+166
+00:07:01,615 --> 00:07:04,372
+to store the position to shoot projectiles from
+
+167
+00:07:04,372 --> 00:07:07,091
+and assign it to this variable later.
+
+168
+00:07:08,033 --> 00:07:09,674
+Next add a public float 
+
+169
+00:07:09,674 --> 00:07:11,506
+called shotForce
+
+170
+00:07:11,506 --> 00:07:13,506
+and set it to 1000.
+
+171
+00:07:13,506 --> 00:07:15,351
+We will use this to define the amount of
+
+172
+00:07:15,351 --> 00:07:17,020
+force to shoot with.
+
+173
+00:07:17,368 --> 00:07:19,438
+And finally add a public float called
+
+174
+00:07:19,438 --> 00:07:21,438
+moveSpeed and set this to 10.
+
+175
+00:07:21,938 --> 00:07:23,938
+This will define the movement speed of the
+
+176
+00:07:23,938 --> 00:07:25,938
+camera to aim the shots.
+
+177
+00:07:27,432 --> 00:07:29,736
+All of our operations must be immediate
+
+178
+00:07:29,736 --> 00:07:32,484
+so we'll perform them inside the update function.
+
+179
+00:07:32,984 --> 00:07:34,943
+Start by adding two variables to
+
+180
+00:07:34,943 --> 00:07:36,943
+represent the horizontal and vertical
+
+181
+00:07:36,943 --> 00:07:38,487
+input axes.
+
+182
+00:07:38,711 --> 00:07:40,517
+These are float variables called 
+
+183
+00:07:40,517 --> 00:07:42,270
+H and V.
+
+184
+00:07:42,563 --> 00:07:45,544
+These are multiplied by Time.deltaTime
+
+185
+00:07:45,544 --> 00:07:48,305
+for smoothing. And then multiplied by
+
+186
+00:07:48,305 --> 00:07:50,799
+moveSpeed to increase the speed.
+
+187
+00:07:53,329 --> 00:07:55,329
+We'll then use these values inside
+
+188
+00:07:55,329 --> 00:07:57,580
+the translate command in order to move
+
+189
+00:07:57,580 --> 00:07:59,638
+the camera around. So we'll say
+
+190
+00:07:59,638 --> 00:08:03,463
+transform.Translate and create a new
+
+191
+00:08:03,463 --> 00:08:06,638
+Vector3 with the values of H and V
+
+192
+00:08:06,638 --> 00:08:08,638
+as components of this vector.
+
+193
+00:08:11,831 --> 00:08:14,527
+So we'll be using the horizontal axis
+
+194
+00:08:14,527 --> 00:08:16,898
+to move the X axis of the object
+
+195
+00:08:16,898 --> 00:08:20,139
+and the vertical axis to move the Y axis.
+
+196
+00:08:20,390 --> 00:08:22,446
+To fire our projectile we'll add
+
+197
+00:08:22,446 --> 00:08:24,446
+an IF statement that waits for the release
+
+198
+00:08:24,446 --> 00:08:26,446
+of the fire1 button,
+
+199
+00:08:26,877 --> 00:08:28,877
+which by default is the left-hand
+
+200
+00:08:28,877 --> 00:08:30,877
+Control key on the keyboard.
+
+201
+00:08:31,778 --> 00:08:34,505
+Into this we'll add our instantiate function
+
+202
+00:08:34,505 --> 00:08:36,769
+to create the projectile instance
+
+203
+00:08:36,769 --> 00:08:38,769
+and then add a force to it.
+
+204
+00:08:39,186 --> 00:08:41,696
+To begin, create a Rigidbody variable
+
+205
+00:08:41,696 --> 00:08:44,283
+called Shot and set it equal to 
+
+206
+00:08:44,283 --> 00:08:46,130
+our instantiate function.
+
+207
+00:08:46,645 --> 00:08:48,645
+In this function we need the object
+
+208
+00:08:48,645 --> 00:08:51,798
+to create, the position and the rotation
+
+209
+00:08:51,798 --> 00:08:53,537
+as it's three arguments -
+
+210
+00:08:53,856 --> 00:08:56,144
+So we'll use our projectile variable,
+
+211
+00:08:56,144 --> 00:08:58,880
+our shotPos transform's position
+
+212
+00:08:58,880 --> 00:09:00,880
+and shotPos's rotation.
+
+213
+00:09:01,297 --> 00:09:03,827
+We finish the instantiate line by adding
+
+214
+00:09:03,827 --> 00:09:07,131
+'as Rigidbody' in order to cast the result
+
+215
+00:09:07,131 --> 00:09:09,131
+of this to the rigidbody data type.
+
+216
+00:09:09,341 --> 00:09:11,313
+This is because the standard instantiate
+
+217
+00:09:11,313 --> 00:09:13,313
+function returns an object
+
+218
+00:09:13,313 --> 00:09:15,313
+and we know that the type of our instantiated
+
+219
+00:09:15,313 --> 00:09:18,230
+object needs to be a rigidbody.
+
+220
+00:09:19,255 --> 00:09:21,380
+Finally we use the Rigidbody variable
+
+221
+00:09:21,380 --> 00:09:23,865
+'Shot' to address that instance of our
+
+222
+00:09:23,865 --> 00:09:27,517
+projectile stored in it and add a force to it.
+
+223
+00:09:28,929 --> 00:09:30,929
+We do this in the forward direction of
+
+224
+00:09:30,929 --> 00:09:32,846
+the shotPos transform,
+
+225
+00:09:32,846 --> 00:09:35,771
+and multiply it by shotForce.
+
+226
+00:09:36,782 --> 00:09:40,376
+Now let's save this script and return to Unity.
+
+227
+00:09:47,602 --> 00:09:49,602
+Reselect the camera and you'll see that our
+
+228
+00:09:49,602 --> 00:09:51,036
+public variables can be seen
+
+229
+00:09:51,036 --> 00:09:52,634
+on the script component.
+
+230
+00:09:52,634 --> 00:09:55,019
+Let's start by assigning the physics samoflange
+
+231
+00:09:55,019 --> 00:09:57,477
+from the prefabs folder that we made earlier
+
+232
+00:09:57,477 --> 00:09:59,477
+to the projectile field.
+
+233
+00:10:02,007 --> 00:10:04,351
+Next we need to add a transform to our scene
+
+234
+00:10:04,351 --> 00:10:06,351
+to represent the position and direction
+
+235
+00:10:06,351 --> 00:10:08,351
+with which to shoot.
+
+236
+00:10:08,351 --> 00:10:10,351
+Create an empty game object
+
+237
+00:10:10,351 --> 00:10:13,016
+by going to Game Object - Create Empty.
+
+238
+00:10:13,516 --> 00:10:15,960
+We will rename this shotPos
+
+239
+00:10:19,900 --> 00:10:22,301
+and then drag and drop it on to camera 1
+
+240
+00:10:22,301 --> 00:10:24,301
+to parent it beneath it.
+
+241
+00:10:26,832 --> 00:10:29,422
+Let's reset it's transform so that it
+
+242
+00:10:29,422 --> 00:10:31,156
+matches that of the camera.
+
+243
+00:10:31,546 --> 00:10:33,546
+You can see if I zoom out now
+
+244
+00:10:33,546 --> 00:10:35,546
+that the camera is positioned here
+
+245
+00:10:36,046 --> 00:10:38,623
+and if I select shotPos,
+
+246
+00:10:38,623 --> 00:10:40,623
+click on the cog icon and choose
+
+247
+00:10:40,623 --> 00:10:42,971
+'Reset', then all of the values for the 
+
+248
+00:10:42,971 --> 00:10:45,441
+transform are reset to a default.
+
+249
+00:10:46,106 --> 00:10:48,356
+And now if I choose the translate tool
+
+250
+00:10:48,356 --> 00:10:50,039
+you can see that it is at the exact same
+
+251
+00:10:50,039 --> 00:10:51,692
+position as the camera.
+
+252
+00:10:51,692 --> 00:10:53,692
+But we need it to be slightly forward
+
+253
+00:10:53,692 --> 00:10:55,692
+and slightly lower, and also tilted up
+
+254
+00:10:55,692 --> 00:10:58,194
+in order to aim shots from below camera
+
+255
+00:10:58,194 --> 00:11:00,707
+in an arc pointed at the wall.
+
+256
+00:11:01,387 --> 00:11:03,387
+So we'll set the position of shotPos
+
+257
+00:11:03,887 --> 00:11:11,988
+to 0 in X, -0.5 in Y, and 1 in the Z axis.
+
+258
+00:11:13,869 --> 00:11:15,202
+As you can see this places it 
+
+259
+00:11:15,202 --> 00:11:17,202
+forward of the camera.
+
+260
+00:11:18,945 --> 00:11:21,288
+Now we'll tilt it up by putting 
+
+261
+00:11:21,288 --> 00:11:25,558
+-15 in to the X axis.
+
+262
+00:11:31,804 --> 00:11:33,916
+Now reselect the camera, as this is
+
+263
+00:11:33,916 --> 00:11:36,301
+where our script component is and drag
+
+264
+00:11:36,301 --> 00:11:38,912
+and drop shotPos from the hierarchy
+
+265
+00:11:38,912 --> 00:11:41,259
+and drop it on to the variable shotPos
+
+266
+00:11:41,259 --> 00:11:43,259
+on the Shooter script component.
+
+267
+00:11:45,513 --> 00:11:48,554
+And that's it, our script is now ready for use.
+
+268
+00:11:48,554 --> 00:11:52,458
+Save your scene by going to File - Save Scene
+
+269
+00:11:53,055 --> 00:11:55,498
+and then press play to test out the game.
+
+270
+00:11:55,498 --> 00:11:57,138
+Remember that the cursor keys,
+
+271
+00:11:57,138 --> 00:12:00,037
+or W, A, S and D on the keyboard
+
+272
+00:12:00,037 --> 00:12:02,937
+are the defaults for horizontal and vertical.
+
+273
+00:12:02,937 --> 00:12:06,214
+and that the left control key is fire1 - the key to shoot.
+
+274
+00:12:06,645 --> 00:12:08,962
+One thing we can do is to tidy up our 
+
+275
+00:12:08,962 --> 00:12:12,186
+stray projectiles - as we continue to shoot
+
+276
+00:12:12,186 --> 00:12:14,618
+we are adding rigidbody objects to the scene
+
+277
+00:12:14,618 --> 00:12:16,618
+so we should really tidy these up
+
+278
+00:12:16,618 --> 00:12:18,618
+because otherwise we are adding more and more
+
+279
+00:12:18,618 --> 00:12:20,618
+for the physics engine to keep track of,
+
+280
+00:12:20,618 --> 00:12:22,963
+which will eventually effect performance.
+
+281
+00:12:23,919 --> 00:12:25,919
+Press play to ensure you are no longer
+
+282
+00:12:25,919 --> 00:12:28,372
+in play mode and then select the physics
+
+283
+00:12:28,372 --> 00:12:31,093
+samoflange in the prefabs folder.
+
+284
+00:12:31,093 --> 00:12:33,093
+Scroll to the bottom of the inspector
+
+285
+00:12:33,093 --> 00:12:37,358
+and click Add Component then choose New Script
+
+286
+00:12:37,358 --> 00:12:39,636
+and name this script Tidy.
+
+287
+00:12:40,675 --> 00:12:43,227
+Double click the icon to open it for editing
+
+288
+00:12:44,128 --> 00:12:46,768
+and for this, all we need is our Start function.
+
+289
+00:12:46,768 --> 00:12:49,004
+So we can remove the Update function
+
+290
+00:12:49,338 --> 00:12:51,159
+and we'll also remove the comment.
+
+291
+00:12:51,466 --> 00:12:53,466
+When this object enters the game we simply
+
+292
+00:12:53,466 --> 00:12:55,466
+need to use the Destroy command
+
+293
+00:12:55,966 --> 00:12:57,800
+and we'll destroy the game object this is
+
+294
+00:12:57,800 --> 00:13:01,224
+attached to - the ball itself.
+
+295
+00:13:01,917 --> 00:13:03,917
+And because we don't want it to happen
+
+296
+00:13:03,917 --> 00:13:06,252
+literally when the object enters the game
+
+297
+00:13:06,252 --> 00:13:08,252
+we will use the second argument of the 
+
+298
+00:13:08,252 --> 00:13:11,007
+Destroy command, which is the timed delay.
+
+299
+00:13:11,007 --> 00:13:13,427
+And we'll place in 5 seconds.
+
+300
+00:13:13,427 --> 00:13:15,427
+We'll save our script
+
+301
+00:13:15,427 --> 00:13:17,427
+and return to Unity
+
+302
+00:13:18,148 --> 00:13:19,386
+Now you should notice that when you
+
+303
+00:13:19,386 --> 00:13:22,062
+play test the game, once you have fired
+
+304
+00:13:22,062 --> 00:13:24,062
+a few projectiles they eventually
+
+305
+00:13:24,062 --> 00:13:26,062
+remove themselves from the game after they've
+
+306
+00:13:26,062 --> 00:13:28,062
+existed for 5 seconds. You can
+
+307
+00:13:28,062 --> 00:13:30,062
+see that by watching the hierarchy
+
+308
+00:13:30,062 --> 00:13:32,452
+these objects are being removed from the scene
+
+309
+00:13:32,676 --> 00:13:35,369
+and they disappear from the scene and game views.
+
+310
+00:13:35,869 --> 00:13:37,869
+So that's our brick shooter complete.
+
+311
+00:13:38,369 --> 00:13:40,369
+Remember to save your scene
+
+312
+00:13:40,369 --> 00:13:42,691
+and try experimenting with different objects
+
+313
+00:13:42,691 --> 00:13:44,943
+to fire, or different rates of fire
+
+314
+00:13:44,943 --> 00:13:46,943
+or different movement for the camera
+
+315
+00:13:46,943 --> 00:13:48,943
+and if you didn't understand any of the concepts
+
+316
+00:13:48,943 --> 00:13:50,943
+in this assignment check out the links
+
+317
+00:13:50,943 --> 00:13:52,943
+to the lessons below.

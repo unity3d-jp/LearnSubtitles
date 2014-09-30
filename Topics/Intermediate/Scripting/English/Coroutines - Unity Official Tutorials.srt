@@ -1,0 +1,447 @@
+1
+00:00:00,456 --> 00:00:02,550
+A coroutine can be though of as being a function
+
+2
+00:00:02,550 --> 00:00:04,550
+that is executed in intervals.
+
+3
+00:00:05,340 --> 00:00:07,340
+These functions work with special yield statements
+
+4
+00:00:07,340 --> 00:00:10,109
+which return the code execution out of the function.
+
+5
+00:00:10,109 --> 00:00:11,927
+Then when the function continues
+
+6
+00:00:11,927 --> 00:00:14,999
+execution begins again right from where it left off.
+
+7
+00:00:14,999 --> 00:00:17,307
+Let's take a look at an example coroutine.
+
+8
+00:00:17,807 --> 00:00:20,399
+To start let's take a look at the coroutine
+
+9
+00:00:20,399 --> 00:00:22,399
+itself which we have called MyCoroutine.
+
+10
+00:00:22,899 --> 00:00:25,066
+The first thing to notice is it's return type.
+
+11
+00:00:25,066 --> 00:00:26,510
+IEnumerator.
+
+12
+00:00:26,510 --> 00:00:28,510
+This means that the function can return anything
+
+13
+00:00:28,510 --> 00:00:31,059
+which implements the IEnumerator interface.
+
+14
+00:00:31,559 --> 00:00:33,559
+There is more to returning from a coroutine than
+
+15
+00:00:33,559 --> 00:00:36,070
+usual however as you will see in a moment.
+
+16
+00:00:36,070 --> 00:00:38,638
+Next we see that it takes a transform as a parameter.
+
+17
+00:00:38,638 --> 00:00:40,638
+We are then starting a While Loop which will continue
+
+18
+00:00:40,638 --> 00:00:42,775
+until the distance between the object and the target
+
+19
+00:00:42,775 --> 00:00:44,582
+is less than 0.05.
+
+20
+00:00:44,582 --> 00:00:46,582
+Within the loop we are firstly lerping the
+
+21
+00:00:46,582 --> 00:00:49,883
+object's position between itself and the target position.
+
+22
+00:00:50,383 --> 00:00:53,575
+Then we have the line yield return null.
+
+23
+00:00:53,575 --> 00:00:56,431
+This is what allows a coroutine to work the way it does.
+
+24
+00:00:56,431 --> 00:00:58,431
+What this means is that when this line of code is
+
+25
+00:00:58,431 --> 00:01:00,431
+executed it will yield execution of
+
+26
+00:01:00,431 --> 00:01:03,259
+the function and return a null IEnumerator.
+
+27
+00:01:03,759 --> 00:01:05,759
+The code will resume at this point at the
+
+28
+00:01:05,759 --> 00:01:08,076
+time dictated by the return value.
+
+29
+00:01:08,076 --> 00:01:10,076
+Since the return value is null, that means
+
+30
+00:01:10,076 --> 00:01:12,491
+the coroutine will resume after the next update.
+
+31
+00:01:12,991 --> 00:01:15,600
+Since the coroutine will resume at the end of the loop
+
+32
+00:01:15,600 --> 00:01:18,355
+the loop condition will then be reevaluated.
+
+33
+00:01:18,355 --> 00:01:20,686
+If the transform has not reached the target yet
+
+34
+00:01:20,686 --> 00:01:22,686
+it will lerp closer to the target and again
+
+35
+00:01:22,686 --> 00:01:24,686
+it will yield until the next update.
+
+36
+00:01:25,186 --> 00:01:27,186
+Once the loop condition is no longer evaluated
+
+37
+00:01:27,186 --> 00:01:29,186
+to true the loop will exit and the coroutine
+
+38
+00:01:29,186 --> 00:01:31,186
+will print 'reached the target'
+
+39
+00:01:31,186 --> 00:01:32,524
+to the console.
+
+40
+00:01:32,524 --> 00:01:34,817
+At that point the coroutine will yield again
+
+41
+00:01:34,817 --> 00:01:36,817
+but this time it's returning an instance of the
+
+42
+00:01:36,817 --> 00:01:38,720
+WaitForSeconds class.
+
+43
+00:01:38,720 --> 00:01:40,720
+The constructor is called using the new keyword
+
+44
+00:01:40,720 --> 00:01:42,695
+and in this case we're parsing in 3
+
+45
+00:01:42,695 --> 00:01:44,292
+as a parameter.
+
+46
+00:01:44,292 --> 00:01:46,292
+Predictably the result of returning an
+
+47
+00:01:46,292 --> 00:01:48,292
+instance of the WaitForSeconds class is that
+
+48
+00:01:48,292 --> 00:01:50,292
+the code will continue execution after the
+
+49
+00:01:50,292 --> 00:01:52,292
+given number of seconds.
+
+50
+00:01:52,292 --> 00:01:55,206
+After 3 seconds the words 'MyCoroutine is now finished'
+
+51
+00:01:55,206 --> 00:01:56,789
+are printed to the console.
+
+52
+00:01:56,789 --> 00:01:59,220
+At that point we've reached the end of the coroutine
+
+53
+00:01:59,220 --> 00:02:01,220
+and execution will finish.
+
+54
+00:02:01,220 --> 00:02:03,484
+Now let's take a look at how to call a coroutine.
+
+55
+00:02:03,817 --> 00:02:06,710
+We do so simply with the StartCoroutine function.
+
+56
+00:02:06,710 --> 00:02:08,710
+It takes a parameter of either a coroutine call
+
+57
+00:02:08,710 --> 00:02:11,127
+or a string of the coroutine's name.
+
+58
+00:02:11,627 --> 00:02:13,627
+The former call is the one we've shown here
+
+59
+00:02:13,627 --> 00:02:15,906
+and is more advisable, however
+
+60
+00:02:15,906 --> 00:02:17,906
+if you use a call with a name string
+
+61
+00:02:17,906 --> 00:02:19,906
+then you can also call StopCoroutine
+
+62
+00:02:19,906 --> 00:02:21,478
+to halt it prematurely.
+
+63
+00:02:22,130 --> 00:02:24,240
+Now let's see this coroutine in action.
+
+64
+00:02:24,240 --> 00:02:26,240
+We have attached the coroutine script to this little
+
+65
+00:02:26,240 --> 00:02:28,734
+robot and we've created a target object.
+
+66
+00:02:29,496 --> 00:02:31,151
+When the scene is run the robot moves
+
+67
+00:02:31,151 --> 00:02:33,151
+towards it's target, and when the robot
+
+68
+00:02:33,151 --> 00:02:35,846
+reaches it's target the console displays the message.
+
+69
+00:02:35,846 --> 00:02:38,191
+Then, 3 seconds later, the coroutine
+
+70
+00:02:38,191 --> 00:02:40,191
+finishes with the second message.
+
+71
+00:02:40,191 --> 00:02:42,191
+Note that we have created movement without
+
+72
+00:02:42,191 --> 00:02:44,191
+using Update or creating any timers.
+
+73
+00:02:44,926 --> 00:02:46,219
+This is really excellent and makes our
+
+74
+00:02:46,219 --> 00:02:47,676
+code more efficient.
+
+75
+00:02:47,676 --> 00:02:49,676
+However a real strength of coroutines is
+
+76
+00:02:49,676 --> 00:02:51,676
+when they are combined with properties.
+
+77
+00:02:51,676 --> 00:02:53,676
+Let's take a look at an example of that.
+
+78
+00:02:54,176 --> 00:02:56,065
+In this scene we have another robot.
+
+79
+00:02:56,065 --> 00:02:58,065
+The robot has a PropertiesAndCoroutines
+
+80
+00:02:58,065 --> 00:02:59,816
+script on it.
+
+81
+00:02:59,816 --> 00:03:02,588
+We also have a script called ClickSetPosition
+
+82
+00:03:02,588 --> 00:03:04,588
+attached to the environment.
+
+83
+00:03:04,588 --> 00:03:06,588
+The PropertiesAndCoroutines script has a
+
+84
+00:03:06,588 --> 00:03:08,588
+public vector3 property called target
+
+85
+00:03:08,588 --> 00:03:11,140
+that encapsulates the target field.
+
+86
+00:03:11,140 --> 00:03:12,988
+Remember that when we allocate to the target
+
+87
+00:03:12,988 --> 00:03:14,988
+property we call the Set function.
+
+88
+00:03:15,723 --> 00:03:17,723
+The ClickSetPositions script sets the target
+
+89
+00:03:17,723 --> 00:03:19,723
+of an object with the PropertiesAndCoroutine
+
+90
+00:03:19,723 --> 00:03:22,764
+script on it to wherever we click in the environment.
+
+91
+00:03:23,264 --> 00:03:25,403
+Back on the PropertiesAndCoroutines script
+
+92
+00:03:25,403 --> 00:03:27,596
+let's see what happens when the target is set.
+
+93
+00:03:27,596 --> 00:03:30,332
+First we set the target field to the correct value.
+
+94
+00:03:30,332 --> 00:03:32,332
+Then we stop any movement coroutines.
+
+95
+00:03:32,735 --> 00:03:34,735
+It is important to note the StopCoroutine
+
+96
+00:03:34,735 --> 00:03:36,735
+only works with coroutines that have been started
+
+97
+00:03:36,735 --> 00:03:39,904
+by the string call as we are on the next line.
+
+98
+00:03:40,404 --> 00:03:43,317
+This is the alternate way of calling StartCoroutine.
+
+99
+00:03:43,317 --> 00:03:45,635
+We parse the name of the coroutine as a string
+
+100
+00:03:45,635 --> 00:03:47,856
+and then the parameter afterwards.
+
+101
+00:03:47,856 --> 00:03:49,856
+Our movement coroutine is similar to the
+
+102
+00:03:49,856 --> 00:03:52,077
+MyCoroutine from the last example.
+
+103
+00:03:52,077 --> 00:03:54,077
+It simply lerps the cube's position towards
+
+104
+00:03:54,077 --> 00:03:56,077
+a given target until it's close.
+
+105
+00:03:57,226 --> 00:03:59,226
+The effect of having our script setup like this is
+
+106
+00:03:59,226 --> 00:04:01,226
+that we have a moving game object without the need
+
+107
+00:04:01,226 --> 00:04:03,226
+for an Update function that polls for a
+
+108
+00:04:03,226 --> 00:04:04,923
+values every frame.
+
+109
+00:04:04,923 --> 00:04:06,923
+Polling for a value is something that reduces the
+
+110
+00:04:06,923 --> 00:04:08,769
+efficiency of the code we write
+
+111
+00:04:08,769 --> 00:04:10,466
+and while we sometimes have to,
+
+112
+00:04:10,466 --> 00:04:12,717
+it is something we should try to avoid.

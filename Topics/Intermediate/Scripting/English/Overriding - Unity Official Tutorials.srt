@@ -1,0 +1,259 @@
+1
+00:00:00,235 --> 00:00:02,163
+Overriding is the practice of changing a
+
+2
+00:00:02,163 --> 00:00:04,796
+parent class method in a child class.
+
+3
+00:00:04,796 --> 00:00:07,016
+The result is that when we call the method
+
+4
+00:00:07,016 --> 00:00:09,016
+the newest or most overridden version of
+
+5
+00:00:09,016 --> 00:00:11,016
+the method is called.
+
+6
+00:00:11,016 --> 00:00:13,016
+When working with inheritance hierarchies
+
+7
+00:00:13,016 --> 00:00:15,016
+we often want to use slightly different versions
+
+8
+00:00:15,016 --> 00:00:17,016
+of functions from base classes.
+
+9
+00:00:17,016 --> 00:00:19,016
+Doing so is easy, you simply have
+
+10
+00:00:19,016 --> 00:00:21,488
+to recreate the method in the child class
+
+11
+00:00:21,488 --> 00:00:24,218
+and write it to do what ever it needs to do.
+
+12
+00:00:24,218 --> 00:00:27,553
+Consider a situation where we have a Humanoid base class
+
+13
+00:00:27,553 --> 00:00:29,955
+which has an Enemy derived class
+
+14
+00:00:29,955 --> 00:00:32,834
+which in turn has an Orc derived class.
+
+15
+00:00:33,541 --> 00:00:36,121
+The Humanoid class has a function called Yell.
+
+16
+00:00:36,121 --> 00:00:38,647
+When Yell is called by a Humanoid the model makes a
+
+17
+00:00:38,647 --> 00:00:42,363
+yelling noise and puts his hands up to cup around it's mouth.
+
+18
+00:00:42,363 --> 00:00:44,363
+The Yell method is automatically inherited
+
+19
+00:00:44,363 --> 00:00:47,880
+by the Enemy class, however we want to modify it.
+
+20
+00:00:47,880 --> 00:00:50,763
+We want the Enemy to attract other Enemies.
+
+21
+00:00:50,763 --> 00:00:53,498
+We also want Orc to be able to call this function.
+
+22
+00:00:53,498 --> 00:00:55,965
+But when Yell is called from an Orc object
+
+23
+00:00:55,965 --> 00:00:57,965
+all of the Orcs in the area get a bonus to
+
+24
+00:00:57,965 --> 00:00:59,965
+their attacks for a short time.
+
+25
+00:00:59,965 --> 00:01:01,965
+What we effectively need to do it
+
+26
+00:01:01,965 --> 00:01:03,965
+override the parent version of the Yell method
+
+27
+00:01:03,965 --> 00:01:06,644
+in each of the child classes.
+
+28
+00:01:06,644 --> 00:01:08,644
+Unity will warn us when we attempt to override
+
+29
+00:01:08,644 --> 00:01:10,644
+a parent method in a child class.
+
+30
+00:01:10,644 --> 00:01:12,644
+In order to suppress that warning
+
+31
+00:01:12,644 --> 00:01:15,430
+and tell Unity that we meant to override the method
+
+32
+00:01:15,430 --> 00:01:18,046
+we use the virtual and override keywords.
+
+33
+00:01:18,046 --> 00:01:20,953
+These keywords go before the return type of the method.
+
+34
+00:01:21,453 --> 00:01:23,453
+The method in the parent class is defined
+
+35
+00:01:23,453 --> 00:01:26,298
+as virtual, and the methods in all of the
+
+36
+00:01:26,298 --> 00:01:29,309
+children classes are defined as override.
+
+37
+00:01:30,928 --> 00:01:33,744
+Any method that is declared virtual can be overridden
+
+38
+00:01:33,744 --> 00:01:35,470
+by any child class.
+
+39
+00:01:35,470 --> 00:01:37,470
+A more interesting use of overriding
+
+40
+00:01:37,470 --> 00:01:39,470
+would be if you wanted each child class to
+
+41
+00:01:39,470 --> 00:01:42,295
+add specific functionality to a method
+
+42
+00:01:42,295 --> 00:01:44,295
+without losing the original functionality
+
+43
+00:01:44,295 --> 00:01:46,005
+provided by the parent.
+
+44
+00:01:46,574 --> 00:01:49,502
+In order to do this you need to use the base
+
+45
+00:01:49,502 --> 00:01:51,502
+keyword to call the parent version
+
+46
+00:01:51,502 --> 00:01:52,917
+of the method as well.
+
+47
+00:01:52,917 --> 00:01:54,917
+In our previous example, let's say we wanted
+
+48
+00:01:54,917 --> 00:01:56,917
+Enemy to keep the functionality of Humanoid
+
+49
+00:01:56,917 --> 00:01:58,334
+while adding it's own effect.
+
+50
+00:01:58,334 --> 00:02:00,901
+We also want Orc to keep the functionality of Enemy
+
+51
+00:02:00,901 --> 00:02:02,514
+while adding it's own effect.
+
+52
+00:02:02,514 --> 00:02:04,514
+To accomplish this we would need
+
+53
+00:02:04,514 --> 00:02:06,945
+to put a base call to the parent Yell method
+
+54
+00:02:06,945 --> 00:02:08,945
+in both Enemy and Orc.
+
+55
+00:02:10,688 --> 00:02:13,868
+Now when the Orc Yell method is called
+
+56
+00:02:13,868 --> 00:02:15,868
+it will call Enemy's Yell method which in turn
+
+57
+00:02:15,868 --> 00:02:18,391
+will call Humanoid's Yell method.
+
+58
+00:02:18,391 --> 00:02:21,563
+Overriding is also very useful with polymorphism.
+
+59
+00:02:21,563 --> 00:02:23,563
+By declaring the parent method as virtual
+
+60
+00:02:23,563 --> 00:02:25,563
+and the child method as override we will
+
+61
+00:02:25,563 --> 00:02:28,358
+effectively override the parent version of the method.
+
+62
+00:02:28,358 --> 00:02:30,358
+The result is that when we upcast a child
+
+63
+00:02:30,358 --> 00:02:32,358
+reference in to a parent object
+
+64
+00:02:32,358 --> 00:02:34,358
+and then call a method the child version
+
+65
+00:02:34,358 --> 00:02:36,358
+of that method will be called.

@@ -1,0 +1,147 @@
+1
+00:00:00,373 --> 00:00:02,409
+Often in coding you will need your code to
+
+2
+00:00:02,409 --> 00:00:04,862
+make a decision based on a condition.
+
+3
+00:00:05,542 --> 00:00:07,542
+Think of having a cup of coffee.
+
+4
+00:00:07,876 --> 00:00:09,876
+When it's first made the water is boiling.
+
+5
+00:00:10,376 --> 00:00:12,376
+You might want to check if it's ready to drink.
+
+6
+00:00:13,498 --> 00:00:15,498
+If the coffee's temperature is greater the
+
+7
+00:00:15,498 --> 00:00:16,916
+hottest temperature you're willing to
+
+8
+00:00:16,916 --> 00:00:18,916
+drink it at then you won't drink it.
+
+9
+00:00:19,982 --> 00:00:21,982
+An extension of the if statement is 
+
+10
+00:00:21,982 --> 00:00:23,716
+the if-else statement.
+
+11
+00:00:23,716 --> 00:00:26,238
+In our coffee example the else statement
+
+12
+00:00:26,238 --> 00:00:28,238
+might be that you drink the coffee.
+
+13
+00:00:28,738 --> 00:00:30,738
+This action will not be executed when the
+
+14
+00:00:30,738 --> 00:00:32,738
+first condition is not satisfied.
+
+15
+00:00:32,738 --> 00:00:34,738
+So if the coffee is not too hot to drink
+
+16
+00:00:34,738 --> 00:00:36,738
+then we drink it.
+
+17
+00:00:37,915 --> 00:00:39,915
+This can be further extended by making
+
+18
+00:00:39,915 --> 00:00:41,915
+the else statement a conditional
+
+19
+00:00:41,915 --> 00:00:43,638
+by using another 'if'.
+
+20
+00:00:44,138 --> 00:00:46,138
+With our coffee example, if the coffee
+
+21
+00:00:46,138 --> 00:00:48,138
+was too hot we wouldn't drink it,
+
+22
+00:00:48,138 --> 00:00:50,138
+but if we'd left it too long, and if
+
+23
+00:00:50,138 --> 00:00:52,138
+it had gotten cold then we might not
+
+24
+00:00:52,138 --> 00:00:53,201
+drink it either.
+
+25
+00:00:53,701 --> 00:00:55,701
+However if neither of these conditions
+
+26
+00:00:55,701 --> 00:00:57,993
+are satisfied, that is, that the
+
+27
+00:00:57,993 --> 00:00:59,993
+coffee is neither too hot nor too cold
+
+28
+00:01:00,396 --> 00:01:02,049
+then the coffee is at an appropriate
+
+29
+00:01:02,049 --> 00:01:04,049
+drinking temperature. Let's take a look
+
+30
+00:01:04,049 --> 00:01:06,049
+at this in action.
+
+31
+00:01:12,129 --> 00:01:14,391
+Now that it's dropped below my hot limit
+
+32
+00:01:15,416 --> 00:01:16,885
+the coffee is just right.
+
+33
+00:01:17,219 --> 00:01:19,567
+But if I wait until it's below the cold limit
+
+34
+00:01:20,067 --> 00:01:21,736
+the coffee's too cold.
+
+35
+00:01:22,208 --> 00:01:24,208
+So you can use 'if' statements in this way to make
+
+36
+00:01:24,208 --> 00:01:26,001
+decisions within your code as to
+
+37
+00:01:26,001 --> 00:01:26,913
+what it should do.

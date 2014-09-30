@@ -1,0 +1,800 @@
+1
+00:00:01,340 --> 00:00:03,384
+We have a player ship, weapons
+
+2
+00:00:03,384 --> 00:00:05,454
+and hazard objects.
+
+3
+00:00:05,454 --> 00:00:07,024
+We need to bring them together in to a
+
+4
+00:00:07,024 --> 00:00:09,024
+simple but playable game.
+
+5
+00:00:09,524 --> 00:00:11,441
+To do this we need to create a 
+
+6
+00:00:11,441 --> 00:00:13,824
+game controller to run our game,
+
+7
+00:00:13,824 --> 00:00:15,435
+to spawn our hazards,
+
+8
+00:00:15,435 --> 00:00:17,701
+keep track of and display our score
+
+9
+00:00:17,701 --> 00:00:20,868
+and when our player is destroyed end our game.
+
+10
+00:00:21,672 --> 00:00:24,202
+First create a new game object
+
+11
+00:00:24,202 --> 00:00:26,202
+to hold our game controller logic.
+
+12
+00:00:27,006 --> 00:00:30,049
+Rename this game object Game Controller.
+
+13
+00:00:31,260 --> 00:00:33,496
+And then reset the transform.
+
+14
+00:00:34,105 --> 00:00:36,371
+For this game object this step isn't
+
+15
+00:00:36,371 --> 00:00:39,435
+absolutely necessary as this game object
+
+16
+00:00:39,435 --> 00:00:42,438
+will not have a physical presence in our game.
+
+17
+00:00:42,438 --> 00:00:45,116
+It won't have a collider and it won't be rendered.
+
+18
+00:00:45,492 --> 00:00:47,492
+That being said it is always best
+
+19
+00:00:47,492 --> 00:00:50,431
+to keep everything in our project neat and tidy
+
+20
+00:00:50,431 --> 00:00:52,431
+and there is no good reason not to put
+
+21
+00:00:52,431 --> 00:00:55,201
+the game controller cleanly at origin.
+
+22
+00:00:56,571 --> 00:00:58,930
+Using the Tag drop-down menu in the header
+
+23
+00:00:58,930 --> 00:01:01,784
+of the Game Controller game object select the
+
+24
+00:01:01,784 --> 00:01:04,456
+pre-made tag GameController.
+
+25
+00:01:06,093 --> 00:01:08,162
+With our game object setup
+
+26
+00:01:08,162 --> 00:01:09,887
+let's write our logic.
+
+27
+00:01:10,387 --> 00:01:12,387
+With the Game Controller selected
+
+28
+00:01:12,387 --> 00:01:15,212
+use the Add Component button
+
+29
+00:01:15,212 --> 00:01:18,057
+to create a new script
+
+30
+00:01:18,057 --> 00:01:20,516
+named GameController.
+
+31
+00:01:21,330 --> 00:01:24,009
+Accept the changes to add this new script
+
+32
+00:01:24,009 --> 00:01:25,748
+to GameController.
+
+33
+00:01:26,386 --> 00:01:30,086
+Select Assets and file the GameController script
+
+34
+00:01:30,086 --> 00:01:31,863
+in the Scripts folder.
+
+35
+00:01:32,489 --> 00:01:34,489
+Open the Scripts folder
+
+36
+00:01:34,489 --> 00:01:37,628
+and open the GameController script for editing.
+
+37
+00:01:38,570 --> 00:01:40,570
+Our game controller will perform
+
+38
+00:01:40,570 --> 00:01:42,268
+several different tasks.
+
+39
+00:01:42,268 --> 00:01:44,519
+The primary task however will be 
+
+40
+00:01:44,519 --> 00:01:46,810
+spawning the hazards in our game.
+
+41
+00:01:47,364 --> 00:01:49,711
+So the first thing we will need in this script
+
+42
+00:01:49,711 --> 00:01:54,383
+is a public GameObject reference to our hazard.
+
+43
+00:01:55,712 --> 00:01:57,712
+Next we need to do something
+
+44
+00:01:57,712 --> 00:01:59,365
+with these hazards. 
+
+45
+00:01:59,365 --> 00:02:02,414
+We need to spawn them, preferably in waves
+
+46
+00:02:02,414 --> 00:02:04,181
+for our player to fight through.
+
+47
+00:02:04,721 --> 00:02:06,721
+Let's write a new function to spawn
+
+48
+00:02:06,721 --> 00:02:08,543
+our waves of hazards.
+
+49
+00:02:08,543 --> 00:02:11,419
+Write void SpawnWaves.
+
+50
+00:02:12,057 --> 00:02:14,717
+Now we need to call this function.
+
+51
+00:02:15,217 --> 00:02:17,217
+There are some functions that are called
+
+52
+00:02:17,217 --> 00:02:19,537
+automatically by Unity
+
+53
+00:02:19,537 --> 00:02:21,923
+but most of the functions that we write
+
+54
+00:02:21,923 --> 00:02:23,979
+we will need to call ourselves
+
+55
+00:02:23,979 --> 00:02:25,673
+or they won't be executed.
+
+56
+00:02:26,313 --> 00:02:28,313
+We want our SpawnWaves function to
+
+57
+00:02:28,313 --> 00:02:31,246
+work for most of the duration of our game.
+
+58
+00:02:31,746 --> 00:02:35,353
+So let's call SpawnWaves from start.
+
+59
+00:02:35,853 --> 00:02:38,799
+So let's write void Start.
+
+60
+00:02:39,299 --> 00:02:42,235
+Unity will call Start on the very first frame
+
+61
+00:02:42,235 --> 00:02:44,625
+that this game object is enabled
+
+62
+00:02:44,625 --> 00:02:47,637
+and then Start will call SpawnWaves.
+
+63
+00:02:49,491 --> 00:02:51,769
+What do we want SpawnWaves to do?
+
+64
+00:02:51,769 --> 00:02:54,836
+We want SpawnWaves to instantiate our hazards.
+
+65
+00:02:55,226 --> 00:02:59,240
+We want to instantiate our hazards
+
+66
+00:02:59,240 --> 00:03:01,475
+at a spawnPosition
+
+67
+00:03:01,475 --> 00:03:04,124
+with a spawnRotation applied.
+
+68
+00:03:05,826 --> 00:03:08,708
+We have 3 parameters for instantiate
+
+69
+00:03:08,708 --> 00:03:11,122
+and we need a value for each of them.
+
+70
+00:03:11,122 --> 00:03:13,384
+Let's look at each of these parameters
+
+71
+00:03:13,384 --> 00:03:15,176
+1 parameter at a time.
+
+72
+00:03:15,552 --> 00:03:18,485
+Our object Hazard has already been defined
+
+73
+00:03:18,485 --> 00:03:20,306
+as a public variable.
+
+74
+00:03:20,888 --> 00:03:23,978
+Our spawnPosition is a vector3 value
+
+75
+00:03:23,978 --> 00:03:28,268
+so let's create a vector3 variable called 
+
+76
+00:03:28,268 --> 00:03:31,312
+spawnPosition, which we will set to
+
+77
+00:03:31,312 --> 00:03:33,866
+a new vector3.
+
+78
+00:03:35,678 --> 00:03:39,230
+Our spawnRotation is a quaternion value.
+
+79
+00:03:39,730 --> 00:03:41,938
+So let's create a quaternion variable
+
+80
+00:03:41,938 --> 00:03:44,172
+called spawnRotation
+
+81
+00:03:44,172 --> 00:03:48,183
+which we will set to a new quaternion.
+
+82
+00:03:48,918 --> 00:03:51,665
+Both of these will change before we're done.
+
+83
+00:03:52,400 --> 00:03:54,193
+Let's look at how we can assign
+
+84
+00:03:54,193 --> 00:03:56,193
+working values to these.
+
+85
+00:03:57,024 --> 00:03:59,177
+Hazard is a public variable.
+
+86
+00:03:59,177 --> 00:04:01,680
+We can set this directly in the Inspector.
+
+87
+00:04:02,083 --> 00:04:04,611
+Save this script and return to Unity.
+
+88
+00:04:05,647 --> 00:04:07,647
+We can see the hazard property
+
+89
+00:04:07,647 --> 00:04:09,881
+on the GameController component.
+
+90
+00:04:10,382 --> 00:04:12,927
+In the Prefabs folder we can find our
+
+91
+00:04:12,927 --> 00:04:14,927
+Asteroid prefab.
+
+92
+00:04:14,927 --> 00:04:16,927
+Drag the Asteroid prefab on to the
+
+93
+00:04:16,927 --> 00:04:19,425
+Game Controller component and drop it
+
+94
+00:04:19,425 --> 00:04:23,168
+on to the Hazard slot to create the reference.
+
+95
+00:04:24,897 --> 00:04:27,229
+We want to be able to set our spawn position
+
+96
+00:04:27,229 --> 00:04:29,229
+in the Editor as well.
+
+97
+00:04:30,171 --> 00:04:32,672
+Return to our GameController script.
+
+98
+00:04:34,494 --> 00:04:36,494
+For our spawnPosition
+
+99
+00:04:36,494 --> 00:04:38,923
+let's define a public vector3
+
+100
+00:04:38,923 --> 00:04:42,076
+variable called spawnValues.
+
+101
+00:04:42,825 --> 00:04:45,446
+Why can't we just use spawnPosition here?
+
+102
+00:04:45,946 --> 00:04:47,946
+We will see why in just a moment.
+
+103
+00:04:47,946 --> 00:04:49,269
+Patience.
+
+104
+00:04:49,269 --> 00:04:51,269
+Save this script and let's set
+
+105
+00:04:51,269 --> 00:04:53,711
+spawnValue in Unity.
+
+106
+00:04:55,648 --> 00:04:58,847
+To help visualise this let's drag and asteroid
+
+107
+00:04:58,847 --> 00:05:01,390
+prefab in to the scene temporarily.
+
+108
+00:05:02,815 --> 00:05:06,055
+So on what position along the Y axis
+
+109
+00:05:06,055 --> 00:05:08,055
+do we want to spawn our hazards?
+
+110
+00:05:08,942 --> 00:05:11,850
+On the X/Z plane or the game plane?
+
+111
+00:05:12,129 --> 00:05:14,655
+So 0 on the Y axis.
+
+112
+00:05:15,402 --> 00:05:18,549
+What about the position on the X/Z plane?
+
+113
+00:05:19,670 --> 00:05:20,948
+This could be better seen
+
+114
+00:05:20,948 --> 00:05:22,948
+through the Game View camera.
+
+115
+00:05:24,442 --> 00:05:26,692
+What position on the Z axis?
+
+116
+00:05:26,692 --> 00:05:28,692
+Up, out of the game area.
+
+117
+00:05:29,565 --> 00:05:32,867
+That looks like about 16.
+
+118
+00:05:33,464 --> 00:05:37,373
+So let's set the spawnValue Z to 16.
+
+119
+00:05:40,704 --> 00:05:43,215
+Now what about the X axis
+
+120
+00:05:43,839 --> 00:05:47,284
+Well we can't really use a single value here.
+
+121
+00:05:47,284 --> 00:05:49,284
+If we did we will define a
+
+122
+00:05:49,284 --> 00:05:51,868
+single point for our spawnPosition,
+
+123
+00:05:51,868 --> 00:05:53,868
+and for that we could have used a simple
+
+124
+00:05:53,868 --> 00:05:56,397
+game object's transform, like we did for
+
+125
+00:05:56,397 --> 00:05:58,397
+the shotSpawn on the player ship.
+
+126
+00:05:59,118 --> 00:06:01,688
+What we really want here is a random
+
+127
+00:06:01,688 --> 00:06:03,743
+point in the X axis.
+
+128
+00:06:03,743 --> 00:06:06,104
+One that is a new random value for
+
+129
+00:06:06,104 --> 00:06:08,452
+each new hazard we spawn.
+
+130
+00:06:09,129 --> 00:06:12,627
+This is why we couldn't use spawnPosition directly.
+
+131
+00:06:13,210 --> 00:06:15,210
+Let's return to our script
+
+132
+00:06:17,036 --> 00:06:19,657
+We will use our spawnValues to set
+
+133
+00:06:19,657 --> 00:06:21,923
+a random spawnPosition.
+
+134
+00:06:22,986 --> 00:06:25,463
+Our spawnPosition is made up of 
+
+135
+00:06:25,463 --> 00:06:27,922
+X, Y and Z values.
+
+136
+00:06:28,312 --> 00:06:30,312
+Working from back to front
+
+137
+00:06:30,812 --> 00:06:33,496
+our spawnPosition Z will be our
+
+138
+00:06:33,496 --> 00:06:36,254
+spawnValues Z, or outside the
+
+139
+00:06:36,254 --> 00:06:37,918
+top of the game area.
+
+140
+00:06:38,418 --> 00:06:40,418
+Our spawnPosition Y will be
+
+141
+00:06:40,418 --> 00:06:42,667
+our spawnValue Y
+
+142
+00:06:42,667 --> 00:06:45,293
+or 0 on the game plane.
+
+143
+00:06:46,300 --> 00:06:48,300
+Our spawnPosition X is the one
+
+144
+00:06:48,300 --> 00:06:50,023
+that's more tricky.
+
+145
+00:06:50,023 --> 00:06:52,411
+We can't use a single value here.
+
+146
+00:06:52,911 --> 00:06:55,687
+We will use our spawnValue X
+
+147
+00:06:55,687 --> 00:06:58,379
+to control a random value.
+
+148
+00:07:00,012 --> 00:07:02,975
+Let's search the documentation for random again
+
+149
+00:07:02,975 --> 00:07:05,555
+so we can look at the Random class.
+
+150
+00:07:06,221 --> 00:07:08,221
+In this case we want to look at
+
+151
+00:07:08,221 --> 00:07:10,082
+Random.Range.
+
+152
+00:07:10,624 --> 00:07:14,158
+We give Random.Range a min and a max value
+
+153
+00:07:14,158 --> 00:07:16,158
+and randomRange will return
+
+154
+00:07:16,158 --> 00:07:19,525
+a random value between those 2 values.
+
+155
+00:07:20,315 --> 00:07:22,785
+This means we can feed Random.Range
+
+156
+00:07:22,785 --> 00:07:26,200
+with the values of the edges of our game area
+
+157
+00:07:26,200 --> 00:07:29,483
+and it will return a random value between them.
+
+158
+00:07:29,983 --> 00:07:33,699
+Copy Random.Range and return to our script.
+
+159
+00:07:34,890 --> 00:07:36,890
+Paste Random.Range in to our code
+
+160
+00:07:36,890 --> 00:07:39,666
+and let's feed Random.Range with
+
+161
+00:07:39,666 --> 00:07:42,276
+- spawnValues.x
+
+162
+00:07:42,276 --> 00:07:44,721
+and spawnValues.x.
+
+163
+00:07:46,737 --> 00:07:49,844
+Save this script and return to Unity.
+
+164
+00:07:51,518 --> 00:07:53,518
+Where are the edges of our game?
+
+165
+00:07:54,999 --> 00:07:57,742
+Let's move our asteroid along the X axis.
+
+
+166
+00:07:58,132 --> 00:08:02,691
+And it looks like about -6 and 6.
+
+167
+00:08:03,343 --> 00:08:06,863
+So spawnValues.x is 6.
+
+168
+00:08:08,275 --> 00:08:11,686
+Lastly we need to set our spawnRotation.
+
+169
+00:08:12,752 --> 00:08:15,124
+Back to our GameController script
+
+170
+00:08:15,124 --> 00:08:17,046
+let's find out more about
+
+171
+00:08:17,046 --> 00:08:19,046
+quaternion in the documentation.
+
+172
+00:08:20,029 --> 00:08:22,319
+Quaternions are complex.
+
+173
+00:08:22,319 --> 00:08:24,319
+We almost never access or modify
+
+174
+00:08:24,319 --> 00:08:26,319
+a quaternion directly.
+
+175
+00:08:26,819 --> 00:08:28,555
+There are many quaternion functions for us
+
+176
+00:08:28,555 --> 00:08:30,401
+for us to use.
+
+177
+00:08:30,401 --> 00:08:32,332
+We won't be using any of the quaternion
+
+178
+00:08:32,332 --> 00:08:34,957
+functions exactly, but we will be looking at
+
+179
+00:08:34,957 --> 00:08:38,273
+a quaternion property called Identity.
+
+180
+00:08:39,685 --> 00:08:42,417
+Quaternion.Identity corresponds with
+
+181
+00:08:42,417 --> 00:08:44,806
+no rotation of the quaternion.
+
+182
+00:08:45,306 --> 00:08:47,306
+We will instantiate our hazards with
+
+183
+00:08:47,306 --> 00:08:49,306
+no rotation at all.
+
+184
+00:08:49,806 --> 00:08:51,806
+Copy Quaternion.Identity
+
+185
+00:08:51,806 --> 00:08:53,806
+and return to our script.
+
+186
+00:08:54,209 --> 00:08:57,561
+Paste this in to our code so the line reads
+
+187
+00:08:57,557 --> 00:09:02,853
+Quaternion spawnRotation = Quaternion.Identity.
+
+188
+00:09:03,629 --> 00:09:07,191
+Save this script and return to Unity to test.
+
+189
+00:09:08,216 --> 00:09:10,508
+Remove our temporary asteroid.
+
+190
+00:09:10,508 --> 00:09:12,508
+Save the scene and play.
+
+191
+00:09:13,077 --> 00:09:15,244
+And we get a tumbling asteroid
+
+192
+00:09:15,244 --> 00:09:17,382
+from a random point left to right
+
+193
+00:09:17,382 --> 00:09:19,382
+starting outside of the game area
+
+194
+00:09:19,382 --> 00:09:21,799
+and moving along the game plane.
+
+195
+00:09:22,600 --> 00:09:25,329
+Let's enter and exit Play mode a few times.
+
+196
+00:09:25,829 --> 00:09:28,244
+We can see that our spawn points are random
+
+197
+00:09:28,244 --> 00:09:30,244
+and each new asteroid is spawned
+
+198
+00:09:30,244 --> 00:09:32,244
+at a new random location.
+
+199
+00:09:33,918 --> 00:09:36,098
+In the next assignment we will instantiate
+
+200
+00:09:36,098 --> 00:09:39,363
+waves of hazards to challenge our player with.

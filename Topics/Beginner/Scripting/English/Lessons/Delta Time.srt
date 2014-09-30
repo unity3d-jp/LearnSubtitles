@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:02,548
+The term Delta means a difference between
+
+2
+00:00:02,548 --> 00:00:05,655
+two values. The deltaTime property of the 
+
+3
+00:00:05,655 --> 00:00:07,655
+time class is essentially the time
+
+4
+00:00:07,655 --> 00:00:10,117
+between each update or fixed update
+
+5
+00:00:10,117 --> 00:00:13,051
+function call. This can be used to smooth out
+
+6
+00:00:13,051 --> 00:00:15,051
+values used for movement and other
+
+7
+00:00:15,051 --> 00:00:17,051
+incremental calculations.
+
+8
+00:00:17,551 --> 00:00:19,551
+The time between frames is not constant.
+
+9
+00:00:19,551 --> 00:00:21,551
+So if, for example, you're moving an
+
+10
+00:00:21,551 --> 00:00:23,914
+object in each frame by a fixed amount
+
+11
+00:00:23,914 --> 00:00:26,607
+then the overall effect might not be smooth.
+
+12
+00:00:27,107 --> 00:00:28,954
+This is because the amount of time it takes 
+
+13
+00:00:28,954 --> 00:00:30,954
+to complete a frame will vary,
+
+14
+00:00:31,233 --> 00:00:32,719
+despite the distance of movement 
+
+15
+00:00:32,719 --> 00:00:35,246
+remaining constant. If you modify the change
+
+16
+00:00:35,246 --> 00:00:38,010
+using time.deltaTime then any frames that
+
+17
+00:00:38,010 --> 00:00:40,865
+take a longer time will see a bigger change.
+
+18
+00:00:40,865 --> 00:00:43,115
+And any frames that take a shorter time
+
+19
+00:00:43,115 --> 00:00:45,115
+will see a smaller change.
+
+20
+00:00:45,115 --> 00:00:47,115
+The overall effect of this is that over a period
+
+21
+00:00:47,115 --> 00:00:49,847
+of time the change will appear smooth
+
+22
+00:00:49,847 --> 00:00:51,847
+as is shown in this demonstration.
+
+23
+00:00:53,645 --> 00:00:55,645
+Let's see this in action. When the scene
+
+24
+00:00:55,645 --> 00:00:58,394
+starts our countdown variable is reduced
+
+25
+00:00:58,394 --> 00:01:00,394
+by the amount of time, in seconds, 
+
+26
+00:01:00,394 --> 00:01:02,394
+that it takes to complete each frame.
+
+27
+00:01:02,784 --> 00:01:05,298
+And when this reaches 0 we are enabling a 
+
+28
+00:01:05,298 --> 00:01:08,611
+light component on our power cube game object.
+
+29
+00:01:17,343 --> 00:01:19,357
+At the same time we can control the cube
+
+30
+00:01:19,357 --> 00:01:22,282
+movement. Here we are modifying the X axis
+
+31
+00:01:22,282 --> 00:01:24,282
+of the object when the right arrow
+
+32
+00:01:24,282 --> 00:01:26,282
+key is pressed by adding an amount
+
+33
+00:01:26,282 --> 00:01:28,282
+defined by the variable 'speed'
+
+34
+00:01:28,506 --> 00:01:31,113
+and modified by Time.deltaTime.
+
+35
+00:01:31,113 --> 00:01:33,113
+The movement is smoothed so that the speed
+
+36
+00:01:33,113 --> 00:01:35,113
+remains constant, even if the frame rate
+
+37
+00:01:35,113 --> 00:01:37,567
+varies. The effect of using Time.deltaTime
+
+38
+00:01:37,567 --> 00:01:39,567
+in this way is that it gives
+
+39
+00:01:39,567 --> 00:01:41,567
+a change in values per second
+
+40
+00:01:41,567 --> 00:01:43,567
+rather than per frame.

@@ -1,0 +1,475 @@
+1
+00:00:00,290 --> 00:00:02,921
+Let's look at the basic joints in Unity.
+
+2
+00:00:03,545 --> 00:00:05,545
+In this example we have fixed joints
+
+3
+00:00:05,545 --> 00:00:07,296
+and spring joints.
+
+4
+00:00:07,616 --> 00:00:09,945
+This example forms a basic wrecking ball
+
+5
+00:00:09,945 --> 00:00:11,505
+that does this.
+
+6
+00:00:12,597 --> 00:00:14,667
+Firstly the fixed joint. Fixed joints
+
+7
+00:00:14,667 --> 00:00:16,862
+work in a similar way to parenting objects
+
+8
+00:00:16,862 --> 00:00:18,358
+in the hierarchy.
+
+9
+00:00:18,358 --> 00:00:20,358
+The joint simply locks a game object
+
+10
+00:00:20,358 --> 00:00:22,358
+to the point in the world, or to a 
+
+11
+00:00:22,358 --> 00:00:23,701
+connected rigidbody.
+
+12
+00:00:23,701 --> 00:00:26,282
+In this example we simply have placed the
+
+13
+00:00:26,282 --> 00:00:28,282
+first capsule in the chain up near
+
+14
+00:00:28,282 --> 00:00:30,657
+the ceiling and attached a fixed joint.
+
+15
+00:00:30,657 --> 00:00:32,266
+This locks it in place.
+
+16
+00:00:32,266 --> 00:00:34,266
+The other parameters of this fixed joint
+
+17
+00:00:34,266 --> 00:00:36,266
+are Break Force and Break Torque.
+
+18
+00:00:36,266 --> 00:00:38,266
+This is the minimum amount of force required
+
+19
+00:00:38,266 --> 00:00:39,846
+to break the joint.
+
+20
+00:00:39,846 --> 00:00:41,846
+When the joint is broken the game object
+
+21
+00:00:41,846 --> 00:00:43,846
+can once again move freely.
+
+22
+00:00:44,346 --> 00:00:46,166
+The other capsules in the chain have
+
+23
+00:00:46,166 --> 00:00:48,929
+spring joints. Spring joints work on the 
+
+24
+00:00:48,929 --> 00:00:50,929
+principle that the game object is trying
+
+25
+00:00:50,929 --> 00:00:52,929
+to reach a target position. The target
+
+26
+00:00:52,929 --> 00:00:54,929
+position that it's trying to reach is the
+
+27
+00:00:54,929 --> 00:00:56,929
+position that it's set to in the scene view
+
+28
+00:00:56,929 --> 00:00:58,929
+and any rigid bodies that are attached to it
+
+29
+00:00:58,929 --> 00:01:00,929
+will pull it away from this position
+
+30
+00:01:00,929 --> 00:01:02,846
+on an invisible spring attached
+
+31
+00:01:02,846 --> 00:01:04,046
+to the anchor point.
+
+32
+00:01:04,046 --> 00:01:06,256
+If the spring joint has a connected rigidbody
+
+33
+00:01:06,256 --> 00:01:08,435
+then the target point that the spring
+
+34
+00:01:08,435 --> 00:01:10,616
+is trying to reach is relative to that
+
+35
+00:01:10,616 --> 00:01:13,172
+game object rather than to world space.
+
+36
+00:01:13,437 --> 00:01:16,335
+So for example, the second capsule here
+
+37
+00:01:16,335 --> 00:01:19,639
+is trying to reach capsule 1, and capsule 3
+
+38
+00:01:19,639 --> 00:01:21,639
+is trying to reach capsule 2.
+
+39
+00:01:21,639 --> 00:01:23,639
+As these move they will no longer be heading
+
+40
+00:01:23,639 --> 00:01:25,639
+towards the original positions, rather
+
+41
+00:01:25,639 --> 00:01:27,639
+they will be heading towards the anchor 
+
+42
+00:01:27,639 --> 00:01:30,053
+point of wherever those capsules happen to be.
+
+43
+00:01:30,053 --> 00:01:32,598
+The anchor is the pivot point of the joint.
+
+44
+00:01:32,598 --> 00:01:34,598
+You should consider it as where the spring is
+
+45
+00:01:34,598 --> 00:01:36,237
+attached to the game object.
+
+46
+00:01:36,237 --> 00:01:38,237
+This is shown in the scene view by
+
+47
+00:01:38,237 --> 00:01:40,237
+an orange dot or box.
+
+48
+00:01:40,237 --> 00:01:42,237
+The spring parameter is a measure of how
+
+49
+00:01:42,237 --> 00:01:44,237
+strong the spring is. The higher the 
+
+50
+00:01:44,237 --> 00:01:46,248
+value the tighter or stronger the 
+
+51
+00:01:46,248 --> 00:01:48,248
+spring becomes. The damper parameter
+
+52
+00:01:48,248 --> 00:01:50,248
+is how much the joint will slow down
+
+53
+00:01:50,248 --> 00:01:52,591
+under motion. The higher the number, the 
+
+54
+00:01:52,591 --> 00:01:54,508
+less the spring will overshoot.
+
+55
+00:01:54,508 --> 00:01:56,661
+The min and max distances are for setting
+
+56
+00:01:56,661 --> 00:01:58,661
+up a sort of dead zone for where the
+
+57
+00:01:58,661 --> 00:02:00,924
+spring isn't active. They effectively restrict
+
+58
+00:02:00,924 --> 00:02:02,260
+the length of the spring.
+
+59
+00:02:02,260 --> 00:02:04,260
+Similar to the fixed joint, the spring
+
+60
+00:02:04,260 --> 00:02:07,032
+also has a break force and a break torque,
+
+61
+00:02:07,032 --> 00:02:09,032
+which you can set to a certain amount in order
+
+62
+00:02:09,032 --> 00:02:10,879
+to find the minimum force required to
+
+63
+00:02:10,879 --> 00:02:12,446
+break that joint.
+
+64
+00:02:12,946 --> 00:02:14,628
+Finally, Hinge Joints.
+
+65
+00:02:14,628 --> 00:02:16,628
+Hinge joints are ideal for things like 
+
+66
+00:02:16,628 --> 00:02:18,628
+doors and share some properties with
+
+67
+00:02:18,628 --> 00:02:20,628
+spring joints. The axis of the hinge
+
+68
+00:02:20,628 --> 00:02:22,960
+is the one that it rotates around.
+
+69
+00:02:22,960 --> 00:02:24,960
+In this example our physics door
+
+70
+00:02:24,960 --> 00:02:27,389
+has the hinge joint attached. The anchor
+
+71
+00:02:27,389 --> 00:02:29,753
+is set to 1 in the X axis,
+
+72
+00:02:29,753 --> 00:02:31,865
+which moves it from it's center to it's edge.
+
+73
+00:02:31,865 --> 00:02:33,865
+Again the joint is represented in 
+
+74
+00:02:33,865 --> 00:02:36,813
+orange in Unity and you can see a small line
+
+75
+00:02:36,813 --> 00:02:39,271
+showing you where the hinge is currently located.
+
+76
+00:02:39,271 --> 00:02:41,271
+The axis then allows us to specify
+
+77
+00:02:41,271 --> 00:02:44,489
+around which axis the hinge will pivot.
+
+78
+00:02:44,489 --> 00:02:46,489
+We've set this to the Y axis so it will
+
+79
+00:02:46,489 --> 00:02:49,435
+react like a real hinge with a simple script
+
+80
+00:02:49,435 --> 00:02:50,794
+we're applying a force to the door
+
+81
+00:02:50,794 --> 00:02:52,627
+when we click on it, which pushes it
+
+82
+00:02:52,627 --> 00:02:54,627
+backwards in it's Z axis
+
+83
+00:02:54,627 --> 00:02:57,634
+using the shortcut minus transform.forward.
+
+84
+00:02:58,134 --> 00:03:00,134
+In the Add Force lesson you may have seen
+
+85
+00:03:00,134 --> 00:03:02,875
+that this fires the door straight out of the frame.
+
+86
+00:03:02,875 --> 00:03:05,054
+But now that we have a hinge,
+
+87
+00:03:05,054 --> 00:03:07,054
+when we apply the force to the door
+
+88
+00:03:07,054 --> 00:03:09,638
+it simply pivots around that point.
+
+89
+00:03:09,638 --> 00:03:11,638
+and no matter how many times we add force
+
+90
+00:03:11,638 --> 00:03:13,638
+to it, it doesn't break.
+
+91
+00:03:16,044 --> 00:03:18,044
+In a similar manner to our spring joint
+
+92
+00:03:18,044 --> 00:03:20,561
+we can apply spring-like characterises
+
+93
+00:03:20,561 --> 00:03:23,151
+by using the Use Spring checkbox
+
+94
+00:03:23,151 --> 00:03:26,185
+and using the values underneath the spring settings.
+
+95
+00:03:26,685 --> 00:03:28,449
+The other differences between hinge joints
+
+96
+00:03:28,449 --> 00:03:30,959
+and spring joints are motors and limits.
+
+97
+00:03:30,959 --> 00:03:33,236
+Motors are for introducing a velocity
+
+98
+00:03:33,236 --> 00:03:36,002
+to your joint, for example a revolving door.
+
+99
+00:03:36,237 --> 00:03:38,558
+The Target Velocity is the velocity the
+
+100
+00:03:38,558 --> 00:03:40,558
+joint is trying to rotate at and the 
+
+101
+00:03:40,558 --> 00:03:43,651
+force is used to try and attain that velocity.
+
+102
+00:03:44,151 --> 00:03:46,672
+If Free Spin is checked then the force will
+
+103
+00:03:46,672 --> 00:03:48,574
+only be used to try and accelerate
+
+104
+00:03:48,574 --> 00:03:51,137
+the joint and not to decelerate it.
+
+105
+00:03:51,137 --> 00:03:53,412
+Limits can be used if you wish to constrain
+
+106
+00:03:53,412 --> 00:03:55,412
+the motion of your joint, like with the 
+
+107
+00:03:55,412 --> 00:03:57,412
+normal door. The minimum and maximum
+
+108
+00:03:57,412 --> 00:03:59,620
+are the angles between which the joint
+
+109
+00:03:59,620 --> 00:04:02,355
+can move. Min and Max Bounce are the amount
+
+110
+00:04:02,355 --> 00:04:04,355
+by which the joint will bounce when it reaches
+
+111
+00:04:04,355 --> 00:04:06,730
+one of it's limits. And similar to our 
+
+112
+00:04:06,730 --> 00:04:08,730
+spring joint, yet again we have break
+
+113
+00:04:08,730 --> 00:04:10,464
+forces and torques.
+
+114
+00:04:11,005 --> 00:04:13,576
+For example, if we add in a reasonably low
+
+115
+00:04:13,576 --> 00:04:16,139
+number into the break force property,
+
+116
+00:04:16,139 --> 00:04:18,139
+we can break the door off of the hinge
+
+117
+00:04:18,139 --> 00:04:20,487
+when adding a force. You should note that 
+
+118
+00:04:20,487 --> 00:04:22,753
+when doing this the door doesn't fly directly
+
+119
+00:04:22,753 --> 00:04:26,267
+backwards but is instead pulled away from it's hinge.

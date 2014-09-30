@@ -1,0 +1,1148 @@
+1
+00:00:01,050 --> 00:00:04,041
+The Rect Transform is a new component that replaces
+
+2
+00:00:04,041 --> 00:00:06,041
+the usual transform component on all 
+
+3
+00:00:06,041 --> 00:00:07,957
+new UI elements.
+
+4
+00:00:07,957 --> 00:00:10,912
+Whereas the transform component represented the position,
+
+5
+00:00:10,912 --> 00:00:14,452
+rotation and scale of a 3D object in the scene volume.
+
+6
+00:00:15,656 --> 00:00:18,152
+The Rect Transform represents a 2D
+
+7
+00:00:18,152 --> 00:00:20,152
+rectangle specified by a width
+
+8
+00:00:20,152 --> 00:00:22,525
+and a height related to a pivot point.
+
+9
+00:00:24,227 --> 00:00:26,227
+Even though the rect transform represents a
+
+10
+00:00:26,227 --> 00:00:28,227
+simple 2D rectangle, the component
+
+11
+00:00:28,227 --> 00:00:30,851
+does include a position along the Z axis
+
+12
+00:00:30,851 --> 00:00:32,851
+as well as rotation and scale
+
+13
+00:00:32,851 --> 00:00:34,851
+so the element can be manipulated in the scene
+
+14
+00:00:34,851 --> 00:00:36,851
+
+volume as a 3D object.
+
+15
+00:00:43,304 --> 00:00:46,077
+One important difference between a rect transform and
+
+16
+00:00:46,077 --> 00:00:48,077
+the traditional transform component is the 
+
+17
+00:00:48,077 --> 00:00:49,717
+concept of anchors,
+
+18
+00:00:49,717 --> 00:00:52,327
+A rect transform can be anchored to it's parent
+
+19
+00:00:52,327 --> 00:00:55,359
+if that parent also has a rect transform component.
+
+20
+00:00:56,591 --> 00:00:58,784
+Anchoring allows the UI element to move
+
+21
+00:00:58,784 --> 00:01:01,144
+or stretch based on the position and size
+
+22
+00:01:01,144 --> 00:01:04,238
+of the parent UI element's rect transform.
+
+23
+00:01:05,332 --> 00:01:07,906
+It is worth noting that all UI elements must
+
+24
+00:01:07,906 --> 00:01:10,473
+ultimately be the child of a canvas,
+
+25
+00:01:10,473 --> 00:01:12,473
+even if they are not immediate children.
+
+26
+00:01:14,630 --> 00:01:17,358
+Canvases themselves have a rect transform.
+
+27
+00:01:18,134 --> 00:01:21,031
+So in almost all circumstances the parent
+
+28
+00:01:21,031 --> 00:01:24,249
+of a UI element will also have a rect transform.
+
+29
+00:01:25,426 --> 00:01:29,193
+And the UI element will be anchored to it's parent in some way.
+
+30
+00:01:30,812 --> 00:01:33,244
+For more information on the canvas component
+
+31
+00:01:33,244 --> 00:01:35,244
+please see the information linked below.
+
+32
+00:01:36,656 --> 00:01:39,126
+In the Scene view, to manipulate a UI element
+
+33
+00:01:39,126 --> 00:01:41,126
+it is best to use the Rect tool.
+
+34
+00:01:42,248 --> 00:01:44,414
+The Rect tool can be selected by clicking on
+
+35
+00:01:44,414 --> 00:01:46,414
+the Rect Tool button in the toolbar.
+
+36
+00:01:46,414 --> 00:01:49,122
+or by using the shortcut key T.
+
+37
+00:01:49,824 --> 00:01:52,036
+With the Rect tool selected it is possible
+
+38
+00:01:52,036 --> 00:01:54,036
+to move, resize and rotate any
+
+39
+00:01:54,036 --> 00:01:56,036
+UI element with that one tool.
+
+40
+00:01:56,855 --> 00:01:59,635
+With the UI element selected it can be moved
+
+41
+00:01:59,635 --> 00:02:02,538
+by clicking anywhere within the rectangle and dragging.
+
+42
+00:02:03,792 --> 00:02:05,792
+The UI element can be resized by
+
+43
+00:02:05,792 --> 00:02:09,021
+clicking on any of the edges or corners and dragging.
+
+44
+00:02:09,967 --> 00:02:11,967
+Note how the cursor changes when hovering
+
+45
+00:02:11,967 --> 00:02:14,650
+over an edge or corner from the usual pointer
+
+46
+00:02:14,650 --> 00:02:16,650
+to a double arrow aligned with the direction
+
+47
+00:02:16,650 --> 00:02:19,132
+the UI element will resize when dragged.
+
+48
+00:02:19,983 --> 00:02:22,409
+Holding the Shift key will force the UI element
+
+49
+00:02:22,409 --> 00:02:24,409
+to be resized proportionately.
+
+50
+00:02:25,175 --> 00:02:27,569
+The UI element can be rotated by clicking and
+
+51
+00:02:27,569 --> 00:02:30,905
+dragging outside of the rectangle near any of the corners.
+
+52
+00:02:31,564 --> 00:02:33,872
+Note how the cursor changes, indicating when the 
+
+53
+00:02:33,872 --> 00:02:35,872
+tool can rotate the UI element.
+
+54
+00:02:39,792 --> 00:02:42,046
+Resizing or rotating a UI element is
+
+55
+00:02:42,046 --> 00:02:44,353
+done in relation to it's pivot point.
+
+56
+00:02:45,088 --> 00:02:47,157
+The pivot point is very much like the centre
+
+57
+00:02:47,157 --> 00:02:49,157
+point of a standard game object.
+
+58
+00:02:49,919 --> 00:02:52,404
+The pivot point is indicated by a blue ring
+
+59
+00:02:52,404 --> 00:02:55,762
+which by default starts in the centre of the UI element.
+
+60
+00:02:56,345 --> 00:02:58,722
+The pivot point can be moved by clicking and
+
+61
+00:02:58,722 --> 00:03:01,589
+dragging on the pivot point indicator in the scene view.
+
+62
+00:03:02,407 --> 00:03:04,808
+It is worth noting that the pivot point does not need
+
+63
+00:03:04,808 --> 00:03:07,728
+to be inside the rectangle of the UI element.
+
+64
+00:03:08,587 --> 00:03:10,859
+Placing the pivot point outside of the UI element's
+
+65
+00:03:10,859 --> 00:03:13,970
+rectangle can be done for specialised behaviour.
+
+66
+00:03:13,970 --> 00:03:16,415
+This however is not a common situation.
+
+67
+00:03:17,368 --> 00:03:19,368
+Another difference between the transform component
+
+68
+00:03:19,368 --> 00:03:21,368
+and the rect transform is the effective
+
+69
+00:03:21,368 --> 00:03:23,835
+global and local space on editing.
+
+70
+00:03:24,738 --> 00:03:27,268
+When editing UI elements in local space
+
+71
+00:03:27,268 --> 00:03:30,252
+the rectangle and handles are aligned with the UI element.
+
+72
+00:03:31,042 --> 00:03:34,567
+In global space the rectangles and handles are aligned globally
+
+73
+00:03:34,567 --> 00:03:38,008
+and the rectangle indicates the bounds of the UI element.
+
+74
+00:03:38,632 --> 00:03:42,095
+This is most notable when the UI element is rotated.
+
+75
+00:03:43,686 --> 00:03:46,138
+In the scene view, anchors are indicated by
+
+76
+00:03:46,138 --> 00:03:48,596
+by four small triangles, which by default
+
+77
+00:03:48,596 --> 00:03:50,596
+are grouped together in the centre of
+
+78
+00:03:50,596 --> 00:03:53,322
+the UI element's parent rect transform.
+
+79
+00:03:55,770 --> 00:03:58,509
+This parent rect transform can be the canvas.
+
+80
+00:03:59,506 --> 00:04:02,311
+Anchors will be covered in detail later in this lesson.
+
+81
+00:04:03,405 --> 00:04:05,906
+When looking at the rect transform in the inspector
+
+82
+00:04:05,906 --> 00:04:08,490
+it is clearly different from the transform component.
+
+83
+00:04:09,542 --> 00:04:11,542
+The position and size of the UI element are shown
+
+84
+00:04:11,542 --> 00:04:13,445
+in the upper right of the inspector for the
+
+85
+00:04:13,445 --> 00:04:15,445
+rect transform component.
+
+86
+00:04:15,945 --> 00:04:18,672
+Position shows the distance in pixels
+
+87
+00:04:18,672 --> 00:04:20,906
+from the anchor point to the pivot
+
+88
+00:04:20,906 --> 00:04:22,906
+along the X and Y axis.
+
+89
+00:04:23,903 --> 00:04:25,903
+The position Z is the distance along
+
+90
+00:04:25,903 --> 00:04:29,494
+the local Z axis and is often left at a value of 0.
+
+91
+00:04:30,049 --> 00:04:34,024
+Width and Height indicate the size of the UI element in pixels.
+
+92
+00:04:35,574 --> 00:04:37,574
+The Position and Size fields are dynamic
+
+93
+00:04:37,574 --> 00:04:39,199
+and context sensitive.
+
+94
+00:04:39,199 --> 00:04:41,698
+These will be covered in more detail in this lesson
+
+95
+00:04:41,698 --> 00:04:44,411
+as they relate directly to the position of the anchor.
+
+96
+00:04:46,297 --> 00:04:48,297
+The rect transform component includes a
+
+97
+00:04:48,297 --> 00:04:50,297
+powerful anchoring mechanism.
+
+98
+00:04:50,921 --> 00:04:53,435
+Rect transforms can be anchored to their parent
+
+99
+00:04:53,435 --> 00:04:56,907
+if the parent game object also has a rect transform component.
+
+100
+00:04:57,700 --> 00:04:59,700
+In most cases, every UI element
+
+101
+00:04:59,700 --> 00:05:02,384
+will be anchored to it's parent in some way.
+
+102
+00:05:03,208 --> 00:05:05,731
+In the scene view the anchors are represented by
+
+103
+00:05:05,731 --> 00:05:07,731
+four small triangle gizmos.
+
+104
+00:05:08,162 --> 00:05:10,674
+Each triangle represents one anchor.
+
+105
+00:05:12,293 --> 00:05:14,529
+And each anchor is associated with one
+
+106
+00:05:14,529 --> 00:05:16,529
+corner of the rect transform.
+
+107
+00:05:18,093 --> 00:05:20,525
+The upper left anchor is associated with the
+
+108
+00:05:20,525 --> 00:05:23,362
+upper left corner on the rect transform,
+
+109
+00:05:23,362 --> 00:05:26,056
+the lower right anchor to the lower right corner.
+
+110
+00:05:26,056 --> 00:05:29,189
+This is the same for each anchor and each corner.
+
+111
+00:05:29,965 --> 00:05:32,077
+Anchors are positioned within the bounds of the
+
+112
+00:05:32,077 --> 00:05:35,464
+parent's rectangle, not the UI element's rectangle.
+
+113
+00:05:36,489 --> 00:05:38,489
+Anchors cannot be positioned outside of
+
+114
+00:05:38,489 --> 00:05:40,489
+the bounds of the parent's rectangle.
+
+115
+00:05:41,238 --> 00:05:43,238
+Anchors can be moved by clicking and dragging
+
+116
+00:05:43,238 --> 00:05:44,921
+on the triangle gizmo.
+
+117
+00:05:45,655 --> 00:05:47,655
+Clicking in the centre of a group of triangles
+
+118
+00:05:47,655 --> 00:05:49,989
+will move the triangles as a group.
+
+119
+00:05:50,721 --> 00:05:54,421
+Clicking on an individual triangle will move one anchor at a time.
+
+120
+00:05:56,413 --> 00:05:58,413
+Anchors have a fixed relationship to
+
+121
+00:05:58,413 --> 00:06:01,515
+their rect transforms, which they are anchoring.
+
+122
+00:06:02,181 --> 00:06:04,181
+Anchors have a flexible relationship to their
+
+123
+00:06:04,181 --> 00:06:07,463
+parent's rect transform, which they are anchoring to.
+
+124
+00:06:08,281 --> 00:06:10,281
+When setting an anchor, the distance between
+
+125
+00:06:10,281 --> 00:06:12,281
+the anchor and the associated corner of
+
+126
+00:06:12,281 --> 00:06:15,295
+the rect transform is a fixed value.
+
+127
+00:06:16,389 --> 00:06:18,998
+The anchor's position within the parent's rect transform
+
+128
+00:06:18,998 --> 00:06:21,671
+however is relative to the parent's size
+
+129
+00:06:21,671 --> 00:06:23,894
+and is affected by changes to the size
+
+130
+00:06:23,894 --> 00:06:25,894
+in the parent's rect transform.
+
+131
+00:06:26,449 --> 00:06:28,449
+The anchor's position relative to the parent is
+
+132
+00:06:28,449 --> 00:06:30,449
+a percentage of the parent's size
+
+133
+00:06:30,449 --> 00:06:32,449
+along the X and Y axis.
+
+134
+00:06:35,311 --> 00:06:37,311
+And it's absolute position can change when the
+
+135
+00:06:37,311 --> 00:06:39,311
+parent's rect transform changes.
+
+136
+00:06:42,656 --> 00:06:44,921
+This percentage is represented by a normalised
+
+137
+00:06:44,921 --> 00:06:48,203
+value from 0 to 1 along each axis.
+
+138
+00:06:49,145 --> 00:06:51,145
+Where 0,0 is in the lower left
+
+139
+00:06:51,145 --> 00:06:53,792
+of the parent's rect transform, and 1,1
+
+140
+00:06:53,792 --> 00:06:55,388
+is in the upper right.
+
+141
+00:06:56,219 --> 00:06:58,275
+Practically, this means if all four anchors
+
+142
+00:06:58,275 --> 00:07:00,594
+are grouped together around a single point
+
+143
+00:07:00,594 --> 00:07:03,281
+the UI element will be anchored to that point.
+
+144
+00:07:03,281 --> 00:07:06,088
+If the parent rect transform changes in size
+
+145
+00:07:06,588 --> 00:07:08,588
+
+
+146
+00:07:09,088 --> 00:07:11,757
+the UI element will move along with the anchor.
+
+147
+00:07:12,575 --> 00:07:15,044
+The UI element will not stretch or resize
+
+148
+00:07:15,044 --> 00:07:17,487
+as the distance from the anchors to their associated
+
+149
+00:07:17,487 --> 00:07:19,487
+corners is fixed.
+
+150
+00:07:19,987 --> 00:07:22,906
+If, however, the anchors are separated in any way
+
+151
+00:07:22,906 --> 00:07:25,775
+the UI element will stretch along with the parent
+
+152
+00:07:25,775 --> 00:07:28,124
+as the anchors, and the space between them,
+
+153
+00:07:28,124 --> 00:07:30,526
+are relative to the parent's rect transform
+
+154
+00:07:30,526 --> 00:07:34,155
+and will change in size if the parent changes in size.
+
+155
+00:07:35,000 --> 00:07:37,000
+How much the UI element stretches compared to
+
+156
+00:07:37,000 --> 00:07:40,137
+it's parent depends upon the placement of the anchors.
+
+157
+00:07:43,759 --> 00:07:45,759
+A few common cases are:
+
+158
+00:07:46,259 --> 00:07:49,224
+positioning the anchors are the corners of the UI element,
+
+159
+00:07:49,224 --> 00:07:51,224
+in which case the stretch will maintain the
+
+160
+00:07:51,224 --> 00:07:54,689
+UI element at the same percentage area of the parent.
+
+161
+00:07:56,363 --> 00:07:58,695
+Positioning the anchors at the bounds of the parent.
+
+162
+00:07:59,678 --> 00:08:01,678
+In which case the space between the edge of
+
+163
+00:08:01,678 --> 00:08:04,257
+the UI element and the bounds of the parent
+
+164
+00:08:04,257 --> 00:08:06,963
+will remain the same, creating a fixed border.
+
+165
+00:08:09,383 --> 00:08:11,673
+Positioning a pair of anchors grouped together
+
+166
+00:08:11,673 --> 00:08:14,090
+at the edges of the parent's rect transform,
+
+167
+00:08:14,090 --> 00:08:16,090
+in which case the UI element will stretch
+
+168
+00:08:16,090 --> 00:08:18,342
+horizontally but not vertically.
+
+169
+00:08:22,071 --> 00:08:24,443
+The stretching behaviour of an anchored UI element
+
+170
+00:08:24,443 --> 00:08:26,663
+can be quickly tested by grabbing the edge
+
+171
+00:08:26,663 --> 00:08:29,202
+of the parent's rect transform and dragging it.
+
+172
+00:08:29,867 --> 00:08:32,629
+Note the preview label that appears when dragging,
+
+173
+00:08:32,629 --> 00:08:34,629
+dragging and note that the parent rect transform snaps
+
+174
+00:08:34,629 --> 00:08:37,604
+back to it's original state when the dragging ends.
+
+175
+00:08:38,477 --> 00:08:41,581
+To make editing easier, when positioning anchors by hand
+
+176
+00:08:41,581 --> 00:08:44,094
+holding the Shift key will change the UI element
+
+177
+00:08:44,094 --> 00:08:45,787
+size as well.
+
+178
+00:08:46,249 --> 00:08:48,940
+How the rect transform is resized depends upon the
+
+179
+00:08:48,940 --> 00:08:52,375
+position of the anchor compared to it's associated corner,
+
+180
+00:08:52,375 --> 00:08:55,308
+as the distance between the two is a fixed value.
+
+181
+00:08:58,211 --> 00:09:00,211
+It is important to note a change in the way
+
+182
+00:09:00,211 --> 00:09:02,211
+the rect transform displays the positioning
+
+183
+00:09:02,211 --> 00:09:04,211
+and size information when the anchors are
+
+184
+00:09:04,211 --> 00:09:06,654
+not grouped together, and no longer define
+
+185
+00:09:06,654 --> 00:09:08,654
+a single point as an anchor.
+
+186
+00:09:09,485 --> 00:09:11,485
+When all four anchors are grouped together
+
+187
+00:09:11,485 --> 00:09:13,485
+they define a single anchor point.
+
+188
+00:09:13,930 --> 00:09:16,319
+And the rect transform displays the positional
+
+189
+00:09:16,319 --> 00:09:18,319
+offset from the pivot, and the width
+
+190
+00:09:18,319 --> 00:09:20,319
+and height of the UI element.
+
+191
+00:09:21,054 --> 00:09:23,054
+When the anchors are split apart however,
+
+192
+00:09:23,054 --> 00:09:25,054
+the rect transform displays the fixed
+
+193
+00:09:25,054 --> 00:09:28,141
+values of the left, right, top and bottom.
+
+194
+00:09:28,779 --> 00:09:32,729
+These are the fixed offsets, along the X and Y axis
+
+195
+00:09:32,729 --> 00:09:35,659
+of the anchors to their associated corners.
+
+196
+00:09:38,286 --> 00:09:40,286
+If any two anchors are grouped together
+
+197
+00:09:40,286 --> 00:09:43,006
+there will be no stretching along that axis
+
+198
+00:09:43,006 --> 00:09:45,006
+and the rect transform will continue to display
+
+199
+00:09:45,006 --> 00:09:47,791
+the position and width, or position and height
+
+200
+00:09:47,791 --> 00:09:49,791
+for that axis.
+
+201
+00:09:52,377 --> 00:09:55,373
+When setting the pivot and anchors for a UI element
+
+202
+00:09:55,373 --> 00:09:58,050
+there are a number of very common configurations.
+
+203
+00:09:58,909 --> 00:10:00,839
+To make setting these quick and easy
+
+204
+00:10:00,839 --> 00:10:04,317
+the rect transform includes the Anchor Presets window.
+
+205
+00:10:04,927 --> 00:10:06,927
+This can be accessed by clicking on the
+
+206
+00:10:06,927 --> 00:10:08,927
+Anchor Presets button.
+
+207
+00:10:09,427 --> 00:10:11,635
+The anchor presets button displays the current
+
+208
+00:10:11,635 --> 00:10:13,635
+anchoring choice of the rect transform.
+
+209
+00:10:14,867 --> 00:10:16,867
+In the anchor presets window there is a set of
+
+210
+00:10:16,867 --> 00:10:19,653
+common configurations for the anchors and pivots.
+
+211
+00:10:20,318 --> 00:10:22,499
+These common configurations are arranged
+
+212
+00:10:22,499 --> 00:10:25,535
+in the matrix based on the position of the anchors.
+
+213
+00:10:26,284 --> 00:10:28,284
+With fixed anchor points in the middle,
+
+214
+00:10:28,284 --> 00:10:30,886
+and stretch options along the outer edge.
+
+215
+00:10:31,668 --> 00:10:33,668
+The anchor position can be set simply by
+
+216
+00:10:33,668 --> 00:10:36,176
+clicking on the desired configuration.
+
+217
+00:10:38,074 --> 00:10:41,358
+Additionally, the pivot, the position of the UI element,
+
+218
+00:10:41,358 --> 00:10:43,638
+or both, can be set at the same time
+
+219
+00:10:43,638 --> 00:10:45,638
+as setting the anchors by holding down
+
+220
+00:10:45,638 --> 00:10:47,944
+the Shift and/or Alt keys
+
+221
+00:10:47,944 --> 00:10:50,266
+when clicking the desired configuration.
+
+222
+00:10:51,107 --> 00:10:53,107
+These optional keys are noted at the
+
+223
+00:10:53,107 --> 00:10:55,107
+top of the anchor presets window.
+
+224
+00:10:58,038 --> 00:11:00,758
+Pivot defines the pivot point of the UI element
+
+225
+00:11:00,758 --> 00:11:03,329
+using a normalised value of 0 to 1
+
+226
+00:11:03,329 --> 00:11:05,496
+along the X and Y axis
+
+227
+00:11:05,496 --> 00:11:07,496
+with 0,0 in the lower left
+
+228
+00:11:07,496 --> 00:11:09,663
+and 1,1 in the upper right.
+
+229
+00:11:10,424 --> 00:11:13,364
+Rotation defines the rotation of the UI element.
+
+230
+00:11:14,292 --> 00:11:16,540
+In the most common of cases rotation will
+
+231
+00:11:16,540 --> 00:11:18,916
+only need to be done along the Z axis,
+
+232
+00:11:18,916 --> 00:11:21,736
+keeping the UI element in 2D space.
+
+233
+00:11:22,466 --> 00:11:25,110
+Rotation is allowed on all 3 axis however,
+
+234
+00:11:25,110 --> 00:11:27,989
+and the element can be viewed in 3D space.
+
+235
+00:11:28,814 --> 00:11:30,814
+Before discussing scale it is important
+
+236
+00:11:30,814 --> 00:11:34,031
+to understand the difference between scaling and size.
+
+237
+00:11:34,724 --> 00:11:36,724
+When adjusting a UI element's size
+
+238
+00:11:36,724 --> 00:11:39,084
+in the scene view, or adjusting the width and height
+
+239
+00:11:39,084 --> 00:11:40,219
+in the inspector.
+
+240
+00:11:40,219 --> 00:11:43,620
+The UI element is being resized, not scaled.
+
+241
+00:11:44,410 --> 00:11:48,088
+Resizing changes the rect transform's width and/or height,
+
+242
+00:11:48,088 --> 00:11:50,554
+but does not scale the UI element.
+
+243
+00:11:51,237 --> 00:11:53,377
+When the UI element is resized
+
+244
+00:11:53,377 --> 00:11:55,653
+this will not effect the font sizes,
+
+245
+00:11:55,653 --> 00:11:57,405
+the border on sliced images,
+
+246
+00:11:57,405 --> 00:12:00,109
+or other items related to the UI element.
+
+247
+00:12:00,872 --> 00:12:03,136
+When the UI element is scaled however
+
+248
+00:12:03,136 --> 00:12:04,998
+the entire element is scaled,
+
+249
+00:12:04,998 --> 00:12:07,537
+including items like fonts and borders.
+
+250
+00:12:08,258 --> 00:12:10,875
+For layout purposes it is generally recommended
+
+251
+00:12:10,875 --> 00:12:14,164
+to resize a UI element rather than scale it.
+
+252
+00:12:14,761 --> 00:12:16,761
+Scaling on the other hand can be useful
+
+253
+00:12:16,761 --> 00:12:20,085
+for animated effects or other special purposes.
+
+254
+00:12:20,834 --> 00:12:22,834
+It is worth noting that a UI element
+
+255
+00:12:22,834 --> 00:12:25,798
+will become invisible if given a negative size.
+
+256
+00:12:26,464 --> 00:12:28,701
+Negative scaling however is supported
+
+257
+00:12:28,701 --> 00:12:31,543
+and can be used for effects, including flipping the
+
+258
+00:12:31,543 --> 00:12:34,016
+UI element with a scale of -1.
+
+259
+00:12:35,714 --> 00:12:37,506
+The rect transform component includes
+
+260
+00:12:37,506 --> 00:12:39,506
+two optional editing modes.
+
+261
+00:12:40,047 --> 00:12:42,544
+Blueprint mode and Raw Edit mode.
+
+262
+00:12:43,472 --> 00:12:45,682
+Blueprint mode allows for the editing of
+
+263
+00:12:45,682 --> 00:12:49,095
+rect transforms as if they were not rotated or scaled.
+
+264
+00:12:57,606 --> 00:12:59,606
+It is worth noting that the UI element
+
+265
+00:12:59,606 --> 00:13:03,033
+cannot be rotated with the rect tool when on blueprint mode.
+
+266
+00:13:04,334 --> 00:13:07,329
+Normally when editing the pivot or anchor values
+
+267
+00:13:07,329 --> 00:13:09,329
+from within the rect transform
+
+268
+00:13:09,953 --> 00:13:11,953
+the pivot or anchor will move and the
+
+269
+00:13:11,953 --> 00:13:14,133
+UI element will remain in place.
+
+270
+00:13:14,133 --> 00:13:16,851
+Just like editing these items in the scene view.
+
+271
+00:13:17,489 --> 00:13:19,489
+When in Raw Edit mode however,
+
+272
+00:13:19,489 --> 00:13:21,834
+the pivot, or anchor, will stay in place
+
+273
+00:13:21,834 --> 00:13:25,631
+and the UI element will move relative to that fixed item.
+
+274
+00:13:31,863 --> 00:13:34,587
+There are times when a rect transform
+
+275
+00:13:34,587 --> 00:13:36,587
+will have some or all of it's values
+
+276
+00:13:36,587 --> 00:13:38,893
+driven by a parent rect transform
+
+277
+00:13:38,893 --> 00:13:42,194
+or other UI component, such as a layout group.
+
+278
+00:13:43,136 --> 00:13:45,735
+In these cases some or all of the
+
+279
+00:13:45,735 --> 00:13:47,735
+properties of the rect transform will
+
+280
+00:13:47,735 --> 00:13:50,205
+be greyed out and uneditable.
+
+281
+00:13:50,967 --> 00:13:53,299
+When this is the case there will be a note
+
+282
+00:13:53,299 --> 00:13:55,299
+at the top of the rect transform indicating
+
+283
+00:13:55,299 --> 00:13:58,752
+that some values are being driven by another component.
+
+284
+00:13:59,653 --> 00:14:01,653
+For more information on the components
+
+285
+00:14:01,653 --> 00:14:03,653
+driving the rect transform
+
+286
+00:14:03,653 --> 00:14:05,653
+please see the Unity documentation
+
+287
+00:14:05,653 --> 00:14:08,800
+or the associated Learn lesson for that component.

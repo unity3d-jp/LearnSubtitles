@@ -1,0 +1,755 @@
+1
+00:00:00,414 --> 00:00:02,472
+Animator Controllers contain one or more
+
+2
+00:00:02,472 --> 00:00:04,472
+state machines that determine which animations
+
+3
+00:00:04,472 --> 00:00:06,472
+are currently being played.
+
+4
+00:00:07,303 --> 00:00:09,806
+These states are controlled by parameters
+
+5
+00:00:09,806 --> 00:00:12,568
+which get their values from scripts.
+
+6
+00:00:13,549 --> 00:00:15,879
+To create an animator controller
+
+7
+00:00:15,879 --> 00:00:18,569
+click the Create menu in the Project view
+
+8
+00:00:18,569 --> 00:00:21,439
+and select Animator Controller.
+
+9
+00:00:22,271 --> 00:00:24,743
+You can also just right click any blank
+
+10
+00:00:24,743 --> 00:00:26,895
+space in the Asset view and select
+
+11
+00:00:26,895 --> 00:00:29,268
+Create - Animator Controller.
+
+12
+00:00:30,445 --> 00:00:32,585
+Animator Controllers are managed
+
+13
+00:00:32,585 --> 00:00:34,585
+through the Animator window.
+
+14
+00:00:34,585 --> 00:00:37,209
+To open the Animator window either click
+
+15
+00:00:37,209 --> 00:00:39,209
+Window - Animator
+
+16
+00:00:39,709 --> 00:00:43,709
+or double click on any animator controller asset.
+
+17
+00:00:44,306 --> 00:00:47,132
+This window is resizable and dockable
+
+18
+00:00:47,132 --> 00:00:48,966
+allowing you to place it wherever makes the
+
+19
+00:00:48,966 --> 00:00:50,966
+most sense for your workflow.
+
+20
+00:00:52,336 --> 00:00:54,267
+Parameters are created by clicking the
+
+21
+00:00:54,267 --> 00:00:57,126
+plus icon next to the word Parameters
+
+22
+00:00:57,126 --> 00:01:00,807
+in the bottom lefthand corner of the Animator Window.
+
+23
+00:01:01,197 --> 00:01:04,066
+They can be either floats, ints,
+
+24
+00:01:04,066 --> 00:01:06,066
+Booleans or triggers.
+
+25
+00:01:06,787 --> 00:01:08,933
+Parameters generally represent qualities of
+
+26
+00:01:08,933 --> 00:01:11,882
+an animation or decision making condition.
+
+27
+00:01:13,004 --> 00:01:15,492
+For example, if you are animating a
+
+28
+00:01:15,492 --> 00:01:17,687
+humanoid's movement a common approach
+
+29
+00:01:17,687 --> 00:01:20,442
+could be to create a float parameter for Speed.
+
+30
+00:01:21,011 --> 00:01:23,305
+When the Speed parameter is large
+
+31
+00:01:23,305 --> 00:01:25,208
+the animator controller can be made to
+
+32
+00:01:25,208 --> 00:01:28,182
+transition the states with faster animations.
+
+33
+00:01:29,365 --> 00:01:32,000
+States can be made in one of three ways.
+
+34
+00:01:32,500 --> 00:01:35,207
+The first way is to drag an animation clip
+
+35
+00:01:35,207 --> 00:01:37,124
+from your project panel on to some
+
+36
+00:01:37,124 --> 00:01:39,608
+empty space in the Animator panel.
+
+37
+00:01:40,107 --> 00:01:42,596
+This will create a state who's motion
+
+38
+00:01:42,596 --> 00:01:44,568
+is that of the animation clip
+
+39
+00:01:44,568 --> 00:01:46,129
+that was dragged on.
+
+40
+00:01:46,861 --> 00:01:49,064
+The second way is to right-click on some
+
+41
+00:01:49,064 --> 00:01:51,467
+empty space in the Animator panel
+
+42
+00:01:51,467 --> 00:01:53,785
+and select Create State.
+
+43
+00:01:54,478 --> 00:01:56,909
+From here you are given three options.
+
+44
+00:01:57,365 --> 00:02:00,828
+Empty, From Selected Clip and
+
+45
+00:02:00,828 --> 00:02:02,828
+From New Blend Tree.
+
+46
+00:02:03,673 --> 00:02:05,576
+For information on Blend Trees
+
+47
+00:02:05,576 --> 00:02:07,800
+see the lesson linked below.
+
+48
+00:02:09,278 --> 00:02:11,278
+An empty state is simply one that does
+
+49
+00:02:11,278 --> 00:02:13,054
+not have any motion.
+
+50
+00:02:13,054 --> 00:02:15,233
+These can be useful as they do not mask
+
+51
+00:02:15,233 --> 00:02:18,098
+animation that is being played on other layers.
+
+52
+00:02:19,150 --> 00:02:21,538
+For information on Animator Layers
+
+53
+00:02:21,538 --> 00:02:23,538
+see the lesson linked below.
+
+54
+00:02:24,936 --> 00:02:27,558
+To create a state from a selected clip
+
+55
+00:02:27,558 --> 00:02:29,280
+you must have the animation
+
+56
+00:02:29,280 --> 00:02:31,280
+you wish to make in to a state
+
+57
+00:02:31,280 --> 00:02:33,280
+highlighted in the project panel.
+
+58
+00:02:35,976 --> 00:02:38,700
+The third way to create an animator state
+
+59
+00:02:38,700 --> 00:02:40,421
+is to create an animation
+
+60
+00:02:40,421 --> 00:02:41,990
+in the animation window.
+
+61
+00:02:42,783 --> 00:02:44,992
+This is separate and distinct
+
+62
+00:02:44,992 --> 00:02:46,509
+from the animator window.
+
+63
+00:02:46,912 --> 00:02:48,912
+When you create the animation
+
+64
+00:02:48,912 --> 00:02:50,773
+It will create a state for it
+
+65
+00:02:50,773 --> 00:02:53,867
+in the base layer of the animator controller
+
+66
+00:02:53,867 --> 00:02:56,729
+that the animation is being created for.
+
+67
+00:02:57,458 --> 00:02:59,568
+The Animation Window is covered in it's
+
+68
+00:02:59,568 --> 00:03:01,568
+own video linked below.
+
+69
+00:03:02,483 --> 00:03:04,679
+The first state created on any layer
+
+70
+00:03:04,679 --> 00:03:06,679
+will become the default state
+
+71
+00:03:06,679 --> 00:03:09,751
+which is shown by the state's colour being orange.
+
+72
+00:03:10,458 --> 00:03:12,680
+You can change which state is default
+
+73
+00:03:12,680 --> 00:03:14,391
+by right-clicking on the state you wish
+
+74
+00:03:14,391 --> 00:03:18,011
+to be default and selecting Set As Default.
+
+75
+00:03:18,870 --> 00:03:21,343
+The default state is the one who's animation
+
+76
+00:03:21,343 --> 00:03:23,343
+will be played to start with.
+
+77
+00:03:24,009 --> 00:03:26,078
+To edit states in the Inspector panel
+
+78
+00:03:26,078 --> 00:03:27,718
+simply click on them.
+
+79
+00:03:28,481 --> 00:03:31,146
+At the top we can specify a name
+
+80
+00:03:31,146 --> 00:03:32,843
+and a tag for the state.
+
+81
+00:03:33,425 --> 00:03:35,425
+Both can be referenced through a code
+
+82
+00:03:35,425 --> 00:03:37,094
+if you want to perform any actions
+
+83
+00:03:37,094 --> 00:03:39,094
+while in specific states.
+
+84
+00:03:39,401 --> 00:03:41,401
+So it is a good idea to set those
+
+85
+00:03:41,401 --> 00:03:43,401
+to something meaningful.
+
+86
+00:03:44,232 --> 00:03:46,384
+The Speed property refers to how fast
+
+87
+00:03:46,384 --> 00:03:48,245
+the animation plays compared to it's 
+
+88
+00:03:48,245 --> 00:03:49,953
+normal playback speed.
+
+89
+00:03:50,552 --> 00:03:53,270
+A value of 1 indicates normal speed.
+
+90
+00:03:54,709 --> 00:03:57,031
+The Motion property is the particular
+
+91
+00:03:57,031 --> 00:03:59,581
+animation clip for the state.
+
+92
+00:04:00,650 --> 00:04:03,382
+Foot IK stands for
+
+93
+00:04:03,382 --> 00:04:05,896
+Foot Inverse Kinematics.
+
+94
+00:04:06,338 --> 00:04:08,226
+If this option is checked
+
+95
+00:04:08,226 --> 00:04:10,519
+it will reduce or eliminate
+
+96
+00:04:10,519 --> 00:04:13,253
+any foot slipping in your animation.
+
+97
+00:04:14,676 --> 00:04:16,676
+The Mirror property simply flips the
+
+98
+00:04:16,676 --> 00:04:19,035
+animation left to right.
+
+99
+00:04:20,378 --> 00:04:23,226
+Below this is a list of transitions
+
+100
+00:04:23,226 --> 00:04:25,226
+from this state to others.
+
+101
+00:04:25,726 --> 00:04:27,892
+Currently there aren't any,
+
+102
+00:04:27,892 --> 00:04:29,892
+so let's look at creating some.
+
+103
+00:04:30,931 --> 00:04:33,704
+A transition allows our animator controller
+
+104
+00:04:33,704 --> 00:04:36,145
+to smoothly move from one animation clip
+
+105
+00:04:36,145 --> 00:04:37,164
+to another.
+
+106
+00:04:37,595 --> 00:04:40,973
+We can specify when and how to transition
+
+107
+00:04:40,973 --> 00:04:43,627
+which gives us a high level of control.
+
+108
+00:04:44,730 --> 00:04:47,338
+To create a transition between states
+
+109
+00:04:47,338 --> 00:04:48,980
+right-click on a state that you wish to 
+
+110
+00:04:48,980 --> 00:04:52,889
+transition from and select Make Transition.
+
+111
+00:04:53,883 --> 00:04:56,035
+You will then have a transition arrow
+
+112
+00:04:56,035 --> 00:04:58,035
+attached to your cursor.
+
+113
+00:04:58,715 --> 00:05:01,999
+Click on another state to complete the transition.
+
+114
+00:05:03,507 --> 00:05:05,230
+You can click on the transition
+
+115
+00:05:05,230 --> 00:05:07,230
+to edit it in the Inspector.
+
+116
+00:05:08,310 --> 00:05:10,572
+Each transition has the options
+
+117
+00:05:10,572 --> 00:05:12,320
+Solo and Mute.
+
+118
+00:05:12,989 --> 00:05:15,545
+Mute effectively disables the transition
+
+119
+00:05:16,045 --> 00:05:18,477
+Solo takes in to account all the transitions
+
+120
+00:05:18,477 --> 00:05:20,643
+that come from the same state
+
+121
+00:05:20,643 --> 00:05:22,989
+and effectively mutes all those
+
+122
+00:05:22,989 --> 00:05:24,989
+that aren't marked as solo.
+
+123
+00:05:25,945 --> 00:05:28,568
+Mute and solo are tools for debugging
+
+124
+00:05:28,568 --> 00:05:31,453
+and focusing on particular areas of state machines.
+
+125
+00:05:32,174 --> 00:05:33,508
+They should not be checked
+
+126
+00:05:33,508 --> 00:05:35,508
+on any published builds.
+
+127
+00:05:36,809 --> 00:05:38,809
+Beneath those properties you have the option
+
+128
+00:05:38,809 --> 00:05:40,809
+of naming the transition.
+
+129
+00:05:41,309 --> 00:05:44,570
+Under that you have the Atomic Property.
+
+130
+00:05:45,180 --> 00:05:47,483
+If the atomic property is checked
+
+131
+00:05:47,483 --> 00:05:49,483
+it means that the transition is
+
+132
+00:05:49,483 --> 00:05:52,553
+not interruptible by other transitions.
+
+133
+00:05:53,806 --> 00:05:55,283
+The graph shows how the animation
+
+134
+00:05:55,283 --> 00:05:57,283
+is handled during the transition.
+
+135
+00:05:58,004 --> 00:06:00,004
+The scale is in seconds and frames.
+
+136
+00:06:00,504 --> 00:06:02,504
+There are three markers on the scale.
+
+137
+00:06:02,504 --> 00:06:04,047
+They represent the start and end of the
+
+138
+00:06:04,047 --> 00:06:06,785
+transition in time and the scrubber
+
+139
+00:06:06,785 --> 00:06:09,334
+for previewing the animation of the transition.
+
+140
+00:06:10,583 --> 00:06:12,652
+Between the start and end marker
+
+141
+00:06:12,652 --> 00:06:14,901
+is a blue shaded region which represents
+
+142
+00:06:14,901 --> 00:06:16,901
+the transition from one animation to the next.
+
+143
+00:06:18,754 --> 00:06:20,908
+The graph curves represent which foot
+
+144
+00:06:20,908 --> 00:06:22,908
+is the most stable over time.
+
+145
+00:06:23,864 --> 00:06:26,059
+For a state with a running animation
+
+146
+00:06:26,059 --> 00:06:27,920
+we'll see a curve changing from up to
+
+147
+00:06:27,920 --> 00:06:29,547
+down and back.
+
+148
+00:06:30,240 --> 00:06:32,157
+If the line is in the centre,
+
+149
+00:06:32,157 --> 00:06:34,807
+for example in an idle animation,
+
+150
+00:06:34,807 --> 00:06:36,807
+then neither foot is more stable.
+
+151
+00:06:38,163 --> 00:06:39,926
+For a smooth transition
+
+152
+00:06:39,926 --> 00:06:41,926
+try to get the lines to match up.
+
+153
+00:06:42,606 --> 00:06:44,606
+If neither foot is more stable
+
+154
+00:06:44,606 --> 00:06:46,606
+then this is less important.
+
+155
+00:06:48,239 --> 00:06:49,805
+You can move the two states 
+
+156
+00:06:49,805 --> 00:06:51,805
+back and forth in the graph
+
+157
+00:06:51,805 --> 00:06:53,971
+to adjust at what points the transition
+
+158
+00:06:53,971 --> 00:06:55,971
+starts and ends.
+
+159
+00:06:57,175 --> 00:06:59,175
+Below the graph is where we specify
+
+160
+00:06:59,175 --> 00:07:01,175
+the conditions that will cause this
+
+161
+00:07:01,175 --> 00:07:02,322
+transition to run.
+
+162
+00:07:02,946 --> 00:07:04,946
+By default transitions have a
+
+163
+00:07:04,946 --> 00:07:06,946
+condition of an exit time.
+
+164
+00:07:07,584 --> 00:07:09,334
+This means that once the animation
+
+165
+00:07:09,334 --> 00:07:11,949
+of a state is a portion of the way through
+
+166
+00:07:11,949 --> 00:07:14,498
+it will transition to the next state.
+
+167
+00:07:15,830 --> 00:07:18,736
+Conditions are generally dependent on parameters,
+
+168
+00:07:18,736 --> 00:07:22,191
+for example a Bool parameter being true or false
+
+169
+00:07:22,191 --> 00:07:24,191
+or a float parameter being greater than
+
+170
+00:07:24,191 --> 00:07:26,770
+or less than some constant value.
+
+171
+00:07:27,851 --> 00:07:29,698
+A transition can have multiple conditions
+
+172
+00:07:29,698 --> 00:07:30,907
+if required.
+
+173
+00:07:31,517 --> 00:07:34,150
+Click the + button to create more.
+
+174
+00:07:36,086 --> 00:07:37,878
+At the bottom of the Inspector
+
+175
+00:07:37,878 --> 00:07:39,712
+there is a preview window for viewing
+
+176
+00:07:39,712 --> 00:07:41,948
+what the transitions look like.
+
+177
+00:07:46,811 --> 00:07:49,116
+It is possible to have multiple transitions
+
+178
+00:07:49,116 --> 00:07:51,587
+to and from the same state.
+
+179
+00:07:52,170 --> 00:07:54,753
+Generally this is used to have multiple
+
+180
+00:07:54,753 --> 00:07:57,089
+sets of conditions for the same transition.
+
+181
+00:07:57,902 --> 00:07:59,902
+Consider having a Speed parameter
+
+182
+00:07:59,902 --> 00:08:02,857
+and two states Idle and Run.
+
+183
+00:08:03,550 --> 00:08:05,550
+To have the condition that you transition
+
+184
+00:08:05,550 --> 00:08:07,619
+from Idle to Run
+
+185
+00:08:07,619 --> 00:08:09,619
+when Speed is not 0
+
+186
+00:08:09,619 --> 00:08:11,884
+you could create two transitions
+
+187
+00:08:12,796 --> 00:08:14,479
+and have the conditions be
+
+188
+00:08:14,479 --> 00:08:16,479
+Speed is greater than .1
+
+189
+00:08:18,816 --> 00:08:21,653
+and Speed is less than -.1

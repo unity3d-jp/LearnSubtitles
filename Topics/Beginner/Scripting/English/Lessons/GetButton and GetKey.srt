@@ -1,0 +1,279 @@
+1
+00:00:00,318 --> 00:00:02,962
+In Unity GetKey or GetButton are ways
+
+2
+00:00:02,962 --> 00:00:04,962
+of receiving input from keys or joystick
+
+3
+00:00:04,962 --> 00:00:07,487
+buttons via Unity's input class.
+
+4
+00:00:07,987 --> 00:00:09,987
+The core differences between the two is
+
+5
+00:00:09,987 --> 00:00:12,359
+that GetKey specifically names keys for you
+
+6
+00:00:12,359 --> 00:00:15,823
+using key codes. For example, the Spacebar
+
+7
+00:00:15,823 --> 00:00:18,657
+is represented by KeyCode.Space
+
+8
+00:00:19,157 --> 00:00:21,406
+This works just fine for keyboard but it's
+
+9
+00:00:21,406 --> 00:00:23,766
+recommended that you use GetButton instead
+
+10
+00:00:23,766 --> 00:00:26,098
+and specify your own controls.
+
+11
+00:00:26,763 --> 00:00:28,763
+The input manager gives you the ability to
+
+12
+00:00:28,763 --> 00:00:31,939
+name an input and specify a key or button for it
+
+13
+00:00:31,939 --> 00:00:33,618
+and can be accessed by choosing
+
+14
+00:00:33,618 --> 00:00:38,247
+Edit - Project Settings - Input
+
+15
+00:00:38,247 --> 00:00:39,529
+from the top menu.
+
+16
+00:00:40,029 --> 00:00:42,178
+Then, when calling it, you can reference 
+
+17
+00:00:42,178 --> 00:00:43,955
+a name using a string.
+
+18
+00:00:44,206 --> 00:00:45,656
+For example, Jump.
+
+19
+00:00:45,963 --> 00:00:47,963
+This is a default input represented by
+
+20
+00:00:47,963 --> 00:00:50,311
+the Spacebar, but we could put in a
+
+21
+00:00:50,311 --> 00:00:52,115
+different key or button code in order to
+
+22
+00:00:52,115 --> 00:00:54,407
+change the input that represents Jump.
+
+23
+00:00:54,698 --> 00:00:56,698
+Then when calling this button you can
+
+24
+00:00:56,698 --> 00:00:58,698
+reference the name using the string Jump.
+
+25
+00:00:58,991 --> 00:01:00,687
+To find out what to write in to your
+
+26
+00:01:00,687 --> 00:01:02,971
+positive button check the reference in the
+
+27
+00:01:02,971 --> 00:01:04,971
+documentation or look at the table
+
+28
+00:01:04,971 --> 00:01:06,225
+that accompanies this lesson.
+
+29
+00:01:06,725 --> 00:01:09,745
+When using GetKey or GetButton these inputs
+
+30
+00:01:09,745 --> 00:01:12,199
+have three states that return a Boolean.
+
+31
+00:01:12,199 --> 00:01:16,523
+True or false. First is GetKey or GetButton.
+
+32
+00:01:16,523 --> 00:01:18,523
+This will register true or false
+
+33
+00:01:18,523 --> 00:01:20,523
+depending on whether the button is being pressed
+
+34
+00:01:20,523 --> 00:01:23,077
+or not. So currently the key is not
+
+35
+00:01:23,077 --> 00:01:26,735
+being pressed so GetButton is returning false.
+
+36
+00:01:26,735 --> 00:01:28,735
+When we first press the key it then
+
+37
+00:01:28,735 --> 00:01:30,735
+returns true on the first frame,
+
+38
+00:01:30,735 --> 00:01:33,235
+then as we progress through frames,
+
+39
+00:01:34,260 --> 00:01:36,886
+holding down the button GetButtonDown
+
+40
+00:01:36,886 --> 00:01:40,479
+returns to false. GetButton still equals true
+
+41
+00:01:40,479 --> 00:01:42,840
+so we can check if the button is being held.
+
+42
+00:01:42,840 --> 00:01:45,689
+Then when we release the button GetButtonUp
+
+43
+00:01:45,689 --> 00:01:49,306
+shows true, but only again on the first frame.
+
+44
+00:01:49,306 --> 00:01:52,654
+As we continue, all values return to false.
+
+45
+00:01:52,654 --> 00:01:54,654
+So let's run through that again.
+
+46
+00:01:54,654 --> 00:01:56,654
+When the button is not being touched
+
+47
+00:01:56,654 --> 00:01:58,654
+everything is false.
+
+48
+00:01:59,154 --> 00:02:01,154
+When we first press the button we can
+
+49
+00:02:01,154 --> 00:02:03,709
+check for this using GetButtonDown,
+
+50
+00:02:03,709 --> 00:02:06,398
+which will return true. Also GetButton
+
+51
+00:02:06,398 --> 00:02:09,185
+will return true. After the first frame
+
+52
+00:02:09,185 --> 00:02:11,185
+GetButtonDown returns to false
+
+53
+00:02:11,185 --> 00:02:13,185
+so you can use this for tasks like
+
+54
+00:02:13,185 --> 00:02:15,576
+firing a weapon once. Then as we continue
+
+55
+00:02:15,576 --> 00:02:17,852
+to hold down only GetButton will return true.
+
+56
+00:02:17,852 --> 00:02:20,420
+Then when we release GetButtonUp
+
+57
+00:02:20,420 --> 00:02:23,011
+returns true for a single frame and then
+
+58
+00:02:23,011 --> 00:02:25,427
+thereafter returns back to false.
+
+59
+00:02:26,079 --> 00:02:28,080
+You should note that GetKey behaves
+
+60
+00:02:28,080 --> 00:02:29,412
+exactly the same way.
+
+61
+00:02:30,161 --> 00:02:32,938
+Only that the code is written slightly differently.
+
+62
+00:02:33,438 --> 00:02:35,438
+In order to check for a button
+
+63
+00:02:35,938 --> 00:02:38,713
+we use the string of the title that was placed
+
+64
+00:02:38,713 --> 00:02:40,713
+in the input manager, Jump.
+
+65
+00:02:41,213 --> 00:02:43,213
+But when checking for a very specific key
+
+66
+00:02:43,213 --> 00:02:45,006
+we can use KeyCodes.
+
+67
+00:02:45,451 --> 00:02:47,839
+Because this only pertains to the exact key
+
+68
+00:02:47,839 --> 00:02:49,839
+it's recommended that you use GetButton
+
+69
+00:02:49,839 --> 00:02:52,508
+and specify the inputs using the input manager
+
+70
+00:02:52,508 --> 00:02:54,080
+as shown earlier.

@@ -1,0 +1,327 @@
+1
+00:00:00,304 --> 00:00:02,638
+Instantiate is a function to create
+
+2
+00:00:02,638 --> 00:00:05,035
+clones of game objects. This is commonly
+
+3
+00:00:05,035 --> 00:00:07,876
+used in the context of cloning a prefab.
+
+4
+00:00:07,876 --> 00:00:09,876
+A prefab is simply a preconfigured
+
+5
+00:00:09,876 --> 00:00:12,515
+object saved in the project's assets.
+
+6
+00:00:12,515 --> 00:00:14,515
+One such example might be firing rockets
+
+7
+00:00:14,515 --> 00:00:16,515
+from a bazooka. Each of the rockets
+
+8
+00:00:16,515 --> 00:00:18,515
+would need to be instantiated in to the 
+
+9
+00:00:18,515 --> 00:00:20,515
+game world so that it could be fired.
+
+10
+00:00:20,515 --> 00:00:22,847
+In this example we're using 'Fire1' to trigger
+
+11
+00:00:22,847 --> 00:00:25,230
+an instantiate function. The most basic 
+
+12
+00:00:25,230 --> 00:00:28,179
+form of instantiate simply takes one parameter,
+
+13
+00:00:28,179 --> 00:00:30,179
+the object that we wish to clone.
+
+14
+00:00:30,179 --> 00:00:32,333
+In this example we have created a public
+
+15
+00:00:32,333 --> 00:00:35,346
+variable called rocketPrefab and we're
+
+16
+00:00:35,346 --> 00:00:37,346
+passing this in to the instantiate command.
+
+17
+00:00:37,346 --> 00:00:39,346
+However this means that the prefab will be
+
+18
+00:00:39,346 --> 00:00:41,346
+instantiated at it's default position,
+
+19
+00:00:41,346 --> 00:00:45,428
+which is 0. And in our example that position
+
+20
+00:00:45,428 --> 00:00:47,428
+is the centre of the world, and the centre
+
+21
+00:00:47,428 --> 00:00:49,428
+of where the bazooka is at the moment.
+
+22
+00:00:49,928 --> 00:00:51,399
+So when we press play
+
+23
+00:00:52,221 --> 00:00:54,400
+those rockets appear at the centre
+
+24
+00:00:54,400 --> 00:00:56,400
+of the bazooka.
+
+25
+00:00:58,599 --> 00:01:00,599
+Instead we want to fire it like a rocket,
+
+26
+00:01:00,599 --> 00:01:02,599
+so it needs to appear to be coming from 
+
+27
+00:01:02,599 --> 00:01:04,057
+the barrel of our bazooka.
+
+28
+00:01:04,557 --> 00:01:06,557
+For this we need a slightly different version
+
+29
+00:01:06,557 --> 00:01:09,084
+of instantiate. This version of instantiate
+
+30
+00:01:09,084 --> 00:01:11,084
+takes three parameters,
+
+31
+00:01:11,084 --> 00:01:13,584
+the object to be instantiated, in our case
+
+32
+00:01:13,584 --> 00:01:15,929
+the rocket prefab, and then a position
+
+33
+00:01:15,929 --> 00:01:19,265
+and rotation to give our new clone of the prefab.
+
+34
+00:01:22,721 --> 00:01:24,721
+For this I've created an empty gameobject
+
+35
+00:01:24,721 --> 00:01:26,956
+that's been positioned in front of the
+
+36
+00:01:26,956 --> 00:01:29,213
+bazookas barrel. We are using this by
+
+37
+00:01:29,213 --> 00:01:31,686
+creating a public variable called BarrelEnd
+
+38
+00:01:31,686 --> 00:01:34,019
+and we use this component's position and rotation
+
+39
+00:01:34,019 --> 00:01:36,413
+values as those for the new clone of our 
+
+40
+00:01:36,413 --> 00:01:39,214
+rocket prefab. So by dragging and dropping this
+
+41
+00:01:39,214 --> 00:01:42,988
+new empty location to my script in the 
+
+42
+00:01:42,988 --> 00:01:44,988
+inspector I can 
+
+43
+00:01:44,988 --> 00:01:48,038
+receive the transform position and rotation
+
+44
+00:01:48,038 --> 00:01:50,909
+by making use of the barrel end variable.
+
+45
+00:01:50,909 --> 00:01:53,674
+So when I press play and press fire
+
+46
+00:01:56,163 --> 00:01:58,163
+the rocket appears in the right place
+
+47
+00:01:58,163 --> 00:02:00,163
+but it just kind of drops,
+
+48
+00:02:00,163 --> 00:02:01,788
+which is not what we want.
+
+49
+00:02:01,788 --> 00:02:03,788
+We need to be able to effect the object
+
+50
+00:02:03,788 --> 00:02:05,788
+that's created by our instantiation,
+
+51
+00:02:05,788 --> 00:02:07,788
+i.e., the clone of the rocket,
+
+52
+00:02:07,788 --> 00:02:09,788
+as standard instantiate returns a type
+
+53
+00:02:09,788 --> 00:02:13,064
+called Object. But in order to fire our rocket
+
+54
+00:02:13,064 --> 00:02:16,099
+we're going to change that type to a rigidbody.
+
+55
+00:02:16,099 --> 00:02:18,662
+To do this we use as RigidBody
+
+56
+00:02:18,662 --> 00:02:20,816
+after the instantiate call and store the
+
+57
+00:02:20,816 --> 00:02:23,865
+the returned value in a rigidbody variable,
+
+58
+00:02:23,865 --> 00:02:26,291
+which we'll call rocketInstance.
+
+59
+00:02:26,291 --> 00:02:28,291
+So here we setup a rigidbody variable
+
+60
+00:02:28,291 --> 00:02:30,662
+called rocketInstance, and we set that 
+
+61
+00:02:30,662 --> 00:02:32,662
+variable equal to our instantiate
+
+62
+00:02:32,662 --> 00:02:34,961
+function's return. Then given that this is
+
+63
+00:02:34,961 --> 00:02:38,677
+now a rigidbody we can use our variable
+
+64
+00:02:38,677 --> 00:02:41,219
+rocket instance and address anything within
+
+65
+00:02:41,219 --> 00:02:44,893
+the rigidbody class, for example addForce.
+
+66
+00:02:45,890 --> 00:02:47,890
+And again we can make use of the transform
+
+67
+00:02:47,890 --> 00:02:51,062
+barrelEnd to grab the direction
+
+68
+00:02:51,062 --> 00:02:53,062
+at which we want to add a force.
+
+69
+00:02:54,170 --> 00:02:57,242
+And we can multiply by a certain amount.
+
+70
+00:02:59,869 --> 00:03:01,869
+So now when I press play
+
+71
+00:03:02,935 --> 00:03:05,802
+and fire, my rockets are fired off
+
+72
+00:03:05,802 --> 00:03:08,161
+in to the distance by adding a force to
+
+73
+00:03:08,161 --> 00:03:10,161
+the clone that I create.
+
+74
+00:03:11,946 --> 00:03:14,126
+Bare in mind that when you create many clones
+
+75
+00:03:14,126 --> 00:03:16,126
+within the game those things will still
+
+76
+00:03:16,126 --> 00:03:18,450
+exist within your scene. So if doing
+
+77
+00:03:18,450 --> 00:03:20,450
+something like this you may want to consider
+
+78
+00:03:20,450 --> 00:03:21,953
+writing a script which removes them from
+
+79
+00:03:21,953 --> 00:03:24,785
+the world after a certain amount of time.
+
+80
+00:03:24,785 --> 00:03:27,646
+Here my prefab has a rocket destruction script
+
+81
+00:03:27,646 --> 00:03:29,646
+which simply removes the object
+
+82
+00:03:29,646 --> 00:03:31,646
+after 1 and a half seconds.

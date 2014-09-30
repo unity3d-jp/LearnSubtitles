@@ -1,0 +1,279 @@
+1
+00:00:00,249 --> 00:00:02,570
+In Unity a script is considered as a custom
+
+2
+00:00:02,570 --> 00:00:05,362
+component, and often you will need to access
+
+3
+00:00:05,362 --> 00:00:07,362
+other scripts attached to the same gameobject
+
+4
+00:00:07,362 --> 00:00:09,362
+or even on other gameobjects.
+
+5
+00:00:09,862 --> 00:00:11,862
+You can access other scripts and components
+
+6
+00:00:11,862 --> 00:00:13,515
+using GetComponent.
+
+7
+00:00:13,739 --> 00:00:16,690
+In this example both AnotherScript and
+
+8
+00:00:16,690 --> 00:00:18,829
+YetAnotherScript both have public
+
+9
+00:00:18,829 --> 00:00:20,829
+variables within them.
+
+10
+00:00:20,829 --> 00:00:22,829
+We'd like to be able to effect those variables
+
+11
+00:00:22,829 --> 00:00:25,659
+in our UsingOtherComponents script.
+
+12
+00:00:25,659 --> 00:00:27,380
+We have three variables here.
+
+13
+00:00:27,380 --> 00:00:29,380
+One to store anotherGameObject, 
+
+14
+00:00:29,380 --> 00:00:31,380
+and two to store references to the other
+
+15
+00:00:31,380 --> 00:00:33,380
+scripts. Note that the references 
+
+16
+00:00:33,380 --> 00:00:35,241
+to the other scripts are simply variables
+
+17
+00:00:35,241 --> 00:00:37,491
+whose type is the name of the script.
+
+18
+00:00:38,059 --> 00:00:40,501
+This is because what we're actually referencing
+
+19
+00:00:40,501 --> 00:00:43,033
+is an instance of the class defined in the script.
+
+20
+00:00:43,033 --> 00:00:45,033
+For more information see the lesson on
+
+21
+00:00:45,033 --> 00:00:47,033
+classes linked below this lesson.
+
+22
+00:00:47,033 --> 00:00:49,157
+In the Awake function we initialise
+
+23
+00:00:49,157 --> 00:00:51,755
+our variables. The GetComponent function
+
+24
+00:00:51,755 --> 00:00:54,049
+uses a slightly different style of call
+
+25
+00:00:54,049 --> 00:00:57,008
+to what we're use to. We use a pair of angle
+
+26
+00:00:57,008 --> 00:00:59,008
+brackets before the normal brackets.
+
+27
+00:00:59,508 --> 00:01:01,508
+These angle brackets are for taking a 
+
+28
+00:01:01,508 --> 00:01:04,460
+type as a parameter, in our case the type
+
+29
+00:01:04,460 --> 00:01:07,584
+will be AnotherScript. We can also call 
+
+30
+00:01:07,584 --> 00:01:09,584
+GetComponent to address components on
+
+31
+00:01:09,584 --> 00:01:11,584
+other gameobjects that we have references
+
+32
+00:01:11,584 --> 00:01:14,396
+to, like otherGameObject.
+
+33
+00:01:15,407 --> 00:01:17,407
+GetComponent will return a reference
+
+34
+00:01:17,407 --> 00:01:20,179
+to any component of the type specified 
+
+35
+00:01:20,179 --> 00:01:22,179
+on the gameobject it is called upon.
+
+36
+00:01:23,024 --> 00:01:25,024
+So in this example I'm addressing my
+
+37
+00:01:25,024 --> 00:01:27,024
+anotherScript, which is on the same object
+
+38
+00:01:27,024 --> 00:01:29,935
+as UsingOtherComponents, my main script.
+
+39
+00:01:29,935 --> 00:01:31,935
+So I can say GetComponent and address
+
+40
+00:01:31,935 --> 00:01:34,132
+the player score directly. But if I want 
+
+41
+00:01:34,132 --> 00:01:36,951
+to address the number of player deaths
+
+42
+00:01:36,951 --> 00:01:40,007
+I'll use otherGameObject.GetComponent
+
+43
+00:01:40,007 --> 00:01:42,480
+to address the other script on the cube.
+
+44
+00:01:42,731 --> 00:01:44,577
+That way I can affect the number of player
+
+45
+00:01:44,577 --> 00:01:46,090
+deaths directly.
+
+46
+00:01:47,395 --> 00:01:49,395
+Whilst GetComponent is most commonly
+
+47
+00:01:49,395 --> 00:01:51,395
+used for accessing other scripts it
+
+48
+00:01:51,395 --> 00:01:53,786
+can also be used to access other components
+
+49
+00:01:53,786 --> 00:01:55,786
+that are not exposed by the API.
+
+50
+00:01:56,286 --> 00:01:58,286
+For example the collider that you normally
+
+51
+00:01:58,286 --> 00:02:01,634
+access by typing Collider is a non specific collider.
+
+52
+00:02:01,634 --> 00:02:03,634
+A sphere collider has different properties
+
+53
+00:02:03,634 --> 00:02:05,800
+to a box collider for example.
+
+54
+00:02:05,800 --> 00:02:07,800
+And if you want to access these properties
+
+55
+00:02:07,800 --> 00:02:10,950
+in scripts you can do so by using GetComponent.
+
+56
+00:02:11,450 --> 00:02:14,400
+For example, I can address the box collider
+
+57
+00:02:14,400 --> 00:02:16,400
+on the OtherGameObject by saying
+
+58
+00:02:16,400 --> 00:02:21,977
+boxCol is equal to otherGameObject dot GetComponent BoxCollider
+
+59
+00:02:21,977 --> 00:02:24,515
+I can then use my boxCol variable
+
+60
+00:02:24,515 --> 00:02:26,515
+to address any of the parameters
+
+61
+00:02:26,515 --> 00:02:29,486
+on that component on the OtherGameObject.
+
+62
+00:02:29,486 --> 00:02:31,776
+So for example I can address the size
+
+63
+00:02:31,776 --> 00:02:36,090
+and set it to 3 when the scene starts.
+
+64
+00:02:37,792 --> 00:02:39,792
+Something to note about GetComponent
+
+65
+00:02:39,792 --> 00:02:41,792
+is that it's expensive in terms of 
+
+66
+00:02:41,792 --> 00:02:43,792
+processing power and should be called 
+
+67
+00:02:43,792 --> 00:02:45,792
+as infrequently as possible.
+
+68
+00:02:45,792 --> 00:02:47,792
+It's often good practice to call it in the
+
+69
+00:02:47,792 --> 00:02:50,108
+Awake or Start functions, or only
+
+70
+00:02:50,108 --> 00:02:52,108
+once when it's first needed.

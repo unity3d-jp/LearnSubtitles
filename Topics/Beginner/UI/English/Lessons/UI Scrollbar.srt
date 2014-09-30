@@ -1,0 +1,459 @@
+1
+00:00:02,127 --> 00:00:05,825
+The scrollbar allows users to select a numeric value
+
+2
+00:00:05,825 --> 00:00:09,665
+from 0 to 1 by dragging the handle of the scrollbar.
+
+3
+00:00:10,455 --> 00:00:13,703
+Scrollbars are usually used to set or change a value
+
+4
+00:00:13,703 --> 00:00:16,134
+on another UI element or component.
+
+5
+00:00:16,963 --> 00:00:19,663
+Scrollbars are commonly used with a scroll rect,
+
+6
+00:00:19,663 --> 00:00:21,663
+which can hold and mask contents
+
+7
+00:00:21,663 --> 00:00:23,663
+too large to be easily viewed.
+
+8
+00:00:24,467 --> 00:00:26,661
+The scroll rect will use the value from the
+
+9
+00:00:26,661 --> 00:00:29,593
+scrollbar to control how it's contents are scrolled.
+
+10
+00:00:30,535 --> 00:00:33,060
+For more information on scroll rects
+
+11
+00:00:33,060 --> 00:00:35,422
+please see the information linked below.
+
+12
+00:00:36,085 --> 00:00:38,680
+The scrollbar's value is set by the position of
+
+13
+00:00:38,680 --> 00:00:41,339
+the handle along the length of the scrollbar.
+
+14
+00:00:42,050 --> 00:00:44,495
+The value is a normalised value that starts at
+
+15
+00:00:44,495 --> 00:00:46,884
+0 at one end of the scrollbar
+
+16
+00:00:47,686 --> 00:00:50,210
+and increases up to 1 at the other end.
+
+17
+00:00:50,959 --> 00:00:54,570
+A value of 0.5 indicates the halfway point.
+
+18
+00:00:55,222 --> 00:00:57,754
+To create a new scrollbar use the Create 
+
+19
+00:00:57,754 --> 00:01:03,210
+menu to Create - UI - Scrollbar.
+
+20
+00:01:04,912 --> 00:01:07,217
+like all UI elements, the scrollbar element
+
+21
+00:01:07,217 --> 00:01:09,217
+must be the child of a canvas.
+
+22
+00:01:09,993 --> 00:01:12,339
+If one is not present when creating a pre-made
+
+23
+00:01:12,339 --> 00:01:15,292
+scrollbar a new canvas will be created.
+
+24
+00:01:15,972 --> 00:01:18,111
+For more information on the canvas
+
+25
+00:01:18,111 --> 00:01:20,111
+please see the information linked below.
+
+26
+00:01:21,094 --> 00:01:23,609
+When the scrollbar is created it is made from a
+
+27
+00:01:23,609 --> 00:01:25,609
+family of game objects.
+
+28
+00:01:26,551 --> 00:01:29,328
+The children are the rect transform and image components
+
+29
+00:01:29,328 --> 00:01:32,495
+that define the sliding area and the handle graphic.
+
+30
+00:01:33,340 --> 00:01:35,340
+The parent game object is where the required
+
+31
+00:01:35,340 --> 00:01:37,340
+scrollbar script resides.
+
+32
+00:01:38,075 --> 00:01:41,382
+The background image is a component on the parent game object.
+
+33
+00:01:43,070 --> 00:01:45,922
+Interact-able determines whether or not this particular
+
+34
+00:01:45,922 --> 00:01:47,922
+scrollbar will accept input.
+
+35
+00:01:48,588 --> 00:01:50,753
+To prevent interaction with a scrollbar
+
+36
+00:01:50,753 --> 00:01:53,029
+set Interact-able to false.
+
+37
+00:01:53,847 --> 00:01:55,931
+When interact-able is set to false
+
+38
+00:01:55,931 --> 00:01:58,112
+the transition state for the scrollbar element
+
+39
+00:01:58,112 --> 00:02:00,513
+will be set to the disabled state.
+
+40
+00:02:01,289 --> 00:02:03,550
+By default the scrollbar element will display
+
+41
+00:02:03,550 --> 00:02:05,855
+the normal state of the scrollbar.
+
+42
+00:02:06,575 --> 00:02:08,922
+Depending upon the transition mode chosen
+
+43
+00:02:08,922 --> 00:02:11,406
+a scrollbar can also display a highlighted
+
+44
+00:02:11,406 --> 00:02:13,406
+pressed and disabled state.
+
+45
+00:02:13,947 --> 00:02:16,252
+Transition Mode determines whether or not the
+
+46
+00:02:16,252 --> 00:02:19,776
+scrollbar element will display any of these additional states,
+
+47
+00:02:20,690 --> 00:02:23,527
+and if so controls the slider's look in each state
+
+48
+00:02:23,527 --> 00:02:26,589
+and the style of the transitions between the states.
+
+49
+00:02:27,517 --> 00:02:29,517
+The transition mode property is shared
+
+50
+00:02:29,517 --> 00:02:31,517
+by many UI elements and will be
+
+51
+00:02:31,517 --> 00:02:33,517
+covered in it's own lesson.
+
+52
+00:02:34,017 --> 00:02:36,253
+For more information on transitions and the
+
+53
+00:02:36,253 --> 00:02:38,253
+transition mode property please see the
+
+54
+00:02:38,253 --> 00:02:39,990
+information linked below.
+
+55
+00:02:40,684 --> 00:02:42,989
+When using transitions with a scrollbar
+
+56
+00:02:42,989 --> 00:02:45,419
+it is worth noting that, with the exception of
+
+57
+00:02:45,419 --> 00:02:47,628
+the animation transition mode,
+
+58
+00:02:47,628 --> 00:02:50,833
+any visual changes are only seen in the handle graphic
+
+59
+00:02:50,833 --> 00:02:52,833
+not the rest of the UI element.
+
+60
+00:02:53,803 --> 00:02:55,803
+Navigation describes how the selection
+
+61
+00:02:55,803 --> 00:02:57,803
+of UI elements is handled when using
+
+62
+00:02:57,803 --> 00:02:59,453
+keyboard or controller input.
+
+63
+00:03:00,234 --> 00:03:02,787
+Navigation is shared by many UI elements
+
+64
+00:03:02,787 --> 00:03:05,149
+and will be covered in it's own lesson.
+
+65
+00:03:05,922 --> 00:03:08,396
+For most circumstances navigation can simply
+
+66
+00:03:08,396 --> 00:03:10,396
+be set to automatic.
+
+67
+00:03:11,186 --> 00:03:13,186
+For more information on navigation
+
+68
+00:03:13,186 --> 00:03:15,559
+please see the information linked below.
+
+69
+00:03:16,183 --> 00:03:18,807
+Handle rect is a reference to the rect transform
+
+70
+00:03:18,807 --> 00:03:20,807
+on the graphic used for the handle.
+
+71
+00:03:21,528 --> 00:03:23,528
+Direction sets both the axis and
+
+72
+00:03:23,528 --> 00:03:25,528
+the direction of the value changed.
+
+73
+00:03:26,567 --> 00:03:29,527
+The value is a normalised value that starts with 0
+
+74
+00:03:29,527 --> 00:03:31,859
+at one end of the scrollbar and increasing
+
+75
+00:03:31,859 --> 00:03:33,859
+up to 1 at the other end.
+
+76
+00:03:34,566 --> 00:03:37,859
+For example, with the choice of left to right,
+
+77
+00:03:38,414 --> 00:03:42,319
+the starting value of 0 will be at the left of the scrollbar
+
+78
+00:03:42,667 --> 00:03:44,667
+and the value of the scrollbar will increase
+
+79
+00:03:44,667 --> 00:03:48,069
+proportionally as the handle moves from left to right
+
+80
+00:03:48,069 --> 00:03:50,069
+with a value of 1 at the right.
+
+81
+00:03:50,928 --> 00:03:52,928
+The choices for direction are
+
+82
+00:03:53,746 --> 00:03:54,961
+LeftToRight,
+
+83
+00:03:55,461 --> 00:03:56,606
+RightToLeft,
+
+84
+00:03:57,216 --> 00:04:00,169
+BottomToTop and TopToBottom.
+
+85
+00:04:00,959 --> 00:04:03,962
+The value is the current value of the scrollbar
+
+86
+00:04:04,462 --> 00:04:08,070
+When the value is set in the inspector during edit time
+
+87
+00:04:08,070 --> 00:04:10,977
+this will set the starting value for the scrollbar.
+
+88
+00:04:11,686 --> 00:04:13,686
+Size is the fractional size of the
+
+89
+00:04:13,686 --> 00:04:15,686
+handle within the scrollbar,
+
+90
+00:04:15,896 --> 00:04:17,896
+in a range of 0 to 1.
+
+91
+00:04:18,976 --> 00:04:21,548
+Number of steps is the number of distinct
+
+92
+00:04:21,548 --> 00:04:24,129
+positions allowed by the scrollbar.
+
+93
+00:04:25,402 --> 00:04:27,681
+For a smooth continuous scroll
+
+94
+00:04:27,681 --> 00:04:30,680
+set this value to 0 or 1.
+
+95
+00:04:32,423 --> 00:04:35,788
+The UI framework contains a powerful events system
+
+96
+00:04:36,288 --> 00:04:39,213
+This is created when the canvas is created.
+
+97
+00:04:39,713 --> 00:04:41,978
+When the event system detects a click
+
+98
+00:04:41,978 --> 00:04:43,978
+or a drag on the scrollbar
+
+99
+00:04:43,978 --> 00:04:47,381
+the event system will call an OnValueChanged event.
+
+100
+00:04:48,047 --> 00:04:50,047
+The scrollbar component includes a built-in
+
+101
+00:04:50,047 --> 00:04:52,379
+on value changed function list
+
+102
+00:04:52,379 --> 00:04:54,379
+that contains a list of all the functions
+
+103
+00:04:54,379 --> 00:04:57,205
+that are called when the scroll values change.
+
+104
+00:04:57,871 --> 00:05:00,094
+Additional events can be detected and used
+
+105
+00:05:00,094 --> 00:05:02,094
+by the scrollbar element ,  but this requires
+
+106
+00:05:02,094 --> 00:05:04,094
+an additional component.
+
+107
+00:05:05,188 --> 00:05:07,188
+For more information on how to use the build in
+
+108
+00:05:07,188 --> 00:05:11,537
+function's list, events, the event system and event triggers
+
+109
+00:05:11,537 --> 00:05:13,537
+please see the information linked below.
+
+110
+00:05:14,548 --> 00:05:16,548
+In most cases the scrollbar will
+
+111
+00:05:16,548 --> 00:05:18,548
+be used with the scroll rect.
+
+112
+00:05:18,548 --> 00:05:20,548
+which will automatically use the dynamic
+
+113
+00:05:20,548 --> 00:05:23,785
+value of the scrollbar when they are associated.
+
+114
+00:05:24,534 --> 00:05:26,742
+For more information on the scroll rect
+
+115
+00:05:26,742 --> 00:05:28,742
+please see the information linked below.

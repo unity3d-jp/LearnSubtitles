@@ -1,0 +1,175 @@
+1
+00:00:00,594 --> 00:00:04,396
+In Unity scripts are made up of 1 or more classes.
+
+2
+00:00:04,396 --> 00:00:07,280
+C# scripts have the class declarations
+
+3
+00:00:07,280 --> 00:00:10,586
+shown. In Javascript however, the declaration
+
+4
+00:00:10,586 --> 00:00:12,739
+is hidden, meaning that what you write
+
+5
+00:00:12,739 --> 00:00:14,739
+into the script is automatically
+
+6
+00:00:14,739 --> 00:00:17,259
+inside the class. It is the equivalent of
+
+7
+00:00:17,259 --> 00:00:20,124
+writing here in the C# script.
+
+8
+00:00:20,279 --> 00:00:22,531
+A variable declaration in C#
+
+9
+00:00:22,782 --> 00:00:25,086
+starts with the type of variable you are
+
+10
+00:00:25,086 --> 00:00:28,160
+declaring. You then name the variable.
+
+11
+00:00:28,160 --> 00:00:31,294
+You then have the option to give it a default value.
+
+12
+00:00:34,170 --> 00:00:36,867
+In Javascript a variable declaration
+
+13
+00:00:36,867 --> 00:00:39,624
+starts by using the keyword var.
+
+14
+00:00:39,624 --> 00:00:41,624
+We then name the variable.
+
+15
+00:00:41,624 --> 00:00:44,124
+After that we have the option to say what
+
+16
+00:00:44,124 --> 00:00:46,124
+type of variable it is we are declaring,
+
+17
+00:00:46,124 --> 00:00:47,381
+by using a colon. 
+
+18
+00:00:47,381 --> 00:00:49,381
+It is good practice to decide on a variable
+
+19
+00:00:49,381 --> 00:00:51,147
+type when declaring it.
+
+20
+00:00:51,147 --> 00:00:54,297
+We can then optionally give it a default value.
+
+21
+00:00:54,590 --> 00:00:57,121
+The line #pragma strict at the top
+
+22
+00:00:57,121 --> 00:00:59,121
+forces us to select a type.
+
+23
+00:00:59,966 --> 00:01:02,288
+A function declaration in C#
+
+24
+00:01:02,288 --> 00:01:04,288
+starts with a type of variable that will
+
+25
+00:01:04,288 --> 00:01:05,899
+return from the function.
+
+26
+00:01:06,360 --> 00:01:08,360
+Or the word void if we're not returning
+
+27
+00:01:08,360 --> 00:01:09,767
+anything from the function.
+
+28
+00:01:09,767 --> 00:01:11,767
+We then name the function.
+
+29
+00:01:11,767 --> 00:01:13,767
+We then have the parameter list,
+
+30
+00:01:13,767 --> 00:01:15,767
+also known as the arguments.
+
+31
+00:01:16,930 --> 00:01:20,111
+The contents of the function go here.
+
+32
+00:01:20,860 --> 00:01:23,428
+In Javascript a function declaration
+
+33
+00:01:23,428 --> 00:01:25,899
+starts with the keyword function.
+
+34
+00:01:25,899 --> 00:01:27,899
+We then need to name the function.
+
+35
+00:01:27,899 --> 00:01:29,661
+Then comes the parameter list.
+
+36
+00:01:30,040 --> 00:01:32,040
+Similarly to setting a variable type
+
+37
+00:01:32,040 --> 00:01:34,040
+we can use a colon
+
+38
+00:01:34,040 --> 00:01:36,040
+to set a return type for our function.
+
+39
+00:01:36,899 --> 00:01:39,175
+Another key difference between C# and
+
+40
+00:01:39,175 --> 00:01:42,631
+Javascript is the default access modifiers.
+
+41
+00:01:43,241 --> 00:01:46,059
+In C# the default is private.
+
+42
+00:01:46,059 --> 00:01:50,255
+Whereas in Javascript the default is public.
+
+43
+00:01:50,755 --> 00:01:52,603
+See the lesson on variable scope and access
+
+44
+00:01:52,603 --> 00:01:54,410
+modifiers for more information.

@@ -1,0 +1,1267 @@
+1
+00:00:00,138 --> 00:00:02,642
+In a different way to how we use key input
+
+2
+00:00:02,642 --> 00:00:04,920
+to control our player character's animator
+
+3
+00:00:04,920 --> 00:00:06,920
+the animator controller for enemies
+
+4
+00:00:06,920 --> 00:00:09,803
+will be based on the velocity of the nav mesh agent.
+
+5
+00:00:09,803 --> 00:00:11,803
+The internal AI in Unity.
+
+6
+00:00:12,303 --> 00:00:15,203
+Let's being by making this animator controller.
+
+7
+00:00:15,203 --> 00:00:17,757
+Select the Animators folder in the Project panel
+
+8
+00:00:17,757 --> 00:00:20,489
+and click Create - Animator Controller.
+
+9
+00:00:21,196 --> 00:00:23,196
+We will call it Enemy Animator.
+
+10
+00:00:23,820 --> 00:00:25,820
+Then ensure that you have the Animator window
+
+11
+00:00:25,820 --> 00:00:28,740
+visible, go to Window - Animator
+
+12
+00:00:28,740 --> 00:00:29,943
+if you can't already see it.
+
+13
+00:00:29,943 --> 00:00:31,943
+For the game's enemies we are going to use
+
+14
+00:00:31,943 --> 00:00:33,943
+four float parameters.
+
+15
+00:00:33,943 --> 00:00:35,943
+Click the plus icon to the right of the parameters
+
+16
+00:00:35,943 --> 00:00:38,475
+field at the bottom of the Animator window
+
+17
+00:00:38,475 --> 00:00:39,932
+and choose Float.
+
+18
+00:00:39,932 --> 00:00:42,497
+The first will be called AngularSpeed.
+
+19
+00:00:42,497 --> 00:00:45,579
+and remember to capitalise as I am doing here.
+
+20
+00:00:45,579 --> 00:00:47,829
+Next we have Speed.
+
+21
+00:00:47,829 --> 00:00:49,172
+Shot
+
+22
+00:00:49,172 --> 00:00:51,172
+and Aim Weight.
+
+23
+00:00:52,542 --> 00:00:54,542
+And finally one Boolean parameter
+
+24
+00:00:54,542 --> 00:00:56,542
+PlayerInSight.
+
+25
+00:00:58,161 --> 00:01:00,161
+AngularSpeed will control how fast
+
+26
+00:01:00,161 --> 00:01:02,809
+the enemy changes it's facing direction.
+
+27
+00:01:02,809 --> 00:01:04,809
+Speed will be used to control how fast the
+
+28
+00:01:04,809 --> 00:01:07,937
+enemy moves. Shot is a parameter that refers
+
+29
+00:01:07,937 --> 00:01:09,937
+to a curve on the shooting animation.
+
+30
+00:01:10,672 --> 00:01:12,672
+Let's take a look at these curves briefly.
+
+31
+00:01:16,598 --> 00:01:18,598
+In our shooting animation we can see a curve
+
+32
+00:01:18,598 --> 00:01:19,917
+called Shot.
+
+33
+00:01:20,831 --> 00:01:22,831
+We will use this to determine when the gun is
+
+34
+00:01:22,831 --> 00:01:24,831
+firing and thus when the effects
+
+35
+00:01:24,831 --> 00:01:26,831
+and damage should occur.
+
+36
+00:01:26,831 --> 00:01:29,163
+The curve is set to 0 until the 
+
+37
+00:01:29,163 --> 00:01:30,846
+recoil of the shooting animation,
+
+38
+00:01:30,846 --> 00:01:33,266
+at which point the curve peaks to 1
+
+39
+00:01:33,266 --> 00:01:35,488
+and then returns to 0.
+
+40
+00:01:35,488 --> 00:01:37,488
+We use this value of 1 to define the 
+
+41
+00:01:37,488 --> 00:01:40,438
+point at which the effects and damage should occur.
+
+42
+00:01:41,587 --> 00:01:43,587
+You can see hear that this animation has another
+
+43
+00:01:43,587 --> 00:01:46,470
+curve for AimWeight, one of our parameters.
+
+44
+00:01:46,470 --> 00:01:48,470
+When the enemy is shooting the player we want
+
+45
+00:01:48,470 --> 00:01:50,470
+the arm to be pointing at the player
+
+46
+00:01:50,470 --> 00:01:52,470
+so we are going to override the animation
+
+47
+00:01:52,470 --> 00:01:54,470
+using inverse kinematics.
+
+48
+00:01:54,470 --> 00:01:56,470
+This will point the hand of the enemy
+
+49
+00:01:56,470 --> 00:01:58,470
+and therefore his arm at the player.
+
+50
+00:01:58,470 --> 00:02:00,470
+This float curve will define by how much
+
+51
+00:02:00,470 --> 00:02:02,904
+we override the animations with IK.
+
+52
+00:02:02,904 --> 00:02:06,618
+It stays at a constant of 1 for the shooting animation.
+
+53
+00:02:07,284 --> 00:02:10,993
+It goes from 0 to 1 in the raise animation.
+
+54
+00:02:12,570 --> 00:02:16,386
+And from 1 to 0 in the lowering animation.
+
+55
+00:02:16,386 --> 00:02:18,386
+If we did not do this the animation would
+
+56
+00:02:18,386 --> 00:02:20,386
+always show the character simply raising the
+
+57
+00:02:20,386 --> 00:02:22,650
+gun and aiming directly forward
+
+58
+00:02:22,650 --> 00:02:24,650
+even if the player is not directly in front
+
+59
+00:02:24,650 --> 00:02:25,983
+of the enemy.
+
+60
+00:02:25,983 --> 00:02:28,821
+Finally our last parameter, PlayerInSight, 
+
+61
+00:02:28,821 --> 00:02:31,126
+will be used to dictate the enemies behaviour
+
+62
+00:02:31,126 --> 00:02:33,126
+when the enemy can see the player
+
+63
+00:02:33,126 --> 00:02:35,322
+and this will be set by the EnemySight script
+
+64
+00:02:35,322 --> 00:02:37,502
+that we will make in the next assignment.
+
+65
+00:02:37,502 --> 00:02:39,502
+Our enemies movement is going to be
+
+66
+00:02:39,502 --> 00:02:42,347
+entirely stored within one 2D blend tree.
+
+67
+00:02:42,847 --> 00:02:45,559
+To start right click in the Animator window
+
+68
+00:02:45,559 --> 00:02:49,158
+and choose Create State - From New Blend Tree.
+
+69
+00:02:51,246 --> 00:02:53,135
+Select the state now and name this
+
+70
+00:02:53,135 --> 00:02:55,533
+Locomotion at the top of the Inspector.
+
+71
+00:02:56,201 --> 00:02:59,047
+And now double click the state to edit the blend tree.
+
+72
+00:02:59,616 --> 00:03:02,408
+We are also going to call this blend tree Locomotion
+
+73
+00:03:02,408 --> 00:03:04,628
+so ensure it's selected and name it
+
+74
+00:03:04,628 --> 00:03:06,628
+at the top of the Inspector.
+
+75
+00:03:08,178 --> 00:03:10,178
+We want the type of this blend tree to be
+
+76
+00:03:10,178 --> 00:03:12,913
+2D Freeform Cartesian
+
+77
+00:03:13,662 --> 00:03:15,662
+This is the best type to use for dealing with
+
+78
+00:03:15,662 --> 00:03:17,438
+speed and angular speed.
+
+79
+00:03:17,438 --> 00:03:19,438
+Next we need to choose the parameters that
+
+80
+00:03:19,438 --> 00:03:21,438
+we want to represent the two axis of our
+
+81
+00:03:21,438 --> 00:03:24,335
+2d blend tree. The X axis will be represented
+
+82
+00:03:24,335 --> 00:03:26,710
+by the angular speed parameter
+
+83
+00:03:26,710 --> 00:03:28,710
+and the Y axis by speed.
+
+84
+00:03:29,528 --> 00:03:31,528
+This means that when we have a map of animations
+
+85
+00:03:31,528 --> 00:03:33,528
+the motions towards the left will be
+
+86
+00:03:33,528 --> 00:03:36,176
+those that turn left. The ones on the right
+
+87
+00:03:36,176 --> 00:03:38,581
+will be turning right. The ones at the top
+
+88
+00:03:38,581 --> 00:03:40,581
+will be running and the ones at the bottom
+
+89
+00:03:40,581 --> 00:03:42,884
+will be walking or stationary.
+
+90
+00:03:42,884 --> 00:03:44,884
+The next step is to add all of the motions
+
+91
+00:03:44,884 --> 00:03:46,620
+that we are going to use.
+
+92
+00:03:46,620 --> 00:03:49,926
+We will start by adding the Turn On The Spot animations.
+
+93
+00:03:49,926 --> 00:03:52,366
+Open the Animations - Humanoid folder
+
+94
+00:03:52,366 --> 00:03:54,932
+and locate humanoid_turnOnSpot
+
+95
+00:03:54,932 --> 00:03:56,932
+and humanoid_idle.
+
+96
+00:03:57,694 --> 00:04:00,136
+Within humanoid_turnOnSpot you will find
+
+97
+00:04:00,136 --> 00:04:03,067
+TurnOnSpotLeftD through to A
+
+98
+00:04:03,691 --> 00:04:06,658
+and TurnOnSpotRightA through to D.
+
+99
+00:04:07,179 --> 00:04:10,708
+And in humanoid_idle you will find the idle animation.
+
+100
+00:04:12,225 --> 00:04:14,225
+That A to D animations represent an 
+
+101
+00:04:14,225 --> 00:04:16,110
+width of turning on the spot
+
+102
+00:04:16,110 --> 00:04:18,110
+with A being the smallest
+
+103
+00:04:18,110 --> 00:04:20,110
+and D being the widest turn.
+
+104
+00:04:21,243 --> 00:04:23,501
+Reselect the Locomotion blend tree
+
+105
+00:04:23,501 --> 00:04:25,800
+in order to see the motion list once more.
+
+106
+00:04:25,800 --> 00:04:29,175
+Click the plus icon and select Add Motion Field.
+
+107
+00:04:30,038 --> 00:04:33,118
+Start by dragging on TurnOnSpotLeftD
+
+108
+00:04:33,118 --> 00:04:35,118
+through to A as shown.
+
+109
+00:04:35,846 --> 00:04:38,557
+Creating a new motion field each time.
+
+110
+00:04:43,341 --> 00:04:46,785
+Next create a motion field and apply idle to it.
+
+111
+00:04:49,791 --> 00:04:53,049
+Now create motion fields for TurnOnSpotRightA
+
+112
+00:04:53,049 --> 00:04:54,591
+through to D
+
+113
+00:05:01,745 --> 00:05:03,745
+With 2D blend trees it doesn't matter
+
+114
+00:05:03,745 --> 00:05:06,245
+which order the animations are applied.
+
+115
+00:05:06,245 --> 00:05:08,245
+But it is nice to have a structure that's easy
+
+116
+00:05:08,245 --> 00:05:09,491
+to understand.
+
+117
+00:05:09,491 --> 00:05:12,159
+Next we will have the left walks, the straight walk
+
+118
+00:05:12,159 --> 00:05:13,535
+and the right walks.
+
+119
+00:05:13,535 --> 00:05:15,896
+Still in the Humanoid folder, open all of the 
+
+120
+00:05:15,896 --> 00:05:17,896
+humanoid_walkForward FPXs
+
+121
+00:05:17,896 --> 00:05:19,896
+in order to find the animations.
+
+122
+00:05:19,896 --> 00:05:23,262
+Begin by adding the left walks, add WalkLeftShort,
+
+123
+00:05:23,262 --> 00:05:26,421
+WalkLeftMedium and WalkLeftWide.
+
+124
+00:05:32,460 --> 00:05:36,193
+Now add the straight forward walk, simply called Walk.
+
+125
+00:05:38,502 --> 00:05:41,275
+Now add the right walks, WalkRightShort,
+
+126
+00:05:41,275 --> 00:05:44,543
+WalkRightMedium and WalkRightWide.
+
+127
+00:05:48,054 --> 00:05:50,466
+Lastly we will add the running animation.
+
+128
+00:05:50,466 --> 00:05:51,650
+These can be found under the
+
+129
+00:05:51,650 --> 00:05:53,650
+humanoid_runForward FPXs.
+
+130
+00:05:54,702 --> 00:05:56,702
+You should note that there are no short runs
+
+131
+00:05:56,702 --> 00:05:59,400
+so we'll add medium and wide on the left
+
+132
+00:05:59,400 --> 00:06:03,304
+then straight and then wide and medium on the right.
+
+133
+00:06:23,763 --> 00:06:25,623
+Next we need to compute the positions of our
+
+134
+00:06:25,623 --> 00:06:27,623
+animations on the 2D plane.
+
+135
+00:06:27,623 --> 00:06:30,269
+From the Compute Positions drop down at the bottom
+
+136
+00:06:30,269 --> 00:06:32,890
+select Speed and Angular Speed.
+
+137
+00:06:35,394 --> 00:06:37,394
+This will automatically give our motions
+
+138
+00:06:37,394 --> 00:06:39,891
+thresholds for Speed and Angular Speed
+
+139
+00:06:39,891 --> 00:06:41,891
+based on the root motion that Unity detects.
+
+140
+00:06:41,891 --> 00:06:44,404
+within each animation. Note that calculating
+
+141
+00:06:44,404 --> 00:06:46,404
+the thresholds in this way is possible
+
+142
+00:06:46,404 --> 00:06:48,404
+with any animations regardless of which
+
+143
+00:06:48,404 --> 00:06:50,626
+parameters are present in the controller.
+
+144
+00:06:50,626 --> 00:06:53,121
+This is a calculation build in to the blend tree
+
+145
+00:06:53,121 --> 00:06:55,121
+based on root motion. We have chosen to
+
+146
+00:06:55,121 --> 00:06:58,290
+name two of our parameters Speed and Angular Speed
+
+147
+00:06:58,290 --> 00:07:00,290
+because they coincide with this measurement of
+
+148
+00:07:00,290 --> 00:07:02,649
+root motion, not for functional reasons
+
+149
+00:07:02,649 --> 00:07:04,649
+as this makes it easier to see how they will effect
+
+150
+00:07:04,649 --> 00:07:06,470
+the enemy's animation.
+
+151
+00:07:06,470 --> 00:07:08,470
+An important thing to note about this way of
+
+152
+00:07:08,470 --> 00:07:10,955
+computing positions is that Angular Speed
+
+153
+00:07:10,955 --> 00:07:12,955
+is calculated in radians rather than
+
+154
+00:07:12,955 --> 00:07:15,771
+degrees. If you are unfamiliar with radians
+
+155
+00:07:15,771 --> 00:07:17,771
+they are simply another measure of an angle.
+
+156
+00:07:17,771 --> 00:07:19,771
+where there are 360 degrees in a 
+
+157
+00:07:19,771 --> 00:07:23,050
+full circle there are two pi radians.
+
+158
+00:07:23,050 --> 00:07:25,050
+Thus a full turn is little more than
+
+159
+00:07:25,050 --> 00:07:28,288
+6 radians, and turning 180 degrees
+
+160
+00:07:28,288 --> 00:07:30,288
+is a little more than 3 radians.
+
+161
+00:07:30,288 --> 00:07:32,828
+You can see the extreme turn on spot animations
+
+162
+00:07:32,828 --> 00:07:34,828
+are around 2.5 and this is
+
+163
+00:07:34,828 --> 00:07:37,369
+almost a 180 degree turn.
+
+164
+00:07:37,369 --> 00:07:39,369
+Now we can preview how this motion will look
+
+165
+00:07:39,369 --> 00:07:41,369
+on our character, let's make sure that we can
+
+166
+00:07:41,369 --> 00:07:43,369
+see the Preview window and let's
+
+167
+00:07:43,369 --> 00:07:45,369
+preview using our actual character rather
+
+168
+00:07:45,369 --> 00:07:47,714
+than the default Unity humanoid.
+
+169
+00:07:48,214 --> 00:07:50,829
+So in the Models folder drag and drop
+
+170
+00:07:50,829 --> 00:07:53,725
+char_robotGuard on to the Preview window
+
+171
+00:07:53,725 --> 00:07:55,725
+and press play.
+
+172
+00:07:56,653 --> 00:07:59,482
+To control the preview of a 2D blend tree like this
+
+173
+00:07:59,482 --> 00:08:02,470
+drag the red dot around in the display.
+
+174
+00:08:05,545 --> 00:08:08,749
+This controls the values of Speed and Angular Speed.
+
+175
+00:08:08,749 --> 00:08:10,749
+whilst our motions are represented by the
+
+176
+00:08:10,749 --> 00:08:12,749
+blue dots on the display.
+
+177
+00:08:16,550 --> 00:08:18,550
+And to remind you, Speed is increased
+
+178
+00:08:18,550 --> 00:08:20,480
+further up the display we go,
+
+179
+00:08:20,480 --> 00:08:22,480
+whilst Angular Speed is divided
+
+180
+00:08:22,480 --> 00:08:25,446
+between the left and the right sides.
+
+181
+00:08:40,575 --> 00:08:42,575
+That concludes the movement part of the enemy's
+
+182
+00:08:42,575 --> 00:08:44,575
+animator controller. Next we need to
+
+183
+00:08:44,575 --> 00:08:47,564
+make a new animation layer for shooting.
+
+184
+00:08:47,564 --> 00:08:49,564
+This layer will mean that the enemy will be able
+
+185
+00:08:49,564 --> 00:08:51,564
+to shoot whilst turning on the spot
+
+186
+00:08:51,564 --> 00:08:53,371
+in the base layer of animation.
+
+187
+00:08:53,912 --> 00:08:55,912
+To start out let's add a new layer
+
+188
+00:08:55,912 --> 00:08:57,526
+by pressing the plus button. 
+
+189
+00:08:57,526 --> 00:08:59,526
+We will call this layer Shooting.
+
+190
+00:08:59,526 --> 00:09:01,526
+The next thing we need to add to our layer
+
+191
+00:09:01,526 --> 00:09:04,303
+is an avatar mask. Create one called
+
+192
+00:09:04,303 --> 00:09:07,475
+EnemyShootingMask within the Animators folder.
+
+193
+00:09:07,475 --> 00:09:11,326
+So select it and choose Create - Avatar Mask.
+
+194
+00:09:13,000 --> 00:09:16,931
+We only need a body mask so expand Body Mask
+
+195
+00:09:16,931 --> 00:09:18,931
+and we want all of the upper body to be controlled
+
+196
+00:09:18,931 --> 00:09:20,876
+by the shooting layer, so simply
+
+197
+00:09:20,876 --> 00:09:22,876
+deselect the legs and the feet.
+
+198
+00:09:23,556 --> 00:09:25,556
+Now we can apply this to the shooting layer.
+
+199
+00:09:26,332 --> 00:09:29,088
+Click the circle icon to the right of Mask
+
+200
+00:09:29,088 --> 00:09:31,560
+and choose EnemyShootingMask.
+
+201
+00:09:32,557 --> 00:09:34,557
+As we mentioned earlier we want the enemy's
+
+202
+00:09:34,557 --> 00:09:37,565
+arm to point at the player when it is shooting.
+
+203
+00:09:37,910 --> 00:09:39,910
+We're going to do this by using IK
+
+204
+00:09:39,910 --> 00:09:41,910
+so make sure that you check the IK 
+
+205
+00:09:41,910 --> 00:09:44,792
+pass box at the bottom of the layer.
+
+206
+00:09:46,123 --> 00:09:49,115
+Now we can start making states for our shooting layer.
+
+207
+00:09:49,115 --> 00:09:51,115
+We're going to make our default state
+
+208
+00:09:51,115 --> 00:09:53,902
+an empty state. To do this right click
+
+209
+00:09:53,902 --> 00:09:56,667
+and select Create State - Empty.
+
+210
+00:09:57,769 --> 00:09:59,769
+We need an Empty state so that what ever is
+
+211
+00:09:59,769 --> 00:10:01,769
+happening in the base layer is by default
+
+212
+00:10:01,769 --> 00:10:03,573
+not being overridden.
+
+213
+00:10:03,573 --> 00:10:05,978
+Next we need our RaisedWeapon state.
+
+214
+00:10:05,978 --> 00:10:08,847
+Open the Animations - Humanoid folder
+
+215
+00:10:08,847 --> 00:10:13,114
+and find the animation in the humanoid_weapon_raise FPX.
+
+216
+00:10:14,263 --> 00:10:17,194
+Drag and drop WeaponRaise in to the Animator.
+
+217
+00:10:19,724 --> 00:10:21,724
+We want to make sure that the animation happens
+
+218
+00:10:21,724 --> 00:10:23,724
+nice and quickly so that the enemy can get to
+
+219
+00:10:23,724 --> 00:10:25,724
+shooting right away, so for this reason
+
+220
+00:10:25,724 --> 00:10:29,029
+we'll change the speed of the animation to 3.
+
+221
+00:10:30,238 --> 00:10:32,238
+We need a transition to RaiseWeapons
+
+222
+00:10:32,238 --> 00:10:34,238
+from our Empty state. The condition for this
+
+223
+00:10:34,238 --> 00:10:36,897
+is that Player In Sight is true.
+
+224
+00:10:37,867 --> 00:10:39,867
+Let's make sure that we lay out our states
+
+225
+00:10:39,867 --> 00:10:42,985
+with enough space so that they all fit on screen.
+
+226
+00:10:45,281 --> 00:10:47,281
+Then right click on New State
+
+227
+00:10:47,281 --> 00:10:49,694
+and make a transition to WeaponRaise.
+
+228
+00:10:50,389 --> 00:10:51,788
+Select the transition.
+
+229
+00:10:52,647 --> 00:10:54,647
+And make sure that the condition is that
+
+230
+00:10:54,647 --> 00:10:56,413
+Player In Sight is true.
+
+231
+00:10:57,037 --> 00:10:59,037
+Once the weapon has been raised we need him
+
+232
+00:10:59,037 --> 00:11:01,037
+to start shooting, so drag in
+
+233
+00:11:01,037 --> 00:11:03,037
+the ShootWeapon animation.
+
+234
+00:11:03,702 --> 00:11:06,594
+You'll find this under humanoid_weapon_shoot.
+
+235
+00:11:07,260 --> 00:11:08,789
+Drag and drop it in
+
+236
+00:11:10,228 --> 00:11:12,228
+and align it with our other states.
+
+237
+00:11:12,228 --> 00:11:13,822
+Now we need a transition from the raising
+
+238
+00:11:13,822 --> 00:11:16,153
+of the weapon to the shooting of the weapon
+
+239
+00:11:16,153 --> 00:11:18,153
+and the condition for this should simply be
+
+240
+00:11:18,153 --> 00:11:19,919
+that the animation has finished.
+
+241
+00:11:19,919 --> 00:11:21,919
+So we can leave this on the default transition
+
+242
+00:11:21,919 --> 00:11:24,402
+condition, which is Exit Time
+
+243
+00:11:24,958 --> 00:11:26,958
+So right click on WeaponRaise
+
+244
+00:11:26,958 --> 00:11:29,485
+and make a transition to WeaponShoot.
+
+245
+00:11:30,604 --> 00:11:32,425
+You'll see that if you select the transition
+
+246
+00:11:32,425 --> 00:11:34,425
+Exit Time is the default.
+
+247
+00:11:35,339 --> 00:11:37,972
+The last state that we need is lowering the weapon.
+
+248
+00:11:37,972 --> 00:11:40,933
+So drag that on now. You'll find it naturally
+
+249
+00:11:40,933 --> 00:11:43,427
+in humanoid_weapon_lower.
+
+250
+00:11:46,444 --> 00:11:48,444
+The condition that we stop shooting and lower
+
+251
+00:11:48,444 --> 00:11:50,444
+the weapon is that the player is no longer
+
+252
+00:11:50,444 --> 00:11:52,444
+in sight, so this should be the condition
+
+253
+00:11:52,444 --> 00:11:54,444
+for the transition.
+
+254
+00:11:54,444 --> 00:11:56,444
+Right click on WeaponShoot and make a transition
+
+255
+00:11:56,444 --> 00:11:58,724
+to WeaponLower.
+
+256
+00:11:58,720 --> 00:12:00,720
+now select the transition and set the 
+
+257
+00:12:00,720 --> 00:12:04,010
+condition to be the Player In Sight is false.
+
+258
+00:12:05,587 --> 00:12:07,587
+Finally once we've lowered the weapon we want
+
+259
+00:12:07,587 --> 00:12:09,587
+to transition back to the empty state.
+
+260
+00:12:10,087 --> 00:12:11,881
+Right click on WeaponLower
+
+261
+00:12:12,421 --> 00:12:14,849
+and make a transition to the empty state.
+
+262
+00:12:15,446 --> 00:12:17,446
+Yet again we simply want the WeaponLowering
+
+263
+00:12:17,446 --> 00:12:19,752
+to transition back in to nothing
+
+264
+00:12:19,752 --> 00:12:22,564
+so we will leave the Exit Time as our condition.
+
+265
+00:12:23,230 --> 00:12:25,230
+The last thing we want to do in the animator
+
+266
+00:12:25,230 --> 00:12:28,069
+is make sure that the enemy grips his gun.
+
+267
+00:12:28,069 --> 00:12:30,069
+The animations that we have don't
+
+268
+00:12:30,069 --> 00:12:32,748
+naturally have a grip posture for the right hand
+
+269
+00:12:32,748 --> 00:12:35,654
+so we're going to make a layer to handle this for us.
+
+270
+00:12:36,154 --> 00:12:38,154
+Create another new layer by pressing the
+
+271
+00:12:38,154 --> 00:12:40,154
+plus icon and call is Gun.
+
+272
+00:12:42,450 --> 00:12:44,835
+So select the Animators folder in the Project panel
+
+273
+00:12:44,835 --> 00:12:47,870
+and click Create - Avatar Mask.
+
+274
+00:12:48,701 --> 00:12:51,397
+Name this one EnemyGunMask
+
+275
+00:12:52,941 --> 00:12:54,941
+and expand the body mask.
+
+276
+00:12:54,941 --> 00:12:56,941
+This time we want to deselect everything
+
+277
+00:12:56,941 --> 00:12:58,941
+apart from the right hand.
+
+278
+00:12:58,941 --> 00:13:00,941
+You should be aware that the body mask
+
+279
+00:13:00,941 --> 00:13:02,941
+is represented by a character
+
+280
+00:13:02,941 --> 00:13:04,941
+that is actually facing you.
+
+281
+00:13:04,941 --> 00:13:06,941
+So the right hand of the character will actually
+
+282
+00:13:06,941 --> 00:13:10,043
+be the left hand in the display.
+
+283
+00:13:10,916 --> 00:13:12,916
+Now we can apply it to the gun layer by
+
+284
+00:13:12,916 --> 00:13:14,500
+clicking on the small circle to the right
+
+285
+00:13:14,500 --> 00:13:16,088
+of the mask property.
+
+286
+00:13:16,809 --> 00:13:19,809
+Select EnemyGunMask and close the window.
+
+287
+00:13:20,585 --> 00:13:22,585
+The only animation that we want in this layer
+
+288
+00:13:22,585 --> 00:13:24,585
+is the gripped animation that we have
+
+289
+00:13:24,585 --> 00:13:26,778
+on the robotGuard FPX.
+
+290
+00:13:26,778 --> 00:13:28,778
+This is just a single frame of animation
+
+291
+00:13:28,778 --> 00:13:31,206
+with the hand in a gripped posture.
+
+292
+00:13:31,900 --> 00:13:34,333
+In the models folder expand
+
+293
+00:13:34,333 --> 00:13:36,333
+char_robotGuard
+
+294
+00:13:36,333 --> 00:13:38,750
+and you'll find a Gripped animation.
+
+295
+00:13:38,985 --> 00:13:40,985
+Drag and drop this in to the Animator.
+
+296
+00:13:42,604 --> 00:13:44,604
+This is orange, which means it's our default
+
+297
+00:13:44,604 --> 00:13:46,342
+state, which is what we want.
+
+298
+00:13:46,342 --> 00:13:48,342
+Also note that the blending of this layer
+
+299
+00:13:48,342 --> 00:13:51,176
+is set to override and we know that our
+
+300
+00:13:51,176 --> 00:13:54,723
+EnemyGunMask only has the hand visible.
+
+301
+00:13:54,723 --> 00:13:56,723
+So we know that at all times the enemy's
+
+302
+00:13:56,723 --> 00:13:58,723
+hand will grip the gun.
+
+303
+00:14:01,902 --> 00:14:03,902
+Now that the animator controller is finished
+
+304
+00:14:03,902 --> 00:14:07,725
+we can drag it on to the Enemy's animator component.
+
+305
+00:14:07,725 --> 00:14:10,815
+Reselect char_robotGuard in the hierarchy
+
+306
+00:14:11,771 --> 00:14:14,134
+and then drag and drop EnemyAnimator
+
+307
+00:14:14,134 --> 00:14:16,134
+on to the Controller property
+
+308
+00:14:16,134 --> 00:14:17,813
+in the animator component.
+
+309
+00:14:18,589 --> 00:14:21,155
+Finally save the scene and the project.
+
+310
+00:14:22,083 --> 00:14:24,390
+Note that at this stage our parameters
+
+311
+00:14:24,390 --> 00:14:26,991
+don't have any way of receiving information.
+
+312
+00:14:26,991 --> 00:14:28,991
+So we cannot yet preview how the enemy will
+
+313
+00:14:28,991 --> 00:14:30,474
+behave in the scene.
+
+314
+00:14:30,474 --> 00:14:32,474
+In the next assignment we will be making the
+
+315
+00:14:32,474 --> 00:14:34,226
+first script for the enemy.
+
+316
+00:14:34,226 --> 00:14:36,226
+The EnemySight script will handle
+
+317
+00:14:36,226 --> 00:14:38,555
+identifying the player's location.

@@ -1,0 +1,227 @@
+1
+00:00:00,350 --> 00:00:04,043
+The Game View in Unity is invoked when the Play button is pressed.
+
+2
+00:00:09,689 --> 00:00:12,322
+In this you can play test your game and get an idea
+
+3
+00:00:12,322 --> 00:00:14,533
+of what the gameplay will be like when it's built.
+
+4
+00:00:18,045 --> 00:00:21,371
+This can be paused and stepped forward at any time
+
+5
+00:00:21,371 --> 00:00:23,712
+in order to give you more accurate testing.
+
+6
+00:00:24,625 --> 00:00:27,124
+You can also tweak things whilst you are in play mode
+
+7
+00:00:27,124 --> 00:00:30,057
+in order to see what the game play is like with different settings.
+
+8
+00:00:37,730 --> 00:00:40,421
+The game view also allows you to set resolution
+
+9
+00:00:40,421 --> 00:00:42,958
+specific to the target platform that you're using.
+
+10
+00:00:43,780 --> 00:00:45,845
+For example my game view is set to Standalone
+
+11
+00:00:45,845 --> 00:00:48,922
+with a resolution of 1280 by 720.
+
+12
+00:00:49,213 --> 00:00:51,383
+If I choose to then maximise on play
+
+13
+00:00:51,383 --> 00:00:54,046
+the game view will restrict to exactly that resolution
+
+14
+00:00:54,046 --> 00:00:56,022
+so that I can see what it will look like.
+
+15
+00:01:08,238 --> 00:01:13,179
+To adjust this I go to Edit - Project Settings - Player
+
+16
+00:01:13,179 --> 00:01:14,695
+and this shows me the default
+
+17
+00:01:14,695 --> 00:01:17,329
+screen width and height under resolution.
+
+18
+00:01:18,113 --> 00:01:19,781
+If I edit this
+
+19
+00:01:19,781 --> 00:01:23,219
+I will see the change made immediately in the game view.
+
+20
+00:01:23,819 --> 00:01:26,439
+And if I choose to switch to a different target platform
+
+21
+00:01:26,439 --> 00:01:28,700
+I will get the resolution for that setting.
+
+22
+00:01:29,307 --> 00:01:32,033
+For example if I switch to Web Player
+
+23
+00:01:33,890 --> 00:01:35,067
+and return
+
+24
+00:01:35,067 --> 00:01:36,802
+Web Player is then featured 
+
+25
+00:01:36,802 --> 00:01:39,156
+as the target platform I'm building for
+
+26
+00:01:39,156 --> 00:01:41,156
+and the preview mode for the game view.
+
+27
+00:01:47,409 --> 00:01:49,320
+In addition to Maximise On Play
+
+28
+00:01:49,320 --> 00:01:51,503
+the game view also has a Stats button
+
+29
+00:01:51,503 --> 00:01:53,996
+to allow you to see performance statistics
+
+30
+00:01:53,996 --> 00:01:55,884
+based on your game
+
+31
+00:01:55,884 --> 00:01:59,237
+and also the ability to show Gizmos in the same
+
+32
+00:01:59,237 --> 00:02:01,332
+way that the Scene view shows them already.
+
+33
+00:02:04,973 --> 00:02:07,284
+As you can adjust things whilst in play mode
+
+34
+00:02:07,284 --> 00:02:08,646
+you should also be aware
+
+35
+00:02:08,646 --> 00:02:11,067
+that any changes that you make will be undone
+
+36
+00:02:11,067 --> 00:02:13,244
+when returning to your project.
+
+37
+00:02:13,244 --> 00:02:14,918
+This is specific to changes that are
+
+38
+00:02:14,918 --> 00:02:16,830
+based on game objects in your scene
+
+39
+00:02:16,830 --> 00:02:19,982
+and not game objects that refgerence assets in the project.
+
+40
+00:02:20,692 --> 00:02:24,545
+For example if I was to change something relating to a material
+
+41
+00:02:24,545 --> 00:02:27,066
+that change is made to the original asset.
+
+42
+00:02:27,066 --> 00:02:30,106
+Whereas if I was to change something on a specific component
+
+43
+00:02:30,106 --> 00:02:32,993
+that change will be undone when play is pressed again.
+
+44
+00:02:33,491 --> 00:02:35,317
+It's also worth being aware 
+
+45
+00:02:35,317 --> 00:02:38,013
+that when you press play, your game is running
+
+46
+00:02:38,013 --> 00:02:39,961
+and you can hint this by going to 
+
+47
+00:02:39,961 --> 00:02:42,261
+Unity - Preferences on Mac
+
+48
+00:02:42,261 --> 00:02:44,584
+or Edit - Preferences on PC.
+
+49
+00:02:45,617 --> 00:02:47,424
+You can choose under Colours
+
+50
+00:02:47,424 --> 00:02:49,099
+a play mode tint,
+
+51
+00:02:49,099 --> 00:02:51,099
+I've chosen a shade of blue,
+
+52
+00:02:51,099 --> 00:02:53,099
+but I can make this any colour that I need to.
+
+53
+00:02:54,584 --> 00:02:56,242
+That way, when you press play 
+
+54
+00:02:56,242 --> 00:02:58,620
+the rest of the interface will change to this colour.
+
+55
+00:02:59,412 --> 00:03:00,793
+This is to remind you that you are in
+
+56
+00:03:00,793 --> 00:03:02,708
+play mode and will lose changes
+
+57
+00:03:02,708 --> 00:03:04,437
+if you continue to work in that mode.

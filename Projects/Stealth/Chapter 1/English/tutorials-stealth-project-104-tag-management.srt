@@ -1,0 +1,407 @@
+1
+00:00:00,000 --> 00:00:02,169
+The next stage of creating our game is something
+
+2
+00:00:02,169 --> 00:00:03,988
+that's good to address early on.
+
+3
+00:00:04,488 --> 00:00:06,488
+What tags do we need for our game
+
+4
+00:00:06,488 --> 00:00:08,488
+and how are we going to manage them?
+
+5
+00:00:08,488 --> 00:00:10,488
+Unity projects start out with some tags
+
+6
+00:00:10,488 --> 00:00:12,488
+already made. But we are going to need
+
+7
+00:00:12,488 --> 00:00:15,122
+a few more for our game. One of the most
+
+8
+00:00:15,122 --> 00:00:18,208
+common uses of tags it to find references to 
+
+9
+00:00:18,208 --> 00:00:19,805
+game objects or their components.
+
+10
+00:00:19,805 --> 00:00:21,805
+When thinking about tags that you need
+
+11
+00:00:21,805 --> 00:00:23,805
+it's often best to consider which scripts
+
+12
+00:00:23,805 --> 00:00:26,183
+will need to reference others. For example,
+
+13
+00:00:26,183 --> 00:00:28,183
+our game is going to have a game controller,
+
+14
+00:00:28,183 --> 00:00:30,058
+with some scripts on.
+
+15
+00:00:30,058 --> 00:00:31,793
+Lots of other scripts in the game will
+
+16
+00:00:31,793 --> 00:00:33,793
+need a reference to those scripts, so we will
+
+17
+00:00:33,793 --> 00:00:35,793
+need a game controller tag.
+
+18
+00:00:35,793 --> 00:00:37,793
+This is one of the tags already provided by
+
+19
+00:00:37,793 --> 00:00:40,432
+Unity. There are 5 tags we will need,
+
+20
+00:00:40,432 --> 00:00:42,432
+which aren't there by default.
+
+21
+00:00:42,432 --> 00:00:45,116
+AlarmLight, Siren, DirectionalLight,
+
+22
+00:00:45,116 --> 00:00:46,574
+Fader and Enemy. 
+
+23
+00:00:46,574 --> 00:00:48,905
+These have already been added to your project.
+
+24
+00:00:49,515 --> 00:00:51,640
+When you reference tags in code
+
+25
+00:00:51,640 --> 00:00:53,640
+they're written as strings and
+
+26
+00:00:53,640 --> 00:00:55,001
+are not auto completed. 
+
+27
+00:00:55,501 --> 00:00:57,501
+In order to minimise error we are going to
+
+28
+00:00:57,501 --> 00:00:59,501
+create a short script to store all of
+
+29
+00:00:59,501 --> 00:01:01,501
+the tag strings so that we can reference
+
+30
+00:01:01,501 --> 00:01:03,127
+them as variables instead.
+
+31
+00:01:03,127 --> 00:01:05,127
+For convenience we will call this script
+
+32
+00:01:05,127 --> 00:01:06,808
+simply Tags.
+
+33
+00:01:07,308 --> 00:01:09,710
+Select the Scripts folder in the project panel
+
+34
+00:01:09,710 --> 00:01:12,909
+and go to Create and choose C# Script.
+
+35
+00:01:12,909 --> 00:01:14,421
+Name the script Tags.
+
+36
+00:01:14,921 --> 00:01:16,921
+Double click the icon to open for editing.
+
+37
+00:01:17,421 --> 00:01:19,421
+Again we are going to remove the default function
+
+38
+00:01:19,421 --> 00:01:21,421
+that Unity gives us.
+
+39
+00:01:21,421 --> 00:01:24,184
+This script in fact won't use any functions.
+
+40
+00:01:24,184 --> 00:01:26,184
+For each of the tags we are going to store
+
+41
+00:01:26,184 --> 00:01:28,660
+a public constant string variable.
+
+42
+00:01:29,444 --> 00:01:31,984
+Here we are using the keyword const.
+
+43
+00:01:31,984 --> 00:01:34,219
+Const means that the variable it is applied to
+
+44
+00:01:34,219 --> 00:01:36,219
+cannot be changed, and instead
+
+45
+00:01:36,219 --> 00:01:38,219
+becomes known as a constant.
+
+46
+00:01:38,219 --> 00:01:40,219
+Since the data cannot be changed it is the
+
+47
+00:01:40,219 --> 00:01:42,219
+same for every instance of the class
+
+48
+00:01:42,219 --> 00:01:44,555
+and so it is available through the class
+
+49
+00:01:44,555 --> 00:01:47,411
+instead of through an instance of that class.
+
+50
+00:01:47,411 --> 00:01:49,411
+This works in a similar way to using 
+
+51
+00:01:49,411 --> 00:01:52,434
+static functions like the Mathf functions.
+
+52
+00:01:52,434 --> 00:01:55,283
+To call, for example, Lerp for floats
+
+53
+00:01:55,283 --> 00:02:00,015
+we use the class name Mathf followed by .lerp.
+
+54
+00:02:00,764 --> 00:02:02,764
+If we wanted to reference one of the strings
+
+55
+00:02:02,764 --> 00:02:04,764
+that we store here we simply need to
+
+56
+00:02:04,764 --> 00:02:08,510
+type Tags. followed by the name of the constant.
+
+57
+00:02:08,510 --> 00:02:11,120
+For example, Tags.player.
+
+58
+00:02:11,120 --> 00:02:13,120
+To complete the script we are going to need
+
+59
+00:02:13,120 --> 00:02:15,120
+a few more constants. As previously
+
+60
+00:02:15,120 --> 00:02:17,717
+stated we need to reference the alarm light
+
+61
+00:02:17,717 --> 00:02:20,393
+and we have given it the alarmLight tag.
+
+62
+00:02:20,393 --> 00:02:22,393
+So we will make a constant for that.
+
+63
+00:02:24,495 --> 00:02:26,495
+We have also seen that we will be using the
+
+64
+00:02:26,495 --> 00:02:28,246
+Siren tag to reference the towers that
+
+65
+00:02:28,246 --> 00:02:30,246
+play the alarm sound. So we will make a
+
+66
+00:02:30,246 --> 00:02:31,655
+constant for that.
+
+67
+00:02:33,740 --> 00:02:35,740
+The game controller will be where we store
+
+68
+00:02:35,740 --> 00:02:38,099
+the last known location of the player
+
+69
+00:02:38,099 --> 00:02:39,889
+when the enemies are chasing him.
+
+70
+00:02:40,389 --> 00:02:43,200
+As such they will need a reference to the game controller.
+
+71
+00:02:43,200 --> 00:02:45,771
+A tag already exists so we just need
+
+72
+00:02:45,771 --> 00:02:47,771
+to make the constant.
+
+73
+00:02:50,370 --> 00:02:52,370
+When the alarm light turns on we want 
+
+74
+00:02:52,370 --> 00:02:54,745
+to dim the main light. As such we are going
+
+75
+00:02:54,745 --> 00:02:56,745
+to need a constant for that too.
+
+76
+00:02:59,593 --> 00:03:01,454
+When the scene starts and ends
+
+77
+00:03:01,454 --> 00:03:03,454
+we want to fade to and from black.
+
+78
+00:03:03,454 --> 00:03:06,077
+To do this we are going to use a GUI texture
+
+79
+00:03:06,077 --> 00:03:08,489
+and we will need to reference the script on it.
+
+80
+00:03:08,989 --> 00:03:10,989
+Let's add a constant for the fader.
+
+81
+00:03:12,967 --> 00:03:16,338
+A final tag that we need is for a less obvious reason.
+
+82
+00:03:16,338 --> 00:03:18,338
+Our game is going to have sliding doors
+
+83
+00:03:18,338 --> 00:03:20,700
+which will open when the player goes near them.
+
+84
+00:03:21,114 --> 00:03:23,557
+However they should also open for enemies	
+
+85
+00:03:23,557 --> 00:03:26,408
+so we need a tag to identify our enemies.
+
+86
+00:03:27,714 --> 00:03:30,427
+Now that this is complete, save the script
+
+87
+00:03:30,427 --> 00:03:32,427
+and return to the editor.
+
+88
+00:03:33,645 --> 00:03:35,865
+At this point we will tidy up our scripts.
+
+89
+00:03:36,421 --> 00:03:38,186
+In the Assets folder you will find the
+
+90
+00:03:38,186 --> 00:03:39,866
+alarm light that we made using the 
+
+91
+00:03:39,866 --> 00:03:41,894
+Add Component button. When using the this
+
+92
+00:03:41,894 --> 00:03:43,644
+button scripts are created in the
+
+93
+00:03:43,644 --> 00:03:45,141
+root of assets. 
+
+94
+00:03:45,141 --> 00:03:47,503
+So simply drag and drop it in to the scripts folder
+
+95
+00:03:47,503 --> 00:03:49,642
+to tidy up, and remember to do that
+
+96
+00:03:49,642 --> 00:03:51,279
+whenever you use the Add Component button 
+
+97
+00:03:51,279 --> 00:03:52,823
+in this way. 
+
+98
+00:03:52,823 --> 00:03:56,106
+Now, go to File - Save Scene
+
+99
+00:03:56,106 --> 00:03:58,372
+and File - Save Project.
+
+100
+00:03:58,372 --> 00:04:00,372
+In the next assignment we will create the
+
+101
+00:04:00,372 --> 00:04:02,747
+screen fader to fade in and out our level
+
+102
+00:04:02,747 --> 00:04:04,331
+at the start and end of the game.

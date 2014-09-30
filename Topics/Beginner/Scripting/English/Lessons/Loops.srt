@@ -1,0 +1,483 @@
+1
+00:00:00,110 --> 00:00:03,439
+Loops in programming are a way of repeating actions.
+
+2
+00:00:03,842 --> 00:00:05,842
+Let's look at three different kinds of loop.
+
+3
+00:00:06,162 --> 00:00:10,012
+A For Loop, a While Loop and a Do While Loop.
+
+4
+00:00:10,871 --> 00:00:12,871
+All of the loop examples are attached to
+
+5
+00:00:12,871 --> 00:00:14,580
+a gameobject and we will check the 
+
+6
+00:00:14,580 --> 00:00:16,580
+response in the console.
+
+7
+00:00:18,088 --> 00:00:20,724
+First off let's take a look at a While Loop.
+
+8
+00:00:20,919 --> 00:00:22,919
+The While Loop is used to simply perform
+
+9
+00:00:22,919 --> 00:00:25,517
+an action whilst a condition is met.
+
+10
+00:00:25,517 --> 00:00:27,517
+In this example we have a variable
+
+11
+00:00:27,517 --> 00:00:29,228
+called cupsInTheSink.
+
+12
+00:00:29,424 --> 00:00:31,424
+We have 4 cups in the sink.
+
+13
+00:00:31,424 --> 00:00:33,424
+While the number of cups in the sink
+
+14
+00:00:33,424 --> 00:00:36,345
+is more than 0 we need to wash them up.
+
+15
+00:00:36,735 --> 00:00:39,120
+So we're simply looking for ''I've wash a cup!''
+
+16
+00:00:39,120 --> 00:00:41,120
+and subtracting 1 from the value
+
+17
+00:00:41,120 --> 00:00:43,120
+of our cups in the sink variable.
+
+18
+00:00:43,120 --> 00:00:45,539
+So this loop will continue 4 times
+
+19
+00:00:45,539 --> 00:00:48,391
+as we have 4 cups. Let's see this in action.
+
+20
+00:00:50,231 --> 00:00:52,825
+And you can see we've washed up 4 cups.
+
+21
+00:00:53,587 --> 00:00:55,449
+Next let's take a look at
+
+22
+00:00:55,449 --> 00:00:57,071
+the Do While Loop.
+
+23
+00:00:57,350 --> 00:00:59,904
+The Do While Loop is similar to the While loop
+
+24
+00:00:59,904 --> 00:01:01,904
+but sometimes it's important to perform an
+
+25
+00:01:01,904 --> 00:01:03,904
+action at least once, and then perform
+
+26
+00:01:03,904 --> 00:01:05,904
+further iterations of a loop whilst
+
+27
+00:01:05,904 --> 00:01:07,904
+the condition is met. In this example
+
+28
+00:01:07,904 --> 00:01:09,904
+we are trying to guess an age
+
+29
+00:01:09,904 --> 00:01:11,904
+between 25 and 30.
+
+30
+00:01:12,570 --> 00:01:14,724
+We've put in the correct age of 27.
+
+31
+00:01:15,236 --> 00:01:18,121
+And we have an integer for guessing age.
+
+32
+00:01:18,497 --> 00:01:20,497
+The Do While Loop in this instance
+
+33
+00:01:20,497 --> 00:01:22,497
+runs the guess function
+
+34
+00:01:22,497 --> 00:01:26,566
+until the guessAge meets the correct age.
+
+35
+00:01:26,566 --> 00:01:30,676
+So we're doing guess whilst the guessAge
+
+36
+00:01:30,676 --> 00:01:33,355
+is not equal to the correct age.
+
+37
+00:01:33,593 --> 00:01:35,593
+When this condition is no longer met
+
+38
+00:01:35,593 --> 00:01:37,593
+we move on to the next line of the script
+
+39
+00:01:37,593 --> 00:01:40,917
+which logs ''Correct! I'm'' and the correct age.
+
+40
+00:01:41,417 --> 00:01:44,156
+So the guess is simply saying assign guessAge
+
+41
+00:01:44,156 --> 00:01:47,142
+a random range between 25 and 30
+
+42
+00:01:47,142 --> 00:01:49,142
+and then we're adding or subtracting
+
+43
+00:01:49,142 --> 00:01:51,684
+to try and guess that age, and then we're
+
+44
+00:01:51,684 --> 00:01:53,684
+logging a guess of a particular
+
+45
+00:01:53,684 --> 00:01:55,475
+age in to the console.
+
+46
+00:01:55,894 --> 00:01:57,894
+Let's see what this does.
+
+47
+00:01:58,808 --> 00:02:00,808
+So you can see that we've guessed 28
+
+48
+00:02:01,612 --> 00:02:04,753
+then we've guessed 27. 27 was correct
+
+49
+00:02:04,753 --> 00:02:06,753
+so the Do While Loop finishes
+
+50
+00:02:06,753 --> 00:02:09,374
+and we print ''Correct! I'm 27!''.
+
+51
+00:02:09,374 --> 00:02:10,782
+Let's see that again.
+
+52
+00:02:10,782 --> 00:02:12,782
+And you can see we're getting a deviation
+
+53
+00:02:12,782 --> 00:02:14,782
+because random will guess a number of 
+
+54
+00:02:14,782 --> 00:02:16,782
+different times and you can see it's
+
+55
+00:02:16,782 --> 00:02:20,996
+tried 25, then 26 and finally 27
+
+56
+00:02:20,996 --> 00:02:22,996
+which has been verified to be correct.
+
+57
+00:02:22,996 --> 00:02:25,623
+Next the For Loop. This is probably the most
+
+58
+00:02:25,623 --> 00:02:27,349
+common and flexible loop.
+
+59
+00:02:27,847 --> 00:02:29,847
+The For Loop works by introducing a
+
+60
+00:02:29,847 --> 00:02:32,316
+controllable number of iterations to a loop.
+
+61
+00:02:32,665 --> 00:02:34,901
+Functionally, it begins by checking
+
+62
+00:02:34,901 --> 00:02:36,901
+conditions in the loop, seen here as 
+
+63
+00:02:36,901 --> 00:02:39,497
+i < numEnemies.
+
+64
+00:02:39,497 --> 00:02:41,497
+And if the condition is met it
+
+65
+00:02:41,497 --> 00:02:44,161
+carries out the instructions in the loops body,
+
+66
+00:02:44,161 --> 00:02:46,811
+meaning what is between the curly braces.
+
+67
+00:02:47,311 --> 00:02:50,014
+After each loop, known as an iteration,
+
+68
+00:02:50,014 --> 00:02:52,416
+it can optionally increment a value,
+
+69
+00:02:52,416 --> 00:02:54,513
+seen here in the third argument where
+
+70
+00:02:54,513 --> 00:02:57,409
+i is being incremented by 1 each time.
+
+71
+00:02:57,812 --> 00:02:59,812
+This process then starts over.
+
+72
+00:03:00,312 --> 00:03:02,312
+Let's look at this from a coding standpoint.
+
+73
+00:03:03,351 --> 00:03:06,281
+The syntax for this has three arguments.
+
+74
+00:03:06,781 --> 00:03:09,193
+First off we introduce a variable,
+
+75
+00:03:09,193 --> 00:03:11,041
+this is known as the iterater.
+
+76
+00:03:11,500 --> 00:03:13,500
+This is used to count through the iterations
+
+77
+00:03:13,500 --> 00:03:16,191
+of the loop, meaning the loops themselves.
+
+78
+00:03:17,064 --> 00:03:19,064
+The second argument is the condition
+
+79
+00:03:19,064 --> 00:03:21,064
+that must be true in order for the loop 
+
+80
+00:03:21,064 --> 00:03:22,067
+to continue.
+
+81
+00:03:22,912 --> 00:03:25,163
+Finally the third argument defines
+
+82
+00:03:25,163 --> 00:03:26,953
+what happens to the iterater
+
+83
+00:03:26,953 --> 00:03:29,964
+in each loop. Usually this means adding to
+
+84
+00:03:29,964 --> 00:03:31,742
+the iterater in order to step
+
+85
+00:03:31,742 --> 00:03:33,742
+through the loop. It's common in 
+
+86
+00:03:33,742 --> 00:03:35,742
+programming to start counting at 0.
+
+87
+00:03:35,742 --> 00:03:38,863
+So for the first loop, i will be 0
+
+88
+00:03:39,264 --> 00:03:42,936
+and then the operation i++ adding 1 to i
+
+89
+00:03:42,936 --> 00:03:45,554
+will be performed. Then on the second loop
+
+90
+00:03:45,554 --> 00:03:47,471
+i will be 1, and so on.
+
+91
+00:03:47,750 --> 00:03:51,446
+Until i is no longer less than, in this example,
+
+92
+00:03:51,446 --> 00:03:53,128
+the numEnemies variable.
+
+93
+00:03:53,352 --> 00:03:55,407
+So we have an integer called numEnemies,
+
+94
+00:03:55,407 --> 00:03:57,630
+which is set to 3, so once this loop
+
+95
+00:03:57,630 --> 00:04:00,554
+has happened 3 times i will be equal to 
+
+96
+00:04:00,554 --> 00:04:03,210
+the value of numEnemies and therefore the loop
+
+97
+00:04:03,210 --> 00:04:05,850
+will not be run again as the validation
+
+98
+00:04:05,850 --> 00:04:07,504
+condition will be false.
+
+99
+00:04:08,004 --> 00:04:10,004
+So we will not see the message creating
+
+100
+00:04:10,004 --> 00:04:12,004
+enemy number 3 in the console
+
+101
+00:04:12,004 --> 00:04:14,004
+because when i is equal to 3
+
+102
+00:04:14,004 --> 00:04:16,851
+it will no longer be less than numEnemies
+
+103
+00:04:16,851 --> 00:04:18,320
+and so it will not run the
+
+104
+00:04:18,320 --> 00:04:19,798
+loopBodies commands.
+
+105
+00:04:19,798 --> 00:04:21,798
+In this example we're logging the value of
+
+106
+00:04:21,798 --> 00:04:24,116
+i to the console, along side the text
+
+107
+00:04:24,116 --> 00:04:25,949
+''Creating enemy number''.
+
+108
+00:04:25,949 --> 00:04:28,494
+To demonstrate it's addition as well as
+
+109
+00:04:28,494 --> 00:04:30,686
+potential practical application of a loop.
+
+110
+00:04:31,186 --> 00:04:33,186
+Put simply, any operation that you need
+
+111
+00:04:33,186 --> 00:04:35,186
+carried out a defined number of times
+
+112
+00:04:35,186 --> 00:04:37,186
+should be placed within a For Loop.
+
+113
+00:04:37,451 --> 00:04:39,451
+Let's see this in action.
+
+114
+00:04:39,951 --> 00:04:41,951
+And you can see it logs 3 times.
+
+115
+00:04:42,161 --> 00:04:44,757
+First, showing the value of i as 0
+
+116
+00:04:44,757 --> 00:04:46,757
+then 1 and then 2.
+
+117
+00:04:47,257 --> 00:04:49,173
+So there's a lot of flexibility in what you
+
+118
+00:04:49,173 --> 00:04:51,173
+can do with different loops and 
+
+119
+00:04:51,173 --> 00:04:53,173
+you should always consider using them when
+
+120
+00:04:53,173 --> 00:04:55,173
+repeating different actions based on
+
+121
+00:04:55,173 --> 00:04:56,701
+certain conditions.

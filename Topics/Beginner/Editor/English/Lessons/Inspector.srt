@@ -1,0 +1,331 @@
+1
+00:00:00,166 --> 00:00:01,793
+The Inspector panel in Unity
+
+2
+00:00:01,793 --> 00:00:03,793
+is a panel for adjusting
+
+3
+00:00:03,793 --> 00:00:05,310
+settings for any object,
+
+4
+00:00:05,310 --> 00:00:07,492
+asset and editor preference.
+
+5
+00:00:07,823 --> 00:00:10,554
+For objects, the inspector begins with a title,
+
+6
+00:00:10,554 --> 00:00:12,807
+a check box for you to check if the
+
+7
+00:00:12,807 --> 00:00:15,248
+state of the object will remain static in the game.
+
+8
+00:00:15,587 --> 00:00:17,821
+This means it's a valid candidate for
+
+9
+00:00:17,821 --> 00:00:20,406
+light mapping and navigation mesh baking.
+
+10
+00:00:20,988 --> 00:00:23,715
+And then the tag and layer drop-downs.
+
+11
+00:00:24,114 --> 00:00:26,283
+Tags allow you to assign a tag to
+
+12
+00:00:26,283 --> 00:00:29,483
+one or many objects in order to address them via code.
+
+13
+00:00:29,483 --> 00:00:32,082
+Whilst layers allow you to group objects
+
+14
+00:00:32,082 --> 00:00:34,252
+and apply certain rules to these layers
+
+15
+00:00:34,252 --> 00:00:36,513
+such as lighting or collision rules.
+
+16
+00:00:36,770 --> 00:00:39,216
+After these elements the inspector then lists
+
+17
+00:00:39,216 --> 00:00:41,078
+the components attached to an object.
+
+18
+00:00:41,370 --> 00:00:42,889
+Beginning with the transform,
+
+19
+00:00:42,889 --> 00:00:46,061
+the default position, rotation and scale
+
+20
+00:00:46,061 --> 00:00:47,082
+of your object.
+
+21
+00:00:47,703 --> 00:00:49,905
+On any component the inspector allows
+
+22
+00:00:49,905 --> 00:00:51,982
+you to adjust fields in various ways.
+
+23
+00:00:52,507 --> 00:00:54,507
+You can drag over the values,
+
+24
+00:00:55,986 --> 00:00:57,986
+you can click and retype,
+
+25
+00:00:58,845 --> 00:01:01,534
+or your can choose to reset the values using
+
+26
+00:01:01,534 --> 00:01:04,119
+the cog icon to the right of the component.
+
+27
+00:01:05,734 --> 00:01:07,861
+In addition to the cog there is also a link
+
+28
+00:01:07,861 --> 00:01:10,073
+to the reference material on the component
+
+29
+00:01:10,073 --> 00:01:11,880
+and you can get to this by clicking the
+
+30
+00:01:11,880 --> 00:01:14,245
+blue book icon, and this will open the
+
+31
+00:01:14,245 --> 00:01:16,776
+documentation page on this component.
+
+32
+00:01:21,868 --> 00:01:24,959
+A context sensitive panel, the inspector changes
+
+33
+00:01:24,959 --> 00:01:26,634
+to whatever you have selected,
+
+34
+00:01:26,634 --> 00:01:28,893
+meaning that you can adjust any object
+
+35
+00:01:28,893 --> 00:01:31,585
+and immediately dive in to settings and back.
+
+36
+00:01:46,062 --> 00:01:49,824
+Because Unity makes use of dragging and dropping to assign values
+
+37
+00:01:49,824 --> 00:01:51,518
+sometimes you may click on items
+
+38
+00:01:51,518 --> 00:01:53,210
+that take you to their settings,
+
+39
+00:01:53,210 --> 00:01:55,648
+rather than the one you wish to apply them to.
+
+40
+00:01:55,648 --> 00:01:58,349
+And for this reason you can lock the inspector
+
+41
+00:01:58,349 --> 00:02:00,541
+in order to work with a particular item
+
+42
+00:02:00,541 --> 00:02:03,514
+and then unlock once you are done assigning settings.
+
+43
+00:02:03,830 --> 00:02:06,945
+For example on this game object I have a script component
+
+44
+00:02:06,945 --> 00:02:09,410
+to which I must assign an array of textures.
+
+45
+00:02:09,410 --> 00:02:12,831
+But when I select my first texture I want the inspector
+
+46
+00:02:12,831 --> 00:02:14,469
+to remain on my game object,
+
+47
+00:02:14,469 --> 00:02:16,843
+rather than showing the texture's settings.
+
+48
+00:02:17,242 --> 00:02:19,242
+I could simply hold down the mouse
+
+49
+00:02:21,084 --> 00:02:23,845
+or I can simply select the object
+
+50
+00:02:24,606 --> 00:02:27,533
+and click on the lock at the top of the inspector.
+
+51
+00:02:27,919 --> 00:02:31,120
+This way when I select one or many textures
+
+52
+00:02:31,120 --> 00:02:35,117
+I can then drag and drop without the inspector changing focus.
+
+53
+00:02:43,263 --> 00:02:47,299
+Once I am done with this I simply click the lock again
+
+54
+00:02:48,750 --> 00:02:51,646
+and I can then select anything that I need to.
+
+55
+00:02:52,585 --> 00:02:56,727
+The inspector also offers a way of finding assets used on objects.
+
+56
+00:02:56,727 --> 00:02:58,339
+For example materials.
+
+57
+00:02:58,339 --> 00:03:01,158
+When clicking on an asset used within a renderer
+
+58
+00:03:01,158 --> 00:03:04,534
+you can see that asset highlighted inside the project panel.
+
+59
+00:03:04,869 --> 00:03:07,932
+It does this by highlighting with a yellow outline.
+
+60
+00:03:09,054 --> 00:03:11,668
+This helps you easily find the assets that your
+
+61
+00:03:11,668 --> 00:03:13,668
+game objects depend upon.
+
+62
+00:03:14,021 --> 00:03:17,256
+In this example we can see an object that has a material
+
+63
+00:03:17,256 --> 00:03:19,256
+assigned to it's renderer.
+
+64
+00:03:19,650 --> 00:03:22,089
+This particular material is then previewed
+
+65
+00:03:22,089 --> 00:03:23,727
+at the bottom of the inspector
+
+66
+00:03:23,727 --> 00:03:27,341
+and I can adjust that material directly from here.
+
+67
+00:03:29,305 --> 00:03:32,083
+However, the other two objects that I don't have selected
+
+68
+00:03:32,083 --> 00:03:34,956
+also use this material, so I must bare in mind that
+
+69
+00:03:34,956 --> 00:03:36,762
+the actual material I am adjusting
+
+70
+00:03:36,762 --> 00:03:39,652
+is the original material asset inside the project
+
+71
+00:03:39,652 --> 00:03:42,570
+and not a particular instance of an object
+
+72
+00:03:42,570 --> 00:03:45,908
+in the same way that I can adjust the scale of this object
+
+73
+00:03:45,908 --> 00:03:47,894
+without adjusting any other objects that
+
+74
+00:03:47,894 --> 00:03:49,425
+also have a scale value.
+
+75
+00:03:50,276 --> 00:03:52,667
+Components within the inspector can also be disabled
+
+76
+00:03:52,667 --> 00:03:55,591
+by clicking the checkbox to the left of their name.
+
+77
+00:03:58,721 --> 00:04:01,419
+And the entire object can be disabled by clicking
+
+78
+00:04:01,419 --> 00:04:02,981
+the checkbox next to it's name
+
+79
+00:04:02,981 --> 00:04:04,583
+at the top of the inspector.
+
+80
+00:04:07,123 --> 00:04:09,054
+When objects are disabled in this way
+
+81
+00:04:09,054 --> 00:04:10,800
+you'll notice that their name is greyed out
+
+82
+00:04:10,800 --> 00:04:12,800
+inside the hierarchy panel.
+
+83
+00:04:13,926 --> 00:04:17,343
+And that's the basics of the inspector in Unity.

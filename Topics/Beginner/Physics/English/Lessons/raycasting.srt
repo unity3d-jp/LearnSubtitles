@@ -1,0 +1,459 @@
+1
+00:00:00,000 --> 00:00:02,100
+Raycasting is the process of shooting
+
+2
+00:00:02,100 --> 00:00:04,280
+an invisible ray from a point, in a
+
+3
+00:00:04,280 --> 00:00:06,770
+specified direction to detect whether any
+
+4
+00:00:06,770 --> 00:00:08,770
+colliders lay in the path of the ray.
+
+5
+00:00:08,770 --> 00:00:10,770
+One such example of this would be
+
+6
+00:00:10,770 --> 00:00:12,870
+shooting a gun. In this instance our
+
+7
+00:00:12,870 --> 00:00:14,870
+character wants to shoot the evil box that
+
+8
+00:00:14,870 --> 00:00:16,870
+betrayed him and killed his father.
+
+9
+00:00:17,370 --> 00:00:20,100
+The syntax of the raycast function looks like this.
+
+10
+00:00:20,100 --> 00:00:22,100
+It can be confusing at first
+
+11
+00:00:22,100 --> 00:00:24,530
+but once you understand what each part does
+
+12
+00:00:24,530 --> 00:00:26,200
+it makes much more sense.
+
+13
+00:00:26,200 --> 00:00:28,200
+Firstly, the origin of the ray is a
+
+14
+00:00:28,200 --> 00:00:30,200
+point in world space.
+
+15
+00:00:30,200 --> 00:00:32,200
+So in this instance we'd choose a point in
+
+16
+00:00:32,200 --> 00:00:34,200
+front of the barrel of the gun, stored
+
+17
+00:00:34,200 --> 00:00:37,580
+as a Vector3, an X, Y and Z position.
+
+18
+00:00:37,920 --> 00:00:39,920
+However, because our world coordinates
+
+19
+00:00:39,920 --> 00:00:41,930
+direction won't be facing in the direction
+
+20
+00:00:41,930 --> 00:00:44,420
+we're shooting we will need a second Vector3
+
+21
+00:00:44,420 --> 00:00:46,210
+to store our direction in.
+
+22
+00:00:46,210 --> 00:00:48,210
+These two Vector3 variables make up
+
+23
+00:00:48,210 --> 00:00:51,160
+our ray. But we can also substitute
+
+24
+00:00:51,160 --> 00:00:53,690
+in a Ray variable, as this data type
+
+25
+00:00:53,690 --> 00:00:55,690
+can store two Vector3's.
+
+26
+00:00:55,690 --> 00:00:57,690
+Our code would then look like this.
+
+27
+00:01:02,380 --> 00:01:04,200
+The next argument in the function is a
+
+28
+00:01:04,200 --> 00:01:06,200
+RaycastHit variable that stores
+
+29
+00:01:06,200 --> 00:01:08,140
+information on the colliders hit.
+
+30
+00:01:08,450 --> 00:01:10,450
+So that it can be queried in code as to which
+
+31
+00:01:10,450 --> 00:01:12,850
+objects are intersected by the ray.
+
+32
+00:01:13,150 --> 00:01:15,610
+Finally there are two optional arguments,
+
+33
+00:01:15,610 --> 00:01:17,610
+Distance, which defines the length
+
+34
+00:01:17,610 --> 00:01:19,610
+of the ray, if omitted the ray will default
+
+35
+00:01:19,610 --> 00:01:21,610
+to an infinite length.
+
+36
+00:01:21,610 --> 00:01:23,610
+And Layer Mask. This is the number
+
+37
+00:01:23,610 --> 00:01:26,550
+of a particular layer in Unity's layer system
+
+38
+00:01:26,550 --> 00:01:28,550
+on which you can place objects if you
+
+39
+00:01:28,550 --> 00:01:30,220
+wish to make the ray ignore them.
+
+40
+00:01:30,220 --> 00:01:32,220
+Let's look at another practical example of
+
+41
+00:01:32,220 --> 00:01:33,510
+using raycasting.
+
+42
+00:01:33,510 --> 00:01:35,890
+In this example we have a parachute crate
+
+43
+00:01:35,890 --> 00:01:37,360
+that opens a parachute when it's
+
+44
+00:01:37,360 --> 00:01:39,200
+nearing the floor.
+
+45
+00:01:40,460 --> 00:01:42,260
+The crate is made up of two parts,
+
+46
+00:01:42,260 --> 00:01:44,030
+the chute and the crate itself.
+
+47
+00:01:44,030 --> 00:01:46,030
+The chute has two animations
+
+48
+00:01:46,530 --> 00:01:48,040
+one to open the chute
+
+49
+00:01:48,600 --> 00:01:50,030
+and another to close it.
+
+50
+00:01:50,920 --> 00:01:52,920
+In this example we need to cast a ray
+
+51
+00:01:52,920 --> 00:01:55,330
+downwards in order to see how far the crate is
+
+52
+00:01:55,330 --> 00:01:57,330
+from the floor, and we check for the
+
+53
+00:01:57,330 --> 00:02:00,120
+floor by looking for the environment collider.
+
+54
+00:02:00,620 --> 00:02:03,150
+Our collider for the environment is tagged
+
+55
+00:02:03,150 --> 00:02:04,690
+with the word environment.
+
+56
+00:02:05,400 --> 00:02:09,200
+And in our script we are looking for that tag.
+
+57
+00:02:10,880 --> 00:02:12,480
+The RayCast function gets placed inside
+
+58
+00:02:12,480 --> 00:02:15,660
+an IF statement so that if it returns true,
+
+59
+00:02:15,660 --> 00:02:17,660
+meaning if it intersects with anything,
+
+60
+00:02:17,660 --> 00:02:19,660
+then the comments within the IF statement
+
+61
+00:02:19,660 --> 00:02:21,660
+will be carried out and the RayCastHit
+
+62
+00:02:21,660 --> 00:02:25,240
+variable can be queried as to what has been hit.
+
+63
+00:02:26,240 --> 00:02:29,180
+So within an IF statement we've written
+
+64
+00:02:29,180 --> 00:02:32,860
+Physics.Raycast, we have a landingRay variable
+
+65
+00:02:32,860 --> 00:02:35,710
+that's storing the position of the box
+
+66
+00:02:35,710 --> 00:02:37,710
+and a downward direction. We're using
+
+67
+00:02:37,710 --> 00:02:39,710
+the shortcut Vector3.down,
+
+68
+00:02:39,710 --> 00:02:41,960
+and we're using this as the ray to cast.
+
+69
+00:02:41,960 --> 00:02:44,370
+Our RaycastHit variable - 'hit' -
+
+70
+00:02:44,370 --> 00:02:46,370
+is storing anything that gets hit by the
+
+71
+00:02:46,370 --> 00:02:48,370
+ray as it is cast downwards,
+
+72
+00:02:48,370 --> 00:02:50,370
+and the distance, or 'length' or the ray
+
+73
+00:02:50,370 --> 00:02:53,410
+is defined by our 'deployment height' variable.
+
+74
+00:02:53,410 --> 00:02:55,860
+If the ray intersects with a collider
+
+75
+00:02:58,860 --> 00:03:01,800
+then we call the deploy parachute function.
+
+76
+00:03:02,300 --> 00:03:04,760
+This function then simply sets our Boolean
+
+77
+00:03:04,760 --> 00:03:08,190
+'deployed' flag to true so that this cannot repeat.
+
+78
+00:03:08,690 --> 00:03:11,020
+And then we set the drag of the rigid body
+
+79
+00:03:11,020 --> 00:03:13,900
+to the variable 'parachuteEffectiveness'.
+
+80
+00:03:13,900 --> 00:03:15,900
+So we slow down the crate as if it's being
+
+81
+00:03:15,900 --> 00:03:17,580
+held up by the parachute.
+
+82
+00:03:17,580 --> 00:03:19,580
+We also play the animation
+
+83
+00:03:19,580 --> 00:03:21,580
+on the parachute object,
+
+84
+00:03:21,580 --> 00:03:23,580
+which is a game object that we'll assign
+
+85
+00:03:23,580 --> 00:03:25,160
+to the public variable.
+
+86
+00:03:25,360 --> 00:03:27,940
+We then have a separate OnCollisionEnter function
+
+87
+00:03:27,940 --> 00:03:29,940
+which simply plays the closing animation.
+
+88
+00:03:29,940 --> 00:03:31,940
+So we know that as soon as it hits the ground
+
+89
+00:03:31,940 --> 00:03:34,720
+or another object the parachute can close.
+
+90
+00:03:36,440 --> 00:03:39,570
+So here we've set the length of the ray to 4
+
+91
+00:03:39,570 --> 00:03:41,810
+by setting 4 as our deployment height
+
+92
+00:03:42,030 --> 00:03:45,420
+And we're setting the drag of the rigidbody to 8
+
+93
+00:03:45,670 --> 00:03:48,620
+by setting the parachute effectiveness to 8.
+
+94
+00:03:48,620 --> 00:03:50,620
+And we've simply dragged our parachute
+
+95
+00:03:50,620 --> 00:03:54,270
+chute object on to the parachute variable.
+
+96
+00:03:54,270 --> 00:03:57,120
+Because this is the object that has an animation
+
+97
+00:03:57,120 --> 00:03:59,120
+component in order to playback
+
+98
+00:03:59,120 --> 00:04:01,120
+it's opening and closing animations.
+
+99
+00:04:01,120 --> 00:04:03,120
+So let's see that play one more time.
+
+100
+00:04:06,680 --> 00:04:08,680
+It's also worth keeping in mind
+
+101
+00:04:08,680 --> 00:04:10,680
+that although you cannot see
+
+102
+00:04:10,680 --> 00:04:13,090
+raycasts drawn in the scene view
+
+103
+00:04:13,090 --> 00:04:15,490
+or in the game. You can also use the
+
+104
+00:04:15,490 --> 00:04:18,010
+Debug.DrawRay function
+
+105
+00:04:18,010 --> 00:04:21,050
+in order to preview where a ray would be going.
+
+106
+00:04:21,050 --> 00:04:23,500
+By adding Debug.DrawRay
+
+107
+00:04:23,500 --> 00:04:25,500
+we're drawing a visual ray from
+
+108
+00:04:25,500 --> 00:04:27,500
+the position of the box in the direction
+
+109
+00:04:27,500 --> 00:04:30,080
+of Vector3.down, multiplied by
+
+110
+00:04:30,080 --> 00:04:33,730
+the deployment height - the length of our existing ray.
+
+111
+00:04:33,730 --> 00:04:35,730
+And by doing this we've matched the actual
+
+112
+00:04:35,730 --> 00:04:38,240
+ray that we're casting in the IF statement below.
+
+113
+00:04:38,550 --> 00:04:40,550
+So when we play this back you can see that
+
+114
+00:04:40,550 --> 00:04:42,550
+Unity demonstrates the ray
+
+115
+00:04:42,550 --> 00:04:45,890
+by showing us the drawn ray in the scene view.

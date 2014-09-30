@@ -1,0 +1,163 @@
+1
+00:00:00,249 --> 00:00:02,166
+Update is probably the most commonly
+
+2
+00:00:02,166 --> 00:00:03,677
+used function in Unity.
+
+3
+00:00:04,011 --> 00:00:06,011
+It's called once per frame on every script
+
+4
+00:00:06,011 --> 00:00:08,387
+that uses it. Almost anything that needs
+
+5
+00:00:08,387 --> 00:00:11,130
+to be changed or adjusted regularly happens here.
+
+6
+00:00:11,740 --> 00:00:13,629
+The movement of non-physics objects,
+
+7
+00:00:13,629 --> 00:00:15,629
+simple timers and the detection of input
+
+8
+00:00:15,629 --> 00:00:17,257
+are just a few things that are usually
+
+9
+00:00:17,257 --> 00:00:20,178
+done in update. Note that update is not
+
+10
+00:00:20,178 --> 00:00:22,864
+called on a regular timeline. If one frame
+
+11
+00:00:22,864 --> 00:00:24,864
+takes longer to process than the next
+
+12
+00:00:24,864 --> 00:00:26,864
+then the time between update calls will
+
+13
+00:00:26,864 --> 00:00:29,221
+be different. Fixed update is a similar
+
+14
+00:00:29,221 --> 00:00:31,111
+function to update but it has a few 
+
+15
+00:00:31,111 --> 00:00:33,483
+important differences. Fixed update is
+
+16
+00:00:33,483 --> 00:00:35,483
+called on a regular timeline and will have
+
+17
+00:00:35,483 --> 00:00:37,731
+the same time between calls.
+
+18
+00:00:37,731 --> 00:00:40,094
+Immediately after fixed update is called,
+
+19
+00:00:40,094 --> 00:00:42,705
+any necessary physics calculations are made.
+
+20
+00:00:42,705 --> 00:00:45,136
+As such anything that effects a rigidbody -
+
+21
+00:00:45,136 --> 00:00:47,858
+meaning a physics object, should be executed
+
+22
+00:00:47,858 --> 00:00:50,316
+in fixed update rather than update.
+
+23
+00:00:51,283 --> 00:00:53,602
+When scripting physics in the fixed update
+
+24
+00:00:53,602 --> 00:00:56,032
+it's good practice to use forces for movement.
+
+25
+00:00:56,946 --> 00:00:58,261
+Let's take a look at the difference
+
+26
+00:00:58,261 --> 00:01:00,709
+between fixed update and update calls.
+
+27
+00:01:00,709 --> 00:01:03,129
+In this example we're logging to the console
+
+28
+00:01:03,129 --> 00:01:06,017
+with each fixed update and update by adding
+
+29
+00:01:06,017 --> 00:01:08,017
+the value of Time.deltaTime.
+
+30
+00:01:08,268 --> 00:01:09,723
+When I press play
+
+31
+00:01:11,991 --> 00:01:13,152
+and pause
+
+32
+00:01:13,652 --> 00:01:15,374
+you can see that the time between fixed
+
+33
+00:01:15,374 --> 00:01:18,770
+updates is always 0.02.
+
+34
+00:01:19,270 --> 00:01:21,990
+where the time between updates varies.
+
+35
+00:01:22,559 --> 00:01:24,364
+This can be shown even more clearly by
+
+36
+00:01:24,364 --> 00:01:26,364
+collapsing the console.
+
+37
+00:01:26,864 --> 00:01:29,531
+If I play now and pause
+
+38
+00:01:29,531 --> 00:01:31,364
+you can see that all of my fixed updates
+
+39
+00:01:31,364 --> 00:01:33,952
+are collapsed in to one. There's been 111
+
+40
+00:01:33,952 --> 00:01:37,164
+of them and they're all 0.02.
+
+41
+00:01:37,164 --> 00:01:39,164
+Whereas the update times vary.

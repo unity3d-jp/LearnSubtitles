@@ -1,0 +1,539 @@
+1
+00:00:01,229 --> 00:00:02,299
+Textures.
+
+2
+00:00:02,385 --> 00:00:04,385
+A texture is an image file.
+
+3
+00:00:04,526 --> 00:00:07,371
+Unity uses textures in a number of different ways.
+
+4
+00:00:07,871 --> 00:00:09,801
+The most common use of a texture is when
+
+5
+00:00:09,801 --> 00:00:11,845
+applied to a material in the base
+
+6
+00:00:11,845 --> 00:00:13,691
+texture property to give a mesh a
+
+7
+00:00:13,691 --> 00:00:15,118
+textured surface.
+
+8
+00:00:15,618 --> 00:00:17,438
+For more information on materials
+
+9
+00:00:17,438 --> 00:00:19,438
+see the appropriate lesson.
+
+10
+00:00:20,269 --> 00:00:21,796
+Textures can also be used for 
+
+11
+00:00:21,796 --> 00:00:23,643
+GUI elements applied to additional 
+
+12
+00:00:23,643 --> 00:00:25,601
+material properties to act as normal
+
+13
+00:00:25,601 --> 00:00:27,601
+maps, specular maps or height maps.
+
+14
+00:00:27,908 --> 00:00:30,214
+Used as custom cursors, icons,
+
+15
+00:00:30,214 --> 00:00:32,214
+splash screens and more.
+
+16
+00:00:32,907 --> 00:00:34,780
+Textures can be any image file 
+
+17
+00:00:34,780 --> 00:00:35,873
+supported by Unity. 
+
+18
+00:00:35,873 --> 00:00:37,635
+These can be photos straight from a
+
+19
+00:00:37,635 --> 00:00:39,635
+digital source, but textures are usually
+
+20
+00:00:39,635 --> 00:00:42,333
+images created or manipulated in an image
+
+21
+00:00:42,333 --> 00:00:44,861
+editor, like Photoshop or Gimp.
+
+22
+00:00:45,913 --> 00:00:47,514
+It is important to note that the layered
+
+23
+00:00:47,514 --> 00:00:49,293
+files will be flattened on import
+
+24
+00:00:49,293 --> 00:00:51,027
+but the layers are maintained in
+
+25
+00:00:51,027 --> 00:00:53,027
+Unity in the original file.
+
+26
+00:00:53,417 --> 00:00:55,279
+This means we can turn layers on and off
+
+27
+00:00:55,279 --> 00:00:57,279
+without loss when we're setting up our game
+
+28
+00:00:57,279 --> 00:00:59,328
+but when we're running our game we will not
+
+29
+00:00:59,328 --> 00:01:01,328
+have access to these layers individually.
+
+30
+00:01:01,994 --> 00:01:03,994
+Most of the image file formats used by
+
+31
+00:01:03,994 --> 00:01:05,870
+Unity support transparency.
+
+32
+00:01:06,273 --> 00:01:07,927
+The notable exception is JPEG,
+
+33
+00:01:07,927 --> 00:01:09,066
+which does not.
+
+34
+00:01:09,428 --> 00:01:11,026
+For more information on transparency
+
+35
+00:01:11,026 --> 00:01:12,831
+and how to use it, see the documentation on
+
+36
+00:01:12,831 --> 00:01:14,568
+materials and shaders.
+
+37
+00:01:15,178 --> 00:01:18,069
+Texture files should be saved in the assets folder.
+
+38
+00:01:18,486 --> 00:01:20,223
+Unity searches the assets folder
+
+39
+00:01:20,223 --> 00:01:22,514
+in a specific order when seeking materials.
+
+40
+00:01:23,014 --> 00:01:25,399
+For more information on searching for textures
+
+41
+00:01:25,399 --> 00:01:27,273
+and seeking materials see the lesson
+
+42
+00:01:27,273 --> 00:01:28,952
+on mesh importing.
+
+43
+00:01:30,377 --> 00:01:32,377
+A texture file should be assigned import
+
+44
+00:01:32,377 --> 00:01:34,377
+settings in the texture importer.
+
+45
+00:01:34,877 --> 00:01:36,514
+Texture Type property contains a 
+
+46
+00:01:36,514 --> 00:01:37,735
+list of presets. 
+
+47
+00:01:38,125 --> 00:01:40,363
+These limit the number of editable properties
+
+48
+00:01:40,363 --> 00:01:42,170
+available in the texture importer
+
+49
+00:01:42,170 --> 00:01:44,407
+based on the intended use for the image.
+
+50
+00:01:45,043 --> 00:01:47,043
+The default is Texture.
+
+51
+00:01:47,957 --> 00:01:50,263
+Advanced will expose all of the available
+
+52
+00:01:50,263 --> 00:01:52,263
+properties in the texture importer.
+
+53
+00:01:53,025 --> 00:01:55,025
+The other presets, including advanced,
+
+54
+00:01:55,025 --> 00:01:57,025
+will be covered in another lesson.
+
+55
+00:01:58,229 --> 00:02:00,229
+If we need to set the transparency
+
+56
+00:02:00,229 --> 00:02:03,192
+or alpha channel for the texture automatically
+
+57
+00:02:03,192 --> 00:02:05,192
+based on the light and dark parts of the image
+
+58
+00:02:05,192 --> 00:02:08,044
+we can check the Alpha From Greyscale field.
+
+59
+00:02:08,544 --> 00:02:10,544
+Black will be completely transparent,
+
+60
+00:02:10,544 --> 00:02:12,544
+white will be completely opaque.
+
+61
+00:02:13,154 --> 00:02:15,154
+Wrap Mode controls how the texture is mapped
+
+62
+00:02:15,154 --> 00:02:17,015
+on to a renderer when tiled.
+
+63
+00:02:17,515 --> 00:02:19,515
+This setting works for both 2D elements
+
+64
+00:02:19,515 --> 00:02:21,112
+and 3D meshes.
+
+65
+00:02:22,634 --> 00:02:24,496
+Repeat will repeat the texture and 
+
+66
+00:02:24,496 --> 00:02:27,117
+and Clamp will stretch the edges of the texture.
+
+67
+00:02:27,783 --> 00:02:29,700
+Filter Mode controls how the graphics
+
+68
+00:02:29,700 --> 00:02:31,061
+card renders the texture, 
+
+69
+00:02:31,061 --> 00:02:33,809
+when it is stretched by 3D transformations.
+
+70
+00:02:34,406 --> 00:02:36,585
+These are effectively quality settings,
+
+71
+00:02:36,585 --> 00:02:38,488
+trilinear being the best and 
+
+72
+00:02:38,488 --> 00:02:40,488
+point being the most basic.
+
+73
+00:02:41,278 --> 00:02:43,278
+Aniso level controls the quality of 
+
+74
+00:02:43,278 --> 00:02:45,993
+textures when rendered at steep angles.
+
+75
+00:02:46,548 --> 00:02:48,548
+Anisotropic Filtering increases the
+
+76
+00:02:48,548 --> 00:02:50,228
+texture quality when viewed at
+
+77
+00:02:50,228 --> 00:02:51,456
+a grazing angle.
+
+78
+00:02:51,456 --> 00:02:53,986
+This has an increased rendering cost when applied.
+
+79
+00:02:54,306 --> 00:02:56,403
+In quality settings, Anisotropic filtering
+
+80
+00:02:56,403 --> 00:02:58,403
+can be forced on for all textures
+
+81
+00:02:58,403 --> 00:03:00,053
+or disabled completely.
+
+82
+00:03:00,249 --> 00:03:02,166
+For more information on quality settings
+
+83
+00:03:02,166 --> 00:03:04,166
+see the appropriate lesson.
+
+84
+00:03:04,832 --> 00:03:06,459
+Because Unity supports building to
+
+85
+00:03:06,459 --> 00:03:08,932
+multiple target platforms from one project
+
+86
+00:03:08,932 --> 00:03:11,168
+the texture importer allows for a default
+
+87
+00:03:11,168 --> 00:03:13,075
+setting for max texture size
+
+88
+00:03:13,075 --> 00:03:14,893
+and compression format that can be
+
+89
+00:03:14,893 --> 00:03:17,419
+overridden on a per platform basis.
+
+90
+00:03:17,850 --> 00:03:19,739
+Max Size will set the maximum size for
+
+91
+00:03:19,739 --> 00:03:21,093
+for the imported texture.
+
+92
+00:03:21,455 --> 00:03:23,690
+If max size is set to a value larger
+
+93
+00:03:23,690 --> 00:03:25,690
+than that of the original image the size
+
+94
+00:03:25,690 --> 00:03:26,815
+of the imported texture
+
+95
+00:03:26,815 --> 00:03:28,355
+will be that of the original.
+
+96
+00:03:28,703 --> 00:03:30,455
+This setting will not make the texture
+
+97
+00:03:30,455 --> 00:03:32,455
+larger than the original image.
+
+98
+00:03:33,079 --> 00:03:35,037
+If max size is set to a value less
+
+99
+00:03:35,037 --> 00:03:37,357
+than the original image the texture will
+
+100
+00:03:37,357 --> 00:03:39,758
+be resized to that value on import.
+
+101
+00:03:39,968 --> 00:03:41,775
+Like layers, however, the original
+
+102
+00:03:41,775 --> 00:03:43,287
+file is unchanged.
+
+103
+00:03:43,287 --> 00:03:45,995
+Only the imported asset will be adjusted.
+
+104
+00:03:47,089 --> 00:03:49,089
+Format sets the compression technique.
+
+105
+00:03:49,810 --> 00:03:51,520
+The default settings are relatively simple
+
+106
+00:03:51,520 --> 00:03:53,520
+when using the Texture preset.
+
+107
+00:03:54,103 --> 00:03:56,103
+These are effectively quality settings of
+
+108
+00:03:56,103 --> 00:03:57,880
+low, medium and high.
+
+109
+00:03:58,518 --> 00:04:00,092
+More control can be set on a per
+
+110
+00:04:00,092 --> 00:04:03,085
+platform basis, or when using the Advanced setting.
+
+111
+00:04:04,317 --> 00:04:06,317
+Each target platform can have it's own settings
+
+112
+00:04:06,317 --> 00:04:08,840
+that override the default values.
+
+113
+00:04:09,506 --> 00:04:11,506
+Max size and compression can be adjusted
+
+114
+00:04:11,506 --> 00:04:13,159
+for each target platform.
+
+115
+00:04:13,424 --> 00:04:15,424
+This means we can set the target sizes
+
+116
+00:04:15,424 --> 00:04:17,763
+and compression appropriate for the
+
+117
+00:04:17,763 --> 00:04:19,374
+bandwidth and processing power
+
+118
+00:04:19,374 --> 00:04:20,997
+of the target platform.
+
+119
+00:04:21,594 --> 00:04:23,605
+When the build target is changed these
+
+120
+00:04:23,605 --> 00:04:25,605
+assets will be reimported using the
+
+121
+00:04:25,605 --> 00:04:27,357
+overridden values.
+
+122
+00:04:28,037 --> 00:04:30,764
+This section works in conjunction with Build Settings.
+
+123
+00:04:30,764 --> 00:04:32,387
+For more information on Build Settings
+
+124
+00:04:32,387 --> 00:04:34,387
+please see the appropriate lesson.
+
+125
+00:04:34,887 --> 00:04:37,417
+At the bottom of the importer is a preview window.
+
+126
+00:04:37,655 --> 00:04:39,361
+When the preview window is open we can
+
+127
+00:04:39,361 --> 00:04:40,918
+view the changes we have made.
+
+128
+00:04:41,418 --> 00:04:43,321
+We will need to apply our settings before
+
+129
+00:04:43,321 --> 00:04:45,711
+the preview window will update it's display.
+
+130
+00:04:46,211 --> 00:04:48,030
+The preview window will display the image
+
+131
+00:04:48,030 --> 00:04:50,030
+being imported and report basic information
+
+132
+00:04:50,030 --> 00:04:52,030
+about the imported texture, including
+
+133
+00:04:52,030 --> 00:04:53,698
+the size of the imported texture,
+
+134
+00:04:53,698 --> 00:04:55,436
+the compression setting and the footprint
+
+135
+00:04:55,436 --> 00:04:57,436
+of the texture in our game.

@@ -1,0 +1,283 @@
+1
+00:00:00,393 --> 00:00:03,309
+The Scene view is where you will visually construct your game.
+
+2
+00:00:03,506 --> 00:00:06,656
+And this can be navigated by making use of the buttons above the view.
+
+3
+00:00:06,839 --> 00:00:12,118
+These buttons correspond to the Q, W, E and R buttons on the keyboard.
+
+4
+00:00:12,209 --> 00:00:16,235
+The first button, the Hand Tool, is purely for navigating.
+
+5
+00:00:16,464 --> 00:00:20,398
+With this tool selected drag with the left mouse button to pan, 
+
+6
+00:00:20,398 --> 00:00:24,532
+and with the right mouse button to look around First Person style.
+
+7
+00:00:26,046 --> 00:00:29,052
+Hold the Alt key with this tool and left mouse button drag 
+
+8
+00:00:29,052 --> 00:00:31,749
+will let you orbit around the point you were looking at.
+
+9
+00:00:33,139 --> 00:00:37,180
+Whilst Alt and right mouse button dragging will zoom the view.
+
+10
+00:00:40,850 --> 00:00:43,157
+With any object selected in the hierarchy
+
+11
+00:00:43,157 --> 00:00:46,760
+you can focus on the object either by double clicking the object's name
+
+12
+00:00:46,760 --> 00:00:50,922
+or by pressing F with the mouse cursor over the Scene view.
+
+13
+00:00:54,886 --> 00:00:58,082
+The remaining three buttons allow you adjust position,
+
+14
+00:00:58,082 --> 00:01:00,842
+rotation and scale of objects.
+
+15
+00:01:00,842 --> 00:01:03,221
+By dragging the corresponding axis handles
+
+16
+00:01:03,221 --> 00:01:07,034
+you can move objects in X, Y or Z.
+
+17
+00:01:07,784 --> 00:01:11,433
+Likewise this also applies to moving in 3D
+
+18
+00:01:11,433 --> 00:01:13,419
+by dragging from the centre,
+
+19
+00:01:13,419 --> 00:01:15,732
+although this is not necessarily recommended
+
+20
+00:01:15,732 --> 00:01:18,063
+for moving in 3D space.
+
+21
+00:01:18,529 --> 00:01:22,892
+Likewise for rotating you can rotate in all three axes,
+
+22
+00:01:23,804 --> 00:01:25,658
+or you can just drag from within those, 
+
+23
+00:01:25,672 --> 00:01:28,291
+but again a lack of control will occur
+
+24
+00:01:28,291 --> 00:01:31,549
+when trying to drag in all three axes at once.
+
+25
+00:01:32,023 --> 00:01:34,406
+And again with scaling 
+
+26
+00:01:34,406 --> 00:01:37,550
+you can scale objects in all three individual axes
+
+27
+00:01:37,550 --> 00:01:41,068
+or drag from the centre point in order to scale uniformly. 
+
+28
+00:01:41,068 --> 00:01:44,103
+In this instance it is recommended to drag from the centre
+
+29
+00:01:44,103 --> 00:01:46,833
+in order to keep scale properties in proportion.
+
+30
+00:01:49,029 --> 00:01:52,464
+In the main bar of the Scene view you will see two drop-down menus
+
+31
+00:01:52,464 --> 00:01:55,004
+that handle how the Scene view is rendered.
+
+32
+00:01:55,961 --> 00:01:58,629
+You can switch to wireframe
+
+33
+00:01:58,629 --> 00:02:02,867
+or look at alpha of how your objects are displayed for example.
+
+34
+00:02:03,942 --> 00:02:06,159
+These are followed by three toggles. 
+
+35
+00:02:06,159 --> 00:02:09,052
+The first toggle toggles lighting in the scene
+
+36
+00:02:09,969 --> 00:02:12,765
+The second - whether a skybox is rendered or not.
+
+37
+00:02:13,056 --> 00:02:16,192
+And the third allows you to preview audio from the game
+
+38
+00:02:16,192 --> 00:02:19,087
+from wherever the editor camera is currently located.
+
+39
+00:02:23,957 --> 00:02:26,473
+The editor camera simply refers to the camera
+
+40
+00:02:26,473 --> 00:02:28,198
+that you are looking at the Scene view from.
+
+41
+00:02:28,362 --> 00:02:30,685
+It is not a camera object in your scene.
+
+42
+00:02:31,675 --> 00:02:34,775
+So for example if I were to move my camera very far
+
+43
+00:02:34,775 --> 00:02:38,509
+away from the sound source and preview the audio again.
+
+44
+00:02:41,426 --> 00:02:43,750
+You can hear that it's quieter than it was before.
+
+45
+00:02:44,289 --> 00:02:47,943
+To the right of the panel are the Gizmo menu and search box.
+
+46
+00:02:48,249 --> 00:02:50,407
+The Gizmo menu lets you adjust gizmos, 
+
+47
+00:02:50,407 --> 00:02:52,801
+the 2D icon shown in the Scene view
+
+48
+00:02:52,801 --> 00:02:55,288
+to help you identify components in the scene.
+
+49
+00:02:55,288 --> 00:02:58,439
+Such as lights, audio sources or cameras.
+
+50
+00:02:59,007 --> 00:03:00,881
+These can be adjusted by size
+
+51
+00:03:00,881 --> 00:03:03,961
+and also be toggled between 2D and 3D.
+
+52
+00:03:06,026 --> 00:03:09,508
+The search field lets you to search for a particular object by searching for its name.
+
+53
+00:03:10,037 --> 00:03:14,639
+And this highlights the object by fading out other objects in your scene.
+
+54
+00:03:15,919 --> 00:03:20,776
+Again, if you are not focused on the actual object that you've found by searching 
+
+55
+00:03:20,776 --> 00:03:24,696
+then you can simply use the Focus feature to find it.
+
+56
+00:03:26,023 --> 00:03:29,673
+This search also singles out the object in the Hierarchy 
+
+57
+00:03:29,673 --> 00:03:32,548
+so by then selecting the object you were looking for
+
+58
+00:03:32,548 --> 00:03:35,861
+and pressing F to focus, or double clicking -
+
+59
+00:03:35,861 --> 00:03:37,861
+you will then be taken to that object.
+
+60
+00:03:38,393 --> 00:03:40,210
+The final part of the Scene view you should
+
+61
+00:03:40,210 --> 00:03:42,216
+understand is the View Gizmo itself.
+
+62
+00:03:42,496 --> 00:03:45,499
+This allows you to switch from Perspective 3D view
+
+63
+00:03:45,499 --> 00:03:48,896
+to Orthographic cameras from sides, top and bottom.
+
+64
+00:03:52,827 --> 00:03:55,986
+When dragging to orbit your view in Orthographic view
+
+65
+00:03:55,986 --> 00:03:58,564
+you will be switching to Isometric view.
+
+66
+00:04:01,249 --> 00:04:03,240
+You will be notified of this by the term
+
+67
+00:04:03,240 --> 00:04:05,682
+ISO written underneath the View Gizmo
+
+68
+00:04:05,682 --> 00:04:09,475
+but do not confuse this with actual 3D Perspective view  
+
+69
+00:04:09,475 --> 00:04:12,328
+and be aware that you can switch back to Perspective view
+
+70
+00:04:12,328 --> 00:04:14,372
+simply by clicking on the white cube
+
+71
+00:04:14,372 --> 00:04:16,372
+in the centre of the View Gizmo.

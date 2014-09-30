@@ -1,0 +1,1667 @@
+1
+00:00:00,000 --> 00:00:02,245
+In this assignment we'll create the laser grids
+
+2
+00:00:02,245 --> 00:00:04,245
+that also trigger the alarm if the player
+
+3
+00:00:04,245 --> 00:00:04,954
+crosses them. 
+
+4
+00:00:04,954 --> 00:00:06,954
+First we can see that in the last assignment
+
+5
+00:00:06,954 --> 00:00:08,788
+We created some scripts using the
+
+6
+00:00:08,788 --> 00:00:10,357
+Add Component button,
+
+7
+00:00:10,357 --> 00:00:12,605
+which are left in the root of our assets.
+
+8
+00:00:12,605 --> 00:00:14,357
+So let's tidy these up by dropping them
+
+9
+00:00:14,357 --> 00:00:16,357
+in to the Scripts folder.
+
+10
+00:00:17,921 --> 00:00:20,086
+Now let's start making the laser grids.
+
+11
+00:00:20,086 --> 00:00:22,086
+We're going to add a model to the scene,
+
+12
+00:00:22,086 --> 00:00:24,692
+add some components, write some scripts
+
+13
+00:00:24,692 --> 00:00:26,692
+and then turn this in to a prefab so that
+
+14
+00:00:26,692 --> 00:00:28,692
+we can make several laser gates.
+
+15
+00:00:28,692 --> 00:00:31,137
+In the Models folder, locate
+
+16
+00:00:31,137 --> 00:00:33,773
+FX - Laser Fence - Lasers.
+
+17
+00:00:33,773 --> 00:00:36,035
+Drag and drop this in to the scene
+
+18
+00:00:36,035 --> 00:00:37,608
+somewhere like this.
+
+19
+00:00:38,329 --> 00:00:40,329
+Press F to focus on it.
+
+20
+00:00:40,829 --> 00:00:42,718
+We'll start by changing the rotation by
+
+21
+00:00:42,718 --> 00:00:45,036
+ninety degrees in the Y axis.
+
+22
+00:00:45,036 --> 00:00:48,296
+This will rotate it to face the two gate
+
+23
+00:00:48,296 --> 00:00:50,296
+points on either side of the corridor.
+
+24
+00:00:51,335 --> 00:00:55,979
+Then we'll change the scale to (1, 1, 3.62).
+
+25
+00:00:57,679 --> 00:01:04,063
+We'll set the position to (-8, 1.21, 5.62)
+
+26
+00:01:06,828 --> 00:01:08,743
+This should place your first laser gat in to
+
+27
+00:01:08,743 --> 00:01:10,897
+the exact position that we have on scene.
+
+28
+00:01:11,397 --> 00:01:13,104
+To make it easier to keep track of these
+
+29
+00:01:13,104 --> 00:01:15,104
+lasers we're going to add a number
+
+30
+00:01:15,104 --> 00:01:17,104
+as a post-fix to the name.
+
+31
+00:01:18,046 --> 00:01:22,598
+So rename this '_001' at the end
+
+32
+00:01:23,181 --> 00:01:24,931
+The laser grid needs to be able to detect
+
+33
+00:01:24,931 --> 00:01:26,779
+when the player passes through it
+
+34
+00:01:26,779 --> 00:01:29,112
+and so it needs a trigger collider.
+
+35
+00:01:29,112 --> 00:01:32,088
+For efficiency we're going to use a box collider.
+
+36
+00:01:32,088 --> 00:01:34,088
+The collider will automatically resize to
+
+37
+00:01:34,088 --> 00:01:35,682
+the laser grid when we add it.
+
+38
+00:01:35,682 --> 00:01:37,112
+We just need to make sure that the
+
+39
+00:01:37,112 --> 00:01:39,002
+Is Trigger box is checked.
+
+40
+00:01:39,002 --> 00:01:40,892
+So click Add Component
+
+41
+00:01:40,892 --> 00:01:43,114
+choose Physics - Box Collider
+
+42
+00:01:43,614 --> 00:01:45,614
+and then check Is Trigger.
+
+43
+00:01:46,487 --> 00:01:48,487
+You'll be able to see a faint green outline
+
+44
+00:01:48,487 --> 00:01:50,349
+that shows the bounding area
+
+45
+00:01:50,349 --> 00:01:51,749
+of the box collider.
+
+46
+00:01:51,749 --> 00:01:53,749
+We're also going to add an audio source 
+
+47
+00:01:53,749 --> 00:01:55,749
+component so that the player can hear
+
+48
+00:01:55,749 --> 00:01:58,113
+a faint laser hum when he's near them.
+
+49
+00:01:58,613 --> 00:02:00,404
+Click Add Component and choose
+
+50
+00:02:00,404 --> 00:02:02,404
+Audio - Audio Source.
+
+51
+00:02:02,904 --> 00:02:05,471
+In the Audio folder drag and drop
+
+52
+00:02:05,471 --> 00:02:08,041
+the Laser Hum clip on to the audio clip
+
+53
+00:02:08,041 --> 00:02:10,041
+in the Audio Source component.
+
+54
+00:02:10,541 --> 00:02:12,889
+You should see that this is a 3D sound.
+
+55
+00:02:12,889 --> 00:02:14,889
+which means the proximity of the listener
+
+56
+00:02:14,889 --> 00:02:17,140
+will define how loud it is to the player.
+
+57
+00:02:17,140 --> 00:02:18,604
+We want to make sure that the player can
+
+58
+00:02:18,604 --> 00:02:20,883
+hear the hum from a reasonable distance
+
+59
+00:02:20,883 --> 00:02:23,202
+so underneath 3d Sound Settings
+
+60
+00:02:23,202 --> 00:02:26,348
+set the minimum distance to 1.8.
+
+61
+00:02:27,842 --> 00:02:30,178
+You'll see that the spherical representation
+
+62
+00:02:30,178 --> 00:02:32,372
+of this expands in the Scene View.
+
+63
+00:02:32,372 --> 00:02:34,206
+We also want to make sure that this clip
+
+64
+00:02:34,206 --> 00:02:36,664
+loops throughout the game so check the
+
+65
+00:02:36,664 --> 00:02:39,469
+Loop checkbox on the audio source component.
+
+66
+00:02:39,469 --> 00:02:41,261
+We also want the lasers to have a slight
+
+67
+00:02:41,261 --> 00:02:43,261
+red glow. To do this we're going 
+
+68
+00:02:43,261 --> 00:02:45,261
+to have a point light attached to them.
+
+69
+00:02:46,092 --> 00:02:48,092
+Collapse your components to make room
+
+70
+00:02:48,092 --> 00:02:52,530
+and click Add Component - Rendering - Light.
+
+71
+00:02:52,530 --> 00:02:54,530
+Now we'll change the colour to red
+
+72
+00:02:54,530 --> 00:02:56,127
+to match the laser grid.
+
+73
+00:02:56,127 --> 00:02:58,438
+Click the Colour Picker and copy
+
+74
+00:02:58,438 --> 00:03:00,202
+these colour settings
+
+75
+00:03:00,202 --> 00:03:03,495
+(255, 40, 0).
+
+76
+00:03:04,810 --> 00:03:06,371
+We need to tweak the settings slightly
+
+77
+00:03:06,371 --> 00:03:08,012
+for the lights.
+
+78
+00:03:08,012 --> 00:03:10,012
+Change the range to 5
+
+79
+00:03:10,664 --> 00:03:13,152
+and the intensity to 0.6.
+
+80
+00:03:13,832 --> 00:03:15,357
+We also want to make sure that when we
+
+81
+00:03:15,357 --> 00:03:17,357
+re-bake the light map these lights
+
+82
+00:03:17,357 --> 00:03:19,357
+are not included, because otherwise
+
+83
+00:03:19,357 --> 00:03:21,357
+when the laser grids are switched off
+
+84
+00:03:21,357 --> 00:03:22,918
+the light from them would remain
+
+85
+00:03:22,918 --> 00:03:24,918
+on the surface of the environment.
+
+86
+00:03:24,918 --> 00:03:26,724
+To correct this make sure that these are
+
+87
+00:03:26,724 --> 00:03:28,431
+realtime only lights.
+
+88
+00:03:28,431 --> 00:03:31,075
+Set Light Mapping to Realtime Only.
+
+89
+00:03:32,183 --> 00:03:34,861
+Now we need two scripts for the laser grid.
+
+90
+00:03:34,861 --> 00:03:36,419
+The first script will make the lasers
+
+91
+00:03:36,419 --> 00:03:38,265
+blink on and off, we will call it
+
+92
+00:03:38,265 --> 00:03:39,577
+Laser Blinking.
+
+93
+00:03:39,577 --> 00:03:41,271
+Click the Add Component button and choose
+
+94
+00:03:41,271 --> 00:03:44,046
+New Script and name it LaserBlinking
+
+95
+00:03:44,726 --> 00:03:47,363
+Double click the icon to launch for editing.
+
+96
+00:03:48,070 --> 00:03:50,278
+Begin by clearing the script as usual.
+
+97
+00:03:50,944 --> 00:03:52,944
+We only need a few class variables for
+
+98
+00:03:52,944 --> 00:03:55,375
+this script, two public floats for the
+
+99
+00:03:55,375 --> 00:03:57,935
+amount of time the lasers are on and off,
+
+100
+00:03:57,935 --> 00:03:59,935
+and a float for a timer to know when to
+
+101
+00:03:59,935 --> 00:04:01,935
+switch between on and off.
+
+102
+00:04:02,974 --> 00:04:04,711
+To make the laser blink we're going to
+
+103
+00:04:04,711 --> 00:04:06,565
+disable and enable the laser's
+
+104
+00:04:06,565 --> 00:04:09,832
+renderer component and it's light component.
+
+105
+00:04:09,832 --> 00:04:12,579
+Thus we need to check if the renderer is enabled
+
+106
+00:04:12,579 --> 00:04:14,398
+and the timer is greater than or equal
+
+107
+00:04:14,398 --> 00:04:16,287
+to the amount of time that the laser is
+
+108
+00:04:16,287 --> 00:04:18,135
+supposed to be on.
+
+109
+00:04:18,135 --> 00:04:20,993
+We will do this inside the update function.
+
+110
+00:04:20,993 --> 00:04:22,492
+So add one now.
+
+111
+00:04:23,645 --> 00:04:25,645
+First we'll increment the timer.
+
+112
+00:04:26,145 --> 00:04:28,145
+Then we'll check if the renderer is enabled
+
+113
+00:04:28,145 --> 00:04:30,145
+and that the timer is more than or
+
+114
+00:04:30,145 --> 00:04:32,145
+equal to onTime.
+
+115
+00:04:32,880 --> 00:04:34,727
+If these conditions are satisfied then
+
+116
+00:04:34,727 --> 00:04:36,603
+we need to switch whether the beam is
+
+117
+00:04:36,603 --> 00:04:38,909
+on or not and reset the timer.
+
+118
+00:04:38,909 --> 00:04:41,413
+We will do this in a short separate function.
+
+119
+00:04:42,493 --> 00:04:44,493
+First we will reset the timer
+
+120
+00:04:44,993 --> 00:04:46,993
+and then we simply set the enabled status
+
+121
+00:04:46,993 --> 00:04:48,993
+of the renderer and the lights
+
+122
+00:04:48,993 --> 00:04:50,993
+to the opposite of themselves.
+
+123
+00:04:53,220 --> 00:04:55,220
+With that short function finished we can
+
+124
+00:04:55,220 --> 00:04:57,935
+now put a call to it inside our update function
+
+125
+00:04:57,935 --> 00:04:59,935
+inside the brackets of the If statement.
+
+126
+00:05:00,863 --> 00:05:02,667
+To finish the script we also need the
+
+127
+00:05:02,667 --> 00:05:04,667
+opposite check for if the renderer is
+
+128
+00:05:04,667 --> 00:05:06,667
+already disabled.
+
+129
+00:05:08,714 --> 00:05:11,072
+The script is now complete, so save it
+
+130
+00:05:11,072 --> 00:05:13,072
+and return to the editor.
+
+131
+00:05:13,572 --> 00:05:14,902
+Now we need another script to
+
+132
+00:05:14,902 --> 00:05:16,557
+manage player detection.
+
+133
+00:05:16,557 --> 00:05:19,502
+We'll call this script Laser PlayerDetection.
+
+134
+00:05:19,502 --> 00:05:21,972
+Click Add Component and choose New Script,
+
+135
+00:05:21,972 --> 00:05:24,711
+naming it LaserPlayerDetection.
+
+136
+00:05:24,711 --> 00:05:27,360
+Double click the icon to open it for editing.
+
+137
+00:05:28,081 --> 00:05:30,081
+Clear the script as usual.
+
+138
+00:05:30,857 --> 00:05:33,603
+This script doesn't need to be referenced elsewhere,
+
+139
+00:05:33,603 --> 00:05:35,075
+nor does it have anything that needs
+
+140
+00:05:35,075 --> 00:05:37,521
+tweaking publicly. As such we don't need
+
+141
+00:05:37,521 --> 00:05:39,521
+any public class variables.
+
+142
+00:05:39,521 --> 00:05:41,259
+It does however need a couple of private
+
+143
+00:05:41,259 --> 00:05:43,259
+variables to store references.
+
+144
+00:05:43,259 --> 00:05:45,509
+The first is to the Player game object.
+
+145
+00:05:45,509 --> 00:05:47,054
+The other is a reference to the last
+
+146
+00:05:47,054 --> 00:05:49,261
+LastPlayerSighting script.
+
+147
+00:05:49,261 --> 00:05:51,261
+We will use the Awake function to setup
+
+148
+00:05:51,261 --> 00:05:53,776
+these references using FindGameObjectWithTag
+
+149
+00:05:53,776 --> 00:05:55,776
+as we have done before.
+
+150
+00:06:03,969 --> 00:06:05,969
+The only other function we need in this script
+
+151
+00:06:05,969 --> 00:06:07,969
+is OnTriggerStay.
+
+152
+00:06:09,988 --> 00:06:12,415
+We need to know if the renderer is enabled first
+
+153
+00:06:12,415 --> 00:06:14,415
+since the lasers should only be detecting
+
+154
+00:06:14,415 --> 00:06:16,415
+when they are on.
+
+155
+00:06:17,371 --> 00:06:19,371
+Given that the lasers are on we need
+
+156
+00:06:19,371 --> 00:06:21,371
+to check if the colliding game object is
+
+157
+00:06:21,371 --> 00:06:23,371
+indeed the player.
+
+158
+00:06:24,147 --> 00:06:26,437
+If it is the player then we need to update
+
+159
+00:06:26,437 --> 00:06:28,898
+the position of the last sighting of the player
+
+160
+00:06:28,898 --> 00:06:31,682
+to the colliding game object's current position.
+
+161
+00:06:33,052 --> 00:06:34,899
+And that's this script finished, and the
+
+162
+00:06:34,899 --> 00:06:37,343
+end of our work on the laser grid.
+
+163
+00:06:37,343 --> 00:06:40,176
+So save your script and return to the Editor.
+
+164
+00:06:43,116 --> 00:06:45,572
+Then drag the FXLaserFence
+
+165
+00:06:45,572 --> 00:06:47,572
+on to the Prefabs folder to save it
+
+166
+00:06:47,572 --> 00:06:49,075
+as a prefab.
+
+167
+00:06:50,252 --> 00:06:52,252
+We can now duplicate the lasers and place
+
+168
+00:06:52,252 --> 00:06:54,252
+at other locations around the level.
+
+169
+00:06:54,959 --> 00:06:57,304
+Place the first duplicate just past the door
+
+170
+00:06:57,304 --> 00:06:59,083
+in the same corridor.
+
+171
+00:06:59,083 --> 00:07:00,901
+We also want to change it's name to show
+
+172
+00:07:00,901 --> 00:07:02,567
+that it's a different laser grid. 
+
+173
+00:07:02,567 --> 00:07:05,064
+Change the number to '002'.
+
+174
+00:07:05,509 --> 00:07:08,069
+So first we will duplicate,
+
+175
+00:07:08,887 --> 00:07:11,766
+then we'll change the name to 2
+
+176
+00:07:12,874 --> 00:07:14,874
+and we'll use the Transform tool to move
+
+177
+00:07:14,874 --> 00:07:16,874
+this up the corridor.
+
+178
+00:07:17,899 --> 00:07:20,453
+To get the exact position set the location to
+
+179
+00:07:20,453 --> 00:07:25,165
+(-8, 1.21, 9.23).
+
+180
+00:07:27,115 --> 00:07:29,463
+Now let's duplicate again. Rename the new
+
+181
+00:07:29,463 --> 00:07:32,886
+duplicate '003' then move this grid to the
+
+182
+00:07:32,886 --> 00:07:34,651
+doorway of the security room
+
+183
+00:07:34,651 --> 00:07:36,651
+facing the battle bus. We can do this
+
+184
+00:07:36,651 --> 00:07:38,651
+by positioning it at 
+
+185
+00:07:38,651 --> 00:07:45,023
+(-17.93, 1.21, 24.08).
+
+186
+00:07:46,807 --> 00:07:48,807
+Select it in the hierarchy and press F
+
+187
+00:07:48,807 --> 00:07:50,501
+with your cursor over the Scene view
+
+188
+00:07:50,501 --> 00:07:52,143
+to focus on it.
+
+189
+00:07:52,143 --> 00:07:54,143
+It should look like this.
+
+190
+00:07:54,143 --> 00:07:56,143
+Now let's duplicate again
+
+191
+00:07:56,143 --> 00:07:58,971
+and rename '004'.
+
+192
+00:07:58,971 --> 00:08:07,765
+Position this at (-23.92, 1.21, 26.1).
+
+193
+00:08:08,873 --> 00:08:10,873
+Then remove the rotation in the Y axis
+
+194
+00:08:10,873 --> 00:08:12,735
+so that it reads 0.
+
+195
+00:08:12,735 --> 00:08:14,735
+Focus again in the Scene view.
+
+196
+00:08:15,898 --> 00:08:17,898
+Now reselect laser grid number 3
+
+197
+00:08:17,898 --> 00:08:19,898
+as it has the correct rotation
+
+198
+00:08:19,898 --> 00:08:21,898
+for the other two laser grids.
+
+199
+00:08:23,213 --> 00:08:27,183
+Duplicate it and rename it '005'.
+
+200
+00:08:27,183 --> 00:08:35,704
+Now reposition this at (-8.95, 1.21, 25.99).
+
+201
+00:08:38,027 --> 00:08:40,879
+Finally duplicate to make number 6.
+
+202
+00:08:41,862 --> 00:08:43,087
+Rename it.
+
+203
+00:08:45,382 --> 00:08:51,733
+And set the position to (-8.95, 1.21, 29.96).
+
+204
+00:08:55,700 --> 00:08:58,813
+Then refocus on these in the Scene view.
+
+205
+00:08:58,813 --> 00:09:00,482
+You will notice that they don't reach
+
+206
+00:09:00,482 --> 00:09:02,856
+the edges of the corridor, so select
+
+207
+00:09:02,856 --> 00:09:05,884
+5 and 6 and set the scale
+
+208
+00:09:05,884 --> 00:09:09,504
+to (1, 1, 5.6).
+
+209
+00:09:09,504 --> 00:09:11,421
+The last thing we need to do with these two
+
+210
+00:09:11,421 --> 00:09:13,421
+larger laser grids is to set the
+
+211
+00:09:13,421 --> 00:09:16,390
+On and Off times of the LaserBlinking scripts.
+
+212
+00:09:16,390 --> 00:09:18,390
+With them both still selected set
+
+213
+00:09:18,390 --> 00:09:21,139
+their On times to 1.5.
+
+214
+00:09:21,139 --> 00:09:23,139
+Now select laser fence number 5
+
+215
+00:09:23,139 --> 00:09:26,508
+and set it's Off time to 1.5.
+
+216
+00:09:28,928 --> 00:09:30,928
+Now select number 6
+
+217
+00:09:30,928 --> 00:09:33,935
+and set the Off time to 1.55.
+
+218
+00:09:36,534 --> 00:09:39,275
+This means that they will flash asynchronously.
+
+219
+00:09:39,275 --> 00:09:41,275
+With that done what we need is a way to
+
+220
+00:09:41,275 --> 00:09:43,275
+turn off some of the lasers.
+
+221
+00:09:43,275 --> 00:09:45,523
+To do this we have switches.
+
+222
+00:09:45,523 --> 00:09:48,338
+We'll start by dragging the model in to the scene.
+
+223
+00:09:48,338 --> 00:09:51,387
+In the Models folder you will find a prop
+
+224
+00:09:51,387 --> 00:09:53,872
+called prop_switchUnit.
+
+225
+00:09:54,384 --> 00:09:55,868
+It should look like this.
+
+226
+00:09:55,868 --> 00:09:57,535
+Move your Scene view so that you can see
+
+227
+00:09:57,535 --> 00:10:00,383
+the second room at the bottom of the map.
+
+228
+00:10:00,993 --> 00:10:02,716
+You will see that there's a poster on the wall
+
+229
+00:10:02,716 --> 00:10:04,716
+with the word 'terminal' written on it.
+
+230
+00:10:06,224 --> 00:10:08,957
+This is where we want to place the first switch.
+
+231
+00:10:08,957 --> 00:10:11,305
+Drag and drop the switch unit
+
+232
+00:10:11,305 --> 00:10:14,204
+somewhere like this. For the exact position
+
+233
+00:10:14,204 --> 00:10:19,078
+we'll place it at (-11.5, 0, 11.3).
+
+234
+00:10:19,578 --> 00:10:23,237
+Then we'll rotate it by 180 in the Y axis.
+
+235
+00:10:23,237 --> 00:10:25,584
+When all of the switches are placed in to the scene
+
+236
+00:10:25,584 --> 00:10:27,584
+we'll want to re-bake the light map
+
+237
+00:10:27,584 --> 00:10:29,170
+for higher quality.
+
+238
+00:10:29,170 --> 00:10:31,170
+So that these are included in the bake
+
+239
+00:10:31,170 --> 00:10:32,894
+make sure to switch the game object to
+
+240
+00:10:32,894 --> 00:10:34,604
+Static by checking the box at the top
+
+241
+00:10:34,604 --> 00:10:37,312
+of the inspector. Choose Yes to changing
+
+242
+00:10:37,312 --> 00:10:39,312
+the child objects of this.
+
+243
+00:10:40,102 --> 00:10:42,074
+We will need a couple of colliders.
+
+244
+00:10:42,074 --> 00:10:44,074
+First we will use a box collider so that
+
+245
+00:10:44,074 --> 00:10:46,791
+the player cannot run through the switch.
+
+246
+00:10:46,791 --> 00:10:50,622
+Click Add Component - Physics - Box Collider.
+
+247
+00:10:52,282 --> 00:10:54,102
+The box collider will naturally try and fit
+
+248
+00:10:54,102 --> 00:10:56,102
+the entire model, which in this case
+
+249
+00:10:56,102 --> 00:10:58,102
+includes the wiring on the floor.
+
+250
+00:10:58,102 --> 00:11:00,102
+We don't need it to do that so we will 
+
+251
+00:11:00,102 --> 00:11:01,865
+adjust the collider slightly.
+
+252
+00:11:01,865 --> 00:11:11,439
+Set the centre of the collider to (0.3, 0.8, -0.15).
+
+253
+00:11:12,215 --> 00:11:18,310
+Set the size of the collider to (1.3, 1.6, 0.81).
+
+254
+00:11:20,412 --> 00:11:23,372
+Now we need a sphere trigger collider.
+
+255
+00:11:23,372 --> 00:11:25,372
+This will be how we can tell the player is
+
+256
+00:11:25,372 --> 00:11:27,191
+close enough to use the switch.
+
+257
+00:11:27,191 --> 00:11:29,191
+Unity asks us if we mean to have
+
+258
+00:11:29,191 --> 00:11:31,191
+two colliders on one game object
+
+259
+00:11:31,191 --> 00:11:33,485
+and we do so we will choose to add
+
+260
+00:11:33,485 --> 00:11:35,014
+rather than replace.
+
+261
+00:11:35,014 --> 00:11:38,356
+Go to Add Component - Physics - Sphere Collider
+
+262
+00:11:38,356 --> 00:11:39,758
+and choose Add.
+
+263
+00:11:39,758 --> 00:11:42,599
+We will set the centre to (0, 1, 1).
+
+264
+00:11:42,599 --> 00:11:45,629
+We will set the radius to 1.5
+
+265
+00:11:47,191 --> 00:11:49,888
+and we'll check the Is Trigger checkbox.
+
+266
+00:11:50,388 --> 00:11:52,056
+We want the switch to make a noise when
+
+267
+00:11:52,056 --> 00:11:54,194
+the laser has been deactivated.
+
+268
+00:11:54,194 --> 00:11:56,552
+As such we will add an audio source component
+
+269
+00:11:56,552 --> 00:11:58,014
+to the switch.
+
+270
+00:11:58,707 --> 00:12:02,233
+Click Add Component - Audio - Audio Source.
+
+271
+00:12:03,051 --> 00:12:05,051
+We will uncheck Play On Awake so that the
+
+272
+00:12:05,051 --> 00:12:07,051
+sound does not happen when the game begins.
+
+273
+00:12:07,675 --> 00:12:09,675
+And from the Audio folder in the Project Panel
+
+274
+00:12:09,675 --> 00:12:13,114
+we will drag and drop the clip switch_deactivation
+
+275
+00:12:13,114 --> 00:12:15,114
+on to the audio clip property.
+
+276
+00:12:15,114 --> 00:12:17,804
+Now we need a script to deactivate the laser.
+
+277
+00:12:17,804 --> 00:12:21,384
+We will name this script LaserSwitchDeactivation.
+
+278
+00:12:24,605 --> 00:12:26,605
+Double click the icon to launch for editing.
+
+279
+00:12:27,243 --> 00:12:29,243
+Prepare the script for writing.
+
+280
+00:12:32,423 --> 00:12:34,423
+The first thing we're going to need in this script
+
+281
+00:12:34,423 --> 00:12:36,423
+is a reference to the Laser game object
+
+282
+00:12:36,423 --> 00:12:38,423
+we're going to turn off. We need this to be
+
+283
+00:12:38,423 --> 00:12:40,242
+public so that we can drag on the appropriate
+
+284
+00:12:40,242 --> 00:12:41,991
+laser once we're finished.
+
+285
+00:12:41,991 --> 00:12:43,991
+We also need a public material so that
+
+286
+00:12:43,991 --> 00:12:45,991
+we can change what the screen looks like
+
+287
+00:12:45,991 --> 00:12:47,991
+when the laser has been unlocked.
+
+288
+00:12:48,187 --> 00:12:50,187
+The only other class variable we will need
+
+289
+00:12:50,187 --> 00:12:51,980
+for this script is a reference for the player
+
+290
+00:12:51,980 --> 00:12:54,812
+game object, which can be private.
+
+291
+00:12:54,812 --> 00:12:56,812
+Next we need to setup the reference to the player
+
+292
+00:12:56,812 --> 00:12:59,271
+as we have done in the awake function before.
+
+293
+00:12:59,947 --> 00:13:01,670
+Next we need to check if the player is within
+
+294
+00:13:01,670 --> 00:13:03,573
+the trigger zone, so we will use the 
+
+295
+00:13:03,573 --> 00:13:05,573
+OnTriggerStay function as we did with
+
+296
+00:13:05,573 --> 00:13:07,573
+the cameras.
+
+297
+00:13:08,833 --> 00:13:10,833
+Given that the player is within the trigger zone
+
+298
+00:13:10,833 --> 00:13:12,833
+the next thing to check is whether the switch
+
+299
+00:13:12,833 --> 00:13:14,833
+button is being pressed.
+
+300
+00:13:16,520 --> 00:13:19,392
+At this point we want to deactivate the laser.
+
+301
+00:13:19,392 --> 00:13:22,112
+We will make a function in order to do this.
+
+302
+00:13:22,112 --> 00:13:24,543
+We will call it LaserDeactivation.
+
+303
+00:13:26,615 --> 00:13:28,615
+The first thing to do in this function is to
+
+304
+00:13:28,615 --> 00:13:30,905
+disable the Laser game object. We do this
+
+305
+00:13:30,905 --> 00:13:32,905
+using the SetActive function.
+
+306
+00:13:33,971 --> 00:13:35,971
+Next we need a reference to the renderer
+
+307
+00:13:35,971 --> 00:13:37,737
+component of the switch's screen.
+
+308
+00:13:37,737 --> 00:13:39,513
+The screen is a child game object of
+
+309
+00:13:39,513 --> 00:13:41,818
+of the switch so we can reference that
+
+310
+00:13:41,818 --> 00:13:43,818
+using transform.Find
+
+311
+00:13:43,818 --> 00:13:45,818
+Having found the child we can
+
+312
+00:13:45,818 --> 00:13:47,818
+access the renderer component.
+
+313
+00:13:47,818 --> 00:13:49,818
+With that reference we can set the material
+
+314
+00:13:49,818 --> 00:13:51,818
+to the unlocked material which we will
+
+315
+00:13:51,818 --> 00:13:53,818
+assign in the Inspector later.
+
+316
+00:13:55,423 --> 00:13:57,423
+We can also play the deactivating sound
+
+317
+00:13:57,423 --> 00:13:59,423
+from the audio source.
+
+318
+00:13:59,923 --> 00:14:01,923
+Now we can add a call to this function
+
+319
+00:14:01,923 --> 00:14:03,923
+in our OnTriggerStay function.
+
+320
+00:14:05,970 --> 00:14:07,970
+With the script complete we can save and
+
+321
+00:14:07,970 --> 00:14:09,970
+return to the editor.
+
+322
+00:14:11,713 --> 00:14:14,076
+Now we need to assign our public references.
+
+323
+00:14:14,076 --> 00:14:16,421
+Let's start by dropping the unlocked material
+
+324
+00:14:16,421 --> 00:14:19,406
+on to the UnlockedMat public variable.
+
+325
+00:14:19,906 --> 00:14:22,534
+In the Materials folder in the Project panel
+
+326
+00:14:22,534 --> 00:14:23,662
+you will find something called
+
+327
+00:14:23,662 --> 00:14:29,078
+prop_switchUnit_screenUnlocked
+
+328
+00:14:30,752 --> 00:14:34,108
+Drag and drop this on to the UnlockedMat variable.
+
+329
+00:14:34,108 --> 00:14:37,311
+We are now ready to make a prefab of our laser switch.
+
+330
+00:14:37,311 --> 00:14:38,770
+We haven't yet applied the laser which we
+
+331
+00:14:38,770 --> 00:14:40,770
+will be deactivating with our switch
+
+332
+00:14:40,770 --> 00:14:43,092
+but since that will be different with each instance
+
+333
+00:14:43,092 --> 00:14:45,092
+we don't want to store it in the prefabs
+
+334
+00:14:45,092 --> 00:14:46,775
+so we will make it now.
+
+335
+00:14:46,775 --> 00:14:48,775
+Drag and drop prop_switchUnit on to
+
+336
+00:14:48,775 --> 00:14:51,383
+the Prefabs folder in the Project panel.
+
+337
+00:14:53,126 --> 00:14:55,486
+We're going to have four switches around the scene.
+
+338
+00:14:55,486 --> 00:14:57,486
+So let's name them using the same numbering
+
+339
+00:14:57,486 --> 00:14:59,954
+convention we used for the laser grids.
+
+340
+00:14:59,954 --> 00:15:03,450
+Add '001' to the name of the first switch.
+
+341
+00:15:06,630 --> 00:15:08,287
+Now we can duplicate the switch and place
+
+342
+00:15:08,287 --> 00:15:09,803
+it around the level.
+
+343
+00:15:09,803 --> 00:15:11,803
+The first duplicate will be on the far wall
+
+344
+00:15:11,803 --> 00:15:14,890
+of the lower right room. So duplicate,
+
+345
+00:15:15,597 --> 00:15:17,597
+rename '002',
+
+346
+00:15:18,097 --> 00:15:23,500
+place this at (-1.6, 0, 11.3).
+
+347
+00:15:25,257 --> 00:15:26,702
+It should look like this.
+
+348
+00:15:26,702 --> 00:15:28,702
+Now duplicate once more.
+
+349
+00:15:29,768 --> 00:15:31,768
+Rename it '003'
+
+350
+00:15:31,768 --> 00:15:38,681
+and place this one at (-17.7, 0, 33.3).
+
+351
+00:15:41,129 --> 00:15:44,743
+This should be on the far wall of the security room.
+
+352
+00:15:44,743 --> 00:15:46,743
+It should look like this.
+
+353
+00:15:47,878 --> 00:15:50,265
+The last one will go in the small alcove
+
+354
+00:15:50,265 --> 00:15:52,265
+on the upper left of the level.
+
+355
+00:15:53,276 --> 00:15:56,743
+So duplicate, rename '004'
+
+356
+00:15:57,823 --> 00:16:02,887
+and place it at position (-30, 0, 33.3).
+
+357
+00:16:03,470 --> 00:16:05,470
+It should look like this.
+
+358
+00:16:07,945 --> 00:16:09,945
+Now we are ready to assign laser to the
+
+359
+00:16:09,945 --> 00:16:11,945
+switches so that they switch off the
+
+360
+00:16:11,945 --> 00:16:13,750
+correct laser grids.
+
+361
+00:16:13,750 --> 00:16:17,220
+The first switch will deactivate laser number 1.
+
+362
+00:16:17,220 --> 00:16:19,220
+So select the first switch
+
+363
+00:16:19,830 --> 00:16:22,485
+and in the LaserSwitchDeactivation script
+
+364
+00:16:22,485 --> 00:16:25,421
+drag and drop laser fence 01
+
+365
+00:16:26,888 --> 00:16:29,802
+Next we can apply laser2 to switch2
+
+366
+00:16:29,802 --> 00:16:34,352
+laser3 to switch3 and laser4 to switch4 as shown.
+
+367
+00:16:42,477 --> 00:16:44,477
+Now all of our laser grids are setup
+
+368
+00:16:44,477 --> 00:16:46,477
+with appropriate switches and will function
+
+369
+00:16:46,477 --> 00:16:48,477
+correctly. You can check the sounds
+
+370
+00:16:48,477 --> 00:16:51,687
+on these by enabling the Audio Preview button
+
+371
+00:16:51,687 --> 00:16:53,324
+at the top of the Scene view.
+
+372
+00:17:00,675 --> 00:17:02,675
+Now we're nearly ready to do a high quality bake
+
+373
+00:17:02,675 --> 00:17:05,211
+of our light map, but before we do that
+
+374
+00:17:05,211 --> 00:17:07,211
+we're going to tidy up our scripts folder.
+
+375
+00:17:07,211 --> 00:17:09,655
+Select the Assets folder in the Project panel
+
+376
+00:17:09,655 --> 00:17:11,282
+and drag in the three scripts we've made
+
+377
+00:17:11,282 --> 00:17:13,282
+in this assignment.
+
+378
+00:17:14,887 --> 00:17:16,887
+Now you can see our Scripts folder is
+
+379
+00:17:16,887 --> 00:17:18,887
+beginning to get bloated and has a variety
+
+380
+00:17:18,887 --> 00:17:20,651
+of different scripts involved.
+
+381
+00:17:20,651 --> 00:17:22,651
+In the Scripts folder we'll make folders to
+
+382
+00:17:22,651 --> 00:17:24,943
+store these to keep them neatly.
+
+383
+00:17:24,943 --> 00:17:28,375
+First of all create a folder called AlarmSystems.
+
+384
+00:17:29,179 --> 00:17:31,748
+In to this folder we will place AlarmLight,
+
+385
+00:17:33,961 --> 00:17:37,172
+CCTVPlayerDetection, LaserBlinking,
+
+386
+00:17:37,921 --> 00:17:42,022
+LaserPlayerDetection and LaserSwitchDeactivation.
+
+387
+00:17:42,022 --> 00:17:46,279
+Leaving the last three scripts in the folder.
+
+388
+00:17:46,279 --> 00:17:50,048
+Now we will make another folder called GameController.
+
+389
+00:17:51,018 --> 00:17:54,233
+In to this we will place the LastPlayerSighting script.
+
+390
+00:17:55,548 --> 00:17:58,034
+Now we will make a folder for our screen fader.
+
+391
+00:18:00,274 --> 00:18:03,876
+And finally we will make a folder for our unapplied scripts.
+
+392
+00:18:03,876 --> 00:18:06,390
+So remember that Tags is simply a library
+
+393
+00:18:06,390 --> 00:18:08,390
+of different constants that we can reference
+
+394
+00:18:08,390 --> 00:18:11,310
+in other scripts, it's not applied to a game object.
+
+395
+00:18:11,310 --> 00:18:13,992
+This is why we place it in a folder called Unapplied.
+
+396
+00:18:16,807 --> 00:18:18,807
+Now with our scripts tidied up we will
+
+397
+00:18:18,807 --> 00:18:21,384
+do a high quality bake of our light map.
+
+398
+00:18:21,384 --> 00:18:23,384
+Select the light mapping tab, or if you've
+
+399
+00:18:23,384 --> 00:18:25,968
+close it go to Window - Light Mapping.
+
+400
+00:18:25,968 --> 00:18:30,278
+Go to the Bake tab and set Quality from Low to High.
+
+401
+00:18:30,278 --> 00:18:33,079
+Also set the Padding to a value of 3.
+
+402
+00:18:33,759 --> 00:18:36,410
+Now we're ready to do our bake so simply click
+
+403
+00:18:36,410 --> 00:18:38,173
+Bake Scene at the bottom.
+
+404
+00:18:38,673 --> 00:18:40,411
+Becasue this is high quality this will take
+
+405
+00:18:40,411 --> 00:18:43,669
+a longer time than our low bake took earlier.
+
+406
+00:18:43,669 --> 00:18:45,669
+This high quality bake will give you a much
+
+407
+00:18:45,669 --> 00:18:47,669
+better looking environment and a 
+
+408
+00:18:47,669 --> 00:18:49,669
+much more accurate representation
+
+409
+00:18:49,669 --> 00:18:51,100
+of the lighting involved.
+
+410
+00:18:51,100 --> 00:18:53,504
+So when it's done have a look around the environment
+
+411
+00:18:53,504 --> 00:18:55,504
+and check out the changes that we've made.
+
+412
+00:18:55,838 --> 00:18:58,700
+So take this opportunity to have a break from the computer.
+
+413
+00:18:58,700 --> 00:19:01,087
+This is also the end of the first chapter.
+
+414
+00:19:01,087 --> 00:19:03,087
+In the next chapter we will focus on
+
+415
+00:19:03,087 --> 00:19:04,284
+creating the player.
+
+416
+00:19:04,784 --> 00:19:06,784
+Once the bake is complete remember to
+
+417
+00:19:06,784 --> 00:19:09,820
+save your scene and save your project from the File menu.

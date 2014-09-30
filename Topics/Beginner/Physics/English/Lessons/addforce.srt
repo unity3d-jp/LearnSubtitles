@@ -1,0 +1,191 @@
+1
+00:00:00,318 --> 00:00:02,710
+The Add Force function is a function
+
+2
+00:00:02,710 --> 00:00:05,378
+that's used to start a physics object moving,
+
+3
+00:00:05,378 --> 00:00:07,100
+or to change the speed or direction
+
+4
+00:00:07,100 --> 00:00:08,085
+of it's movement.
+
+5
+00:00:08,274 --> 00:00:10,610
+The function has one required parameter
+
+6
+00:00:10,610 --> 00:00:12,694
+and one optional parameter. The first
+
+7
+00:00:12,694 --> 00:00:14,694
+parameter is a vector that represents
+
+8
+00:00:14,694 --> 00:00:16,694
+a direction and magnitude of the force
+
+9
+00:00:16,694 --> 00:00:19,092
+to be applied. In this example
+
+10
+00:00:19,092 --> 00:00:21,820
+we're using minus transform.forward.
+
+11
+00:00:22,140 --> 00:00:24,223
+Remember that transform.forward is a
+
+12
+00:00:24,223 --> 00:00:26,739
+shortcut to the Z axis in local space
+
+13
+00:00:26,739 --> 00:00:27,867
+of the object.
+
+14
+00:00:27,867 --> 00:00:30,385
+We're using the minus symbol here to use the inverse of
+
+15
+00:00:30,385 --> 00:00:32,385
+that direction. We're then multiplying this
+
+16
+00:00:32,385 --> 00:00:35,054
+by 500. This example uses a MouseDown
+
+17
+00:00:35,054 --> 00:00:36,789
+function for the object and when we click
+
+18
+00:00:36,789 --> 00:00:39,522
+on the object, in addition to the added force
+
+19
+00:00:39,522 --> 00:00:41,522
+we're enabling gravity on the object.
+
+20
+00:00:41,746 --> 00:00:43,524
+Let's see what this does.
+
+21
+00:00:43,845 --> 00:00:45,678
+This script is applied to the door
+
+22
+00:00:45,678 --> 00:00:47,678
+in the centre of our blast door prop
+
+23
+00:00:49,131 --> 00:00:52,878
+and when I click - a force is applied
+
+24
+00:00:52,878 --> 00:00:54,878
+in the inverse direction.
+
+25
+00:00:56,138 --> 00:00:58,138
+Because I'm using the MouseDown function
+
+26
+00:00:58,138 --> 00:01:00,138
+this force is only applied once.
+
+27
+00:01:00,138 --> 00:01:02,254
+But add force can also be used in fixed
+
+28
+00:01:02,254 --> 00:01:04,254
+update to apply a constant force.
+
+29
+00:01:04,367 --> 00:01:06,547
+The second parameter is the mode of
+
+30
+00:01:06,547 --> 00:01:07,925
+force being used.
+
+31
+00:01:08,287 --> 00:01:10,369
+If this is left out it will default
+
+32
+00:01:10,369 --> 00:01:11,897
+to the type Force.
+
+33
+00:01:12,162 --> 00:01:14,162
+This is used for continuous changes
+
+34
+00:01:14,162 --> 00:01:15,907
+that are effected by mass.
+
+35
+00:01:15,907 --> 00:01:18,183
+Acceleration is for continuous changes
+
+36
+00:01:18,183 --> 00:01:20,032
+that aren't effected by mass.
+
+37
+00:01:20,032 --> 00:01:22,438
+Impulse is for an instant change that is
+
+38
+00:01:22,438 --> 00:01:24,940
+effected by mass and Velocity Change
+
+39
+00:01:24,940 --> 00:01:26,940
+is for an instant change that is not
+
+40
+00:01:26,940 --> 00:01:28,442
+effected by mass.
+
+41
+00:01:28,442 --> 00:01:30,274
+You should also keep in mind that forces
+
+42
+00:01:30,274 --> 00:01:31,991
+are dampened by the rigidbody's
+
+43
+00:01:31,991 --> 00:01:33,991
+drag property, for example, 
+
+44
+00:01:33,991 --> 00:01:35,991
+if drag is increased,
+
+45
+00:01:41,601 --> 00:01:44,180
+then the force applied will be less effective.
+
+46
+00:01:45,177 --> 00:01:47,177
+And naturally on the opposing side
+
+47
+00:01:47,177 --> 00:01:50,086
+if the amount of force is increased
+
+48
+00:01:50,086 --> 00:01:52,773
+then the force will be more effective.

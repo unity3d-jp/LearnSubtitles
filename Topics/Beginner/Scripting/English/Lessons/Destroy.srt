@@ -1,0 +1,187 @@
+1
+00:00:00,000 --> 00:00:02,141
+The Destroy function can be used to remove
+
+2
+00:00:02,141 --> 00:00:04,141
+gameobjects or components from
+
+3
+00:00:04,141 --> 00:00:05,708
+gameobjects at runtime.
+
+4
+00:00:06,208 --> 00:00:08,469
+This can also be done with a time delay
+
+5
+00:00:08,469 --> 00:00:11,442
+by using it's second argument, a float number.
+
+6
+00:00:11,942 --> 00:00:13,942
+To destroy a gameobject, for example, 
+
+7
+00:00:13,942 --> 00:00:15,942
+we could simply refer to the gameobject
+
+8
+00:00:15,942 --> 00:00:17,612
+that the script is attached to.
+
+9
+00:00:17,612 --> 00:00:20,663
+In this example our prop samoflange object
+
+10
+00:00:20,663 --> 00:00:22,663
+has the script attached to it, and when the
+
+11
+00:00:22,663 --> 00:00:24,815
+spacebar is pressed the gameobject
+
+12
+00:00:24,815 --> 00:00:26,815
+will be destroyed.
+
+13
+00:00:29,345 --> 00:00:31,345
+Now a problem could be that you may be using
+
+14
+00:00:31,345 --> 00:00:33,345
+this script for various purposes
+
+15
+00:00:33,345 --> 00:00:35,983
+so it doesn't make sense to destroy the object
+
+16
+00:00:35,983 --> 00:00:37,983
+as the script component will be removed
+
+17
+00:00:37,983 --> 00:00:39,983
+too, as it's attached to the object.
+
+18
+00:00:39,983 --> 00:00:42,696
+So instead you'd likely use a reference
+
+19
+00:00:42,696 --> 00:00:45,581
+to another object. Here we've setup a public
+
+20
+00:00:45,581 --> 00:00:47,581
+variable called Other to refer 
+
+21
+00:00:47,581 --> 00:00:51,147
+to another object. Then in the inspector
+
+22
+00:00:51,147 --> 00:00:53,703
+we'll drag on another object to use,
+
+23
+00:00:53,703 --> 00:00:55,703
+for example our physics door.
+
+24
+00:00:58,233 --> 00:01:00,233
+Now when we press play
+
+25
+00:01:00,733 --> 00:01:02,733
+and press space
+
+26
+00:01:03,233 --> 00:01:05,233
+our door gets removed from the scene.
+
+27
+00:01:06,962 --> 00:01:08,962
+You can also use the Destroy command to remove
+
+28
+00:01:08,962 --> 00:01:12,065
+components, rather than entire game objects.
+
+29
+00:01:12,065 --> 00:01:14,580
+For this we use the GetComponent function
+
+30
+00:01:14,580 --> 00:01:16,580
+inside the destroy parenthesis
+
+31
+00:01:16,580 --> 00:01:18,359
+to refer to a component.
+
+32
+00:01:18,845 --> 00:01:20,873
+In this example I'll destroy the mesh
+
+33
+00:01:20,873 --> 00:01:22,873
+renderer component so that the object
+
+34
+00:01:22,873 --> 00:01:24,873
+is no longer visibly rendered.
+
+35
+00:01:28,328 --> 00:01:30,328
+Here you can see that the object is still
+
+36
+00:01:30,328 --> 00:01:33,095
+in the game and has all of it's other
+
+37
+00:01:33,095 --> 00:01:34,859
+components, except for the mesh renderer
+
+38
+00:01:34,859 --> 00:01:37,632
+that we removed. All of these examples can
+
+39
+00:01:37,632 --> 00:01:40,203
+include a number as the second argument
+
+40
+00:01:40,203 --> 00:01:42,203
+in order to create a timed delay.
+
+41
+00:01:42,620 --> 00:01:45,829
+For example, if I add 3 as a floating
+
+42
+00:01:45,829 --> 00:01:48,394
+point number, as my second argument,
+
+43
+00:01:48,894 --> 00:01:50,208
+save the script.
+
+44
+00:01:52,886 --> 00:01:54,886
+Once I've pressed the spacebar
+
+45
+00:01:56,422 --> 00:01:58,422
+there will be a 3 second delay
+
+46
+00:01:58,922 --> 00:02:00,922
+and then my object will be removed.
+
+47
+00:02:01,229 --> 00:02:04,002
+This works the same for destroying components.

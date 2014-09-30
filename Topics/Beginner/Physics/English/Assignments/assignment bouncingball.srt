@@ -1,0 +1,731 @@
+1
+00:00:00,746 --> 00:00:02,486
+For this assignment we'll be using the
+
+2
+00:00:02,486 --> 00:00:04,417
+empty scene in the robot lab.
+
+3
+00:00:04,417 --> 00:00:06,583
+Open the empty scene and then to make
+
+4
+00:00:06,583 --> 00:00:08,583
+sure that we maintain our empty scene
+
+5
+00:00:08,583 --> 00:00:11,205
+go to File - Save Scene As
+
+6
+00:00:12,741 --> 00:00:14,741
+save it in to the Scenes folder
+
+7
+00:00:14,741 --> 00:00:16,741
+and we'll call this Bouncing Ball.
+
+8
+00:00:19,976 --> 00:00:21,976
+As usual Unity takes you straight into the
+
+9
+00:00:21,976 --> 00:00:23,976
+scene that you've just saved, so we're now
+
+10
+00:00:23,976 --> 00:00:25,976
+working in the bouncing ball scene.
+
+11
+00:00:25,976 --> 00:00:27,976
+A good first thing to do in Unity is
+
+12
+00:00:27,976 --> 00:00:30,290
+make the classic bouncing ball that you
+
+13
+00:00:30,290 --> 00:00:32,026
+may have done in other pieces of software.
+
+14
+00:00:32,026 --> 00:00:34,247
+In the models folder we have some
+
+15
+00:00:34,247 --> 00:00:36,247
+primitive shapes, such as the spherical
+
+16
+00:00:36,247 --> 00:00:38,703
+'samoflange' and the cubic
+
+17
+00:00:38,703 --> 00:00:40,758
+'power cube', as well as a number of other
+
+18
+00:00:40,758 --> 00:00:42,758
+different assets.
+
+19
+00:00:44,791 --> 00:00:46,791
+From the models folder, drag and drop
+
+20
+00:00:46,791 --> 00:00:49,554
+the 'prop samoflange' object in to the scene.
+
+21
+00:00:49,554 --> 00:00:52,043
+Remember that you can use the translate tool
+
+22
+00:00:52,043 --> 00:00:54,043
+to select and move it around.
+
+23
+00:00:54,667 --> 00:00:56,667
+This can be done by dragging the handles
+
+24
+00:00:57,167 --> 00:00:59,943
+or by dragging the planes on the object.
+
+25
+00:01:01,327 --> 00:01:03,107
+You should notice that I'm using the F key
+
+26
+00:01:03,107 --> 00:01:05,480
+to focus on that object and move the scene
+
+27
+00:01:05,480 --> 00:01:07,480
+view in to focus on it too.
+
+28
+00:01:08,298 --> 00:01:10,298
+To make sure that our object is lit by our
+
+29
+00:01:10,298 --> 00:01:12,298
+dynamic lights make sure that the layer
+
+30
+00:01:12,298 --> 00:01:15,824
+of the samoflange is set to Dynamic Objects.
+
+31
+00:01:17,097 --> 00:01:18,518
+Now you should see that our object is
+
+32
+00:01:18,518 --> 00:01:20,754
+nicely lit and in the mesh renderer
+
+33
+00:01:20,754 --> 00:01:23,268
+we can also check 'Use Light Probes'.
+
+34
+00:01:23,641 --> 00:01:25,297
+Now our object will be properly lit
+
+35
+00:01:25,297 --> 00:01:26,649
+within the scene.
+
+36
+00:01:27,356 --> 00:01:29,356
+Next we'll add a rigidbody component
+
+37
+00:01:29,356 --> 00:01:31,135
+so click the Add Component button 
+
+38
+00:01:31,135 --> 00:01:33,894
+on the inspector and go to Physics - 
+
+39
+00:01:34,394 --> 00:01:36,394
+Rigidbody.
+
+40
+00:01:37,819 --> 00:01:39,819
+However we can't use a rigidbody
+
+41
+00:01:39,819 --> 00:01:41,441
+without a collider.
+
+42
+00:01:42,015 --> 00:01:44,821
+So let's go to Add Component - Physics -
+
+43
+00:01:44,821 --> 00:01:47,387
+Sphere Collider. This gives our spherical
+
+44
+00:01:47,387 --> 00:01:50,050
+object a bounding area and if we zoom in
+
+45
+00:01:50,050 --> 00:01:51,678
+you should see that there's a green outline
+
+46
+00:01:51,678 --> 00:01:53,860
+going around it. Looking at the rigidbody
+
+47
+00:01:53,860 --> 00:01:55,413
+you can see that we have
+
+48
+00:01:55,413 --> 00:01:57,718
+properties for mass, drag, etcetera
+
+49
+00:01:57,718 --> 00:02:00,050
+and also a checkbox for Use Gravity.
+
+50
+00:02:00,232 --> 00:02:01,983
+By default this is checked and that's
+
+51
+00:02:01,983 --> 00:02:03,583
+exactly what we want to do here as well,
+
+52
+00:02:03,583 --> 00:02:05,583
+and what we'll also do is effect the kind of
+
+53
+00:02:05,583 --> 00:02:07,583
+friction that we want this object to have.
+
+54
+00:02:08,428 --> 00:02:10,428
+By default if I press play now
+
+55
+00:02:12,047 --> 00:02:13,545
+the object will fall to the floor
+
+56
+00:02:13,852 --> 00:02:15,989
+but what we want to do is add in a friction
+
+57
+00:02:15,989 --> 00:02:17,989
+response too. This is handled
+
+58
+00:02:17,989 --> 00:02:19,836
+by the physics material on the collider.
+
+59
+00:02:19,836 --> 00:02:22,225
+So we're going to make a new physics material
+
+60
+00:02:22,225 --> 00:02:24,225
+so I'm going to select the Assets folder
+
+61
+00:02:24,725 --> 00:02:26,670
+and then we'll make a folder for this,
+
+62
+00:02:26,670 --> 00:02:28,670
+so click the Create button and choose Folder
+
+63
+00:02:29,170 --> 00:02:30,907
+and make a new folder in which to store
+
+64
+00:02:30,907 --> 00:02:32,907
+physic materials.
+
+65
+00:02:34,636 --> 00:02:36,175
+Then because we want to create this 
+
+66
+00:02:36,175 --> 00:02:38,175
+physics material inside that folder
+
+67
+00:02:38,175 --> 00:02:40,637
+select the folder then go back to Create
+
+68
+00:02:41,137 --> 00:02:42,753
+and choose Physics Material.
+
+69
+00:02:43,554 --> 00:02:45,280
+This creates it inside the folder.
+
+70
+00:02:45,612 --> 00:02:47,612
+And as soon as you create it you can then
+
+71
+00:02:47,612 --> 00:02:50,342
+name it, and you should name it Bouncy.
+
+72
+00:02:50,662 --> 00:02:52,662
+Because that's what we're going to create - a bouncy ball.
+
+73
+00:02:52,662 --> 00:02:54,662
+Before setting up this asset I'm going
+
+74
+00:02:54,662 --> 00:02:56,524
+to apply it to the object so that we don't
+
+75
+00:02:56,524 --> 00:02:58,802
+forget later. So reselect the
+
+76
+00:02:58,802 --> 00:03:01,410
+prop samoflange and then drag Bouncy
+
+77
+00:03:01,410 --> 00:03:03,410
+from the project panel and drop it on
+
+78
+00:03:03,410 --> 00:03:05,081
+to the physic material setting
+
+79
+00:03:05,081 --> 00:03:07,081
+in the component in the inspector.
+
+80
+00:03:09,694 --> 00:03:12,891
+Now reselect the asset in the project panel
+
+81
+00:03:14,234 --> 00:03:16,234
+and we'll take a look at it's settings.
+
+82
+00:03:16,568 --> 00:03:18,059
+You can see here that a key one that we
+
+83
+00:03:18,059 --> 00:03:20,059
+want to play with is Bounciness.
+
+84
+00:03:20,559 --> 00:03:23,612
+And I'm going to set this to 0.8.
+
+85
+00:03:24,485 --> 00:03:26,761
+Now if I press play what you'll see
+
+86
+00:03:28,035 --> 00:03:30,035
+is that it bounces to a halt.
+
+87
+00:03:30,397 --> 00:03:33,132
+The reason for this is Bounce Combine.
+
+88
+00:03:33,132 --> 00:03:35,132
+Because what this does is average the
+
+89
+00:03:35,132 --> 00:03:37,132
+friction on the object and the 
+
+90
+00:03:37,132 --> 00:03:39,577
+object that it's colliding with - the floor.
+
+91
+00:03:39,994 --> 00:03:42,631
+So whilst I've set this to 0.8
+
+92
+00:03:42,631 --> 00:03:44,493
+because it's averaging the two, what we're
+
+93
+00:03:44,493 --> 00:03:46,493
+actually getting is 0.4.
+
+94
+00:03:46,744 --> 00:03:48,744
+So what we'll do is set Bounce Combine
+
+95
+00:03:48,744 --> 00:03:50,744
+to maximum. Do that now.
+
+96
+00:03:52,252 --> 00:03:54,988
+Then you can test out again by pressing play.
+
+97
+00:03:56,261 --> 00:03:57,619
+And now that you can see that it has
+
+98
+00:03:57,619 --> 00:03:59,619
+more bounce to it.
+
+99
+00:04:02,992 --> 00:04:04,992
+But if we want it to keep bouncing forever
+
+100
+00:04:05,340 --> 00:04:07,340
+we should set Bounciness to a value of 1.
+
+101
+00:04:08,351 --> 00:04:09,620
+And we're going to make things a bit more
+
+102
+00:04:09,620 --> 00:04:11,620
+interesting now. With our object
+
+103
+00:04:11,620 --> 00:04:13,399
+roughly in the middle of the scene
+
+104
+00:04:13,927 --> 00:04:16,991
+reselect it and choose the Translate tool.
+
+105
+00:04:16,991 --> 00:04:18,991
+Remember you can use W on the keyboard
+
+106
+00:04:18,991 --> 00:04:20,991
+to select that tool at any time.
+
+107
+00:04:22,375 --> 00:04:24,181
+I'm going to drag it up so that it's a little
+
+108
+00:04:24,181 --> 00:04:26,181
+high and then from the Models folder
+
+109
+00:04:26,432 --> 00:04:28,432
+I'm going to locate my bench.
+
+110
+00:04:28,932 --> 00:04:30,751
+So grab PropBenchWork
+
+111
+00:04:31,101 --> 00:04:33,101
+and drag that in to the scene.
+
+112
+00:04:33,891 --> 00:04:35,891
+Yet again I'm going to put it on the dynamic
+
+113
+00:04:35,891 --> 00:04:37,891
+objects layer and I'm going
+
+114
+00:04:37,891 --> 00:04:39,726
+to go in to the mesh renderer and 
+
+115
+00:04:39,726 --> 00:04:41,726
+choose Use Light Probes so that it's
+
+116
+00:04:41,726 --> 00:04:44,019
+nicely lit by our dynamic lights.
+
+117
+00:04:44,019 --> 00:04:46,019
+Then what I'm going to do is add a collider
+
+118
+00:04:46,019 --> 00:04:48,019
+because we're going to make our samoflange ball
+
+119
+00:04:48,019 --> 00:04:49,635
+bounce off of the bench.
+
+120
+00:04:50,119 --> 00:04:52,772
+So I'm going to go to Add Component - Physics
+
+121
+00:04:52,772 --> 00:04:54,772
+and nice and simply I'm just going to add
+
+122
+00:04:54,772 --> 00:04:56,565
+a primitive box collider to this.
+
+123
+00:04:56,913 --> 00:04:59,339
+Then hover your mouse over the scene view
+
+124
+00:04:59,339 --> 00:05:01,339
+and press F to focus on the object
+
+125
+00:05:01,339 --> 00:05:03,339
+so that we can see it a little bit closer.
+
+126
+00:05:04,184 --> 00:05:06,184
+Note that at various times I am holding
+
+127
+00:05:06,184 --> 00:05:08,184
+down the Alt key on the keyboard to orbit
+
+128
+00:05:08,184 --> 00:05:10,184
+around as I drag.
+
+129
+00:05:10,836 --> 00:05:12,836
+Now I'm going to go to the Hand tool,
+
+130
+00:05:13,488 --> 00:05:16,016
+to effectively hide the translate handles
+
+131
+00:05:16,016 --> 00:05:18,016
+and I'm going to hold down Shift to adjust
+
+132
+00:05:18,016 --> 00:05:20,016
+the boundaries of the collider.
+
+133
+00:05:20,016 --> 00:05:21,602
+The reason I'm doing this
+
+134
+00:05:22,102 --> 00:05:24,102
+is because I don't want it to bounce off
+
+135
+00:05:24,102 --> 00:05:26,102
+of the top of the collider here.
+
+136
+00:05:26,102 --> 00:05:28,573
+I'd rather it bounced off of the surface.
+
+137
+00:05:28,573 --> 00:05:30,866
+So all I'm going to do now is hold down Shift
+
+138
+00:05:31,007 --> 00:05:32,601
+and drag the top one
+
+139
+00:05:33,051 --> 00:05:35,051
+until it's roughly in line with the top of
+
+140
+00:05:35,051 --> 00:05:37,051
+the work bench mesh.
+
+141
+00:05:37,938 --> 00:05:39,576
+Now what we're going to do is go back
+
+142
+00:05:39,576 --> 00:05:40,996
+to the Translate tool
+
+143
+00:05:42,449 --> 00:05:44,449
+and I'm going to drag this upward,
+
+144
+00:05:45,681 --> 00:05:46,999
+something like that.
+
+145
+00:05:47,941 --> 00:05:49,941
+And now what I'm going to do is
+
+146
+00:05:49,941 --> 00:05:51,719
+tilt it at an angle. So I'm going to go
+
+147
+00:05:51,719 --> 00:05:53,204
+to my Rotate tool,
+
+148
+00:05:53,957 --> 00:05:55,957
+which remember is E on the keyboard,
+
+149
+00:05:56,540 --> 00:05:58,095
+and I'm going to tilt it
+
+150
+00:05:59,220 --> 00:06:00,594
+something like that.
+
+151
+00:06:01,237 --> 00:06:03,237
+Then all I'm going to do is switch to
+
+152
+00:06:03,237 --> 00:06:05,346
+an overhead view, so using the View
+
+153
+00:06:05,346 --> 00:06:07,235
+gizmo in the top right of the scene view
+
+154
+00:06:07,235 --> 00:06:09,012
+click on the green Y axis spoke.
+
+155
+00:06:09,459 --> 00:06:11,459
+And then I'm going to reselect my
+
+156
+00:06:11,459 --> 00:06:13,459
+spherical prop samoflange
+
+157
+00:06:14,995 --> 00:06:16,995
+and I'm going to get my view in order
+
+158
+00:06:17,260 --> 00:06:19,565
+and then I'm going to drag with the 
+
+159
+00:06:19,565 --> 00:06:22,227
+Translate tool until it's over the top.
+
+160
+00:06:22,492 --> 00:06:24,492
+Note that I'm still in a perspective view
+
+161
+00:06:24,812 --> 00:06:26,616
+and if I want to go to an orthographic view
+
+162
+00:06:26,616 --> 00:06:28,616
+I can click the cube in the middle, like that.
+
+163
+00:06:29,254 --> 00:06:31,254
+So now if I zoom in
+
+164
+00:06:31,989 --> 00:06:34,253
+I can see exactly whether it's over the top.
+
+165
+00:06:35,138 --> 00:06:37,138
+And I'm going to keep using the Translate tool
+
+166
+00:06:37,138 --> 00:06:39,156
+to position it where I want it.
+
+167
+00:06:40,236 --> 00:06:42,236
+And remember that we can rotate round
+
+168
+00:06:42,236 --> 00:06:44,704
+to side-on views as well to ensure that
+
+169
+00:06:44,704 --> 00:06:46,704
+we're getting it in exactly the right place
+
+170
+00:06:47,936 --> 00:06:50,700
+and keep rotating around until we're happy.
+
+171
+00:06:53,548 --> 00:06:55,035
+Then I'm going to click on the white cube
+
+172
+00:06:55,035 --> 00:06:57,035
+in the middle of the gizmo to go back
+
+173
+00:06:57,035 --> 00:06:59,035
+to my perspective view.
+
+174
+00:07:01,165 --> 00:07:03,165
+Now all I'm going to do is press play.
+
+175
+00:07:07,560 --> 00:07:09,907
+And as you can see our samoflange ball
+
+176
+00:07:09,907 --> 00:07:12,887
+keeps bouncing around all over the environment.
+
+177
+00:07:13,898 --> 00:07:14,912
+And that's it.
+
+178
+00:07:15,923 --> 00:07:17,923
+Remember to save your scene, and keep
+
+179
+00:07:17,923 --> 00:07:19,923
+experimenting with the different values
+
+180
+00:07:19,923 --> 00:07:21,661
+in the physic material asset to get
+
+181
+00:07:21,661 --> 00:07:23,255
+different effects,
+
+182
+00:07:23,255 --> 00:07:25,562
+or refer to the Physic Materials lesson
+
+183
+00:07:25,562 --> 00:07:27,562
+for more information.

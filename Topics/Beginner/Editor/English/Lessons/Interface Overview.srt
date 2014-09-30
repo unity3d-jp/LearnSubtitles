@@ -1,0 +1,135 @@
+1
+00:00:00,510 --> 00:00:03,472
+Navigating the Unity editor interface is easy. 
+
+2
+00:00:04,094 --> 00:00:07,378
+The core of the interface consists of five main panels. 
+
+3
+00:00:07,753 --> 00:00:11,543
+The Scene View, the Hierarchy, the Game View,
+
+4
+00:00:11,543 --> 00:00:15,186
+the Project panel and the Inspector panel. 
+
+5
+00:00:15,781 --> 00:00:18,782
+The Scene View is where you'll visually construct your game, 
+
+6
+00:00:18,782 --> 00:00:22,456
+manipulating objects in 2D and 3D. 
+
+7
+00:00:24,406 --> 00:00:27,416
+The Game View is where you will preview your game, 
+
+8
+00:00:27,416 --> 00:00:30,049
+and this becomes active when you hit the play button, 
+
+9
+00:00:30,049 --> 00:00:33,724
+allowing you to play test at any time inside the editor.
+
+10
+00:00:34,938 --> 00:00:38,974
+The Hierarchy lists all objects in the scene in alphabetical order 
+
+11
+00:00:38,974 --> 00:00:42,516
+and in hierarchical order in order to show parenting,
+
+12
+00:00:42,516 --> 00:00:44,519
+a way of grouping objects.
+
+13
+00:00:44,720 --> 00:00:47,237
+The Project panel shows all assets that you are 
+
+14
+00:00:47,237 --> 00:00:49,176
+currently working with, in one place.  
+
+15
+00:00:49,159 --> 00:00:52,448
+Giving you quick access to everything you are building your game with 
+
+16
+00:00:52,448 --> 00:00:56,704
+from scripts to textures, 3D models, video and audio.
+
+17
+00:00:57,299 --> 00:00:59,797
+The Inspector is a context sensitive panel 
+
+18
+00:00:59,797 --> 00:01:02,055
+that shows the properties of what ever object,
+
+19
+00:01:02,055 --> 00:01:04,965
+asset or setting panel you've selected. 
+
+20
+00:01:05,157 --> 00:01:07,807
+Click on something new and the Inspector immediately 
+
+21
+00:01:07,807 --> 00:01:09,807
+switches to show properties of that thing. 
+
+22
+00:01:13,399 --> 00:01:16,519
+The play controls allow you to play test the game, 
+
+23
+00:01:16,519 --> 00:01:22,613
+pause and progress frame by frame for more detailed testing. 
+
+24
+00:01:25,185 --> 00:01:28,605
+The tools in the top left allow you to navigate the Scene View
+
+25
+00:01:28,605 --> 00:01:31,149
+and also manipulate objects visually. 
+
+26
+00:01:34,525 --> 00:01:38,786
+There are also toggles to allow for switching between local and world space
+
+27
+00:01:38,786 --> 00:01:41,581
+and centre or pivot point based rotation.
+
+28
+00:01:48,000 --> 00:01:50,177
+The Layers dropdown allows you to quickly 
+
+29
+00:01:50,177 --> 00:01:53,108
+show and hide layers of content in your game.
+
+30
+00:01:55,646 --> 00:01:58,136
+The Layout dropdown allows you to switch between
+
+31
+00:01:58,136 --> 00:02:01,865
+differing layouts of the Unity interface. 
+
+32
+00:01:42,499 --> 00:01:46,859
+In the top right of the interface are the layers and layout dropdowns. 
+
+33
+00:02:07,568 --> 00:02:09,769
+This concludes the interface overview. 
+
+34
+00:02:09,769 --> 00:02:14,892
+Continue to watch tutorials to learn more about each individual panel.

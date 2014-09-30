@@ -1,0 +1,335 @@
+1
+00:00:00,456 --> 00:00:02,894
+Sometimes when animating an avatar
+
+2
+00:00:02,894 --> 00:00:04,894
+we want to isolate areas of the body
+
+3
+00:00:04,894 --> 00:00:06,894
+that are actually effected by the animation.
+
+4
+00:00:07,767 --> 00:00:10,735
+For example we might have a wave animation
+
+5
+00:00:10,735 --> 00:00:13,191
+but we want to be able to wave while running,
+
+6
+00:00:13,191 --> 00:00:15,191
+walking, jumping, etcetera.
+
+7
+00:00:15,953 --> 00:00:17,773
+In order to achieve this effect
+
+8
+00:00:17,773 --> 00:00:19,773
+we can use an avatar mask.
+
+9
+00:00:20,176 --> 00:00:22,425
+In this way we can restrict the effect
+
+10
+00:00:22,425 --> 00:00:24,425
+of this animation to be purely based
+
+11
+00:00:24,425 --> 00:00:26,425
+on the arm of the avatar.
+
+12
+00:00:28,057 --> 00:00:30,475
+Avatar masks can be created and used
+
+13
+00:00:30,475 --> 00:00:32,907
+in 2 distinct ways, but the overall effect
+
+14
+00:00:32,907 --> 00:00:34,907
+of the mask is the same.
+
+15
+00:00:36,153 --> 00:00:38,153
+Avatar masks can first be created on a
+
+16
+00:00:38,153 --> 00:00:39,946
+per-animation basis.
+
+17
+00:00:40,460 --> 00:00:43,111
+For this method go to the Animations tab
+
+18
+00:00:43,111 --> 00:00:45,292
+of the Model Importer by selecting a model
+
+19
+00:00:45,292 --> 00:00:47,126
+in the Project Panel and clicking on the 
+
+20
+00:00:47,126 --> 00:00:49,126
+Animations tab.
+
+21
+00:00:49,971 --> 00:00:51,971
+When you select an animations clip
+
+22
+00:00:51,971 --> 00:00:53,529
+there are a number of properties that appear
+
+23
+00:00:53,529 --> 00:00:55,085
+below the clip name.
+
+24
+00:00:55,085 --> 00:00:57,937
+One of these is a drop-down called Mask.
+
+25
+00:00:58,768 --> 00:01:00,962
+Here you can create a mask that is unique
+
+26
+00:01:00,962 --> 00:01:03,625
+to the specific animation you are editing.
+
+27
+00:01:04,843 --> 00:01:06,954
+The other method for creating an avatar mask
+
+28
+00:01:06,954 --> 00:01:09,771
+is to create it as an asset in your Project Panel
+
+29
+00:01:09,771 --> 00:01:14,009
+by right-clicking and selecting Create - Avatar Mask.
+
+30
+00:01:15,476 --> 00:01:17,742
+Once it is created it can then be applied
+
+31
+00:01:17,742 --> 00:01:19,742
+to the layers of an animator controller
+
+32
+00:01:19,742 --> 00:01:21,505
+using the Animator window.
+
+33
+00:01:22,062 --> 00:01:24,686
+Creating and applying a mask this way will
+
+34
+00:01:24,686 --> 00:01:27,994
+effect all animations on an animator layer.
+
+35
+00:01:29,392 --> 00:01:31,600
+For more information on animator layers
+
+36
+00:01:31,600 --> 00:01:33,600
+see the lesson linked below.
+
+37
+00:01:34,984 --> 00:01:37,386
+An avatar mask has 2 parts,
+
+38
+00:01:37,386 --> 00:01:39,386
+Humanoid and Transform.
+
+39
+00:01:40,646 --> 00:01:42,646
+The Humanoid drop-down has a diagram
+
+40
+00:01:42,646 --> 00:01:45,381
+of a humanoid facing you from the screen.
+
+41
+00:01:45,922 --> 00:01:48,299
+This means that the diagram's left hand
+
+42
+00:01:48,299 --> 00:01:50,299
+is on the right side.
+
+43
+00:01:51,075 --> 00:01:53,423
+By clicking on each section you can toggle
+
+44
+00:01:53,423 --> 00:01:55,423
+it's colour between red and green.
+
+45
+00:01:56,033 --> 00:01:58,200
+You can also click outside the diagram
+
+46
+00:01:58,200 --> 00:02:00,960
+to toggle between all red and all green.
+
+47
+00:02:02,219 --> 00:02:04,219
+The colour indicates which parts of a humanoid
+
+48
+00:02:04,219 --> 00:02:07,143
+avatar will be animated when using this mask.
+
+49
+00:02:08,016 --> 00:02:10,640
+Green indicates that the body part will be used
+
+50
+00:02:10,640 --> 00:02:13,068
+and red indicates that it will not be used.
+
+51
+00:02:13,927 --> 00:02:16,548
+For our wave animation we have all but the
+
+52
+00:02:16,548 --> 00:02:18,548
+right arm deselected.
+
+53
+00:02:18,548 --> 00:02:20,178
+This means that only the right arm
+
+54
+00:02:20,178 --> 00:02:22,178
+will be effected by the animation.
+
+55
+00:02:23,742 --> 00:02:27,013
+The second part is the Transform Mask.
+
+56
+00:02:27,013 --> 00:02:29,623
+Transform masks are used for generically
+
+57
+00:02:29,623 --> 00:02:32,150
+rigged models and humanoid rigged models
+
+58
+00:02:32,150 --> 00:02:34,150
+with extra bones.
+
+59
+00:02:34,150 --> 00:02:37,290
+For example, if you had a 4 legged robot
+
+60
+00:02:37,290 --> 00:02:39,290
+or a humanoid with wings.
+
+61
+00:02:40,025 --> 00:02:42,177
+Here you need to select the avatar
+
+62
+00:02:42,177 --> 00:02:43,899
+to base the mask on.
+
+63
+00:02:44,497 --> 00:02:47,505
+This is done using the circle select button.
+
+64
+00:02:50,312 --> 00:02:52,242
+When an avatar has been selected
+
+65
+00:02:52,242 --> 00:02:55,224
+and imported a full list of all of the transforms
+
+66
+00:02:55,224 --> 00:02:57,224
+for that avatar appear.
+
+67
+00:02:57,224 --> 00:03:00,034
+From this you can select or deselect
+
+68
+00:03:00,034 --> 00:03:01,673
+which transforms should be effected
+
+69
+00:03:01,673 --> 00:03:03,477
+by the animation.
+
+70
+00:03:03,477 --> 00:03:05,477
+If a transform is checked then it will be
+
+71
+00:03:05,477 --> 00:03:08,594
+part of the mask and will move when animated.
+
+72
+00:03:09,094 --> 00:03:11,204
+For example, imagine we have a 
+
+73
+00:03:11,204 --> 00:03:13,204
+humanoid avatar with a tail.
+
+74
+00:03:13,594 --> 00:03:16,144
+In the base layer of the animator state machine
+
+75
+00:03:16,144 --> 00:03:18,655
+the character has it's locomotion managed.
+
+76
+00:03:19,100 --> 00:03:21,849
+On subsequent layers other animations
+
+77
+00:03:21,849 --> 00:03:23,849
+such as attacking are handled.
+
+78
+00:03:24,625 --> 00:03:26,625
+It might be a good idea for these subsequent
+
+79
+00:03:26,625 --> 00:03:28,751
+layers to have a transform mask where
+
+80
+00:03:28,751 --> 00:03:30,751
+the tail bones are unchecked.
+
+81
+00:03:31,748 --> 00:03:33,914
+This means that the tail is not effected
+
+82
+00:03:33,914 --> 00:03:35,914
+by animations on those layers
+
+83
+00:03:35,914 --> 00:03:38,496
+and will still be moved by animations playing
+
+84
+00:03:38,496 --> 00:03:40,496
+on the base layer.

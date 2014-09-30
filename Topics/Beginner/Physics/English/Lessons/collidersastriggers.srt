@@ -1,0 +1,271 @@
+1
+00:00:00,152 --> 00:00:01,745
+In order to make a collider into a 
+
+2
+00:00:01,745 --> 00:00:03,564
+trigger we simply check the 
+
+3
+00:00:03,564 --> 00:00:05,564
+'Is Trigger' checkbox on the component
+
+4
+00:00:05,564 --> 00:00:07,564
+settings in the inspector.
+
+5
+00:00:08,395 --> 00:00:10,395
+When a collider is a trigger things will
+
+6
+00:00:10,395 --> 00:00:12,769
+no longer bump into it. Instead they will
+
+7
+00:00:12,769 --> 00:00:15,143
+pass through it and this can be detected
+
+8
+00:00:15,143 --> 00:00:15,989
+via code.
+
+9
+00:00:16,130 --> 00:00:17,842
+Similar to normal colliders,
+
+10
+00:00:17,842 --> 00:00:19,786
+events are called when other colliders
+
+11
+00:00:19,786 --> 00:00:21,786
+are overlapping with the trigger collider.
+
+12
+00:00:22,466 --> 00:00:25,061
+In this example we have a box collider
+
+13
+00:00:25,061 --> 00:00:27,061
+with Is Trigger checked
+
+14
+00:00:27,561 --> 00:00:30,578
+and a falling 'prop samoflange' ball object.
+
+15
+00:00:31,863 --> 00:00:33,863
+This object enters the trigger,
+
+16
+00:00:33,863 --> 00:00:37,180
+stays as it rolls forward and then exits.
+
+17
+00:00:38,523 --> 00:00:40,783
+To check these events we attach a script
+
+18
+00:00:40,783 --> 00:00:43,117
+to the trigger, which is registering
+
+19
+00:00:43,117 --> 00:00:46,537
+OnTriggerEnter and logging to the console
+
+20
+00:00:46,537 --> 00:00:48,717
+and likewise OnTriggerStay
+
+21
+00:00:48,717 --> 00:00:50,424
+and OnTriggerExit.
+
+22
+00:00:50,648 --> 00:00:52,161
+So if we pause the game
+
+23
+00:00:52,161 --> 00:00:54,696
+and step through one frame at a time,
+
+24
+00:00:55,790 --> 00:00:57,790
+looking at the console will show that the
+
+25
+00:00:57,790 --> 00:00:59,790
+object enters the trigger
+
+26
+00:01:01,174 --> 00:01:03,174
+stays for a number of frames
+
+27
+00:01:08,453 --> 00:01:10,453
+and eventually exits the trigger.
+
+28
+00:01:12,528 --> 00:01:14,528
+In the same way as standard collisions,
+
+29
+00:01:14,528 --> 00:01:17,017
+one of the two objects must have a rigidbody.
+
+30
+00:01:17,186 --> 00:01:19,186
+It's standard practice to make sure that your trigger
+
+31
+00:01:19,186 --> 00:01:20,855
+colliders are static objects,
+
+32
+00:01:20,855 --> 00:01:22,565
+meaning they will not be moved by the 
+
+33
+00:01:22,565 --> 00:01:24,565
+physics engine. So usually you will make
+
+34
+00:01:24,565 --> 00:01:26,565
+a trigger and then pass a rigidbody
+
+35
+00:01:26,565 --> 00:01:29,009
+through it. This example is no different.
+
+36
+00:01:29,108 --> 00:01:30,898
+We're passing our rigidbody object
+
+37
+00:01:30,898 --> 00:01:32,996
+through the trigger zone and detecting
+
+38
+00:01:32,996 --> 00:01:34,730
+when something enters that trigger.
+
+39
+00:01:34,730 --> 00:01:36,730
+So the intention with the trigger collider,
+
+40
+00:01:36,730 --> 00:01:38,428
+also known as a trigger zone,
+
+41
+00:01:38,428 --> 00:01:40,776
+is that you can call code without the
+
+42
+00:01:40,776 --> 00:01:42,776
+objects in your game physically colliding.
+
+43
+00:01:43,235 --> 00:01:45,235
+So for example, with our hoverpad,
+
+44
+00:01:45,235 --> 00:01:47,473
+we can add a force to our samoflange ball
+
+45
+00:01:47,473 --> 00:01:49,045
+to give the effect of it hovering
+
+46
+00:01:49,045 --> 00:01:51,574
+so long as it stays within the trigger zone.
+
+47
+00:01:51,574 --> 00:01:54,086
+For example, we could address the object
+
+48
+00:01:54,086 --> 00:01:56,086
+that's currently staying within the trigger
+
+49
+00:01:56,086 --> 00:01:58,086
+because the object that's staying
+
+50
+00:01:58,086 --> 00:02:00,086
+is saved in a variable called 'other'
+
+51
+00:02:00,086 --> 00:02:02,381
+of type Collider. We could then address
+
+52
+00:02:02,381 --> 00:02:04,381
+the rigidbody and add a force
+
+53
+00:02:04,381 --> 00:02:07,554
+in the direction of Vector3.up,
+
+54
+00:02:07,554 --> 00:02:09,845
+a shortcut for 'up' in world coordinates.
+
+55
+00:02:09,845 --> 00:02:11,845
+We could then multiply by a number
+
+56
+00:02:11,845 --> 00:02:13,845
+which we'll save as a variable.
+
+57
+00:02:14,110 --> 00:02:15,957
+And we'll finish out the AddForce
+
+58
+00:02:15,957 --> 00:02:19,196
+by choosing acceleration as the mode.
+
+59
+00:02:21,298 --> 00:02:24,218
+Now we'll move our object over the hoverpad
+
+60
+00:02:25,229 --> 00:02:27,062
+and we'll use Freeze Position to keep it
+
+61
+00:02:27,062 --> 00:02:29,574
+in the same place in X and Z.
+
+62
+00:02:29,812 --> 00:02:31,735
+Allowing the force of Y to create
+
+63
+00:02:31,735 --> 00:02:33,372
+the hovering effect.
+
+64
+00:02:34,235 --> 00:02:36,638
+And now if I press play, as you can see
+
+65
+00:02:36,638 --> 00:02:38,638
+as long as it stays within that area
+
+66
+00:02:38,638 --> 00:02:40,638
+it creates the effect of hovering without
+
+67
+00:02:40,638 --> 00:02:42,240
+having to interact without any part
+
+68
+00:02:42,240 --> 00:02:44,240
+of the geometry.

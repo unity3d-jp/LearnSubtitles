@@ -1,0 +1,535 @@
+1
+00:00:00,318 --> 00:00:02,008
+Variables and Functions.
+
+2
+00:00:02,273 --> 00:00:04,426
+Think of variables as boxes that contain
+
+3
+00:00:04,426 --> 00:00:06,663
+information. You need a different type
+
+4
+00:00:06,663 --> 00:00:08,663
+of box for each type of information.
+
+5
+00:00:09,163 --> 00:00:11,163
+We start our variable definition
+
+6
+00:00:11,163 --> 00:00:13,163
+by saying what type of box we'd like.
+
+7
+00:00:13,663 --> 00:00:16,039
+For example, the word int
+
+8
+00:00:16,039 --> 00:00:18,039
+for an integer, meaning a whole number.
+
+9
+00:00:19,009 --> 00:00:21,481
+Then we might name that box in order
+
+10
+00:00:21,481 --> 00:00:22,922
+to identify it.
+
+11
+00:00:23,746 --> 00:00:26,345
+Then we could finish declaring that variable
+
+12
+00:00:26,345 --> 00:00:28,164
+by putting a semicolon on the end.
+
+13
+00:00:28,541 --> 00:00:31,808
+Or we can give our box some information to hold,
+
+14
+00:00:32,059 --> 00:00:33,948
+for example the number 5.
+
+15
+00:00:33,948 --> 00:00:36,865
+The first part of this is the declaration
+
+16
+00:00:36,865 --> 00:00:39,519
+and the second part is the initialisation,
+
+17
+00:00:39,519 --> 00:00:41,519
+where the actual box gets assigned
+
+18
+00:00:41,519 --> 00:00:43,229
+some information to store.
+
+19
+00:00:43,229 --> 00:00:46,029
+If we want to actually do something with it,
+
+20
+00:00:46,029 --> 00:00:48,595
+let's put it in to a function.
+
+21
+00:00:48,595 --> 00:00:50,428
+As you may see when you make a new script
+
+22
+00:00:50,428 --> 00:00:53,394
+we're given Start and Update functions.
+
+23
+00:00:53,394 --> 00:00:55,270
+Start is called when the object this
+
+24
+00:00:55,270 --> 00:00:57,270
+script is attached to enters a scene.
+
+25
+00:00:57,270 --> 00:00:59,270
+We can put in Debug.log
+
+26
+00:00:59,270 --> 00:01:01,589
+to get the value of any variable
+
+27
+00:01:01,589 --> 00:01:04,717
+in our game. So let's take that myInt
+
+28
+00:01:04,717 --> 00:01:06,717
+and put it in there. If I were to just log
+
+29
+00:01:06,717 --> 00:01:08,273
+the value of that I will see it in the 
+
+30
+00:01:08,273 --> 00:01:11,621
+console in Unity. If I save that script
+
+31
+00:01:11,886 --> 00:01:14,563
+and attach it to, let's just create
+
+32
+00:01:14,563 --> 00:01:16,924
+an empty object and assign
+
+33
+00:01:16,924 --> 00:01:18,299
+the script to it.
+
+34
+00:01:18,744 --> 00:01:20,744
+So when I press play
+
+35
+00:01:22,100 --> 00:01:24,992
+I see the value of myInt shown in there.
+
+36
+00:01:25,327 --> 00:01:28,194
+So that variable is going to maintain that
+
+37
+00:01:28,194 --> 00:01:30,194
+value until we give it a new value.
+
+38
+00:01:30,194 --> 00:01:32,194
+For example we could use the value of that
+
+39
+00:01:32,194 --> 00:01:34,194
+variable with another integer.
+
+40
+00:01:34,611 --> 00:01:36,611
+So here I'm multiplying by 2.
+
+41
+00:01:36,793 --> 00:01:39,031
+So now the console will read out
+
+42
+00:01:39,031 --> 00:01:41,031
+that integer times by 2,
+
+43
+00:01:41,031 --> 00:01:43,632
+so 5 times by 2 is 10.
+
+44
+00:01:44,132 --> 00:01:46,423
+And of course if we were to reassign
+
+45
+00:01:46,423 --> 00:01:48,423
+that value we will get a different
+
+46
+00:01:48,423 --> 00:01:50,423
+value as we go along. So if I was
+
+47
+00:01:50,423 --> 00:01:55,145
+to say myInt=55
+
+48
+00:01:56,336 --> 00:01:59,124
+then although it was initialised
+
+49
+00:01:59,124 --> 00:02:02,114
+at a value of 5 this has reassigned that
+
+50
+00:02:02,114 --> 00:02:03,919
+value to 55
+
+51
+00:02:04,365 --> 00:02:06,977
+and now we'll get a value of 110.
+
+52
+00:02:06,977 --> 00:02:09,599
+So if I save my script, press play again
+
+53
+00:02:09,599 --> 00:02:11,599
+we can see I get 110.
+
+54
+00:02:12,099 --> 00:02:14,099
+To do something more detailed with our
+
+55
+00:02:14,099 --> 00:02:16,473
+boxes, or variables as they're known,
+
+56
+00:02:16,473 --> 00:02:18,073
+we need to make a function,
+
+57
+00:02:18,073 --> 00:02:19,584
+also known as a method.
+
+58
+00:02:20,181 --> 00:02:22,181
+A function will take the boxes
+
+59
+00:02:22,181 --> 00:02:24,181
+that we have storing information
+
+60
+00:02:24,181 --> 00:02:25,684
+and give us boxes back,
+
+61
+00:02:25,684 --> 00:02:27,684
+or 'return' as it is known.
+
+62
+00:02:28,515 --> 00:02:30,515
+The start function that I've just put in is
+
+63
+00:02:30,515 --> 00:02:32,515
+an example of a function that doesn't return
+
+64
+00:02:32,515 --> 00:02:35,575
+anything. So it's type is void.
+
+65
+00:02:35,575 --> 00:02:37,575
+Where we make our own function we can give
+
+66
+00:02:37,575 --> 00:02:40,158
+it a specific type of box to return.
+
+67
+00:02:40,158 --> 00:02:44,116
+So I might say int as a type for the function,
+
+68
+00:02:44,116 --> 00:02:46,116
+and then give it a name. So I might
+
+69
+00:02:46,116 --> 00:02:49,927
+call this function MultiplyByTwo
+
+70
+00:02:50,234 --> 00:02:52,234
+because that's what it's going to do for us.
+
+71
+00:02:52,928 --> 00:02:56,113
+Then the function can have parameters.
+
+72
+00:02:56,113 --> 00:02:58,718
+So we need to give a certain type
+
+73
+00:02:58,718 --> 00:03:00,718
+of parameter to this function
+
+74
+00:03:00,718 --> 00:03:03,168
+so I'll say integer again because that's
+
+75
+00:03:03,168 --> 00:03:05,168
+the kind of information that I want to be
+
+76
+00:03:05,168 --> 00:03:07,168
+able to feed this machine
+
+77
+00:03:07,168 --> 00:03:09,168
+in order to get a result back from it.
+
+78
+00:03:10,193 --> 00:03:12,193
+Keep in mind that the inner workings of 
+
+79
+00:03:12,193 --> 00:03:14,935
+my machine happen between these curly braces.
+
+80
+00:03:14,935 --> 00:03:17,479
+So whilst the variable or
+
+81
+00:03:17,479 --> 00:03:20,414
+parameters are within round brackets
+
+82
+00:03:20,776 --> 00:03:22,610
+you'll see that the curly braces 
+
+83
+00:03:22,610 --> 00:03:25,722
+open and close around the actions
+
+84
+00:03:25,722 --> 00:03:27,722
+that are in our function.
+
+85
+00:03:28,222 --> 00:03:30,988
+So where I've written int number here
+
+86
+00:03:30,988 --> 00:03:32,988
+I've effectively created a temporary
+
+87
+00:03:32,988 --> 00:03:34,988
+variable called Number that's
+
+88
+00:03:34,988 --> 00:03:36,988
+part of my machine. And I'm going to 
+
+89
+00:03:36,988 --> 00:03:39,599
+use that in order to feed a number
+
+90
+00:03:39,599 --> 00:03:42,396
+in to this function when I call upon it
+
+91
+00:03:42,396 --> 00:03:44,396
+in a moment. Within this machine I'm
+
+92
+00:03:44,396 --> 00:03:46,396
+going to create another temporary variable
+
+93
+00:03:46,703 --> 00:03:48,703
+and then I'm going to perform an operation
+
+94
+00:03:48,703 --> 00:03:51,679
+upon it. So I'm going to create
+
+95
+00:03:51,679 --> 00:03:54,396
+another integer called ret,
+
+96
+00:03:54,396 --> 00:03:57,282
+which is short for return. Then I'm going to
+
+97
+00:03:57,282 --> 00:03:59,282
+use that variable and say
+
+98
+00:03:59,282 --> 00:04:03,072
+it's equal to the number variable
+
+99
+00:04:03,572 --> 00:04:06,824
+multiplied by 2. Then I'm going to use this
+
+100
+00:04:06,824 --> 00:04:10,683
+return command so that the actual result
+
+101
+00:04:10,683 --> 00:04:12,683
+of running this function is that
+
+102
+00:04:12,683 --> 00:04:15,235
+it outputs the value of ret.
+
+103
+00:04:15,235 --> 00:04:17,388
+Once I've done that I need to actually call it
+
+104
+00:04:17,388 --> 00:04:21,273
+so I'm going to go back to my start function
+
+105
+00:04:21,911 --> 00:04:23,911
+and I'm going to call
+
+106
+00:04:24,411 --> 00:04:27,648
+MultiplyByTwo and then instead of putting
+
+107
+00:04:27,648 --> 00:04:29,938
+a new variable in to my brackets
+
+108
+00:04:29,938 --> 00:04:32,299
+I'm going to feed in something to be
+
+109
+00:04:32,299 --> 00:04:33,979
+stored within number.
+
+110
+00:04:34,426 --> 00:04:38,095
+So this time I'm going to feed in my int.
+
+111
+00:04:38,996 --> 00:04:40,996
+It will work in that because it's of the same
+
+112
+00:04:40,996 --> 00:04:43,400
+type as the variable 'number'.
+
+113
+00:04:43,983 --> 00:04:45,859
+So this time I'm feeding my int,
+
+114
+00:04:45,859 --> 00:04:48,536
+a value of 5, into my machine.
+
+115
+00:04:48,536 --> 00:04:52,039
+It's going into the machine then ret -
+
+116
+00:04:52,539 --> 00:04:57,060
+the new variable - is equal to myInt - so 5
+
+117
+00:04:57,060 --> 00:05:00,581
+multiplied by 2, and it's returned ret.
+
+118
+00:05:01,233 --> 00:05:04,008
+So the resultant return of multiplying
+
+119
+00:05:04,008 --> 00:05:06,008
+by 2 will be 10.
+
+120
+00:05:06,008 --> 00:05:08,008
+But in my start function I'm simply
+
+121
+00:05:08,008 --> 00:05:10,912
+calling my MultipyByTwo function.
+
+122
+00:05:10,912 --> 00:05:13,824
+So this currently represents 10 because I'm
+
+123
+00:05:13,824 --> 00:05:16,761
+feeding in 5, multiplying by 2.
+
+124
+00:05:17,095 --> 00:05:19,469
+But until I do something with this information
+
+125
+00:05:19,469 --> 00:05:21,167
+no values have been changed.
+
+126
+00:05:21,167 --> 00:05:23,167
+MyInt hasn't been updated
+
+127
+00:05:23,167 --> 00:05:25,167
+with the return value of this function
+
+128
+00:05:25,167 --> 00:05:27,734
+for example. So I could say that
+
+129
+00:05:28,151 --> 00:05:34,593
+myInt is now equal to the result of this function.
+
+130
+00:05:35,466 --> 00:05:37,466
+And then if I actually want to see that,
+
+131
+00:05:37,966 --> 00:05:39,966
+I can use Debug.log
+
+132
+00:05:39,966 --> 00:05:44,541
+to see it printed again in the console window.
+
+133
+00:05:45,759 --> 00:05:48,159
+So I'll save my script, switch back
+
+134
+00:05:48,659 --> 00:05:51,951
+and press play and I can see a value of 10.

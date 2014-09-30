@@ -1,0 +1,123 @@
+1
+00:00:00,781 --> 00:00:02,278
+Game Objects are the items 
+
+2
+00:00:02,278 --> 00:00:04,675
+that make up your Unity scenes
+
+3
+00:00:04,675 --> 00:00:07,589
+Everything within a scene is considered a game object
+
+4
+00:00:07,589 --> 00:00:10,977
+and these objects are made up of a number of components.
+
+5
+00:00:16,197 --> 00:00:19,013
+Each has a necessary transform component
+
+6
+00:00:19,013 --> 00:00:22,724
+that contains the position, rotation and scale of the game object.
+
+7
+00:00:23,485 --> 00:00:24,826
+Components can be added
+
+8
+00:00:24,826 --> 00:00:26,441
+using the Add Component button at
+
+9
+00:00:26,441 --> 00:00:27,942
+the bottom of the inspector.
+
+10
+00:00:31,325 --> 00:00:34,985
+Or by using the Component top menu.
+
+11
+00:00:39,119 --> 00:00:41,978
+Scripts are also considered as components
+
+12
+00:00:41,978 --> 00:00:45,180
+and can be added using the aforementioned menus.
+
+13
+00:00:48,023 --> 00:00:50,171
+They can also be created and added using the Add Component button.
+
+14
+00:00:59,408 --> 00:01:01,408
+Components can be removed,
+
+15
+00:01:02,575 --> 00:01:06,035
+or copy pasted using the cog icon to the right
+
+16
+00:01:06,035 --> 00:01:08,389
+of their representation in the inspector.
+
+17
+00:01:11,623 --> 00:01:14,258
+You can then select another object and paste them
+
+18
+00:01:14,258 --> 00:01:15,750
+by clicking on the cog icon.
+
+19
+00:01:18,299 --> 00:01:20,299
+You can also add a script to an object
+
+20
+00:01:20,299 --> 00:01:22,062
+by dragging it to the hierarchy
+
+21
+00:01:22,062 --> 00:01:24,062
+or to the object in the scene view.
+
+22
+00:01:28,127 --> 00:01:31,505
+And you can even drag and drop to empty space in the inspector
+
+23
+00:01:31,505 --> 00:01:33,860
+in order to add a script as a component.
+
+24
+00:01:38,411 --> 00:01:41,869
+Game objects are seen in the hierarchy view as a list,
+
+25
+00:01:43,952 --> 00:01:46,499
+with a hierarchy of parent child relationships
+
+26
+00:01:46,499 --> 00:01:49,721
+demonstrated by arrows to the left of their name.
+
+27
+00:01:52,718 --> 00:01:56,014
+The Hierarchy is a list of all the game objects in the scene
+
+28
+00:01:56,014 --> 00:01:58,675
+and as such everything that you see in the scene view
+
+29
+00:01:58,675 --> 00:02:00,675
+is also listed in the hierarchy.
+
+30
+00:02:00,675 --> 00:02:03,385
+And when selecting a game object in either view
+
+31
+00:02:03,385 --> 00:02:05,081
+it's selected in both.

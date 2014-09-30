@@ -1,0 +1,435 @@
+1
+00:00:00,345 --> 00:00:02,268
+Generics are a feature where by classes
+
+2
+00:00:02,268 --> 00:00:04,268
+and methods, amongst other things, can be
+
+3
+00:00:04,268 --> 00:00:06,046
+parsed a type as a parameter.
+
+4
+00:00:06,046 --> 00:00:08,409
+This in effect allows you to programme generically
+
+5
+00:00:08,409 --> 00:00:09,910
+without knowing the exact type of the
+
+6
+00:00:09,910 --> 00:00:11,645
+data you will be working with.
+
+7
+00:00:11,645 --> 00:00:13,645
+We have seen before that the GetComponment method
+
+8
+00:00:13,645 --> 00:00:15,645
+uses a generic parameter to get the type
+
+9
+00:00:15,645 --> 00:00:17,867
+of the component that it is looking for.
+
+10
+00:00:17,867 --> 00:00:20,624
+GetComponent is what is known as a generic method.
+
+11
+00:00:20,986 --> 00:00:22,986
+Let's take a look at creating one.
+
+12
+00:00:22,986 --> 00:00:25,329
+Here we have an example of a simple generic method.
+
+13
+00:00:25,329 --> 00:00:27,980
+The first thing to look at is it's generic parameter.
+
+14
+00:00:27,980 --> 00:00:31,050
+This is named T and is enclosed in angled brackets
+
+15
+00:00:33,447 --> 00:00:35,212
+or formal parameters.
+
+16
+00:00:31,060 --> 00:00:33,447
+after the method's name and before the normal
+
+17
+00:00:35,212 --> 00:00:37,448
+Since this T could represent any type
+
+18
+00:00:37,448 --> 00:00:40,328
+it's name is arbitrary, but most use the letter
+
+19
+00:00:40,328 --> 00:00:42,328
+T by convention.
+
+20
+00:00:42,328 --> 00:00:44,328
+Similarly if you wish to have multiple generic
+
+21
+00:00:44,328 --> 00:00:47,550
+parameters you can use a comma to add more.
+
+22
+00:00:47,550 --> 00:00:49,550
+The naming convention usually follows that
+
+23
+00:00:49,550 --> 00:00:52,974
+parameters after T are U and then V.
+
+24
+00:00:53,308 --> 00:00:55,308
+Though generic functions are not limited to only
+
+25
+00:00:55,308 --> 00:00:57,308
+three parameters it is quite uncommon to see one
+
+26
+00:00:57,308 --> 00:00:58,563
+with more than three.
+
+27
+00:00:58,563 --> 00:01:00,563
+We now know that the generic type associated with
+
+28
+00:01:00,563 --> 00:01:02,160
+this method is T.
+
+29
+00:01:02,160 --> 00:01:04,160
+T is only a placeholder though, and will end up
+
+30
+00:01:04,160 --> 00:01:06,976
+being an actual type when the method is called.
+
+31
+00:01:06,976 --> 00:01:08,976
+What ever type T ends up being will also
+
+32
+00:01:08,976 --> 00:01:10,976
+be the return type and the argument type
+
+33
+00:01:10,976 --> 00:01:12,976
+for the method since both of those use
+
+34
+00:01:12,976 --> 00:01:14,726
+T as their type.
+
+35
+00:01:15,226 --> 00:01:16,648
+Even though we have a method that works
+
+36
+00:01:16,648 --> 00:01:19,680
+with a generic type it's currently not very useful.
+
+37
+00:01:19,680 --> 00:01:21,946
+So what can we do with a generic type?
+
+38
+00:01:21,946 --> 00:01:23,946
+Well since we don't know how this generic type will
+
+39
+00:01:23,946 --> 00:01:25,946
+act we can't do much with it.
+
+40
+00:01:26,446 --> 00:01:28,446
+This generic parameter could be anything from a
+
+41
+00:01:28,446 --> 00:01:31,105
+float to a monobehaviour and more.
+
+42
+00:01:31,105 --> 00:01:33,105
+Since we don't know what it is there aren't many
+
+43
+00:01:33,105 --> 00:01:35,105
+operations we can perform on it.
+
+44
+00:01:35,105 --> 00:01:37,105
+We cannot, for example, multiply our
+
+45
+00:01:37,105 --> 00:01:39,451
+monobehaviour by two and we can't access
+
+46
+00:01:39,451 --> 00:01:41,785
+the game object field of a float.
+
+47
+00:01:41,785 --> 00:01:43,785
+Right now it's just treated as though it 
+
+48
+00:01:43,785 --> 00:01:45,785
+were the class object, which is the base class
+
+49
+00:01:45,785 --> 00:01:48,475
+that all C# classes implicitly inherit from.
+
+50
+00:01:48,975 --> 00:01:51,448
+So how do we perform more operations?
+
+51
+00:01:51,448 --> 00:01:53,629
+In order to know some of the features of the type
+
+52
+00:01:53,629 --> 00:01:55,629
+we have to limit what types it can be by
+
+53
+00:01:55,629 --> 00:01:58,085
+placing a constraint on the generic parameter.
+
+54
+00:01:58,585 --> 00:02:01,249
+To add constraints to our function we type
+
+55
+00:02:01,249 --> 00:02:03,249
+where after the parameters
+
+56
+00:02:03,249 --> 00:02:04,902
+but before the function body.
+
+57
+00:02:04,902 --> 00:02:06,902
+This is followed by the generic type we are going
+
+58
+00:02:06,902 --> 00:02:10,326
+to constrain, in our case T and then a colon.
+
+59
+00:02:10,825 --> 00:02:12,825
+After the colon we have the specific
+
+60
+00:02:12,825 --> 00:02:15,005
+constraints separated by commas.
+
+61
+00:02:15,005 --> 00:02:18,113
+The constraints generally fall in to four categories.
+
+62
+00:02:18,113 --> 00:02:20,113
+You can use either the keyword 'class' to
+
+63
+00:02:20,113 --> 00:02:22,280
+make sure T is a reference type
+
+64
+00:02:22,280 --> 00:02:25,240
+or the keyword 'struct' to make sure it's a value type.
+
+65
+00:02:25,240 --> 00:02:27,106
+You can use the keyword 'new' followed by
+
+66
+00:02:27,106 --> 00:02:29,106
+a pair of parenthesis to ensure that it has
+
+67
+00:02:29,106 --> 00:02:31,106
+a public constructor with no parameters
+
+68
+00:02:31,647 --> 00:02:33,647
+You can use a class name to say that T
+
+69
+00:02:33,647 --> 00:02:36,696
+is that class or via polymorphism
+
+70
+00:02:36,696 --> 00:02:38,904
+any class that derives from it.
+
+71
+00:02:38,904 --> 00:02:41,139
+The last category of constraints is interfaces.
+
+72
+00:02:41,139 --> 00:02:43,139
+You can use an interface name to say that T
+
+73
+00:02:43,139 --> 00:02:45,360
+has implemented that interface.
+
+74
+00:02:45,360 --> 00:02:47,360
+In order to use a generic method you must
+
+75
+00:02:47,360 --> 00:02:50,209
+specify what type you want it to use.
+
+76
+00:02:50,209 --> 00:02:52,209
+Let's say you wanted to use the generic method
+
+77
+00:02:52,209 --> 00:02:53,545
+you just created.
+
+78
+00:02:53,545 --> 00:02:55,545
+In another class you would write the name of the method
+
+79
+00:02:55,545 --> 00:02:58,199
+followed by the angle brackets and the type you want.
+
+80
+00:02:58,199 --> 00:02:59,895
+You would then follow that with a parenthesis
+
+81
+00:02:59,895 --> 00:03:01,447
+and any arguments.
+
+82
+00:03:01,447 --> 00:03:03,447
+All of the features that we've discussed apply to
+
+83
+00:03:03,447 --> 00:03:06,650
+generic classes and interfaces as well as methods.
+
+84
+00:03:06,650 --> 00:03:08,650
+By giving a class generic types you
+
+85
+00:03:08,650 --> 00:03:10,650
+can effect the types of fields, properties
+
+86
+00:03:10,650 --> 00:03:12,539
+and methods within it.
+
+87
+00:03:12,539 --> 00:03:14,539
+Making generic classes is one of the more common
+
+88
+00:03:14,539 --> 00:03:16,539
+uses of generics and makes it very easy
+
+89
+00:03:16,539 --> 00:03:18,358
+to implement data structures.
+
+90
+00:03:18,358 --> 00:03:20,722
+Let's take a look at a generic class now.
+
+91
+00:03:21,636 --> 00:03:23,636
+This class uses a generic type of T.
+
+92
+00:03:24,012 --> 00:03:26,012
+This means that every instance of the type T
+
+93
+00:03:26,012 --> 00:03:28,012
+used as a type in the class will
+
+94
+00:03:28,012 --> 00:03:30,583
+be replaced by an actual type when it is used.
+
+95
+00:03:30,973 --> 00:03:32,973
+This class has a single member variable
+
+96
+00:03:32,973 --> 00:03:35,609
+named 'item' that is of type T.
+
+97
+00:03:36,081 --> 00:03:38,568
+The class also has a method called UpdateItem
+
+98
+00:03:38,568 --> 00:03:40,485
+that takes in a single argument of type T
+
+99
+00:03:40,485 --> 00:03:42,485
+and assigns it to the member item.
+
+100
+00:03:43,040 --> 00:03:45,040
+In order to instantiate an object of this class
+
+101
+00:03:45,040 --> 00:03:47,744
+you must specify a type for T.
+
+102
+00:03:47,744 --> 00:03:49,744
+You do this by typing the name of the class
+
+103
+00:03:49,744 --> 00:03:52,477
+followed by angled brackets and the type you want.
+
+104
+00:03:52,904 --> 00:03:54,904
+You must also do this after typing the name of
+
+105
+00:03:54,904 --> 00:03:57,888
+the constructor and before the constructor's parameter list.
+
+106
+00:03:58,388 --> 00:04:00,388
+One of the most common uses of generics is for
+
+107
+00:04:00,388 --> 00:04:02,877
+collections like dictionaries and lists.
+
+108
+00:04:02,877 --> 00:04:04,877
+For more information on dictionaries and lists
+
+109
+00:04:04,877 --> 00:04:06,877
+see the lesson linked below.

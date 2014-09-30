@@ -1,0 +1,415 @@
+1
+00:00:00,373 --> 00:00:02,921
+Scripting conventions and syntax.
+
+2
+00:00:03,656 --> 00:00:05,969
+Coding syntax simply means the structure
+
+3
+00:00:05,969 --> 00:00:07,969
+of the language, and some conventions are
+
+4
+00:00:07,969 --> 00:00:10,314
+essential to learning to read and write code.
+
+5
+00:00:10,814 --> 00:00:12,814
+For example the dot operator.
+
+6
+00:00:13,176 --> 00:00:16,129
+The dot operator is a full stop, or period,
+
+7
+00:00:16,129 --> 00:00:18,851
+seen between words within code.
+
+8
+00:00:19,917 --> 00:00:22,572
+It works like writing the line of an address.
+
+9
+00:00:22,572 --> 00:00:25,703
+For example consider this line of code.
+
+10
+00:00:26,438 --> 00:00:29,981
+Here we could consider Debug the country
+
+11
+00:00:29,981 --> 00:00:32,884
+and Log the city. We're drilling down in to
+
+12
+00:00:32,884 --> 00:00:34,884
+things that are within Debug,
+
+13
+00:00:34,884 --> 00:00:36,884
+Log being one of those elements.
+
+14
+00:00:37,384 --> 00:00:40,009
+Then for example in this part of the code
+
+15
+00:00:40,009 --> 00:00:43,703
+transform is the country, position is the city
+
+16
+00:00:43,703 --> 00:00:46,179
+and X is the street we're trying to locate.
+
+17
+00:00:46,179 --> 00:00:48,179
+So the dot operator is effectively
+
+18
+00:00:48,179 --> 00:00:51,420
+allowing you to separate or access
+
+19
+00:00:51,420 --> 00:00:54,058
+elements of a compound item in Unity.
+
+20
+00:00:54,058 --> 00:00:56,058
+A compound item being something that
+
+21
+00:00:56,058 --> 00:00:58,058
+contains many elements.
+
+22
+00:00:58,058 --> 00:01:00,447
+So for example transform contains
+
+23
+00:01:00,447 --> 00:01:02,447
+position, rotation and scale.
+
+24
+00:01:02,447 --> 00:01:05,219
+So the dot operator is used to choose position,
+
+25
+00:01:05,219 --> 00:01:08,058
+and then position contains X, Y or Z.
+
+26
+00:01:08,058 --> 00:01:10,887
+So we've then chosen X by using the dot
+
+27
+00:01:10,887 --> 00:01:14,068
+operator once again. The next piece of syntax
+
+28
+00:01:14,068 --> 00:01:17,276
+is the semicolon. The semicolon is used
+
+29
+00:01:17,276 --> 00:01:19,276
+to terminate statements, which is why
+
+30
+00:01:19,276 --> 00:01:21,207
+you'll always see it at the end.
+
+31
+00:01:21,624 --> 00:01:24,784
+However not all parts of the code are statements.
+
+32
+00:01:24,784 --> 00:01:26,617
+For example the opening and closing of a
+
+33
+00:01:26,617 --> 00:01:28,617
+class declaration, or the opening
+
+34
+00:01:28,617 --> 00:01:31,889
+and closing of functions or if statements.
+
+35
+00:01:32,182 --> 00:01:34,182
+Anything using a curly brace does
+
+36
+00:01:34,182 --> 00:01:36,182
+not need a semicolon at the end of it.
+
+37
+00:01:36,461 --> 00:01:38,767
+Any statements within these, i.e., after 
+
+38
+00:01:38,767 --> 00:01:40,767
+the opening or before the closing
+
+39
+00:01:40,767 --> 00:01:42,767
+will end with a semicolon.
+
+40
+00:01:43,115 --> 00:01:43,911
+Indenting.
+
+41
+00:01:44,149 --> 00:01:46,149
+Indenting is an important part of writing
+
+42
+00:01:46,149 --> 00:01:48,506
+code that's both presentable and legible.
+
+43
+00:01:49,006 --> 00:01:51,393
+Indenting code is not technically necessary
+
+44
+00:01:51,393 --> 00:01:53,393
+but it allows you to read it more easily
+
+45
+00:01:53,393 --> 00:01:55,393
+as it's used to show the functional structure
+
+46
+00:01:55,393 --> 00:01:56,513
+of your code.
+
+47
+00:01:57,013 --> 00:02:00,429
+The code you see here is already fully indented.
+
+48
+00:02:01,620 --> 00:02:04,065
+But if I outdent all of this code
+
+49
+00:02:04,385 --> 00:02:06,385
+using Shift and Tab
+
+50
+00:02:07,355 --> 00:02:09,355
+we can do it a step at a time.
+
+51
+00:02:09,593 --> 00:02:11,593
+So to begin with my public class statement
+
+52
+00:02:11,593 --> 00:02:13,318
+declaration starts here
+
+53
+00:02:13,318 --> 00:02:15,318
+and ends at the bottom, so I know that
+
+54
+00:02:15,318 --> 00:02:17,830
+everything within it needs indenting
+
+55
+00:02:17,830 --> 00:02:19,229
+by at least 1.
+
+56
+00:02:19,867 --> 00:02:21,867
+I'm using the Tab key to do this.
+
+57
+00:02:22,560 --> 00:02:24,944
+Next, in my Start function, which starts
+
+58
+00:02:24,944 --> 00:02:28,246
+here on line 7 and ends on line 14,
+
+59
+00:02:28,246 --> 00:02:30,053
+I have a few lines of code.
+
+60
+00:02:30,053 --> 00:02:32,053
+So they all need indenting because they're
+
+61
+00:02:32,053 --> 00:02:34,053
+within the Start function.
+
+62
+00:02:34,401 --> 00:02:36,787
+Then finally within my if statement.
+
+63
+00:02:36,787 --> 00:02:38,787
+I have a debug log line of code,
+
+64
+00:02:38,787 --> 00:02:40,495
+which I'm going to indent as well.
+
+65
+00:02:41,107 --> 00:02:43,107
+So I can visually trace a line going
+
+66
+00:02:43,107 --> 00:02:45,107
+down the page and spot where all 
+
+67
+00:02:45,107 --> 00:02:47,387
+my code blocks start and end,
+
+68
+00:02:47,387 --> 00:02:49,663
+simply because I've used indentation.
+
+69
+00:02:50,163 --> 00:02:52,163
+Generally speaking MonoDevelop should help you
+
+70
+00:02:52,163 --> 00:02:54,163
+with this and do it automatically
+
+71
+00:02:54,163 --> 00:02:55,911
+but just in case you've got anything wrong 
+
+72
+00:02:55,911 --> 00:02:57,911
+or you've pressed Tab in the wrong place
+
+73
+00:02:57,911 --> 00:02:59,074
+you should make sure that all of your 
+
+74
+00:02:59,074 --> 00:03:01,074
+indentation makes sense, especially
+
+75
+00:03:01,074 --> 00:03:03,445
+if you're working with someone else on your code.
+
+76
+00:03:03,696 --> 00:03:05,126
+Finally, Comments.
+
+77
+00:03:05,419 --> 00:03:07,419
+Comments can be used literally as 
+
+78
+00:03:07,419 --> 00:03:09,712
+they sound to comment about a piece of code
+
+79
+00:03:09,712 --> 00:03:12,128
+in order to leave yourself a note.
+
+80
+00:03:12,128 --> 00:03:14,128
+You can write a single line comment by
+
+81
+00:03:14,128 --> 00:03:16,128
+using a double forward slash.
+
+82
+00:03:16,128 --> 00:03:18,128
+Or you can write a multiple line comment
+
+83
+00:03:18,128 --> 00:03:20,364
+by starting with a forward slash,
+
+84
+00:03:20,364 --> 00:03:23,164
+an asterisk and terminating with the
+
+85
+00:03:23,164 --> 00:03:26,325
+opposite, an asterisk followed by a forward slash.
+
+86
+00:03:26,325 --> 00:03:27,922
+And you can continue to write as many
+
+87
+00:03:27,922 --> 00:03:29,922
+lines as you want. So comments can be used
+
+88
+00:03:29,922 --> 00:03:32,454
+to leave yourself or other coders a note.
+
+89
+00:03:32,454 --> 00:03:34,454
+But it can also be used to disable parts
+
+90
+00:03:34,454 --> 00:03:35,901
+of code temporarily.
+
+91
+00:03:36,277 --> 00:03:38,497
+So for example if I want to disable
+
+92
+00:03:38,497 --> 00:03:40,768
+this if statement I can put in a 
+
+93
+00:03:40,768 --> 00:03:44,263
+multi-line comment starting before it
+
+94
+00:03:44,639 --> 00:03:46,805
+and terminating after it.
+
+95
+00:03:47,940 --> 00:03:50,511
+You can see that my code editor MonoDevelop
+
+96
+00:03:50,511 --> 00:03:52,511
+is there to help me see that this part
+
+97
+00:03:52,511 --> 00:03:54,511
+is disabled. It changes the syntax
+
+98
+00:03:54,511 --> 00:03:56,941
+colouring of this part of code
+
+99
+00:03:56,941 --> 00:03:58,941
+showing me that it's not actually
+
+100
+00:03:58,941 --> 00:04:01,646
+being executed. So this will not be 
+
+101
+00:04:01,646 --> 00:04:03,646
+executed until I remove the comment again.
+
+102
+00:04:03,966 --> 00:04:06,549
+The compiler, or Unity in this sense,
+
+103
+00:04:06,549 --> 00:04:08,549
+effectively just ignores what's going
+
+104
+00:04:08,549 --> 00:04:09,874
+on within that comment.

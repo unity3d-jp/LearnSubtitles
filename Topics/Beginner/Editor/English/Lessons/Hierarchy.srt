@@ -1,0 +1,175 @@
+1
+00:00:01,206 --> 00:00:05,814
+The Hierarchy in Unity is a complete list of any object in your open scene.
+
+2
+00:00:05,814 --> 00:00:08,379
+Objects are listed from A to Z order, 
+
+3
+00:00:08,379 --> 00:00:11,837
+but it is also possible to create hierarchies of objects
+
+4
+00:00:11,837 --> 00:00:14,326
+which are in turn listed in A to Z order.
+
+5
+00:00:14,878 --> 00:00:20,679
+Hierarchies of objects mean that they are grouped, with the top most object being called the Parent Object
+
+6
+00:00:20,679 --> 00:00:24,718
+and the rest being referred to as Children or Child objects.
+
+7
+00:00:28,916 --> 00:00:33,659
+These objects then have their transform values based upon that of their parent object.
+
+8
+00:00:33,954 --> 00:00:37,559
+For example the position of an object when loose in the hierarchy
+
+9
+00:00:37,559 --> 00:00:41,342
+is based on it's distance from the world origin, or zero point.
+
+10
+00:00:41,624 --> 00:00:47,470
+But when this object is made a child of another object it's position is relative to that of it's parent.
+
+11
+00:00:48,407 --> 00:00:53,066
+In this example the character object is at the origin of the 3D scene,
+
+12
+00:00:53,490 --> 00:00:56,045
+the position (0, 0, 0).
+
+13
+00:00:57,072 --> 00:01:02,482
+And there is a cube object at position (5, 1, 5).
+
+14
+00:01:03,650 --> 00:01:09,909
+But when the character object is made a child of the cube - it's origin, or zero point,
+
+15
+00:01:09,909 --> 00:01:13,222
+is then the position of the parent object, the cube.
+
+16
+00:01:13,532 --> 00:01:19,305
+Now the character's position is said to be (-5, -1, -5).
+
+17
+00:01:19,730 --> 00:01:25,795
+This being the distance from the cube object, it's parent and therefore it's origin position.
+
+18
+00:01:25,795 --> 00:01:29,566
+We can also see that with Pivot Point Rotation enabled
+
+19
+00:01:29,566 --> 00:01:33,791
+the rotation is now based on the parent object
+
+20
+00:01:35,499 --> 00:01:39,951
+rather than rotating around it's own axis.
+
+21
+00:01:46,408 --> 00:01:49,351
+The same then applies to movement,
+
+22
+00:01:51,284 --> 00:01:53,284
+and scaling.
+
+23
+00:01:58,727 --> 00:02:02,727
+And this will apply until that object is no longer a child.
+
+24
+00:02:07,631 --> 00:02:11,924
+Other features of the hierarchy are the Create button
+
+25
+00:02:11,924 --> 00:02:13,296
+and Search field.
+
+26
+00:02:13,646 --> 00:02:18,956
+The create button on the hierarchy acts as a mirror of the Game Object - Create Other top menu
+
+27
+00:02:18,956 --> 00:02:24,208
+and this will allow you to create various different things that you will need to construct your games in Unity.
+
+28
+00:02:24,208 --> 00:02:28,395
+Whilst the search field works in a similar way to the search field in the Scene view,
+
+29
+00:02:28,395 --> 00:02:31,505
+allowing you to narrow down objects using their name.
+
+30
+00:02:31,505 --> 00:02:34,620
+The scene view then reacts by greying out other objects
+
+31
+00:02:34,620 --> 00:02:37,466
+allowing you to see the object you've searched for more easily.
+
+32
+00:02:37,890 --> 00:02:43,498
+You can also make use of the modifier T: in order to search for types of object.
+
+33
+00:02:43,498 --> 00:02:47,062
+Type here being considered as one of the objects components.
+
+34
+00:02:47,370 --> 00:02:51,207
+For example if I search for T:Light
+
+35
+00:02:52,927 --> 00:02:55,286
+there is only one light in my current scene,
+
+36
+00:02:55,286 --> 00:02:57,307
+one on the end of the players gun.
+
+37
+00:02:58,475 --> 00:03:01,859
+And if I search for T: Audio Source
+
+38
+00:03:03,772 --> 00:03:05,925
+I'll be narrowed down to 3 objects,
+
+39
+00:03:05,925 --> 00:03:10,429
+the only ones in the scene that happen to have audio source components attached to them.
+
+40
+00:03:16,527 --> 00:03:22,251
+When searching in this way, the bottom of the hierarchy shows the path to the object that you've found.
+
+41
+00:03:22,251 --> 00:03:25,136
+Damage audio source being the one I have selected,
+
+42
+00:03:25,136 --> 00:03:29,342
+Player being it's parent and Cube being the parent of that object.
+
+43
+00:03:30,061 --> 00:03:34,861
+This means that when cancelling the search you can easily see where your object is.
+
+44
+00:03:35,936 --> 00:03:42,484
+It will also remain selected and the parent objects of that object will be expanded to show where it's located.

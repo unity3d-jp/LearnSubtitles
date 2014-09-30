@@ -1,0 +1,683 @@
+1
+00:00:01,160 --> 00:00:03,709
+In this assignment we will create a new project,
+
+2
+00:00:03,709 --> 00:00:06,207
+import our assets, save our main scene
+
+3
+00:00:06,207 --> 00:00:08,880
+and set up the basic foundations for our game.
+
+4
+00:00:09,477 --> 00:00:12,370
+Let's begin by creating a brand new project.
+
+5
+00:00:12,370 --> 00:00:16,215
+We can do this by selecting File - New Project.
+
+6
+00:00:17,116 --> 00:00:19,116
+This opens the Project Wizard.
+
+7
+00:00:19,116 --> 00:00:21,199
+In the Project Wizard we can open an existing
+
+8
+00:00:21,199 --> 00:00:23,800
+project or create a new one.
+
+9
+00:00:23,800 --> 00:00:26,121
+We will be creating a new project.
+
+10
+00:00:26,121 --> 00:00:29,461
+First we need to set a location for our new project.
+
+11
+00:00:29,461 --> 00:00:32,419
+We can do this by selecting the Set button,
+
+12
+00:00:32,878 --> 00:00:35,790
+which brings up a Save As dialogue box.
+
+13
+00:00:36,290 --> 00:00:39,018
+I'm going to put this new project on my desktop.
+
+14
+00:00:39,018 --> 00:00:41,018
+I will call it Space Shooter.
+
+15
+00:00:42,084 --> 00:00:44,789
+Save this and return to the wizard.
+
+16
+00:00:44,789 --> 00:00:46,969
+Now if we look at the desktop
+
+17
+00:00:46,969 --> 00:00:49,411
+we will see that no files have been created.
+
+18
+00:00:50,312 --> 00:00:52,312
+We have simply set the path to the location
+
+19
+00:00:52,312 --> 00:00:55,514
+where Unity will build the new project.
+
+20
+00:00:56,401 --> 00:00:58,680
+At this stage we have the choice to import
+
+21
+00:00:58,680 --> 00:01:01,081
+packages of assets we have on our computer
+
+22
+00:01:01,484 --> 00:01:03,250
+These could be packages that came from the 
+
+23
+00:01:03,250 --> 00:01:06,457
+original install, packages from the asset store
+
+24
+00:01:06,457 --> 00:01:09,139
+or packages that we have saved ourselves.
+
+25
+00:01:09,139 --> 00:01:11,139
+For this assignment we want a new clean
+
+26
+00:01:11,139 --> 00:01:13,139
+empty project, so we won't select
+
+27
+00:01:13,139 --> 00:01:14,876
+any packages to import.
+
+28
+00:01:15,639 --> 00:01:19,068
+Click on Create Project to create this new project.
+
+29
+00:01:19,775 --> 00:01:22,276
+Unity will close the existing project,
+
+30
+00:01:22,276 --> 00:01:24,429
+build the project files and open the new
+
+31
+00:01:24,429 --> 00:01:26,152
+project in the Editor.
+
+32
+00:01:26,152 --> 00:01:28,152
+Now we are ready to go.
+
+33
+00:01:29,204 --> 00:01:31,204
+The next step is to import the 
+
+34
+00:01:31,204 --> 00:01:32,997
+assets for this project.
+
+35
+00:01:32,997 --> 00:01:34,997
+Most likely you will download these from the
+
+36
+00:01:34,997 --> 00:01:37,263
+learn site and asset store.
+
+37
+00:01:37,263 --> 00:01:38,455
+When your import is ready
+
+38
+00:01:38,455 --> 00:01:40,757
+you will see a window like this one.
+
+39
+00:01:40,757 --> 00:01:43,499
+These are all the files we need for this project.
+
+40
+00:01:43,499 --> 00:01:45,499
+Make sure they are all selected.
+
+41
+00:01:47,297 --> 00:01:50,240
+If not click the All button in the bottom left,
+
+42
+00:01:50,240 --> 00:01:53,253
+then select Import to import these assets.
+
+43
+00:01:53,891 --> 00:01:56,696
+Unity will copy these files to our new project
+
+44
+00:01:56,696 --> 00:02:00,277
+compile any scripts and import all of the assets.
+
+45
+00:02:04,410 --> 00:02:06,647
+We will be creating this project from scratch
+
+46
+00:02:06,647 --> 00:02:08,468
+using the assets provided.
+
+47
+00:02:09,078 --> 00:02:11,590
+If however you are confused by any step
+
+48
+00:02:11,590 --> 00:02:14,486
+this project does include a Done folder
+
+49
+00:02:14,486 --> 00:02:17,944
+which contains the entire project in finished form.
+
+50
+00:02:17,944 --> 00:02:21,018
+There is a final scene, Done_Main,
+
+51
+00:02:21,018 --> 00:02:24,703
+final scripts, final prefabs and more.
+
+52
+00:02:26,046 --> 00:02:28,046
+Now that we have our assets let's save
+
+53
+00:02:28,046 --> 00:02:30,478
+the scene that we will be working in.
+
+54
+00:02:30,478 --> 00:02:32,443
+When working in Unity we will always
+
+55
+00:02:32,443 --> 00:02:34,068
+have a scene open.
+
+56
+00:02:34,068 --> 00:02:36,068
+Unity opened a default scene for us
+
+57
+00:02:36,068 --> 00:02:38,246
+when we started the project.
+
+58
+00:02:38,246 --> 00:02:40,246
+Our current scene is unsaved.
+
+59
+00:02:40,746 --> 00:02:42,953
+We get a hint to remind us if our scene
+
+60
+00:02:42,953 --> 00:02:45,494
+has been saved if we read the header bar.
+
+61
+00:02:45,839 --> 00:02:48,239
+The header bar always lists the scene,
+
+62
+00:02:48,239 --> 00:02:50,239
+project name and build target.
+
+63
+00:02:50,739 --> 00:02:52,739
+Our header bar shows Untitled
+
+64
+00:02:52,739 --> 00:02:54,739
+which is our unsaved scene.
+
+65
+00:02:54,739 --> 00:02:57,566
+Space Shooter, our current project
+
+66
+00:02:57,566 --> 00:03:00,185
+and PC, Mac and Linux Standalone
+
+67
+00:03:00,185 --> 00:03:02,185
+which is our build target.
+
+68
+00:03:02,185 --> 00:03:04,688
+We will discuss build targets in a moment.
+
+69
+00:03:05,395 --> 00:03:09,285
+To save our scene select File - Save Scene,
+
+70
+00:03:09,285 --> 00:03:11,285
+or use the hot-key combination.
+
+71
+00:03:12,130 --> 00:03:14,741
+Scenes need to be saved in our Assets directory.
+
+72
+00:03:14,741 --> 00:03:18,051
+They can be in any directory within the Assets directory.
+
+73
+00:03:18,051 --> 00:03:20,051
+I'm going to create a new directory to hold
+
+74
+00:03:20,051 --> 00:03:23,061
+my scene, I will call this new directory
+
+75
+00:03:23,061 --> 00:03:25,394
+_Scenes.
+
+76
+00:03:25,394 --> 00:03:28,011
+The underscore is not necessary but I like it
+
+77
+00:03:28,011 --> 00:03:30,011
+as it will sort this directory to the top of
+
+78
+00:03:30,011 --> 00:03:32,823
+my project view where it will be easy to find.
+
+79
+00:03:33,392 --> 00:03:36,083
+Next I will name this scene Main
+
+80
+00:03:37,149 --> 00:03:39,149
+and hit Save to save it.
+
+81
+00:03:39,649 --> 00:03:41,926
+We can see that we now have a directory called
+
+82
+00:03:41,926 --> 00:03:45,359
+_Scenes and a scene file called Main.
+
+83
+00:03:45,359 --> 00:03:47,359
+We can also see Main as the
+
+84
+00:03:47,359 --> 00:03:49,359
+scene listed in the header bar.
+
+85
+00:03:49,983 --> 00:03:51,983
+Now that we have imported our assets and
+
+86
+00:03:51,983 --> 00:03:55,299
+saved our scene we need to set our build target.
+
+87
+00:03:55,299 --> 00:03:57,299
+Whenever we are working on a project we are
+
+88
+00:03:57,299 --> 00:03:59,299
+always working with a build target.
+
+89
+00:03:59,799 --> 00:04:02,047
+Our current build target is the default
+
+90
+00:04:02,047 --> 00:04:04,747
+PC, Mac and Linux Standalone.
+
+91
+00:04:04,747 --> 00:04:07,306
+All of our assets will be imported for this target
+
+92
+00:04:07,306 --> 00:04:09,306
+and all of our scripts will be compiled
+
+93
+00:04:09,306 --> 00:04:11,893
+for this target, so it's important to have our
+
+94
+00:04:11,893 --> 00:04:15,441
+build settings set to the intended target platform.
+
+95
+00:04:16,107 --> 00:04:18,107
+Don't forget Unity can have one project
+
+96
+00:04:18,107 --> 00:04:20,948
+and one codebase for all of our build targets
+
+97
+00:04:20,948 --> 00:04:22,563
+and most of what we develop will work
+
+98
+00:04:22,563 --> 00:04:25,485
+for all platforms, but we will be developing
+
+99
+00:04:25,485 --> 00:04:27,875
+for only one platform at a time.
+
+100
+00:04:29,131 --> 00:04:31,422
+To set our build target we can select
+
+101
+00:04:31,422 --> 00:04:35,208
+File - Build Settings, or use the hot-key combination.
+
+102
+00:04:36,551 --> 00:04:38,551
+This will bring up the Build Settings window.
+
+103
+00:04:39,161 --> 00:04:41,534
+Here we can set the details of our build
+
+104
+00:04:41,534 --> 00:04:44,651
+and select the scenes we want to build in to our game.
+
+105
+00:04:45,745 --> 00:04:47,745
+We want to change the build target to
+
+106
+00:04:47,745 --> 00:04:49,745
+Web Player, as we will be building and
+
+107
+00:04:49,745 --> 00:04:52,104
+deploying this project to the web.
+
+108
+00:04:52,104 --> 00:04:56,052
+Click on Web Player to select the web player build target.
+
+109
+00:04:56,052 --> 00:04:59,535
+The blue highlight indicates we have selected the Web Player.
+
+110
+00:04:59,535 --> 00:05:02,414
+We can see the details on the right change,
+
+111
+00:05:02,414 --> 00:05:05,142
+but we have not changed the build target.
+
+112
+00:05:05,142 --> 00:05:07,142
+Our current build target is indicated by the
+
+113
+00:05:07,142 --> 00:05:10,569
+Unity logo and is shown in the header bar.
+
+114
+00:05:12,450 --> 00:05:14,450
+To change build targets select the
+
+115
+00:05:14,450 --> 00:05:17,781
+platform you want and click Switch Platform.
+
+116
+00:05:19,110 --> 00:05:21,110
+Now the Unity logo is associated with 
+
+117
+00:05:21,110 --> 00:05:23,774
+our new build target, and that new build
+
+118
+00:05:23,774 --> 00:05:25,774
+target is listed in the header.
+
+119
+00:05:26,799 --> 00:05:29,267
+Now that we have set our build target we need to set
+
+120
+00:05:29,267 --> 00:05:31,267
+the build details for our game.
+
+121
+00:05:31,767 --> 00:05:33,767
+We can do this from the Build Settings window
+
+122
+00:05:33,767 --> 00:05:36,572
+by selecting Player Settings.
+
+123
+00:05:36,572 --> 00:05:40,033
+This allows us to inspect and change our player settings.
+
+124
+00:05:40,533 --> 00:05:42,533
+If we want to change our player settings and the
+
+125
+00:05:42,533 --> 00:05:45,003
+build window is not open we can select
+
+126
+00:05:45,003 --> 00:05:47,806
+Edit - Project Settings - Player.
+
+127
+00:05:49,466 --> 00:05:52,110
+With Player Settings open in the Inspector
+
+128
+00:05:52,110 --> 00:05:54,412
+we can change both project-wide settings
+
+129
+00:05:54,412 --> 00:05:56,412
+and platform-specific settings.
+
+130
+00:05:56,912 --> 00:05:58,912
+For more information on player settings
+
+131
+00:05:58,912 --> 00:06:00,912
+see the details linked below.
+
+132
+00:06:01,716 --> 00:06:03,716
+For this project we can leave everything at
+
+133
+00:06:03,716 --> 00:06:06,316
+default except Resolution.
+
+134
+00:06:06,316 --> 00:06:08,316
+I would like this Space Shooter game to have
+
+135
+00:06:08,316 --> 00:06:10,815
+the feeling of an upright arcade game,
+
+136
+00:06:10,815 --> 00:06:13,118
+portrait rather than landscape,
+
+137
+00:06:13,118 --> 00:06:19,403
+so let's change the resolution to 600 by 900.
+
+138
+00:06:21,630 --> 00:06:23,630
+So that we can see an accurate representation
+
+139
+00:06:23,630 --> 00:06:25,630
+of our game let's make sure that
+
+140
+00:06:25,630 --> 00:06:28,129
+the aspect ratio in the Game view
+
+141
+00:06:28,129 --> 00:06:30,018
+is set to Web.
+
+142
+00:06:30,018 --> 00:06:32,018
+This will use the 600 by 900 
+
+143
+00:06:32,018 --> 00:06:34,018
+size and aspect ratio.
+
+144
+00:06:35,209 --> 00:06:37,722
+With this size and aspect ratio however
+
+145
+00:06:37,722 --> 00:06:39,722
+I do notice that the game view looks cramped
+
+146
+00:06:39,722 --> 00:06:41,997
+and small in it's window.
+
+147
+00:06:41,997 --> 00:06:43,997
+I'm not sure this is how I want to view my game
+
+148
+00:06:43,997 --> 00:06:45,552
+as I develop.
+
+149
+00:06:46,052 --> 00:06:49,001
+The solution to this is easy, change the layout.
+
+150
+00:06:49,611 --> 00:06:51,611
+I'm going to grab the Game view tab and drag
+
+151
+00:06:51,611 --> 00:06:54,994
+it up to the top between the Scene view and Console.
+
+152
+00:06:55,494 --> 00:06:57,494
+This will give me a big easy to read view
+
+153
+00:06:57,494 --> 00:07:01,240
+of my scene, game and console.
+
+154
+00:07:01,740 --> 00:07:04,083
+Undoubtedly you will have a different layout.
+
+155
+00:07:04,083 --> 00:07:06,997
+but be aware that changing the layout is easy
+
+156
+00:07:07,746 --> 00:07:10,765
+Now that I've changed the layout let's save it.
+
+157
+00:07:11,417 --> 00:07:13,750
+If we don't save our layouts and we reselect
+
+158
+00:07:13,750 --> 00:07:16,346
+the current layout our layout will return
+
+159
+00:07:16,346 --> 00:07:18,968
+to the last saved configuration.
+
+160
+00:07:19,371 --> 00:07:22,771
+To save the layout select Layout and choose
+
+161
+00:07:22,771 --> 00:07:24,285
+Save Layout.
+
+162
+00:07:24,815 --> 00:07:27,679
+Either save over the current layout to update it
+
+163
+00:07:27,679 --> 00:07:30,372
+or choose a new name for a new layout.
+
+164
+00:07:30,897 --> 00:07:32,897
+I'm going to create a new layout and I'm going to
+
+165
+00:07:32,897 --> 00:07:34,897
+call it Space Shooter.
+
+166
+00:07:37,303 --> 00:07:39,303
+Now that I've changed my layout I can return to
+
+167
+00:07:39,303 --> 00:07:41,303
+this one by simply selecting it from the
+
+168
+00:07:41,303 --> 00:07:43,303
+Layout pull-down menu.
+
+169
+00:07:43,303 --> 00:07:45,303
+That's it for setting up this project.
+
+170
+00:07:45,983 --> 00:07:47,983
+Now that we've setup the project, in the next
+
+171
+00:07:47,983 --> 00:07:51,321
+assignment we will setup the main player game object.

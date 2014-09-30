@@ -1,0 +1,91 @@
+1
+00:00:00,249 --> 00:00:02,928
+OnMouseDown and its related functions
+
+2
+00:00:02,928 --> 00:00:04,928
+can detect a click on a collider
+
+3
+00:00:04,928 --> 00:00:06,692
+or a GUI text element.
+
+4
+00:00:07,192 --> 00:00:09,192
+In this example we have a door object
+
+5
+00:00:09,192 --> 00:00:12,696
+that has a box collider and a rigidbody attached.
+
+6
+00:00:13,887 --> 00:00:15,887
+The script that I've written
+
+7
+00:00:16,484 --> 00:00:18,484
+has an OnMouseDown function
+
+8
+00:00:19,150 --> 00:00:21,150
+and when that object is clicked
+
+9
+00:00:21,150 --> 00:00:24,248
+we will Debug Log, meaning that we'll print to the console,
+
+10
+00:00:24,248 --> 00:00:26,248
+''Clicked On The Door''.
+
+11
+00:00:28,184 --> 00:00:30,184
+So when I press play.
+
+12
+00:00:31,554 --> 00:00:34,461
+check my console and click on the door in the game
+
+13
+00:00:35,265 --> 00:00:36,961
+I get a Debug Log.
+
+14
+00:00:37,337 --> 00:00:39,337
+Similarly we can make it do something more
+
+15
+00:00:39,337 --> 00:00:43,341
+exciting. For example, adding a force
+
+16
+00:00:43,341 --> 00:00:45,703
+to the door object when it is clicked.
+
+17
+00:00:45,703 --> 00:00:47,703
+So in this example I am adding a force
+
+18
+00:00:48,203 --> 00:00:51,247
+in the inverse direction of its forward.
+
+19
+00:00:51,885 --> 00:00:56,455
+So the door will be fired away
+
+20
+00:00:56,455 --> 00:00:58,110
+from it's Z axis.
+
+21
+00:00:58,775 --> 00:01:01,278
+And I am also switching on gravity
+
+22
+00:01:01,278 --> 00:01:03,681
+so that it will fall down when it's clicked.
+
+23
+00:01:03,985 --> 00:01:05,985
+It looks like this.

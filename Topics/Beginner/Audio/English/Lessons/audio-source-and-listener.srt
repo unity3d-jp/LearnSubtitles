@@ -1,0 +1,359 @@
+1
+00:00:00,290 --> 00:00:02,790
+The Audio Listener component is the equivalent 
+
+2
+00:00:02,790 --> 00:00:04,335
+of your ears in the game.
+
+3
+00:00:04,771 --> 00:00:07,616
+It receives, or listens, to audio sources
+
+4
+00:00:07,616 --> 00:00:08,844
+that are in the game world.
+
+5
+00:00:09,238 --> 00:00:11,657
+The control of the audio's behaviour is done on
+
+6
+00:00:11,657 --> 00:00:13,201
+the audio source component
+
+7
+00:00:13,201 --> 00:00:16,116
+and therefore the listener itself has no settings.
+
+8
+00:00:17,436 --> 00:00:20,469
+This is attached to a camera in your scene by default
+
+9
+00:00:20,469 --> 00:00:22,469
+but can be placed on any object.
+
+10
+00:00:22,691 --> 00:00:24,691
+Often this is attached to a character
+
+11
+00:00:24,691 --> 00:00:26,946
+and crucially there can be only one listener
+
+12
+00:00:26,946 --> 00:00:29,814
+per scene in order for it to function correctly.
+
+13
+00:00:29,950 --> 00:00:33,131
+You can test an audio listener from any position in the world 
+
+14
+00:00:33,131 --> 00:00:35,131
+by moving the scene camera around
+
+15
+00:00:35,131 --> 00:00:38,324
+with the audio preview toggle enabled.
+
+16
+00:00:54,115 --> 00:00:56,492
+This gives you live testing of audio sources
+
+17
+00:00:56,492 --> 00:00:58,614
+in your environment without having to move 
+
+18
+00:00:58,614 --> 00:01:00,991
+the real listener or play test the game.
+
+19
+00:01:02,912 --> 00:01:05,951
+Audio sources are components that playback audio.
+
+20
+00:01:06,192 --> 00:01:08,459
+Think of them as speakers in the game world.
+
+21
+00:01:08,608 --> 00:01:12,021
+In this example our turbine has an audio source attached
+
+22
+00:01:12,021 --> 00:01:14,795
+with the turbine audio clip that's been applied to it.
+
+23
+00:01:14,917 --> 00:01:17,101
+We can assign a clip by dragging and dropping,
+
+24
+00:01:17,101 --> 00:01:19,886
+or by using code to select a clip to play.
+
+25
+00:01:19,997 --> 00:01:22,560
+We can mute, bypass any filters,
+
+26
+00:01:22,560 --> 00:01:25,167
+choose whether to play this audio source on awake,
+
+27
+00:01:25,167 --> 00:01:27,009
+as in - when the game begins
+
+28
+00:01:27,009 --> 00:01:28,567
+and whether to loop the clip.
+
+29
+00:01:28,567 --> 00:01:32,180
+Priority varies between 0 and 255,
+
+30
+00:01:32,180 --> 00:01:34,407
+0 being the highest priority.
+
+31
+00:01:34,828 --> 00:01:38,035
+It's advisable to have music set as the highest priority
+
+32
+00:01:38,035 --> 00:01:39,856
+to avoid other clips from overriding
+
+33
+00:01:39,856 --> 00:01:41,602
+when many clips are being played at once.
+
+34
+00:01:41,724 --> 00:01:43,912
+Volume determines how loud the clip is played
+
+35
+00:01:43,912 --> 00:01:45,490
+based on it's original waveform.
+
+36
+00:01:45,740 --> 00:01:47,740
+Pitch controls the pitch of a clip.
+
+37
+00:01:47,999 --> 00:01:49,857
+If you're working with 3D sounds
+
+38
+00:01:49,857 --> 00:01:51,412
+the settings are more detailed.
+
+39
+00:01:51,595 --> 00:01:53,970
+Doppler level defines how much the Doppler Effect
+
+40
+00:01:53,970 --> 00:01:54,824
+will be used.
+
+41
+00:01:54,894 --> 00:01:57,693
+This is a perceived shift in frequency as the listener
+
+42
+00:01:57,693 --> 00:01:59,693
+or the ear in real terms 
+
+43
+00:01:59,693 --> 00:02:01,693
+is moving past the sound source.
+
+44
+00:02:02,075 --> 00:02:04,075
+It will seem higher approaching it
+
+45
+00:02:04,075 --> 00:02:06,075
+and lower as it moves away.
+
+46
+00:02:06,429 --> 00:02:09,178
+Think of an emergency vehicle's siren as it passes you
+
+47
+00:02:09,178 --> 00:02:09,997
+for example.
+
+48
+00:02:09,997 --> 00:02:12,473
+Volume roll-off determines the type of roll-off 
+
+49
+00:02:12,473 --> 00:02:14,111
+to be used by the sound
+
+50
+00:02:14,111 --> 00:02:15,970
+as the listener moves away from it.
+
+51
+00:02:16,041 --> 00:02:18,788
+This can be logarithmic, linear, 
+
+52
+00:02:18,788 --> 00:02:22,508
+or customised manually using a curve
+
+53
+00:02:22,508 --> 00:02:24,508
+and adding keys as shown.
+
+54
+00:02:29,789 --> 00:02:31,789
+The minimum distance defines how close 
+
+55
+00:02:31,789 --> 00:02:33,362
+to play the sound at full volume.
+
+56
+00:02:33,362 --> 00:02:35,362
+So if you are designing 3D sound
+
+57
+00:02:35,362 --> 00:02:38,009
+use this value to make the sound source louder.
+
+58
+00:02:39,003 --> 00:02:41,483
+This can be adjusted using the spherical Gizmo
+
+59
+00:02:41,483 --> 00:02:42,776
+in the scene view.
+
+60
+00:02:48,903 --> 00:02:50,903
+And it works in the conjunction with the 
+
+61
+00:02:50,903 --> 00:02:52,903
+maximum distance setting below,
+
+62
+00:02:52,903 --> 00:02:55,649
+which by default is set to 500 metres
+
+63
+00:02:55,649 --> 00:02:57,901
+and is a distance after which
+
+64
+00:02:57,901 --> 00:02:59,668
+the sound rolls off.
+
+65
+00:03:04,334 --> 00:03:07,734
+Pan level defines how truly 3D the sound is.
+
+66
+00:03:08,123 --> 00:03:10,123
+This defaults to 1 for 3D sound
+
+67
+00:03:10,123 --> 00:03:12,302
+making it fully panned when the stereo listener
+
+68
+00:03:12,302 --> 00:03:13,039
+is moved past it.
+
+69
+00:03:13,303 --> 00:03:15,570
+Spread is the control of the angle of spread
+
+70
+00:03:15,570 --> 00:03:18,430
+from 3D stereo to multichannel sound.
+
+71
+00:03:19,209 --> 00:03:22,146
+Finally for 2D sound pan can be controlled
+
+72
+00:03:22,146 --> 00:03:23,465
+at the bottom of the component.
+
+73
+00:03:23,631 --> 00:03:25,430
+As a rule elements such as music
+
+74
+00:03:25,430 --> 00:03:27,014
+should be set to 2D sound,
+
+75
+00:03:27,014 --> 00:03:28,944
+whilst diegetic sound that should be
+
+76
+00:03:28,944 --> 00:03:30,982
+fading realistically should be set up
+
+77
+00:03:30,982 --> 00:03:33,418
+as 3D and positioned accordingly.
+
+78
+00:03:33,723 --> 00:03:35,863
+The 2D and 3D values of a sound
+
+79
+00:03:35,863 --> 00:03:38,867
+are controlled by an audio clip's import settings.
+
+80
+00:03:39,915 --> 00:03:41,915
+When selecting a clip in the project
+
+81
+00:03:41,915 --> 00:03:43,592
+you will be able to see the import settings
+
+82
+00:03:43,592 --> 00:03:44,511
+in the inspector.
+
+83
+00:03:44,511 --> 00:03:47,149
+You can choose the audio format to use,
+
+84
+00:03:47,149 --> 00:03:50,105
+whether it should be 3D or 2D sound,
+
+85
+00:03:50,105 --> 00:03:53,268
+whether you want to force your stereo sound to mono,
+
+86
+00:03:53,268 --> 00:03:56,972
+how to load it and what compression to use.
+
+87
+00:03:57,305 --> 00:03:59,636
+You can also preview sound at the bottom,
+
+88
+00:04:01,193 --> 00:04:03,193
+choose whether to loop whilst previewing
+
+89
+00:04:04,756 --> 00:04:06,756
+and set the inspector to auto-play
+
+90
+00:04:06,756 --> 00:04:08,756
+whilst browsing through clips.

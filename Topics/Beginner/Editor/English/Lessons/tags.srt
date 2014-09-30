@@ -1,0 +1,123 @@
+1
+00:00:00,193 --> 00:00:03,455
+Tags are a way of identifying game objects in Unity.
+
+2
+00:00:03,455 --> 00:00:05,895
+As a name of a single object could identify it,
+
+3
+00:00:05,895 --> 00:00:08,240
+it can be useful to set tags also.
+
+4
+00:00:08,621 --> 00:00:12,073
+For example you may have an object called Ork or Tank
+
+5
+00:00:12,073 --> 00:00:14,073
+but these could all be tagged Enemy,
+
+6
+00:00:14,215 --> 00:00:16,522
+and in your code you could check for any objects
+
+7
+00:00:16,522 --> 00:00:17,938
+that have the tag Enemy.
+
+8
+00:00:18,125 --> 00:00:21,521
+Likewise a script on an enemy could check for a player character
+
+9
+00:00:21,521 --> 00:00:23,005
+by looking for a player tag.
+
+10
+00:00:23,005 --> 00:00:26,433
+To assign a tag to an object, select it and use the
+
+11
+00:00:26,433 --> 00:00:28,771
+drop-down menu at the top of the inspector.
+
+12
+00:00:31,296 --> 00:00:34,912
+If the tag you want isn't already present then add a new tag.
+
+13
+00:00:34,912 --> 00:00:38,367
+You can add a tag by clicking the option at the bottom of the menu
+
+14
+00:00:38,367 --> 00:00:41,259
+and then entering it in the list of tags at the top
+
+15
+00:00:41,259 --> 00:00:42,997
+of the tag manager.
+
+16
+00:00:42,997 --> 00:00:45,053
+Once you've done this, return to the object you
+
+17
+00:00:45,053 --> 00:00:46,262
+wish to place the tag on
+
+18
+00:00:46,903 --> 00:00:48,903
+and select it from the drop-down.
+
+19
+00:00:50,120 --> 00:00:51,997
+There are a number of functions in code,
+
+20
+00:00:51,997 --> 00:00:54,508
+which will allow you to find objects with tags,
+
+21
+00:00:54,508 --> 00:00:57,887
+the simplest one of these is GameObject.FindWithTag,
+
+22
+00:00:57,887 --> 00:01:00,582
+which allows you to specify a string with the name
+
+23
+00:01:00,582 --> 00:01:01,647
+of the tag inside it.
+
+24
+00:01:01,921 --> 00:01:04,957
+This script is attached to my enemy object
+
+25
+00:01:06,886 --> 00:01:10,304
+and I can use that to find an object with the tag Player.
+
+26
+00:01:10,538 --> 00:01:13,044
+So I'll set my robot to be tagged Player
+
+27
+00:01:15,568 --> 00:01:20,110
+and when the game starts my enemy is seeking out that
+
+28
+00:01:20,110 --> 00:01:21,311
+object and looking at it.
+
+29
+00:01:22,993 --> 00:01:26,089
+Likewise you could find multiple objects with the same tag
+
+30
+00:01:26,089 --> 00:01:29,036
+by using FindGameObjectWithTag.
+
+31
+00:01:30,858 --> 00:01:34,086
+See the scripting reference for more examples of this.

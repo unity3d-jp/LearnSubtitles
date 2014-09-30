@@ -1,0 +1,239 @@
+1
+00:00:00,000 --> 00:00:02,300
+Physic Materials are materials that instead
+
+2
+00:00:02,300 --> 00:00:04,300
+of effecting the appearance of a game object
+
+3
+00:00:04,300 --> 00:00:06,300
+they effect the way that the object reacts
+
+4
+00:00:06,300 --> 00:00:08,300
+to the physics engine. Consider the difference
+
+5
+00:00:08,300 --> 00:00:10,760
+between how a basketball and a bowling ball
+
+6
+00:00:10,760 --> 00:00:12,760
+might bounce. Whilst there is a difference
+
+7
+00:00:12,760 --> 00:00:14,760
+in their mass, their surfaces are also
+
+8
+00:00:14,760 --> 00:00:17,130
+very different and they react to other
+
+9
+00:00:17,130 --> 00:00:19,130
+surfaces very differently. Physic materials
+
+10
+00:00:19,130 --> 00:00:21,130
+can be created from the Create button
+
+11
+00:00:21,130 --> 00:00:23,130
+on the project panel.
+
+12
+00:00:24,890 --> 00:00:26,890
+And they're edited in the inspector to
+
+13
+00:00:26,890 --> 00:00:29,030
+control how the surface reacts to another
+
+14
+00:00:29,030 --> 00:00:31,980
+surface. They do this by controlling friction.
+
+15
+00:00:31,980 --> 00:00:33,980
+Dynamic Friction is how much friction
+
+16
+00:00:33,980 --> 00:00:35,980
+exists whilst the object is moving
+
+17
+00:00:35,980 --> 00:00:38,100
+and Static Friction is how much
+
+18
+00:00:38,100 --> 00:00:40,100
+force is required in order to move the
+
+19
+00:00:40,100 --> 00:00:41,830
+object from a static position.
+
+20
+00:00:42,020 --> 00:00:44,260
+Bounciness does exactly what it sounds like.
+
+21
+00:00:44,260 --> 00:00:46,510
+It controls how bouncy the object is.
+
+22
+00:00:46,870 --> 00:00:48,950
+And the Friction Combine settings control
+
+23
+00:00:48,950 --> 00:00:51,780
+how they respond to another object
+
+24
+00:00:51,780 --> 00:00:54,290
+with a certain material. Friction Direction
+
+25
+00:00:54,290 --> 00:00:56,290
+will allow you to control friction
+
+26
+00:00:56,290 --> 00:00:58,780
+in a particular axis and the dynamic
+
+27
+00:00:58,780 --> 00:01:00,780
+and static friction 2 properties
+
+28
+00:01:00,780 --> 00:01:03,570
+will give you control over those three axes.
+
+29
+00:01:03,570 --> 00:01:06,010
+In this example we've applied this
+
+30
+00:01:06,010 --> 00:01:08,960
+particular physic material to our power cube
+
+31
+00:01:08,960 --> 00:01:11,400
+and our work bench.
+
+32
+00:01:11,720 --> 00:01:13,720
+The physic material is applied to the 
+
+33
+00:01:13,720 --> 00:01:16,080
+collider in any given game object
+
+34
+00:01:16,080 --> 00:01:17,910
+and you can see that there's a slot for
+
+35
+00:01:17,910 --> 00:01:20,970
+material within the collider settings.
+
+36
+00:01:22,820 --> 00:01:24,820
+You can see that if I press play,
+
+37
+00:01:25,320 --> 00:01:28,160
+it bounces slightly and is also very slippery.
+
+38
+00:01:29,290 --> 00:01:31,290
+This is because I've used 0 for dynamic 
+
+39
+00:01:31,290 --> 00:01:33,870
+and static friction, meaning there's nothing
+
+40
+00:01:33,870 --> 00:01:35,870
+stopping it from slipping around and
+
+41
+00:01:35,870 --> 00:01:37,870
+I've also made it slightly bouncy.
+
+42
+00:01:38,370 --> 00:01:40,370
+If I make it very bouncy
+
+43
+00:01:40,870 --> 00:01:42,870
+then it's going to bounce off of the table.
+
+44
+00:01:44,560 --> 00:01:46,860
+And for example if I wanted to restrict
+
+45
+00:01:46,860 --> 00:01:48,860
+it's movement in a particular axis
+
+46
+00:01:48,860 --> 00:01:50,860
+so I can see that the X axis is the direction
+
+47
+00:01:50,860 --> 00:01:53,300
+in which it's sliding, so what I could do
+
+48
+00:01:53,300 --> 00:01:55,300
+is go back to that material and I'll set
+
+49
+00:01:55,300 --> 00:01:57,940
+my friction direction of X to 1 and
+
+50
+00:01:57,940 --> 00:02:00,940
+increase the dynamic friction. I'm going to turn
+
+51
+00:02:00,940 --> 00:02:03,670
+bounciness back down to a lower number
+
+52
+00:02:03,670 --> 00:02:05,670
+so that it doesn't bounce off the table.
+
+53
+00:02:07,470 --> 00:02:09,470
+And you can see that it's slowing to a halt
+
+54
+00:02:09,470 --> 00:02:11,830
+because of the amount of friction involved there.
+
+55
+00:02:12,330 --> 00:02:14,330
+So we could make that slightly lower
+
+56
+00:02:19,610 --> 00:02:21,610
+and you can see it begins to slide.
+
+57
+00:02:28,740 --> 00:02:30,130
+So hopefully you can see that with
+
+58
+00:02:30,130 --> 00:02:32,130
+physic materials you can completely control
+
+59
+00:02:32,130 --> 00:02:33,580
+the surface of an object 
+
+60
+00:02:33,580 --> 00:02:35,580
+and how it responds to others.

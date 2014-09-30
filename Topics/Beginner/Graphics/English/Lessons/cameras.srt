@@ -1,0 +1,795 @@
+1
+00:00:00,401 --> 00:00:01,897
+Cameras.
+
+2
+00:00:01,897 --> 00:00:03,243
+The camera is one of the most
+
+3
+00:00:03,243 --> 00:00:05,021
+essential components in Unity.
+
+4
+00:00:05,231 --> 00:00:07,066
+The camera takes the contents of our scene
+
+5
+00:00:07,066 --> 00:00:08,736
+and displays it to our users.
+
+6
+00:00:08,739 --> 00:00:10,416
+Every scene must have at least
+
+7
+00:00:10,416 --> 00:00:12,637
+one camera to render out scene objects
+
+8
+00:00:12,637 --> 00:00:14,637
+otherwise we have nothing to show.
+
+9
+00:00:16,725 --> 00:00:18,127
+When a new scene is created 
+
+10
+00:00:18,127 --> 00:00:20,127
+one game object is always created.
+
+11
+00:00:20,127 --> 00:00:22,058
+This is the main camera.
+
+12
+00:00:22,309 --> 00:00:23,731
+The game view camera is a 
+
+13
+00:00:23,731 --> 00:00:25,425
+component attached to a game object.
+
+14
+00:00:25,663 --> 00:00:27,877
+This means we can manipulate, or move our camera
+
+15
+00:00:27,877 --> 00:00:29,320
+like any other game object, 
+
+16
+00:00:29,320 --> 00:00:31,015
+including parenting, scripting, 
+
+17
+00:00:31,015 --> 00:00:33,015
+or physical interaction.
+
+18
+00:00:34,772 --> 00:00:37,105
+To create a first or third person camera,
+
+19
+00:00:37,105 --> 00:00:38,881
+including side scrollers,
+
+20
+00:00:38,881 --> 00:00:41,862
+we can use the player object as the parent.
+
+21
+00:00:43,564 --> 00:00:46,247
+For first person cameras, make sure the camera
+
+22
+00:00:46,247 --> 00:00:48,024
+is at the character's eye height
+
+23
+00:00:48,024 --> 00:00:50,701
+looking forward from the character's point of view.
+
+24
+00:01:02,178 --> 00:01:05,258
+For a third person view, make sure the camera is
+
+25
+00:01:05,258 --> 00:01:07,639
+above and behind the character.
+
+26
+00:01:18,112 --> 00:01:21,165
+For a simple puzzle game or top-down shooter
+
+27
+00:01:21,165 --> 00:01:23,165
+the camera would be static, simply
+
+28
+00:01:23,165 --> 00:01:25,165
+looking at and rendering the game.
+
+29
+00:01:25,165 --> 00:01:28,406
+In this example we are going to centre the camera,
+
+30
+00:01:28,406 --> 00:01:30,406
+remove any unwanted rotation,
+
+31
+00:01:30,406 --> 00:01:32,406
+point it straight down and lift it above
+
+32
+00:01:32,406 --> 00:01:35,464
+the game board to simulate a top-down game.
+
+33
+00:01:36,254 --> 00:01:38,781
+In this case we are using the orthographic
+
+34
+00:01:38,781 --> 00:01:40,470
+mode on the camera, which we will cover
+
+35
+00:01:40,470 --> 00:01:42,470
+later in this lesson.
+
+36
+00:01:51,644 --> 00:01:54,463
+We can have any number of cameras in our scene.
+
+37
+00:01:54,463 --> 00:01:57,489
+Each rendering different parts of the environment.
+
+38
+00:01:58,348 --> 00:02:00,292
+In this example we have three cameras.
+
+39
+00:02:00,654 --> 00:02:02,393
+One rendering all of the dynamic
+
+40
+00:02:02,393 --> 00:02:04,795
+objects in the scene. Another rendering
+
+41
+00:02:04,795 --> 00:02:07,337
+the static background and a third
+
+42
+00:02:07,337 --> 00:02:09,337
+rendering a User Interface overlay.
+
+43
+00:02:10,127 --> 00:02:11,741
+All three cameras can be brought together to
+
+44
+00:02:11,741 --> 00:02:14,422
+make a single presentation to our user.
+
+45
+00:02:14,922 --> 00:02:16,505
+We will talk about how to properly use all
+
+46
+00:02:16,505 --> 00:02:19,391
+three cameras at once later on in this lesson.
+
+47
+00:02:20,457 --> 00:02:22,457
+When a camera is selected in the hierarchy
+
+48
+00:02:22,457 --> 00:02:25,164
+we see a preview of the camera in the scene.
+
+49
+00:02:25,164 --> 00:02:26,984
+When we have multiple cameras in the scene
+
+50
+00:02:26,984 --> 00:02:29,801
+this helps us to see what the camera is rendering.
+
+51
+00:02:30,301 --> 00:02:32,301
+This preview is also helpful when we are in
+
+52
+00:02:32,301 --> 00:02:34,301
+full screen mode to see what the camera is rendering,
+
+53
+00:02:34,301 --> 00:02:37,209
+even if it's the only camera in the scene.
+
+54
+00:02:41,328 --> 00:02:42,887
+Cameras will render everything that's in 
+
+55
+00:02:42,887 --> 00:02:44,887
+front of them and within their view.
+
+56
+00:02:45,387 --> 00:02:46,892
+How much of the scene is within their view
+
+57
+00:02:46,892 --> 00:02:49,667
+is shown in the scene view as a white outline.
+
+58
+00:02:50,236 --> 00:02:52,610
+This shape is a view frustum.
+
+59
+00:02:52,986 --> 00:02:55,758
+A view frustum is a pyramid, or cone,
+
+60
+00:02:55,758 --> 00:02:57,343
+with the top cut off.
+
+61
+00:02:57,343 --> 00:02:59,928
+The cut off top of the pyramid is the 
+
+62
+00:02:59,928 --> 00:03:01,693
+near clipping plane and the base
+
+63
+00:03:01,693 --> 00:03:03,499
+is the far clipping plane.
+
+64
+00:03:03,958 --> 00:03:05,958
+The near and far clipping planes control
+
+65
+00:03:05,958 --> 00:03:07,958
+the draw distance from the camera.
+
+66
+00:03:08,872 --> 00:03:10,872
+Objects must be between the near and far
+
+67
+00:03:10,872 --> 00:03:13,233
+clipping planes to be rendered. The sides
+
+68
+00:03:13,233 --> 00:03:15,233
+indicate how much the camera can see
+
+69
+00:03:15,233 --> 00:03:17,233
+side to side and top to bottom.
+
+70
+00:03:17,233 --> 00:03:19,233
+and any part of the scene that's within
+
+71
+00:03:19,233 --> 00:03:21,233
+the frustum will be rendered.
+
+72
+00:03:22,506 --> 00:03:24,079
+Cameras have two different ways of
+
+73
+00:03:24,079 --> 00:03:26,232
+looking at the scene. Perspective mode
+
+74
+00:03:26,232 --> 00:03:27,723
+and orthographic mode.
+
+75
+00:03:27,723 --> 00:03:29,531
+These dramatically effect the shape and
+
+76
+00:03:29,531 --> 00:03:31,181
+size of the frustum and the
+
+77
+00:03:31,181 --> 00:03:33,181
+look of the scene through the camera.
+
+78
+00:03:33,999 --> 00:03:35,999
+In perspective mode the camera will render
+
+79
+00:03:35,999 --> 00:03:37,999
+the scene like a real world camera with
+
+80
+00:03:37,999 --> 00:03:39,999
+a sense of diminishing perspective.
+
+81
+00:03:39,999 --> 00:03:42,289
+We can see this in the scene view as the
+
+82
+00:03:42,289 --> 00:03:44,289
+white representation of the cameras
+
+83
+00:03:44,289 --> 00:03:46,289
+frustum gets larger as it extends
+
+84
+00:03:46,289 --> 00:03:47,834
+away from the camera.
+
+85
+00:03:47,834 --> 00:03:49,834
+This is the most common camera mode to use
+
+86
+00:03:49,834 --> 00:03:51,215
+when creating a game.
+
+87
+00:03:51,715 --> 00:03:53,632
+In orthographic mode there is no
+
+88
+00:03:53,632 --> 00:03:55,632
+diminishing perspective. All objects are
+
+89
+00:03:55,632 --> 00:03:57,313
+rendered using a form of parallel
+
+90
+00:03:57,313 --> 00:03:59,781
+projection from the camera. We can see this
+
+91
+00:03:59,781 --> 00:04:01,781
+in the scene view as the frustum is straight
+
+92
+00:04:01,781 --> 00:04:04,547
+and the front and back are the same size.
+
+93
+00:04:04,547 --> 00:04:06,547
+This mode is usually seen in isometric
+
+94
+00:04:06,547 --> 00:04:08,547
+games like some real time strategy or 
+
+95
+00:04:08,547 --> 00:04:10,547
+board games, or for 2D
+
+96
+00:04:10,547 --> 00:04:13,322
+games, simple puzzle games and when using
+
+97
+00:04:13,322 --> 00:04:15,322
+an additional camera for rendering UI elements
+
+98
+00:04:15,322 --> 00:04:17,322
+on top of the game view, like mini
+
+99
+00:04:17,322 --> 00:04:19,322
+maps or heads-up displays.
+
+100
+00:04:19,670 --> 00:04:21,406
+To control what is being rendered in our
+
+101
+00:04:21,406 --> 00:04:23,685
+scenes, adjust the near and far clipping
+
+102
+00:04:23,685 --> 00:04:26,357
+planes and the size or shape of the frustum.
+
+103
+00:04:26,857 --> 00:04:28,857
+Field Of View controls how wide the view
+
+104
+00:04:28,857 --> 00:04:30,857
+of the camera will be. This is very much
+
+105
+00:04:30,857 --> 00:04:33,695
+like using the zoom on a real world camera.
+
+106
+00:04:34,195 --> 00:04:36,195
+When the camera is in orthographic mode
+
+107
+00:04:36,195 --> 00:04:38,974
+size replaces the field of view property.
+
+108
+00:04:38,974 --> 00:04:40,400
+This controls the size of the
+
+109
+00:04:40,400 --> 00:04:41,932
+orthographic viewport.
+
+110
+00:04:41,932 --> 00:04:44,657
+This is similar to field of view but
+
+111
+00:04:44,657 --> 00:04:46,657
+the value of the size property changes
+
+112
+00:04:46,657 --> 00:04:48,657
+the size of both the front and back planes
+
+113
+00:04:48,657 --> 00:04:50,657
+at the same time as there is no perspective
+
+114
+00:04:50,657 --> 00:04:52,657
+with an orthographic camera.
+
+115
+00:04:54,663 --> 00:04:57,148
+Our scenes must have some sort of a background.
+
+116
+00:04:58,863 --> 00:05:00,863
+This controlled by the Clear Flags and 
+
+117
+00:05:00,863 --> 00:05:02,074
+Background properties.
+
+118
+00:05:02,408 --> 00:05:04,408
+The colour values set in the background
+
+119
+00:05:04,408 --> 00:05:06,408
+property will be what's drawn behind any
+
+120
+00:05:06,408 --> 00:05:08,408
+of the objects in our scene, if no other
+
+121
+00:05:08,408 --> 00:05:10,909
+settings have been changed. This is the
+
+122
+00:05:10,909 --> 00:05:13,651
+default blue colour we see in a new empty scene.
+
+123
+00:05:14,552 --> 00:05:16,552
+Clear Flags determines what the background
+
+124
+00:05:16,552 --> 00:05:19,063
+will be for a camera. This setting is particularly
+
+125
+00:05:19,063 --> 00:05:21,338
+important when using multiple cameras.
+
+126
+00:05:21,770 --> 00:05:23,770
+Each camera stores colour and depth information
+
+127
+00:05:23,770 --> 00:05:26,226
+when it renders it's view. The portions of the
+
+128
+00:05:26,226 --> 00:05:28,907
+screen that are not drawn upon are considered empty.
+
+129
+00:05:28,907 --> 00:05:30,907
+The Clear Flags property will determine
+
+130
+00:05:30,907 --> 00:05:32,907
+what is shown in this empty space.
+
+131
+00:05:33,407 --> 00:05:35,143
+If we have a skybox set in our render
+
+132
+00:05:35,143 --> 00:05:38,036
+settings the background will be a skybox.
+
+133
+00:05:38,036 --> 00:05:41,204
+Skybox is the default clear flag for any camera.
+
+134
+00:05:41,555 --> 00:05:43,555
+A skybox is a material that contains
+
+135
+00:05:43,555 --> 00:05:45,555
+several images that surround the entire scene
+
+136
+00:05:45,555 --> 00:05:48,451
+providing a textured background for that scene.
+
+137
+00:05:48,451 --> 00:05:50,451
+For more information on skyboxes and
+
+138
+00:05:50,451 --> 00:05:52,451
+render settings see the appropriate lessons.
+
+139
+00:05:53,117 --> 00:05:55,117
+If we don't have a skybox set, or we choose
+
+140
+00:05:55,117 --> 00:05:57,117
+solid colour as our clear flag.
+
+141
+00:05:57,117 --> 00:05:59,117
+The colour value from the background property
+
+142
+00:05:59,117 --> 00:06:01,117
+will be used behind any of our objects
+
+143
+00:06:01,117 --> 00:06:02,054
+in the scene.
+
+144
+00:06:02,941 --> 00:06:04,941
+Depth Only is primarily used for
+
+145
+00:06:04,941 --> 00:06:06,941
+multiple cameras. We will cover depth only
+
+146
+00:06:06,941 --> 00:06:08,210
+in a moment.
+
+147
+00:06:08,710 --> 00:06:10,710
+Don't Clear will result in each frame
+
+148
+00:06:10,710 --> 00:06:12,710
+being drawn over the last, creating
+
+149
+00:06:12,710 --> 00:06:14,710
+a smear effect. This setting isn't typically
+
+150
+00:06:14,710 --> 00:06:16,154
+used in games.
+
+151
+00:06:18,854 --> 00:06:21,439
+When using multiple cameras the most practical
+
+152
+00:06:21,439 --> 00:06:24,205
+setting for clear flags is depth only.
+
+153
+00:06:24,705 --> 00:06:26,705
+With this setting each camera is given a
+
+154
+00:06:26,705 --> 00:06:28,705
+value and depth and the contents of each
+
+155
+00:06:28,705 --> 00:06:30,705
+camera's view are layered on top of each other
+
+156
+00:06:30,705 --> 00:06:32,830
+in depth order, starting with
+
+157
+00:06:32,830 --> 00:06:34,443
+lowest depth first.
+
+158
+00:06:34,943 --> 00:06:36,943
+Normally the main camera is assigned
+
+159
+00:06:36,943 --> 00:06:38,943
+the lowest depth value
+
+160
+00:06:39,443 --> 00:06:41,443
+and has it's clear flag set to either 
+
+161
+00:06:41,443 --> 00:06:43,443
+skybox or solid colour.
+
+162
+00:06:45,034 --> 00:06:47,034
+All of the other cameras have their clear
+
+163
+00:06:47,034 --> 00:06:49,695
+flags set to depth only. This way there is
+
+164
+00:06:49,695 --> 00:06:51,695
+one ultimate background, and the images
+
+165
+00:06:51,695 --> 00:06:53,695
+of all the other cameras are
+
+166
+00:06:53,695 --> 00:06:55,695
+layered on top of the main camera.
+
+167
+00:06:56,513 --> 00:06:58,513
+The content of what the camera is rendering 
+
+168
+00:06:58,513 --> 00:07:00,513
+is limited by the Culling Mask property.
+
+169
+00:07:00,751 --> 00:07:02,975
+The Culling Mask drop down will list
+
+170
+00:07:02,975 --> 00:07:04,975
+all the layers available in the scene.
+
+171
+00:07:05,309 --> 00:07:07,309
+The camera will render only those objects
+
+172
+00:07:07,309 --> 00:07:10,469
+on the layers selected in it's culling mask. 
+
+173
+00:07:10,469 --> 00:07:12,175
+For more information on layers and how to
+
+174
+00:07:12,175 --> 00:07:14,175
+use then see the appropriate lesson.
+
+175
+00:07:15,297 --> 00:07:17,297
+In the case of the User Interface overlay
+
+176
+00:07:17,297 --> 00:07:20,531
+we have the interface element set to the
+
+177
+00:07:21,162 --> 00:07:23,162
+UI layer. Our UI camera has it's culling mask
+
+178
+00:07:23,162 --> 00:07:26,439
+set to render only the objects on the User Interface layer
+
+179
+00:07:27,146 --> 00:07:29,713
+We have our clear flag set to depth only
+
+180
+00:07:29,713 --> 00:07:31,713
+and the depth set to the highest value 
+
+181
+00:07:31,713 --> 00:07:33,532
+of all the cameras in the scene.
+
+182
+00:07:33,532 --> 00:07:35,532
+This way the UI camera only draws
+
+183
+00:07:35,532 --> 00:07:37,532
+the UI element based on the culling mask
+
+184
+00:07:37,532 --> 00:07:40,620
+setting and the UI element draws on top
+
+185
+00:07:40,620 --> 00:07:43,702
+of all of the other layers, based on the depth.
+
+186
+00:07:44,202 --> 00:07:46,202
+It is also worth noting that the camera is set to
+
+187
+00:07:46,202 --> 00:07:48,202
+orthographic to remove any possible
+
+188
+00:07:48,202 --> 00:07:50,202
+perspective on the UI element.
+
+189
+00:07:51,351 --> 00:07:53,351
+Typical uses of multiple cameras
+
+190
+00:07:53,351 --> 00:07:55,351
+are to render UI elements like
+
+191
+00:07:55,351 --> 00:07:57,351
+mini maps or heads-up displays over the
+
+192
+00:07:57,351 --> 00:07:59,823
+world view, make rear-view mirrors and
+
+193
+00:07:59,823 --> 00:08:02,278
+missile cameras, or to force the drawing order
+
+194
+00:08:02,278 --> 00:08:04,278
+of objects in the scene, like making
+
+195
+00:08:04,278 --> 00:08:06,278
+sure that a gun in a first person shooter
+
+196
+00:08:06,278 --> 00:08:09,149
+doesn't get drawn inside the level geometry.
+
+197
+00:08:09,149 --> 00:08:11,838
+The normalised viewport rect, render path,
+
+198
+00:08:11,838 --> 00:08:13,838
+target texture and HDR properties
+
+199
+00:08:13,838 --> 00:08:17,455
+are more advanced and will be covered in an other lesson.
