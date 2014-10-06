@@ -1,6 +1,6 @@
 # Learnチュートリアル動画の翻訳を手伝っていただける方へ
 
-このリポジトリは[Facebookグループ: UnityLearnチュートリアル日本語化](https://www.facebook.com/groups/820661987973361/)の3つめ「 未だ翻訳されていないSRTファイルの翻訳をご助力いただく。(Githubを利用してもらいます)」のためにあります。
+このリポジトリは[Facebookグループ: UnityLearnチュートリアル日本語化](https://www.facebook.com/groups/820661987973361/)のためにあります。
 
 
 ## 参加するにあたって
