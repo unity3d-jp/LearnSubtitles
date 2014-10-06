@@ -1,0 +1,199 @@
+1
+00:00:00,635 --> 00:00:02,538
+Overloading is a process by which you can give
+
+2
+00:00:02,538 --> 00:00:04,901
+a single method multiple definitions.
+
+3
+00:00:04,901 --> 00:00:06,901
+This means that you can use the same method name
+
+4
+00:00:06,901 --> 00:00:08,678
+to do 2 different things.
+
+5
+00:00:08,678 --> 00:00:11,208
+Let's say you needed a method to add things together.
+
+6
+00:00:11,208 --> 00:00:12,971
+You could create an AddNumbers method
+
+7
+00:00:12,971 --> 00:00:15,709
+that would be responsible for adding 2 numbers together.
+
+8
+00:00:15,709 --> 00:00:18,073
+Adding strings together however works differently
+
+9
+00:00:18,073 --> 00:00:20,073
+so you would need a new method called AddStrings.
+
+10
+00:00:20,849 --> 00:00:22,849
+This works fine, but the problem is that now you
+
+11
+00:00:22,849 --> 00:00:24,849
+need to remember 2 different method names that
+
+12
+00:00:24,849 --> 00:00:26,849
+in essence to do the same thing.
+
+13
+00:00:26,849 --> 00:00:28,849
+A better way would be to overload a method name
+
+14
+00:00:28,849 --> 00:00:31,535
+Add to work with either Numbers or String.
+
+15
+00:00:32,035 --> 00:00:34,035
+Here we have a method names Add that reads in
+
+16
+00:00:34,035 --> 00:00:36,035
+2 numbers and returns a number
+
+17
+00:00:36,035 --> 00:00:38,371
+Every method has what is called a signature.
+
+18
+00:00:38,371 --> 00:00:40,371
+The signature is comprised of a method's name
+
+19
+00:00:40,371 --> 00:00:41,951
+and parameter list.
+
+20
+00:00:41,951 --> 00:00:43,951
+No 2 methods can have the same signature
+
+21
+00:00:43,951 --> 00:00:45,840
+within the same scope.
+
+22
+00:00:45,840 --> 00:00:47,840
+We overload methods by giving a new method
+
+23
+00:00:47,840 --> 00:00:50,693
+the same name but a different signature.
+
+24
+00:00:50,693 --> 00:00:52,693
+Using our previous example, we can overload
+
+25
+00:00:52,693 --> 00:00:54,693
+this Add method to create a new method
+
+26
+00:00:54,693 --> 00:00:56,693
+that adds Strings.
+
+27
+00:00:56,693 --> 00:00:58,693
+Notice that our new Add method has the same
+
+28
+00:00:58,693 --> 00:01:00,693
+name but a different parameter list.
+
+29
+00:01:00,693 --> 00:01:03,509
+Since it is a different signature this is allowed.
+
+30
+00:01:04,268 --> 00:01:06,268
+In SomeOtherClass, when we try to access
+
+31
+00:01:06,268 --> 00:01:08,268
+the Add method we can see that there
+
+32
+00:01:08,268 --> 00:01:10,268
+are 2 versions of it.
+
+33
+00:01:11,873 --> 00:01:13,873
+The correct version will be chosen based on the
+
+34
+00:01:13,873 --> 00:01:15,708
+arguments you parse in to it.
+
+35
+00:01:15,708 --> 00:01:17,708
+By parsing in 2 numbers the method that
+
+36
+00:01:17,708 --> 00:01:19,708
+adds numbers will run.
+
+37
+00:01:19,708 --> 00:01:21,708
+Likewise, if you parse in 2 strings
+
+38
+00:01:21,708 --> 00:01:24,152
+then the method that adds strings will run.
+
+39
+00:01:24,983 --> 00:01:26,983
+1 of 3 things will happen when the system tries
+
+40
+00:01:26,983 --> 00:01:28,983
+to decide on the correct version of an
+
+41
+00:01:28,983 --> 00:01:30,830
+overloaded method to run.
+
+42
+00:01:30,830 --> 00:01:32,830
+First, if there is an exact match to the
+
+43
+00:01:32,830 --> 00:01:34,830
+parameters parsed in then that version of the
+
+44
+00:01:34,830 --> 00:01:36,538
+overloaded method will run.
+
+45
+00:01:36,538 --> 00:01:38,538
+If there isn't an exact match the system
+
+46
+00:01:38,538 --> 00:01:40,538
+will look at all of the possible matches and will choose
+
+47
+00:01:40,538 --> 00:01:43,446
+the 1 that will require the least amount of conversion.
+
+48
+00:01:43,946 --> 00:01:45,946
+Finally, if there are no possible matches
+
+49
+00:01:45,946 --> 00:01:47,946
+or multiple version that require the same
+
+50
+00:01:47,946 --> 00:01:50,625
+amount of conversion then an error is thrown.

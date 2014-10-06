@@ -1,0 +1,1215 @@
+1
+00:00:01,547 --> 00:00:04,774
+Our player is powered up, armed and ready to go.
+
+2
+00:00:04,774 --> 00:00:07,536
+Let's create some hazards to challenge our player.
+
+3
+00:00:08,271 --> 00:00:10,648
+We will be creating an asteroid prefab to
+
+4
+00:00:10,648 --> 00:00:12,806
+throw at our player and we will use an
+
+5
+00:00:12,806 --> 00:00:14,806
+architecture similar to the one we used
+
+6
+00:00:14,806 --> 00:00:16,806
+to make the Bolt prefab.
+
+7
+00:00:17,306 --> 00:00:19,791
+We will have a parent game object for the logic
+
+8
+00:00:19,791 --> 00:00:21,791
+and the artwork will be a child.
+
+9
+00:00:22,346 --> 00:00:25,298
+To start, let's create a new game object
+
+10
+00:00:25,298 --> 00:00:27,298
+and rename it Asteroid.
+
+11
+00:00:27,798 --> 00:00:30,931
+Reset the asteroid's transform to origin
+
+12
+00:00:30,931 --> 00:00:33,948
+and move it up along the Z axis to about 8.
+
+13
+00:00:34,448 --> 00:00:36,599
+By moving the asteroid parent a little further
+
+14
+00:00:36,599 --> 00:00:38,970
+up the game area it will both separate
+
+15
+00:00:38,970 --> 00:00:41,292
+the asteroid from the player while we build it
+
+16
+00:00:41,292 --> 00:00:44,394
+and allow us to easily test it when we are finished.
+
+17
+00:00:45,708 --> 00:00:48,765
+Next let's get some artwork for our asteroid.
+
+18
+00:00:49,210 --> 00:00:52,284
+If we open the Models folder in Assets
+
+19
+00:00:52,284 --> 00:00:54,754
+we have 3 asteroid models to choose from.
+
+20
+00:00:55,406 --> 00:00:57,406
+We are going to use the first one.
+
+21
+00:00:57,851 --> 00:00:59,851
+Select the asteroid model and drag it on
+
+22
+00:00:59,851 --> 00:01:02,467
+to the Asteroid parent game object.
+
+23
+00:01:02,939 --> 00:01:04,939
+When we drop it the Asteroid model will
+
+24
+00:01:04,939 --> 00:01:07,833
+be a child of the Asteroid game object.
+
+25
+00:01:09,687 --> 00:01:12,253
+I am going to reset the model's transform.
+
+26
+00:01:12,253 --> 00:01:14,584
+By resetting the entire transform
+
+27
+00:01:14,584 --> 00:01:17,437
+the model will be centred on the parent game object
+
+28
+00:01:17,437 --> 00:01:20,149
+with no relative rotation and a scale of 1
+
+29
+00:01:20,149 --> 00:01:22,149
+relative to the parent game object.
+
+30
+00:01:23,519 --> 00:01:25,519
+For our game it's important that the transform's
+
+31
+00:01:25,519 --> 00:01:27,835
+position be at local origin.
+
+32
+00:01:28,694 --> 00:01:30,777
+The game is designed to work with the asteroid
+
+33
+00:01:30,777 --> 00:01:33,096
+model at a local scale of 1.
+
+34
+00:01:33,096 --> 00:01:35,096
+But we may find it interesting to experiment
+
+35
+00:01:35,096 --> 00:01:37,732
+with local scale after we are done with this project
+
+36
+00:01:37,732 --> 00:01:40,271
+to see how it changes the game and gameplay.
+
+37
+00:01:41,876 --> 00:01:43,876
+With our artwork in place let's setup
+
+38
+00:01:43,876 --> 00:01:45,876
+the components and logic.
+
+39
+00:01:45,876 --> 00:01:48,473
+Select the parent Asteroid game object
+
+40
+00:01:48,473 --> 00:01:50,473
+and use the Add Component button to
+
+41
+00:01:50,473 --> 00:01:53,750
+add a physics rigidbody.
+
+42
+00:01:54,250 --> 00:01:57,336
+As our game is playing along the X/Z plane
+
+43
+00:01:57,336 --> 00:02:00,065
+deselect Use Gravity so the asteroid
+
+44
+00:02:00,065 --> 00:02:02,454
+does not fall in to the void.
+
+45
+00:02:03,490 --> 00:02:06,484
+Now let's use the Add Component again
+
+46
+00:02:06,484 --> 00:02:09,128
+to add a physics capsule collider.
+
+47
+00:02:10,393 --> 00:02:12,738
+Again we have what looks like a green wire
+
+48
+00:02:12,738 --> 00:02:14,738
+sphere around our asteroid.
+
+49
+00:02:14,738 --> 00:02:16,738
+We need to change the radius and the height
+
+50
+00:02:16,738 --> 00:02:18,738
+of the capsule collider to more accurately
+
+51
+00:02:18,738 --> 00:02:20,738
+match our model.
+
+52
+00:02:20,738 --> 00:02:22,738
+Now we could try to set these using the
+
+53
+00:02:22,738 --> 00:02:25,042
+properties on the component.
+
+54
+00:02:25,042 --> 00:02:28,437
+But this is a less than ideal way of doing things.
+
+55
+00:02:29,061 --> 00:02:31,294
+We can however change the shape of the
+
+56
+00:02:31,294 --> 00:02:33,766
+capsule collider directly in the Scene view.
+
+57
+00:02:34,277 --> 00:02:36,906
+The trick here is to hold down the shift key.
+
+58
+00:02:36,906 --> 00:02:39,250
+When we hold down the shift key drag handles
+
+59
+00:02:39,250 --> 00:02:41,028
+appear on the collider.
+
+60
+00:02:41,028 --> 00:02:43,028
+With these we can simply drag the collider
+
+61
+00:02:43,028 --> 00:02:45,028
+shape until we are satisfied.
+
+62
+00:02:46,481 --> 00:02:49,286
+Now that we have our basic physics component setup
+
+63
+00:02:49,286 --> 00:02:51,931
+let's save the scene and enter Play mode.
+
+64
+00:02:53,774 --> 00:02:57,048
+Wow, that's one boring asteroid.
+
+65
+00:02:57,728 --> 00:02:59,728
+Exit Play mode.
+
+66
+00:03:00,352 --> 00:03:02,786
+Let's give it some life and make it tumble.
+
+67
+00:03:04,095 --> 00:03:06,439
+With the asteroid game object selected
+
+68
+00:03:06,439 --> 00:03:08,843
+use the Add Component button to
+
+69
+00:03:08,843 --> 00:03:10,843
+create a new script.
+
+70
+00:03:11,716 --> 00:03:14,681
+Rename the script RandomRotator.
+
+71
+00:03:15,982 --> 00:03:17,529
+and accept the changes to add
+
+72
+00:03:17,529 --> 00:03:19,529
+this script to Asteroid.
+
+73
+00:03:20,664 --> 00:03:22,971
+Select Assets and file the new script
+
+74
+00:03:22,971 --> 00:03:24,971
+in to the Scripts folder.
+
+75
+00:03:24,971 --> 00:03:28,228
+Open the Scripts folder and select RandomRotator
+
+76
+00:03:28,228 --> 00:03:30,228
+and open the script for editing.
+
+77
+00:03:33,877 --> 00:03:36,863
+The first thing we want to do is create a public
+
+78
+00:03:36,863 --> 00:03:39,030
+float called Tumble
+
+79
+00:03:39,030 --> 00:03:41,627
+to hold our maximum tumble value
+
+80
+00:03:41,627 --> 00:03:44,100
+which we will be able to set in the Editor.
+
+81
+00:03:45,411 --> 00:03:47,411
+Now in Start
+
+82
+00:03:48,671 --> 00:03:52,648
+we want to set our rigidbody's angular velocity.
+
+83
+00:03:55,008 --> 00:03:57,175
+What is angular velocity?
+
+84
+00:03:57,175 --> 00:03:59,853
+Angular velocity is how fast a rigidbody
+
+85
+00:03:59,853 --> 00:04:01,546
+object is rotating
+
+86
+00:04:02,046 --> 00:04:04,966
+and we want to set our angular velocity to
+
+87
+00:04:04,966 --> 00:04:06,966
+some random value.
+
+88
+00:04:08,046 --> 00:04:10,753
+Now Unity has a Random class
+
+89
+00:04:10,753 --> 00:04:12,753
+and it's very convenient for giving us all
+
+90
+00:04:12,753 --> 00:04:14,574
+sorts of random values.
+
+91
+00:04:14,574 --> 00:04:18,028
+The most basic is literally random value.
+
+92
+00:04:18,625 --> 00:04:20,834
+This will return a random float value
+
+93
+00:04:20,834 --> 00:04:23,128
+between 0 and 1
+
+94
+00:04:23,128 --> 00:04:24,408
+and then we can do anything we want
+
+95
+00:04:24,408 --> 00:04:26,574
+to with this random number.
+
+96
+00:04:26,574 --> 00:04:28,574
+But there are several more interesting items in
+
+97
+00:04:28,574 --> 00:04:30,993
+the Random class that can give us more complex
+
+98
+00:04:30,993 --> 00:04:32,918
+and more useful values if we look at the
+
+99
+00:04:32,918 --> 00:04:34,726
+class in detail.
+
+100
+00:04:34,720 --> 00:04:36,801
+For our asteroid let's look at
+
+101
+00:04:36,801 --> 00:04:39,683
+Random.InsideUnitSphere.
+
+102
+00:04:42,644 --> 00:04:44,905
+This may sound intimidating, and it may also 
+
+103
+00:04:44,905 --> 00:04:46,905
+sound like it has nothing to do with tumbling
+
+104
+00:04:46,905 --> 00:04:49,753
+an asteroid, but in actuality it is
+
+105
+00:04:49,753 --> 00:04:51,311
+everything that we need.
+
+106
+00:04:51,311 --> 00:04:53,311
+InsideUnitySphere gives us a random
+
+107
+00:04:53,311 --> 00:04:56,629
+vector3 value that we can apply to our
+
+108
+00:04:56,629 --> 00:04:59,338
+rigidbody's angular velocity.
+
+109
+00:04:59,338 --> 00:05:02,302
+And each of the 3 X, Y and Z values
+
+110
+00:05:02,302 --> 00:05:04,302
+will be randomised individually.
+
+111
+00:05:06,225 --> 00:05:08,995
+Copy Random.InsideUnitSphere
+
+112
+00:05:08,995 --> 00:05:10,995
+and paste it in to our code
+
+113
+00:05:10,995 --> 00:05:13,782
+and multiply it by Tumble.
+
+114
+00:05:14,821 --> 00:05:17,057
+This simple script takes our tumble value
+
+115
+00:05:17,057 --> 00:05:19,390
+from the Editor and at start
+
+116
+00:05:19,390 --> 00:05:23,211
+we set the new asteroid's rigidbody.angularVelocity
+
+117
+00:05:23,211 --> 00:05:25,211
+to a random vector3 value from
+
+118
+00:05:25,211 --> 00:05:27,487
+Random.InsideUnitSphere.
+
+119
+00:05:27,487 --> 00:05:30,129
+and then we multiply this by tumble.
+
+120
+00:05:30,960 --> 00:05:33,471
+Save the script and return to Unity.
+
+121
+00:05:36,029 --> 00:05:38,471
+Select Asteroid and let's set the
+
+122
+00:05:38,471 --> 00:05:40,471
+tumble value to 5.
+
+123
+00:05:41,559 --> 00:05:44,171
+Save the scene and enter Play mode to test.
+
+124
+00:05:44,934 --> 00:05:47,525
+And our asteroid now has a random tumble.
+
+125
+00:05:48,257 --> 00:05:50,821
+Let's enter and exit Play mode a few more times.
+
+126
+00:05:51,539 --> 00:05:54,708
+We can see that every time the script calls Start
+
+127
+00:05:54,708 --> 00:05:57,452
+we get a different random angular velocity.
+
+128
+00:05:58,712 --> 00:06:00,411
+If, however, we leave it for a short
+
+129
+00:06:00,411 --> 00:06:01,840
+period of time
+
+130
+00:06:02,764 --> 00:06:04,764
+the asteroid slows to a stop.
+
+131
+00:06:06,700 --> 00:06:08,700
+This is due to a default value
+
+132
+00:06:08,700 --> 00:06:10,493
+on the rigidbody component.
+
+133
+00:06:11,089 --> 00:06:13,423
+The rigidbody has 2 parameters to simulate
+
+134
+00:06:13,423 --> 00:06:15,927
+resistance, like air friction,
+
+135
+00:06:15,927 --> 00:06:19,033
+and these are Drag and Angular Drag.
+
+136
+00:06:19,683 --> 00:06:21,683
+Angular Drag by default has a small
+
+137
+00:06:21,683 --> 00:06:23,683
+but working value.
+
+138
+00:06:24,853 --> 00:06:26,186
+Exit Play mode.
+
+139
+00:06:27,558 --> 00:06:29,980
+Let's drop this value to 0.
+
+140
+00:06:31,042 --> 00:06:32,376
+Enter Play mode.
+
+141
+00:06:33,282 --> 00:06:35,717
+Now our asteroid has now angular drag
+
+142
+00:06:35,717 --> 00:06:38,279
+being applied to it's angular velocity
+
+143
+00:06:38,279 --> 00:06:40,279
+so it will keep tumbling until it's destroyed
+
+144
+00:06:40,279 --> 00:06:42,957
+by the player or by the boundary.
+
+145
+00:06:43,594 --> 00:06:44,896
+Exit Play mode.
+
+146
+00:06:46,094 --> 00:06:47,956
+Speaking of which, what happens if our
+
+147
+00:06:47,956 --> 00:06:49,956
+player tries to shoot the asteroid?
+
+148
+00:06:50,839 --> 00:06:52,402
+Enter Play mode.
+
+149
+00:06:56,676 --> 00:06:57,732
+Nothing.
+
+150
+00:06:58,464 --> 00:07:00,741
+Our asteroid has a collider on it
+
+151
+00:07:00,741 --> 00:07:02,741
+and so do our laser bolts.
+
+152
+00:07:02,741 --> 00:07:04,741
+Why don't we see any interaction?
+
+153
+00:07:05,387 --> 00:07:07,988
+That's because they are both trigger colliders
+
+154
+00:07:07,988 --> 00:07:10,891
+and triggers don't have physical collisions,
+
+155
+00:07:10,891 --> 00:07:12,214
+and we have written nothing that can
+
+156
+00:07:12,214 --> 00:07:13,935
+capture the trigger event.
+
+157
+00:07:14,435 --> 00:07:16,435
+We will need to write more trigger related
+
+158
+00:07:16,435 --> 00:07:19,406
+code for our 2 colliders to have any effect.
+
+159
+00:07:20,257 --> 00:07:22,257
+Exit Play mode.
+
+160
+00:07:23,896 --> 00:07:27,144
+With Asteroid selected use the Add Component
+
+161
+00:07:27,144 --> 00:07:29,681
+button to create a new script.
+
+162
+00:07:30,809 --> 00:07:33,642
+Rename this script DestroyByContact
+
+163
+00:07:33,642 --> 00:07:35,283
+and accept the changes to add this
+
+164
+00:07:35,283 --> 00:07:37,283
+new script to Asteroid.
+
+165
+00:07:38,367 --> 00:07:39,858
+File the script
+
+166
+00:07:40,519 --> 00:07:42,519
+and open it for editing.
+
+167
+00:07:45,502 --> 00:07:47,502
+After removing the sample code
+
+168
+00:07:48,221 --> 00:07:50,221
+let's write Trigger again and
+
+169
+00:07:50,221 --> 00:07:52,221
+search the documentation.
+
+170
+00:07:53,349 --> 00:07:55,671
+In this case we want to destroy the asteroid
+
+171
+00:07:55,671 --> 00:07:57,583
+when the bolt first touches it
+
+172
+00:07:57,583 --> 00:08:00,270
+so let's select OnTriggerEnter.
+
+173
+00:08:00,901 --> 00:08:02,680
+This code is very much like the code
+
+174
+00:08:02,680 --> 00:08:04,651
+we used for our boundary.
+
+175
+00:08:04,651 --> 00:08:06,651
+except this code is called when a
+
+176
+00:08:06,651 --> 00:08:09,382
+collider first touches the trigger collider
+
+177
+00:08:09,382 --> 00:08:11,382
+rather than when the collider leaves the
+
+178
+00:08:11,382 --> 00:08:12,731
+trigger volume.
+
+179
+00:08:13,751 --> 00:08:15,957
+This sample code is also convenient
+
+180
+00:08:15,957 --> 00:08:18,416
+as it does almost everything we need.
+
+181
+00:08:18,924 --> 00:08:21,483
+When another collider enters the trigger
+
+182
+00:08:21,483 --> 00:08:24,013
+we are given a reference to that other collider
+
+183
+00:08:24,013 --> 00:08:25,733
+as Collider other.
+
+184
+00:08:26,233 --> 00:08:28,365
+The code then destroys the other
+
+185
+00:08:28,365 --> 00:08:30,365
+collider's game object.
+
+186
+00:08:30,953 --> 00:08:33,943
+Copy this code and paste it in to our script.
+
+187
+00:08:34,867 --> 00:08:36,867
+This code as it stands will destroy the
+
+188
+00:08:36,867 --> 00:08:39,352
+laser bolt when it hits the asteroid.
+
+189
+00:08:40,448 --> 00:08:42,448
+Next we need to destroy the asteroid
+
+190
+00:08:42,448 --> 00:08:46,039
+itself with Destroy (gameObject).
+
+191
+00:08:46,933 --> 00:08:49,419
+Destroy (gameObject) will destroy the game object
+
+192
+00:08:49,419 --> 00:08:51,608
+this script is attached to
+
+193
+00:08:51,608 --> 00:08:53,741
+which in this case is the asteroid
+
+194
+00:08:53,741 --> 00:08:55,697
+and all of it's children and all
+
+195
+00:08:55,697 --> 00:08:57,212
+their attached components.
+
+196
+00:08:57,756 --> 00:09:00,065
+One quick note about destroy.
+
+197
+00:09:00,065 --> 00:09:01,974
+Destroy does not immediately destroy the
+
+198
+00:09:01,974 --> 00:09:04,606
+object listed in the parenthesis.
+
+199
+00:09:04,606 --> 00:09:07,843
+It marks the object to be destroyed
+
+200
+00:09:07,843 --> 00:09:09,843
+and all of the marked objects are
+
+201
+00:09:09,843 --> 00:09:12,034
+destroyed at the end of the frame.
+
+202
+00:09:12,034 --> 00:09:14,034
+So we can put these destroy lines
+
+203
+00:09:14,034 --> 00:09:15,768
+in any order.
+
+204
+00:09:15,768 --> 00:09:17,768
+It seems wrong if we destroy this
+
+205
+00:09:17,768 --> 00:09:19,768
+game object before we call destroy on
+
+206
+00:09:19,768 --> 00:09:21,340
+the other one.
+
+207
+00:09:21,340 --> 00:09:23,340
+But code-wise it doesn't matter what order
+
+208
+00:09:23,340 --> 00:09:25,928
+we mark our objects to be destroyed
+
+209
+00:09:25,928 --> 00:09:28,600
+as long as they are marked in the same frame.
+
+210
+00:09:29,553 --> 00:09:32,523
+Save this script and return to Unity.
+
+211
+00:09:33,353 --> 00:09:35,353
+Again, this script has no properties
+
+212
+00:09:35,353 --> 00:09:37,163
+for us to set in the Editor.
+
+213
+00:09:37,163 --> 00:09:39,163
+It will just work as long as it's
+
+214
+00:09:39,163 --> 00:09:42,037
+attached to an active game object.
+
+215
+00:09:42,037 --> 00:09:44,669
+Let's save our scene and enter Play mode.
+
+216
+00:09:45,150 --> 00:09:46,606
+Where's our asteroid?
+
+217
+00:09:47,212 --> 00:09:48,614
+Let's exit Play mode.
+
+218
+00:09:49,114 --> 00:09:50,438
+There it is.
+
+219
+00:09:51,278 --> 00:09:53,796
+Okay, enter Play mode
+
+220
+00:09:53,796 --> 00:09:55,317
+and it's gone!
+
+221
+00:09:55,317 --> 00:09:57,535
+We can see our asteroid in Edit mode
+
+222
+00:09:57,535 --> 00:09:59,535
+but it vanishes in Play mode.
+
+223
+00:10:00,035 --> 00:10:02,168
+No, we aren't standing at a flux point
+
+224
+00:10:02,168 --> 00:10:04,862
+in the probability field, we have a bug.
+
+225
+00:10:05,771 --> 00:10:07,654
+Let's do some simply debugging.
+
+226
+00:10:08,198 --> 00:10:09,816
+Let's exit Play mode.
+
+227
+00:10:10,231 --> 00:10:12,791
+We turn to our DestroyByContact script.
+
+228
+00:10:13,320 --> 00:10:15,746
+If something is calling our new trigger code
+
+229
+00:10:15,746 --> 00:10:17,895
+and destroying our asteroid we need to
+
+230
+00:10:17,895 --> 00:10:20,468
+find out what that something is.
+
+231
+00:10:21,461 --> 00:10:23,461
+In OnTriggerEnter let's write
+
+232
+00:10:23,461 --> 00:10:27,054
+debug.logOther.name
+
+233
+00:10:27,671 --> 00:10:29,671
+This will send the name of the game object
+
+234
+00:10:29,671 --> 00:10:31,510
+that Other is attached to
+
+235
+00:10:31,510 --> 00:10:33,510
+as a line in our console log.
+
+236
+00:10:34,010 --> 00:10:36,721
+Save this script and return to Unity.
+
+237
+00:10:37,372 --> 00:10:38,858
+Enter Play mode.
+
+238
+00:10:39,434 --> 00:10:41,753
+and now we see who the culprit is,
+
+239
+00:10:41,753 --> 00:10:43,162
+it's Boundary.
+
+240
+00:10:43,662 --> 00:10:45,387
+We see the most recent error or message
+
+241
+00:10:45,387 --> 00:10:47,927
+in the footer, we can also check the
+
+242
+00:10:47,927 --> 00:10:50,568
+console for more detailed information.
+
+243
+00:10:51,727 --> 00:10:53,727
+If we look in to the Hierarchy we can see
+
+244
+00:10:53,727 --> 00:10:55,727
+that Boundary is also missing from
+
+245
+00:10:55,727 --> 00:10:58,214
+our scene, it has been destroyed.
+
+246
+00:10:59,454 --> 00:11:02,027
+Exit Play mode and switch to the Scene view.
+
+247
+00:11:02,655 --> 00:11:04,655
+Now if we focus our Scene view camera
+
+248
+00:11:04,655 --> 00:11:06,873
+on the Boundary we can look at
+
+249
+00:11:06,873 --> 00:11:09,914
+the relationship between the asteroid and Boundary.
+
+250
+00:11:10,414 --> 00:11:13,299
+Asteroid is right there in the middle of the boundary
+
+251
+00:11:13,716 --> 00:11:15,716
+On the very first frame Asteroid
+
+252
+00:11:15,716 --> 00:11:18,470
+detects it's inside Boundary
+
+253
+00:11:18,470 --> 00:11:20,844
+and Boundary triggers our OnTriggerEnter
+
+254
+00:11:20,844 --> 00:11:23,596
+code on Asteroid, and the code destroys
+
+255
+00:11:23,596 --> 00:11:26,441
+both game objects in the very first frame.
+
+256
+00:11:27,010 --> 00:11:29,314
+We need to test our OnTriggerEnter
+
+257
+00:11:29,314 --> 00:11:32,586
+code and ignore collisions with Boundary.
+
+258
+00:11:33,086 --> 00:11:36,090
+One way of identifying an object is with a tag.
+
+259
+00:11:36,687 --> 00:11:38,687
+Let's tag our boundary.
+
+260
+00:11:39,187 --> 00:11:41,781
+Select Boundary and in the header of
+
+261
+00:11:41,781 --> 00:11:43,781
+the game object is it's tag.
+
+262
+00:11:44,281 --> 00:11:46,281
+We can see it is untagged.
+
+263
+00:11:46,878 --> 00:11:50,564
+Click on the Tag drop-down and select Add Tag.
+
+264
+00:11:51,216 --> 00:11:54,238
+This brings up Tags and Layers in the Inspector.
+
+265
+00:11:54,917 --> 00:11:56,917
+Our custom tag list is empty
+
+266
+00:11:56,917 --> 00:12:00,056
+so let's add a new tag, Boundary.
+
+267
+00:12:00,646 --> 00:12:03,340
+Now if we look back at our boundary game object
+
+268
+00:12:03,340 --> 00:12:05,685
+we can see it is still untagged.
+
+269
+00:12:06,116 --> 00:12:08,116
+This is an important note.
+
+270
+00:12:08,116 --> 00:12:10,614
+We used Add Tag on the Tag drop-down
+
+271
+00:12:10,614 --> 00:12:12,987
+to create a new tag, but we still must
+
+272
+00:12:12,987 --> 00:12:14,987
+assign that new tag.
+
+273
+00:12:14,987 --> 00:12:17,180
+So with Boundary selected
+
+274
+00:12:17,180 --> 00:12:20,840
+click on the Tag drop-down and select Boundary.
+
+275
+00:12:21,962 --> 00:12:23,740
+We now have successfully tagged this game
+
+276
+00:12:23,740 --> 00:12:25,740
+object as Boundary.
+
+277
+00:12:26,862 --> 00:12:30,009
+Return to our DestroyByContact script.
+
+278
+00:12:30,009 --> 00:12:33,165
+Let's remove our Debug line and replace it with
+
+279
+00:12:34,066 --> 00:12:36,794
+If the other tag
+
+280
+00:12:36,794 --> 00:12:39,100
+is the same as Boundary
+
+281
+00:12:39,724 --> 00:12:41,724
+then return.
+
+282
+00:12:42,486 --> 00:12:44,887
+Return ends the execution of a function
+
+283
+00:12:44,887 --> 00:12:46,702
+and hands the control back to the
+
+284
+00:12:46,702 --> 00:12:49,340
+function that called it, which in some cases
+
+285
+00:12:49,340 --> 00:12:51,078
+maybe Unity itself.
+
+286
+00:12:51,660 --> 00:12:53,660
+Optionally a value can be passed back
+
+287
+00:12:53,660 --> 00:12:55,259
+as well with return.
+
+288
+00:12:55,966 --> 00:12:57,966
+In our case return simply ends this
+
+289
+00:12:57,966 --> 00:12:59,966
+function at that point and returns the
+
+290
+00:12:59,966 --> 00:13:01,966
+control back to Unity's game loop,
+
+291
+00:13:01,966 --> 00:13:04,311
+which means we will never reach or execute
+
+292
+00:13:04,311 --> 00:13:06,311
+the Destroy code if the other's
+
+293
+00:13:06,311 --> 00:13:08,311
+tag is Boundary.
+
+294
+00:13:09,115 --> 00:13:11,115
+Save the script and return to Unity.
+
+295
+00:13:12,748 --> 00:13:16,116
+Enter Play mode and there's our asteroid.
+
+296
+00:13:16,116 --> 00:13:18,116
+Fire our weapons and the asteroid
+
+297
+00:13:18,116 --> 00:13:20,558
+and the laser bolt are destroyed.
+
+298
+00:13:21,127 --> 00:13:22,680
+When the asteroid entered the boundary
+
+299
+00:13:22,680 --> 00:13:24,680
+on the first frame the trigger message
+
+300
+00:13:24,680 --> 00:13:28,177
+was cut short and the destruction code was ignored.
+
+301
+00:13:29,920 --> 00:13:33,232
+Now we have a tumbling asteroid and destruction code.
+
+302
+00:13:34,326 --> 00:13:36,602
+In the next assignment we will add explosions,
+
+303
+00:13:36,602 --> 00:13:38,961
+move the asteroid and save it as a prefab
+
+304
+00:13:38,961 --> 00:13:41,195
+for our game controller to use.

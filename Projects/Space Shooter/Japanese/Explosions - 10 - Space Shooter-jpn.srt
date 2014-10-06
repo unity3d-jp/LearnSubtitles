@@ -1,0 +1,419 @@
+1
+00:00:01,312 --> 00:00:03,951
+So we have a tumbling asteroid hazard
+
+2
+00:00:03,951 --> 00:00:06,854
+and we can destroy it with our laser bolts.
+
+3
+00:00:06,854 --> 00:00:09,738
+But the entire process seems a bit dull.
+
+4
+00:00:09,738 --> 00:00:12,578
+So let's add some explosions to brighten things up.
+
+5
+00:00:13,907 --> 00:00:16,957
+Let's open our DestroyByContact script.
+
+6
+00:00:19,736 --> 00:00:22,098
+The first thing we need to do is add a reference
+
+7
+00:00:22,098 --> 00:00:24,486
+to our explosion visual effect.
+
+8
+00:00:24,486 --> 00:00:28,652
+So let's write public GameObject explosion
+
+9
+00:00:29,483 --> 00:00:33,062
+then after our boundary detection code
+
+10
+00:00:33,062 --> 00:00:35,117
+write instantiate.
+
+11
+00:00:35,617 --> 00:00:37,617
+We know instantiate, we've used it in
+
+12
+00:00:37,617 --> 00:00:39,617
+our Player Controller script.
+
+13
+00:00:40,283 --> 00:00:42,283
+Let's open our Player Controller script.
+
+14
+00:00:43,764 --> 00:00:46,366
+And copy the instantiate line.
+
+15
+00:00:47,977 --> 00:00:51,296
+Paste it in to our DestroyByContact script.
+
+16
+00:00:52,086 --> 00:00:54,086
+What do we want to instantiate?
+
+17
+00:00:54,586 --> 00:00:56,074
+Our explosion.
+
+18
+00:00:56,574 --> 00:00:58,505
+Where do we want to instantiate it?
+
+19
+00:00:58,505 --> 00:01:01,917
+At our transform position with our
+
+20
+00:01:01,917 --> 00:01:03,917
+transform rotation applied.
+
+21
+00:01:04,417 --> 00:01:06,529
+This will instantiate the explosion
+
+22
+00:01:06,529 --> 00:01:09,542
+at the exact same position as our asteroid.
+
+23
+00:01:10,525 --> 00:01:13,351
+Save this script and return to Unity.
+
+24
+00:01:14,434 --> 00:01:18,382
+In the Prefabs folder is VFX Explosions.
+
+25
+00:01:19,352 --> 00:01:21,629
+Drag the explosion_asteroid on to the
+
+26
+00:01:21,629 --> 00:01:24,097
+Explosion slot to create a reference to it
+
+27
+00:01:24,097 --> 00:01:26,719
+on our DestroyByContact script.
+
+28
+00:01:27,467 --> 00:01:30,037
+Save the scene and enter Play mode.x
+
+29
+00:01:31,583 --> 00:01:33,486
+Now when we destroy the asteroid we get a
+
+30
+00:01:33,486 --> 00:01:35,238
+very pretty explosion.
+
+31
+00:01:35,238 --> 00:01:37,238
+Let's see that again.
+
+32
+00:01:40,128 --> 00:01:41,363
+Nice.
+
+33
+00:01:42,421 --> 00:01:43,906
+On the other hand
+
+34
+00:01:44,503 --> 00:01:46,931
+If we ram the asteroid with our ship
+
+35
+00:01:48,315 --> 00:01:50,315
+We only get that same explosion.
+
+36
+00:01:50,732 --> 00:01:52,732
+Now that's a little sad.
+
+37
+00:01:52,732 --> 00:01:55,230
+Let's improve this script to accommodate
+
+38
+00:01:55,230 --> 00:01:57,465
+the player as a special case and include
+
+39
+00:01:57,465 --> 00:01:58,907
+a player explosion as well as
+
+40
+00:01:58,907 --> 00:02:00,907
+the asteroid explosion.
+
+41
+00:02:02,401 --> 00:02:05,403
+Return to our DestroyByContact script.
+
+42
+00:02:06,199 --> 00:02:08,790
+Let's add a public GameObject reference
+
+43
+00:02:08,790 --> 00:02:10,790
+to our playerExplosion.
+
+44
+00:02:12,367 --> 00:02:15,051
+Then let's duplicate our instantiate code
+
+45
+00:02:15,827 --> 00:02:18,835
+and again, what do we want to instantiate?
+
+46
+00:02:18,835 --> 00:02:20,890
+Our playerExplosion.
+
+47
+00:02:20,890 --> 00:02:23,363
+And where do we want to instantiate it?
+
+48
+00:02:23,970 --> 00:02:26,607
+Where our player, as the other collider
+
+49
+00:02:26,607 --> 00:02:30,405
+is in our scene, or the Other
+
+50
+00:02:30,405 --> 00:02:32,765
+transform position and the Other
+
+51
+00:02:32,765 --> 00:02:34,375
+transform rotation.
+
+52
+00:02:35,127 --> 00:02:37,127
+Leaving the code like this would simply
+
+53
+00:02:37,127 --> 00:02:39,127
+instantiate 2 explosions with every
+
+54
+00:02:39,127 --> 00:02:40,811
+OnTriggerEnter event.
+
+55
+00:02:41,282 --> 00:02:43,899
+Let's test the Other collider again.
+
+56
+00:02:43,899 --> 00:02:46,718
+Indent the new instantiate code and write
+
+57
+00:02:47,619 --> 00:02:51,261
+If the other collider's tag is the
+
+58
+00:02:51,261 --> 00:02:53,261
+same as Player
+
+59
+00:02:53,968 --> 00:02:55,692
+and add an open bracket.
+
+60
+00:02:56,385 --> 00:02:58,605
+And after the instantiate line we will
+
+61
+00:02:58,605 --> 00:03:01,512
+need to complete this with a close bracket.
+
+62
+00:03:02,896 --> 00:03:05,901
+We will now always instantiate our explosions
+
+63
+00:03:05,901 --> 00:03:08,523
+but if we collide with an object tagged Player
+
+64
+00:03:08,523 --> 00:03:10,486
+we will also instantiate a player
+
+65
+00:03:10,486 --> 00:03:11,851
+explosion as well.
+
+66
+00:03:12,516 --> 00:03:15,295
+Save this script and return to Unity.
+
+67
+00:03:16,176 --> 00:03:18,023
+Our player now needs a tag.
+
+68
+00:03:18,455 --> 00:03:20,455
+Using the Tag drop-down menu select the
+
+69
+00:03:20,455 --> 00:03:22,788
+pre-made tag Player.
+
+70
+00:03:23,468 --> 00:03:26,758
+There is no need to create a custom tag in this case.
+
+71
+00:03:27,797 --> 00:03:29,797
+Select the Asteroid game object
+
+72
+00:03:29,797 --> 00:03:32,401
+and drag the explosion_player on to the
+
+73
+00:03:32,401 --> 00:03:34,304
+Player Explosion slot on the
+
+74
+00:03:34,304 --> 00:03:36,304
+DestroyByContact component.
+
+75
+00:03:36,956 --> 00:03:39,343
+Save the scene and play.
+
+76
+00:03:41,445 --> 00:03:43,445
+Wow, that's great.
+
+77
+00:03:44,346 --> 00:03:46,346
+The last improvement we need to make on the
+
+78
+00:03:46,346 --> 00:03:48,969
+asteroid is to get it moving towards the player
+
+79
+00:03:49,785 --> 00:03:51,840
+With the Asteroid selected
+
+80
+00:03:51,840 --> 00:03:53,977
+open the Scripts folder and drag the
+
+81
+00:03:53,977 --> 00:03:56,281
+Mover script on to the Asteroid
+
+82
+00:03:56,281 --> 00:03:58,281
+game object in the Inspector.
+
+83
+00:03:58,698 --> 00:04:00,698
+The Mover script is the movement
+
+84
+00:04:00,698 --> 00:04:02,698
+code we created when we were moving the bolt
+
+85
+00:04:02,698 --> 00:04:05,324
+game object in an earlier assignment.
+
+86
+00:04:06,289 --> 00:04:10,410
+Then set the speed value to -5.
+
+87
+00:04:11,159 --> 00:04:13,159
+This negative speed will bring the asteroid
+
+88
+00:04:13,159 --> 00:04:15,159
+down the screen towards our player.
+
+89
+00:04:16,543 --> 00:04:19,810
+Save the scene, enter Play mode and test.
+
+90
+00:04:20,434 --> 00:04:22,782
+And the asteroid tumbles towards our player.
+
+91
+00:04:23,514 --> 00:04:25,986
+Conveniently the boundary also takes care
+
+92
+00:04:25,986 --> 00:04:27,986
+of the asteroid when it leaves the boundary's
+
+93
+00:04:27,986 --> 00:04:29,986
+box by destroying it.
+
+94
+00:04:31,163 --> 00:04:33,163
+Exit Play mode.
+
+95
+00:04:33,994 --> 00:04:35,953
+The asteroid hazard is done.
+
+96
+00:04:35,953 --> 00:04:38,339
+We need to save this as a prefab
+
+97
+00:04:38,339 --> 00:04:40,339
+So drag the asteroid game object from the
+
+98
+00:04:40,339 --> 00:04:43,940
+Hierarchy on to the Prefabs folder in Assets.
+
+99
+00:04:44,964 --> 00:04:46,964
+This creates a new prefab of our
+
+100
+00:04:46,964 --> 00:04:48,964
+Asteroid game object.
+
+101
+00:04:49,878 --> 00:04:51,878
+Lastly delete the instance of
+
+102
+00:04:51,878 --> 00:04:53,878
+the asteroid from our scene.
+
+103
+00:04:54,544 --> 00:04:57,789
+Our asteroid hazard is setup and ready to go.
+
+104
+00:04:57,789 --> 00:04:59,664
+In the next assignment we will create
+
+105
+00:04:59,664 --> 00:05:01,664
+our game controller.

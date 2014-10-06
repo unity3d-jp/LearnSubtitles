@@ -1,0 +1,475 @@
+1
+00:00:00,235 --> 00:00:02,583
+In Unity a transform's rotation is 
+
+2
+00:00:02,583 --> 00:00:04,416
+stored as a quaternion
+
+3
+00:00:05,192 --> 00:00:07,192
+These work similarly to vectors
+
+4
+00:00:07,192 --> 00:00:11,174
+but have 4 components, X, Y, Z and W.
+
+5
+00:00:12,130 --> 00:00:14,408
+These components are interdependent and work
+
+6
+00:00:14,408 --> 00:00:16,144
+together to define any rotations
+
+7
+00:00:16,144 --> 00:00:17,717
+that an object might need.
+
+8
+00:00:18,576 --> 00:00:20,576
+One of the most important things to remember about
+
+9
+00:00:20,576 --> 00:00:22,576
+dealing with quaternions is that since the X,
+
+10
+00:00:22,576 --> 00:00:25,277
+Y, Z and W components work together
+
+11
+00:00:25,277 --> 00:00:27,527
+you should never adjust them individually.
+
+12
+00:00:28,136 --> 00:00:30,330
+Thankfully Unity has many built-in
+
+13
+00:00:30,330 --> 00:00:32,902
+functions to make managing quaternions easy.
+
+14
+00:00:33,595 --> 00:00:35,595
+The system for managing rotations that you are
+
+15
+00:00:35,595 --> 00:00:37,498
+probably already familiar with is called
+
+16
+00:00:37,498 --> 00:00:38,997
+Euler Angles.
+
+17
+00:00:39,667 --> 00:00:41,667
+The rotation value shown in the Inspector use
+
+18
+00:00:41,667 --> 00:00:45,048
+this system as it is slightly easier to understand.
+
+19
+00:00:45,518 --> 00:00:47,518
+Euler Angle Rotation is based on a rotation
+
+20
+00:00:47,518 --> 00:00:50,670
+around each of the X, Y and Z axis.
+
+21
+00:00:51,874 --> 00:00:54,317
+You might be wondering why Unity uses quaternions
+
+22
+00:00:54,317 --> 00:00:56,317
+if euler angles are easier to understand,
+
+23
+00:00:56,317 --> 00:00:58,844
+especially since Unity converts the quaternion
+
+24
+00:00:58,844 --> 00:01:00,844
+to euler angles for the Inspector.
+
+25
+00:01:01,344 --> 00:01:03,344
+Suffice to say that euler angles are subject
+
+26
+00:01:03,344 --> 00:01:05,288
+something called Gimbal Lock which can
+
+27
+00:01:05,288 --> 00:01:08,093
+prevent incremental rotations from working correctly.
+
+28
+00:01:08,842 --> 00:01:10,842
+Luckily, since Unity stores rotations
+
+29
+00:01:10,842 --> 00:01:13,530
+as quaternions, which are not subject to Gimbal Lock,
+
+30
+00:01:13,530 --> 00:01:15,530
+we do not experience this problem.
+
+31
+00:01:16,320 --> 00:01:18,320
+Let's take a look at some of the functionality that
+
+32
+00:01:18,320 --> 00:01:20,320
+is available through the quaternion class.
+
+33
+00:01:20,820 --> 00:01:23,436
+We will start with the LookRotation function.
+
+34
+00:01:24,516 --> 00:01:27,341
+Here we have a scene setup with a character and a orb.
+
+35
+00:01:27,841 --> 00:01:30,350
+The character has a script called LookAtScript
+
+36
+00:01:30,350 --> 00:01:31,922
+attached to it.
+
+37
+00:01:31,922 --> 00:01:33,922
+The orb has a script called MotionScript
+
+38
+00:01:33,922 --> 00:01:35,922
+attached to it.
+
+39
+00:01:36,422 --> 00:01:38,422
+The MotionScript simply moves the object
+
+40
+00:01:38,422 --> 00:01:41,295
+side to side based on the horizontal input axis.
+
+41
+00:01:42,057 --> 00:01:44,057
+The LookOutScript has a public field for a target
+
+42
+00:01:44,057 --> 00:01:46,057
+transform and in the Update function
+
+43
+00:01:46,057 --> 00:01:48,057
+we will be using LookRotation to cause
+
+44
+00:01:48,057 --> 00:01:50,655
+the object to rotation to face the target.
+
+45
+00:01:51,538 --> 00:01:54,652
+The LookRotation function takes in a vector3.
+
+46
+00:01:54,652 --> 00:01:56,652
+It returns a quaternion rotation 
+
+47
+00:01:56,652 --> 00:01:58,652
+aligned with the vector3 parsed in.
+
+48
+00:02:00,160 --> 00:02:02,160
+By calculating the relative vector between
+
+49
+00:02:02,160 --> 00:02:04,160
+the object and the target we could
+
+50
+00:02:04,160 --> 00:02:06,160
+make the object's Z axis
+
+51
+00:02:06,160 --> 00:02:07,808
+point towards the target.
+
+52
+00:02:08,591 --> 00:02:11,620
+This works in a similar way to Transform.LookAt
+
+53
+00:02:11,620 --> 00:02:15,297
+but utilising quaternions sets the rotation explicitly.
+
+54
+00:02:16,299 --> 00:02:18,299
+It is also worth noting that we can parse
+
+55
+00:02:18,299 --> 00:02:20,420
+in a second vector3 to the function
+
+56
+00:02:20,996 --> 00:02:22,996
+This vector3 tells the function which
+
+57
+00:02:22,996 --> 00:02:24,996
+direction is considered up.
+
+58
+00:02:26,344 --> 00:02:28,986
+Back in the Unity Editor, let's run our scene.
+
+59
+00:02:29,486 --> 00:02:31,894
+We can see that no matter where we move the orb
+
+60
+00:02:31,894 --> 00:02:33,894
+the character turns to face it.
+
+61
+00:02:35,121 --> 00:02:36,728
+The next function we want to look at is
+
+62
+00:02:36,728 --> 00:02:38,454
+the Slerp function.
+
+63
+00:02:38,454 --> 00:02:41,445
+Slerp is short for Spherical Interpolation.
+
+64
+00:02:41,945 --> 00:02:44,098
+It is very similar to the lerp function
+
+65
+00:02:44,098 --> 00:02:46,570
+which stands for Linear Interpolation.
+
+66
+00:02:47,173 --> 00:02:49,173
+The big difference between the two is that
+
+67
+00:02:49,173 --> 00:02:51,173
+lerp will interpolate evenly between two
+
+68
+00:02:51,173 --> 00:02:53,173
+quaternions, while slerp will
+
+69
+00:02:53,173 --> 00:02:54,868
+interpolate on a curve.
+
+70
+00:02:55,673 --> 00:02:57,673
+The result is that lerp will provide an even
+
+71
+00:02:57,673 --> 00:03:00,378
+change over time, while slerp will start
+
+72
+00:03:00,378 --> 00:03:02,952
+and end slower and be faster in the middle.
+
+73
+00:03:03,832 --> 00:03:07,123
+We have here a scene with another character and orb.
+
+74
+00:03:07,123 --> 00:03:09,970
+The character has no scripts attached to it.
+
+75
+00:03:09,970 --> 00:03:12,456
+The orb has a Gravity script attached to it.
+
+76
+00:03:13,183 --> 00:03:15,183
+This scene will utilise slerp and some
+
+77
+00:03:15,183 --> 00:03:18,131
+forward movement to achieve a gravity orbit effect.
+
+78
+00:03:19,146 --> 00:03:21,146
+In the Gravity script we have a setup similar
+
+79
+00:03:21,146 --> 00:03:23,528
+to the LookAt script from before.
+
+80
+00:03:23,528 --> 00:03:26,465
+Again, we have a public field for a target transform.
+
+81
+00:03:27,131 --> 00:03:29,360
+We are also calculating the relative vector
+
+82
+00:03:29,360 --> 00:03:31,752
+between the object and the target, though this time
+
+83
+00:03:31,752 --> 00:03:34,552
+we are adding an offset to account for the orbs height.
+
+84
+00:03:35,173 --> 00:03:36,913
+We are also calculating the LookRotation
+
+85
+00:03:36,913 --> 00:03:39,350
+like before except we are not storing it in
+
+86
+00:03:39,350 --> 00:03:42,224
+the rotation of the object's transform this time.
+
+87
+00:03:42,815 --> 00:03:44,815
+Instead we are storing it in a quaternion
+
+88
+00:03:44,815 --> 00:03:46,815
+variable named Rotation.
+
+89
+00:03:47,315 --> 00:03:49,315
+We are then storing the local rotation of the
+
+90
+00:03:49,315 --> 00:03:52,234
+object in a quaternion variable named Current.
+
+91
+00:03:53,143 --> 00:03:55,143
+After that we are using the slerp function
+
+92
+00:03:55,143 --> 00:03:58,264
+to slowly turn the object to face the target.
+
+93
+00:03:58,764 --> 00:04:01,622
+The slerp function reads in the current rotation,
+
+94
+00:04:01,622 --> 00:04:04,444
+the end result rotation and the speed it
+
+95
+00:04:04,444 --> 00:04:06,444
+should interpolate or turn.
+
+96
+00:04:06,944 --> 00:04:08,715
+The fact that the rotation doesn't happen
+
+97
+00:04:08,715 --> 00:04:11,366
+immediately but over time is the key to
+
+98
+00:04:11,366 --> 00:04:13,122
+making this example work.
+
+99
+00:04:13,866 --> 00:04:15,866
+After we turn the objects slightly towards
+
+100
+00:04:15,866 --> 00:04:18,674
+the target we move it forward a little bit.
+
+101
+00:04:19,583 --> 00:04:21,583
+Back in Unity we can run our scene
+
+102
+00:04:21,583 --> 00:04:23,056
+and see the result.
+
+103
+00:04:23,614 --> 00:04:25,614
+The orb is always moving forward and
+
+104
+00:04:25,614 --> 00:04:27,614
+turning to face the target, which in this
+
+105
+00:04:27,614 --> 00:04:29,340
+case is the character.
+
+106
+00:04:29,340 --> 00:04:32,626
+This gives us a nice smooth orbit effect.
+
+107
+00:04:33,959 --> 00:04:35,959
+The last thing we are going to look at is the
+
+108
+00:04:35,959 --> 00:04:38,401
+identity property of the quaternion class.
+
+109
+00:04:38,989 --> 00:04:41,987
+Setting a quaternion to Quaternion.identity
+
+110
+00:04:41,987 --> 00:04:43,987
+will effectively set it's euler rotation to
+
+111
+00:04:43,987 --> 00:04:47,141
+(0,0,0), or no rotation.
+
+112
+00:04:48,080 --> 00:04:50,370
+There are more functions in the quaternion class
+
+113
+00:04:50,370 --> 00:04:53,296
+that you can find in the documentation linked below.
+
+114
+00:04:53,796 --> 00:04:56,478
+The most important things to take away from this lesson
+
+115
+00:04:56,478 --> 00:04:58,478
+are that quaternions are the best way of 
+
+116
+00:04:58,478 --> 00:05:00,478
+dealing with rotation, and that you should
+
+117
+00:05:00,478 --> 00:05:02,962
+never alter the components independently.
+
+118
+00:05:03,629 --> 00:05:05,629
+There will always be some functionality
+
+119
+00:05:05,629 --> 00:05:07,629
+that you can use instead.

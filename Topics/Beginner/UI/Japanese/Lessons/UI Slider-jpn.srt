@@ -1,0 +1,651 @@
+1
+00:00:02,086 --> 00:00:04,386
+The Slider is a UI element
+
+2
+00:00:04,386 --> 00:00:07,390
+that allows the user to select a numeric value
+
+3
+00:00:07,390 --> 00:00:09,678
+from a predetermined range of numbers
+
+4
+00:00:09,678 --> 00:00:12,559
+by dragging the handle of the slider control.
+
+5
+00:00:13,473 --> 00:00:15,473
+Common controls using a slider
+
+6
+00:00:15,473 --> 00:00:20,142
+include settings for audio volume, colour channels or brightness.
+
+7
+00:00:20,808 --> 00:00:23,055
+The slider element can also be repurposed
+
+8
+00:00:23,055 --> 00:00:25,055
+as a simple display for items like
+
+9
+00:00:25,055 --> 00:00:27,796
+health bars or volume meters.
+
+10
+00:00:29,074 --> 00:00:31,074
+The slider's value is set by the position
+
+11
+00:00:31,074 --> 00:00:34,137
+of the handle along the length of the slider.
+
+12
+00:00:34,789 --> 00:00:37,358
+The value starts at a minimum value
+
+13
+00:00:37,358 --> 00:00:39,661
+and increases up to a maximum value
+
+14
+00:00:39,661 --> 00:00:42,231
+defining a range between the two.
+
+15
+00:00:44,012 --> 00:00:47,656
+To create a new slider use the Create menu
+
+16
+00:00:47,656 --> 00:00:51,990
+to Create UI Slider.
+
+17
+00:00:54,299 --> 00:00:57,006
+Like all UI elements the slider element must be
+
+18
+00:00:57,006 --> 00:00:59,006
+the child of a canvas.
+
+19
+00:00:59,727 --> 00:01:03,109
+If one is not present when creating a pre-made slider
+
+20
+00:01:04,327 --> 00:01:06,729
+a new canvas will be created.
+
+21
+00:01:06,729 --> 00:01:08,729
+For more information on the canvas
+
+22
+00:01:08,729 --> 00:01:11,244
+please see the information linked below.
+
+23
+00:01:12,310 --> 00:01:14,310
+When the slider is created
+
+24
+00:01:14,310 --> 00:01:17,135
+it is made from a family of game objects.
+
+25
+00:01:17,828 --> 00:01:19,828
+The parent game object is where the required
+
+26
+00:01:19,828 --> 00:01:21,828
+slider script resides.
+
+27
+00:01:22,425 --> 00:01:24,745
+All of the children are the rect transform
+
+28
+00:01:24,745 --> 00:01:26,745
+and image components that make up the separate
+
+29
+00:01:26,745 --> 00:01:28,745
+elements of the slider control.
+
+30
+00:01:29,728 --> 00:01:31,435
+The elements that make up the slider
+
+31
+00:01:31,435 --> 00:01:33,073
+are the background graphic,
+
+32
+00:01:33,935 --> 00:01:37,611
+the fill graphic, which indicated the relative value chosen,
+
+33
+00:01:38,291 --> 00:01:40,291
+and the handle, which displays a
+
+34
+00:01:40,291 --> 00:01:42,913
+handle at the location of the chosen value.
+
+35
+00:01:43,675 --> 00:01:46,371
+The background and handle elements are optional.
+
+36
+00:01:47,617 --> 00:01:49,617
+Interact-able determines whether or not
+
+37
+00:01:49,617 --> 00:01:52,446
+this particular slider will accept input.
+
+38
+00:01:53,042 --> 00:01:55,461
+To prevent interaction with a slider
+
+39
+00:01:55,461 --> 00:01:57,461
+set Interact-able to false.
+
+40
+00:01:58,334 --> 00:02:00,555
+When interact-able is set to false
+
+41
+00:02:00,555 --> 00:02:02,555
+the transition state for the slider element
+
+42
+00:02:02,555 --> 00:02:04,875
+will be set to the disabled state.
+
+43
+00:02:05,690 --> 00:02:07,956
+By default the slider element will display
+
+44
+00:02:07,956 --> 00:02:10,289
+the normal state of the slider.
+
+45
+00:02:11,091 --> 00:02:13,643
+Depending upon the transition mode chosen
+
+46
+00:02:13,643 --> 00:02:16,088
+a slider can also display a highlighted,
+
+47
+00:02:16,088 --> 00:02:18,088
+pressed and disabled state.
+
+48
+00:02:18,643 --> 00:02:20,643
+Transition Mode determines whether or not
+
+49
+00:02:20,643 --> 00:02:22,629
+the slider element will display any of
+
+50
+00:02:22,629 --> 00:02:24,435
+these additional states
+
+51
+00:02:24,435 --> 00:02:26,738
+and if so controls the slider's look
+
+52
+00:02:26,738 --> 00:02:28,738
+for each state and the style of the 
+
+53
+00:02:28,738 --> 00:02:30,738
+transition between these states.
+
+54
+00:02:31,515 --> 00:02:33,515
+The transition mode property is shared
+
+55
+00:02:33,515 --> 00:02:35,515
+by many UI elements and will be covered
+
+56
+00:02:35,515 --> 00:02:37,070
+in it's own lesson.
+
+57
+00:02:37,697 --> 00:02:39,794
+For more information on transitions and
+
+58
+00:02:39,794 --> 00:02:41,503
+the transition mode property
+
+59
+00:02:41,503 --> 00:02:43,724
+please see the information linked below.
+
+60
+00:02:44,542 --> 00:02:46,777
+When using transitions with the slider element
+
+61
+00:02:46,777 --> 00:02:48,777
+it is worth noting that with the exception of
+
+62
+00:02:48,777 --> 00:02:50,777
+the animation transition
+
+63
+00:02:50,777 --> 00:02:52,777
+any visual change is only seen
+
+64
+00:02:52,777 --> 00:02:56,539
+on the handle graphic, not the rest of the UI element.
+
+65
+00:02:58,282 --> 00:03:00,282
+Navigation describes how the selection
+
+66
+00:03:00,282 --> 00:03:02,282
+of the UI elements is handled when using
+
+67
+00:03:02,282 --> 00:03:04,282
+keyboard or controller input.
+
+68
+00:03:04,782 --> 00:03:07,171
+Navigation is shared by many UI elements
+
+69
+00:03:07,171 --> 00:03:09,171
+and will be covered in it's own lesson.
+
+70
+00:03:10,237 --> 00:03:12,237
+For most circumstances navigation can
+
+71
+00:03:12,237 --> 00:03:14,237
+simply be set to Automatic.
+
+72
+00:03:15,441 --> 00:03:17,441
+For more information on navigation
+
+73
+00:03:17,441 --> 00:03:19,441
+please see the information linked below.
+
+74
+00:03:20,673 --> 00:03:23,131
+Fill Rect is a reference to the rect transform
+
+75
+00:03:23,131 --> 00:03:26,428
+on the graphic used for the filled area of the element.
+
+76
+00:03:27,204 --> 00:03:29,204
+The slider's current value is displayed
+
+77
+00:03:29,204 --> 00:03:31,204
+by the fill graphic.
+
+78
+00:03:31,787 --> 00:03:34,444
+Handle Rect is a reference to the rect transform
+
+79
+00:03:34,444 --> 00:03:36,444
+on the graphic used for the handle.
+
+80
+00:03:37,206 --> 00:03:40,035
+This is an optional reference and it can be none.
+
+81
+00:03:41,005 --> 00:03:43,005
+Direction sets both the axis and
+
+82
+00:03:43,005 --> 00:03:45,681
+the direction of the value change.
+
+83
+00:03:46,403 --> 00:03:48,529
+The Min Value will be at the
+
+84
+00:03:48,529 --> 00:03:50,529
+starting end of the direction.
+
+85
+00:03:51,029 --> 00:03:53,237
+For the choice of left to right
+
+86
+00:03:53,237 --> 00:03:56,364
+the min value will be at the left of the slider.
+
+87
+00:03:57,099 --> 00:04:00,089
+The value of the slider will increase proportionally as the
+
+88
+00:04:00,089 --> 00:04:02,465
+handle moves from left to right
+
+89
+00:04:02,465 --> 00:04:04,986
+and the Max value will be at the right.
+
+90
+00:04:06,177 --> 00:04:08,467
+The choices for direction are
+
+91
+00:04:08,467 --> 00:04:14,229
+LeftToRight, RightToLeft, BottomToTop and TopToBottom.
+
+92
+00:04:15,820 --> 00:04:18,071
+The range of the slider is determined by
+
+93
+00:04:18,071 --> 00:04:20,071
+the Min and Max values.
+
+94
+00:04:20,944 --> 00:04:24,596
+Min value is the minimum value of the range of the slider.
+
+95
+00:04:25,400 --> 00:04:28,477
+Max value is the maximum range of the slider.
+
+96
+00:04:29,226 --> 00:04:31,932
+Minimum value can be a negative number.
+
+97
+00:04:32,570 --> 00:04:35,041
+The minimum value however should be numerically
+
+98
+00:04:35,041 --> 00:04:37,041
+less than the maximum value
+
+99
+00:04:37,041 --> 00:04:40,039
+or aberrant behaviour could result with the slider.
+
+100
+00:04:40,746 --> 00:04:43,627
+Whole numbers will clamp the value of the slider to
+
+101
+00:04:43,627 --> 00:04:47,167
+whole numbers within the range from min to max value.
+
+102
+00:04:50,429 --> 00:04:52,664
+If the values in the min and max value
+
+103
+00:04:52,664 --> 00:04:54,664
+fields are not whole numbers
+
+104
+00:04:54,664 --> 00:04:56,664
+they will be adjusted to the closest whole
+
+105
+00:04:56,664 --> 00:04:59,208
+number when Whole Numbers is selected.
+
+106
+00:05:00,076 --> 00:05:02,875
+Value is the current value of the slider.
+
+107
+00:05:04,701 --> 00:05:07,705
+When value is set in the inspector during edit time
+
+108
+00:05:07,705 --> 00:05:10,261
+this will set the starting value for the slider.
+
+109
+00:05:11,769 --> 00:05:15,316
+The UI framework contains a powerful events system.
+
+110
+00:05:16,037 --> 00:05:18,037
+This is created automatically when the 
+
+111
+00:05:18,037 --> 00:05:19,760
+canvas is created.
+
+112
+00:05:20,537 --> 00:05:22,537
+When the event system detects the mass
+
+113
+00:05:22,537 --> 00:05:24,189
+down on the slider,
+
+114
+00:05:24,189 --> 00:05:26,189
+either a click or a drag,
+
+115
+00:05:26,189 --> 00:05:29,808
+the event system will call an OnValueChanged event.
+
+116
+00:05:30,432 --> 00:05:32,518
+The slider component includes a built-in
+
+117
+00:05:32,518 --> 00:05:34,919
+OnValueChanged function list
+
+118
+00:05:34,919 --> 00:05:36,919
+that contains a list of all the functions
+
+119
+00:05:36,919 --> 00:05:39,711
+that are called when the slider value changes.
+
+120
+00:05:40,252 --> 00:05:42,252
+Additional events can be detected
+
+121
+00:05:42,252 --> 00:05:44,556
+and used by the slider element, but this
+
+122
+00:05:44,556 --> 00:05:47,297
+requires an additional component to be attached.
+
+123
+00:05:48,271 --> 00:05:50,271
+For more information on how to use the
+
+124
+00:05:50,271 --> 00:05:54,573
+built-in function list, events, the event system and event triggers
+
+125
+00:05:54,573 --> 00:05:56,948
+please see the information linked below.
+
+126
+00:05:57,764 --> 00:06:00,085
+To hook up the current value of the slider
+
+127
+00:06:00,085 --> 00:06:02,871
+to a component, first create a new row in
+
+128
+00:06:02,871 --> 00:06:05,302
+the built-in OnValueChanged list.
+
+129
+00:06:06,089 --> 00:06:08,089
+Associate the game object when the desired
+
+130
+00:06:08,089 --> 00:06:11,611
+script or component attached to the first object field.
+
+131
+00:06:12,332 --> 00:06:15,224
+Then using the function pull-down menu
+
+132
+00:06:15,724 --> 00:06:17,724
+choose first the component
+
+133
+00:06:18,417 --> 00:06:21,722
+then an eligible function on that component to be called.
+
+134
+00:06:22,457 --> 00:06:24,733
+It is worth noting that ever time the value
+
+135
+00:06:24,733 --> 00:06:27,583
+of the slider changes the OnValueChanged
+
+136
+00:06:27,583 --> 00:06:29,011
+event will be called.
+
+137
+00:06:29,820 --> 00:06:31,820
+To parse the current value of the slider
+
+138
+00:06:31,820 --> 00:06:35,345
+the eligible function needs to have a float parameter.
+
+139
+00:06:35,345 --> 00:06:38,899
+And this function must be chosen from the dynamic float list.
+
+140
+00:06:39,606 --> 00:06:41,606
+This is done by selecting the function from
+
+141
+00:06:41,606 --> 00:06:44,319
+the top part of the list, indicated by the label
+
+142
+00:06:44,319 --> 00:06:45,735
+Dynamic Float.
+
+143
+00:06:46,543 --> 00:06:48,543
+If the only functions in the list are under
+
+144
+00:06:48,543 --> 00:06:50,861
+the header Static Parameters
+
+145
+00:06:50,861 --> 00:06:52,861
+this means the functions do not have a float
+
+146
+00:06:52,861 --> 00:06:54,861
+parameter and won't be able to accept
+
+147
+00:06:54,861 --> 00:06:57,026
+the current value of the slider element.
+
+148
+00:07:16,563 --> 00:07:19,142
+The final field is a parameter field
+
+149
+00:07:20,144 --> 00:07:22,144
+And when the current value of the slider
+
+150
+00:07:22,144 --> 00:07:24,144
+is parsed as a dynamic float
+
+151
+00:07:24,644 --> 00:07:26,644
+this field should be left blank.
+
+152
+00:07:28,106 --> 00:07:30,354
+It is worth noting that the value of the slider
+
+153
+00:07:30,354 --> 00:07:32,354
+element can also be driven externally,
+
+154
+00:07:32,854 --> 00:07:34,854
+and the slider will display the current value
+
+155
+00:07:34,854 --> 00:07:36,854
+sent to the slider.
+
+156
+00:07:37,846 --> 00:07:39,846
+One classic example of this is the
+
+157
+00:07:39,846 --> 00:07:42,681
+simple health, mana or fuel bar.
+
+158
+00:07:45,371 --> 00:07:48,015
+In a script with a reference to the slider element.
+
+159
+00:07:48,900 --> 00:07:50,900
+The slider value can be set.
+
+160
+00:07:54,351 --> 00:07:56,351
+In these cases it would be best to 
+
+161
+00:07:56,351 --> 00:07:59,706
+set the slider's interact-able value to false,
+
+162
+00:07:59,706 --> 00:08:02,038
+preventing any input on the slider.
+
+163
+00:08:02,762 --> 00:08:07,031
+And if desired, removing the handle graphic.

@@ -1,0 +1,107 @@
+1
+00:00:00,152 --> 00:00:02,307
+The Ternary Operator is a condensed form
+
+2
+00:00:02,307 --> 00:00:04,307
+for an If Else statement.
+
+3
+00:00:04,307 --> 00:00:06,884
+In it's most basic form the ternary operator
+
+4
+00:00:06,884 --> 00:00:08,480
+is used for deciding between two values
+
+5
+00:00:08,480 --> 00:00:10,480
+based on some Boolean expression.
+
+6
+00:00:11,256 --> 00:00:12,917
+The syntax has the format
+
+7
+00:00:12,917 --> 00:00:18,739
+Boolean ? true expression : false expression.
+
+8
+00:00:18,739 --> 00:00:20,975
+The first parameter is the Boolean, or condition
+
+9
+00:00:20,975 --> 00:00:22,851
+which evaluates to a Boolean
+
+10
+00:00:22,851 --> 00:00:24,589
+that you wish to test.
+
+11
+00:00:24,589 --> 00:00:26,089
+The end of this parameter is marked
+
+12
+00:00:26,089 --> 00:00:27,635
+with a question mark.
+
+13
+00:00:27,635 --> 00:00:29,635
+The next parameter is the value of the ternary
+
+14
+00:00:29,635 --> 00:00:31,635
+operator would evaluate to if the condition
+
+15
+00:00:31,635 --> 00:00:34,563
+is true. This is followed by a colon.
+
+16
+00:00:34,563 --> 00:00:36,242
+Then the final parameter is the value that
+
+17
+00:00:36,242 --> 00:00:38,007
+the ternary operator would evaluate to if
+
+18
+00:00:38,007 --> 00:00:39,604
+the condition is false.
+
+19
+00:00:39,604 --> 00:00:41,855
+Here we use a simple ternary operator
+
+20
+00:00:41,855 --> 00:00:44,720
+to determine if a player is alive or dead.
+
+21
+00:00:44,720 --> 00:00:46,276
+Ternary operators can be nested within 
+
+22
+00:00:46,276 --> 00:00:49,263
+one another but if used for long expressions
+
+23
+00:00:49,263 --> 00:00:52,732
+this can make code cumbersome and difficult to read.
+
+24
+00:00:52,732 --> 00:00:54,997
+A general rule for when to use a ternary operator
+
+25
+00:00:54,997 --> 00:00:56,997
+instead of an If Statement is if your code
+
+26
+00:00:56,997 --> 00:00:58,997
+needs a simple If Else structure with
+
+27
+00:00:58,997 --> 00:01:02,232
+a single short expression in each case.

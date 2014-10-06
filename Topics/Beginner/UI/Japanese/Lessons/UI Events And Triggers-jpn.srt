@@ -1,0 +1,395 @@
+1
+00:00:01,395 --> 00:00:04,309
+Often, when using UI elements in a scene
+
+2
+00:00:04,309 --> 00:00:06,309
+we want them to be interact-able.
+
+3
+00:00:06,809 --> 00:00:10,380
+A user interacts with UI elements via events.
+
+4
+00:00:11,323 --> 00:00:15,302
+This lesson covers generating and handling those events.
+
+5
+00:00:16,285 --> 00:00:18,927
+Whenever a canvas is created in a scene
+
+6
+00:00:18,927 --> 00:00:22,326
+an Event System game object is also created.
+
+7
+00:00:22,826 --> 00:00:25,792
+This game object has components including an
+
+8
+00:00:25,792 --> 00:00:30,951
+event system component and one or more input module components.
+
+9
+00:00:31,893 --> 00:00:35,594
+When a scene starts, the event system looks for input modules
+
+10
+00:00:35,594 --> 00:00:38,507
+on the same game object, and uses those to
+
+11
+00:00:38,507 --> 00:00:42,291
+define how each UI element should react to input.
+
+12
+00:00:43,288 --> 00:00:45,960
+The event system itself has one property
+
+13
+00:00:45,960 --> 00:00:47,794
+First Selected.
+
+14
+00:00:47,794 --> 00:00:51,494
+All interact-able UI elements can be selected and
+
+15
+00:00:51,494 --> 00:00:54,075
+whichever element is applied to this property
+
+16
+00:00:54,075 --> 00:00:56,955
+will be selected by default when the scene starts.
+
+17
+00:00:57,731 --> 00:01:01,858
+We could, for example, apply a button to this property.
+
+18
+00:01:02,483 --> 00:01:04,607
+Then, when we start the scene,
+
+19
+00:01:04,607 --> 00:01:07,199
+we can see that it has changed colour slightly
+
+20
+00:01:07,199 --> 00:01:09,199
+indicating that it is selected.
+
+21
+00:01:10,141 --> 00:01:12,211
+When we press the space bar we see that the button
+
+22
+00:01:12,211 --> 00:01:15,693
+becomes pressed without needing to click on it with the mouse.
+
+23
+00:01:15,693 --> 00:01:18,892
+This is useful for non-pointer based menu systems,
+
+24
+00:01:18,892 --> 00:01:21,731
+such as those used with game pads.
+
+25
+00:01:22,977 --> 00:01:24,977
+Along with the event system components
+
+26
+00:01:24,977 --> 00:01:28,548
+there are by default two input modules.
+
+27
+00:01:28,548 --> 00:01:31,171
+One for standalone builds that make use of a mouse,
+
+28
+00:01:31,171 --> 00:01:32,979
+keyboard or game pads,
+
+29
+00:01:32,979 --> 00:01:34,979
+and one for touch input.
+
+30
+00:01:35,589 --> 00:01:38,588
+The standalone input module has a series of properties
+
+31
+00:01:38,588 --> 00:01:40,781
+that refer to the different input axis
+
+32
+00:01:40,781 --> 00:01:43,920
+used for navigating different interact-able UI elements.
+
+33
+00:01:44,869 --> 00:01:49,142
+These input axis include the Submit and Cancel buttons.
+
+34
+00:01:49,654 --> 00:01:53,079
+These have been added by default to the input manager.
+
+35
+00:01:53,579 --> 00:01:57,437
+For more information on navigating between interact-able UI elements
+
+36
+00:01:57,437 --> 00:01:59,437
+please see the information linked below.
+
+37
+00:02:01,318 --> 00:02:04,092
+The frequency of input being registered can be changed
+
+38
+00:02:04,092 --> 00:02:07,031
+using the input actions per second property.
+
+39
+00:02:07,933 --> 00:02:12,058
+By default 10 input actions are allowed per second.
+
+40
+00:02:12,058 --> 00:02:14,757
+This means that there will be a 10th of a second delay
+
+41
+00:02:14,757 --> 00:02:18,487
+after an input action before the next action is accepted.
+
+42
+00:02:19,415 --> 00:02:21,415
+The last property allows you to accept standard
+
+43
+00:02:21,415 --> 00:02:24,133
+alone input whilst on a mobile device.
+
+44
+00:02:24,133 --> 00:02:26,480
+By default the standalone input module
+
+45
+00:02:26,480 --> 00:02:28,480
+will not function on a mobile device.
+
+46
+00:02:29,726 --> 00:02:32,183
+Since touch input works like mouse input
+
+47
+00:02:32,183 --> 00:02:34,499
+there are no navigation axis.
+
+48
+00:02:34,499 --> 00:02:37,300
+However, like the standalone input module
+
+49
+00:02:37,300 --> 00:02:39,634
+you can activate the touch input module
+
+50
+00:02:39,634 --> 00:02:41,634
+while on a standalone device.
+
+51
+00:02:43,059 --> 00:02:45,059
+There event system and input modules
+
+52
+00:02:45,059 --> 00:02:47,366
+determine when events are sent, or fired,
+
+53
+00:02:47,366 --> 00:02:49,076
+to different game objects.
+
+54
+00:02:49,728 --> 00:02:52,395
+One such event is the OnClick event,
+
+55
+00:02:52,395 --> 00:02:54,395
+which is called when a button is pressed.
+
+56
+00:02:54,895 --> 00:02:58,249
+Specifically the selected button must have a pointer down
+
+57
+00:02:58,249 --> 00:03:00,525
+and a subsequent pointer up event
+
+58
+00:03:00,525 --> 00:03:02,441
+while over the button's rect
+
+59
+00:03:02,441 --> 00:03:04,441
+for an OnClick event to occur.
+
+60
+00:03:05,659 --> 00:03:08,072
+For details on all of the input events
+
+61
+00:03:08,072 --> 00:03:10,072
+see the documentation linked below.
+
+62
+00:03:11,304 --> 00:03:14,101
+There are many ways to use these events.
+
+63
+00:03:14,101 --> 00:03:16,957
+Some interact-able UI elements have function lists
+
+64
+00:03:16,957 --> 00:03:18,957
+on their components that are called when
+
+65
+00:03:18,957 --> 00:03:21,952
+a specific event pertinent to that element is fired.
+
+66
+00:03:22,825 --> 00:03:26,052
+For example, button components have lists of functions
+
+67
+00:03:26,052 --> 00:03:28,857
+to be called when the OnClick event is fired.
+
+68
+00:03:29,785 --> 00:03:31,923
+To catch a specific event that is not listed
+
+69
+00:03:31,923 --> 00:03:33,923
+on a component by default
+
+70
+00:03:33,923 --> 00:03:35,923
+use the Event Trigger component.
+
+71
+00:03:36,603 --> 00:03:38,603
+This works like any of the other lists
+
+72
+00:03:38,603 --> 00:03:42,207
+for other components, however, the event trigger component
+
+73
+00:03:42,207 --> 00:03:45,465
+can have multiple lists for which ever events are desired.
+
+74
+00:03:46,545 --> 00:03:48,629
+For instance, an image control
+
+75
+00:03:48,629 --> 00:03:51,412
+does not utilise any specific events.
+
+76
+00:03:52,520 --> 00:03:55,907
+To allow it to use events with the event trigger component
+
+77
+00:03:55,907 --> 00:03:58,060
+first add the component by clicking
+
+78
+00:03:58,060 --> 00:04:01,941
+Add Component and then Event and then Event Trigger.
+
+79
+00:04:02,966 --> 00:04:05,880
+To add a new event click the Add New button.
+
+80
+00:04:06,380 --> 00:04:08,380
+This will give you a list of all of the different
+
+81
+00:04:08,380 --> 00:04:10,119
+available events to catch.
+
+82
+00:04:10,687 --> 00:04:13,337
+Select one of the events and a list for that event
+
+83
+00:04:13,337 --> 00:04:15,337
+will be added to the component.
+
+84
+00:04:16,541 --> 00:04:19,773
+To add a function to the list click the + icon.
+
+85
+00:04:20,273 --> 00:04:23,576
+This will create  an empty entry for a function to be called.
+
+86
+00:04:24,546 --> 00:04:27,830
+Drag an object that you wish to manipulate with this event
+
+87
+00:04:27,830 --> 00:04:30,493
+on to the object property in the list.
+
+88
+00:04:31,697 --> 00:04:34,460
+Once the object has been applied the drop down will
+
+89
+00:04:34,460 --> 00:04:37,556
+be populated with all of the available functions to be called.
+
+90
+00:04:38,553 --> 00:04:40,830
+As you can see, many components have functions
+
+91
+00:04:40,830 --> 00:04:43,206
+that you can call with these events.
+
+92
+00:04:43,206 --> 00:04:46,035
+You can even call functions on scripts that you write.
+
+93
+00:04:46,839 --> 00:04:49,032
+In order for an event to call a function
+
+94
+00:04:49,032 --> 00:04:52,280
+that function must be public, have a void return type
+
+95
+00:04:52,280 --> 00:04:54,798
+and take one or no parameters.
+
+96
+00:04:55,623 --> 00:04:57,512
+If the function has a parameter
+
+97
+00:04:57,512 --> 00:04:59,885
+it must be one of the following types:
+
+98
+00:04:59,885 --> 00:05:03,657
+float, integer, string or an object reference.
+
+99
+00:05:05,386 --> 00:05:08,992
+And that's it, your event is setup and ready to go.

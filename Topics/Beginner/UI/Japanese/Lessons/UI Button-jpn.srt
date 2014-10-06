@@ -1,0 +1,1091 @@
+1
+00:00:02,265 --> 00:00:06,640
+The button element detects user input and can trigger an event.
+
+2
+00:00:07,140 --> 00:00:09,140
+User input is usually the pointer
+
+3
+00:00:09,140 --> 00:00:11,985
+hovering over or clicking on the button graphic.
+
+4
+00:00:12,803 --> 00:00:15,204
+To create a pre-made button use the
+
+5
+00:00:15,204 --> 00:00:20,486
+Create menu to Create - UI - Button.
+
+6
+00:00:22,442 --> 00:00:24,995
+Like all UI elements the button element must
+
+7
+00:00:24,995 --> 00:00:26,995
+be the child of a canvas.
+
+8
+00:00:28,973 --> 00:00:31,964
+If one is not present when creating a pre-made button
+
+9
+00:00:31,964 --> 00:00:33,964
+a new canvas will be created.
+
+10
+00:00:36,688 --> 00:00:38,993
+For more information on the canvas
+
+11
+00:00:38,993 --> 00:00:41,645
+please see the information linked below.
+
+12
+00:00:43,426 --> 00:00:46,258
+A button element requires an Image script
+
+13
+00:00:46,258 --> 00:00:48,258
+and a Button script.
+
+14
+00:00:49,697 --> 00:00:51,697
+Pre-made button elements also include
+
+15
+00:00:51,697 --> 00:00:54,360
+an optional text element attached as a child.
+
+16
+00:00:55,136 --> 00:00:57,136
+This text element is optional
+
+17
+00:00:57,136 --> 00:00:59,136
+and can be removed if the button does not need
+
+18
+00:00:59,136 --> 00:01:01,136
+any additional text.
+
+19
+00:01:03,142 --> 00:01:06,307
+For more information on the image and text items
+
+20
+00:01:06,307 --> 00:01:08,613
+please see the infuriation linked below.
+
+21
+00:01:10,384 --> 00:01:12,605
+Inter-actable determines whether or not
+
+22
+00:01:12,605 --> 00:01:15,019
+this particular button will accept input.
+
+23
+00:01:15,754 --> 00:01:17,961
+To prevent interaction with this button
+
+24
+00:01:17,961 --> 00:01:19,961
+set Inter-actable to False.
+
+25
+00:01:20,765 --> 00:01:22,973
+When Inter-actable is set to False
+
+26
+00:01:22,973 --> 00:01:25,346
+the transition state for this button element
+
+27
+00:01:25,346 --> 00:01:27,346
+will be set to the Disabled stated.
+
+28
+00:01:28,150 --> 00:01:30,150
+By default the button element will display
+
+29
+00:01:30,150 --> 00:01:32,150
+the normal state of the button.
+
+30
+00:01:32,995 --> 00:01:34,995
+The look of the normal state is automatically
+
+31
+00:01:34,995 --> 00:01:36,995
+set by the image component attached
+
+32
+00:01:36,995 --> 00:01:38,594
+to the button element.
+
+33
+00:01:39,399 --> 00:01:41,805
+Depending upon the transition mode chosen
+
+34
+00:01:41,805 --> 00:01:44,358
+a button can also display a highlighted,
+
+35
+00:01:44,358 --> 00:01:46,358
+pressed and disabled state.
+
+36
+00:01:46,858 --> 00:01:48,858
+Transition Mode determines whether or not
+
+37
+00:01:48,858 --> 00:01:50,858
+the button element will display any of
+
+38
+00:01:50,858 --> 00:01:53,581
+these additional states, and if so
+
+39
+00:01:53,581 --> 00:01:56,113
+controls the button's look in each state,
+
+40
+00:01:56,113 --> 00:01:59,253
+and the style of the transition between these states.
+
+41
+00:01:59,988 --> 00:02:02,418
+A highlighted state is set when the pointer is
+
+42
+00:02:02,418 --> 00:02:04,666
+hovering over the button element.
+
+43
+00:02:04,666 --> 00:02:06,666
+Or the button element is selected using
+
+44
+00:02:06,666 --> 00:02:08,666
+keyboard or controller navigation.
+
+45
+00:02:09,636 --> 00:02:12,898
+The Pressed state is when the button is being held down.
+
+46
+00:02:12,898 --> 00:02:14,898
+Pressed, but not released.
+
+47
+00:02:15,674 --> 00:02:17,438
+The Disabled state is set when the button
+
+48
+00:02:17,438 --> 00:02:19,438
+element is not inter-actable.
+
+49
+00:02:20,490 --> 00:02:23,100
+The look and behaviour of these other transition states,
+
+50
+00:02:23,100 --> 00:02:26,421
+if available, are determined by the Transition Mode.
+
+51
+00:02:27,156 --> 00:02:29,156
+The transition mode can be set with a
+
+52
+00:02:29,156 --> 00:02:31,156
+transition pop-up menu.
+
+53
+00:02:32,070 --> 00:02:34,248
+None will have no additional states
+
+54
+00:02:34,248 --> 00:02:36,248
+and therefore no transitions.
+
+55
+00:02:37,190 --> 00:02:39,566
+The button element will work as expected
+
+56
+00:02:39,566 --> 00:02:41,566
+but there will be no visual feedback
+
+57
+00:02:41,566 --> 00:02:43,566
+and the unaltered normal state will be
+
+58
+00:02:43,566 --> 00:02:45,566
+displayed at all times.
+
+59
+00:02:46,715 --> 00:02:49,456
+colorTint is the default transition mode.
+
+60
+00:02:50,923 --> 00:02:53,228
+In this mode the same graphical element
+
+61
+00:02:53,228 --> 00:02:55,228
+is used for each state.
+
+62
+00:02:55,990 --> 00:02:58,993
+Target Graphic is the image component to be tinted.
+
+63
+00:02:59,824 --> 00:03:01,824
+In almost all cases this will be the image
+
+64
+00:03:01,824 --> 00:03:03,824
+component attached to the button element.
+
+65
+00:03:04,863 --> 00:03:06,863
+The button script will set this reference to the
+
+66
+00:03:06,863 --> 00:03:09,084
+attached image component automatically
+
+67
+00:03:09,084 --> 00:03:11,084
+if the image component is attached to the game
+
+68
+00:03:11,084 --> 00:03:13,468
+object when the button script is added.
+
+69
+00:03:14,744 --> 00:03:17,855
+Normal, Highlighted, Pressed and Disabled color
+
+70
+00:03:17,855 --> 00:03:19,855
+define the tint color that will be applied
+
+71
+00:03:19,855 --> 00:03:21,855
+to the target graphic when the button
+
+72
+00:03:21,855 --> 00:03:23,855
+is in each of these states.
+
+73
+00:03:24,576 --> 00:03:27,281
+color Multiplier multiplies the tint color for
+
+74
+00:03:27,281 --> 00:03:29,281
+each transition by it's value.
+
+75
+00:03:30,099 --> 00:03:32,845
+This allows for colors greater than 1,
+
+76
+00:03:32,845 --> 00:03:34,845
+which is useful for brightening the colors 
+
+77
+00:03:34,845 --> 00:03:37,554
+or alpha channel on some graphic elements
+
+78
+00:03:37,554 --> 00:03:39,861
+whose base color is less than white
+
+79
+00:03:39,861 --> 00:03:41,861
+or less than full alpha.
+
+80
+00:03:42,568 --> 00:03:44,998
+Fade Duration is the time, in seconds,
+
+81
+00:03:44,998 --> 00:03:47,387
+a transition takes between states.
+
+82
+00:03:49,998 --> 00:03:52,287
+SpriteSwap will use different sprite
+
+83
+00:03:52,287 --> 00:03:54,121
+images for each state
+
+84
+00:03:54,121 --> 00:03:57,156
+and swaps them depending upon the state of the button.
+
+85
+00:03:57,905 --> 00:04:00,457
+In this mode a new graphical element is
+
+86
+00:04:00,457 --> 00:04:02,016
+required for each state.
+
+87
+00:04:02,653 --> 00:04:05,673
+Target Graphic is the image for the normal state.
+
+88
+00:04:06,325 --> 00:04:08,325
+In almost all cases this will be the image
+
+89
+00:04:08,325 --> 00:04:10,840
+component attached to the button element.
+
+90
+00:04:11,557 --> 00:04:14,024
+The highlighted, pressed and disabled sprites
+
+91
+00:04:14,024 --> 00:04:16,024
+are references to the sprite images
+
+92
+00:04:16,024 --> 00:04:18,024
+to be displayed for each state.
+
+93
+00:04:19,698 --> 00:04:21,989
+Animation allows for each transition to be
+
+94
+00:04:21,989 --> 00:04:24,905
+fully animated using Unity's animation system.
+
+95
+00:04:25,971 --> 00:04:28,361
+This is the most powerful of transition modes
+
+96
+00:04:28,361 --> 00:04:30,196
+due to the number of properties that can be
+
+97
+00:04:30,196 --> 00:04:32,196
+animated simultaneously.
+
+98
+00:04:32,820 --> 00:04:35,097
+To use the animation transition mode
+
+99
+00:04:35,097 --> 00:04:37,097
+and animator component needs to be attached
+
+100
+00:04:37,097 --> 00:04:39,097
+to the button element.
+
+101
+00:04:39,597 --> 00:04:42,277
+To add this animator component automatically
+
+102
+00:04:42,277 --> 00:04:44,277
+and generate an animator controller
+
+103
+00:04:44,277 --> 00:04:46,277
+with states already setup
+
+104
+00:04:46,277 --> 00:04:49,060
+click Auto Generate Animation.
+
+105
+00:04:49,698 --> 00:04:52,758
+The new animator controller will need to be saved.
+
+106
+00:04:54,294 --> 00:04:57,951
+No action needs to be taken with this new animator controller.
+
+107
+00:04:58,451 --> 00:05:00,451
+The transition between states can be
+
+108
+00:05:00,451 --> 00:05:03,781
+customised if desired, but this is not necessary.
+
+109
+00:05:04,502 --> 00:05:07,047
+For more information on the Animator Component
+
+110
+00:05:07,047 --> 00:05:08,685
+and the Animator Controller
+
+111
+00:05:08,685 --> 00:05:10,977
+please see the information linked below.
+
+112
+00:05:12,345 --> 00:05:15,403
+It is worth noting that, unlike most animator controllers
+
+113
+00:05:15,403 --> 00:05:17,487
+this controller will also store the animations
+
+114
+00:05:17,487 --> 00:05:19,487
+for the button's transitions.
+
+115
+00:05:20,332 --> 00:05:22,332
+With the animator controller attached
+
+116
+00:05:22,332 --> 00:05:23,997
+and the button element selected
+
+117
+00:05:23,997 --> 00:05:26,179
+the animations for each of these button's states
+
+118
+00:05:26,179 --> 00:05:29,026
+can be edited by opening the animation window.
+
+119
+00:05:29,968 --> 00:05:31,803
+The animation window can be found under
+
+120
+00:05:31,803 --> 00:05:34,398
+Window - Animation.
+
+121
+00:05:34,398 --> 00:05:36,744
+Or by using the shortcut keys of
+
+122
+00:05:36,744 --> 00:05:38,510
+command 6 on the mac
+
+123
+00:05:38,510 --> 00:05:41,270
+or control 6 on windows.
+
+124
+00:05:43,552 --> 00:05:45,552
+To select the state to be edited
+
+125
+00:05:45,552 --> 00:05:47,552
+use the animation clip pop-up menu
+
+126
+00:05:47,552 --> 00:05:49,552
+to select the desired clip.
+
+127
+00:05:50,287 --> 00:05:52,741
+With these pre-made controllers there should be a
+
+128
+00:05:52,741 --> 00:05:56,522
+state for Normal, Highlighted, Pressed and Disabled.
+
+129
+00:05:57,423 --> 00:06:00,894
+In most cases the normal state will be left empty
+
+130
+00:06:00,894 --> 00:06:03,186
+with no animation keyframes created
+
+131
+00:06:03,186 --> 00:06:05,186
+as the normal state will be set
+
+132
+00:06:05,186 --> 00:06:07,534
+by the values on the button element itself.
+
+133
+00:06:08,542 --> 00:06:10,349
+On all other states
+
+134
+00:06:10,349 --> 00:06:12,880
+the most common configuration for each state
+
+135
+00:06:12,880 --> 00:06:15,653
+is a single keyframe at 0 seconds
+
+136
+00:06:15,653 --> 00:06:17,833
+or the start of the timeline.
+
+137
+00:06:17,833 --> 00:06:20,166
+The transition animation between states
+
+138
+00:06:20,166 --> 00:06:22,166
+will be handled by the animator controller
+
+139
+00:06:22,166 --> 00:06:24,317
+as it fades between states.
+
+140
+00:06:25,025 --> 00:06:27,204
+For example, the width of the button
+
+141
+00:06:27,204 --> 00:06:29,786
+in the highlighted state could be changed
+
+142
+00:06:30,548 --> 00:06:33,515
+by selecting the state to be edited, in this case
+
+143
+00:06:33,515 --> 00:06:36,233
+Highlighted from the animation clip pop-up menu.
+
+144
+00:06:37,134 --> 00:06:39,134
+And with the playhead at 0 seconds
+
+145
+00:06:39,134 --> 00:06:41,134
+or the start of the timeline.
+
+146
+00:06:41,634 --> 00:06:43,634
+Selecting the Record button.
+
+147
+00:06:45,557 --> 00:06:48,458
+Changing the width of the button in the inspector
+
+148
+00:06:50,132 --> 00:06:52,132
+And exiting record mode.
+
+149
+00:06:55,215 --> 00:06:57,547
+When in Play mode, note how the button
+
+150
+00:06:57,547 --> 00:06:59,547
+now grows when highlighted.
+
+151
+00:07:00,227 --> 00:07:02,433
+It is worth noting that any number of properties
+
+152
+00:07:02,433 --> 00:07:05,561
+can have their values set in this one keyframe.
+
+153
+00:07:06,241 --> 00:07:09,464
+For more information on animation, animation clips,
+
+154
+00:07:09,464 --> 00:07:11,794
+and the animation window please see the
+
+155
+00:07:11,794 --> 00:07:13,794
+information linked below.
+
+156
+00:07:14,736 --> 00:07:17,141
+If several buttons share the same behaviour
+
+157
+00:07:17,141 --> 00:07:20,203
+these button elements can share animator controllers.
+
+158
+00:07:21,076 --> 00:07:23,076
+Make sure all of these buttons have their
+
+159
+00:07:23,076 --> 00:07:25,323
+transition modes set to Animation.
+
+160
+00:07:27,399 --> 00:07:30,640
+And that they all have an animator component attached.
+
+161
+00:07:32,507 --> 00:07:36,504
+Finally, associate the shared animator controller
+
+162
+00:07:36,504 --> 00:07:38,504
+with all of the button elements.
+
+163
+00:07:42,375 --> 00:07:43,916
+When in play mode
+
+164
+00:07:44,499 --> 00:07:46,499
+note how all of the buttons now share
+
+165
+00:07:46,499 --> 00:07:48,779
+the same animator transitions.
+
+166
+00:07:52,880 --> 00:07:54,880
+Navigation describes how the selection
+
+167
+00:07:54,880 --> 00:07:56,714
+of UI elements is handled
+
+168
+00:07:56,714 --> 00:07:58,976
+when using keyboard or controller input.
+
+169
+00:07:59,808 --> 00:08:02,320
+Navigation is shared by many UI elements
+
+170
+00:08:02,320 --> 00:08:04,320
+and will be covered in it's own lesson.
+
+171
+00:08:05,069 --> 00:08:07,069
+For most circumstances navigation
+
+172
+00:08:07,069 --> 00:08:09,541
+can simply be set to Automatic.
+
+173
+00:08:10,356 --> 00:08:12,356
+For more information on navigation
+
+174
+00:08:12,356 --> 00:08:14,867
+please see the information linked below.
+
+175
+00:08:16,555 --> 00:08:18,666
+The UI framework contains
+
+176
+00:08:18,666 --> 00:08:20,666
+a powerful event system.
+
+177
+00:08:21,166 --> 00:08:23,166
+A new event system is added to the
+
+178
+00:08:23,166 --> 00:08:25,539
+scene when the canvas is created.
+
+179
+00:08:26,439 --> 00:08:28,550
+When the event system detects a press
+
+180
+00:08:28,550 --> 00:08:30,854
+and a release over the same button element
+
+181
+00:08:30,854 --> 00:08:33,567
+the event system will process a click
+
+182
+00:08:33,567 --> 00:08:35,965
+and the On Click event will be called.
+
+183
+00:08:37,862 --> 00:08:40,125
+The button component includes a built-in
+
+184
+00:08:40,125 --> 00:08:42,554
+On Click functions list that contains
+
+185
+00:08:42,554 --> 00:08:44,885
+a list of all the functions that are called
+
+186
+00:08:44,885 --> 00:08:46,885
+when the button is clicked.
+
+187
+00:08:47,385 --> 00:08:49,385
+Additional events can be detected
+
+188
+00:08:49,385 --> 00:08:51,763
+and used by the button element.
+
+189
+00:08:51,763 --> 00:08:53,958
+Like when the pointer enters or exits
+
+190
+00:08:53,958 --> 00:08:55,958
+the area over the button element.
+
+191
+00:08:56,389 --> 00:08:59,479
+But this requires an additional component to be attached.
+
+192
+00:09:00,614 --> 00:09:03,255
+For more information on events, the event system and
+
+193
+00:09:03,255 --> 00:09:07,235
+event triggers please see the information linked below.
+
+194
+00:09:08,232 --> 00:09:10,232
+All of the functions in the functions list
+
+195
+00:09:10,232 --> 00:09:12,441
+will be called when the button is clicked.
+
+196
+00:09:13,436 --> 00:09:15,629
+To add a new function to the function list
+
+197
+00:09:15,629 --> 00:09:19,108
+click the + icon to create a new row in the list.
+
+198
+00:09:19,608 --> 00:09:21,926
+To remove a function from the function list
+
+199
+00:09:21,926 --> 00:09:23,926
+click on the row containing the function
+
+200
+00:09:23,926 --> 00:09:25,926
+even if there is only one
+
+201
+00:09:25,926 --> 00:09:28,889
+and then click the - icon to remove it.
+
+202
+00:09:30,162 --> 00:09:32,510
+Looking at a row in the function list.
+
+203
+00:09:32,510 --> 00:09:34,788
+The checkbox indicates whether or not
+
+204
+00:09:34,788 --> 00:09:37,556
+this function will be called by the On Click event.
+
+205
+00:09:38,415 --> 00:09:40,848
+The first field is an object field.
+
+206
+00:09:41,597 --> 00:09:44,454
+Associating a game object with the object field
+
+207
+00:09:44,454 --> 00:09:47,319
+will allow the event system to find all the functions
+
+208
+00:09:47,319 --> 00:09:49,319
+on that game object eligible to
+
+209
+00:09:49,319 --> 00:09:51,319
+be called by the On Click event.
+
+210
+00:09:52,454 --> 00:09:55,531
+This can be done by either using the object picker
+
+211
+00:09:57,481 --> 00:09:59,915
+or by dragging the object in to the field.
+
+212
+00:10:00,658 --> 00:10:02,908
+The function list shows all of the components
+
+213
+00:10:02,908 --> 00:10:05,895
+on the game object, including both the built-in
+
+214
+00:10:05,895 --> 00:10:08,116
+components and custom scripts.
+
+215
+00:10:08,823 --> 00:10:11,617
+After selecting the desired component
+
+216
+00:10:11,617 --> 00:10:13,852
+a new list shows the eligible functions
+
+217
+00:10:13,852 --> 00:10:15,199
+on the component.
+
+218
+00:10:15,699 --> 00:10:19,186
+Select the function that will be called by the On Click event.
+
+219
+00:10:20,238 --> 00:10:23,125
+The final field is a parameter field.
+
+220
+00:10:23,763 --> 00:10:25,763
+This field is for parsing an argument
+
+221
+00:10:25,763 --> 00:10:28,039
+in to the function when it is called,
+
+222
+00:10:28,039 --> 00:10:30,039
+and can be left empty.
+
+223
+00:10:30,484 --> 00:10:33,196
+To be eligible a function must be public,
+
+224
+00:10:33,196 --> 00:10:35,474
+have the return type of Void,
+
+225
+00:10:35,474 --> 00:10:37,474
+and have 1 or no parameters.
+
+226
+00:10:38,568 --> 00:10:41,038
+If the function has a parameter it must be a
+
+227
+00:10:41,038 --> 00:10:45,475
+float, int, string, bool or a Unity object.
+
+228
+00:10:46,182 --> 00:10:48,182
+It is worth noting that Unity object
+
+229
+00:10:48,182 --> 00:10:51,130
+is the base of almost all classes in Unity
+
+230
+00:10:51,130 --> 00:10:53,297
+including game object, component,
+
+231
+00:10:53,297 --> 00:10:55,297
+mono behaviour and more.
+
+232
+00:10:56,046 --> 00:10:58,459
+This makes the object parameter more powerful
+
+233
+00:10:58,459 --> 00:11:00,459
+than expected at first glance
+
+234
+00:11:00,459 --> 00:11:03,391
+as it can accept many items as an argument.
+
+235
+00:11:04,140 --> 00:11:07,441
+If the parameter is a float, int or string
+
+236
+00:11:07,441 --> 00:11:10,540
+the value needs to be entered in the parameter field
+
+237
+00:11:12,338 --> 00:11:14,338
+If the parameter is an object
+
+238
+00:11:17,062 --> 00:11:20,245
+an object needs to be associated with the parameter field.
+
+239
+00:11:21,021 --> 00:11:24,044
+This can be done by either using the object picker
+
+240
+00:11:24,044 --> 00:11:26,486
+or by dragging the object in to the field.
+
+241
+00:11:27,925 --> 00:11:29,925
+If the parameter is a bool
+
+242
+00:11:31,185 --> 00:11:33,687
+a checkbox will appear and the bool parameter
+
+243
+00:11:33,687 --> 00:11:37,092
+can be set by checking on unchecking the box.
+
+244
+00:11:38,697 --> 00:11:40,697
+As an example we can add the sphere
+
+245
+00:11:40,697 --> 00:11:43,215
+as the game object to the first row,
+
+246
+00:11:43,215 --> 00:11:45,215
+select the mesh renderer,
+
+247
+00:11:45,215 --> 00:11:48,126
+and then set the mesh renderer's material
+
+248
+00:11:48,957 --> 00:11:51,419
+The parameter needs an object reference
+
+249
+00:11:51,419 --> 00:11:53,982
+we can choose any available material.
+
+250
+00:11:55,960 --> 00:11:57,960
+At the same time the On Click event could
+
+251
+00:11:57,960 --> 00:11:59,419
+call a second function,
+
+252
+00:11:59,419 --> 00:12:01,419
+this time on the capsule.
+
+253
+00:12:02,748 --> 00:12:05,413
+Using the game object itself, the On Click event
+
+254
+00:12:05,413 --> 00:12:07,125
+could call Set Active
+
+255
+00:12:07,692 --> 00:12:09,692
+with the value of False.
+
+256
+00:12:11,352 --> 00:12:13,352
+The most common function to call will
+
+257
+00:12:13,352 --> 00:12:15,352
+most likely be a custom one.
+
+258
+00:12:17,496 --> 00:12:19,496
+Custom functions need to be public,
+
+259
+00:12:20,273 --> 00:12:21,396
+void,
+
+260
+00:12:21,896 --> 00:12:24,286
+and have 1 or no parameters.
+
+261
+00:12:24,948 --> 00:12:26,948
+If the function has a parameter it
+
+262
+00:12:26,948 --> 00:12:29,627
+must be a float, int, string
+
+263
+00:12:29,627 --> 00:12:31,997
+bool or a Unity object.
+
+264
+00:12:33,784 --> 00:12:36,432
+The script must be attached to a game object.
+
+265
+00:12:40,123 --> 00:12:43,513
+And that game object must be associated with the object field.
+
+266
+00:12:45,466 --> 00:12:48,085
+The custom script will be visible in the list
+
+267
+00:12:48,085 --> 00:12:50,085
+and from the custom script the custom
+
+268
+00:12:50,085 --> 00:12:51,740
+function can be selected.
+
+269
+00:12:52,433 --> 00:12:54,295
+If there are no parameters
+
+270
+00:12:54,295 --> 00:12:56,490
+the parameter field can be left blank.
+
+271
+00:12:58,577 --> 00:13:00,354
+Now in play mode
+
+272
+00:13:01,284 --> 00:13:03,284
+the effect of all three functions can be seen
+
+273
+00:13:03,284 --> 00:13:05,284
+when the button is clicked.

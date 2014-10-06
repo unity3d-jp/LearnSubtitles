@@ -1,0 +1,583 @@
+1
+00:00:00,331 --> 00:00:02,921
+In this lesson we'll be covering two generic collections,
+
+2
+00:00:02,921 --> 00:00:04,796
+lists and dictionaries.
+
+3
+00:00:04,796 --> 00:00:06,796
+We will also be using some of their methods.
+
+4
+00:00:06,796 --> 00:00:09,006
+Both work in similar ways to arrays
+
+5
+00:00:09,006 --> 00:00:11,132
+but with some important differences.
+
+6
+00:00:11,132 --> 00:00:13,368
+Let's take a look at the list class first.
+
+7
+00:00:13,785 --> 00:00:16,046
+A list is like a dynamically sized array.
+
+8
+00:00:16,046 --> 00:00:18,046
+This means that you don't need to know how many elements
+
+9
+00:00:18,046 --> 00:00:19,812
+it's going to have ahead of time.
+
+10
+00:00:19,812 --> 00:00:21,812
+Before we go too far let's quickly
+
+11
+00:00:21,812 --> 00:00:24,438
+create a class that we can store in our list.
+
+12
+00:00:24,438 --> 00:00:27,009
+Since a list is generic it can store any type.
+
+13
+00:00:27,009 --> 00:00:29,009
+But for our example we're going to create a
+
+14
+00:00:29,009 --> 00:00:30,830
+class called BadGuy.
+
+15
+00:00:30,830 --> 00:00:33,709
+This way we can have a list of badguys.
+
+16
+00:00:33,709 --> 00:00:36,807
+This class will have no inheritants, 2 public fields
+
+17
+00:00:36,807 --> 00:00:38,807
+named Name and Power,
+
+18
+00:00:38,807 --> 00:00:41,622
+and a constructor to allocate these values.
+
+19
+00:00:44,898 --> 00:00:46,608
+Now we can start making our list.
+
+20
+00:00:46,608 --> 00:00:48,608
+The first thing to do when making a list is to include
+
+21
+00:00:48,608 --> 00:00:52,160
+the System.Collections.Generic namespace.
+
+22
+00:00:52,160 --> 00:00:54,160
+We will do this at the top of the script.
+
+23
+00:00:55,254 --> 00:00:56,605
+Next we declare the list.
+
+24
+00:00:56,605 --> 00:00:59,101
+List is a generic class, so after any modifiers
+
+25
+00:00:59,101 --> 00:01:01,101
+we put the class name followed by a type
+
+26
+00:01:01,101 --> 00:01:02,934
+that we want to store in the list.
+
+27
+00:01:02,934 --> 00:01:04,727
+In our case, BadGuy.
+
+28
+00:01:05,227 --> 00:01:07,227
+Then we give the list a name, and since list is
+
+29
+00:01:07,227 --> 00:01:09,589
+a class we call the constructor.
+
+30
+00:01:11,329 --> 00:01:14,487
+Currently our list is empty, so let's allocate to it.
+
+31
+00:01:14,487 --> 00:01:16,764
+We do this using the Add function.
+
+32
+00:01:16,764 --> 00:01:19,221
+This will add a new element to the end of the list.
+
+33
+00:01:19,721 --> 00:01:21,721
+The parameter for the add function is the object
+
+34
+00:01:21,721 --> 00:01:24,014
+that is being added to the list, in our case
+
+35
+00:01:24,014 --> 00:01:26,737
+we'll call a constructor for the BadGuy class.
+
+36
+00:01:26,737 --> 00:01:29,031
+Now let's populate the list.
+
+37
+00:01:31,557 --> 00:01:33,557
+Items in a list can be accessed in the same way
+
+38
+00:01:33,557 --> 00:01:35,557
+as an array, using an index.
+
+39
+00:01:35,988 --> 00:01:37,988
+It also has a count property which works the same
+
+40
+00:01:37,988 --> 00:01:40,402
+as the length property of arrays.
+
+41
+00:01:41,247 --> 00:01:43,075
+Lists have functions like RemoveAt and Insert
+
+42
+00:01:43,075 --> 00:01:45,075
+InsertFromManualArrangement.
+
+43
+00:01:45,075 --> 00:01:46,867
+RemoveAt removes an element from the list
+
+44
+00:01:46,867 --> 00:01:48,867
+that are given index, it moves all elements
+
+45
+00:01:48,867 --> 00:01:50,661
+above it down a place.
+
+46
+00:01:50,661 --> 00:01:52,440
+Insert takes an index and an element,
+
+47
+00:01:52,440 --> 00:01:55,313
+pushing each element after that index up a place.
+
+48
+00:01:56,255 --> 00:01:58,958
+One of the most powerful functions of a list is sort.
+
+49
+00:01:58,958 --> 00:02:00,958
+This can be used to order a list of a given type
+
+50
+00:02:00,958 --> 00:02:02,958
+by any variable of that type.
+
+51
+00:02:02,958 --> 00:02:04,821
+It relies on the type implementing the
+
+52
+00:02:04,821 --> 00:02:06,959
+IComparable interface.
+
+53
+00:02:06,959 --> 00:02:09,390
+Let's go back to our BadGuy class and implement it.
+
+54
+00:02:10,318 --> 00:02:12,860
+First IComparable is in the system namespace
+
+55
+00:02:12,860 --> 00:02:15,138
+so we need to declare that we are using it.
+
+56
+00:02:15,802 --> 00:02:17,510
+Next we need to say that this class is
+
+57
+00:02:17,510 --> 00:02:19,161
+implementing the interface.
+
+58
+00:02:19,161 --> 00:02:21,161
+This looks like inheritance.
+
+59
+00:02:21,161 --> 00:02:23,605
+We're going to use the generic IComparable
+
+60
+00:02:23,605 --> 00:02:26,476
+and it's generic type needs to be this class.
+
+61
+00:02:27,111 --> 00:02:29,475
+Lastly, in order to complete the contract of the
+
+62
+00:02:29,475 --> 00:02:31,475
+IComparable interface we need to declare a
+
+63
+00:02:31,475 --> 00:02:33,475
+public function called CompareTo
+
+64
+00:02:33,475 --> 00:02:35,475
+which returns an integer and takes our  generic
+
+65
+00:02:35,475 --> 00:02:38,140
+type BadGuy as a parameter.
+
+66
+00:02:38,820 --> 00:02:40,820
+The idea behind the CompareTo method is that
+
+67
+00:02:40,820 --> 00:02:42,820
+if the object that it is being called from is
+
+68
+00:02:42,820 --> 00:02:44,820
+greater than the object taken as a parameter
+
+69
+00:02:44,820 --> 00:02:47,279
+then the function returns a positive.
+
+70
+00:02:47,279 --> 00:02:49,279
+If the object the method is called from is less than
+
+71
+00:02:49,279 --> 00:02:51,279
+the object taken as a parameter
+
+72
+00:02:51,279 --> 00:02:52,789
+then the function returns a negative,
+
+73
+00:02:52,789 --> 00:02:55,245
+and if they are equal then it returns a 0.
+
+74
+00:02:55,855 --> 00:02:57,855
+What defines one object being greater than another
+
+75
+00:02:57,855 --> 00:02:59,716
+is decided by the programmer.
+
+76
+00:02:59,716 --> 00:03:01,716
+For our function we first want to check that the BadGuy
+
+77
+00:03:01,716 --> 00:03:03,716
+parse to the function exists.
+
+78
+00:03:03,716 --> 00:03:05,716
+If it doesn't then this BadGuy is greater and the
+
+79
+00:03:05,716 --> 00:03:07,450
+function should return a positive.
+
+80
+00:03:07,450 --> 00:03:09,450
+Otherwise the function returns the difference
+
+81
+00:03:09,450 --> 00:03:11,409
+between the powers of the 2 BadGuys.
+
+82
+00:03:11,409 --> 00:03:13,409
+Thus it will return a positive if the BadGuy
+
+83
+00:03:13,409 --> 00:03:15,409
+the method is being called from is greater.
+
+84
+00:03:16,392 --> 00:03:18,849
+Note that we could have based this result on anything.
+
+85
+00:03:18,849 --> 00:03:21,531
+The interface only requires that we implement the method.
+
+86
+00:03:22,031 --> 00:03:24,361
+Now in order to sort the list using this comparison
+
+87
+00:03:24,361 --> 00:03:26,361
+we call Badguys.Sort.
+
+88
+00:03:27,579 --> 00:03:29,579
+We will log the Badguys list to the console
+
+89
+00:03:29,579 --> 00:03:31,579
+to show that they have been sorted.
+
+90
+00:03:32,797 --> 00:03:34,797
+In order to start fresh with the list and remove
+
+91
+00:03:34,797 --> 00:03:37,156
+all of the elements use the the clear function.
+
+92
+00:03:37,849 --> 00:03:39,486
+These are by no means all of the functions
+
+93
+00:03:39,486 --> 00:03:40,698
+of the list class.
+
+94
+00:03:40,698 --> 00:03:43,470
+To cover everything falls out of the scope of this tutorial.
+
+95
+00:03:43,470 --> 00:03:45,470
+For further information please see the related
+
+96
+00:03:45,470 --> 00:03:47,125
+information links below.
+
+97
+00:03:48,080 --> 00:03:50,080
+Dictionaries work similarly to lists but instead
+
+98
+00:03:50,080 --> 00:03:52,469
+have 2 types. This means that each element
+
+99
+00:03:52,469 --> 00:03:54,042
+makes up a key value pair,
+
+100
+00:03:54,042 --> 00:03:56,475
+sometimes called a KVP for short.
+
+101
+00:03:56,934 --> 00:04:00,150
+Dictionaries also differ from lists in their intended use.
+
+102
+00:04:00,150 --> 00:04:02,150
+A list is generally used in place of an array
+
+103
+00:04:02,150 --> 00:04:04,579
+where more flexibility or functionality is required.
+
+104
+00:04:05,079 --> 00:04:07,217
+A dictionary is used as a collection of value
+
+105
+00:04:07,217 --> 00:04:09,217
+that can be accessed by 1 or more keys.
+
+106
+00:04:09,910 --> 00:04:11,689
+The process for declaring a dictionary is very
+
+107
+00:04:11,689 --> 00:04:13,286
+similar to that for a list.
+
+108
+00:04:13,286 --> 00:04:18,015
+First include the System.Collections.Generic namespace.
+
+109
+00:04:18,015 --> 00:04:19,918
+Then declare a variable as before
+
+110
+00:04:19,918 --> 00:04:21,474
+but with 2 generic types.
+
+111
+00:04:21,474 --> 00:04:23,208
+The first type is the key. 
+
+112
+00:04:23,208 --> 00:04:25,208
+This is the type that is referenced in order to
+
+113
+00:04:25,208 --> 00:04:27,692
+access the second type, which is the value.
+
+114
+00:04:28,260 --> 00:04:30,260
+In our example we have a key type of
+
+115
+00:04:30,260 --> 00:04:32,813
+String and a value type of BadGuy.
+
+116
+00:04:34,100 --> 00:04:35,710
+We are using this dictionary to store different
+
+117
+00:04:35,710 --> 00:04:37,319
+search words that can be used to identify
+
+118
+00:04:37,319 --> 00:04:38,948
+specific BadGuys.
+
+119
+00:04:38,948 --> 00:04:41,778
+In our start method we declared 2 BadGuys.
+
+120
+00:04:41,778 --> 00:04:43,319
+Then we add them to the dictionary
+
+121
+00:04:43,319 --> 00:04:45,025
+just as we would with a list,
+
+122
+00:04:45,025 --> 00:04:47,025
+only this time we are adding data from
+
+123
+00:04:47,025 --> 00:04:49,025
+both the key and the value.
+
+124
+00:04:51,072 --> 00:04:52,655
+Accessing the value that relates to a key
+
+125
+00:04:52,655 --> 00:04:54,063
+is done very similar to accessing
+
+126
+00:04:54,063 --> 00:04:55,688
+an element of an array or list.
+
+127
+00:04:55,688 --> 00:04:57,413
+However, instead of using an index
+
+128
+00:04:57,413 --> 00:04:59,866
+which would have no inherent meaning to a dictionary
+
+129
+00:04:59,866 --> 00:05:02,201
+we insert a key in to the square brackets.
+
+130
+00:05:02,201 --> 00:05:04,409
+In the case for this example we inserted String
+
+131
+00:05:04,409 --> 00:05:06,700
+and we have the corresponding BadGuy returned.
+
+132
+00:05:07,200 --> 00:05:09,200
+If a key is provided but no such key
+
+133
+00:05:09,200 --> 00:05:10,455
+exists in the dictionary however
+
+134
+00:05:10,455 --> 00:05:11,826
+this will throw an exception.
+
+135
+00:05:11,826 --> 00:05:14,646
+Therefore if it is not guaranteed that the key exists
+
+136
+00:05:14,646 --> 00:05:17,063
+it is best to use the TryGetValue method
+
+137
+00:05:17,563 --> 00:05:19,769
+This method has a parameter of the key's type
+
+138
+00:05:19,769 --> 00:05:22,045
+and an out parameter of the value's type.
+
+139
+00:05:22,045 --> 00:05:23,825
+It returns true if the key parsed
+
+140
+00:05:23,825 --> 00:05:25,825
+as the first parameter exists.
+
+141
+00:05:26,325 --> 00:05:27,767
+While this is a safer method for returning
+
+142
+00:05:27,767 --> 00:05:29,767
+a value from a dictionary it is slightly slower
+
+143
+00:05:29,767 --> 00:05:32,181
+than directly referencing the specific key.
+
+144
+00:05:32,181 --> 00:05:35,113
+For efficiency use the key within square brackets
+
+145
+00:05:35,113 --> 00:05:36,919
+but only when the specified key is
+
+146
+00:05:36,919 --> 00:05:38,919
+definitely in the dictionary.

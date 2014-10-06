@@ -1,0 +1,331 @@
+1
+00:00:00,304 --> 00:00:03,014
+The image component is used to give UI elements
+
+2
+00:00:03,014 --> 00:00:05,359
+actual graphical presence on the screen.
+
+3
+00:00:05,359 --> 00:00:07,890
+Images can be used to make up the backgrounds of
+
+4
+00:00:07,890 --> 00:00:10,887
+buttons, panels, sliders and literally anything you want
+
+5
+00:00:10,887 --> 00:00:12,997
+to put in to your UI composition.
+
+6
+00:00:12,997 --> 00:00:16,134
+The first property of an image component is the source image.
+
+7
+00:00:16,938 --> 00:00:18,938
+This is a reference to the sprite that the image
+
+8
+00:00:18,938 --> 00:00:22,398
+is displaying, when using None, the color will be used
+
+9
+00:00:22,398 --> 00:00:24,782
+to represent the outline of the image.
+
+10
+00:00:24,782 --> 00:00:26,962
+Here we simply have a white image color,
+
+11
+00:00:26,962 --> 00:00:29,183
+so let's add a sprite to our source image.
+
+12
+00:00:29,765 --> 00:00:31,471
+The next property is the color.
+
+13
+00:00:31,471 --> 00:00:34,121
+This color is multiplied to the color of the sprite.
+
+14
+00:00:34,121 --> 00:00:36,121
+As such it can be used for fading
+
+15
+00:00:36,121 --> 00:00:38,121
+or tinting a sprite.
+
+16
+00:00:45,582 --> 00:00:48,459
+By default an images doesn't need a material.
+
+17
+00:00:48,459 --> 00:00:50,459
+But one can be added if you wish to use the
+
+18
+00:00:50,459 --> 00:00:52,459
+properties of a shader on the image.
+
+19
+00:00:52,959 --> 00:00:55,141
+Note that the texture property of a material
+
+20
+00:00:55,141 --> 00:00:56,433
+will be ignored.
+
+21
+00:00:57,641 --> 00:00:59,641
+Unity provides a number of shaders that can be
+
+22
+00:00:59,641 --> 00:01:01,434
+used with the UI system.
+
+23
+00:01:01,851 --> 00:01:03,851
+To use them create a material
+
+24
+00:01:03,851 --> 00:01:05,851
+and for it's Shader property select
+
+25
+00:01:05,851 --> 00:01:09,236
+one from the uGUI menu in the Shader drop-down.
+
+26
+00:01:11,490 --> 00:01:13,490
+The Image Type property effects how
+
+27
+00:01:13,490 --> 00:01:15,075
+the source image is used
+
+28
+00:01:15,075 --> 00:01:17,075
+and has a number of options.
+
+29
+00:01:17,768 --> 00:01:19,768
+Simple means that the sprite will just stretch to
+
+30
+00:01:19,768 --> 00:01:21,768
+fit the rect transform's size.
+
+31
+00:01:22,586 --> 00:01:24,586
+The Preserve Aspect option here simply means
+
+32
+00:01:24,586 --> 00:01:26,586
+that the image will be as large as it can be
+
+33
+00:01:26,586 --> 00:01:28,365
+within it's bounding rect,
+
+34
+00:01:28,365 --> 00:01:30,365
+but maintaining the aspect ratio that
+
+35
+00:01:30,365 --> 00:01:31,738
+it was imported with.
+
+36
+00:01:31,738 --> 00:01:34,151
+This means that it won't lose it's original proportions
+
+37
+00:01:34,151 --> 00:01:35,615
+as it's resized.
+
+38
+00:01:35,615 --> 00:01:37,615
+The Set Native Size button is available
+
+39
+00:01:37,615 --> 00:01:39,615
+whilst using this option also.
+
+40
+00:01:39,615 --> 00:01:41,825
+It will revert the rect transform's size
+
+41
+00:01:41,825 --> 00:01:43,991
+to the size of the sprite in it's source image.
+
+42
+00:01:43,991 --> 00:01:46,479
+Here you can see that our rect has been reverted
+
+43
+00:01:46,479 --> 00:01:48,936
+to the 64 square size of our sprite.
+
+44
+00:01:50,016 --> 00:01:52,016
+Sliced means that the image will be displayed
+
+45
+00:01:52,016 --> 00:01:54,016
+using the 9 sliced method.
+
+46
+00:01:54,516 --> 00:01:56,516
+A 9 sliced sprite is separated
+
+47
+00:01:56,516 --> 00:01:59,237
+in to 9 sections in a grid pattern.
+
+48
+00:01:59,237 --> 00:02:02,146
+The outer border sections of this grid do not stretch
+
+49
+00:02:02,146 --> 00:02:03,688
+whilst the centre does,
+
+50
+00:02:03,688 --> 00:02:07,022
+allowing for scaling without distortion of the edges.
+
+51
+00:02:07,022 --> 00:02:09,442
+These sections are defined by the Borders Set
+
+52
+00:02:09,442 --> 00:02:11,442
+in the sprite editor for the texture.
+
+53
+00:02:11,442 --> 00:02:13,828
+For more information on the sprite editor
+
+54
+00:02:13,828 --> 00:02:15,828
+see the information linked below.
+
+55
+00:02:16,853 --> 00:02:19,271
+The Sliced option also has another property
+
+56
+00:02:19,271 --> 00:02:20,540
+Fill Centre.
+
+57
+00:02:20,540 --> 00:02:22,967
+This toggles whether or not the centre section
+
+58
+00:02:22,967 --> 00:02:25,325
+of the 09 sliced sprite is shown.
+
+59
+00:02:25,325 --> 00:02:27,325
+This allows you to design and render
+
+60
+00:02:27,325 --> 00:02:29,325
+borders only of an image.
+
+61
+00:02:30,266 --> 00:02:32,530
+The Tiled option will tile the source image
+
+62
+00:02:32,530 --> 00:02:34,999
+starting from the lower-left corner of the rect.
+
+63
+00:02:34,999 --> 00:02:37,812
+In this example we're using an un-sliced sprite.
+
+64
+00:02:37,812 --> 00:02:39,688
+The next image type is Filled.
+
+65
+00:02:40,160 --> 00:02:42,661
+This type allows you to show a proportion of the image
+
+66
+00:02:42,661 --> 00:02:44,936
+defined by the Fill Amount property.
+
+67
+00:02:45,479 --> 00:02:47,712
+At 0 none of the image will be shown
+
+68
+00:02:47,712 --> 00:02:49,712
+and at 1 all of it will be.
+
+69
+00:02:50,212 --> 00:02:52,212
+There are a number of sub-options when using
+
+70
+00:02:52,212 --> 00:02:53,629
+the filled image type.
+
+71
+00:02:53,629 --> 00:02:55,629
+The Fill Method along with the Fill Origin
+
+72
+00:02:55,629 --> 00:02:59,206
+determine which point represents the fill amount being 0
+
+73
+00:02:59,206 --> 00:03:01,206
+and in which direction the image will fill
+
+74
+00:03:01,206 --> 00:03:02,900
+as it increases.
+
+75
+00:03:03,526 --> 00:03:06,261
+For radial fill methods the fill origin defines
+
+76
+00:03:06,261 --> 00:03:08,610
+where the fill will be carried out from.
+
+77
+00:03:10,639 --> 00:03:12,639
+For the radial fill methods there is also the
+
+78
+00:03:12,639 --> 00:03:16,365
+option to switch between clockwise and anti-clockwise.
+
+79
+00:03:16,365 --> 00:03:18,699
+These fills are ideal for making UI for
+
+80
+00:03:18,699 --> 00:03:20,452
+health bars or car speedometers
+
+81
+00:03:20,452 --> 00:03:22,118
+in the case of radial fills.
+
+82
+00:03:22,438 --> 00:03:25,016
+For more information on the image component
+
+83
+00:03:25,016 --> 00:03:27,016
+see the information linked below.

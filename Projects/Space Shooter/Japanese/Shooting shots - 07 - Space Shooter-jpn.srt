@@ -1,0 +1,1131 @@
+1
+00:00:01,533 --> 00:00:04,019
+Now we have shots for our player to shoot
+
+2
+00:00:04,019 --> 00:00:06,791
+so let's enable our player to shoot them.
+
+3
+00:00:06,791 --> 00:00:08,680
+For this assignment we will need our
+
+4
+00:00:08,680 --> 00:00:11,659
+player game object, so select Player
+
+5
+00:00:11,659 --> 00:00:14,331
+and reactivate the player game object.
+
+6
+00:00:15,513 --> 00:00:18,745
+Next we need to edit our Player Controller script.
+
+7
+00:00:19,404 --> 00:00:21,061
+There are several different ways that we can
+
+8
+00:00:21,061 --> 00:00:22,727
+open a script for editing.
+
+9
+00:00:22,727 --> 00:00:25,185
+In this case, with the player selected,
+
+10
+00:00:25,185 --> 00:00:27,185
+use the context sensitive gear menu
+
+11
+00:00:27,185 --> 00:00:29,185
+on the Player Controller component
+
+12
+00:00:29,185 --> 00:00:31,185
+and selected Edit Script.
+
+13
+00:00:33,425 --> 00:00:35,936
+This will open our script in our script editor.
+
+14
+00:00:36,754 --> 00:00:38,546
+We want our player to shoot shots
+
+15
+00:00:38,546 --> 00:00:40,102
+in to our scene.
+
+16
+00:00:40,102 --> 00:00:42,418
+We have saved our shots as a prefab
+
+17
+00:00:42,418 --> 00:00:44,611
+game object in our project.
+
+18
+00:00:44,611 --> 00:00:46,611
+This is an asset that we can use
+
+19
+00:00:46,611 --> 00:00:48,110
+when our game is running.
+
+20
+00:00:48,697 --> 00:00:51,292
+What we need to do is instantiate
+
+21
+00:00:51,292 --> 00:00:53,793
+a copy of clone of this Shot prefab
+
+22
+00:00:53,793 --> 00:00:55,793
+when we hit a button or click a mouse
+
+23
+00:00:55,793 --> 00:00:57,793
+during our game play.
+
+24
+00:00:58,665 --> 00:01:00,597
+Where are we going to write this code?
+
+25
+00:01:00,945 --> 00:01:03,373
+Well, simply getting input from a button
+
+26
+00:01:03,373 --> 00:01:05,221
+doesn't require physics,
+
+27
+00:01:05,221 --> 00:01:07,221
+and we don't want to wait for a fixed update
+
+28
+00:01:07,221 --> 00:01:08,943
+to fire our weapon.
+
+29
+00:01:09,514 --> 00:01:12,390
+So let's put our code in the Update function.
+
+30
+00:01:13,111 --> 00:01:15,720
+Write void Update.
+
+31
+00:01:17,753 --> 00:01:20,478
+Unity will execute all of the code in Update
+
+32
+00:01:20,478 --> 00:01:23,783
+just before updating the frame, every frame.
+
+33
+00:01:24,978 --> 00:01:28,320
+Now we want to instantiate our shot.
+
+34
+00:01:29,151 --> 00:01:30,862
+How do we use instantiate?
+
+35
+00:01:30,862 --> 00:01:33,318
+Well, let's check the documentation.
+
+36
+00:01:33,997 --> 00:01:35,997
+The shortcut to Unity's scripting reference
+
+37
+00:01:35,997 --> 00:01:40,560
+in the documentation is command+' on the Mac
+
+38
+00:01:40,560 --> 00:01:43,658
+and control+' on Windows.
+
+39
+00:01:46,133 --> 00:01:49,577
+And choose Object Instantiate.
+
+40
+00:01:50,850 --> 00:01:53,282
+For more detailed information on instantiate
+
+41
+00:01:53,282 --> 00:01:55,658
+please see the lesson linked below.
+
+42
+00:01:56,362 --> 00:01:59,592
+Instantiate needs an object to instantiate
+
+43
+00:01:59,592 --> 00:02:01,983
+and a position and rotation to set 
+
+44
+00:02:01,983 --> 00:02:03,983
+the object to when it is instantiated
+
+45
+00:02:03,983 --> 00:02:05,983
+in the scene.
+
+46
+00:02:07,008 --> 00:02:12,097
+So let's write object, position, rotation.
+
+47
+00:02:14,116 --> 00:02:16,885
+We know what object we want to instantiate,
+
+48
+00:02:17,661 --> 00:02:19,661
+that's our Bolt prefab.
+
+49
+00:02:22,385 --> 00:02:24,385
+Where, on the other hand, will we find
+
+50
+00:02:24,385 --> 00:02:27,633
+a position which is a vector3
+
+51
+00:02:27,633 --> 00:02:30,416
+and a rotation, which is a quaternion
+
+52
+00:02:30,416 --> 00:02:33,878
+to set our object to when it is instantiated?
+
+53
+00:02:34,584 --> 00:02:37,003
+There is one compact package where we can find
+
+54
+00:02:37,003 --> 00:02:40,229
+both a position and a rotation
+
+55
+00:02:40,729 --> 00:02:43,876
+and that is in a game object's transform.
+
+56
+00:02:45,923 --> 00:02:47,923
+The transform component contains
+
+57
+00:02:47,923 --> 00:02:50,090
+a position as a vector3
+
+58
+00:02:50,090 --> 00:02:52,711
+and a rotation as a quaternion.
+
+59
+00:02:53,211 --> 00:02:55,976
+The transform also includes a scale
+
+60
+00:02:55,976 --> 00:02:57,976
+as a vector3, which we can ignore
+
+61
+00:02:57,976 --> 00:02:59,976
+for instantiate.
+
+62
+00:03:00,476 --> 00:03:02,709
+In the Inspector the quaternion
+
+63
+00:03:02,709 --> 00:03:07,445
+for rotation is simplified as a quaternion euler.
+
+64
+00:03:08,718 --> 00:03:10,718
+For more information on quaternions and 
+
+65
+00:03:10,718 --> 00:03:14,473
+quaternion euler please see the lesson linked below.
+
+66
+00:03:15,346 --> 00:03:18,358
+So how do we use this to instantiate a shot?
+
+67
+00:03:19,010 --> 00:03:21,010
+Create a new empty game object.
+
+68
+00:03:21,441 --> 00:03:23,441
+Rename it Shot Spawn.
+
+69
+00:03:24,756 --> 00:03:27,571
+We can use this empty game object's transform
+
+70
+00:03:27,571 --> 00:03:29,571
+as a spawn point in our game.
+
+71
+00:03:30,002 --> 00:03:32,002
+We can think of this as some sort of
+
+72
+00:03:32,002 --> 00:03:35,063
+virtual hard point to attach our weapons to.
+
+73
+00:03:35,798 --> 00:03:38,941
+This spawn point should move with our player ship.
+
+74
+00:03:39,441 --> 00:03:41,608
+So let's drag Shot Spawn
+
+75
+00:03:41,608 --> 00:03:43,304
+on to our player game object
+
+76
+00:03:43,304 --> 00:03:45,304
+and drop it as a child.
+
+77
+00:03:46,039 --> 00:03:48,535
+If we open the player game object family
+
+78
+00:03:48,535 --> 00:03:50,975
+we can see the Shot Spawn in the Hierarchy
+
+79
+00:03:50,975 --> 00:03:52,975
+as a child game object.
+
+80
+00:03:54,649 --> 00:03:56,649
+Let's switch to the Scene view for a
+
+81
+00:03:56,649 --> 00:03:58,551
+good look at our player ship
+
+82
+00:03:58,551 --> 00:04:01,010
+and the Shot Spawn game object.
+
+83
+00:04:02,253 --> 00:04:04,253
+We can now position the Shot Spawn.
+
+84
+00:04:04,960 --> 00:04:07,323
+As it's a child of the player ship
+
+85
+00:04:07,323 --> 00:04:09,323
+our Shot Spawn's position will
+
+86
+00:04:09,323 --> 00:04:11,323
+be relative to the player ship.
+
+87
+00:04:12,403 --> 00:04:14,195
+We want to instantiate our shots in
+
+88
+00:04:14,195 --> 00:04:15,986
+front of the player ship
+
+89
+00:04:15,986 --> 00:04:18,951
+so let's drag the Shot Spawn out along it's
+
+90
+00:04:18,951 --> 00:04:21,814
+Z axis until it's in front of the ship.
+
+91
+00:04:23,502 --> 00:04:26,667
+Let's make this a round 1.25.
+
+92
+00:04:27,581 --> 00:04:29,803
+If we want to test the position
+
+93
+00:04:29,803 --> 00:04:33,197
+we can drag an instance of our Bolt prefab
+
+94
+00:04:33,197 --> 00:04:35,859
+in to the scene as a child of Shot Spawn.
+
+95
+00:04:36,359 --> 00:04:40,358
+Make sure the instance's transform is at origin.
+
+96
+00:04:40,358 --> 00:04:42,957
+This is a local value, so it will be
+
+97
+00:04:42,957 --> 00:04:46,494
+at origin relative to the Shot Spawn's transform.
+
+98
+00:04:47,560 --> 00:04:49,560
+This is where the Shot Spawn's position and
+
+99
+00:04:49,560 --> 00:04:52,061
+rotation will put our instances.
+
+100
+00:04:52,061 --> 00:04:55,310
+That's great, that feels good to me.
+
+101
+00:04:55,810 --> 00:04:57,810
+Now, let's make sure we delete our
+
+102
+00:04:57,810 --> 00:04:59,810
+test instance, we don't want to have a
+
+103
+00:04:59,810 --> 00:05:02,320
+shot in our scene when we start the game.
+
+104
+00:05:03,650 --> 00:05:06,621
+Let's return to our player controller script.
+
+105
+00:05:08,088 --> 00:05:10,462
+Now we need to write a few variables to hold
+
+106
+00:05:10,462 --> 00:05:13,543
+references to our object and transform.
+
+107
+00:05:14,043 --> 00:05:17,862
+Write public GameObject shot
+
+108
+00:05:17,862 --> 00:05:21,886
+and public GameObject shotSpawn.
+
+109
+00:05:22,386 --> 00:05:23,669
+Hmmm.
+
+110
+00:05:23,669 --> 00:05:26,343
+There may be a better way to handle Shot Spawn.
+
+111
+00:05:26,843 --> 00:05:29,567
+If we reference the game object to get the
+
+112
+00:05:29,567 --> 00:05:31,732
+position and rotation we need
+
+113
+00:05:31,732 --> 00:05:36,883
+we would have to write shotSpawn.transform.position
+
+114
+00:05:36,883 --> 00:05:38,883
+and the same for rotation.
+
+115
+00:05:39,383 --> 00:05:41,631
+On the other hand our variable
+
+116
+00:05:41,631 --> 00:05:43,853
+could use the type of transform
+
+117
+00:05:43,853 --> 00:05:45,853
+instead of game object.
+
+118
+00:05:45,853 --> 00:05:47,853
+We will still drag a reference using the game
+
+119
+00:05:47,853 --> 00:05:50,047
+object in the Inspector
+
+120
+00:05:50,047 --> 00:05:52,047
+but Unity is smart enough to find
+
+121
+00:05:52,047 --> 00:05:54,047
+and use the transform component on that
+
+122
+00:05:54,047 --> 00:05:56,047
+game object if we declare the
+
+123
+00:05:56,047 --> 00:05:58,931
+variable's type as transform.
+
+124
+00:06:00,840 --> 00:06:02,840
+So what do we want to instantiate?
+
+125
+00:06:03,340 --> 00:06:04,610
+Our shot.
+
+126
+00:06:04,610 --> 00:06:06,610
+And where do we want to instantiate it?
+
+127
+00:06:07,386 --> 00:06:10,203
+At the Shot Spawn position
+
+128
+00:06:10,203 --> 00:06:12,994
+with the Shot Spawn rotation applied.
+
+129
+00:06:15,138 --> 00:06:17,704
+If we left the code like this and tested it
+
+130
+00:06:17,704 --> 00:06:20,370
+we would create a stream of shots.
+
+131
+00:06:20,370 --> 00:06:22,370
+One new shot every frame.
+
+132
+00:06:23,699 --> 00:06:25,796
+For this game let's fire a shot
+
+133
+00:06:25,796 --> 00:06:28,666
+only when the player holds down a fire button.
+
+134
+00:06:28,666 --> 00:06:31,025
+And we will limit the fire rate as well
+
+135
+00:06:31,025 --> 00:06:33,444
+to a value we can set in the editor.
+
+136
+00:06:34,326 --> 00:06:37,354
+We do this with Input.GetButton.
+
+137
+00:06:38,945 --> 00:06:42,250
+Let's look up Input.GetButton in the documentation.
+
+138
+00:06:46,866 --> 00:06:48,866
+Conveniently the code snippet in
+
+139
+00:06:48,866 --> 00:06:50,866
+the documentation is all about 
+
+140
+00:06:50,866 --> 00:06:53,791
+firing a weapon and limiting the fire rate.
+
+141
+00:06:54,360 --> 00:06:57,431
+Let's step through this code one line at a time.
+
+142
+00:06:57,931 --> 00:07:00,943
+The example starts with a game object reference,
+
+143
+00:07:00,943 --> 00:07:02,943
+like our Shot reference,
+
+144
+00:07:02,943 --> 00:07:06,756
+followed by a float value to set the fireRate,
+
+145
+00:07:06,756 --> 00:07:09,691
+or how long we must wait between shots.
+
+146
+00:07:10,246 --> 00:07:13,464
+Lastly there is a nextFire value
+
+147
+00:07:13,464 --> 00:07:15,812
+which is used to track when in the game
+
+148
+00:07:15,812 --> 00:07:18,145
+we can fire our next shot.
+
+149
+00:07:19,044 --> 00:07:21,737
+Let's look at the code in Update.
+
+150
+00:07:22,955 --> 00:07:25,304
+We only execute the instantiate code
+
+151
+00:07:25,304 --> 00:07:27,526
+and fire a shot if
+
+152
+00:07:27,526 --> 00:07:29,526
+Input.GetButton is true
+
+153
+00:07:29,526 --> 00:07:32,231
+and the time in the game is greater
+
+154
+00:07:32,231 --> 00:07:34,231
+than our nextFire value.
+
+155
+00:07:36,430 --> 00:07:39,626
+The Fire1 used in the Input.GetButton code
+
+156
+00:07:39,626 --> 00:07:42,828
+is a value preset in the input manager,
+
+157
+00:07:42,828 --> 00:07:45,637
+and the time in the game is represented by
+
+158
+00:07:45,637 --> 00:07:47,637
+Time.time.
+
+159
+00:07:47,637 --> 00:07:49,818
+For more information on the input manager
+
+160
+00:07:49,818 --> 00:07:51,818
+or the time class please see the lessons
+
+161
+00:07:51,818 --> 00:07:53,818
+linked below.
+
+162
+00:07:54,318 --> 00:07:56,499
+What is the key to this code is that
+
+163
+00:07:56,499 --> 00:07:59,108
+as soon as the If statement returns true
+
+164
+00:07:59,108 --> 00:08:01,426
+for both the Input.GetButton
+
+165
+00:08:01,426 --> 00:08:03,536
+and Time.time
+
+166
+00:08:03,536 --> 00:08:05,941
+the nextFire rate is updated,
+
+167
+00:08:05,941 --> 00:08:08,373
+which prevents us from firing again.
+
+168
+00:08:09,163 --> 00:08:10,912
+All of the code in Update will be
+
+169
+00:08:10,912 --> 00:08:12,912
+executed every frame.
+
+170
+00:08:12,912 --> 00:08:15,299
+On the very first frame Time.time
+
+171
+00:08:15,299 --> 00:08:17,299
+will be greater than 0
+
+172
+00:08:17,299 --> 00:08:20,610
+so we could fire as soon as we touch the fire button.
+
+173
+00:08:21,414 --> 00:08:23,414
+But let's say we don't touch the button until
+
+174
+00:08:23,414 --> 00:08:25,414
+1 second in to the game.
+
+175
+00:08:25,734 --> 00:08:28,532
+On every frame before that 1 second mark
+
+176
+00:08:28,532 --> 00:08:30,532
+Time.time will never be tested
+
+177
+00:08:30,532 --> 00:08:34,723
+against nextFire as Input.GetButton Fire1
+
+178
+00:08:34,723 --> 00:08:36,001
+Fire1 will be false
+
+179
+00:08:36,001 --> 00:08:39,246
+and this statement is tested from left to right.
+
+180
+00:08:40,229 --> 00:08:42,103
+When we do touch the fire button
+
+181
+00:08:42,103 --> 00:08:44,900
+Input.GetButton Fire1 will be true
+
+182
+00:08:44,900 --> 00:08:46,900
+and Time.time at 1 second
+
+183
+00:08:46,900 --> 00:08:50,599
+will be greater than the nextFire value of 0.
+
+184
+00:08:50,599 --> 00:08:53,126
+So we fire our first shot.
+
+185
+00:08:53,126 --> 00:08:55,224
+However, in the same frame
+
+186
+00:08:55,224 --> 00:08:57,818
+we increase the value of nextFire
+
+187
+00:08:57,818 --> 00:09:00,577
+to Time.time plus fireRate.
+
+188
+00:09:00,577 --> 00:09:04,617
+or 1 second plus 0.5.
+
+189
+00:09:05,062 --> 00:09:08,317
+NextFire is now 1.5.
+
+190
+00:09:08,858 --> 00:09:11,343
+If we keep our finger on the fire button
+
+191
+00:09:11,343 --> 00:09:14,077
+in the next few frames Input.GetButton
+
+192
+00:09:14,077 --> 00:09:16,517
+will be true but Time.time
+
+193
+00:09:16,517 --> 00:09:18,947
+won't be greater than nextFire.
+
+194
+00:09:19,639 --> 00:09:22,069
+We won't be able to shoot another shot
+
+195
+00:09:22,069 --> 00:09:26,083
+until more than 1.5 seconds in to the game.
+
+196
+00:09:27,508 --> 00:09:29,992
+So let's copy the sample code
+
+197
+00:09:29,992 --> 00:09:32,827
+from the documentation and paste it in to our script.
+
+198
+00:09:33,672 --> 00:09:35,840
+There is 1 typo in this C# code
+
+199
+00:09:35,840 --> 00:09:37,978
+snippet that we need to correct.
+
+200
+00:09:37,978 --> 00:09:42,198
+We only need as GameObject once in our code.
+
+201
+00:09:43,817 --> 00:09:46,472
+What is this as GameObject code for?
+
+202
+00:09:47,511 --> 00:09:49,511
+We need to remember that we are simply
+
+203
+00:09:49,511 --> 00:09:52,502
+instantiating a basic object with our code.
+
+204
+00:09:53,002 --> 00:09:55,002
+Unity does not know what type of
+
+205
+00:09:55,002 --> 00:09:56,722
+object this is.
+
+206
+00:09:56,722 --> 00:09:58,722
+We could have defined this object in a
+
+207
+00:09:58,722 --> 00:10:00,363
+number of different types.
+
+208
+00:10:01,015 --> 00:10:03,084
+To access and use this object
+
+209
+00:10:03,084 --> 00:10:05,084
+we need to tell Unity what type of
+
+210
+00:10:05,084 --> 00:10:06,876
+object it is.
+
+211
+00:10:06,876 --> 00:10:09,911
+So what we are saying with this line of code is
+
+212
+00:10:09,911 --> 00:10:12,813
+please, instantiate this basic object
+
+213
+00:10:12,813 --> 00:10:14,813
+as a game object.
+
+214
+00:10:16,086 --> 00:10:18,323
+When we instantiate an object we can take
+
+215
+00:10:18,323 --> 00:10:20,323
+a reference to that game object.
+
+216
+00:10:21,182 --> 00:10:23,512
+The instantiate function will return
+
+217
+00:10:23,512 --> 00:10:25,691
+or give us a reference to the object
+
+218
+00:10:25,691 --> 00:10:27,691
+we are instantiating.
+
+219
+00:10:27,691 --> 00:10:30,145
+We take that reference here with our
+
+220
+00:10:30,145 --> 00:10:33,063
+game object variable at the beginning of the line.
+
+221
+00:10:33,985 --> 00:10:36,527
+This gives us a connection to the new object
+
+222
+00:10:36,527 --> 00:10:38,265
+as a game object,
+
+223
+00:10:38,265 --> 00:10:40,775
+otherwise the new object just gets dropped
+
+224
+00:10:40,775 --> 00:10:42,775
+in to our scene along with all of the other
+
+225
+00:10:42,775 --> 00:10:44,416
+objects that we have.
+
+226
+00:10:44,971 --> 00:10:47,237
+Without a reference to the new object
+
+227
+00:10:47,237 --> 00:10:49,237
+we cannot easily find and pick this
+
+228
+00:10:49,237 --> 00:10:52,251
+object out of all of the others in the scene.
+
+229
+00:10:52,875 --> 00:10:55,182
+If we don't have a connection or a reference
+
+230
+00:10:55,182 --> 00:10:58,655
+to a specific object we cannot perform actions
+
+231
+00:10:58,655 --> 00:11:01,315
+or do things with this object.
+
+232
+00:11:01,315 --> 00:11:03,120
+If we take the reference to the new object
+
+233
+00:11:03,120 --> 00:11:05,120
+when we instantiate it we now have
+
+234
+00:11:05,120 --> 00:11:07,120
+access to that new object.
+
+235
+00:11:08,090 --> 00:11:10,090
+Now in our case we are simply
+
+236
+00:11:10,090 --> 00:11:12,535
+firing our shots in to the scene.
+
+237
+00:11:12,535 --> 00:11:14,535
+We don't need to do anything
+
+238
+00:11:14,535 --> 00:11:17,175
+with these shots once we have fired them.
+
+239
+00:11:17,175 --> 00:11:19,438
+They can take care of themselves.
+
+240
+00:11:19,438 --> 00:11:22,307
+We don't need a reference to the shots we fire
+
+241
+00:11:22,307 --> 00:11:24,307
+and we can get rid of the reference
+
+242
+00:11:24,307 --> 00:11:26,569
+and simply instantiate the object.
+
+243
+00:11:27,028 --> 00:11:29,768
+When we do we must also get rid of the
+
+244
+00:11:29,768 --> 00:11:31,768
+as GameObject as well.
+
+245
+00:11:33,276 --> 00:11:35,276
+Now let's update the sample code we've
+
+246
+00:11:35,276 --> 00:11:37,276
+pasted in to our script.
+
+247
+00:11:37,997 --> 00:11:40,720
+We want to instantiate our shot
+
+248
+00:11:40,720 --> 00:11:42,956
+at the Shot Spawn position
+
+249
+00:11:42,956 --> 00:11:45,414
+with the Shot Spawn rotation.
+
+250
+00:11:46,176 --> 00:11:48,176
+Next we need to update our variables
+
+251
+00:11:48,176 --> 00:11:50,176
+to work with this code.
+
+252
+00:11:50,176 --> 00:11:53,965
+We need a public float for our fireRate
+
+253
+00:11:53,965 --> 00:11:57,263
+and a private float for our nextFire.
+
+254
+00:11:58,737 --> 00:12:02,061
+Now let's save this script and return to Unity.
+
+255
+00:12:02,957 --> 00:12:06,091
+Click on the player game object so we can inspect it.
+
+256
+00:12:06,926 --> 00:12:08,926
+We need to populate the references we have
+
+257
+00:12:08,926 --> 00:12:11,752
+created in our Player Controller script.
+
+258
+00:12:11,752 --> 00:12:13,752
+Open the Prefabs folder and drag the
+
+259
+00:12:13,752 --> 00:12:16,503
+Bolt prefab on to Shot.
+
+260
+00:12:18,321 --> 00:12:20,779
+Next grab the Shot Spawn game object
+
+261
+00:12:20,779 --> 00:12:23,220
+from the Hierarchy and drag it on to the
+
+262
+00:12:23,220 --> 00:12:25,076
+Shot Spawn reference on the
+
+263
+00:12:25,076 --> 00:12:27,076
+player controller component.
+
+264
+00:12:28,078 --> 00:12:30,078
+Note that Unity was able to reference
+
+265
+00:12:30,078 --> 00:12:31,667
+the transform component from the
+
+266
+00:12:31,667 --> 00:12:33,667
+Shot Spawn game object.
+
+267
+00:12:34,441 --> 00:12:37,367
+Lastly we need to set our fireRate.
+
+268
+00:12:37,367 --> 00:12:40,554
+4 times a second sounds good and fast,
+
+269
+00:12:40,554 --> 00:12:43,711
+so let's use 0.25.
+
+270
+00:12:44,667 --> 00:12:47,349
+Now let's save and play.
+
+271
+00:12:49,081 --> 00:12:51,081
+And we're shooting our shots.
+
+272
+00:12:52,844 --> 00:12:55,634
+And as we move, because the Shot Spawn
+
+273
+00:12:55,634 --> 00:12:57,634
+is a child of our player ship,
+
+274
+00:12:57,634 --> 00:12:59,788
+we always shoot from the front of the ship,
+
+275
+00:12:59,788 --> 00:13:02,259
+no matter where we are in the game.
+
+276
+00:13:03,840 --> 00:13:06,313
+Our player can now shoot shots.
+
+277
+00:13:07,437 --> 00:13:09,437
+We have created a problem however
+
+278
+00:13:09,437 --> 00:13:11,560
+we are filling our scene with shot
+
+279
+00:13:11,560 --> 00:13:14,692
+game object clones, all flying off to infinity
+
+280
+00:13:14,692 --> 00:13:16,399
+on the Z axis.
+
+281
+00:13:16,899 --> 00:13:19,622
+In the next assignment we will create a boundary
+
+282
+00:13:19,622 --> 00:13:21,192
+to clean up any game objects
+
+283
+00:13:21,192 --> 00:13:23,192
+that leave the game area.

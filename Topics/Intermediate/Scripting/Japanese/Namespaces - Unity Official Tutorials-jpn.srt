@@ -1,0 +1,283 @@
+1
+00:00:00,815 --> 00:00:03,446
+Namespaces are like containers for classes.
+
+2
+00:00:03,446 --> 00:00:05,446
+Their purpose is to help you organise your scripts
+
+3
+00:00:05,446 --> 00:00:07,974
+and to avoid conflicts between scripts.
+
+4
+00:00:08,347 --> 00:00:10,347
+You might, for example, be making tools in Unity
+
+5
+00:00:10,347 --> 00:00:12,347
+to help you develop your application.
+
+6
+00:00:12,847 --> 00:00:14,847
+You could keep the tools and actually application
+
+7
+00:00:14,847 --> 00:00:16,847
+in separate namespaces so you didn't have too
+
+8
+00:00:16,847 --> 00:00:20,178
+many unnecessary classes being suggested by autocomplete.
+
+9
+00:00:20,809 --> 00:00:22,809
+Chances are all of the scripts you have been writing
+
+10
+00:00:22,809 --> 00:00:25,140
+so far have been using namespaces.
+
+11
+00:00:25,140 --> 00:00:27,140
+At the top of C# scripts in Unity
+
+12
+00:00:27,140 --> 00:00:29,140
+by default you'll see two lines.
+
+13
+00:00:29,140 --> 00:00:31,140
+Using UnityEngine and 
+
+14
+00:00:31,140 --> 00:00:33,140
+using System.Collections.
+
+15
+00:00:33,820 --> 00:00:37,673
+UnityEngine and System.Collections are both namespaces.
+
+16
+00:00:37,673 --> 00:00:39,673
+The Using keyword means that anything within
+
+17
+00:00:39,673 --> 00:00:42,939
+the namespace that follows can be used in the script.
+
+18
+00:00:42,939 --> 00:00:44,939
+Try commenting out the using directives at the top
+
+19
+00:00:44,939 --> 00:00:46,939
+of the script and you can see that autocomplete
+
+20
+00:00:46,939 --> 00:00:49,574
+has far fewer classes that you can us.
+
+21
+00:00:49,991 --> 00:00:51,991
+That's because classes like GameObject,
+
+22
+00:00:51,991 --> 00:00:54,517
+Transform, Rigid Body and many more
+
+23
+00:00:54,517 --> 00:00:56,945
+are all in the UnityEngine namespace.
+
+24
+00:00:57,818 --> 00:00:59,818
+In order to put our class in a namespace
+
+25
+00:00:59,818 --> 00:01:02,963
+we need to surround the class with the namespace syntax.
+
+26
+00:01:02,963 --> 00:01:05,339
+Start off with the keyword Namespace
+
+27
+00:01:05,339 --> 00:01:07,339
+and then the namespaces name.
+
+28
+00:01:07,339 --> 00:01:10,067
+This can be an existing namespace or a new one.
+
+29
+00:01:10,067 --> 00:01:12,067
+In this case we are going to call our namespace
+
+30
+00:01:12,067 --> 00:01:13,861
+SampleNamespace.
+
+31
+00:01:14,498 --> 00:01:16,498
+Then we have an open brace before the class
+
+32
+00:01:16,498 --> 00:01:18,847
+and a close brace after the class.
+
+33
+00:01:18,847 --> 00:01:21,331
+Since our class now belongs to SampleNamespace
+
+34
+00:01:21,331 --> 00:01:23,331
+we will indent it to show belonging.
+
+35
+00:01:24,218 --> 00:01:26,218
+There are three ways we can use the classes
+
+36
+00:01:26,218 --> 00:01:28,094
+from a specific namespace.
+
+37
+00:01:28,094 --> 00:01:30,094
+We've already seen the first, which is to include
+
+38
+00:01:30,094 --> 00:01:32,382
+a using directive at the top of your script.
+
+39
+00:01:33,022 --> 00:01:34,410
+The second way to access the class
+
+40
+00:01:34,410 --> 00:01:35,963
+is to use the dot operator.
+
+41
+00:01:35,963 --> 00:01:37,963
+For example, instead of having
+
+42
+00:01:37,963 --> 00:01:40,464
+using SampleNamespace at the top of the script
+
+43
+00:01:40,464 --> 00:01:42,464
+every time we wanted to reference a class from
+
+44
+00:01:42,464 --> 00:01:44,464
+the SampleNamespace we could type
+
+45
+00:01:44,464 --> 00:01:47,761
+SampleNamespace dot and then the class.
+
+46
+00:01:47,761 --> 00:01:50,674
+This option avoids ambiguity but can be cumbersome.
+
+47
+00:01:50,674 --> 00:01:52,674
+Particularly with large namespace names
+
+48
+00:01:52,674 --> 00:01:54,674
+like SampleNamespace.
+
+49
+00:01:54,674 --> 00:01:56,674
+The last option is to put the class that you are writing
+
+50
+00:01:56,674 --> 00:01:59,145
+in to the namespace that you need access to.
+
+51
+00:01:59,645 --> 00:02:02,197
+This is generally not recommended unless you mean
+
+52
+00:02:02,197 --> 00:02:04,638
+to have that class in the same namespace anyway.
+
+53
+00:02:05,207 --> 00:02:07,207
+So long as classes are in different namespaces
+
+54
+00:02:07,207 --> 00:02:08,973
+they name have the same name.
+
+55
+00:02:08,973 --> 00:02:10,973
+However, since scripts have the same name as
+
+56
+00:02:10,973 --> 00:02:12,973
+the class contained in them the scripts must be
+
+57
+00:02:12,973 --> 00:02:15,491
+in different folders in order to have the same class name.
+
+58
+00:02:15,860 --> 00:02:17,860
+When using namespaces be careful to avoid
+
+59
+00:02:17,860 --> 00:02:19,429
+ambiguous definitions. 
+
+60
+00:02:19,429 --> 00:02:21,429
+For example, two very common namespaces
+
+61
+00:02:21,429 --> 00:02:24,043
+to use are System and UnityEngine.
+
+62
+00:02:24,043 --> 00:02:26,043
+These both contain a definition for a class
+
+63
+00:02:26,043 --> 00:02:28,043
+called Random. If you are already using them
+
+64
+00:02:28,043 --> 00:02:30,043
+both you need to disambiguate the class
+
+65
+00:02:30,043 --> 00:02:32,043
+by using the dot operator.
+
+66
+00:02:32,043 --> 00:02:35,567
+Either use System.Random or UnityEngine.Random.
+
+67
+00:02:36,067 --> 00:02:38,067
+You might have noticed that the second default
+
+68
+00:02:38,067 --> 00:02:40,974
+using directive is the system.collections namespace.
+
+69
+00:02:41,489 --> 00:02:44,080
+This illustrates that namespaces are nestable.
+
+70
+00:02:44,080 --> 00:02:46,552
+In order to nest namespaces simply enclose
+
+71
+00:02:46,552 --> 00:02:49,200
+one namespace declaration within another.

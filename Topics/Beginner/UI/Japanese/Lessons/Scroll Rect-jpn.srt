@@ -1,0 +1,427 @@
+1
+00:00:02,154 --> 00:00:04,883
+The Scroll Rect is a UI element that allows the
+
+2
+00:00:04,883 --> 00:00:06,883
+user to move another UI element along
+
+3
+00:00:06,883 --> 00:00:09,607
+the horizontal and/or vertical axis
+
+4
+00:00:10,397 --> 00:00:12,397
+This is usually a large image or a
+
+5
+00:00:12,397 --> 00:00:14,911
+panel of other UI elements, such as a list of
+
+6
+00:00:14,911 --> 00:00:16,911
+buttons or a large block of text.
+
+7
+00:00:18,074 --> 00:00:20,074
+This scroll rect is most often used
+
+8
+00:00:20,074 --> 00:00:22,074
+with a mask element.
+
+9
+00:00:23,057 --> 00:00:25,939
+And is designed to work seamlessly with scroll bars.
+
+10
+00:00:26,729 --> 00:00:29,275
+Masks and scroll bars with be covered in this lesson,
+
+11
+00:00:29,275 --> 00:00:30,723
+but only briefly.
+
+12
+00:00:31,347 --> 00:00:33,347
+For more detailed information on masks
+
+13
+00:00:33,347 --> 00:00:36,959
+and scroll bars please see the information linked below.
+
+14
+00:00:37,629 --> 00:00:39,269
+To create a scroll rect
+
+15
+00:00:39,269 --> 00:00:41,269
+add a scroll rect script to a game
+
+16
+00:00:41,269 --> 00:00:44,000
+object that is the child of canvas.
+
+17
+00:00:44,624 --> 00:00:46,624
+Like all UI elements, the scroll rect
+
+18
+00:00:46,624 --> 00:00:48,624
+must be the child of a  canvas/
+
+19
+00:00:49,538 --> 00:00:51,538
+One way to add the scroll rect's script
+
+20
+00:00:51,538 --> 00:00:55,866
+to the game object is to use Add Component.
+
+21
+00:00:57,056 --> 00:00:59,056
+ UI
+
+22
+00:01:00,067 --> 00:01:01,376
+Scroll Rect.
+
+23
+00:01:02,180 --> 00:01:04,472
+For this example, the game object
+
+24
+00:01:04,472 --> 00:01:07,134
+will be renamed Scroll View.
+
+25
+00:01:08,574 --> 00:01:10,851
+Content is a referent to the rect transform
+
+26
+00:01:10,851 --> 00:01:14,028
+on the UI element being controlled be the scroll rect.
+Associate
+27
+00:01:14,680 --> 00:01:16,610
+For example an image far larger
+
+28
+00:01:16,610 --> 00:01:18,513
+than the scroll rect.
+
+29
+00:01:18,513 --> 00:01:21,124
+Associate the content, in this case
+
+30
+00:01:21,124 --> 00:01:22,601
+the large image
+
+31
+00:01:22,601 --> 00:01:25,482
+with the content property on the scroll rect.
+
+32
+00:01:26,286 --> 00:01:29,847
+When in play mode this content is fully scrollable.
+
+33
+00:01:31,714 --> 00:01:34,704
+The scroll rect is commonly used with a mask element
+
+34
+00:01:35,467 --> 00:01:38,016
+To use a mask element with a scroll rect
+
+35
+00:01:38,016 --> 00:01:40,016
+first add an image script to the game object
+
+36
+00:01:40,016 --> 00:01:42,016
+for the mask to use.
+
+37
+00:01:43,607 --> 00:01:45,966
+And then add a mask script.
+
+38
+00:01:50,957 --> 00:01:52,957
+The mask element will use the image to
+
+39
+00:01:52,957 --> 00:01:54,684
+create it's mask
+
+40
+00:01:55,088 --> 00:01:58,082
+As specific image is not needed on the image script.
+
+41
+00:01:58,734 --> 00:02:00,609
+But one can be added for additional
+
+42
+00:02:00,609 --> 00:02:02,609
+control over the shape of the mask.
+
+43
+00:02:04,670 --> 00:02:07,573
+For more information on the image and mask elements
+
+44
+00:02:07,573 --> 00:02:09,905
+please see the information linked below.
+
+45
+00:02:10,681 --> 00:02:13,112
+Horizontal and vertical enables scrolling
+
+46
+00:02:13,112 --> 00:02:14,681
+along those axis.
+
+47
+00:02:15,336 --> 00:02:17,670
+To disable scrolling along one axis
+
+48
+00:02:17,670 --> 00:02:20,143
+set that axis property to false.
+
+49
+00:02:21,040 --> 00:02:23,818
+Movement type describes the scrolling mode.
+
+50
+00:02:24,580 --> 00:02:26,580
+The scrolling mode can be chosen by the 
+
+51
+00:02:26,580 --> 00:02:28,580
+movement type pop-up menu.
+
+52
+00:02:29,342 --> 00:02:32,955
+Unrestricted allows for unrestricted scrolling movement.
+
+53
+00:02:33,538 --> 00:02:35,538
+This is not a common mode to choose
+
+54
+00:02:35,538 --> 00:02:37,538
+and it is entirely possible without
+
+55
+00:02:37,538 --> 00:02:39,049
+some additional method
+
+56
+00:02:39,049 --> 00:02:41,919
+to lose the content in a way that is irretrievable.
+
+57
+00:02:42,364 --> 00:02:44,780
+This mode however may prove to be useful
+
+58
+00:02:44,780 --> 00:02:47,305
+under certain circumstances.
+
+59
+00:02:47,902 --> 00:02:49,722
+When using either elastic or clamped
+
+60
+00:02:49,722 --> 00:02:51,303
+as the movement type
+
+61
+00:02:51,303 --> 00:02:54,137
+the content cannot leave the bounds of the scroll rect
+
+62
+00:02:54,137 --> 00:02:56,137
+on any of the scrollable axis.
+
+63
+00:02:57,038 --> 00:02:58,430
+In these two modes,
+
+64
+00:02:58,430 --> 00:03:00,136
+for the content to be scrollable,
+
+65
+00:03:00,136 --> 00:03:02,136
+the rect transform of the content must
+
+66
+00:03:02,136 --> 00:03:05,131
+be larger than the rect transform of the scroll rect.
+
+67
+00:03:05,949 --> 00:03:07,949
+If the rect transform of the content is
+
+68
+00:03:07,949 --> 00:03:11,113
+smaller than the rect transform of the scroll rect
+
+69
+00:03:11,113 --> 00:03:13,911
+it cannot be scrolled along that axis.
+
+70
+00:03:14,732 --> 00:03:17,708
+When positioning the content in either of these modes
+
+71
+00:03:17,708 --> 00:03:19,708
+it is best to position the content so
+
+72
+00:03:19,708 --> 00:03:22,237
+that it starts within the bounds of the scroll rect
+
+73
+00:03:22,237 --> 00:03:24,237
+or undesirable behaviour may occur.
+
+74
+00:03:24,237 --> 00:03:26,237
+as the rect transform tries to bring the
+
+75
+00:03:26,237 --> 00:03:28,444
+content back within it's bounds.
+
+76
+00:03:29,414 --> 00:03:31,848
+When using the movement type Elastic
+
+77
+00:03:31,848 --> 00:03:33,848
+the content will bounce when it reaches the
+
+78
+00:03:33,848 --> 00:03:35,848
+bounds of the scroll rect.
+
+79
+00:03:37,453 --> 00:03:39,453
+The amount of bounce is set by the
+
+80
+00:03:39,453 --> 00:03:41,453
+elasticity property.
+
+81
+00:03:43,030 --> 00:03:45,030
+When using the movement type Clamped
+
+82
+00:03:45,030 --> 00:03:47,030
+the content will not bounce when it reaches the
+
+83
+00:03:47,030 --> 00:03:49,517
+bounds, it will simply stop scrolling.
+
+84
+00:03:53,549 --> 00:03:55,549
+Inertia defines whether or not the 
+
+85
+00:03:55,549 --> 00:03:57,549
+content will continue to glide when releasing
+
+86
+00:03:57,549 --> 00:03:59,549
+the pointer after a  drag.
+
+87
+00:04:00,477 --> 00:04:02,477
+When inertia is false the content
+
+88
+00:04:02,477 --> 00:04:04,477
+will only move when dragged.
+
+89
+00:04:05,060 --> 00:04:07,060
+If inertia is set to true the
+
+90
+00:04:07,060 --> 00:04:09,060
+content will continue to glide after the pointer
+
+91
+00:04:09,060 --> 00:04:10,644
+has ended the drag.
+
+92
+00:04:11,394 --> 00:04:13,394
+How soon the content stops gliding
+
+93
+00:04:13,394 --> 00:04:16,748
+is determined by the deceleration rate property.
+
+94
+00:04:17,248 --> 00:04:19,248
+A deceleration rate of 0 means
+
+95
+00:04:19,248 --> 00:04:21,248
+the gliding will stop instantly.
+
+96
+00:04:22,190 --> 00:04:24,190
+The value of 1 means the gliding will
+
+97
+00:04:24,190 --> 00:04:26,190
+never slow down.
+
+98
+00:04:26,690 --> 00:04:28,690
+Horizontal and vertical scroll bars
+
+99
+00:04:28,690 --> 00:04:32,271
+are optional references to potential scroll bar elements.
+
+100
+00:04:32,992 --> 00:04:35,351
+To use scroll bars with a scroll rects
+
+101
+00:04:35,351 --> 00:04:38,056
+simply create the scroll bars needed,
+
+102
+00:04:40,089 --> 00:04:41,581
+position them,
+
+103
+00:04:42,468 --> 00:04:44,468
+and associate the scroll bars with properties
+
+104
+00:04:44,468 --> 00:04:46,468
+on the scroll rect.
+
+105
+00:04:49,413 --> 00:04:51,413
+They will work automatically.
+
+106
+00:04:51,913 --> 00:04:54,867
+For more information on scroll bars and how to set them up
+
+107
+00:04:54,867 --> 00:04:57,584
+please see the information linked below.

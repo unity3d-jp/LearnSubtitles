@@ -1,0 +1,543 @@
+1
+00:00:00,290 --> 00:00:02,058
+The scripting languages that Unity supports
+
+2
+00:00:02,058 --> 00:00:03,752
+have a feature called inheritance.
+
+3
+00:00:04,252 --> 00:00:06,252
+Inheritance is one of the cornerstones of object
+
+4
+00:00:06,252 --> 00:00:09,339
+orientated programming, or OOP for short.
+
+5
+00:00:10,060 --> 00:00:11,630
+One a class inherits from another
+
+6
+00:00:11,630 --> 00:00:14,371
+it gains the features of the class it inherits from.
+
+7
+00:00:15,037 --> 00:00:17,437
+When talking about inheritance, the class that being
+
+8
+00:00:17,437 --> 00:00:20,258
+inherited from is called the Parent, or base class.
+
+9
+00:00:20,910 --> 00:00:22,910
+The class that is inheriting is called the Child,
+
+10
+00:00:22,910 --> 00:00:24,910
+or derived class.
+
+11
+00:00:25,769 --> 00:00:28,393
+The result of inheritance is that items that exist
+
+12
+00:00:28,393 --> 00:00:30,393
+in the parent class will also be available
+
+13
+00:00:30,393 --> 00:00:32,228
+in the child class.
+
+14
+00:00:32,228 --> 00:00:35,055
+Therefore, methods and variables can be used in the
+
+15
+00:00:35,055 --> 00:00:38,376
+child class as if it was the parent class.
+
+16
+00:00:38,376 --> 00:00:40,376
+For example, assume you have a parent class
+
+17
+00:00:40,376 --> 00:00:43,197
+called ClassA, which contains two methods,
+
+18
+00:00:43,197 --> 00:00:45,197
+Dance and Sing.
+
+19
+00:00:46,154 --> 00:00:48,320
+If you have another class, ClassB,
+
+20
+00:00:48,320 --> 00:00:50,320
+which inherits from ClassA,
+
+21
+00:00:50,320 --> 00:00:52,747
+then ClassB will also have the two methods
+
+22
+00:00:52,747 --> 00:00:54,635
+Dance and Sing.
+
+23
+00:00:54,635 --> 00:00:57,363
+These methods do not need to be created in ClassB
+
+24
+00:00:57,363 --> 00:01:00,106
+because they already exist in ClassA.
+
+25
+00:01:01,228 --> 00:01:03,558
+When dealing with inheritance there are three access
+
+26
+00:01:03,558 --> 00:01:05,196
+modifiers to be aware of;
+
+27
+00:01:05,196 --> 00:01:08,259
+Public, Private and Protected.
+
+28
+00:01:09,146 --> 00:01:11,146
+You should already be familiar with the concepts
+
+29
+00:01:11,146 --> 00:01:14,182
+of the Public and Private access modifiers.
+
+30
+00:01:14,682 --> 00:01:16,682
+Just be aware that the features of a parent class
+
+31
+00:01:16,682 --> 00:01:19,140
+that are public will exist and be accessible
+
+32
+00:01:19,140 --> 00:01:20,668
+in the child class.
+
+33
+00:01:20,668 --> 00:01:22,668
+While features that are private will exist
+
+34
+00:01:22,668 --> 00:01:25,438
+but not be accessible in the child class.
+
+35
+00:01:26,131 --> 00:01:28,131
+The protected access modifier acts as a
+
+36
+00:01:28,131 --> 00:01:30,131
+hybrid between public and private.
+
+37
+00:01:30,131 --> 00:01:32,131
+All features of a parent class that are protected
+
+38
+00:01:32,131 --> 00:01:35,028
+will exist and be accessible in a child class,
+
+39
+00:01:35,028 --> 00:01:37,587
+like public features, but will not be accessible
+
+40
+00:01:37,587 --> 00:01:40,137
+outside of the parent or child classes,
+
+41
+00:01:40,137 --> 00:01:41,871
+like private features.
+
+42
+00:01:41,871 --> 00:01:43,871
+It is likely that most of the classes you have
+
+43
+00:01:43,871 --> 00:01:46,826
+used so far in Unity have been inheriting,
+
+44
+00:01:46,826 --> 00:01:48,826
+indeed, all scripts which are applied
+
+45
+00:01:48,826 --> 00:01:52,078
+as components to game objects are monobehaviours.
+
+46
+00:01:52,078 --> 00:01:53,581
+This means they have inherited
+
+47
+00:01:53,581 --> 00:01:55,733
+from the monobehaviour class.
+
+48
+00:01:55,733 --> 00:01:57,733
+By default scripts made in Unity
+
+49
+00:01:57,733 --> 00:01:59,126
+follow this format;
+
+50
+00:01:59,126 --> 00:02:02,610
+public class followed by the name of the class
+
+51
+00:02:02,610 --> 00:02:05,974
+followed by a colon and the classname monobehaviour.
+
+52
+00:02:06,474 --> 00:02:08,969
+The colon in classname monobehaviour
+
+53
+00:02:08,969 --> 00:02:12,534
+is telling the script that it inherits from monobehaviour.
+
+54
+00:02:12,534 --> 00:02:14,769
+To make this class inherit from another class
+
+55
+00:02:14,769 --> 00:02:16,769
+simply change the name monobehaviour
+
+56
+00:02:16,769 --> 00:02:18,769
+to some other class name.
+
+57
+00:02:18,769 --> 00:02:20,533
+To change the class so that it doesn't inherit
+
+58
+00:02:20,533 --> 00:02:22,269
+from any parent class
+
+59
+00:02:22,269 --> 00:02:25,328
+simply remove the colon and parent class name.
+
+60
+00:02:25,328 --> 00:02:27,328
+You might be wondering why our scripts inherit
+
+61
+00:02:27,328 --> 00:02:28,749
+from monobehaviour.
+
+62
+00:02:28,749 --> 00:02:32,971
+Items like GameObject, Transform, the Start method,
+
+63
+00:02:32,971 --> 00:02:35,276
+the Update method and more
+
+64
+00:02:35,276 --> 00:02:37,276
+all come from monobehaviour.
+
+65
+00:02:37,276 --> 00:02:39,276
+Our scripts inherit from monobehaviour
+
+66
+00:02:39,276 --> 00:02:41,642
+so that we have access to these features.
+
+67
+00:02:41,642 --> 00:02:44,168
+The inheritance structure is hierarchal.
+
+68
+00:02:44,168 --> 00:02:45,779
+A common way to think of inheritance is
+
+69
+00:02:45,779 --> 00:02:47,779
+to think of the animal kingdom.
+
+70
+00:02:47,779 --> 00:02:51,313
+In this example we'd have a parent class called Animal.
+
+71
+00:02:51,313 --> 00:02:53,313
+This class would contain all of the definitions
+
+72
+00:02:53,313 --> 00:02:54,882
+and properties necessary to make the
+
+73
+00:02:54,882 --> 00:02:57,089
+class behave like an animal.
+
+74
+00:02:57,089 --> 00:02:59,463
+From this Animal base class we might have a
+
+75
+00:02:59,463 --> 00:03:03,078
+couple of child classes, Vertebrate and Invertebrate.
+
+76
+00:03:03,578 --> 00:03:05,578
+The Vertebrate class would then in turn be the
+
+77
+00:03:05,578 --> 00:03:07,578
+parent class for more classes, such as
+
+78
+00:03:07,578 --> 00:03:10,260
+Mammal, Reptile and Amphibian.
+
+79
+00:03:10,260 --> 00:03:12,260
+Each of these child classes would take the
+
+80
+00:03:12,260 --> 00:03:15,153
+information given by it's base class and add to it.
+
+81
+00:03:15,696 --> 00:03:17,834
+Just like our animal example, inheritance
+
+82
+00:03:17,834 --> 00:03:19,834
+in object orientated programming is known
+
+83
+00:03:19,834 --> 00:03:21,986
+as an Is A relationship.
+
+84
+00:03:21,986 --> 00:03:25,570
+This means that the child class is a parent class.
+
+85
+00:03:25,570 --> 00:03:28,128
+A reptile is a vertebrate.
+
+86
+00:03:28,128 --> 00:03:30,749
+A mammal is an animal.
+
+87
+00:03:30,749 --> 00:03:32,749
+An example in Unity that you may have come across
+
+88
+00:03:32,749 --> 00:03:37,305
+before is a capsule collider is a collider.
+
+89
+00:03:37,305 --> 00:03:39,305
+This concept will be covered further in the lesson
+
+90
+00:03:39,305 --> 00:03:41,652
+on polymorphism linked below.
+
+91
+00:03:42,152 --> 00:03:44,152
+The idea of inheritance can be very useful
+
+92
+00:03:44,152 --> 00:03:46,400
+and applicable in game development.
+
+93
+00:03:46,900 --> 00:03:49,977
+We might, for example, have a class called Humanoid.
+
+94
+00:03:49,977 --> 00:03:51,977
+This class covers all of the things that Humanoid
+
+95
+00:03:51,977 --> 00:03:53,977
+should do in our game.
+
+96
+00:03:53,977 --> 00:03:56,199
+We then have two child classes,
+
+97
+00:03:56,199 --> 00:03:57,799
+Enemy and Player.
+
+98
+00:03:57,799 --> 00:03:59,799
+These control the specifics of how players and
+
+99
+00:03:59,799 --> 00:04:01,799
+enemies work in the game while already
+
+100
+00:04:01,799 --> 00:04:03,799
+behaving like humanoids because they've
+
+101
+00:04:03,799 --> 00:04:06,898
+inherited all of the humanoid classes members.
+
+102
+00:04:06,898 --> 00:04:08,898
+We could then have two more child classes
+
+103
+00:04:08,898 --> 00:04:11,436
+of Enemy, Ork and Goblin.
+
+104
+00:04:11,436 --> 00:04:13,436
+These already behave like enemies, which in
+
+105
+00:04:13,436 --> 00:04:15,436
+turn behave like humanoids.
+
+106
+00:04:15,436 --> 00:04:17,436
+In this way we have much less code to write
+
+107
+00:04:17,436 --> 00:04:19,436
+to make Orks and Goblins behave
+
+108
+00:04:19,436 --> 00:04:21,436
+as we want them to because we're reusing
+
+109
+00:04:21,436 --> 00:04:23,436
+the code from Humanoid and Enemy.
+
+110
+00:04:24,102 --> 00:04:26,407
+Constructors are an exception to what is inherited
+
+111
+00:04:26,407 --> 00:04:28,699
+by child classes, as they remain
+
+112
+00:04:28,699 --> 00:04:30,699
+unique to a class and are never shared.
+
+113
+00:04:31,199 --> 00:04:33,655
+When a constructor is called in a child class however
+
+114
+00:04:33,655 --> 00:04:35,655
+the constructor of it's parent class is called
+
+115
+00:04:35,655 --> 00:04:37,145
+immediately before.
+
+116
+00:04:37,145 --> 00:04:39,891
+Since classes can have many different constructors
+
+117
+00:04:39,891 --> 00:04:41,891
+we might want to be able to control which base class
+
+118
+00:04:41,891 --> 00:04:43,891
+constructor is being called.
+
+119
+00:04:43,891 --> 00:04:45,891
+We do this with the keyword Base.
+
+120
+00:04:46,474 --> 00:04:48,710
+By following the parameter list of the child's
+
+121
+00:04:48,710 --> 00:04:51,212
+constructor with a colon you can explicitly
+
+122
+00:04:51,212 --> 00:04:53,503
+call a specific constructor of the base class
+
+123
+00:04:53,503 --> 00:04:55,503
+using the keyword Base and
+
+124
+00:04:55,503 --> 00:04:58,390
+the base constructors parameter list.
+
+125
+00:04:58,390 --> 00:05:00,390
+If the base classes constructor is not
+
+126
+00:05:00,390 --> 00:05:02,585
+called explicitly then the default constructor
+
+127
+00:05:02,585 --> 00:05:04,972
+will still be called implicitly.
+
+128
+00:05:07,240 --> 00:05:09,758
+Aside from calling the base classes constructor
+
+129
+00:05:09,758 --> 00:05:11,758
+you can also use the Base keyword to access
+
+130
+00:05:11,758 --> 00:05:13,758
+other members of the base class.
+
+131
+00:05:13,758 --> 00:05:15,758
+This is useful for situations where you wish to 
+
+132
+00:05:15,758 --> 00:05:17,758
+access the base classes version of something
+
+133
+00:05:17,758 --> 00:05:19,979
+because it is different than the derived version.
+
+134
+00:05:19,979 --> 00:05:22,464
+This happens often when overriding functions.
+
+135
+00:05:22,964 --> 00:05:24,964
+For more information on this see the lesson
+
+136
+00:05:24,964 --> 00:05:26,964
+on Overriding linked below.

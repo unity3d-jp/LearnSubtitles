@@ -1,0 +1,407 @@
+1
+00:00:01,630 --> 00:00:03,375
+Our game is complete.
+
+2
+00:00:03,375 --> 00:00:05,375
+Let's build a web player and deploy
+
+3
+00:00:05,375 --> 00:00:07,375
+that web player on to the web.
+
+4
+00:00:08,345 --> 00:00:10,345
+Open the Build Settings window.
+
+5
+00:00:11,909 --> 00:00:14,775
+The Build Settings has two main sections.
+
+6
+00:00:15,137 --> 00:00:17,556
+The bottom part for setting the build target
+
+7
+00:00:17,556 --> 00:00:19,958
+and customising details for the build
+
+8
+00:00:19,958 --> 00:00:21,958
+and the upper part for selecting the
+
+9
+00:00:21,958 --> 00:00:23,958
+scenes to build in to the game.
+
+10
+00:00:25,190 --> 00:00:27,647
+We do not need to include every scene in our
+
+11
+00:00:27,647 --> 00:00:29,647
+project when we build our game.
+
+12
+00:00:30,271 --> 00:00:33,079
+We only need to select the scenes we want.
+
+13
+00:00:33,579 --> 00:00:35,901
+We can either drag the scenes we want
+
+14
+00:00:35,901 --> 00:00:37,901
+from our Project view and drop them
+
+15
+00:00:37,901 --> 00:00:39,901
+in to the upper window
+
+16
+00:00:40,650 --> 00:00:43,177
+or we can click the Add Current button
+
+17
+00:00:43,177 --> 00:00:45,177
+to add the current open scene to the
+
+18
+00:00:45,177 --> 00:00:46,611
+build window.
+
+19
+00:00:47,111 --> 00:00:49,626
+As a side note, we can build a game
+
+20
+00:00:49,626 --> 00:00:52,711
+with no scenes in the Scenes To Build window.
+
+21
+00:00:52,711 --> 00:00:55,439
+If we do this Unity will temporarily use
+
+22
+00:00:55,439 --> 00:00:57,866
+the current open scene when building.
+
+23
+00:00:59,044 --> 00:01:01,320
+Once we have selected the scenes to build
+
+24
+00:01:01,320 --> 00:01:03,320
+it is always good practice to check our
+
+25
+00:01:03,320 --> 00:01:06,071
+player settings before we actually build the game.
+
+26
+00:01:06,571 --> 00:01:08,780
+For more information on player settings
+
+27
+00:01:08,780 --> 00:01:11,319
+please see the information linked below.
+
+28
+00:01:12,426 --> 00:01:14,661
+When we are satisfied with our player settings
+
+29
+00:01:14,661 --> 00:01:16,661
+we can return to the Build Settings window
+
+30
+00:01:16,661 --> 00:01:18,158
+and choose Build.
+
+31
+00:01:18,658 --> 00:01:20,658
+Unity will open a dialogue box
+
+32
+00:01:20,658 --> 00:01:22,658
+prompting us for a name and location
+
+33
+00:01:22,658 --> 00:01:24,272
+for our new build.
+
+34
+00:01:24,272 --> 00:01:26,272
+I like to keep the builds associated with
+
+35
+00:01:26,272 --> 00:01:29,637
+the project, so let's create a new folder
+
+36
+00:01:29,637 --> 00:01:31,343
+to hold our build.
+
+37
+00:01:31,343 --> 00:01:33,343
+We will create this folder in the root of our
+
+38
+00:01:33,343 --> 00:01:35,647
+project along side the assets
+
+39
+00:01:35,647 --> 00:01:38,281
+library and other default folders.
+
+40
+00:01:38,281 --> 00:01:40,281
+It is important to note that this new folder
+
+41
+00:01:40,281 --> 00:01:42,281
+should not be placed inside any of
+
+42
+00:01:42,281 --> 00:01:44,281
+the default folders.
+
+43
+00:01:44,891 --> 00:01:46,533
+Create a new folder in our project
+
+44
+00:01:46,533 --> 00:01:48,533
+and call it Builds.
+
+45
+00:01:49,102 --> 00:01:50,566
+Save the folder.
+
+46
+00:01:50,566 --> 00:01:52,677
+With the Builds folder selected
+
+47
+00:01:52,677 --> 00:01:57,136
+let's name our build Space_Shooter.
+
+48
+00:01:57,136 --> 00:01:59,385
+We use the underscore here in the name
+
+49
+00:01:59,385 --> 00:02:01,385
+as we will be deploying to the web
+
+50
+00:02:02,161 --> 00:02:03,924
+and this name will be part of the web
+
+51
+00:02:03,924 --> 00:02:06,634
+address or URL for the game.
+
+52
+00:02:06,634 --> 00:02:08,634
+Spaces are not recommended in
+
+53
+00:02:08,634 --> 00:02:10,634
+a web address or URL.
+
+54
+00:02:10,634 --> 00:02:13,370
+So we should use an underscore, dash or
+
+55
+00:02:13,370 --> 00:02:15,674
+other web friendly character instead of
+
+56
+00:02:15,674 --> 00:02:18,543
+spaces here when we are creating a web build.
+
+57
+00:02:19,720 --> 00:02:21,418
+It should be noted that we could,
+
+58
+00:02:21,418 --> 00:02:22,481
+if we chose to,
+
+59
+00:02:22,481 --> 00:02:25,253
+change the name of the HTML file to
+
+60
+00:02:25,253 --> 00:02:28,339
+index.html if appropriate
+
+61
+00:02:28,339 --> 00:02:30,534
+to shorten the length of the URL.
+
+62
+00:02:31,391 --> 00:02:34,476
+When we have named our build select Save.
+
+63
+00:02:35,846 --> 00:02:38,467
+Unity will now build our player.
+
+64
+00:02:43,208 --> 00:02:44,878
+And when the build is done
+
+65
+00:02:44,878 --> 00:02:47,155
+Unity will open the target folder,
+
+66
+00:02:47,155 --> 00:02:49,321
+in this case our Builds folder,
+
+67
+00:02:49,321 --> 00:02:51,321
+revealing the built game.
+
+68
+00:02:52,249 --> 00:02:54,622
+We have built a web player.
+
+69
+00:02:54,622 --> 00:02:56,553
+Open the Space_Shooter folder.
+
+70
+00:02:57,053 --> 00:02:59,808
+The web player comes in 2 parts.
+
+71
+00:02:59,808 --> 00:03:03,201
+A Unity 3D file, which contains the data
+
+72
+00:03:03,201 --> 00:03:06,194
+and an HTML file which describes the page
+
+73
+00:03:06,194 --> 00:03:08,669
+that will play the game data in a window.
+
+74
+00:03:09,915 --> 00:03:12,505
+If we look at the size of these 2 files
+
+75
+00:03:12,505 --> 00:03:14,784
+we can see that the Unity 3D file is the
+
+76
+00:03:14,784 --> 00:03:18,152
+larger of the 2 as it contains the game data.
+
+77
+00:03:19,191 --> 00:03:21,858
+If we select and open the HTML file
+
+78
+00:03:21,858 --> 00:03:24,584
+our operating system will load the HTML file
+
+79
+00:03:24,584 --> 00:03:26,584
+in to our default browser.
+
+80
+00:03:30,869 --> 00:03:32,869
+And the game will play in the web page.
+
+81
+00:03:34,696 --> 00:03:36,834
+We are playing this game locally.
+
+82
+00:03:36,834 --> 00:03:38,834
+To play this game globally we need to
+
+83
+00:03:38,834 --> 00:03:41,113
+upload it to a web host of some sort.
+
+84
+00:03:41,903 --> 00:03:44,356
+As an example I am going to upload this
+
+85
+00:03:44,356 --> 00:03:47,629
+via an FTP client to an existing website.
+
+86
+00:03:48,612 --> 00:03:51,411
+Open an FTP client, select a destination
+
+87
+00:03:51,411 --> 00:03:54,090
+and upload both the HMTL and data files
+
+88
+00:03:54,090 --> 00:03:55,783
+into the same directory.
+
+89
+00:03:56,341 --> 00:03:58,975
+In this case, for ease, I'm going to
+
+90
+00:03:58,975 --> 00:04:01,839
+upload the entire folder containing both files.
+
+91
+00:04:07,850 --> 00:04:10,224
+When the files are uploaded open a browser
+
+92
+00:04:10,224 --> 00:04:13,211
+and use the URL to open a new web page.
+
+93
+00:04:14,222 --> 00:04:15,958
+The data will load from the web
+
+94
+00:04:15,958 --> 00:04:18,194
+and we're playing the game globally.
+
+95
+00:04:18,194 --> 00:04:20,542
+Anyone anywhere in the world with access 
+
+96
+00:04:20,542 --> 00:04:22,542
+to the internet can play our game.
+
+97
+00:04:25,901 --> 00:04:27,901
+Fantastic.
+
+98
+00:04:30,390 --> 00:04:32,390
+Thank you for taking these assignments,
+
+99
+00:04:32,390 --> 00:04:34,390
+following along and making this game.
+
+100
+00:04:34,890 --> 00:04:37,071
+Please check out the Learn section of Unity's
+
+101
+00:04:37,071 --> 00:04:39,071
+website for more information,
+
+102
+00:04:39,071 --> 00:04:41,941
+tutorials, assignments and learning materials.

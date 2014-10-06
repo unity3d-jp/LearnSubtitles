@@ -1,0 +1,360 @@
+1
+00:00:00,442 --> 00:00:02,577
+Static members, such as variables and methods
+
+2
+00:00:02,577 --> 00:00:04,577
+are members that are shared across all instances
+
+3
+00:00:04,577 --> 00:00:05,945
+of a class.
+
+4
+00:00:05,945 --> 00:00:08,182
+Furthermore, static members can be accessed
+
+5
+00:00:08,182 --> 00:00:10,182
+directly from a class without instantiating
+
+6
+00:00:10,182 --> 00:00:12,362
+an object of the class first.
+
+7
+00:00:12,362 --> 00:00:14,362
+Normally member variables are unique
+
+8
+00:00:14,362 --> 00:00:16,642
+to each object of a class.
+
+9
+00:00:16,642 --> 00:00:18,505
+While every object of a class has the same
+
+10
+00:00:18,505 --> 00:00:21,123
+variables they each have their own values.
+
+11
+00:00:21,123 --> 00:00:23,123
+With static variables however each object
+
+12
+00:00:23,123 --> 00:00:26,297
+of the class has the same variable with the same value.
+
+13
+00:00:26,297 --> 00:00:28,297
+Therefore changing the value of a static
+
+14
+00:00:28,297 --> 00:00:30,297
+variable in one place will result in a change
+
+15
+00:00:30,297 --> 00:00:32,297
+of value in all of the others.
+
+16
+00:00:33,142 --> 00:00:35,142
+Say that you wanted to know how many objects
+
+17
+00:00:35,142 --> 00:00:37,142
+of an enemy class had been instantiated.
+
+18
+00:00:37,642 --> 00:00:39,642
+An easy way to accomplish this would be to use
+
+19
+00:00:39,642 --> 00:00:42,144
+a static member variable named enemyCount.
+
+20
+00:00:42,644 --> 00:00:44,644
+By putting the keyword 'static' in the
+
+21
+00:00:44,644 --> 00:00:46,644
+declaration of a member you are declaring that
+
+22
+00:00:46,644 --> 00:00:48,644
+it is static and thus will belong to the class
+
+23
+00:00:48,644 --> 00:00:51,814
+itself not any instance of the class.
+
+24
+00:00:51,814 --> 00:00:53,814
+Then all you need to do is increment
+
+25
+00:00:53,814 --> 00:00:56,954
+the variable whenever an enemy object is created.
+
+26
+00:00:56,954 --> 00:00:58,954
+Since every object increments the same variable
+
+27
+00:00:58,954 --> 00:01:00,954
+it will contain the total number of
+
+28
+00:01:00,954 --> 00:01:02,716
+all enemies created.
+
+29
+00:01:02,716 --> 00:01:04,482
+Accessing the static variable is also
+
+30
+00:01:04,482 --> 00:01:06,329
+a fairly simple endeavour.
+
+31
+00:01:06,329 --> 00:01:09,641
+Here we have a game class that creates a few enemies.
+
+32
+00:01:09,641 --> 00:01:11,641
+To find out how many enemies were created
+
+33
+00:01:11,641 --> 00:01:13,641
+we simply need to access the enemyCount
+
+34
+00:01:13,641 --> 00:01:15,641
+static variable by using the classes
+
+35
+00:01:15,641 --> 00:01:17,641
+name and the dot operator.
+
+36
+00:01:18,141 --> 00:01:21,550
+In this case the enemyCount variable equals 3.
+
+37
+00:01:22,434 --> 00:01:24,434
+This process works for scripts intended to be game
+
+38
+00:01:24,434 --> 00:01:26,128
+object components as well.
+
+39
+00:01:26,128 --> 00:01:28,128
+For example, if we wanted to know the number
+
+40
+00:01:28,128 --> 00:01:30,128
+of players created in a scene we could
+
+41
+00:01:30,128 --> 00:01:32,128
+create a player script component.
+
+42
+00:01:32,128 --> 00:01:34,322
+In this script we could declare a static
+
+43
+00:01:34,322 --> 00:01:36,724
+playerCount variable and in the start method
+
+44
+00:01:36,724 --> 00:01:38,215
+we could increment it.
+
+45
+00:01:38,215 --> 00:01:40,215
+Now any time a game object with this
+
+46
+00:01:40,215 --> 00:01:42,215
+script attached to it is created the total
+
+47
+00:01:42,215 --> 00:01:43,993
+player count increases.
+
+48
+00:01:43,993 --> 00:01:45,993
+In another script component we can access
+
+49
+00:01:45,993 --> 00:01:48,286
+this static variable using the name of the script
+
+50
+00:01:48,286 --> 00:01:50,286
+and the dot operator.
+
+51
+00:01:51,076 --> 00:01:53,076
+Just like static variables, static methods are
+
+52
+00:01:53,076 --> 00:01:55,076
+methods that belong to the class and not a
+
+53
+00:01:55,076 --> 00:01:57,412
+specific object of the class.
+
+54
+00:01:57,412 --> 00:01:59,412
+A very simple example of this would be if you have
+
+55
+00:01:59,412 --> 00:02:01,817
+a class called Utilities, and inside the class
+
+56
+00:02:01,817 --> 00:02:03,817
+you have a static method called Add that
+
+57
+00:02:03,817 --> 00:02:06,602
+return the result of adding two numbers together.
+
+58
+00:02:06,602 --> 00:02:08,948
+You can tell that the method Add is static
+
+59
+00:02:08,948 --> 00:02:10,948
+by the 'static' keyword in front of it.
+
+60
+00:02:11,628 --> 00:02:13,628
+Now in another class you can call the Add
+
+61
+00:02:13,628 --> 00:02:15,628
+method using just the name of the class and the
+
+62
+00:02:15,628 --> 00:02:17,628
+dot operator. You do not need to
+
+63
+00:02:17,628 --> 00:02:18,877
+instantiate and object of the class
+
+64
+00:02:18,877 --> 00:02:20,877
+to use it's static members.
+
+65
+00:02:21,515 --> 00:02:23,653
+Chances are you have already used static methods
+
+66
+00:02:23,653 --> 00:02:25,472
+even if you haven't realised it.
+
+67
+00:02:25,472 --> 00:02:28,007
+Consider any time you have worked with Input in Unity.
+
+68
+00:02:28,007 --> 00:02:30,434
+Methods like Input.GetAccess,
+
+69
+00:02:30,434 --> 00:02:33,153
+Input.GetKey and Input.GetButton
+
+70
+00:02:33,153 --> 00:02:34,750
+are all static methods.
+
+71
+00:02:34,750 --> 00:02:36,750
+You can tell that they are static because you didn't
+
+72
+00:02:36,750 --> 00:02:38,750
+need to instantiate an object of the input class
+
+73
+00:02:38,750 --> 00:02:40,319
+in order to use them.
+
+74
+00:02:40,929 --> 00:02:42,929
+In fact, Unity has many static
+
+75
+00:02:42,929 --> 00:02:44,929
+methods available to you that provide a wide
+
+76
+00:02:44,929 --> 00:02:46,929
+assortment of utilities and features.
+
+77
+00:02:47,429 --> 00:02:49,429
+It is important to note that you cannot use
+
+78
+00:02:49,429 --> 00:02:51,429
+non-static class member variables
+
+79
+00:02:51,429 --> 00:02:53,732
+inside of static methods.
+
+80
+00:02:53,732 --> 00:02:56,202
+Remember that a static method belongs to the class
+
+81
+00:02:56,202 --> 00:02:57,800
+while non-static variables belong
+
+82
+00:02:57,800 --> 00:02:59,800
+to the instances of the class.
+
+83
+00:03:00,576 --> 00:03:02,756
+You can also make an entire class static.
+
+84
+00:03:02,756 --> 00:03:04,756
+To do so simply put the static keyword
+
+85
+00:03:04,756 --> 00:03:06,327
+in front of the class name.
+
+86
+00:03:06,327 --> 00:03:08,327
+The result is that the class becomes static
+
+87
+00:03:08,327 --> 00:03:11,178
+and cannot have instances of it created.
+
+88
+00:03:11,178 --> 00:03:13,178
+This is useful if you wish to make a class completely
+
+89
+00:03:13,178 --> 00:03:15,178
+make up of static member variables and methods
+
+90
+00:03:15,178 --> 00:03:17,178
+
+like the input class.
