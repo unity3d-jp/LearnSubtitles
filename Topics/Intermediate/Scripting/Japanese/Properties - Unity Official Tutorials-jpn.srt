@@ -1,319 +1,319 @@
 1
 00:00:00,552 --> 00:00:02,251
-It is common to need a way to access
+あるクラスの外部に存在するコードから
 
 2
 00:00:02,251 --> 00:00:04,251
-the member variables of a class from code that
+そのクラスのメンバ変数にアクセスするのためには
 
 3
 00:00:04,251 --> 00:00:06,251
-exists outside of the class.
+なんらかの方法を要するものです。
 
 4
 00:00:06,251 --> 00:00:08,251
-One way you could do this would be to make the
+このことを実行できる方法の一つには、変数を publicにして
 
 5
 00:00:08,251 --> 00:00:11,186
-variables public and just access them directly.
+直接アクセスする、というものがあるかと思います。
 
 6
 00:00:11,186 --> 00:00:13,951
-This is sufficient, but there is a better way.
+それで十分ですが、より良い方法があります。
 
 7
 00:00:13,951 --> 00:00:15,951
-That better way is Properties.
+その方法とは、プロパティです。
 
 8
 00:00:16,617 --> 00:00:18,617
-Properties themselves act like variables
+プロパティはそれ自身が変数であるかのように振る舞い、
 
 9
 00:00:18,617 --> 00:00:21,859
-and encapsulate member variables, which we call Fields.
+フィールドと我々が呼ぶメンバ変数をカプセル化します。
 
 10
 00:00:21,859 --> 00:00:24,285
-This encapsulation gives us a greater amount of
+このカプセル化によって我々は、いつ、どのようにフィールドがアクセス
 
 11
 00:00:24,285 --> 00:00:26,843
-control over when and how a field is accessed
+されたか、ということに関してより多くの操作権限を得られます。
 
 12
 00:00:27,578 --> 00:00:29,578
-Say we had a field named Experience that existed
+Playerクラスに Experience という名前の
 
 13
 00:00:29,578 --> 00:00:31,578
-in the class Player and we wanted a way
+フィールドが存在し、我々はクラスの外側に存在する
 
 14
 00:00:31,578 --> 00:00:33,578
-for code existing outside of the class
+コードからそのフィールドにアクセスする
 
 15
 00:00:33,578 --> 00:00:35,080
-to access it.
+方法を求めているとします。
 
 16
 00:00:35,080 --> 00:00:37,080
-We would want to create a property.
+我々はプロパティの作成を望むでしょう。
 
 17
 00:00:37,580 --> 00:00:39,580
-The syntax for a property works like this.
+プロパティの文法はこの様に動作します。
 
 18
 00:00:40,080 --> 00:00:42,705
-First you specify the access modifier.
+まず、アクセス修飾子を明らかにします。
 
 19
 00:00:42,705 --> 00:00:44,705
-Then you specify the type,
+そして、型を明確にして
 
 20
 00:00:44,705 --> 00:00:46,953
-followed by the name of the property.
+プロパティの名前を付けます。
 
 21
 00:00:46,953 --> 00:00:48,953
-A good rule is to name the property the same
+頭文字を除いて、プロパティをフィールドと
 
 22
 00:00:48,953 --> 00:00:51,773
-thing as the field, except with a capital letter.
+同じ名前にするのは良い習慣です。
 
 23
 00:00:52,273 --> 00:00:54,273
-After the name of the property you place open
+プロパティの名前の後には、関数と同様に
 
 24
 00:00:54,273 --> 00:00:56,273
-and closed braces, just like a function.
+中括弧を書きます。
 
 25
 00:00:56,773 --> 00:00:59,821
-Inside these braces goes the properties accessors.
+中括弧の中でプロパティのアクセサを書いていきましょう。
 
 26
 00:01:00,501 --> 00:01:02,501
-A property can have two accessors,
+プロパティは2つのアクセサ、すなわち
 
 27
 00:01:02,501 --> 00:01:03,882
-Get and Set.
+Get と Set を持つことができます。
 
 28
 00:01:03,882 --> 00:01:05,882
-These are the functions that are called when a property
+これらのアクセサはそれぞれ、プロパティが参照されたり
 
 29
 00:01:05,882 --> 00:01:08,997
-is referenced and allocated to respectively.
+値が割り当てられる時に呼ばれる関数です。
 
 30
 00:01:09,649 --> 00:01:11,649
-They are declared using the keywords get
+それらは中括弧に続いて get と set という
 
 31
 00:01:11,649 --> 00:01:13,649
-and set followed by braces
+キーワードを使用することで宣言されます。
 
 32
 00:01:14,329 --> 00:01:16,329
-Within the get accessor we return the
+get アクセサの内部では、カプセル化している
 
 33
 00:01:16,329 --> 00:01:18,329
-field that we're encapsulating.
+フィールドを返します。
 
 34
 00:01:18,329 --> 00:01:20,329
-In the set accessor we allocate to the field
+set アクセサの中では value というキーワードを用いて
 
 35
 00:01:20,329 --> 00:01:22,329
-using the keyword Value.
+フィールドに割り当てます。
 
 36
 00:01:23,602 --> 00:01:25,602
-That is all that is required to implement a property.
+プロパティを実装するのに必要なことは以上です。
 
 37
 00:01:26,268 --> 00:01:28,954
-Now in another script we can use the property
+そうすると、他のスクリプトからは普段通りフィールドを
 
 38
 00:01:28,954 --> 00:01:31,955
-in place of the field exactly as we would do normally.
+使用する通り、その代わりにプロパティを使うことができます。
 
 39
 00:01:32,828 --> 00:01:34,828
-You might be wondering why you would go through
+プロパティを作成する手順を踏むのは何故なのか、
 
 40
 00:01:34,828 --> 00:01:36,828
-the process of creating a property when you could have just
+単純に public な変数を使い始められるのはどんな時か
 
 41
 00:01:36,828 --> 00:01:38,828
-used the the public variable to begin with?
+疑問に思っているかもしれません。
 
 42
 00:01:38,828 --> 00:01:40,828
-There are two things you can do with properties that you cannot
+プロパティにできて、public な変数に出来ないことが
 
 43
 00:01:40,828 --> 00:01:42,618
-do with public variables.
+2つあります。
 
 44
 00:01:42,618 --> 00:01:44,618
-The first is that by omitting either the get
+1つ目は、get もしくは set を書かないことで
 
 45
 00:01:44,618 --> 00:01:46,618
-or the set you can effectively make
+効率良くフィールドを 書き込み限定、または
 
 46
 00:01:46,618 --> 00:01:48,618
-the field write only or read only.
+読み取り限定にできることです。
 
 47
 00:01:49,118 --> 00:01:51,118
-If the field is private you cannot read
+フィールドが private ならば、get アクセサ無しでは
 
 48
 00:01:51,118 --> 00:01:53,118
-it without a get accessor, and you cannot
+フィールドを読み取ることは出来ませんし、set アクセサ
 
 49
 00:01:53,118 --> 00:01:55,118
-write to it without a set accessor.
+無しでは書き込むことも出来ません。
 
 50
 00:01:56,806 --> 00:01:58,806
-The second is that accessors can also be
+2つ目は、アクセサは関数と同じ様に扱うこともできる
 
 51
 00:01:58,806 --> 00:02:00,668
-treated just like functions.
+ということです。
 
 52
 00:02:00,668 --> 00:02:02,668
-That means that you can run other lines of code
+それは、コード内の他の行を実行できるし、他の関数を
 
 53
 00:02:02,668 --> 00:02:05,247
-or put calls to other functions in them.
+呼ぶこともできるという意味です。
 
 54
 00:02:05,968 --> 00:02:07,968
-An extension of this idea is to start
+このアイデアの延長には set アクセサを
 
 55
 00:02:07,968 --> 00:02:10,579
-co-routienes using the set accessor.
+用いてコルーチンを始めるというものがあります。
 
 56
 00:02:12,087 --> 00:02:14,888
-The field encapsulation need not be direct.
+フィールドのカプセル化は直接的である必要はありません。
 
 57
 00:02:14,888 --> 00:02:16,888
-Consider a game where the player gains experience
+プレーヤーが経験値を得て、1000ポイントの経験値ごとに
 
 58
 00:02:16,888 --> 00:02:20,295
-and levels up after every 1000 experience points.
+レベルアップするゲームを想像して下さい。
 
 59
 00:02:20,295 --> 00:02:23,132
-If you had a field to represent the experience points
+経験値を表すフィールドがあり、
 
 60
 00:02:23,132 --> 00:02:25,132
-you could have a property to represent the level
+プレーヤーのレベルを表すプロパティ
 
 61
 00:02:25,132 --> 00:02:26,566
-of the player.
+があるとします。
 
 62
 00:02:26,566 --> 00:02:29,007
-Instead of returning the number of experience points
+経験値の値を返す代わりに、
 
 63
 00:02:29,007 --> 00:02:31,007
-the level properties get accessor could return
+レベルプロパティの get アクセサは1000で除算した
 
 64
 00:02:31,007 --> 00:02:33,565
-the experience field divided by 1000.
+experience フィールドを返します。
 
 65
 00:02:33,565 --> 00:02:35,565
-Thus it would return the numerical level
+このように、プロパティは数値のレベルを返し、
 
 66
 00:02:35,565 --> 00:02:38,052
-and not the amount of experience the player has.
+プレーヤーの経験値の累計は返しません。
 
 67
 00:02:38,631 --> 00:02:40,631
-Further more the level property could have a
+さらに、レベルプロパティにはレベルを受け取り
 
 68
 00:02:40,631 --> 00:02:42,631
-set accessor that receives a level
+プレーヤーの経験値の累計を
 
 69
 00:02:42,631 --> 00:02:44,631
-and calculates the amount of experience the player
+計算する setアクセサがあり、setアクセサは
 
 70
 00:02:44,631 --> 00:02:47,539
-would have and stores that in the experience field.
+experience フィールドに結果を記録します。
 
 71
 00:02:48,039 --> 00:02:50,039
-Another feature of properties is that they can be
+もう一つのプロパティの特徴は、自動で
 
 72
 00:02:50,039 --> 00:02:51,332
-autoimplimented.
+実装されることです。
 
 73
 00:02:51,332 --> 00:02:53,332
-To create an autoimplimented property you
+自動実装されるプロパティを作るために
 
 74
 00:02:53,332 --> 00:02:55,332
-would use a shorthand syntax.
+短い書き方を使えます。
 
 75
 00:02:55,332 --> 00:02:57,332
-In this syntax the get and set accessors
+この書き方では get と set アクセサの後にはセミコロン(;)
 
 76
 00:02:57,332 --> 00:02:59,925
-are followed only by a semicolon.
+のみを記述します。
 
 77
 00:03:00,425 --> 00:03:02,425
-Creating a property in this way makes it behave
+この方法でプロパティを作成することで、プロパティを
 
 78
 00:03:02,425 --> 00:03:04,425
-exactly like a field, the difference being that
+本当のフィールドの様に振る舞わせたり、get か set アクセサを
 
 79
 00:03:04,425 --> 00:03:06,425
-you can make a property read or write only by
+取り除くことだけでプロパティを読み取りか
 
 80
 00:03:06,425 --> 00:03:09,389
-removing either the get or set accessor.
+書き込み専用に変えることもできます。
