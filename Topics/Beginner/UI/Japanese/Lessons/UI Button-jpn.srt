@@ -1,7 +1,7 @@
 1
 00:00:02,265 --> 00:00:06,640
 The button element detects user input and can trigger an event.
-ボタン要素は、ユーザ入力イベントをトリガすることがを検出する事ができます。
+ボタン要素は、ユーザ入力やイベントトリガを検出する事ができます。
 2
 00:00:07,140 --> 00:00:09,140
 User input is usually the pointer
