@@ -1,18 +1,18 @@
 1
 00:00:00,566 --> 00:00:02,177
-In this beginner assignment we are going
+この初心者課題では、
 
 2
 00:00:02,177 --> 00:00:04,177
-to make a very simple but playable game to
+基本的な初心者チュートリアルから、
 
 3
 00:00:04,177 --> 00:00:06,177
-use many of the basic concepts from the
+基本概念を多く使用し、非常に単純ではありますが
 
 4
 00:00:06,177 --> 00:00:08,177
-beginner tutorial modules.
+プレイできるゲームを作ります。
 
 5
 00:00:08,177 --> 00:00:10,177
