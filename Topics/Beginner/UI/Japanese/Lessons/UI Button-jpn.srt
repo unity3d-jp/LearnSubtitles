@@ -5,10 +5,11 @@ The button element detects user input and can trigger an event.
 2
 00:00:07,140 --> 00:00:09,140
 User input is usually the pointer
-ユーザー入力はポインタ(マウスやトラックパッド)を操作して行います。
+ユーザー入力はポインタ(マウスやトラックパッドの)を
 3
 00:00:09,140 --> 00:00:11,985
 hovering over or clicking on the button graphic.
+ボタン画像の上を通過させたり、クリックする事で行います。
 
 4
 00:00:12,803 --> 00:00:15,204
