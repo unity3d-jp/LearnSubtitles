@@ -14,11 +14,11 @@ hovering over or clicking on the button graphic.
 4
 00:00:12,803 --> 00:00:15,204
 To create a pre-made button use the
-
+あらかじめ用意されたボタンを作成するには
 5
 00:00:15,204 --> 00:00:20,486
 Create menu to Create - UI - Button.
-
+ヒエラルキーにあるCreate→UI→Buttonと選択してください。
 6
 00:00:22,442 --> 00:00:24,995
 Like all UI elements the button element must
