@@ -12,31 +12,31 @@
 
 4
 00:00:06,177 --> 00:00:08,177
-プレイできるゲームを作ります。
+プレイすることができるゲームを作ります。
 
 5
 00:00:08,177 --> 00:00:10,177
-We will be making a roll-a-ball game where
+私達は、特定のGameObjectを収集する
 
 6
 00:00:10,177 --> 00:00:12,479
-we will collect special game objects.
+玉転がしゲームを作っていきます。
 
 7
 00:00:12,732 --> 00:00:14,924
-We will see how to create new game objects,
+新しいGameObjectを作成するためには、
 
 8
 00:00:14,924 --> 00:00:17,198
-add components to these game objects,
+これらのGameObjectへコンポーネントを加え、
 
 9
 00:00:17,198 --> 00:00:19,432
-set the values on their properties and position
+そのプロパティに値を設定し、
 
 10
 00:00:19,432 --> 00:00:22,582
-these game objects in the scene to create a game.
+ゲームを実行するとGameObjectが配置されます。
 
 11
 00:00:22,582 --> 00:00:24,582
