@@ -22,99 +22,101 @@ Create menu to Create - UI - Button.
 6
 00:00:22,442 --> 00:00:24,995
 Like all UI elements the button element must
-
-7
+全てのUI要素のようにボタン要素も
+7     
 00:00:24,995 --> 00:00:26,995
 be the child of a canvas.
-
+キャンバスの子要素にしなければいけません。
 8
 00:00:28,973 --> 00:00:31,964
 If one is not present when creating a pre-made button
-
+ボタンを作りたい時にキャンバスが無くても
 9
 00:00:31,964 --> 00:00:33,964
 a new canvas will be created.
-
+新しいキャンバスが自動的に作成されます。
 10
 00:00:36,688 --> 00:00:38,993
 For more information on the canvas
-
+キャンバス上での多くの情報が必要であれば
 11
 00:00:38,993 --> 00:00:41,645
 please see the information linked below.
-
+UI要素を選択してそれに紐づく様々な情報を確認してください。
 12
 00:00:43,426 --> 00:00:46,258
 A button element requires an Image script
-
+ボタン要素にはイメージスクリプトと
 13
 00:00:46,258 --> 00:00:48,258
 and a Button script.
-
+ボタンスクリプトが必要です。
 14
 00:00:49,697 --> 00:00:51,697
 Pre-made button elements also include
-
+ボタン要素は子要素に
 15
 00:00:51,697 --> 00:00:54,360
 an optional text element attached as a child.
-
+テキスト要素を無い方しています。
 16
 00:00:55,136 --> 00:00:57,136
 This text element is optional
-
+このテキスト要素はオプションとして作成されますが、
 17
 00:00:57,136 --> 00:00:59,136
 and can be removed if the button does not need
-
+ボタン要素に追加テキストが
 18
 00:00:59,136 --> 00:01:01,136
 any additional text.
-
+必要なければ削除できます。
 19
 00:01:03,142 --> 00:01:06,307
 For more information on the image and text items
-
+イメージやテキストアイテム情の多くの情報が必要であれば
 20
 00:01:06,307 --> 00:01:08,613
 please see the infuriation linked below.
+UI要素を選択してそれに紐づく様々な情報を確認してください。
 
 21
 00:01:10,384 --> 00:01:12,605
 Inter-actable determines whether or not
-
+Inter-actableのチェックボックスをTrue・Falseする事で、
 22
 00:01:12,605 --> 00:01:15,019
 this particular button will accept input.
-
+このボタンが入力を受け付けるかどうかを決定します。
 23
 00:01:15,754 --> 00:01:17,961
 To prevent interaction with this button
-
+Inter-actableのチェックボックスをFalseにすると
 24
 00:01:17,961 --> 00:01:19,961
 set Inter-actable to False.
+ボタンスクリプトの影響を無視する事ができます。
 
 25
 00:01:20,765 --> 00:01:22,973
 When Inter-actable is set to False
-
+Inter-actableのチェックボックスをFalseにした時は、
 26
 00:01:22,973 --> 00:01:25,346
 the transition state for this button element
-
+transition項目内の設定が無効な状態で
 27
 00:01:25,346 --> 00:01:27,346
 will be set to the Disabled stated.
-
+スタートします。
 28
 00:01:28,150 --> 00:01:30,150
 By default the button element will display
-
+ボタン要素のデフォルトはボタン表示時を
 29
 00:01:30,150 --> 00:01:32,150
 the normal state of the button.
-
+通常状態としています。
 30
 00:01:32,995 --> 00:01:34,995
 The look of the normal state is automatically
