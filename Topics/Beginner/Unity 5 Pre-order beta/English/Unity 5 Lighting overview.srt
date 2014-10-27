@@ -1,0 +1,296 @@
+1
+00:00:00,680 --> 00:00:05,300
+Lighting in Unity 5 is more fully featured than in any previous versions of Unity.
+
+2
+00:00:05,300 --> 00:00:11,620
+The lighting pipeline now includes Realtime Global Illumination in addition to traditional Baked lightmapping.
+
+3
+00:00:11,780 --> 00:00:20,220
+This, combined with the physically based Standard Shader, gives you more power and versatility to easily light more complex scenes.
+
+4
+00:00:20,480 --> 00:00:26,700
+One of the key differences in the lighting pipeline is Unity’s new Realtime Global Illumination or “GI”.
+
+5
+00:00:27,160 --> 00:00:29,740
+GI is available for all lights working in the scene. 
+
+6
+00:00:30,240 --> 00:00:37,660
+This means that all lights in the scene affect the objects within range with indirect illumination as well as direct illumination.
+
+7
+00:00:38,400 --> 00:00:42,180
+Direct Illumination comes from the light shining on the objects in the scene.
+
+8
+00:00:42,300 --> 00:00:48,480
+Indirect Illumination, however, is the light reflected, or bounced off of, other surfaces in the scene.
+
+9
+00:00:48,640 --> 00:00:54,280
+Direct and Indirect light will blend together to create a much more realistic look.
+
+10
+00:00:54,420 --> 00:00:57,500
+A new scene in Unity comes with a default skybox 
+
+11
+00:00:57,560 --> 00:01:04,620
+and a default directional light that is aligned with the skybox, in addition to the default main camera.
+
+12
+00:01:04,780 --> 00:01:10,740
+Each scene also contains ambient light, which can be comprised of a number of factors.
+
+13
+00:01:10,900 --> 00:01:15,120
+In the Lighting panel’s Scene tab, we have options for ambient light
+
+14
+00:01:15,280 --> 00:01:17,820
+with a choice of skybox colour
+
+15
+00:01:17,980 --> 00:01:20,860
+a user defined gradient of 3 colours
+
+16
+00:01:21,020 --> 00:01:24,060
+or a single colour.
+
+17
+00:01:26,100 --> 00:01:36,340
+This means that any object added to the scene will receive this light, unless values are set to black.
+
+18
+00:01:40,320 --> 00:01:44,315
+When lighting scenes in Unity 5, we can work with real-time lighting
+
+19
+00:01:44,420 --> 00:01:47,880
+baked lighting or a mixture of both approaches.
+
+20
+00:01:48,060 --> 00:01:54,000
+Real-time lighting is more easily modified at runtime, but comes at a cost to performance.
+
+21
+00:01:54,100 --> 00:01:57,660
+Baked lighting pre-calculates much more detailed lighting information 
+
+22
+00:01:57,680 --> 00:02:01,100
+and saves it to a lightmap - a texture on disk.
+
+23
+00:02:01,160 --> 00:02:04,340
+This lightmap information is read from disk at runtime
+
+24
+00:02:04,420 --> 00:02:10,260
+and this approach avoids the need to do calculations later, saving performance at runtime.
+
+25
+00:02:10,440 --> 00:02:15,740
+Using Baked lighting exclusively would be more appropriate for devices with lower performance capabilities, 
+
+26
+00:02:15,800 --> 00:02:17,740
+such as mobile platforms.
+
+27
+00:02:17,860 --> 00:02:25,360
+Lights can be switched between Realtime, Baked and Mixed lighting on a per light basis. 
+
+28
+00:02:27,820 --> 00:02:32,640
+The light mapping system can work in either "Iterative" mode, or "On Demand" mode.
+
+29
+00:02:32,800 --> 00:02:40,120
+Iterative mode will bake any lighting changes in the background as you edit properties.
+
+30
+00:02:48,440 --> 00:02:53,840
+On Demand mode will only preview changes once the "Bake" button in the Lighting panel has been selected
+
+31
+00:02:53,940 --> 00:03:00,540
+ in a similar way to how previous versions of Unity functioned with baked lighting. 
+
+32
+00:03:08,520 --> 00:03:12,900
+In this scene, we have a directional light coming in through the sky light at the top
+
+33
+00:03:12,940 --> 00:03:18,480
+casting shadows that you can see around the chamber area from the furniture inside.
+
+34
+00:03:19,280 --> 00:03:22,460
+This light contributes to the illumination for the rest of the scene 
+
+35
+00:03:22,473 --> 00:03:27,113
+because it bounces from the surfaces it lights directly onto others.
+
+36
+00:03:27,113 --> 00:03:33,359
+If I decrease the intensity of this light, you can see the illumination of the room decreases also.
+
+37
+00:03:33,359 --> 00:03:36,360
+Likewise if we simply rotate the directional light
+
+38
+00:03:36,360 --> 00:03:41,094
+you can see that as it has moved to directly light a different part of the scene
+
+39
+00:03:41,718 --> 00:03:46,838
+we can see the light now bounces to illuminate the ceiling more effectively.
+
+40
+00:03:50,474 --> 00:03:55,914
+The rest of the room is lit with Point and Spot lights as well as Emissive surfaces.
+
+41
+00:03:55,914 --> 00:04:02,554
+This means that we can give our scene a very different feel by changing some of the colour values in the contributing lights. 
+
+42
+00:04:02,554 --> 00:04:06,055
+As these elements are part of the realtime lightmapping
+
+43
+00:04:06,055 --> 00:04:10,295
+we can also control these lights at runtime using coding or animation.
+
+44
+00:04:10,534 --> 00:04:15,814
+This allows us to create complex changes in mood during our games and projects. 
+
+45
+00:04:15,814 --> 00:04:20,654
+As the new standard shader can mimic a wide array of physical surfaces in your projects
+
+46
+00:04:20,654 --> 00:04:26,134
+you can expect certain materials to have different amounts of reflectivity as far as light is concerned
+
+47
+00:04:26,134 --> 00:04:30,714
+To help balance this, you can either adjust Bounce Intensity on a per light basis
+
+48
+00:04:30,714 --> 00:04:33,655
+or globally using the settings in the Lighting Panel.
+
+49
+00:04:33,700 --> 00:04:39,300
+Albedo scale lets you artificially increase the potential bounce for dark scenes.
+
+50
+00:04:40,994 --> 00:04:47,994
+Indirect scale allows you to boost or decrease indirect light in the scene for realtime and baked lightmaps.
+
+51
+00:04:47,994 --> 00:04:51,760
+Direct scale allows you to boost the light in baked lightmaps.
+
+52
+00:04:51,760 --> 00:04:57,660
+AO Exponent controls the amount of Ambient Occlusion and also only applies to baked lightmaps
+
+53
+00:04:57,660 --> 00:05:01,514
+allowing you to darken bounced lighting in occluded areas.
+
+54
+00:05:01,514 --> 00:05:06,314
+In addition to lights, we can use Emissive surfaces to contribute to lighting.
+
+55
+00:05:06,314 --> 00:05:09,554
+In this scene we can see a lit panel around the ceiling of the room
+
+56
+00:05:09,600 --> 00:05:13,260
+and various strips of geometry in the wall panels
+
+57
+00:05:13,260 --> 00:05:17,398
+ all of these utilise the standard shader’s Emissive property
+
+58
+00:05:17,398 --> 00:05:22,158
+You can see that by adjusting the emission scale - the float value next to the property -
+
+59
+00:05:22,280 --> 00:05:28,580
+and adding a touch of colour, we can vastly change the mood of our scene.
+
+60
+00:05:38,933 --> 00:05:43,813
+The final contributory factor in lighting your Unity scenes are Probes. 
+
+61
+00:05:43,813 --> 00:05:48,233
+There are now two types of Probe in Unity - Light and Reflection probes. 
+
+62
+00:05:48,233 --> 00:05:51,913
+Light probes function in much the same way as in previous versions of Unity,
+
+63
+00:05:51,913 --> 00:05:56,793
+acting as a grid of points via which you can sample the light at different positions in the world,
+
+64
+00:05:56,940 --> 00:06:03,820
+and cast it upon dynamic objects such as characters and other moving elements, with low performance cost.
+
+65
+00:06:03,820 --> 00:06:07,260
+Reflection probes act as a single point of reference for reflection,
+
+66
+00:06:07,260 --> 00:06:13,900
+with an accompanying cubic volume to allow you to specify what should be included in the reflection.
+
+67
+00:06:13,900 --> 00:06:17,855
+These probes sample elements surrounding them using box projection
+
+68
+00:06:17,953 --> 00:06:21,793
+and store the information in a cubemap.
+
+69
+00:06:21,793 --> 00:06:26,573
+Materials with reflective shaders that are on objects within the Reflection probe’s volume, 
+
+70
+00:06:26,659 --> 00:06:30,979
+can then reference that cubemap to create reflective surfaces. 
+
+71
+00:06:30,979 --> 00:06:35,055
+As such, you should keep this in mind when designing the lighting of your scenes,
+
+72
+00:06:35,055 --> 00:06:40,015
+as the reflectivity of surfaces should be factored into the overall lighting.
+
+73
+00:06:41,634 --> 00:06:48,634
+So ultimately, lighting in Unity 5 is a balance of ambient light, direct and indirect light and reflections.
+
+74
+00:06:48,634 --> 00:06:55,574
+For more information on the new lighting systems in Unity 5, please see the information linked below.
+

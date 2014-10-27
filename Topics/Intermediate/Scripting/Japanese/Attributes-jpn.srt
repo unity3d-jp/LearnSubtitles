@@ -1,0 +1,355 @@
+1
+00:00:00,193 --> 00:00:02,520
+Attributes allow you to attach information to a
+
+2
+00:00:02,520 --> 00:00:05,812
+method, variable or class as you declare it.
+
+3
+00:00:06,989 --> 00:00:09,210
+This is useful for taking existing code
+
+4
+00:00:09,210 --> 00:00:11,940
+and enhancing it or changing it in some way.
+
+5
+00:00:13,117 --> 00:00:15,117
+Attributes themselves vary greatly
+
+6
+00:00:15,110 --> 00:00:17,110
+in their effects and use.
+
+7
+00:00:18,038 --> 00:00:20,386
+Here we have a Unity scene with an orb in it.
+
+8
+00:00:20,911 --> 00:00:24,016
+The orb has a Spin Script attached to it.
+
+9
+00:00:24,709 --> 00:00:27,112
+Notice the speed variable of the script
+
+10
+00:00:27,112 --> 00:00:29,112
+which is currently set to 0.
+
+11
+00:00:30,455 --> 00:00:32,455
+In the Spin Script we can see that we
+
+12
+00:00:32,455 --> 00:00:34,635
+first declare the integer speed variable
+
+13
+00:00:34,635 --> 00:00:36,207
+and set it to 0.
+
+14
+00:00:36,859 --> 00:00:39,026
+Then in the update method
+
+15
+00:00:39,026 --> 00:00:41,561
+we rotate the object about the Y axis
+
+16
+00:00:41,561 --> 00:00:43,561
+based on the current speed.
+
+17
+00:00:43,561 --> 00:00:45,561
+In this way we could give the speed variable
+
+18
+00:00:45,561 --> 00:00:48,419
+any value we wanted and the objects rotating
+
+19
+00:00:48,419 --> 00:00:50,419
+speed would change as a result.
+
+20
+00:00:51,402 --> 00:00:54,213
+This works fine, but what if we wanted to
+
+21
+00:00:54,213 --> 00:00:56,213
+limit the value of the speed variable?
+
+22
+00:00:56,213 --> 00:00:58,213
+We could write code to detect the current value
+
+23
+00:00:58,213 --> 00:01:01,426
+of the variable and prevent it from going out of range.
+
+24
+00:01:01,426 --> 00:01:04,531
+Or we could attach an attribute to it.
+
+25
+00:01:05,418 --> 00:01:07,873
+Attributes are written either directly above
+
+26
+00:01:07,873 --> 00:01:11,051
+or directly before the code that they are modifying
+
+27
+00:01:11,051 --> 00:01:14,182
+and generally don't affect any other parts of the script.
+
+28
+00:01:14,862 --> 00:01:16,862
+In this case we will be using
+
+29
+00:01:16,862 --> 00:01:18,862
+the range attribute.
+
+30
+00:01:20,343 --> 00:01:22,343
+The syntax for all attributes starts with
+
+31
+00:01:22,343 --> 00:01:24,343
+an open square bracket.
+
+32
+00:01:24,343 --> 00:01:26,343
+Then for the range attribute
+
+33
+00:01:26,343 --> 00:01:29,197
+we write the keyword Range followed by parenthesis.
+
+34
+00:01:30,609 --> 00:01:33,320
+Inside the parenthesis we write our minimum
+
+35
+00:01:33,320 --> 00:01:35,042
+and maximum values.
+
+36
+00:01:35,459 --> 00:01:39,116
+We finish the attribute with a closed square bracket.
+
+37
+00:01:39,865 --> 00:01:41,865
+Note in this case we have put the
+
+38
+00:01:41,865 --> 00:01:44,544
+attribute above the variable declaration.
+
+39
+00:01:44,544 --> 00:01:47,542
+We could have easily put it just before as well.
+
+40
+00:01:50,584 --> 00:01:52,404
+If we go back in to Unity
+
+41
+00:01:52,404 --> 00:01:54,404
+we can see that we are no longer presented with
+
+42
+00:01:54,404 --> 00:01:57,380
+the same speed property in the inspector view.
+
+43
+00:01:57,770 --> 00:02:00,333
+We now have a slider which goes from our minimum
+
+44
+00:02:00,333 --> 00:02:02,333
+to our maximum values.
+
+45
+00:02:02,833 --> 00:02:05,878
+Running our scene, we can see that moving the slider
+
+46
+00:02:05,878 --> 00:02:08,209
+directly changes the speed of the variable,
+
+47
+00:02:08,209 --> 00:02:11,322
+which in turn changes the rotation of the object.
+
+48
+00:02:12,595 --> 00:02:14,595
+Another attribute we will look at is the
+
+49
+00:02:14,595 --> 00:02:17,290
+Execute In Edit Mode attribute.
+
+50
+00:02:17,841 --> 00:02:19,841
+This attribute causes the script  that it is
+
+51
+00:02:19,841 --> 00:02:22,564
+attached to to run even when the scene is
+
+52
+00:02:22,564 --> 00:02:24,564
+not in play mode.
+
+53
+00:02:25,285 --> 00:02:28,185
+Here we have another scene with an orb in it.
+
+54
+00:02:28,185 --> 00:02:30,088
+This orb has a script called
+
+55
+00:02:30,088 --> 00:02:32,088
+Colour Script attached to it.
+
+56
+00:02:33,058 --> 00:02:36,487
+In the Colour Script we set the colour of the object's
+
+57
+00:02:36,487 --> 00:02:38,487
+shared material to red.
+
+58
+00:02:39,291 --> 00:02:41,291
+If we wanted to see this change in Unity
+
+59
+00:02:41,291 --> 00:02:43,961
+without running our scene we could apply the
+
+60
+00:02:43,961 --> 00:02:46,596
+Execute In Edit Mode attribute to it.
+
+61
+00:02:47,096 --> 00:02:49,416
+To do this we open a square bracket either
+
+62
+00:02:49,416 --> 00:02:51,778
+above or before our class name.
+
+63
+00:02:52,482 --> 00:02:54,482
+We put it before the class name
+
+64
+00:02:54,482 --> 00:02:57,866
+because the Execute In Edit Mode attribute
+
+65
+00:02:57,866 --> 00:02:59,866
+is applied to all of the code in a script,
+
+66
+00:02:59,866 --> 00:03:01,866
+not just one part.
+
+67
+00:03:02,711 --> 00:03:06,370
+We then write the keyword ExecuteInEditMode
+
+68
+00:03:06,370 --> 00:03:08,370
+followed by a closing square bracket.
+
+69
+00:03:09,059 --> 00:03:11,685
+This attribute does not have any parameters 
+
+70
+00:03:11,685 --> 00:03:14,642
+and therefore does not need any parenthesis.
+
+71
+00:03:15,432 --> 00:03:19,243
+Back in Unity we can see that our object has turned red.
+
+72
+00:03:19,243 --> 00:03:22,936
+Our script was executed even though we never ran our scene.
+
+73
+00:03:23,809 --> 00:03:26,015
+It is worth noting that you need to be careful
+
+74
+00:03:26,015 --> 00:03:28,772
+with the ExecuteInEditMode attribute.
+
+75
+00:03:28,772 --> 00:03:32,210
+Normally scripts are run when the scene is run.
+
+76
+00:03:32,210 --> 00:03:34,588
+When you stop running a scene any changes
+
+77
+00:03:34,588 --> 00:03:37,590
+made to the game object in a scene are undone.
+
+78
+00:03:38,145 --> 00:03:40,999
+Scripts that are executed in edit mode however
+
+79
+00:03:40,999 --> 00:03:45,210
+will be able to modify, create and delete objects in your scene.
+
+80
+00:03:45,210 --> 00:03:47,434
+Since the changes are not in play mode
+
+81
+00:03:47,434 --> 00:03:50,467
+they will not revert and will instead be permanent.
+
+82
+00:03:51,630 --> 00:03:53,630
+For instance, the orb in this scene
+
+83
+00:03:53,630 --> 00:03:57,178
+has been modified to actually be red permanently.
+
+84
+00:03:57,178 --> 00:03:59,523
+If we drag another orb in to our scene
+
+85
+00:03:59,523 --> 00:04:03,537
+if will also be red, since the orb asset was changed.
+
+86
+00:04:04,203 --> 00:04:06,536
+To fix this we would have to manually
+
+87
+00:04:06,536 --> 00:04:08,218
+change our colour back.
+
+88
+00:04:08,953 --> 00:04:11,884
+You could find more information on the ExecuteInEditMode
+
+89
+00:04:11,884 --> 00:04:15,553
+attribute in the documentation linked below.

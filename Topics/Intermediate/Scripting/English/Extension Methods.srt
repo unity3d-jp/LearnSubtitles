@@ -1,0 +1,187 @@
+1
+00:00:00,249 --> 00:00:02,395
+Extension Methods are a way of adding functionality
+
+2
+00:00:02,395 --> 00:00:04,506
+to a type without having to create a drive type
+
+3
+00:00:04,506 --> 00:00:06,186
+or change the original type.
+
+4
+00:00:06,744 --> 00:00:08,744
+They are perfect for situations where you need to add
+
+5
+00:00:08,744 --> 00:00:12,060
+functionality to a class but cannot edit the class.
+
+6
+00:00:12,060 --> 00:00:13,895
+Consider the class transform which is built
+
+7
+00:00:13,895 --> 00:00:16,892
+in to Unity so we do not have access to it's source code.
+
+8
+00:00:17,392 --> 00:00:19,392
+Let's say we wanted an easier way to reset the
+
+9
+00:00:19,392 --> 00:00:21,584
+position, rotation and scale of a transform
+
+10
+00:00:21,584 --> 00:00:23,584
+using a function.
+
+11
+00:00:23,584 --> 00:00:25,486
+The ideal place for this function would be in the
+
+12
+00:00:25,486 --> 00:00:28,596
+transform class, but since we can't directly add to the class,
+
+13
+00:00:28,596 --> 00:00:30,347
+and it wouldn't make sense to have this function
+
+14
+00:00:30,347 --> 00:00:33,019
+in a derived class, we'll make an extension for it.
+
+15
+00:00:33,809 --> 00:00:37,645
+Extension methods must be placed in a non-generic static class.
+
+16
+00:00:37,645 --> 00:00:40,675
+It is common to create a class specifically to contain them.
+
+17
+00:00:41,175 --> 00:00:44,076
+While extension methods are used like instance methods,
+
+18
+00:00:44,076 --> 00:00:46,282
+they too are declared static.
+
+19
+00:00:46,282 --> 00:00:48,282
+What makes a function an extension method 
+
+20
+00:00:48,282 --> 00:00:50,282
+instead of a static method is the use
+
+21
+00:00:50,282 --> 00:00:52,795
+of the This keyword in the parameter.
+
+22
+00:00:53,295 --> 00:00:55,295
+For our example we will create a static
+
+23
+00:00:55,295 --> 00:00:57,583
+class called ExtensionMethods.
+
+24
+00:00:57,583 --> 00:00:59,583
+We then create our extension method named
+
+25
+00:00:59,583 --> 00:01:01,721
+ResetTransformation.
+
+26
+00:01:01,721 --> 00:01:04,027
+Notice that this method is declared static.
+
+27
+00:01:04,027 --> 00:01:06,027
+Also notice that the first parameter has the
+
+28
+00:01:06,027 --> 00:01:08,717
+This keyword followed by the transform class
+
+29
+00:01:08,717 --> 00:01:10,924
+and an arbitrary parameter name.
+
+30
+00:01:10,924 --> 00:01:13,144
+This first parameter will be the calling object
+
+31
+00:01:13,144 --> 00:01:15,144
+and thus will not have to be supplied when we 
+
+32
+00:01:15,144 --> 00:01:16,502
+call this function.
+
+33
+00:01:16,502 --> 00:01:19,013
+Furthermore, this first parameter dictates which
+
+34
+00:01:19,013 --> 00:01:21,013
+class this method becomes a part of.
+
+35
+00:01:21,361 --> 00:01:23,097
+If we wanted any more parameters
+
+36
+00:01:23,097 --> 00:01:26,161
+we could put them in here without the This keyword.
+
+37
+00:01:26,799 --> 00:01:28,799
+Within the method we can now write the code
+
+38
+00:01:28,799 --> 00:01:30,799
+to reset the transform.
+
+39
+00:01:32,708 --> 00:01:34,611
+It is important to note that despite this function
+
+40
+00:01:34,611 --> 00:01:37,028
+declaration having a parameter, when the function
+
+41
+00:01:37,028 --> 00:01:38,570
+is called it will have none.
+
+42
+00:01:38,570 --> 00:01:40,570
+The parameter implicitly becomes the instance of the transform.
+
+43
+00:01:42,642 --> 00:01:44,932
+In order to use this extension method
+
+44
+00:01:44,932 --> 00:01:46,835
+you only need to look for it as a member
+
+45
+00:01:46,835 --> 00:01:49,055
+of the class you extended, in this case
+
+46
+00:01:49,055 --> 00:01:51,055
+we extend transform and can see that the
+
+47
+00:01:51,055 --> 00:01:53,443
+method is now a part of the transform class.

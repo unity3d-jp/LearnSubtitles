@@ -1,0 +1,95 @@
+1
+00:00:00,193 --> 00:00:01,865
+The ternary operator is a condensed
+
+2
+00:00:01,865 --> 00:00:04,251
+form for an if else statement.
+
+3
+00:00:04,251 --> 00:00:06,586
+In it's most basic form the ternary operator
+
+4
+00:00:06,586 --> 00:00:08,586
+is used for deciding between two values
+
+5
+00:00:08,586 --> 00:00:10,586
+based on some boolean expression.
+
+6
+00:00:11,224 --> 00:00:12,846
+The syntax has the format
+
+7
+00:00:12,846 --> 00:00:18,539
+boolean ? true expression : false expression.
+
+8
+00:00:18,901 --> 00:00:21,381
+The first parameter is the boolean, or a condition which
+
+9
+00:00:21,381 --> 00:00:24,227
+evaluates to a boolean that you wish to test.
+
+10
+00:00:24,727 --> 00:00:27,172
+The end of this parameter is marked with a question mark
+
+11
+00:00:27,672 --> 00:00:29,672
+The next parameter is the value that the ternary operator
+
+12
+00:00:29,672 --> 00:00:32,619
+would evaluate to if the condition is true.
+
+13
+00:00:32,619 --> 00:00:34,619
+This is followed by a colon.
+
+14
+00:00:34,619 --> 00:00:36,412
+Then the final parameter is the value that the
+
+15
+00:00:36,412 --> 00:00:39,761
+ternary operator would evaluate to if the condition is false.
+
+16
+00:00:39,761 --> 00:00:42,553
+Here we use a simple ternary operator to determine
+
+17
+00:00:42,553 --> 00:00:44,787
+if a player is alive or dead.
+
+18
+00:00:44,787 --> 00:00:47,411
+Ternary operators can be nested within one another
+
+19
+00:00:47,411 --> 00:00:49,411
+but if used for long expressions
+
+20
+00:00:49,411 --> 00:00:51,919
+this can make code cumbersome and difficult to read.
+
+21
+00:00:52,767 --> 00:00:54,767
+A general rule for when to use a ternary operator
+
+22
+00:00:54,767 --> 00:00:57,322
+instead of an If statement is if your code needs
+
+23
+00:00:57,322 --> 00:01:00,067
+a simple If Else structure with a single
+
+24
+00:01:00,067 --> 00:01:02,067
+short expression in each case.

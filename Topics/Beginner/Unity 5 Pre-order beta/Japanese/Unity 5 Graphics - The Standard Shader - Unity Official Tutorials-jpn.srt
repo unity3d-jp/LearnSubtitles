@@ -1,0 +1,712 @@
+1
+00:00:02,120 --> 00:00:06,200
+The Standard Shader is a powerful and versatile shader,
+
+2
+00:00:06,481 --> 00:00:08,481
+This single physically-based shader
+
+3
+00:00:08,481 --> 00:00:10,481
+can be used to make such a wide variety
+
+4
+00:00:10,481 --> 00:00:12,481
+of materials it's easily
+
+5
+00:00:12,481 --> 00:00:14,481
+possible that this one shader can make
+
+6
+00:00:14,481 --> 00:00:17,082
+every material in a given project.
+
+7
+00:00:18,773 --> 00:00:22,987
+The standard shader is used to create Unity's default material.
+
+8
+00:00:22,987 --> 00:00:24,987
+So all mesh renderers using
+
+9
+00:00:24,987 --> 00:00:30,027
+the default material will be using the standard shader.
+
+10
+00:00:32,243 --> 00:00:35,021
+All new materials that are created
+
+11
+00:00:35,674 --> 00:00:37,674
+will use the standard shader as well.
+
+12
+00:00:38,952 --> 00:00:41,442
+To change the shader used by a material
+
+13
+00:00:41,442 --> 00:00:44,067
+select the Shader menu on the material.
+
+14
+00:00:44,789 --> 00:00:48,034
+Select Standard to use the standard shader.
+
+15
+00:00:48,895 --> 00:00:50,895
+This physically-based material is
+
+16
+00:00:50,895 --> 00:00:52,798
+still a standard Unity material
+
+17
+00:00:53,131 --> 00:00:55,131
+and this material is associated
+
+18
+00:00:55,131 --> 00:00:58,911
+with a renderer in the same way as usual.
+
+19
+00:01:01,450 --> 00:01:04,750
+There are three sections to the standard shader.
+
+20
+00:01:05,037 --> 00:01:07,037
+Rendering Mode.
+
+21
+00:01:07,037 --> 00:01:09,037
+Main Maps
+
+22
+00:01:09,037 --> 00:01:11,037
+and Secondary Maps.
+
+23
+00:01:13,301 --> 00:01:16,121
+The standard shader has three rendering modes.
+
+24
+00:01:16,121 --> 00:01:18,742
+Opaque, Cutout and Transparent.
+
+25
+00:01:19,482 --> 00:01:23,042
+Most materials are opaque, or solid materials.
+
+26
+00:01:23,611 --> 00:01:26,002
+Opaque is the default render mode.
+
+27
+00:01:26,794 --> 00:01:29,669
+For transparent materials, such as glass,
+
+28
+00:01:29,669 --> 00:01:31,669
+choose Transparent.
+
+29
+00:01:32,100 --> 00:01:34,100
+In transparent rendering mode
+
+30
+00:01:34,586 --> 00:01:37,263
+the alpha channel on the diffuse colour property
+
+31
+00:01:37,263 --> 00:01:40,374
+is used to control the level of transparency.
+
+32
+00:01:42,013 --> 00:01:44,362
+With rendering mode 'Cutout'
+
+33
+00:01:44,362 --> 00:01:46,362
+the alpha channel of the diffuse image
+
+34
+00:01:46,362 --> 00:01:49,466
+is used to mask out parts of the texture.
+
+35
+00:01:50,133 --> 00:01:53,684
+If the alpha channel has a gradient value to the mask
+
+36
+00:01:53,684 --> 00:01:55,684
+the alpha cutoff slider can be used
+
+37
+00:01:55,684 --> 00:01:57,684
+to adjust the shape of the cutout.
+
+38
+00:01:57,684 --> 00:02:01,281
+based on the strength of the mask in the alpha channel.
+
+39
+00:02:03,323 --> 00:02:06,712
+The Main Map section defines the look of the material.
+
+40
+00:02:07,337 --> 00:02:10,277
+Before going in to the details of each property
+
+41
+00:02:10,277 --> 00:02:13,554
+there are a few subjects that are worth covering first.
+
+42
+00:02:14,290 --> 00:02:16,107
+Optimisation.
+
+43
+00:02:16,107 --> 00:02:19,047
+The standard shader is highly optimised.
+
+44
+00:02:19,589 --> 00:02:21,589
+When the standard shader is built
+
+45
+00:02:21,589 --> 00:02:23,589
+two important things happen.
+
+46
+00:02:24,089 --> 00:02:27,674
+All properties that are not being used are discarded.
+
+47
+00:02:28,216 --> 00:02:30,216
+The build target is checked
+
+48
+00:02:30,216 --> 00:02:32,883
+and the shader is optimised for that device.
+
+49
+00:02:33,535 --> 00:02:36,629
+Because of this there is no need to populate every
+
+50
+00:02:36,629 --> 00:02:39,049
+property with a map or values.
+
+51
+00:02:40,657 --> 00:02:42,657
+And there is no need to worry about wasted
+
+52
+00:02:42,657 --> 00:02:45,333
+resources due to unused properties.
+
+53
+00:02:48,726 --> 00:02:50,726
+Physically-based shading.
+
+54
+00:02:51,240 --> 00:02:54,246
+Physically-based shading is a different approach to materials
+
+55
+00:02:54,246 --> 00:02:56,246
+compared to previous versions of Unity.
+
+56
+00:02:57,385 --> 00:02:59,385
+Physically-based shading tries to define
+
+57
+00:02:59,385 --> 00:03:02,886
+certain physical aspects of a material's surface.
+
+58
+00:03:02,886 --> 00:03:04,886
+Including it's diffuse colour,
+
+59
+00:03:04,886 --> 00:03:06,886
+specular refection and other properties
+
+60
+00:03:06,886 --> 00:03:09,289
+so the material behaves correctly,
+
+61
+00:03:09,289 --> 00:03:12,213
+and believably in all lighting environments.
+
+62
+00:03:12,872 --> 00:03:15,259
+The response of the scene lighting to the material
+
+63
+00:03:15,259 --> 00:03:17,259
+created with a physically-based shader
+
+64
+00:03:17,259 --> 00:03:20,419
+mimics light in the real physical world.
+
+65
+00:03:20,773 --> 00:03:22,773
+This means that even though there is
+
+66
+00:03:22,773 --> 00:03:24,773
+full control over the values on
+
+67
+00:03:24,773 --> 00:03:27,547
+all of the properties in the standard shader
+
+68
+00:03:27,547 --> 00:03:29,547
+there are certain ranges of values that
+
+69
+00:03:29,547 --> 00:03:32,293
+work best for certain types of materials.
+
+70
+00:03:33,071 --> 00:03:36,614
+This is particularly true of the specular colour value.
+
+71
+00:03:37,378 --> 00:03:39,854
+When analysing real-world materials
+
+72
+00:03:39,854 --> 00:03:41,854
+most materials have a specular range
+
+73
+00:03:41,854 --> 00:03:43,854
+that is a very dark grey.
+
+74
+00:03:44,423 --> 00:03:47,504
+Metallic materials are one of the few exceptions,
+
+75
+00:03:47,504 --> 00:03:50,184
+which have very bright specularity.
+
+76
+00:03:50,573 --> 00:03:53,596
+As well, no material, even the most dull,
+
+77
+00:03:53,596 --> 00:03:56,096
+has no specularity at all.
+
+78
+00:03:56,527 --> 00:03:58,527
+This means to have a phyically-based
+
+79
+00:03:58,527 --> 00:04:00,527
+material behave correctly
+
+80
+00:04:00,527 --> 00:04:02,527
+some attention needs to be paid in using
+
+81
+00:04:02,527 --> 00:04:05,846
+the correct physical values for some key properties,
+
+82
+00:04:05,846 --> 00:04:08,426
+especially the specular property.
+
+83
+00:04:09,027 --> 00:04:11,666
+For more information on physically-based shading,
+
+84
+00:04:11,666 --> 00:04:14,356
+material charts and sample materials
+
+85
+00:04:14,356 --> 00:04:17,076
+please see the information linked below.
+
+86
+00:04:17,315 --> 00:04:19,315
+There is no need to panic however.
+
+87
+00:04:19,315 --> 00:04:21,805
+Items with materials from previous versions of Unity
+
+88
+00:04:21,805 --> 00:04:24,560
+will work well with Unity 5 out of the box.
+
+89
+00:04:25,486 --> 00:04:27,806
+Upgrading from a legacy diffuse shader
+
+90
+00:04:27,806 --> 00:04:31,586
+to the standard shader should display little or no difference.
+
+91
+00:04:32,899 --> 00:04:35,330
+In the main map section each of these properties
+
+92
+00:04:35,330 --> 00:04:37,910
+control one aspect of the final material.
+
+93
+00:04:38,719 --> 00:04:41,534
+Each property can be defined by a texture map.
+
+94
+00:04:42,187 --> 00:04:45,193
+The diffuse, specular and emission properties
+
+95
+00:04:45,193 --> 00:04:47,847
+use a texture and a colour property
+
+96
+00:04:47,847 --> 00:04:50,667
+where the texture is optional.
+
+97
+00:04:51,555 --> 00:04:54,301
+The diffuse property uses a combination
+
+98
+00:04:54,301 --> 00:04:56,301
+of an optional texture.
+
+99
+00:04:57,745 --> 00:04:59,745
+And a colour value to define the base
+
+100
+00:04:59,745 --> 00:05:01,252
+look of the material.
+
+101
+00:05:01,912 --> 00:05:04,745
+The colour value will tint the texture.
+
+102
+00:05:06,786 --> 00:05:09,951
+Where pure white leave the main texture unaffected.
+
+103
+00:05:10,729 --> 00:05:12,729
+If there is no texture being used
+
+104
+00:05:12,729 --> 00:05:16,044
+the tint colour will be the base colour for the material.
+
+105
+00:05:16,979 --> 00:05:19,850
+The specular property can either be a texture
+
+106
+00:05:21,336 --> 00:05:22,734
+or a colour value
+
+107
+00:05:23,530 --> 00:05:25,530
+and defines the specular reflectivity
+
+108
+00:05:25,530 --> 00:05:27,530
+of the material's surface.
+
+109
+00:05:27,530 --> 00:05:30,468
+The specular value can have some colour in it
+
+110
+00:05:30,468 --> 00:05:32,719
+but looking at real-world values,
+
+111
+00:05:32,719 --> 00:05:34,719
+with the exception of some metals,
+
+112
+00:05:34,719 --> 00:05:37,950
+this is usually a grey and often very dark.
+
+113
+00:05:38,631 --> 00:05:41,895
+Specular maps are usually a dark grey as well.
+
+114
+00:05:43,534 --> 00:05:46,348
+When a specular texture map is not being used
+
+115
+00:05:46,348 --> 00:05:48,348
+the overall surface smoothness
+
+116
+00:05:48,348 --> 00:05:50,348
+can be set with the slider.
+
+117
+00:05:52,820 --> 00:05:54,778
+This is easier to see when the
+
+118
+00:05:54,778 --> 00:05:56,778
+diffuse texture is removed.
+
+119
+00:05:57,542 --> 00:06:00,322
+The ball looks like polished porcelain.
+
+120
+00:06:00,682 --> 00:06:04,676
+For a more true mirror push the specular from dark grey,
+
+121
+00:06:04,676 --> 00:06:06,957
+which makes the ball look like porcelain,
+
+122
+00:06:06,957 --> 00:06:09,407
+in to the range of metals, and it will now reflect
+
+123
+00:06:09,407 --> 00:06:11,769
+the sky and surroundings.
+
+124
+00:06:12,476 --> 00:06:15,936
+The smoother the surface, the more it is mirror-like.
+
+125
+00:06:16,375 --> 00:06:19,044
+The rougher the surface, the more diffuse,
+
+126
+00:06:19,044 --> 00:06:21,604
+or scattered the reflections are.
+
+127
+00:06:22,613 --> 00:06:25,326
+The normal map property is an optional property used
+
+128
+00:06:25,326 --> 00:06:28,111
+to define the apparent bumpiness of the surface.
+
+129
+00:06:28,868 --> 00:06:31,108
+When a normal map is applied
+
+130
+00:06:31,646 --> 00:06:33,646
+the strength of the normal map can be controlled
+
+131
+00:06:33,646 --> 00:06:36,291
+by adjusting the normal map value.
+
+132
+00:06:36,993 --> 00:06:39,638
+As well as positive numbers, this value can be
+
+133
+00:06:39,638 --> 00:06:41,638
+a negative number or 0.
+
+134
+00:06:44,096 --> 00:06:46,096
+The height map property is an optional property
+
+135
+00:06:46,096 --> 00:06:49,312
+used to define the apparent height of the surface.
+
+136
+00:06:50,090 --> 00:06:52,090
+When a height map is applied
+
+137
+00:06:52,701 --> 00:06:54,701
+the strength of the height map can be controlled
+
+138
+00:06:54,701 --> 00:06:56,701
+by adjusting the height map value.
+
+139
+00:06:58,854 --> 00:07:00,854
+The occlusion property used a
+
+140
+00:07:00,854 --> 00:07:02,854
+texture map to define the amount of
+
+141
+00:07:02,854 --> 00:07:05,853
+ambient occlusion that is applied to the material.
+
+142
+00:07:06,714 --> 00:07:08,714
+This is used to help darken
+
+143
+00:07:08,714 --> 00:07:11,376
+hidden or recessed areas on the texture.
+
+144
+00:07:12,214 --> 00:07:14,857
+The ambient occlusion map also prevents specular
+
+145
+00:07:14,857 --> 00:07:17,742
+and reflections in these occluded areas
+
+146
+00:07:17,742 --> 00:07:20,080
+giving the material a more realistic look
+
+147
+00:07:22,006 --> 00:07:24,642
+The emission property controls whether or not
+
+148
+00:07:24,642 --> 00:07:26,642
+the material's surface will emit light.
+
+149
+00:07:27,531 --> 00:07:31,100
+To emit no light the emission colour should be black
+
+150
+00:07:31,100 --> 00:07:33,475
+or the emission value should be 0.
+
+151
+00:07:34,169 --> 00:07:36,547
+The material's emission value can contribute
+
+152
+00:07:36,547 --> 00:07:38,547
+to the scene's global illumination.
+
+153
+00:07:39,547 --> 00:07:41,547
+First a colour other than black needs
+
+154
+00:07:41,547 --> 00:07:44,215
+to be chosen to be able to emit light.
+
+155
+00:07:45,159 --> 00:07:47,159
+The strength of the emission can be controlled
+
+156
+00:07:47,159 --> 00:07:49,159
+by the emission value.
+
+157
+00:07:49,506 --> 00:07:51,506
+The shape of the emission can be controlled
+
+158
+00:07:51,506 --> 00:07:53,286
+with an emission map.
+
+159
+00:07:53,700 --> 00:07:55,980
+The map can be a simple black and white map.
+
+160
+00:07:56,450 --> 00:07:59,231
+But this texture can also be a colour map.
+
+161
+00:07:59,880 --> 00:08:02,078
+When there is a value for emission
+
+162
+00:08:02,078 --> 00:08:04,078
+the contribution of the emissive light
+
+163
+00:08:04,078 --> 00:08:07,047
+can be assigned to either the baked light maps
+
+164
+00:08:07,047 --> 00:08:09,047
+or to the real-time light maps.
+
+165
+00:08:10,825 --> 00:08:14,017
+The detail mask property is an optional mask element
+
+166
+00:08:14,017 --> 00:08:16,557
+to control the secondary maps.
+
+167
+00:08:17,059 --> 00:08:20,299
+Tiling and offset control the position of the map.
+
+168
+00:08:21,001 --> 00:08:23,001
+The secondary maps are used to define
+
+169
+00:08:23,001 --> 00:08:25,001
+additional surface detail.
+
+170
+00:08:25,001 --> 00:08:27,001
+This additional detail, sometimes referred to
+
+171
+00:08:27,001 --> 00:08:29,491
+as micro detail, is added on top
+
+172
+00:08:29,491 --> 00:08:32,431
+of the surface defined by the main maps.
+
+173
+00:08:32,838 --> 00:08:34,838
+This helps to add extra detail and
+
+174
+00:08:34,838 --> 00:08:36,533
+variation to a material,
+
+175
+00:08:36,533 --> 00:08:38,533
+which is overlaid on top of the main maps
+
+176
+00:08:38,533 --> 00:08:41,013
+defining that material.
+
+177
+00:08:41,297 --> 00:08:44,463
+Because detail maps can be tiled across meshes
+
+178
+00:08:44,964 --> 00:08:47,934
+they can add incredibly high levels of surface detail.
+

@@ -1,0 +1,367 @@
+1
+00:00:01,146 --> 00:00:03,660
+Bouncing and sliding in 2D.
+
+2
+00:00:05,445 --> 00:00:07,445
+There are 4 items that work together
+
+3
+00:00:07,445 --> 00:00:10,001
+to make a bouncing ball in 2D.
+
+4
+00:00:11,478 --> 00:00:13,478
+The sprite image of the ball.
+
+5
+00:00:14,075 --> 00:00:16,296
+A collider component to give the image
+
+6
+00:00:16,296 --> 00:00:18,296
+a physical presence in the scene.
+
+7
+00:00:19,155 --> 00:00:21,957
+A physics material 2D assigned to the collider
+
+8
+00:00:21,957 --> 00:00:23,957
+to define the friction and bounciness.
+
+9
+00:00:24,954 --> 00:00:28,158
+And a rigidbody 2D component to allow the ball
+
+10
+00:00:28,158 --> 00:00:31,537
+to be affected by physics forces, including gravity,
+
+11
+00:00:31,537 --> 00:00:33,509
+and to participate in physical events,
+
+12
+00:00:33,509 --> 00:00:35,509
+like collisions and triggers.
+
+13
+00:00:37,031 --> 00:00:39,347
+To make a slippery ice-covered platform
+
+14
+00:00:39,347 --> 00:00:41,347
+the rigidbody 2D is not necessary
+
+15
+00:00:41,347 --> 00:00:43,347
+unless the platform is moving.
+
+16
+00:00:45,049 --> 00:00:47,049
+To create a bouncing ball first add
+
+17
+00:00:47,049 --> 00:00:49,049
+the sprite image to the scene.
+
+18
+00:00:49,853 --> 00:00:52,295
+In this form this is simply what the ball
+
+19
+00:00:52,295 --> 00:00:55,548
+will look like and it will not interact with any other
+
+20
+00:00:55,548 --> 00:00:57,548
+game objects in the scene.
+
+21
+00:00:58,158 --> 00:01:00,168
+To give this sprite image a physical presence
+
+22
+00:01:00,168 --> 00:01:02,568
+in the scene add a collider 2D component
+
+23
+00:01:02,568 --> 00:01:03,984
+to the game object.
+
+24
+00:01:04,819 --> 00:01:06,819
+One way this can be done is to use the
+
+25
+00:01:06,819 --> 00:01:09,351
+Add Component button on the game object.
+
+26
+00:01:10,134 --> 00:01:12,810
+And select Physics 2D
+
+27
+00:01:14,415 --> 00:01:16,415
+ Circle Collider 2D.
+
+28
+00:01:18,794 --> 00:01:22,939
+The circle collider 2D is optimised for round objects.
+
+29
+00:01:22,939 --> 00:01:24,750
+For more information on colliders,
+
+30
+00:01:24,750 --> 00:01:27,532
+collider 2D and the circle collider 2D
+
+31
+00:01:27,532 --> 00:01:30,163
+please see the information linked below.
+
+32
+00:01:31,192 --> 00:01:33,303
+At this point the game object can participate
+
+33
+00:01:33,303 --> 00:01:36,832
+in physics events, but it cannot initiate them.
+
+34
+00:01:37,539 --> 00:01:39,539
+This game object will not react to physics
+
+35
+00:01:39,539 --> 00:01:42,435
+forces and is not influenced by gravity.
+
+36
+00:01:43,294 --> 00:01:45,994
+To do so we must add a rigidbody 2D
+
+37
+00:01:45,994 --> 00:01:47,994
+component to the game object.
+
+38
+00:01:48,812 --> 00:01:50,812
+This can be done by selecting
+
+39
+00:01:51,602 --> 00:01:53,004
+Add Component
+
+40
+00:01:53,646 --> 00:01:55,218
+Physics 2D
+
+41
+00:01:56,146 --> 00:01:58,146
+Rigidbody 2D.
+
+42
+00:02:01,630 --> 00:02:04,887
+Now the ball will fall under the influence of gravity.
+
+43
+00:02:05,705 --> 00:02:07,705
+But it is not very bouncy.
+
+44
+00:02:08,509 --> 00:02:10,509
+To make the ball bouncy use a 
+
+45
+00:02:10,509 --> 00:02:12,509
+physics material 2D.
+
+46
+00:02:13,147 --> 00:02:15,649
+The physics material 2D is an asset
+
+47
+00:02:15,649 --> 00:02:18,050
+and it will be stored in the project view.
+
+48
+00:02:18,881 --> 00:02:21,562
+One way to create a new physics material 2D
+
+49
+00:02:21,562 --> 00:02:23,562
+is to select Create
+
+50
+00:02:24,573 --> 00:02:26,573
+Physics 2D Material.
+
+51
+00:02:27,322 --> 00:02:30,940
+This will create a new asset in our project view.
+
+52
+00:02:32,434 --> 00:02:34,654
+The new physics material 2D asset
+
+53
+00:02:34,654 --> 00:02:36,210
+will need editing.
+
+54
+00:02:36,864 --> 00:02:38,864
+First it needs to be named.
+
+55
+00:02:39,599 --> 00:02:40,806
+Bouncy.
+
+56
+00:02:43,107 --> 00:02:46,330
+There are 2 properties to a physics material 2D.
+
+57
+00:02:46,830 --> 00:02:49,348
+Friction and Bounciness.
+
+58
+00:02:50,090 --> 00:02:53,296
+The bouncy ball should have a small amount of friction.
+
+59
+00:02:53,296 --> 00:02:57,051
+But more importantly a large amount of bounciness.
+
+60
+00:02:58,255 --> 00:03:00,561
+One way to add the physics material 2D
+
+61
+00:03:00,561 --> 00:03:02,314
+to the collider component
+
+62
+00:03:03,061 --> 00:03:05,858
+is to simply drag and drop the physics material 2D
+
+63
+00:03:05,858 --> 00:03:09,731
+on to the Materials slot on the collider 2D component.
+
+64
+00:03:10,562 --> 00:03:13,445
+Now the ball not only reacts to physics forces
+
+65
+00:03:13,445 --> 00:03:15,237
+and the other colliders in the scene,
+
+66
+00:03:15,237 --> 00:03:18,010
+but it does so in a very bouncy manner.
+
+67
+00:03:19,657 --> 00:03:21,657
+To make a slippery ice-covered platform
+
+68
+00:03:21,657 --> 00:03:23,657
+we need only 3 of these items
+
+69
+00:03:23,657 --> 00:03:25,657
+unless the platform is moving.
+
+70
+00:03:26,267 --> 00:03:28,681
+First add a sprite image to the scene.
+
+71
+00:03:30,162 --> 00:03:33,260
+Then add a collider 2D component.
+
+72
+00:03:34,050 --> 00:03:36,846
+In this case the box collider 2D.
+
+73
+00:03:40,150 --> 00:03:43,223
+And then create and add a new physics material 2D
+
+74
+00:03:43,223 --> 00:03:45,223
+to the collider 2D component.
+
+75
+00:03:51,842 --> 00:03:54,106
+It is possible to edit the physics material
+
+76
+00:03:54,106 --> 00:03:55,689
+2D at any time,
+
+77
+00:03:55,689 --> 00:03:57,982
+even after adding it to the collider.
+
+78
+00:03:59,186 --> 00:04:01,753
+The ice-covered platform needs to be slippery
+
+79
+00:04:01,753 --> 00:04:04,128
+which means little or no friction.
+
+80
+00:04:04,875 --> 00:04:07,856
+Ice is also very hard and not very bouncy
+
+81
+00:04:07,856 --> 00:04:10,519
+so it should have little or no bounciness.
+
+82
+00:04:21,722 --> 00:04:23,722
+With this new slippery surface we can
+
+83
+00:04:23,722 --> 00:04:25,722
+see that items slip right off.
+
+84
+00:04:26,443 --> 00:04:29,305
+For more information on physics, physics 2D
+
+85
+00:04:29,305 --> 00:04:31,221
+and physics material 2D,
+
+86
+00:04:31,221 --> 00:04:33,529
+please see the information linked below.
+
+87
+00:04:36,069 --> 00:04:38,925
+If the platform were moving it would be best
+
+88
+00:04:38,925 --> 00:04:42,800
+to add a rigidbody 2D to the platform's game object.
+
+89
+00:04:44,571 --> 00:04:48,609
+And mark the rigidbody 2D as kinematic.
+
+90
+00:04:49,869 --> 00:04:52,326
+For more information on rigidbody,
+
+91
+00:04:52,326 --> 00:04:56,110
+rigidbody 2D and the Is Kinematic property
+
+92
+00:04:56,110 --> 00:04:58,653
+please see the information linked below.
