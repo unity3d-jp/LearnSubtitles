@@ -1,0 +1,2391 @@
+1
+00:00:00,000 --> 00:00:02,250
+The next phase we're going to go in to
+
+2
+00:00:02,250 --> 00:00:06,050
+is to create our first enemy.
+
+3
+00:00:06,050 --> 00:00:08,050
+We need our enemies in the game to
+
+4
+00:00:08,050 --> 00:00:11,480
+damage the player, we need them to follow the player,
+
+5
+00:00:11,480 --> 00:00:13,480
+but in this particular one we're just going to create
+
+6
+00:00:13,480 --> 00:00:16,680
+the first enemy and make him follow you around.
+
+7
+00:00:17,790 --> 00:00:19,900
+So let's get on with that.
+
+8
+00:00:19,900 --> 00:00:21,900
+As before with the player
+
+9
+00:00:21,900 --> 00:00:24,860
+in the Models folder in Characters you will
+
+10
+00:00:24,860 --> 00:00:26,860
+find there are some models.
+
+11
+00:00:27,650 --> 00:00:29,650
+One of those models
+
+12
+00:00:29,650 --> 00:00:32,580
+is this lovingly created zombunny,
+
+13
+00:00:32,580 --> 00:00:35,040
+which looks something like this.
+
+14
+00:00:37,550 --> 00:00:39,550
+And what we're going to do with that is to
+
+15
+00:00:39,550 --> 00:00:41,550
+place him directly in to the scene and then
+
+16
+00:00:41,550 --> 00:00:43,550
+start working with him in a similar way
+
+17
+00:00:43,550 --> 00:00:45,550
+that we did with the player.
+
+18
+00:00:45,550 --> 00:00:47,550
+As usual I'm just going to quickly hit Save
+
+19
+00:00:47,550 --> 00:00:49,550
+just so I don't loose any work if we get a crash
+
+20
+00:00:49,550 --> 00:00:52,240
+and then I'm going to
+
+21
+00:00:52,240 --> 00:00:54,240
+drag my scene view around
+
+22
+00:00:54,240 --> 00:00:56,240
+and this bit really doesn't matter where we place
+
+23
+00:00:56,240 --> 00:00:58,240
+him because we're going to spawn him later on
+
+24
+00:00:58,240 --> 00:01:00,240
+I'm going to use dragging
+
+25
+00:01:00,240 --> 00:01:02,240
+from the project window and you can see that it
+
+26
+00:01:02,240 --> 00:01:04,240
+snaps to the environment or whatever I happened
+
+27
+00:01:04,240 --> 00:01:05,480
+to place him on to.
+
+28
+00:01:05,480 --> 00:01:06,930
+I'm just going to drop him near the player
+
+29
+00:01:06,930 --> 00:01:08,030
+somewhere like that.
+
+30
+00:01:08,030 --> 00:01:10,030
+Then when we shoot this
+
+31
+00:01:10,030 --> 00:01:12,030
+bunny we're going to have
+
+32
+00:01:12,030 --> 00:01:14,360
+stuff kind of fly out of him.
+
+33
+00:01:14,360 --> 00:01:18,840
+We've created for you a particle system to do just that.
+
+34
+00:01:19,880 --> 00:01:23,580
+In the Prefabs folder you will find
+
+35
+00:01:23,580 --> 00:01:26,920
+a HitParticles prefab.
+
+36
+00:01:26,920 --> 00:01:28,920
+So like we said before prefabs are a way of storing
+
+37
+00:01:28,920 --> 00:01:30,920
+something that you've already setup and we did
+
+38
+00:01:30,920 --> 00:01:32,920
+exactly the same thing, we've created this 
+
+39
+00:01:32,920 --> 00:01:34,920
+HitParticles, and what we need to do
+
+40
+00:01:34,920 --> 00:01:38,540
+is apply this to the Zombunny.
+
+41
+00:01:38,540 --> 00:01:40,540
+In Unity all game objects that you put in
+
+42
+00:01:40,540 --> 00:01:42,540
+can have a hierarchy.
+
+43
+00:01:43,040 --> 00:01:46,300
+The Zombunny has a child object which is it's
+
+44
+00:01:46,300 --> 00:01:48,300
+mesh, it's kind of outline
+
+45
+00:01:48,300 --> 00:01:50,300
+but it also has a parent and we want to
+
+46
+00:01:50,300 --> 00:01:52,300
+drag drop this particle system
+
+47
+00:01:52,300 --> 00:01:55,330
+on so that it's attached to the parent.
+
+48
+00:01:55,330 --> 00:01:57,960
+So what I'm going to do is select my Zombunny
+
+49
+00:01:57,960 --> 00:02:01,020
+and I'm going to drag and drop HitParticles
+
+50
+00:02:01,020 --> 00:02:03,830
+on to the parent Zombunny
+
+51
+00:02:03,830 --> 00:02:05,830
+so that when we expand it we've got
+
+52
+00:02:05,830 --> 00:02:09,520
+Zombunny, the actual object itself and we've got HitParticles.
+
+53
+00:02:09,520 --> 00:02:11,520
+And basically all this is doing, if I select
+
+54
+00:02:11,520 --> 00:02:13,520
+my HitParticles now, 
+
+55
+00:02:13,520 --> 00:02:15,520
+is creating this little puff of stuffing.
+
+56
+00:02:15,520 --> 00:02:17,520
+I can see that because I've got
+
+57
+00:02:17,520 --> 00:02:19,520
+that game object selected the scene view shows
+
+58
+00:02:19,520 --> 00:02:21,520
+me the particle effect overlay
+
+59
+00:02:21,520 --> 00:02:23,520
+and you can see it's creating a puff of 
+
+60
+00:02:23,520 --> 00:02:25,520
+fluff that's coming out of him.
+
+61
+00:02:25,520 --> 00:02:27,520
+This particle system, we didn't want to get bogged
+
+62
+00:02:27,520 --> 00:02:29,520
+down too much with these various
+
+63
+00:02:29,520 --> 00:02:31,520
+settings but we're basically using
+
+64
+00:02:31,520 --> 00:02:33,520
+a texture which is applied to
+
+65
+00:02:33,520 --> 00:02:37,340
+this to just fire out a little emission of those.
+
+66
+00:02:37,940 --> 00:02:39,940
+Again we want to
+
+67
+00:02:39,940 --> 00:02:41,940
+detect whether this is something that we
+
+68
+00:02:41,940 --> 00:02:43,940
+can shoot at, so similar to how
+
+69
+00:02:43,940 --> 00:02:47,510
+we detected whether we can turn to face
+
+70
+00:02:47,510 --> 00:02:49,510
+a particular way by isolating
+
+71
+00:02:49,510 --> 00:02:51,510
+the floor on to a floor layer
+
+72
+00:02:51,510 --> 00:02:55,270
+this Zombunny is going to be on a shootable layer.
+
+73
+00:02:55,270 --> 00:02:57,270
+So with the Zombunny parent selected
+
+74
+00:02:57,270 --> 00:02:59,270
+make sure you reselect the parent,
+
+75
+00:02:59,270 --> 00:03:01,270
+go to Layer at the top of the inspector
+
+76
+00:03:01,270 --> 00:03:03,270
+and choose Shootable.
+
+77
+00:03:03,270 --> 00:03:05,270
+Set that to shootable and then
+
+78
+00:03:05,270 --> 00:03:07,270
+it's going to ask you if you would like
+
+79
+00:03:07,270 --> 00:03:10,520
+to changing the children.
+
+80
+00:03:11,530 --> 00:03:13,670
+Basically all this is saying is do you want them all to be on
+
+81
+00:03:13,670 --> 00:03:18,190
+the same layer, this child objects, say yes, change the children.
+
+82
+00:03:18,190 --> 00:03:20,190
+A quick note, the environment
+
+83
+00:03:20,190 --> 00:03:22,190
+that you all dragged in to the scene at the start
+
+84
+00:03:22,190 --> 00:03:24,190
+is also on the shootable layer, so that
+
+85
+00:03:24,190 --> 00:03:27,590
+means that when we later give the
+
+86
+00:03:27,590 --> 00:03:30,740
+layer a working gun you can hit the environment as well.
+
+87
+00:03:31,600 --> 00:03:33,600
+We've done that, and then we basically
+
+88
+00:03:33,600 --> 00:03:35,600
+want to setup the Zombunny in a similar way
+
+89
+00:03:35,600 --> 00:03:37,600
+to the player, so we want him to have physics,
+
+90
+00:03:37,600 --> 00:03:40,270
+we want him to have a physical presence in the world
+
+91
+00:03:40,270 --> 00:03:42,270
+so we're going to do some similar
+
+92
+00:03:42,270 --> 00:03:44,270
+things that we did before.
+
+93
+00:03:44,270 --> 00:03:46,270
+The first one of those we're going to do is to
+
+94
+00:03:46,270 --> 00:03:48,270
+add a rigidbody component.
+
+95
+00:03:48,270 --> 00:03:50,270
+Just to give you a different way of doing things
+
+96
+00:03:50,270 --> 00:03:52,270
+we've previously used the menu but
+
+97
+00:03:52,270 --> 00:03:54,270
+you'll notice that this is actually a search field.
+
+98
+00:03:54,270 --> 00:03:56,270
+So I'm just going to type in Rig and I go
+
+99
+00:03:56,270 --> 00:03:58,270
+straight to rigidbody, I can hit
+
+100
+00:03:58,270 --> 00:04:00,270
+return to add that.
+
+101
+00:04:00,800 --> 00:04:02,800
+I'm just going to make that expanded
+
+102
+00:04:02,800 --> 00:04:04,550
+so that I can apply some settings.
+
+103
+00:04:04,550 --> 00:04:07,930
+Again, drag an angular drag
+
+104
+00:04:07,930 --> 00:04:09,930
+should be set to infinity, so I'm going to
+
+105
+00:04:09,930 --> 00:04:11,930
+type in INF, hit return,
+
+106
+00:04:11,930 --> 00:04:14,840
+and it should change to capitalised Infinity.
+
+107
+00:04:14,840 --> 00:04:16,840
+And the constraints are exactly the same.
+
+108
+00:04:16,840 --> 00:04:19,520
+We want them to be able to rotate
+
+109
+00:04:19,520 --> 00:04:22,320
+only in the Y axis, we want them to only
+
+110
+00:04:22,320 --> 00:04:24,320
+be moving in X and Z
+
+111
+00:04:24,320 --> 00:04:26,680
+and frozen position Y.
+
+112
+00:04:26,680 --> 00:04:28,680
+Your constraints should look like this.
+
+113
+00:04:28,680 --> 00:04:33,210
+Freeze position Y, freeze rotation X and Zee.
+
+114
+00:04:34,990 --> 00:04:36,990
+In order to actually give this physics
+
+115
+00:04:36,990 --> 00:04:38,990
+object a boundary we're going to put in
+
+116
+00:04:38,990 --> 00:04:40,990
+a capsule collider, 
+
+117
+00:04:40,990 --> 00:04:43,580
+the outline of it's physical shape.
+
+118
+00:04:43,580 --> 00:04:46,370
+I'm hitting Add Component one more time
+
+119
+00:04:46,370 --> 00:04:50,320
+and then I'm going to type in Cap for capsule collider
+
+120
+00:04:50,320 --> 00:04:52,740
+and the settings for it are
+
+121
+00:04:53,550 --> 00:04:58,110
+Centre value of Y 0.8,
+
+122
+00:04:58,110 --> 00:05:01,510
+and a height of 1.5.
+
+123
+00:05:03,620 --> 00:05:06,010
+So it should look like this.
+
+124
+00:05:07,970 --> 00:05:10,770
+We need this character to attack the player
+
+125
+00:05:10,770 --> 00:05:12,170
+so this bit's going to be slightly different
+
+126
+00:05:12,170 --> 00:05:14,450
+to how the player was setup.
+
+127
+00:05:14,450 --> 00:05:16,450
+The capsule collider is there to give
+
+128
+00:05:16,450 --> 00:05:18,450
+the character a physical presence but what
+
+129
+00:05:18,450 --> 00:05:20,450
+we want to do is to give him the
+
+130
+00:05:20,450 --> 00:05:22,450
+ability to detect the player
+
+131
+00:05:22,450 --> 00:05:24,450
+We're going to use one more collider to do that
+
+132
+00:05:24,450 --> 00:05:28,050
+and we're going to use a trigger collider for this purpose.
+
+133
+00:05:28,050 --> 00:05:30,370
+So we're going to Add Component one more time
+
+134
+00:05:30,370 --> 00:05:33,830
+and we're going to say SPH, sphere collider.
+
+135
+00:05:33,830 --> 00:05:34,690
+Hit return.
+
+136
+00:05:34,690 --> 00:05:37,630
+You can also go to Add Component - Physics
+
+137
+00:05:37,630 --> 00:05:40,940
+Sphere Collider, but that's just a short way of doing that.
+
+138
+00:05:42,320 --> 00:05:45,560
+A trigger is something that doesn't have a physical presence,
+
+139
+00:05:45,560 --> 00:05:47,560
+it's a collider, which means you can check
+
+140
+00:05:47,560 --> 00:05:49,560
+when something's intersecting it, but it doesn't have
+
+141
+00:05:49,560 --> 00:05:52,480
+a physical presence so we can just walk straight through it.
+
+142
+00:05:52,480 --> 00:05:55,380
+So we check the Is Trigger box
+
+143
+00:05:55,380 --> 00:05:57,380
+and then if we just have a look
+
+144
+00:05:57,380 --> 00:06:01,130
+back at our bunny very briefly at the same window
+
+145
+00:06:01,130 --> 00:06:03,130
+you can see that by default it's set at the
+
+146
+00:06:03,130 --> 00:06:05,130
+origin of this, which is at it's feet.
+
+147
+00:06:05,130 --> 00:06:09,990
+So we're going to set the centre Y to 0.8
+
+148
+00:06:09,990 --> 00:06:14,330
+and the radius also to 0.8.
+
+149
+00:06:14,330 --> 00:06:16,330
+What you'll see is that if I just expand my
+
+150
+00:06:16,330 --> 00:06:18,130
+capsule collider again
+
+151
+00:06:18,830 --> 00:06:23,290
+it's slightly further out than the
+
+152
+00:06:23,290 --> 00:06:25,290
+capsule collier is, the reason being that
+
+153
+00:06:25,290 --> 00:06:27,290
+we want to detect the player within
+
+154
+00:06:27,290 --> 00:06:29,290
+the bunnies reach.
+
+155
+00:06:29,290 --> 00:06:31,290
+So we want it to bump in to stuff but we want
+
+156
+00:06:31,290 --> 00:06:33,290
+it's reach to be able to harm the player
+
+157
+00:06:33,290 --> 00:06:35,290
+so we make that sphere collider slightly bigger,
+
+158
+00:06:35,290 --> 00:06:37,290
+we make it a trigger so that it's not actually
+
+159
+00:06:37,290 --> 00:06:39,010
+going to bump in to anything,
+
+160
+00:06:39,010 --> 00:06:41,010
+that's how we're going to detect the player.
+
+161
+00:06:41,010 --> 00:06:43,550
+Again with triggers
+
+162
+00:06:43,550 --> 00:06:45,550
+the actual interactions within a
+
+163
+00:06:45,550 --> 00:06:47,550
+scene is not what we use a trigger for.
+
+164
+00:06:47,550 --> 00:06:49,550
+More importantly a trigger, when anything collides
+
+165
+00:06:49,550 --> 00:06:51,550
+with a trigger or goes in to a trigger
+
+166
+00:06:51,550 --> 00:06:53,550
+a function is called when you have a script attached
+
+167
+00:06:53,550 --> 00:06:55,550
+that says 'hey, something touched that trigger'.
+
+168
+00:06:55,550 --> 00:06:57,550
+And that's when we write our
+
+169
+00:06:57,550 --> 00:06:59,550
+individualised code that'll be like
+
+170
+00:06:59,550 --> 00:07:01,550
+'okay, something touched that trigger'. 
+
+171
+00:07:01,550 --> 00:07:03,550
+It's interactions in the scene view are not what
+
+172
+00:07:03,550 --> 00:07:05,550
+we're interested in, we're actually interested in the 
+
+173
+00:07:05,550 --> 00:07:07,550
+behind the scenes interaction we get to write
+
+174
+00:07:07,550 --> 00:07:09,100
+with our own code.
+
+175
+00:07:09,100 --> 00:07:11,100
+Finally the last thing we're going to do
+
+176
+00:07:11,100 --> 00:07:13,100
+to complete the Zombunny is just add an audio 
+
+177
+00:07:13,100 --> 00:07:15,100
+source so I'm going to type in
+
+178
+00:07:15,100 --> 00:07:17,100
+Audio, I'm going to scroll down,
+
+179
+00:07:17,100 --> 00:07:19,630
+I can use my arrow keys in this Add Component menu
+
+180
+00:07:19,630 --> 00:07:22,450
+and I'm going to use return to choose Audio Source.
+
+181
+00:07:22,450 --> 00:07:24,450
+This thing is just to allow him
+
+182
+00:07:24,450 --> 00:07:26,450
+to make a sound when he gets hurt
+
+183
+00:07:26,450 --> 00:07:30,180
+and then we're going to make that the default sound clip as well.
+
+184
+00:07:30,180 --> 00:07:32,180
+As before, using circle select I can
+
+185
+00:07:32,180 --> 00:07:35,520
+just click and choose Zombunny Hurt,
+
+186
+00:07:35,520 --> 00:07:37,520
+it's the very bottom one from the list.
+
+187
+00:07:37,520 --> 00:07:39,520
+I can double click it
+
+188
+00:07:39,520 --> 00:07:41,520
+to assign and close the window.
+
+189
+00:07:41,520 --> 00:07:44,530
+As before we don't want it to make
+
+190
+00:07:44,530 --> 00:07:47,460
+the sound so we're going to uncheck play on awake.
+
+191
+00:07:47,460 --> 00:07:49,460
+We obviously don't want that to loop or anything
+
+192
+00:07:49,460 --> 00:07:50,900
+so we're going to leave that there.
+
+193
+00:07:50,900 --> 00:07:52,900
+Next we need to make the guy actually follow
+
+194
+00:07:52,900 --> 00:07:54,900
+the player so in Unity there's a
+
+195
+00:07:54,900 --> 00:07:57,340
+system called Nav Mesh.
+
+196
+00:07:57,340 --> 00:08:01,960
+In Unity Window - Navigation is what you need.
+
+197
+00:08:02,590 --> 00:08:04,590
+Window - Navigation.
+
+198
+00:08:06,350 --> 00:08:08,350
+That should automatically dock itself
+
+199
+00:08:08,350 --> 00:08:10,960
+next to the inspector. If it doesn't that's a great place
+
+200
+00:08:10,960 --> 00:08:12,960
+to put it, so drag and drop that tab
+
+201
+00:08:12,960 --> 00:08:15,680
+next to the inspector on the right of your interface.
+
+202
+00:08:15,680 --> 00:08:17,680
+We're going to reselect the Zombunny and go
+
+203
+00:08:17,680 --> 00:08:18,880
+back to the inspector.
+
+204
+00:08:18,880 --> 00:08:20,880
+The navigation panel is
+
+205
+00:08:20,880 --> 00:08:22,880
+there for us to setup our level.
+
+206
+00:08:22,880 --> 00:08:24,880
+We're going to setup our Zombunny first and then
+
+207
+00:08:24,880 --> 00:08:26,880
+go back and setup the level.
+
+208
+00:08:26,880 --> 00:08:28,880
+With our Zombunny selected
+
+209
+00:08:28,880 --> 00:08:30,880
+I'm just going to close
+
+210
+00:08:30,880 --> 00:08:32,880
+some of these by collapsing them up to give us
+
+211
+00:08:32,880 --> 00:08:34,580
+more space to look at. 
+
+212
+00:08:34,580 --> 00:08:38,640
+I'm going to add something called a Nav Mesh Agent.
+
+213
+00:08:38,640 --> 00:08:40,640
+Like I said there's a system called Nav Mesh
+
+214
+00:08:40,640 --> 00:08:43,460
+which is used for a simple AI in Unity
+
+215
+00:08:43,460 --> 00:08:45,460
+and what it means is you can
+
+216
+00:08:45,460 --> 00:08:47,460
+do a process called baking, which is to
+
+217
+00:08:47,460 --> 00:08:50,120
+specify which parts of the level are navigable.
+
+218
+00:08:50,120 --> 00:08:52,120
+And then you have something called an Agent
+
+219
+00:08:52,120 --> 00:08:54,120
+which is something that's going to traverse that, or move
+
+220
+00:08:54,120 --> 00:08:56,120
+over that environment.
+
+221
+00:08:56,120 --> 00:08:58,120
+The Zombunny is something that's going to do that.
+
+222
+00:08:58,120 --> 00:09:00,120
+We are going to give it a 
+
+223
+00:09:00,120 --> 00:09:02,120
+Nav Mesh Agent Component.
+
+224
+00:09:03,100 --> 00:09:05,100
+You can see that it has an outline here
+
+225
+00:09:05,100 --> 00:09:07,100
+similar to a collider
+
+226
+00:09:07,850 --> 00:09:11,970
+and we're going to set a more appropriate default of 0.3.
+
+227
+00:09:11,970 --> 00:09:13,970
+0.3 in radius.
+
+228
+00:09:13,970 --> 00:09:15,970
+We're going to set the speed to 3 by default
+
+229
+00:09:15,970 --> 00:09:20,630
+and stopping distance to 1.3.
+
+230
+00:09:21,950 --> 00:09:23,950
+We're going to set the heigh, which is slightly 
+
+231
+00:09:23,950 --> 00:09:26,520
+lower down to 1.1.
+
+232
+00:09:27,560 --> 00:09:29,560
+Because it's easier to see these settings
+
+233
+00:09:29,560 --> 00:09:32,660
+on the powerpoint I'm just going to switch over to that.
+
+234
+00:09:32,660 --> 00:09:34,660
+So we've added a nav mesh component.
+
+235
+00:09:34,660 --> 00:09:38,610
+The radius is 0.3, the speed is 3,
+
+236
+00:09:38,610 --> 00:09:41,440
+stopping distance is 1.3
+
+237
+00:09:41,440 --> 00:09:44,330
+and height, a few properties down is 1.1.
+
+238
+00:09:44,330 --> 00:09:47,810
+It should look like what we have in Unity.
+
+239
+00:09:49,310 --> 00:09:51,310
+If you recall for the player we're moving
+
+240
+00:09:51,310 --> 00:09:53,310
+the player using physics,
+
+241
+00:09:53,310 --> 00:09:55,310
+but we're not doing that with the bunnies themselves.
+
+242
+00:09:55,310 --> 00:09:57,310
+The nav mesh agent is actually
+
+243
+00:09:57,310 --> 00:09:59,020
+what is moving.
+
+244
+00:09:59,020 --> 00:10:01,020
+Just keep that in mind.
+
+245
+00:10:01,020 --> 00:10:03,020
+We're not actually going to be using forces with the bunnies,
+
+246
+00:10:03,020 --> 00:10:05,020
+instead the nav mesh agent is going to
+
+247
+00:10:05,020 --> 00:10:07,020
+pick and follow the targets
+
+248
+00:10:07,020 --> 00:10:09,020
+automatically while also
+
+249
+00:10:09,020 --> 00:10:11,020
+avoiding obstacles and things like that,
+
+250
+00:10:11,020 --> 00:10:13,020
+and that's what Will meant when he was talking about AI
+
+251
+00:10:13,020 --> 00:10:14,300
+it's AI pathfinding.
+
+252
+00:10:14,300 --> 00:10:16,300
+What I wanted to point out as well
+
+253
+00:10:16,300 --> 00:10:19,150
+and you guys don't need to do this so just watch,
+
+254
+00:10:19,150 --> 00:10:23,140
+the environment is already prefabbed.
+
+255
+00:10:23,140 --> 00:10:25,140
+We put colliders on to everything so you can see
+
+256
+00:10:25,140 --> 00:10:28,380
+that the player could bump in to all of these objects.
+
+257
+00:10:28,380 --> 00:10:30,380
+We used primitive colliders for performance reasons
+
+258
+00:10:30,380 --> 00:10:32,990
+to make it all work nice and neatly.
+
+259
+00:10:32,990 --> 00:10:34,990
+What you should also note about that is there's a
+
+260
+00:10:34,990 --> 00:10:38,140
+checkbox up at the top here called Static.
+
+261
+00:10:38,140 --> 00:10:41,450
+That's checked and that means that 
+
+262
+00:10:41,450 --> 00:10:43,450
+Navigation Static is also checked.
+
+263
+00:10:43,450 --> 00:10:45,450
+So what that means is that all of the
+
+264
+00:10:45,450 --> 00:10:47,450
+things we've specified in here
+
+265
+00:10:47,450 --> 00:10:49,450
+as being a navigable space
+
+266
+00:10:49,450 --> 00:10:51,450
+are going to be included
+
+267
+00:10:51,450 --> 00:10:53,450
+when we bake the nav mesh, when we create
+
+268
+00:10:53,450 --> 00:10:55,450
+this navigable area.
+
+269
+00:10:55,450 --> 00:10:57,450
+What I want you to do now is to go to that
+
+270
+00:10:57,450 --> 00:10:59,450
+navigation window again and we're going to
+
+271
+00:10:59,450 --> 00:11:02,180
+switch over to the Bake tab,
+
+272
+00:11:02,180 --> 00:11:04,180
+the middle one of the three, and there we have
+
+273
+00:11:04,180 --> 00:11:06,960
+some settings that we're going to put in there.
+
+274
+00:11:06,960 --> 00:11:10,420
+The radius of the nav mesh is 
+
+275
+00:11:10,420 --> 00:11:14,620
+approximately how near to a wall an agent can move
+
+276
+00:11:14,620 --> 00:11:16,620
+so we're going to have multiple types of enemy
+
+277
+00:11:16,620 --> 00:11:19,230
+in this so we've got some Zombunnys,
+
+278
+00:11:19,230 --> 00:11:21,230
+Zombears and some Helephants.
+
+279
+00:11:21,230 --> 00:11:23,230
+Now Helephants are a lot bigger
+
+280
+00:11:23,230 --> 00:11:25,560
+so we need to compromise with the
+
+281
+00:11:25,560 --> 00:11:28,140
+radius of the nav mesh.
+
+282
+00:11:28,140 --> 00:11:30,140
+Normally you'd want to have nav mesh agents
+
+283
+00:11:30,140 --> 00:11:33,790
+and nav meshes with the same radius
+
+284
+00:11:33,790 --> 00:11:35,790
+but since we've got different size agents we're going to
+
+285
+00:11:35,790 --> 00:11:38,760
+compromise and make the radius for it 0.75.
+
+286
+00:11:38,760 --> 00:11:42,380
+Likewise this height
+
+287
+00:11:42,380 --> 00:11:44,380
+is a compromise, we have Zombunnys
+
+288
+00:11:44,380 --> 00:11:46,380
+which we made 1.1 in height.
+
+289
+00:11:46,380 --> 00:11:48,380
+The Helephants are going to be a lot bigger
+
+290
+00:11:48,380 --> 00:11:50,380
+but we're going to make our height
+
+291
+00:11:50,380 --> 00:11:51,980
+a compromise between the two,
+
+292
+00:11:51,980 --> 00:11:53,770
+we're going to give it 1.2.
+
+293
+00:11:53,770 --> 00:11:56,600
+But normally if you've got one type of agent
+
+294
+00:11:56,600 --> 00:11:59,490
+and they're all the same give the radius
+
+295
+00:11:59,490 --> 00:12:01,490
+the same as the nav mesh agent and the height
+
+296
+00:12:01,490 --> 00:12:03,490
+the same as the nav mesh agent.
+
+297
+00:12:04,100 --> 00:12:06,100
+The next thing we're going to
+
+298
+00:12:06,100 --> 00:12:08,100
+change is the Step Height.
+
+299
+00:12:08,100 --> 00:12:11,520
+Your nav mesh agent can go up steps and
+
+300
+00:12:11,520 --> 00:12:13,520
+because our floor is uneven,
+
+301
+00:12:13,520 --> 00:12:15,520
+it's made up of floorboards that are
+
+302
+00:12:15,520 --> 00:12:17,520
+sticking up a bit like that, we need the nav mesh
+
+303
+00:12:17,520 --> 00:12:19,840
+agents to not go like 'oh I can't get over that
+
+304
+00:12:19,840 --> 00:12:21,840
+floorboard, I'd better got around it' so we need a
+
+305
+00:12:21,840 --> 00:12:23,840
+small step height to make sure that it can get up
+
+306
+00:12:23,840 --> 00:12:25,040
+over those bumps.
+
+307
+00:12:25,040 --> 00:12:27,040
+Then we're expanding the Advanced area
+
+308
+00:12:27,040 --> 00:12:30,340
+and we're setting the Width Inaccuracy
+
+309
+00:12:30,340 --> 00:12:35,440
+to just 1%, so drag that Width Inaccuracy down to 1.
+
+310
+00:12:35,440 --> 00:12:39,640
+The Width Inaccuracy affects how
+
+311
+00:12:39,640 --> 00:12:41,640
+carefully the nav mesh is baked.
+
+312
+00:12:41,640 --> 00:12:43,640
+A nav mesh can be baked very quickly
+
+313
+00:12:43,640 --> 00:12:45,640
+if you give it high inaccuracies
+
+314
+00:12:45,640 --> 00:12:47,640
+and it'll look quite angular and
+
+315
+00:12:47,640 --> 00:12:49,640
+it'll be quite approximate to your
+
+316
+00:12:49,640 --> 00:12:51,640
+environment but we want
+
+317
+00:12:51,640 --> 00:12:54,400
+it to be a very accurate nav mesh.
+
+318
+00:12:54,400 --> 00:12:56,400
+This is going to take a little while to bake but
+
+319
+00:12:56,400 --> 00:12:58,400
+we'll end up with a very nice nav mesh afterwards.
+
+320
+00:12:58,400 --> 00:13:00,400
+Once that's done you are hitting Bake
+
+321
+00:13:00,400 --> 00:13:02,400
+at the bottom of the window.
+
+322
+00:13:02,400 --> 00:13:04,400
+What you'll see in the scene view 
+
+323
+00:13:04,400 --> 00:13:06,400
+once it's completed that process
+
+324
+00:13:06,400 --> 00:13:08,400
+is that you will see a blue overlay
+
+325
+00:13:08,400 --> 00:13:10,210
+on the entire level.
+
+326
+00:13:10,210 --> 00:13:12,040
+You will get a progress bar at the bottom,
+
+327
+00:13:12,040 --> 00:13:14,040
+it says 'exporting tiles' like this.
+
+328
+00:13:15,100 --> 00:13:17,100
+Once it's done that process you will
+
+329
+00:13:17,100 --> 00:13:19,100
+see an overlay in the scene view
+
+330
+00:13:19,100 --> 00:13:21,590
+as long as you are on the navigation window.
+
+331
+00:13:21,590 --> 00:13:23,050
+And it should look something like this.
+
+332
+00:13:23,050 --> 00:13:25,050
+So what's happening here is
+
+333
+00:13:25,050 --> 00:13:28,310
+nav agents and pathfinding and all that
+
+334
+00:13:28,310 --> 00:13:29,670
+will work with complex meshes,
+
+335
+00:13:29,670 --> 00:13:31,670
+however it is incredibly inefficient
+
+336
+00:13:31,670 --> 00:13:33,670
+and you're going to have all sorts of issues
+
+337
+00:13:33,670 --> 00:13:35,670
+if there's bumps and cracks and things like that
+
+338
+00:13:35,670 --> 00:13:37,670
+basically saying that while you can
+
+339
+00:13:37,670 --> 00:13:39,670
+traverse these unusually sized
+
+340
+00:13:39,670 --> 00:13:41,670
+and shaped meshes it's really not
+
+341
+00:13:41,670 --> 00:13:42,810
+worth it, right?
+
+342
+00:13:42,810 --> 00:13:44,220
+Generally you want your movement to be smooth
+
+343
+00:13:44,220 --> 00:13:46,120
+and you don't want it to be that inefficient.
+
+344
+00:13:46,120 --> 00:13:48,120
+When we bake a nav mesh what it's doing is
+
+345
+00:13:48,120 --> 00:13:50,550
+it's finding all of the static meshes
+
+346
+00:13:50,550 --> 00:13:52,390
+in our scene, things that are marked as
+
+347
+00:13:52,390 --> 00:13:54,200
+navigationally static and saying
+
+348
+00:13:54,200 --> 00:13:56,200
+'these aren't going to move, these are going to be
+
+349
+00:13:56,200 --> 00:13:57,650
+things that we can walk on'
+
+350
+00:13:57,650 --> 00:14:00,490
+and it's going to calculate a very simple
+
+351
+00:14:00,490 --> 00:14:04,120
+flat mesh and say 'it's not exact but it's
+
+352
+00:14:04,120 --> 00:14:06,120
+close enough and no one will ever know'
+
+353
+00:14:06,120 --> 00:14:07,940
+so it's much more efficient and it actually makes it
+
+354
+00:14:07,940 --> 00:14:09,940
+much more accurate as far as actually moving
+
+355
+00:14:09,940 --> 00:14:12,440
+around how you would expect things to move around.
+
+356
+00:14:12,440 --> 00:14:14,440
+That's what we're doing, we're on the fly
+
+357
+00:14:14,440 --> 00:14:16,930
+Unity is generating a new mesh
+
+358
+00:14:16,930 --> 00:14:18,800
+which is just a flat plane, 
+
+359
+00:14:18,800 --> 00:14:20,800
+possibly with a slow to it,
+
+360
+00:14:20,800 --> 00:14:22,800
+but it's very simplified and it makes
+
+361
+00:14:22,800 --> 00:14:26,990
+the actual AI process of navigating very simple.
+
+362
+00:14:26,990 --> 00:14:28,990
+Just to make this very clear,
+
+363
+00:14:28,990 --> 00:14:32,070
+these things in our scene are marked as static
+
+364
+00:14:32,070 --> 00:14:34,070
+so if we wanted to move our blocks,
+
+365
+00:14:34,070 --> 00:14:36,560
+at some point we changed the design of the game
+
+366
+00:14:36,560 --> 00:14:39,380
+we would move them and we would rebake the nav mesh
+
+367
+00:14:39,380 --> 00:14:42,410
+to recalcuate that traversable area.
+
+368
+00:14:42,410 --> 00:14:45,300
+Okay, so we need this character to
+
+369
+00:14:45,300 --> 00:14:47,300
+run around and chase the player
+
+370
+00:14:47,300 --> 00:14:49,300
+so we're going to apply animation to this.
+
+371
+00:14:49,300 --> 00:14:51,930
+What we want to do is select the Animation
+
+372
+00:14:51,930 --> 00:14:53,930
+folder in the project panel.
+
+373
+00:14:53,930 --> 00:14:56,790
+I'm going to click the Create button and I'm going to choose
+
+374
+00:14:56,790 --> 00:14:58,470
+Animator Controller.
+
+375
+00:14:59,030 --> 00:15:01,030
+So select the Animation folder and choose
+
+376
+00:15:01,030 --> 00:15:03,840
+Create  - Animator Controller.
+
+377
+00:15:03,840 --> 00:15:06,700
+This one is going to be EnemyAC.
+
+378
+00:15:06,700 --> 00:15:08,700
+AC is short for Animator Controller and
+
+379
+00:15:08,700 --> 00:15:11,880
+then we're going to assign this to our Zombunny.
+
+380
+00:15:13,410 --> 00:15:16,370
+The Zombunny, if we drag and drop that asset
+
+381
+00:15:16,370 --> 00:15:18,050
+on to it it will assign it for us,
+
+382
+00:15:18,050 --> 00:15:20,050
+but just to be clear what we're actually doing
+
+383
+00:15:20,050 --> 00:15:22,050
+is assigning this to the controller
+
+384
+00:15:22,050 --> 00:15:24,550
+property of the animator.
+
+385
+00:15:24,550 --> 00:15:26,550
+Either drag and drop to
+
+386
+00:15:26,550 --> 00:15:28,550
+that component or simply drag and drop
+
+387
+00:15:28,550 --> 00:15:30,550
+straight on to that object to
+
+388
+00:15:30,550 --> 00:15:32,230
+automatically assign it for you.
+
+389
+00:15:32,230 --> 00:15:34,230
+So when you select the Zombunny you should have
+
+390
+00:15:34,230 --> 00:15:37,600
+Animator - EnemyAC as the asset.
+
+391
+00:15:38,360 --> 00:15:42,130
+So that is a animator controller, a state machine,
+
+392
+00:15:42,130 --> 00:15:44,130
+so I'm going to double click EnemyAC
+
+393
+00:15:44,130 --> 00:15:45,980
+to open it in the animator window.
+
+394
+00:15:45,980 --> 00:15:47,980
+We should have an empty new state machine
+
+395
+00:15:47,980 --> 00:15:49,980
+to add animations to
+
+396
+00:15:49,980 --> 00:15:51,460
+just like we did with the player.
+
+397
+00:15:51,460 --> 00:15:53,460
+As before with the player the
+
+398
+00:15:53,460 --> 00:15:55,460
+animation for the Zombunny is
+
+399
+00:15:55,460 --> 00:15:57,460
+stored within it's model so I'm going to
+
+400
+00:15:57,460 --> 00:16:00,230
+expand the model and go to the Characters
+
+401
+00:16:00,230 --> 00:16:01,950
+folder in the project.
+
+402
+00:16:01,950 --> 00:16:04,560
+In the project panel open up Models
+
+403
+00:16:04,560 --> 00:16:06,560
+and select Character and then
+
+404
+00:16:06,560 --> 00:16:09,490
+expand the Zombunny and you will see
+
+405
+00:16:09,490 --> 00:16:11,490
+that and it's animations.
+
+406
+00:16:11,490 --> 00:16:14,840
+The Zombunny has Move, Idle and Death
+
+407
+00:16:14,840 --> 00:16:16,840
+and they are clips that are on a 
+
+408
+00:16:16,840 --> 00:16:18,110
+particular point on the timeline.
+
+409
+00:16:18,110 --> 00:16:19,880
+You can see as I go between these clips
+
+410
+00:16:20,460 --> 00:16:22,460
+they are all in a different part of the timeline
+
+411
+00:16:22,460 --> 00:16:23,480
+as you can see from here.
+
+412
+00:16:23,480 --> 00:16:25,480
+The way that you can do that when you bring in an FPX
+
+413
+00:16:25,480 --> 00:16:27,480
+model that you've animated is you can just
+
+414
+00:16:27,480 --> 00:16:29,480
+create new clips and tell it what
+
+415
+00:16:29,480 --> 00:16:31,480
+frame range you animated them on
+
+416
+00:16:31,480 --> 00:16:33,480
+and Unity will import those for you
+
+417
+00:16:33,480 --> 00:16:34,690
+as different clips.
+
+418
+00:16:34,690 --> 00:16:36,690
+Just like the player they appear
+
+419
+00:16:36,690 --> 00:16:38,690
+underneath that in the hierarchy
+
+420
+00:16:38,690 --> 00:16:40,400
+so you have Death, Idle and Move.
+
+421
+00:16:40,400 --> 00:16:42,400
+Just as before I'm going to drag them in.
+
+422
+00:16:42,400 --> 00:16:44,400
+I want the default state to be Moving
+
+423
+00:16:44,400 --> 00:16:46,400
+so I'm going to drag that one in first because
+
+424
+00:16:46,400 --> 00:16:48,400
+that gets made default,
+
+425
+00:16:48,400 --> 00:16:49,990
+default signified by orange.
+
+426
+00:16:49,990 --> 00:16:51,990
+Then I'm going to drag in the other two,
+
+427
+00:16:52,880 --> 00:16:54,240
+Idle and Death even.
+
+428
+00:16:54,240 --> 00:16:56,240
+I'm going to put Death next to the Any state,
+
+429
+00:16:56,240 --> 00:16:59,350
+and I'm going to put Idle and Move together.
+
+430
+00:17:00,080 --> 00:17:02,790
+Again the position of these is kind of irrelevant but
+
+431
+00:17:02,790 --> 00:17:05,400
+I like to have things nice and neat.
+
+432
+00:17:05,400 --> 00:17:07,400
+Once those are in there we've positioned
+
+433
+00:17:07,400 --> 00:17:09,400
+them nicely we're going to
+
+434
+00:17:09,400 --> 00:17:11,400
+create parameters for them.
+
+435
+00:17:11,400 --> 00:17:13,400
+So making sure that Move is the default,
+
+436
+00:17:13,400 --> 00:17:16,190
+so Set As Default with right click
+
+437
+00:17:16,190 --> 00:17:19,230
+if you haven't already, we're going to create parameters.
+
+438
+00:17:19,230 --> 00:17:21,230
+We have just two parameters for this one
+
+439
+00:17:22,030 --> 00:17:24,770
+and as before we're going to click the + icon
+
+440
+00:17:24,770 --> 00:17:26,770
+and we're going to select the type
+
+441
+00:17:26,770 --> 00:17:28,770
+of parameter that we want.
+
+442
+00:17:28,770 --> 00:17:30,770
+We want
+
+443
+00:17:30,770 --> 00:17:33,800
+a trigger parameter called PlayerDead.
+
+444
+00:17:33,800 --> 00:17:35,800
+These enemy characters are going to walk,
+
+445
+00:17:35,800 --> 00:17:37,800
+they're going to have their moving animation
+
+446
+00:17:37,800 --> 00:17:39,800
+until the player dies and they are going to go
+
+447
+00:17:39,800 --> 00:17:40,930
+in to their Idle animation.
+
+448
+00:17:40,930 --> 00:17:43,550
+Then we're going to create another trigger
+
+449
+00:17:43,550 --> 00:17:46,310
+which says that they themselves are dead,
+
+450
+00:17:46,310 --> 00:17:48,310
+which is just called Dead.
+
+451
+00:17:48,310 --> 00:17:50,210
+So two trigger parameters, PlayerDead
+
+452
+00:17:50,210 --> 00:17:52,810
+so that they can go to Idle when you get killed
+
+453
+00:17:52,810 --> 00:17:54,810
+and Dead themselves so that they can animate
+
+454
+00:17:54,810 --> 00:17:56,590
+in to their Death animation.
+
+455
+00:17:56,590 --> 00:17:58,590
+Then of course we need to actually control the
+
+456
+00:17:58,590 --> 00:18:00,590
+logic of the state machine.
+
+457
+00:18:01,120 --> 00:18:03,120
+We want our move to transition to Idle
+
+458
+00:18:03,120 --> 00:18:06,210
+so I'm going to right click Make Transition
+
+459
+00:18:06,210 --> 00:18:08,210
+and again I get the transition handle.
+
+460
+00:18:08,210 --> 00:18:09,940
+I'm going to click on Idle to assign it.
+
+461
+00:18:09,940 --> 00:18:11,940
+I will select
+
+462
+00:18:11,940 --> 00:18:13,940
+the transition by clicking on it.
+
+463
+00:18:13,940 --> 00:18:15,940
+Once that transition is highlighted in blue
+
+464
+00:18:16,660 --> 00:18:18,660
+I should have my list of transitions.
+
+465
+00:18:18,660 --> 00:18:20,660
+So in order to go from Move to Idle
+
+466
+00:18:20,660 --> 00:18:22,660
+the condition is that
+
+467
+00:18:22,660 --> 00:18:24,660
+the player is dead.
+
+468
+00:18:26,040 --> 00:18:28,040
+Then very simply in order to go from
+
+469
+00:18:28,040 --> 00:18:31,150
+the Any state I will make a transition,
+
+470
+00:18:31,150 --> 00:18:32,290
+click on Death,
+
+471
+00:18:33,350 --> 00:18:35,350
+select that transition.
+
+472
+00:18:37,280 --> 00:18:39,280
+The condition for that is that the
+
+473
+00:18:39,280 --> 00:18:41,280
+Dead trigger has occurred.
+
+474
+00:18:42,500 --> 00:18:44,500
+So if I just scrub through you see we go from
+
+475
+00:18:44,500 --> 00:18:46,500
+Moving in to Death.
+
+476
+00:18:48,460 --> 00:18:51,590
+Also notice that you can't go from Idle back to Move.
+
+477
+00:18:51,590 --> 00:18:53,590
+Because at that point the player is dead.
+
+478
+00:18:53,590 --> 00:18:56,170
+So we have no need to create a transition back.
+
+479
+00:18:56,170 --> 00:18:58,870
+These state machines don't work by themselves
+
+480
+00:18:58,870 --> 00:19:00,870
+The connection between the state machine and
+
+481
+00:19:00,870 --> 00:19:03,750
+animator and the actual functionality
+
+482
+00:19:03,750 --> 00:19:05,750
+is that the scripting needs to tell those
+
+483
+00:19:05,750 --> 00:19:07,750
+parameters what their value is.
+
+484
+00:19:07,750 --> 00:19:10,280
+We need a script to say that the
+
+485
+00:19:10,280 --> 00:19:13,820
+animator SetTrigger Player Dead will actually
+
+486
+00:19:13,820 --> 00:19:17,100
+happen otherwise the animator does nothing by itself.
+
+487
+00:19:17,100 --> 00:19:20,120
+In the Scripts folder in your project
+
+488
+00:19:20,120 --> 00:19:23,010
+you will see a folder called Enemy.
+
+489
+00:19:23,010 --> 00:19:26,350
+Go to Scripts folder and open the folder Enemy.
+
+490
+00:19:26,350 --> 00:19:28,350
+In that you will see a folder called
+
+491
+00:19:28,350 --> 00:19:29,890
+EnemyMovement.
+
+492
+00:19:29,890 --> 00:19:31,890
+We are going to drag and drop that on to
+
+493
+00:19:31,890 --> 00:19:34,100
+Zombunny in the hierarchy.
+
+494
+00:19:36,690 --> 00:19:38,690
+And then once you've assigned it either
+
+495
+00:19:38,690 --> 00:19:41,760
+double click EnemyMovement's icon
+
+496
+00:19:41,760 --> 00:19:43,760
+or go to the cog icon
+
+497
+00:19:43,760 --> 00:19:45,760
+and go to Edit Script, but basically we're opening
+
+498
+00:19:45,760 --> 00:19:47,540
+that for editing.
+
+499
+00:19:47,540 --> 00:19:50,030
+and when you open that for editing it should look like this.
+
+500
+00:19:51,000 --> 00:19:53,000
+What you'll notice here is we have a script that's
+
+501
+00:19:53,000 --> 00:19:54,610
+been ready written for you.
+
+502
+00:19:54,610 --> 00:19:56,610
+Some of the functionality has been disabled,
+
+503
+00:19:56,610 --> 00:19:58,610
+you'll notice the double forward slash
+
+504
+00:19:58,610 --> 00:20:00,390
+symbols at the start of some of these lines.
+
+505
+00:20:00,390 --> 00:20:02,390
+That's commenting, so you can write
+
+506
+00:20:02,390 --> 00:20:04,390
+comments in a script, I.E. just notes
+
+507
+00:20:04,390 --> 00:20:06,390
+to yourself or to coworkers, whatever,
+
+508
+00:20:06,390 --> 00:20:08,390
+but you can also use that to turn
+
+509
+00:20:08,390 --> 00:20:10,390
+functional lines of code in to deactivated
+
+510
+00:20:10,390 --> 00:20:12,390
+lines of code, so that's what we've done here
+
+511
+00:20:12,390 --> 00:20:14,390
+and we're going to come back to this script at some point
+
+512
+00:20:14,390 --> 00:20:16,930
+and enable some of that functionality.
+
+513
+00:20:16,930 --> 00:20:20,230
+But for now we're just going to explain how this script functions.
+
+514
+00:20:20,230 --> 00:20:22,230
+This is our EnemyMovement script and at the very
+
+515
+00:20:22,230 --> 00:20:24,230
+beginning we have this Transform player,
+
+516
+00:20:24,230 --> 00:20:26,230
+and the Transform player is going to be
+
+517
+00:20:26,230 --> 00:20:29,360
+what the enemy is going to move towards.
+
+518
+00:20:29,360 --> 00:20:32,130
+You will notice the Transform player is not public.
+
+519
+00:20:32,130 --> 00:20:34,430
+With the camera we had that public transform
+
+520
+00:20:34,430 --> 00:20:36,430
+target so we could click and drag
+
+521
+00:20:36,430 --> 00:20:38,430
+in the editor and the camera knows what it's following.
+
+522
+00:20:38,430 --> 00:20:40,430
+However our enemies are
+
+523
+00:20:40,430 --> 00:20:43,280
+not going to be in the game when the game starts.
+
+524
+00:20:43,280 --> 00:20:45,280
+Our enemies are actually going to be what's called
+
+525
+00:20:45,280 --> 00:20:47,280
+instantiated or spawned
+
+526
+00:20:47,280 --> 00:20:49,980
+later so whole hordes of them can appear.
+
+527
+00:20:49,980 --> 00:20:51,980
+As such we can't just click and drag
+
+528
+00:20:51,980 --> 00:20:53,330
+the player on to them.
+
+529
+00:20:53,330 --> 00:20:55,330
+So what's going to happen is they're going to have to find
+
+530
+00:20:55,330 --> 00:20:57,330
+the player on their own, so for now
+
+531
+00:20:57,330 --> 00:20:58,700
+that's just Transform player, not public.
+
+532
+00:20:58,700 --> 00:21:01,260
+We also have a reference to a nav mesh agent,
+
+533
+00:21:01,260 --> 00:21:03,260
+which is the component we put
+
+534
+00:21:03,260 --> 00:21:06,010
+on the Zombunny previously, this is just our
+
+535
+00:21:06,010 --> 00:21:08,500
+reference to it which we've called Nav.
+
+536
+00:21:08,500 --> 00:21:10,500
+Now down in the Awake method here
+
+537
+00:21:10,500 --> 00:21:13,860
+we are finding the player.
+
+538
+00:21:13,860 --> 00:21:16,680
+So we have Player, which is that Transform before,
+
+539
+00:21:16,680 --> 00:21:23,150
+player = GameObject.FindGameObjectWithTag.
+
+540
+00:21:23,150 --> 00:21:25,150
+So if you remember previously when we were
+
+541
+00:21:25,150 --> 00:21:27,150
+setting up the player we
+
+542
+00:21:27,150 --> 00:21:29,150
+gave the player the tag Player.
+
+543
+00:21:29,150 --> 00:21:31,150
+So now that we've set the player with the tag
+
+544
+00:21:31,150 --> 00:21:33,150
+Player, we can find
+
+545
+00:21:33,150 --> 00:21:34,840
+that player using this function.
+
+546
+00:21:34,840 --> 00:21:36,840
+So basically what it's going to do is go through all of the game
+
+547
+00:21:36,840 --> 00:21:40,980
+objects in our scene, it's going to say 'hey do you have that tag?'
+
+548
+00:21:40,980 --> 00:21:43,680
+until it finds the one and it gives it back.
+
+549
+00:21:43,680 --> 00:21:45,680
+And then what we're going to do is say
+
+550
+00:21:45,680 --> 00:21:47,680
+.Transform, which is going to give us
+
+551
+00:21:47,680 --> 00:21:49,680
+a reference to the transform,
+
+552
+00:21:49,680 --> 00:21:51,680
+basically where the player is.
+
+553
+00:21:51,680 --> 00:21:53,680
+So we're storing that in our variable named player.
+
+554
+00:21:53,680 --> 00:21:55,910
+Next we have a variable named nav
+
+555
+00:21:55,910 --> 00:21:57,910
+and we're just setting that equal to GetComponent
+
+556
+00:21:57,910 --> 00:21:59,910
+<NavMeshAgent> which is basically going to
+
+557
+00:21:59,910 --> 00:22:03,110
+pull a reference to the component we have in the editor.
+
+558
+00:22:03,110 --> 00:22:05,110
+At this point we're just setting up.
+
+559
+00:22:05,110 --> 00:22:07,110
+Then down in our update function
+
+560
+00:22:09,920 --> 00:22:12,410
+you'll notice we're using update, not fixed update.
+
+561
+00:22:12,410 --> 00:22:14,410
+As this is a nav mesh agent it's not
+
+562
+00:22:14,410 --> 00:22:16,410
+keeping in time with physics
+
+563
+00:22:16,410 --> 00:22:18,410
+so we're just going to use the regular update
+
+564
+00:22:18,410 --> 00:22:20,410
+and inside there we are going to say
+
+565
+00:22:20,410 --> 00:22:23,770
+nav.SetDestination (player.position); and that's it.
+
+566
+00:22:23,770 --> 00:22:25,420
+So nav being the nav mesh agent we're saying
+
+567
+00:22:25,420 --> 00:22:28,230
+'hey, that's where I want to go'.
+
+568
+00:22:28,230 --> 00:22:29,800
+'I want to go towards the player'
+
+569
+00:22:29,800 --> 00:22:32,250
+and that's it, the nav mesh agent goes
+
+570
+00:22:32,250 --> 00:22:33,690
+'cool, I'm going to head towards the player'.
+
+571
+00:22:33,690 --> 00:22:35,450
+And the nice thing about doing it this way is that
+
+572
+00:22:35,450 --> 00:22:37,450
+the enemies aren't going to bump in to each other,
+
+573
+00:22:37,450 --> 00:22:39,450
+they're not going to crop in and out of each other,
+
+574
+00:22:39,450 --> 00:22:41,450
+they're going to move around all the creepy
+
+575
+00:22:41,450 --> 00:22:43,450
+baby arms and Legos and 
+
+576
+00:22:43,450 --> 00:22:45,450
+weirdness that we have in the scene there and
+
+577
+00:22:45,450 --> 00:22:47,450
+they're going to viciously and unerringly
+
+578
+00:22:47,450 --> 00:22:50,480
+attack you with extreme prejudice and violence.
+
+579
+00:22:50,480 --> 00:22:52,480
+The nav mesh agent makes it very easy to do these things.
+
+580
+00:22:52,480 --> 00:22:54,480
+And that's the whole script.
+
+581
+00:22:54,480 --> 00:22:56,480
+We'll revisit this script later when we want to
+
+582
+00:22:56,480 --> 00:22:58,480
+do uncomment it, re-add in that
+
+583
+00:22:58,480 --> 00:23:01,060
+functionality that you see is currently greyed out.
+
+584
+00:23:01,060 --> 00:23:03,060
+We could switch back to the Unity editor
+
+585
+00:23:03,060 --> 00:23:05,060
+right now, we don't need to save anything because
+
+586
+00:23:05,060 --> 00:23:07,060
+we haven't actually edited it,
+
+587
+00:23:07,060 --> 00:23:10,130
+but I do want to make sure you have applied it to Player.
+
+588
+00:23:10,130 --> 00:23:12,130
+So the Zombunny in the hierarchy should
+
+589
+00:23:12,130 --> 00:23:15,080
+have the enemy movement script attached to it.
+
+590
+00:23:17,530 --> 00:23:19,530
+I'm going to save my scene
+
+591
+00:23:19,530 --> 00:23:21,530
+and I'm going to press Play to test
+
+592
+00:23:21,530 --> 00:23:23,530
+my game, when you press Play it now
+
+593
+00:23:23,530 --> 00:23:25,530
+follows the player.
+
+594
+00:23:25,530 --> 00:23:27,530
+We don't have any coding for attacking
+
+595
+00:23:27,530 --> 00:23:29,530
+yes or anything like that
+
+596
+00:23:29,530 --> 00:23:31,530
+so it's not doing to do any harm to you, 
+
+597
+00:23:31,530 --> 00:23:34,580
+you can walk around and push him around.
+
+598
+00:23:40,190 --> 00:23:43,080
+That is the end of phase 4.

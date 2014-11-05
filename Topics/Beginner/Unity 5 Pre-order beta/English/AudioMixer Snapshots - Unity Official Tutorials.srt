@@ -1,0 +1,1023 @@
+1
+00:00:00,394 --> 00:00:03,541
+In Unity it's possible to save and recall
+
+2
+00:00:03,541 --> 00:00:05,541
+the state of an audio mixer asset
+
+3
+00:00:05,849 --> 00:00:07,849
+using snapshots.
+
+4
+00:00:08,868 --> 00:00:12,093
+In this audio mixer master mixer
+
+5
+00:00:12,093 --> 00:00:15,105
+we have two snapshots created.
+
+6
+00:00:15,355 --> 00:00:18,600
+In this case Unpaused and Paused.
+
+7
+00:00:19,071 --> 00:00:22,115
+In Unpaused we've set our levels
+
+8
+00:00:22,115 --> 00:00:25,195
+and we've also set the cutoff frequency
+
+9
+00:00:25,195 --> 00:00:27,195
+of a low pass filter,
+
+10
+00:00:27,195 --> 00:00:30,156
+in this case to 22000hz.
+
+11
+00:00:31,050 --> 00:00:34,041
+When we click on the Paused snapshot
+
+12
+00:00:35,022 --> 00:00:37,660
+we'll see that a new cutoff frequency
+
+13
+00:00:37,660 --> 00:00:41,067
+has been recalled, 365hz.
+
+14
+00:00:41,067 --> 00:00:43,067
+In this case it's attenuating the high
+
+15
+00:00:43,067 --> 00:00:45,067
+frequencies of our music track,
+
+16
+00:00:45,067 --> 00:00:48,477
+which is running through the music group of master mixer.
+
+17
+00:00:48,477 --> 00:00:50,836
+When the Escape key is pressed
+
+18
+00:00:50,836 --> 00:00:53,975
+the music track will be low pass filtered.
+
+19
+00:00:53,975 --> 00:00:55,143
+Let's check that out.
+
+20
+00:00:57,379 --> 00:00:59,379
+When we press escape our music track
+
+21
+00:00:59,379 --> 00:01:01,763
+is low pass filtered and when we press again.
+
+22
+00:01:05,485 --> 00:01:07,485
+To create a new snapshot we can click
+
+23
+00:01:07,485 --> 00:01:09,881
+the +  button in the snapshots area.
+
+24
+00:01:09,881 --> 00:01:12,326
+Now we have a copy of Unpaused
+
+25
+00:01:13,189 --> 00:01:15,815
+and we can set our values, and now
+
+26
+00:01:17,988 --> 00:01:20,869
+we can recall those values in the editor
+
+27
+00:01:20,869 --> 00:01:22,869
+by clicking on the snapshot names.
+
+28
+00:01:22,869 --> 00:01:27,097
+At runtime we can recall snapshot values
+
+29
+00:01:27,097 --> 00:01:30,158
+using the TransitionTo function.
+
+30
+00:01:30,158 --> 00:01:33,921
+TransitionTo takes a float in seconds
+
+31
+00:01:34,258 --> 00:01:36,738
+and allows us to interpolate
+
+32
+00:01:36,738 --> 00:01:39,751
+between one snapshot and another.
+
+33
+00:01:39,751 --> 00:01:42,293
+TransitionTo is called
+
+34
+00:01:42,293 --> 00:01:45,089
+from the audio mixer snapshot
+
+35
+00:01:45,089 --> 00:01:47,089
+that we're transitioning to.
+
+36
+00:01:47,858 --> 00:01:50,447
+In this project we've got a game object
+
+37
+00:01:50,447 --> 00:01:52,216
+called Menu Canvas.
+
+38
+00:01:52,610 --> 00:01:54,765
+Menu Canvas has a script
+
+39
+00:01:55,092 --> 00:01:57,092
+called Pause Manager.
+
+40
+00:01:57,092 --> 00:01:59,960
+Let's take a look at Pause Manager in mono develop.
+
+41
+00:01:59,960 --> 00:02:01,960
+In Pause Manager we've added the
+
+42
+00:02:01,960 --> 00:02:06,034
+namespace declarations using UnityEngine.UI
+
+43
+00:02:06,034 --> 00:02:08,513
+and using UnityEngine.Audio.
+
+44
+00:02:08,513 --> 00:02:10,513
+We are also checking to see if
+
+45
+00:02:10,513 --> 00:02:13,295
+we're currently using the Unity editor
+
+46
+00:02:13,295 --> 00:02:15,295
+and if so we'll include the
+
+47
+00:02:15,295 --> 00:02:17,527
+Unity editor namespace.
+
+48
+00:02:19,074 --> 00:02:21,499
+Inside our class we're declared two public
+
+49
+00:02:21,499 --> 00:02:24,606
+variables of the audio mixer snapshot type
+
+50
+00:02:24,856 --> 00:02:27,602
+called Paused and Unpaused.
+
+51
+00:02:27,602 --> 00:02:30,734
+We've also declared a variable of the type canvas
+
+52
+00:02:30,734 --> 00:02:32,312
+called Canvas.
+
+53
+00:02:32,312 --> 00:02:34,312
+In our start function we're getting a reference
+
+54
+00:02:34,312 --> 00:02:37,750
+to our canvas component using GetComponent.
+
+55
+00:02:39,462 --> 00:02:42,520
+In update we're checking to see if the escape
+
+56
+00:02:42,520 --> 00:02:44,145
+key has been pressed.
+
+57
+00:02:44,145 --> 00:02:46,145
+If it has we'll flick the enabled
+
+58
+00:02:46,145 --> 00:02:47,944
+state of canvas
+
+59
+00:02:48,454 --> 00:02:51,077
+to Enabled if it's disabled
+
+60
+00:02:51,077 --> 00:02:53,077
+or Disabled if it's enabled.
+
+61
+00:02:53,510 --> 00:02:56,142
+We'll also call the Pause function.
+
+62
+00:02:56,142 --> 00:02:58,603
+In Pause we're going to check
+
+63
+00:02:58,603 --> 00:03:00,603
+to see if time.timeScale
+
+64
+00:03:00,603 --> 00:03:02,603
+is equal to 0.
+
+65
+00:03:02,603 --> 00:03:05,762
+And if it's not we're going to set it to 0.
+
+66
+00:03:06,127 --> 00:03:08,310
+If it is we'll set it to 1.
+
+67
+00:03:09,108 --> 00:03:12,165
+Next we're going to call the low pass function.
+
+68
+00:03:14,030 --> 00:03:16,741
+The low pass function also checks to see if
+
+69
+00:03:16,741 --> 00:03:19,203
+time.timeScale is equal to 0
+
+70
+00:03:19,203 --> 00:03:23,089
+and if it is it will call the TransitionTo function
+
+71
+00:03:23,089 --> 00:03:25,301
+from the Paused snapshot.
+
+72
+00:03:25,301 --> 00:03:27,301
+We're going to parse in the floating point parameter
+
+73
+00:03:27,301 --> 00:03:29,618
+time to reach, which in this case
+
+74
+00:03:29,618 --> 00:03:31,829
+is 0.01 seconds.
+
+75
+00:03:31,829 --> 00:03:35,185
+If time.timeScale is not equal to 0
+
+76
+00:03:35,445 --> 00:03:37,522
+we're going to call TransitionTo
+
+77
+00:03:37,522 --> 00:03:40,071
+from the Unpaused snapshot,
+
+78
+00:03:40,071 --> 00:03:42,410
+also parsing in that same
+
+79
+00:03:42,410 --> 00:03:45,050
+0.01 second parameter
+
+80
+00:03:45,050 --> 00:03:47,194
+for the time to make the transition
+
+81
+00:03:47,723 --> 00:03:50,883
+We have a public function called Quit which is going to check
+
+82
+00:03:50,883 --> 00:03:53,211
+if we're using the Unity editor
+
+83
+00:03:53,211 --> 00:03:55,584
+and if we are it's going to set
+
+84
+00:03:55,584 --> 00:03:58,689
+EditorApplication.isPlaying to false,
+
+85
+00:03:58,689 --> 00:04:01,076
+meaning it's going to stop playing our scene.
+
+86
+00:04:01,535 --> 00:04:04,020
+If we're not using the editor, meaning this is a
+
+87
+00:04:04,020 --> 00:04:06,822
+build of our game we're going to call
+
+88
+00:04:06,822 --> 00:04:08,822
+application.Quit, meaning we're going to
+
+89
+00:04:08,822 --> 00:04:11,187
+quit the application out to the desktop.
+
+90
+00:04:15,418 --> 00:04:18,397
+In the Unity editor we've assigned the Paused and
+
+91
+00:04:18,397 --> 00:04:20,397
+the Unpaused snapshots
+
+92
+00:04:20,397 --> 00:04:23,550
+to the audio mixer snapshots that we created
+
+93
+00:04:23,550 --> 00:04:26,261
+in master mixer here.
+
+94
+00:04:26,261 --> 00:04:28,884
+If we want to change these we can do so
+
+95
+00:04:28,884 --> 00:04:30,403
+using the asset picker.
+
+96
+00:04:31,749 --> 00:04:34,601
+When transitioning between snapshots
+
+97
+00:04:34,601 --> 00:04:37,971
+the default interpolation curve is linear.
+
+98
+00:04:38,490 --> 00:04:41,430
+We can change that by selecting a parameter,
+
+99
+00:04:41,747 --> 00:04:44,546
+right clicking on it and choosing one of these
+
+100
+00:04:44,546 --> 00:04:46,546
+override transition types.
+
+101
+00:04:46,988 --> 00:04:49,907
+The smooth step snapshot transition type
+
+102
+00:04:50,253 --> 00:04:53,261
+will give us an S shaped transition curve.
+
+103
+00:04:53,742 --> 00:04:57,420
+Squared will give us a parabolic curve.
+
+104
+00:04:57,824 --> 00:05:00,930
+Square root will give us a square root curve.
+
+105
+00:05:01,440 --> 00:05:04,806
+Brick wall start will immediately transition
+
+106
+00:05:04,806 --> 00:05:06,806
+to the stored value being transitioned
+
+107
+00:05:06,806 --> 00:05:09,754
+to at the beginning of the transition.
+
+108
+00:05:10,341 --> 00:05:12,661
+Brick wall end will wait until the
+
+109
+00:05:12,661 --> 00:05:15,389
+transition time has elapsed and then
+
+110
+00:05:15,389 --> 00:05:18,960
+make a hard transition to the stored value.
+
+111
+00:05:19,601 --> 00:05:22,003
+In addition to using TransitionTo
+
+112
+00:05:22,003 --> 00:05:24,773
+it's also possible to transition
+
+113
+00:05:24,773 --> 00:05:27,166
+to an interpolated blend
+
+114
+00:05:27,166 --> 00:05:30,261
+of multiple snapshots using the transition
+
+115
+00:05:30,261 --> 00:05:32,261
+to snapshots function.
+
+116
+00:05:32,261 --> 00:05:36,335
+Transition to snapshots function takes 3 parameters.
+
+117
+00:05:36,922 --> 00:05:41,098
+The first, an array of audio mixer snapshots
+
+118
+00:05:41,098 --> 00:05:44,152
+allows us to choose which snapshots
+
+119
+00:05:44,152 --> 00:05:46,499
+we want to create a blend between.
+
+120
+00:05:46,835 --> 00:05:49,639
+Second parameter is an array of floats.
+
+121
+00:05:49,639 --> 00:05:51,977
+It allows us to specify the weighting
+
+122
+00:05:51,977 --> 00:05:55,254
+of each element in the resulting blend.
+
+123
+00:05:55,254 --> 00:05:57,648
+The third parameter is a float
+
+124
+00:05:57,648 --> 00:06:00,498
+in seconds which allows us to specify
+
+125
+00:06:00,498 --> 00:06:04,022
+the time to reach the new desired blend.
+
+126
+00:06:04,022 --> 00:06:06,415
+Transition to snapshots is called
+
+127
+00:06:06,415 --> 00:06:08,415
+from the audio mixer that contains the snapshot
+
+128
+00:06:08,415 --> 00:06:10,618
+that we're transitioning between.
+
+129
+00:06:11,175 --> 00:06:15,602
+What we've got here is we've setup 3 cube triggers.
+
+130
+00:06:16,001 --> 00:06:18,884
+When our player collides with each one of these
+
+131
+00:06:18,884 --> 00:06:21,801
+we will transition to a blend
+
+132
+00:06:21,801 --> 00:06:23,801
+of 2 snapshots.
+
+133
+00:06:24,839 --> 00:06:27,624
+Each of the snapshots has been setup
+
+134
+00:06:27,951 --> 00:06:30,887
+in our sound effects sub mixer.
+
+135
+00:06:31,993 --> 00:06:34,948
+The sound effects sub mixer is running in to the sound effects
+
+136
+00:06:34,948 --> 00:06:37,191
+group of our master mixer.
+
+137
+00:06:37,191 --> 00:06:39,461
+I've turned down the music for this example.
+
+138
+00:06:41,326 --> 00:06:44,262
+In the sound effects mixer, on the gun shots group
+
+139
+00:06:44,262 --> 00:06:46,492
+we've added a send effect.
+
+140
+00:06:47,550 --> 00:06:49,550
+This is under Add Send
+
+141
+00:06:49,550 --> 00:06:51,550
+and what this will do is send a copy of the
+
+142
+00:06:51,550 --> 00:06:54,144
+signal from gun shots to the receive effect
+
+143
+00:06:54,144 --> 00:06:56,144
+that we've added to reverb return.
+
+144
+00:06:56,144 --> 00:06:58,144
+The receive effect will pass it's signal to our
+
+145
+00:06:58,144 --> 00:07:01,326
+SFX reverb effect which will cause our gunshots
+
+146
+00:07:01,326 --> 00:07:04,935
+to sound like they're happening in a reverberant space.
+
+147
+00:07:05,262 --> 00:07:07,512
+We've setup two snapshots.
+
+148
+00:07:08,464 --> 00:07:12,537
+One with no reverb in which the send level
+
+149
+00:07:12,537 --> 00:07:14,537
+for our gun shots send effect
+
+150
+00:07:14,537 --> 00:07:16,218
+is turned all the way down.
+
+151
+00:07:16,633 --> 00:07:18,911
+The next is heavy reverb
+
+152
+00:07:18,911 --> 00:07:20,911
+where it's turned all the way up,
+
+153
+00:07:21,507 --> 00:07:23,584
+and we can just listen to how those sound.
+
+154
+00:07:25,728 --> 00:07:27,053
+Edit In Play Mode.
+
+155
+00:07:29,084 --> 00:07:30,833
+Click, we can hear no reverb.
+
+156
+00:07:31,594 --> 00:07:33,109
+Select heavy reverb.
+
+157
+00:07:35,609 --> 00:07:38,399
+I've intentionally put a very strong unrealistic
+
+158
+00:07:38,399 --> 00:07:41,454
+reverb on there so that we can hear the effect clearly.
+
+159
+00:07:41,454 --> 00:07:43,454
+Now we've created these three
+
+160
+00:07:43,454 --> 00:07:48,658
+transparent cubes called reverb trigger 1, 2 and 3.
+
+161
+00:07:49,017 --> 00:07:51,473
+Each of them has a copy of the script reverb
+
+162
+00:07:51,473 --> 00:07:52,630
+trigger on it.
+
+163
+00:07:52,630 --> 00:07:54,630
+Reverb trigger is a simple script
+
+164
+00:07:54,630 --> 00:07:56,630
+which contains a public variable for our
+
+165
+00:07:56,630 --> 00:07:59,081
+reverb control script, and a public
+
+166
+00:07:59,081 --> 00:08:01,196
+integer called trigger number.
+
+167
+00:08:03,100 --> 00:08:05,100
+When the player collides with the trigger
+
+168
+00:08:05,100 --> 00:08:07,100
+that this is attached to it's going to call
+
+169
+00:08:07,100 --> 00:08:10,360
+the blend snapshot function of
+
+170
+00:08:10,360 --> 00:08:14,651
+reverb control, which takes an integer trigger number.
+
+171
+00:08:15,401 --> 00:08:18,175
+In Unity we've assigned the reverb
+
+172
+00:08:18,175 --> 00:08:21,387
+control variable by dragging and dropping
+
+173
+00:08:21,387 --> 00:08:23,952
+our audio mixer control object,
+
+174
+00:08:24,346 --> 00:08:26,442
+which has that script attached to it.
+
+175
+00:08:26,442 --> 00:08:29,565
+We've also assigned unique trigger numbers
+
+176
+00:08:29,565 --> 00:08:31,729
+to each of these trigger objects.
+
+177
+00:08:32,334 --> 00:08:35,631
+On our audio mixer control game object we have
+
+178
+00:08:35,631 --> 00:08:37,631
+our reverb control script.
+
+179
+00:08:38,006 --> 00:08:40,006
+In our reverb control script we have
+
+180
+00:08:40,006 --> 00:08:43,935
+the namespace declaration using UnityEngine.Audio.
+
+181
+00:08:43,935 --> 00:08:46,243
+This allows us to access members
+
+182
+00:08:46,243 --> 00:08:49,968
+of UnityEngine.Audio like the audio mixer,
+
+183
+00:08:50,343 --> 00:08:53,253
+and audio mixer snapshot classes.
+
+184
+00:08:53,897 --> 00:08:57,369
+We've declared a public variable of the audio mixer type
+
+185
+00:08:57,369 --> 00:09:00,745
+called Mixer and also an array
+
+186
+00:09:00,745 --> 00:09:03,042
+of audio mixer snapshots
+
+187
+00:09:03,042 --> 00:09:05,042
+called Snapshots.
+
+188
+00:09:05,292 --> 00:09:09,230
+We've also declared a public array of floats
+
+189
+00:09:09,230 --> 00:09:12,029
+called Weights and we're going to use these
+
+190
+00:09:12,029 --> 00:09:15,858
+to specify the weightings of each of the snapshots
+
+191
+00:09:15,858 --> 00:09:20,120
+as we blend between our different snapshot states.
+
+192
+00:09:20,120 --> 00:09:23,655
+We have a public function called BlendSnapshot,
+
+193
+00:09:23,655 --> 00:09:28,134
+which takes a parameter of the type int called TriggerNr.
+
+194
+00:09:28,134 --> 00:09:30,134
+This is the int that we're getting from our
+
+195
+00:09:30,134 --> 00:09:33,500
+reverb trigger script when the player collides with the collier.
+
+196
+00:09:33,500 --> 00:09:35,500
+We have a switch statement here which takes
+
+197
+00:09:35,500 --> 00:09:37,500
+trigger number and chooses which of the
+
+198
+00:09:37,500 --> 00:09:39,326
+colliders we've collided with, 
+
+199
+00:09:39,326 --> 00:09:42,018
+case 1, case 2 and case 3.
+
+200
+00:09:42,018 --> 00:09:44,018
+In each of these cases we're going to set
+
+201
+00:09:44,018 --> 00:09:46,941
+the weights of the weight array to correspond
+
+202
+00:09:46,941 --> 00:09:48,941
+to the percentage of which
+
+203
+00:09:48,941 --> 00:09:51,527
+snapshot we want to contribute to the blend.
+
+204
+00:09:51,527 --> 00:09:54,958
+In case 1 which will be selected if they player triggers
+
+205
+00:09:54,958 --> 00:09:58,414
+the right-most red trigger collider.
+
+206
+00:09:58,414 --> 00:10:01,216
+We'll set the weights of our weights array
+
+207
+00:10:01,216 --> 00:10:03,216
+to 1.0 and 0.
+
+208
+00:10:03,216 --> 00:10:07,186
+What this will mean is that our resulting snapshot
+
+209
+00:10:07,186 --> 00:10:09,186
+blend which will be created
+
+210
+00:10:09,186 --> 00:10:12,211
+when we call mixer.transitionToSnapshot
+
+211
+00:10:12,211 --> 00:10:16,376
+is a blend which is 100% of the snapshot
+
+212
+00:10:16,376 --> 00:10:18,376
+at 0 in the snapshots array
+
+213
+00:10:18,376 --> 00:10:23,804
+and 0% of the snapshot at 1 in the snapshots array.
+
+214
+00:10:23,804 --> 00:10:26,613
+In case 3 we're doing the opposite thing, in this
+
+215
+00:10:26,613 --> 00:10:29,178
+case we're going to have 0% of our no reverb
+
+216
+00:10:29,178 --> 00:10:32,658
+snapshot and 100% of our heavy reverb snapshot.
+
+217
+00:10:32,658 --> 00:10:34,658
+But case 2 is where things
+
+218
+00:10:34,658 --> 00:10:37,409
+get interesting and where transition to snapshots
+
+219
+00:10:37,409 --> 00:10:39,265
+becomes really useful.
+
+220
+00:10:39,265 --> 00:10:42,851
+Here we're creating a third reverb state
+
+221
+00:10:42,851 --> 00:10:44,851
+by transitioning to this blend
+
+222
+00:10:44,851 --> 00:10:49,046
+of 25% of our no reverb snapshot
+
+223
+00:10:49,046 --> 00:10:53,126
+and 75% of our heavy reverb snapshot.
+
+224
+00:10:53,126 --> 00:10:56,409
+So we've created a third reverb state
+
+225
+00:10:56,409 --> 00:10:59,298
+by transitioning to a blend of our
+
+226
+00:10:59,298 --> 00:11:01,739
+two existing snapshots.
+
+227
+00:11:01,739 --> 00:11:04,308
+In Unity we've assigned the variables
+
+228
+00:11:04,308 --> 00:11:06,136
+of our reverb control script
+
+229
+00:11:06,471 --> 00:11:09,558
+by dragging in our sound effects mixer asset
+
+230
+00:11:09,846 --> 00:11:12,382
+to our mixer variable slot.
+
+231
+00:11:12,382 --> 00:11:15,149
+We've also assigned the snapshots
+
+232
+00:11:15,149 --> 00:11:17,815
+by clicking and selecting them from the list.
+
+233
+00:11:17,815 --> 00:11:20,995
+Here we have our no reverb snapshot,
+
+234
+00:11:20,995 --> 00:11:23,707
+and here we have our heavy reverbs snapshot.
+
+235
+00:11:23,707 --> 00:11:26,301
+We've also set the size of our weights
+
+236
+00:11:26,301 --> 00:11:28,301
+array to 2 so that it will
+
+237
+00:11:28,301 --> 00:11:30,301
+match up to the size of
+
+238
+00:11:30,301 --> 00:11:32,301
+our snapshots array and so that these
+
+239
+00:11:32,301 --> 00:11:34,301
+lists of elements can line up.
+
+240
+00:11:34,301 --> 00:11:36,301
+We haven't initialised the values here because
+
+241
+00:11:36,301 --> 00:11:39,225
+those are going to be set by the script at run time.
+
+242
+00:11:39,225 --> 00:11:42,919
+As we give this a try pay attention to the reverb
+
+243
+00:11:42,919 --> 00:11:46,030
+return level on our gun shots track
+
+244
+00:11:46,030 --> 00:11:48,030
+and watch how it changes as our
+
+245
+00:11:48,030 --> 00:11:50,582
+character moves through each of the different
+
+246
+00:11:50,582 --> 00:11:52,582
+triggers, let's give it a try.
+
+247
+00:12:10,043 --> 00:12:12,043
+So what we've done here is we've used
+
+248
+00:12:12,043 --> 00:12:15,746
+our two snapshots no reverb and heavy reverb
+
+249
+00:12:15,746 --> 00:12:18,935
+to create this third blended snapshot
+
+250
+00:12:18,935 --> 00:12:20,810
+represented by the purple collider.
+
+251
+00:12:20,810 --> 00:12:23,662
+And, so we've chosen to show reverb here
+
+252
+00:12:23,662 --> 00:12:25,662
+but this technique is applicable to all
+
+253
+00:12:25,662 --> 00:12:29,131
+sorts of audio states and really any type of
+
+254
+00:12:29,131 --> 00:12:31,700
+mixer state that you can save
+
+255
+00:12:31,700 --> 00:12:34,253
+in a snapshot can be blended
+
+256
+00:12:34,253 --> 00:12:36,897
+and recalled using this same technique.
