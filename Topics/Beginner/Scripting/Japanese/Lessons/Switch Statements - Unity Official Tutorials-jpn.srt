@@ -1,0 +1,323 @@
+1
+00:00:00,510 --> 00:00:02,337
+When making decisions in code
+
+2
+00:00:02,337 --> 00:00:04,337
+it is common to use an If statement
+
+3
+00:00:04,337 --> 00:00:06,337
+or a series of If Else statements.
+
+4
+00:00:07,183 --> 00:00:10,198
+An alternative to this can be the Switch statement.
+
+5
+00:00:10,554 --> 00:00:13,463
+A switch statement is a more streamlined conditional
+
+6
+00:00:13,463 --> 00:00:15,751
+that is used when you want to compare a single variable
+
+7
+00:00:15,751 --> 00:00:17,463
+to a series of constants.
+
+8
+00:00:18,001 --> 00:00:20,001
+A common use of switches is to make
+
+9
+00:00:20,001 --> 00:00:22,001
+decisions based on enumerations.
+
+10
+00:00:22,549 --> 00:00:24,549
+For more details on enumerations
+
+11
+00:00:24,549 --> 00:00:27,530
+see the lesson on enumerations linked below.
+
+12
+00:00:29,087 --> 00:00:31,087
+Consider a game where a character's conversation
+
+13
+00:00:31,087 --> 00:00:33,087
+options were based on their intelligence.
+
+14
+00:00:33,904 --> 00:00:35,769
+You could set these options using a series of
+
+15
+00:00:35,769 --> 00:00:38,748
+If Else statements, but that could get cumbersome.
+
+16
+00:00:39,373 --> 00:00:42,069
+Instead we can use a switch statement
+
+17
+00:00:42,069 --> 00:00:44,069
+to more easily implement our solution.
+
+18
+00:00:45,579 --> 00:00:48,197
+Here we have a script called ConversationScript.
+
+19
+00:00:48,880 --> 00:00:51,610
+In this script we will implement a function
+
+20
+00:00:51,610 --> 00:00:53,929
+that will allow a character to give a greeting
+
+21
+00:00:53,929 --> 00:00:55,929
+based on their intelligence.
+
+22
+00:00:56,785 --> 00:00:58,785
+First we will create an integer
+
+23
+00:00:58,785 --> 00:01:00,785
+for our character's intelligence.
+
+24
+00:01:01,122 --> 00:01:03,336
+We will set this variable equal to 5.
+
+25
+00:01:04,151 --> 00:01:05,854
+For the purpose of this example
+
+26
+00:01:05,854 --> 00:01:09,261
+let's say that intelligence ranges from 5 being the highest
+
+27
+00:01:09,261 --> 00:01:11,261
+to 1 being the lowest.
+
+28
+00:01:12,126 --> 00:01:15,191
+Next we will create a function called Greet,
+
+29
+00:01:15,191 --> 00:01:17,191
+which will use a switch statement to output
+
+30
+00:01:17,191 --> 00:01:19,838
+a greeting based on the character's intelligence.
+
+31
+00:01:20,989 --> 00:01:22,864
+The syntax for a switch statement
+
+32
+00:01:22,864 --> 00:01:24,864
+starts with the keyword switch followed by
+
+33
+00:01:24,864 --> 00:01:28,630
+the variable which it will be comparing in parenthesis.
+
+34
+00:01:29,586 --> 00:01:31,726
+In this case we will be comparing
+
+35
+00:01:31,726 --> 00:01:33,407
+our intelligence variable.
+
+36
+00:01:33,962 --> 00:01:37,495
+We follow that with some open and closed braces.
+
+37
+00:01:38,828 --> 00:01:40,828
+Inside the braces we need to define
+
+38
+00:01:40,828 --> 00:01:43,094
+a series of cases.
+
+39
+00:01:43,094 --> 00:01:45,094
+These cases are the constants that we are
+
+40
+00:01:45,094 --> 00:01:47,094
+comparing our variable against.
+
+41
+00:01:47,622 --> 00:01:50,841
+To create a case we use the keyword case
+
+42
+00:01:50,841 --> 00:01:53,495
+followed by our constant and a colon.
+
+43
+00:01:53,993 --> 00:01:55,993
+As you can see we are starting by
+
+44
+00:01:55,993 --> 00:01:57,993
+defining what the character will say
+
+45
+00:01:57,993 --> 00:02:00,465
+if they have an intelligence of 5.
+
+46
+00:02:01,729 --> 00:02:03,729
+Let's print out a greeting that someone of
+
+47
+00:02:03,729 --> 00:02:05,212
+high intelligence might give.
+
+48
+00:02:05,729 --> 00:02:08,611
+As I am not of particularly high intelligence myself
+
+49
+00:02:08,611 --> 00:02:10,611
+I'm going to guess.
+
+50
+00:02:12,570 --> 00:02:14,570
+That seems about right.
+
+51
+00:02:15,612 --> 00:02:17,612
+After the instructions for each case
+
+52
+00:02:17,612 --> 00:02:20,710
+we need to include something called a Jump statement.
+
+53
+00:02:20,710 --> 00:02:22,597
+The most commonly used jump statement for
+
+54
+00:02:22,597 --> 00:02:24,470
+switches is Brake.
+
+55
+00:02:25,053 --> 00:02:27,053
+This is a keyword that jumps the code
+
+56
+00:02:27,053 --> 00:02:29,053
+execution out of the switch
+
+57
+00:02:29,053 --> 00:02:32,059
+so that none of the subsequent cases are executed.
+
+58
+00:02:33,142 --> 00:02:35,816
+Think of brake working like the return keyword.
+
+59
+00:02:35,816 --> 00:02:37,816
+But whereas return most commonly is used
+
+60
+00:02:37,816 --> 00:02:41,871
+in functions, brake is used in switches and loops.
+
+61
+00:02:42,788 --> 00:02:44,577
+After encountering a brake,
+
+62
+00:02:44,577 --> 00:02:46,577
+code will continue execution after the
+
+63
+00:02:46,577 --> 00:02:48,362
+block of code it is in.
+
+64
+00:02:48,362 --> 00:02:50,362
+In our situation, since the brake
+
+65
+00:02:50,362 --> 00:02:52,043
+is inside of a switch
+
+66
+00:02:52,043 --> 00:02:54,043
+after it encountered
+
+67
+00:02:54,043 --> 00:02:56,043
+execution will continue just after the switch.
+
+68
+00:02:58,159 --> 00:03:00,159
+Let's put in a couple more cases
+
+69
+00:03:00,159 --> 00:03:02,159
+with phrases of decreasing intelligence.
+
+70
+00:03:14,862 --> 00:03:16,930
+For our final case we want to catch
+
+71
+00:03:16,930 --> 00:03:18,930
+everything that doesn't have a case of it's own.
+
+72
+00:03:19,334 --> 00:03:22,076
+To do this, instead of using case,
+
+73
+00:03:22,076 --> 00:03:24,299
+we use another keyword, default.
+
+74
+00:03:25,261 --> 00:03:27,261
+Since this should be for any case that hasn't
+
+75
+00:03:27,261 --> 00:03:30,004
+already been covered it doesn't need a value.
+
+76
+00:03:30,523 --> 00:03:32,523
+Other than that we treat it as we would
+
+77
+00:03:32,523 --> 00:03:34,040
+any other case.
+
+78
+00:03:34,648 --> 00:03:36,552
+Think of default as the Else
+
+79
+00:03:36,552 --> 00:03:38,552
+in an If Else statement.
+
+80
+00:03:38,552 --> 00:03:40,801
+Just like else, default covered
+
+81
+00:03:40,801 --> 00:03:44,454
+any situation not caught by a preceding conditional. 

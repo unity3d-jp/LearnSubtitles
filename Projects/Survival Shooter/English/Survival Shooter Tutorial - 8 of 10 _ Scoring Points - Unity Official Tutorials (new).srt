@@ -1,0 +1,1299 @@
+1
+00:00:01,250 --> 00:00:02,856
+So far we have a game
+
+2
+00:00:02,856 --> 00:00:05,318
+where we can shoot a singular enemy
+
+3
+00:00:05,318 --> 00:00:07,318
+and you can be killed by
+
+4
+00:00:07,318 --> 00:00:09,018
+that very same enemy.
+
+5
+00:00:09,018 --> 00:00:11,172
+But currently
+
+6
+00:00:11,172 --> 00:00:14,018
+there is no way to score points.
+
+7
+00:00:14,018 --> 00:00:16,018
+So we want to add more to our UI
+
+8
+00:00:16,018 --> 00:00:18,018
+and we want to add the ability to
+
+9
+00:00:18,018 --> 00:00:20,018
+score points and represent that inside
+
+10
+00:00:20,018 --> 00:00:21,649
+our UI as well.
+
+11
+00:00:21,649 --> 00:00:23,649
+Okay, so, what I want you guys to do
+
+12
+00:00:23,649 --> 00:00:26,740
+is to take a look back at your hierarchy
+
+13
+00:00:27,230 --> 00:00:30,612
+and we are going to look at the HUD Canvas.
+
+14
+00:00:30,612 --> 00:00:32,612
+So the HUD Canvas is our
+
+15
+00:00:32,612 --> 00:00:34,612
+UI canvas, as you remember earlier we placed
+
+16
+00:00:34,612 --> 00:00:38,169
+in the Health UI which gives us the slider for our health
+
+17
+00:00:38,169 --> 00:00:39,947
+and the little heart icon
+
+18
+00:00:39,947 --> 00:00:41,947
+as well as the damage image.
+
+19
+00:00:41,947 --> 00:00:45,394
+But this time we are going to create a score text.
+
+20
+00:00:45,394 --> 00:00:47,684
+So what I'm going to do very quickly is just a the top
+
+21
+00:00:47,684 --> 00:00:50,431
+of the scene view click the 2D button
+
+22
+00:00:50,431 --> 00:00:52,431
+to switch back to 2D mode and I'm just
+
+23
+00:00:52,431 --> 00:00:54,056
+going to zoom right out
+
+24
+00:00:54,056 --> 00:00:56,661
+or what I can do is double click my HUD Canvas
+
+25
+00:00:56,661 --> 00:00:59,674
+to frame it and then zoom back in.
+
+26
+00:00:59,674 --> 00:01:01,674
+What I'm doing is selecting my
+
+27
+00:01:01,674 --> 00:01:03,674
+rect tool because whenever I work on
+
+28
+00:01:03,674 --> 00:01:06,342
+UI stuff I want that 5th tool,.
+
+29
+00:01:06,342 --> 00:01:09,157
+Show us the 2D button really quick while you're zoomed in.
+
+30
+00:01:09,157 --> 00:01:11,157
+There it is, 2D button.
+
+31
+00:01:13,032 --> 00:01:15,032
+Once we're in 2D mode we can then
+
+32
+00:01:15,032 --> 00:01:17,032
+go ahead and create some more UI
+
+33
+00:01:17,032 --> 00:01:19,032
+so this time we're going to make a
+
+34
+00:01:19,032 --> 00:01:21,032
+child object of the HUD Canvas.
+
+35
+00:01:21,301 --> 00:01:23,301
+Therefore I'm going to right click it
+
+36
+00:01:23,734 --> 00:01:25,909
+go to UI and Text.
+
+37
+00:01:26,813 --> 00:01:28,813
+So these UI things are basically a
+
+38
+00:01:28,813 --> 00:01:30,813
+collection of ready-made objects that
+
+39
+00:01:30,813 --> 00:01:32,159
+you can start working with.
+
+40
+00:01:32,159 --> 00:01:33,840
+All of the things that are in the UI system,
+
+41
+00:01:33,840 --> 00:01:35,549
+much like the rest of Unity,
+
+42
+00:01:35,549 --> 00:01:37,549
+are actually components, so what we're really doing
+
+43
+00:01:37,549 --> 00:01:39,231
+is creating a new game object
+
+44
+00:01:39,231 --> 00:01:41,231
+with a text component attached to it.
+
+45
+00:01:41,231 --> 00:01:43,771
+By default when you make a new text component
+
+46
+00:01:43,771 --> 00:01:47,045
+you made something that is default Arial text
+
+47
+00:01:47,045 --> 00:01:49,045
+and it is in grey so that it will
+
+48
+00:01:49,045 --> 00:01:51,684
+work neutrally on light or dark backgrounds.
+
+49
+00:01:51,684 --> 00:01:53,684
+So we're going to rename this
+
+50
+00:01:53,684 --> 00:01:55,684
+The first thing we're going to do is call Text
+
+51
+00:01:55,695 --> 00:01:59,271
+ScoreText, so capital S and T.
+
+52
+00:01:59,271 --> 00:02:02,541
+So rename Text to ScoreText.
+
+53
+00:02:02,541 --> 00:02:04,334
+Then what I'm going to do is to
+
+54
+00:02:04,334 --> 00:02:06,900
+re-anchor this to the top centre of the screen.
+
+55
+00:02:06,900 --> 00:02:08,900
+So if you remember we learnt about
+
+56
+00:02:08,900 --> 00:02:12,028
+rect transform's anchor presets.
+
+57
+00:02:12,028 --> 00:02:13,451
+And the way that we're going to do that is just
+
+58
+00:02:13,451 --> 00:02:16,561
+to set the anchor rather than all of it
+
+59
+00:02:16,561 --> 00:02:19,726
+to the top centre.
+
+60
+00:02:19,726 --> 00:02:21,726
+So it's this preset here.
+
+61
+00:02:23,047 --> 00:02:24,624
+We don't need to Alt, we don't need to Shift,
+
+62
+00:02:24,624 --> 00:02:26,624
+we just need to click that singularly.
+
+63
+00:02:26,624 --> 00:02:28,624
+And what that does is moves our anchors
+
+64
+00:02:28,624 --> 00:02:30,624
+to the top, so you can see our
+
+65
+00:02:30,624 --> 00:02:33,203
+little flower pattern thing is now
+
+66
+00:02:33,203 --> 00:02:34,255
+sat at the top.
+
+67
+00:02:34,255 --> 00:02:36,255
+And from there we can then adjust
+
+68
+00:02:36,255 --> 00:02:37,840
+the positions as appropriate.
+
+69
+00:02:37,840 --> 00:02:39,840
+You'll now noticed that because I've moved those anchors
+
+70
+00:02:39,840 --> 00:02:44,298
+the Y position is -220, so the centre of the game view
+
+71
+00:02:44,298 --> 00:02:48,796
+is -220 pixels or units from the top.
+
+72
+00:02:48,796 --> 00:02:54,272
+So now I can say the Y position is going to be -55
+
+73
+00:02:54,272 --> 00:02:57,012
+and I'll make sure that my X is also on 0.
+
+74
+00:02:57,012 --> 00:03:00,577
+That moves the text in relation to the anchor.
+
+75
+00:03:00,577 --> 00:03:03,345
+Yeah, so if I set that to 0
+
+76
+00:03:03,345 --> 00:03:06,983
+you can see that the pivot is 0.5, 0.5, in the centre.
+
+77
+00:03:06,983 --> 00:03:08,983
+But if I drag this down
+
+78
+00:03:10,396 --> 00:03:13,286
+you can see that I'm moving it a - value.
+
+79
+00:03:13,872 --> 00:03:15,872
+So I'll put that around -55.
+
+80
+00:03:17,561 --> 00:03:19,561
+The next thing we're going to do is setup the width,
+
+81
+00:03:19,561 --> 00:03:21,801
+I'll set that to 300.
+
+82
+00:03:22,444 --> 00:03:24,835
+And I'm going to set the heigh to 50.
+
+83
+00:03:25,467 --> 00:03:27,939
+And I'll set the color to white.
+
+84
+00:03:27,939 --> 00:03:30,572
+so in the text component you have all the controls
+
+85
+00:03:30,572 --> 00:03:32,572
+for how the text displays
+
+86
+00:03:32,572 --> 00:03:34,572
+and I'm going to drag in the color picker
+
+87
+00:03:34,572 --> 00:03:37,838
+so that my color for the text is white.
+
+88
+00:03:39,641 --> 00:03:42,105
+Then because we don't want it to just be Arial
+
+89
+00:03:42,105 --> 00:03:45,016
+and very small we're going to set the font.
+
+90
+00:03:45,544 --> 00:03:47,544
+And we're going to use the circle select and
+
+91
+00:03:47,544 --> 00:03:49,544
+choose LuckiestGuy, so that's a font
+
+92
+00:03:49,544 --> 00:03:51,544
+that we've included in this.
+
+93
+00:03:51,544 --> 00:03:53,544
+If you're not used to doing any kind of UI
+
+94
+00:03:53,544 --> 00:03:56,875
+work in Unity, because Unity is authoring another game
+
+95
+00:03:56,875 --> 00:03:58,875
+or application effectively
+
+96
+00:03:58,875 --> 00:04:02,362
+you need to include that font within your project.
+
+97
+00:04:02,362 --> 00:04:06,772
+So we have the truetype file for LuckiestGuy within that.
+
+98
+00:04:07,840 --> 00:04:11,506
+So we have the licence for it and we have the font itself.
+
+99
+00:04:11,506 --> 00:04:13,506
+That means that when we export it will have
+
+100
+00:04:13,506 --> 00:04:15,506
+the font and use it, it doesn't work like
+
+101
+00:04:15,506 --> 00:04:17,506
+word processors or Photoshop, it won't
+
+102
+00:04:17,506 --> 00:04:19,506
+just be able to pick from your library, you 
+
+103
+00:04:19,506 --> 00:04:22,299
+have to create a copy of the truetype within your project.
+
+104
+00:04:22,299 --> 00:04:24,299
+So our score text has that font
+
+105
+00:04:24,299 --> 00:04:27,775
+and we're going to set the font size to 50.
+
+106
+00:04:27,775 --> 00:04:30,611
+And we're going to use the alignment under paragraph
+
+107
+00:04:30,611 --> 00:04:32,611
+to centre and middle.
+
+108
+00:04:33,610 --> 00:04:36,784
+So centre and middle and font size to 50.
+
+109
+00:04:36,784 --> 00:04:40,971
+And you should see that we have new text written in there.
+
+110
+00:04:40,971 --> 00:04:42,971
+Obviously we don't want it to say new text,
+
+111
+00:04:42,971 --> 00:04:44,971
+we want to see what our actual score will look like.
+
+112
+00:04:44,971 --> 00:04:46,971
+So in the Text field I'm going to type
+
+113
+00:04:46,971 --> 00:04:50,946
+in Score: 0.
+
+114
+00:04:50,946 --> 00:04:52,946
+That's the default that it's going to look like
+
+115
+00:04:52,946 --> 00:04:54,224
+when we start the game.
+
+116
+00:04:54,224 --> 00:04:56,224
+Also important to note that we don't have to
+
+117
+00:04:56,224 --> 00:04:59,457
+set the text to say Score: 0.
+
+118
+00:04:59,457 --> 00:05:01,457
+Our script is actually going to
+
+119
+00:05:01,457 --> 00:05:03,457
+write what it is that text should be
+
+120
+00:05:03,457 --> 00:05:05,457
+however it's really hard to tell what
+
+121
+00:05:05,457 --> 00:05:07,076
+this is going to look like when we're playing our
+
+122
+00:05:07,076 --> 00:05:08,961
+game without putting some value in there.
+
+123
+00:05:08,961 --> 00:05:10,961
+So you might say later 'why did we set that text
+
+124
+00:05:10,961 --> 00:05:12,547
+when the script is already doing it?'.
+
+125
+00:05:12,547 --> 00:05:14,547
+The reason is so that we can visually see
+
+126
+00:05:14,547 --> 00:05:16,871
+'okay, that looks pretty good'
+
+127
+00:05:16,871 --> 00:05:19,877
+now let's go ahead and apply our scripts and do the rest.
+
+128
+00:05:19,877 --> 00:05:21,877
+So it's just a placeholder.
+
+129
+00:05:21,877 --> 00:05:24,622
+Now that we've done this I'm going to save my scene.
+
+130
+00:05:25,288 --> 00:05:26,796
+So File - Save.
+
+131
+00:05:26,796 --> 00:05:28,796
+And the next thing I'm going to do is put a
+
+132
+00:05:28,796 --> 00:05:30,796
+slight drop shadow, so there are some
+
+133
+00:05:30,796 --> 00:05:32,796
+effects that come with the UI system and
+
+134
+00:05:32,796 --> 00:05:34,635
+we can add them as a separate component.
+
+135
+00:05:34,635 --> 00:05:36,635
+We can keep the ScoreText selected,
+
+136
+00:05:36,635 --> 00:05:39,922
+go to Add Component and just type the word Shadow
+
+137
+00:05:39,922 --> 00:05:41,922
+and it will immediately find that component
+
+138
+00:05:41,922 --> 00:05:43,922
+and you can hit Return.
+
+139
+00:05:44,772 --> 00:05:46,257
+That will just give you a slight drop shadow.
+
+140
+00:05:46,257 --> 00:05:48,257
+I'm going to make it a bit more obvious
+
+141
+00:05:48,257 --> 00:05:54,143
+by changing the Effect Distance to 2, -2 in the X and Y axis.
+
+142
+00:05:55,659 --> 00:05:57,659
+It's also important to keep that
+
+143
+00:05:57,659 --> 00:05:59,047
+Use Graphic Alpha checked,
+
+144
+00:05:59,047 --> 00:06:01,288
+otherwise if you change the alpha
+
+145
+00:06:01,288 --> 00:06:04,103
+of the text the shadow won't also change.
+
+146
+00:06:04,885 --> 00:06:06,885
+What you'll notice about this is if I change the
+
+147
+00:06:06,885 --> 00:06:08,885
+alpha of the text itself the shadow
+
+148
+00:06:08,885 --> 00:06:10,885
+underneath is also fading out.
+
+149
+00:06:10,885 --> 00:06:12,885
+Whereas if it's not checked
+
+150
+00:06:13,207 --> 00:06:14,825
+we can fade this and then the shadow
+
+151
+00:06:14,825 --> 00:06:17,732
+will get left behind which is not desirable.
+
+152
+00:06:19,008 --> 00:06:21,008
+And then we need something to set
+
+153
+00:06:21,008 --> 00:06:23,008
+the score, something to be managing
+
+154
+00:06:23,008 --> 00:06:26,037
+the score, updating the text component's
+
+155
+00:06:26,037 --> 00:06:28,522
+text value with Score 10, Score 20,
+
+156
+00:06:28,522 --> 00:06:30,522
+whatever happens in the game. 
+
+157
+00:06:30,522 --> 00:06:32,522
+And the way that we're going to do this is
+
+158
+00:06:32,522 --> 00:06:34,522
+by adding a Manager script.
+
+159
+00:06:34,522 --> 00:06:36,522
+So what I'd like you to do is look in
+
+160
+00:06:36,522 --> 00:06:39,205
+the Scripts - Managers folder
+
+161
+00:06:39,205 --> 00:06:42,691
+and you will find out Score Manager.
+
+162
+00:06:42,691 --> 00:06:44,691
+We're going to drag and drop this on to the
+
+163
+00:06:44,691 --> 00:06:47,062
+ScoreText game object
+
+164
+00:06:49,322 --> 00:06:51,322
+Then once you've applied it you should see
+
+165
+00:06:51,322 --> 00:06:53,844
+it at the bottom of the list of components
+
+166
+00:06:54,356 --> 00:06:55,851
+right underneath the shadow
+
+167
+00:06:55,851 --> 00:06:57,851
+and we can double click to open that up.
+
+168
+00:06:59,172 --> 00:07:01,998
+So at the start we again have our public variables.
+
+169
+00:07:01,998 --> 00:07:04,521
+You'll notice there's a new keyword there
+
+170
+00:07:04,521 --> 00:07:06,095
+Static.
+
+171
+00:07:06,095 --> 00:07:10,207
+So a static variable doesn't belong to the instance
+
+172
+00:07:10,207 --> 00:07:13,435
+of the class it belongs to the class itself.
+
+173
+00:07:13,435 --> 00:07:14,675
+So let me explain.
+
+174
+00:07:14,675 --> 00:07:17,032
+Whenever we're dragging on EnemyHealth
+
+175
+00:07:17,032 --> 00:07:19,885
+or PlayerHealth or PlayerMovement on to an object
+
+176
+00:07:19,885 --> 00:07:22,278
+we're creating an instance of that class 
+
+177
+00:07:22,278 --> 00:07:24,278
+and applying it to the game object,
+
+178
+00:07:24,278 --> 00:07:26,278
+so they are all instances of a class.
+
+179
+00:07:27,358 --> 00:07:29,358
+And so all of the variables,
+
+180
+00:07:29,358 --> 00:07:31,358
+they're instance variables,
+
+181
+00:07:31,358 --> 00:07:35,193
+each enemy has it's own health,
+
+182
+00:07:35,193 --> 00:07:38,218
+each player has it's own speed, etcetera.
+
+183
+00:07:38,218 --> 00:07:42,237
+Static variables do not belong to an instance,
+
+184
+00:07:42,237 --> 00:07:44,786
+they belong to the class itself.
+
+185
+00:07:44,786 --> 00:07:46,786
+So what that means is,
+
+186
+00:07:46,786 --> 00:07:49,769
+in order to reference the score there
+
+187
+00:07:50,417 --> 00:07:54,941
+we don't need to go ScoreManager variable
+
+188
+00:07:54,941 --> 00:07:59,751
+GetComponent ScoreManager then use it, we just say
+
+189
+00:07:59,751 --> 00:08:03,383
+ScoreManager type . score.
+
+190
+00:08:03,923 --> 00:08:06,314
+So we don't need to create a variable to use it
+
+191
+00:08:06,314 --> 00:08:09,496
+we're just going to use it through the type itself.
+
+192
+00:08:09,496 --> 00:08:12,886
+So it only effectively exists in one place
+
+193
+00:08:12,886 --> 00:08:14,886
+we're not going to address a bunch of instances where
+
+194
+00:08:14,886 --> 00:08:17,868
+this exists, we're changing it in 1 place.
+
+195
+00:08:17,868 --> 00:08:19,868
+We could still have multiple
+
+196
+00:08:19,868 --> 00:08:21,868
+instance of ScoreManager,
+
+197
+00:08:21,868 --> 00:08:23,868
+we could drag multiple ones on to
+
+198
+00:08:23,868 --> 00:08:27,704
+a game object, on to different game objects, doesn't matter.
+
+199
+00:08:27,704 --> 00:08:30,567
+We're not going to, because that would break everything.
+
+200
+00:08:30,567 --> 00:08:34,894
+But if we did all of them would share the same score.
+
+201
+00:08:34,894 --> 00:08:36,894
+because it belongs to the type
+
+202
+00:08:36,894 --> 00:08:38,894
+not to the instance.
+
+203
+00:08:38,894 --> 00:08:42,261
+So the next thing is we need a reference to our Text component.
+
+204
+00:08:42,261 --> 00:08:43,544
+In awake we're going to setup that reference
+
+205
+00:08:43,544 --> 00:08:45,127
+to the text component.
+
+206
+00:08:45,127 --> 00:08:47,127
+Then we need to reset the score
+
+207
+00:08:47,127 --> 00:08:49,127
+because if we die we want
+
+208
+00:08:49,127 --> 00:08:51,127
+the game to reset, so,
+
+209
+00:08:51,127 --> 00:08:53,127
+we need to set the score back to 0.
+
+210
+00:08:53,127 --> 00:08:55,127
+And in our update function
+
+211
+00:08:55,127 --> 00:08:59,122
+what we're doing there, the text.text is
+
+212
+00:08:59,122 --> 00:09:01,825
+we're changing the text property
+
+213
+00:09:01,825 --> 00:09:03,825
+of the text component.
+
+214
+00:09:03,825 --> 00:09:05,825
+Okay, so the text component that we have
+
+215
+00:09:05,825 --> 00:09:10,297
+that string that we said Score: 0,
+
+216
+00:09:10,297 --> 00:09:13,453
+that was the Score text,
+
+217
+00:09:13,453 --> 00:09:16,699
+that was the text property of the component.
+
+218
+00:09:16,699 --> 00:09:19,089
+So what we're doing is we're setting that
+
+219
+00:09:19,089 --> 00:09:21,089
+to a completely new string, we're not changing that,
+
+220
+00:09:21,089 --> 00:09:24,167
+we're just setting it completely afresh.
+
+221
+00:09:24,167 --> 00:09:27,025
+We're changing it to Score: 
+
+222
+00:09:27,025 --> 00:09:29,760
+and then that number will be the score.
+
+223
+00:09:30,932 --> 00:09:32,932
+So very simply that's our ScoreManager and
+
+224
+00:09:32,932 --> 00:09:34,932
+if you happen to save it it'll ask you to convert
+
+225
+00:09:34,932 --> 00:09:36,932
+the line endings, it's no big deal.
+
+226
+00:09:37,300 --> 00:09:40,934
+Okay, we'll need to continue scoring points
+
+227
+00:09:40,934 --> 00:09:42,934
+and I'm going to select my
+
+228
+00:09:42,934 --> 00:09:44,934
+Zombunny in the hierarchy
+
+229
+00:09:44,934 --> 00:09:48,808
+and locate the EnemyHealth script.
+
+230
+00:09:48,808 --> 00:09:51,484
+And we're going to open the EnemyHealth script.
+
+231
+00:09:52,715 --> 00:09:55,405
+and have a look down at the very bottom
+
+232
+00:09:55,405 --> 00:09:58,476
+at the StartSinging function. 
+
+233
+00:09:58,476 --> 00:10:01,299
+James mentioned the public static
+
+234
+00:10:01,299 --> 00:10:03,299
+integer score earlier,
+
+235
+00:10:03,299 --> 00:10:05,299
+he promised you very kindly that you could
+
+236
+00:10:05,299 --> 00:10:07,299
+indeed say the name of
+
+237
+00:10:07,299 --> 00:10:11,027
+the class, ScoreManager.score,
+
+238
+00:10:11,027 --> 00:10:13,027
+so without saying GetComponent
+
+239
+00:10:13,027 --> 00:10:16,373
+or create an instance of the script, assign to this part of the script
+
+240
+00:10:16,373 --> 00:10:20,383
+we can very simply just say ScoreManager.score.
+
+241
+00:10:20,383 --> 00:10:22,383
+So we're going to re-enable that by deleting
+
+242
+00:10:22,383 --> 00:10:24,951
+the 2 // comments.
+
+243
+00:10:24,951 --> 00:10:27,503
+And what we're doing there is adding to it
+
+244
+00:10:27,503 --> 00:10:30,622
+the value of ScoreValue.
+
+245
+00:10:30,622 --> 00:10:36,992
+So scoreValue within this particular script is
+
+246
+00:10:36,992 --> 00:10:39,691
+a public variable that we can change.
+
+247
+00:10:39,691 --> 00:10:44,728
+This enemy has a value of 10 that when you kill it you get 10 points.
+
+248
+00:10:44,728 --> 00:10:46,728
+This way we can apply this
+
+249
+00:10:46,728 --> 00:10:48,728
+EnemyHealth script to different enemies
+
+250
+00:10:48,728 --> 00:10:50,424
+and have different score values.
+
+251
+00:10:50,424 --> 00:10:52,424
+So if you wanted to make the
+
+252
+00:10:52,424 --> 00:10:54,424
+killing the elephant worth a lot then you could
+
+253
+00:10:54,424 --> 00:10:56,424
+change that value, you don't need to go in to the
+
+254
+00:10:56,424 --> 00:10:58,424
+script and change it, it's a public value
+
+255
+00:10:58,424 --> 00:11:00,424
+so it appears in the inspector.
+
+256
+00:11:00,424 --> 00:11:03,897
+I just want to make a quick point about static variables.
+
+257
+00:11:03,897 --> 00:11:07,705
+So you know it's a lot easier to do it with static there,
+
+258
+00:11:07,705 --> 00:11:10,041
+we didn't have to create an instance variable,
+
+259
+00:11:10,041 --> 00:11:12,041
+we didn't have to assign it in awake
+
+260
+00:11:12,041 --> 00:11:14,653
+and then use it, we just used it just like that.
+
+261
+00:11:14,653 --> 00:11:17,206
+So why don't we use it for everything like that?
+
+262
+00:11:17,206 --> 00:11:18,700
+That would be so much easier?
+
+263
+00:11:18,700 --> 00:11:22,147
+It's because we have multiple enemies
+
+264
+00:11:22,147 --> 00:11:24,147
+and if we wanted multiple players then
+
+265
+00:11:24,147 --> 00:11:25,660
+we'd have more of those as well.
+
+266
+00:11:25,660 --> 00:11:27,660
+So if we wanted to change the health
+
+267
+00:11:27,660 --> 00:11:30,848
+of one player all of the player's health would change.
+
+268
+00:11:30,848 --> 00:11:32,848
+So we can't do it most of the time.
+
+269
+00:11:32,848 --> 00:11:34,848
+It's just very specific circumstances
+
+270
+00:11:34,848 --> 00:11:36,848
+where you'd only have one score
+
+271
+00:11:36,848 --> 00:11:38,848
+so we can make that static
+
+272
+00:11:38,848 --> 00:11:40,848
+to make it easier for ourselves.
+
+273
+00:11:40,848 --> 00:11:42,848
+So we're going to save this, it's going to ask you
+
+274
+00:11:42,848 --> 00:11:45,865
+to convert line endings, just choose Convert.
+
+275
+00:11:45,865 --> 00:11:47,865
+This project was made on PC and then
+
+276
+00:11:47,865 --> 00:11:49,865
+moved between PC and Mac so the files
+
+277
+00:11:49,865 --> 00:11:51,865
+get confused but it's no big deal.
+
+278
+00:11:52,554 --> 00:11:54,554
+So we should now go ahead and try it out.
+
+279
+00:11:54,554 --> 00:11:56,554
+So if you save your scene and press play
+
+280
+00:11:56,554 --> 00:11:58,554
+at the top of the interface.
+
+281
+00:12:01,736 --> 00:12:05,050
+There we go, 10 points for a Zombunny.
+
+282
+00:12:05,693 --> 00:12:09,054
+A very important point to make right now about prefabs
+
+283
+00:12:09,054 --> 00:12:12,343
+is that they are incredibly useful when you want to
+
+284
+00:12:12,343 --> 00:12:14,343
+spawn more than one object.
+
+285
+00:12:14,343 --> 00:12:16,343
+So some people might use if for rockets in a game
+
+286
+00:12:16,343 --> 00:12:18,737
+and you might use it for enemy spawning in a game.
+
+287
+00:12:18,737 --> 00:12:20,737
+You can use it for really anything you want to
+
+288
+00:12:21,621 --> 00:12:23,621
+But we want to use that for our enemies,
+
+289
+00:12:23,621 --> 00:12:25,129
+there's going to be 3 types of enemy,
+
+290
+00:12:25,129 --> 00:12:28,920
+and you guys have gone and created that first enemy.
+
+291
+00:12:28,920 --> 00:12:30,920
+What we don't want is just the enemy to be
+
+292
+00:12:30,920 --> 00:12:32,920
+sat next to the player when the game starts.
+
+293
+00:12:32,920 --> 00:12:36,494
+So what we need to do is to save him as a prefab.
+
+294
+00:12:36,494 --> 00:12:38,494
+So everybody make sure you've stopped play,
+
+295
+00:12:38,494 --> 00:12:42,573
+so play is no longer on, it should be black at the top.
+
+296
+00:12:42,573 --> 00:12:44,101
+No more blue buttons.
+
+297
+00:12:44,101 --> 00:12:45,620
+What we're going to do is to select our
+
+298
+00:12:45,620 --> 00:12:47,998
+Prefabs folder in the project
+
+299
+00:12:47,998 --> 00:12:50,875
+and then grab the Zombunny in the hierarchy
+
+300
+00:12:50,875 --> 00:12:53,288
+and drag and drop it in to the project panel
+
+301
+00:12:53,288 --> 00:12:55,288
+either in the empty space or drop it on
+
+302
+00:12:55,288 --> 00:12:56,921
+to the Prefabs folder.
+
+303
+00:12:57,460 --> 00:12:59,936
+Both of those will create the same effect,
+
+304
+00:12:59,936 --> 00:13:01,936
+you will get a Zombunny prefab,
+
+305
+00:13:01,936 --> 00:13:03,936
+which looks like this.
+
+306
+00:13:05,004 --> 00:13:07,004
+And you will have all of the same settings
+
+307
+00:13:07,004 --> 00:13:09,004
+that you had on the version that's in the scene.
+
+308
+00:13:10,106 --> 00:13:12,106
+So that version in the scene now belongs
+
+309
+00:13:12,106 --> 00:13:14,106
+to that prefab parent.
+
+310
+00:13:14,106 --> 00:13:16,106
+And even if we delete the version in
+
+311
+00:13:16,106 --> 00:13:18,314
+the scene, in the hierarchy,
+
+312
+00:13:18,314 --> 00:13:20,831
+then the version in the project is saved,
+
+313
+00:13:20,831 --> 00:13:22,191
+and that's very crucial.
+
+314
+00:13:23,259 --> 00:13:25,259
+Everybody check that you've got your Zombunny
+
+315
+00:13:25,259 --> 00:13:27,063
+in the project, it's very important.
+
+316
+00:13:27,063 --> 00:13:30,025
+Then in the hierarchy we want to get rid of it,
+
+317
+00:13:30,025 --> 00:13:31,818
+so I'm going to select it there and
+
+318
+00:13:31,818 --> 00:13:33,818
+on Mac Command Backspace, 
+
+319
+00:13:33,818 --> 00:13:35,818
+on PC just the delete key.
+
+320
+00:13:35,818 --> 00:13:37,818
+Remove it from the scene.
+
+321
+00:13:37,818 --> 00:13:40,812
+And then save your scene.
+
+322
+00:13:40,812 --> 00:13:42,812
+Switch off 2D mode and double click the
+
+323
+00:13:42,812 --> 00:13:44,812
+player to zoom back in to the action
+
+324
+00:13:44,812 --> 00:13:46,812
+so you can see the player.
+
+325
+00:13:47,651 --> 00:13:50,874
+Okay, so that is the end of phase 8.

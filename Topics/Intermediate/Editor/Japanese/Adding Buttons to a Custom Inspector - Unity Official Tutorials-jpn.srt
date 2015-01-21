@@ -1,0 +1,247 @@
+1
+00:00:00,202 --> 00:00:02,021
+In Unity we can add buttons to
+
+2
+00:00:02,021 --> 00:00:04,021
+editor windows so that we can call the
+
+3
+00:00:04,021 --> 00:00:05,694
+functions from our scripts.
+
+4
+00:00:06,329 --> 00:00:08,329
+Doing so gives us the ability to
+
+5
+00:00:08,329 --> 00:00:11,502
+write scripts specifically to improve our workflow,
+
+6
+00:00:11,502 --> 00:00:13,502
+and that is always a good thing.
+
+7
+00:00:14,887 --> 00:00:18,157
+Here we have a script called ObjectBuilderScript
+
+8
+00:00:18,676 --> 00:00:20,676
+The purpose of this script is to instantiate
+
+9
+00:00:20,676 --> 00:00:22,676
+an object at any given point
+
+10
+00:00:22,676 --> 00:00:24,676
+using the BuildObject method.
+
+11
+00:00:26,634 --> 00:00:29,048
+First we declare a game object
+
+12
+00:00:29,048 --> 00:00:33,504
+named obj and a vector3 named spawnPoint.
+
+13
+00:00:34,240 --> 00:00:36,519
+These will contain the object being built
+
+14
+00:00:36,519 --> 00:00:39,644
+and the location to build it respectively.
+
+15
+00:00:40,408 --> 00:00:44,221
+After that we have our method BuildObject,
+
+16
+00:00:44,221 --> 00:00:46,850
+which handles instantiating our object.
+
+17
+00:00:48,916 --> 00:00:51,542
+We also have a custom inspector script
+
+18
+00:00:51,542 --> 00:00:53,542
+written for our object builder script
+
+19
+00:00:53,542 --> 00:00:56,922
+named ObjectBuilderEditor.
+
+20
+00:00:57,603 --> 00:01:00,855
+For more information on writing custom inspector scripts
+
+21
+00:01:00,855 --> 00:01:04,197
+see the lesson on custom inspectors linked below.
+
+22
+00:01:05,475 --> 00:01:07,475
+The first thing we have inside the
+
+23
+00:01:07,475 --> 00:01:09,475
+OnInspectorGUI method is the
+
+24
+00:01:09,475 --> 00:01:11,475
+DrawDefaultInspector function.
+
+25
+00:01:12,669 --> 00:01:14,669
+More information on this function can be found
+
+26
+00:01:14,669 --> 00:01:16,669
+in the lesson linked below.
+
+27
+00:01:18,808 --> 00:01:22,872
+Next we create a button which when clicked
+
+28
+00:01:22,872 --> 00:01:25,122
+will call the BuildObject method
+
+29
+00:01:25,122 --> 00:01:27,122
+of the ObjectBuilderScript.
+
+30
+00:01:28,053 --> 00:01:31,045
+To do this we first create a variable to
+
+31
+00:01:31,045 --> 00:01:33,418
+hold our ObjectBuilderScript reference
+
+32
+00:01:33,418 --> 00:01:35,418
+named myScript.
+
+33
+00:01:35,960 --> 00:01:38,405
+We set our myScript variable
+
+34
+00:01:38,405 --> 00:01:41,905
+equal to a cast of the inherited target variable.
+
+35
+00:01:42,655 --> 00:01:45,370
+Casting allow us to treat the target variable
+
+36
+00:01:45,370 --> 00:01:48,681
+as if it was an ObjectBuilderScript variable.
+
+37
+00:01:50,181 --> 00:01:52,599
+We then create our button by writing the
+
+38
+00:01:52,599 --> 00:01:54,599
+GUILayout class name
+
+39
+00:01:54,599 --> 00:01:57,881
+followed by a . and the Button function.
+
+40
+00:01:59,409 --> 00:02:01,409
+We parse in a single parameter,
+
+41
+00:02:01,409 --> 00:02:04,822
+which contains the text we want displayed on the button.
+
+42
+00:02:06,072 --> 00:02:08,323
+The Button function returns a boolean
+
+43
+00:02:08,323 --> 00:02:10,685
+that is true if the button is pressed.
+
+44
+00:02:10,685 --> 00:02:15,253
+Therefore we wrap the whole line up in an If statement.
+
+45
+00:02:16,989 --> 00:02:18,989
+Then when the If statement
+
+46
+00:02:18,989 --> 00:02:21,713
+evaluates to true we simply call the
+
+47
+00:02:21,713 --> 00:02:25,846
+BuildObject method of our myScript variable.
+
+48
+00:02:27,527 --> 00:02:29,527
+In Unity we have a scene with
+
+49
+00:02:29,527 --> 00:02:31,527
+an empty game object in it.
+
+50
+00:02:31,971 --> 00:02:33,971
+Attached to the game object is our
+
+51
+00:02:33,971 --> 00:02:35,971
+ObjectBuilderScript.
+
+52
+00:02:36,749 --> 00:02:39,367
+Notice in the inspector, in addition to the 2
+
+53
+00:02:39,367 --> 00:02:41,367
+fields we declared in the script
+
+54
+00:02:41,367 --> 00:02:44,836
+we also have a button that says Build Object.
+
+55
+00:02:46,183 --> 00:02:48,738
+If we click the Build Object button
+
+56
+00:02:48,738 --> 00:02:51,582
+we can see that an orb is created in the scene.
+
+57
+00:02:52,207 --> 00:02:55,342
+By changing the values of the Spawn Position field
+
+58
+00:02:55,342 --> 00:02:57,342
+we can keep building objects at various
+
+59
+00:02:57,342 --> 00:02:59,342
+places around the scene.
+
+60
+00:03:00,953 --> 00:03:03,827
+We can see that adding functions to our inspector
+
+61
+00:03:03,827 --> 00:03:05,701
+allows us to add a lot of custom
+
+62
+00:03:05,701 --> 00:03:07,840
+functionality when working in Unity.

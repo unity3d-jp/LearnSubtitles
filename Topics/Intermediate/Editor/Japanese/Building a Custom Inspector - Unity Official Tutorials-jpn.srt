@@ -1,0 +1,43 @@
+1
+00:00:00,308 --> 00:00:03,558
+In Unity we can create a custom inspector to control
+
+2
+00:00:03,558 --> 00:00:05,558
+which data from our scripts is visible
+
+3
+00:00:05,558 --> 00:00:07,558
+and how it is represented in the editor.
+
+4
+00:00:08,846 --> 00:00:11,547
+That ability to extend the editor in this way
+
+5
+00:00:11,547 --> 00:00:14,507
+gives us a lot of power and flexibility with our scripts
+
+6
+00:00:14,507 --> 00:00:16,507
+and the resulting workflow.
+
+7
+00:00:17,997 --> 00:00:19,997
+Let's say we had a leveling system
+
+8
+00:00:19,997 --> 00:00:23,729
+where every time a character earned 750 experience points
+
+9
+00:00:23,729 --> 00:00:25,224
+they gained a new level.
+
+10
+00:00:26,191 --> 00:00:29,140
+This is easy enough to calculate in the beginning
+
+11
+00:00:29,140 --> 00:00:31,699
+but it could be a bit combersome as characters get

@@ -1,0 +1,395 @@
+1
+00:00:00,236 --> 00:00:02,486
+When scripting in Unity sometimes we want a
+
+2
+00:00:02,486 --> 00:00:05,613
+variable that is one of a set of constants.
+
+3
+00:00:05,613 --> 00:00:07,374
+Consider the points of a compass.
+
+4
+00:00:08,016 --> 00:00:10,016
+We could describe these using an integer
+
+5
+00:00:10,016 --> 00:00:12,767
+where 0 was north, 1 was east,
+
+6
+00:00:12,767 --> 00:00:15,211
+2 was south and 3 was west.
+
+7
+00:00:15,934 --> 00:00:19,030
+This wouldn't be very easy to read write in code
+
+8
+00:00:19,030 --> 00:00:22,056
+since it would mean remembering what each number referred to.
+
+9
+00:00:22,653 --> 00:00:24,848
+Instead we can create something called
+
+10
+00:00:24,848 --> 00:00:26,723
+an enumeration.
+
+11
+00:00:26,723 --> 00:00:30,465
+Enumerations, which are often referred to as Enums,
+
+12
+00:00:30,465 --> 00:00:32,465
+are a special data type that has a specific
+
+13
+00:00:32,465 --> 00:00:34,965
+subset of possible values.
+
+14
+00:00:36,007 --> 00:00:38,866
+Here we have a script named EnumScript.
+
+15
+00:00:39,443 --> 00:00:41,443
+Let's create an enumeration to represent
+
+16
+00:00:41,443 --> 00:00:43,740
+the different directions of a compass.
+
+17
+00:00:44,433 --> 00:00:47,233
+We can create the enumeration either inside
+
+18
+00:00:47,233 --> 00:00:49,058
+or outside of the class.
+
+19
+00:00:49,589 --> 00:00:51,589
+We would place an enumeration in the class
+
+20
+00:00:51,589 --> 00:00:54,359
+if only that class needed access to it.
+
+21
+00:00:55,032 --> 00:00:57,032
+We would place the enumeration outside the class
+
+22
+00:00:57,032 --> 00:01:00,091
+if other classes also needed access to it.
+
+23
+00:01:00,697 --> 00:01:02,697
+For this example we will be creating
+
+24
+00:01:02,697 --> 00:01:04,697
+it inside the class.
+
+25
+00:01:05,957 --> 00:01:08,322
+The syntax when declaring an enumeration
+
+26
+00:01:08,322 --> 00:01:11,098
+is to start with the enum keyword.
+
+27
+00:01:12,127 --> 00:01:14,127
+Next we give it a name.
+
+28
+00:01:14,608 --> 00:01:18,304
+For our example we'll call the enumeration Direction.
+
+29
+00:01:18,775 --> 00:01:22,288
+Note that we're using a capital letter for Direction.
+
+30
+00:01:22,288 --> 00:01:24,288
+That's because we are effectively declaring a type
+
+31
+00:01:24,288 --> 00:01:26,288
+and not a variable.
+
+32
+00:01:26,836 --> 00:01:28,682
+Then we need to list the various 
+
+33
+00:01:28,682 --> 00:01:30,970
+constants of the enumeration separated by
+
+34
+00:01:30,970 --> 00:01:32,806
+commas in braces.
+
+35
+00:01:33,191 --> 00:01:36,453
+First we want north, then east, south
+
+36
+00:01:36,453 --> 00:01:38,088
+and finally west.
+
+37
+00:01:38,847 --> 00:01:41,262
+Unlike when you normally close braces,
+
+38
+00:01:41,262 --> 00:01:43,262
+this is the end of a statement and so
+
+39
+00:01:43,262 --> 00:01:45,262
+needs a semi-colon.
+
+40
+00:01:46,243 --> 00:01:48,542
+Each of the constants declared in this enumeration
+
+41
+00:01:48,542 --> 00:01:50,542
+has a value which by default
+
+42
+00:01:50,542 --> 00:01:52,542
+is an integer starting at 0.
+
+43
+00:01:53,917 --> 00:01:55,917
+This is incremented through the set
+
+44
+00:01:55,917 --> 00:01:57,917
+so north has a value of 0,
+
+45
+00:01:57,917 --> 00:01:59,917
+east has a value of 1, 
+
+46
+00:01:59,917 --> 00:02:01,510
+south has a value of 2
+
+47
+00:02:01,510 --> 00:02:03,510
+and west has a value of 3.
+
+48
+00:02:04,895 --> 00:02:06,895
+Both the type of value and the
+
+49
+00:02:06,895 --> 00:02:10,405
+values themselves can be overridden if required.
+
+50
+00:02:11,222 --> 00:02:12,991
+If we were to declare the Enum
+
+51
+00:02:12,991 --> 00:02:15,251
+with north = 1
+
+52
+00:02:15,251 --> 00:02:17,251
+then east would have a value of 2,
+
+53
+00:02:17,251 --> 00:02:18,963
+south a value of 3
+
+54
+00:02:18,963 --> 00:02:20,963
+and west a value of 4.
+
+55
+00:02:21,736 --> 00:02:24,170
+Alternatively we could declare a value
+
+56
+00:02:24,170 --> 00:02:27,502
+for each of the constants, such as north = 10,
+
+57
+00:02:27,502 --> 00:02:30,630
+east = 11, south = 15
+
+58
+00:02:30,630 --> 00:02:32,630
+and west equals 27.
+
+59
+00:02:33,826 --> 00:02:35,826
+We can also change the type of the constants
+
+60
+00:02:35,826 --> 00:02:37,826
+in an enumeration.
+
+61
+00:02:38,398 --> 00:02:40,398
+The constants can be changed to
+
+62
+00:02:40,398 --> 00:02:41,972
+any integral type.
+
+63
+00:02:42,320 --> 00:02:44,320
+For more information on integral types
+
+64
+00:02:44,320 --> 00:02:46,320
+see the link below
+
+65
+00:02:46,931 --> 00:02:48,931
+We change the type by putting a colon
+
+66
+00:02:48,931 --> 00:02:50,931
+after the name of our enumeration and
+
+67
+00:02:50,931 --> 00:02:52,643
+putting the type afterwards.
+
+68
+00:02:53,243 --> 00:02:56,889
+For example we could have direction:short.
+
+69
+00:02:56,889 --> 00:02:58,889
+This would mean that the type of the enumeration
+
+70
+00:02:58,889 --> 00:03:01,517
+was short instead of int.
+
+71
+00:03:02,630 --> 00:03:04,630
+One of the main reasons for changing the type of
+
+72
+00:03:04,630 --> 00:03:07,105
+an enum is optimisation.
+
+73
+00:03:07,105 --> 00:03:09,105
+But we generally won't worry about it.
+
+74
+00:03:10,212 --> 00:03:12,212
+Once we have our enum declared we
+
+75
+00:03:12,212 --> 00:03:15,884
+then make variables of the enum's type.
+
+76
+00:03:15,884 --> 00:03:19,524
+Let's make a direction variable called myDirection.
+
+77
+00:03:20,268 --> 00:03:23,125
+We now can treat this just like any other variable
+
+78
+00:03:23,125 --> 00:03:26,229
+but whereas an integer might have a value of 5
+
+79
+00:03:26,229 --> 00:03:29,742
+or a float might have a value of 97.3
+
+80
+00:03:29,742 --> 00:03:32,045
+our myDirection variable
+
+81
+00:03:32,045 --> 00:03:34,437
+can have values of direction.north,
+
+82
+00:03:34,437 --> 00:03:39,189
+direction.east, direction.south or direction.west.
+
+83
+00:03:39,189 --> 00:03:43,557
+Let's set myDirection to a Direction.North in the start function.
+
+84
+00:03:44,887 --> 00:03:46,887
+Our enum can also be parsed in
+
+85
+00:03:46,887 --> 00:03:50,078
+to and returned from functions.
+
+86
+00:03:50,078 --> 00:03:52,702
+We simply use the name of the enumeration,
+
+87
+00:03:52,702 --> 00:03:54,380
+in our case Direction
+
+88
+00:03:54,380 --> 00:03:56,380
+where we would use a type.
+
+89
+00:03:56,380 --> 00:03:58,380
+To illustrate this let's make a small
+
+90
+00:03:58,380 --> 00:04:01,457
+small function to reverse a given direction.
+
+91
+00:04:01,457 --> 00:04:05,640
+Given north it should return southern so on.
+
+92
+00:04:05,640 --> 00:04:08,211
+The return type for our function is Direction
+
+93
+00:04:08,211 --> 00:04:12,442
+and we'll call the function ReverseDirection.
+
+94
+00:04:12,442 --> 00:04:14,442
+We'll give the function a direction parameter
+
+95
+00:04:22,461 --> 00:04:25,684
+which we'll call dir, and return the opposite
+
+96
+00:04:17,665 --> 00:04:19,665
+Now all we need to do it
+
+97
+00:04:19,665 --> 00:04:22,461
+compare dir to our various direction constants
+
+98
+00:04:25,482 --> 00:04:27,482
+We only need to check for north, east, 
+
+99
+00:04:27,482 --> 00:04:32,593
+south and west because those are the only possible values.

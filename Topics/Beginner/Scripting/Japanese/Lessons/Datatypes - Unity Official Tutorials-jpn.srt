@@ -1,0 +1,347 @@
+1
+00:00:00,264 --> 00:00:01,685
+When working with code
+
+2
+00:00:01,685 --> 00:00:03,049
+you will inevitably need to work with
+
+3
+00:00:03,049 --> 00:00:05,437
+many types of variables.
+
+4
+00:00:05,437 --> 00:00:07,437
+Ultimately all variables have
+
+5
+00:00:07,437 --> 00:00:09,437
+what is called a Datatype.
+
+6
+00:00:10,687 --> 00:00:12,506
+The 2 primary data types
+
+7
+00:00:12,506 --> 00:00:14,990
+are value types and reference types.
+
+8
+00:00:15,782 --> 00:00:18,477
+Variables like integers, floats,
+
+9
+00:00:18,477 --> 00:00:21,258
+doubles, booleans and characters
+
+10
+00:00:21,258 --> 00:00:23,511
+are all value types.
+
+11
+00:00:23,511 --> 00:00:25,511
+Additionally there are complex
+
+12
+00:00:25,511 --> 00:00:27,511
+variables types known as structs
+
+13
+00:00:28,122 --> 00:00:30,122
+Structs are value data types
+
+14
+00:00:30,122 --> 00:00:33,182
+that simply contain one or more other variables.
+
+15
+00:00:33,863 --> 00:00:35,863
+The two most common structs in Unity
+
+16
+00:00:35,863 --> 00:00:38,360
+are vector3 and quaternion.
+
+17
+00:00:39,196 --> 00:00:41,821
+The list of reference types is much simpler.
+
+18
+00:00:41,821 --> 00:00:43,821
+Basically any variable that is an
+
+19
+00:00:43,821 --> 00:00:46,381
+object of a class is a reference type.
+
+20
+00:00:47,043 --> 00:00:49,043
+The two most common classes
+
+21
+00:00:49,043 --> 00:00:51,871
+and thus the two most common reference types in Unity
+
+22
+00:00:51,871 --> 00:00:54,458
+are transform and game object.
+
+23
+00:00:55,788 --> 00:00:57,788
+You might be wondering what the difference is
+
+24
+00:00:57,788 --> 00:01:00,264
+between value and reference types.
+
+25
+00:01:00,732 --> 00:01:03,368
+Simply put, value type variables
+
+26
+00:01:03,368 --> 00:01:05,368
+actually contain some value.
+
+27
+00:01:05,368 --> 00:01:07,368
+All reference type variables contain a
+
+28
+00:01:07,368 --> 00:01:10,243
+memory address where the value is stored.
+
+29
+00:01:11,271 --> 00:01:13,915
+The result if that if a value type changes
+
+30
+00:01:13,915 --> 00:01:16,293
+only that specific variables is affected.
+
+31
+00:01:16,846 --> 00:01:18,846
+If a reference type changes however
+
+32
+00:01:18,846 --> 00:01:20,846
+all variables that contain that memory
+
+33
+00:01:20,846 --> 00:01:22,846
+address will also be affected.
+
+34
+00:01:23,582 --> 00:01:26,272
+As an analogy consider this;
+
+35
+00:01:26,272 --> 00:01:29,906
+Charles has a nice blue house full of his favourite things.
+
+36
+00:01:29,906 --> 00:01:32,866
+Quentin sees Charles' house online and is jealous
+
+37
+00:01:32,866 --> 00:01:34,866
+and so makes an exact copy and wills
+
+38
+00:01:34,866 --> 00:01:37,587
+it with duplicates of everything that Charles owns
+
+39
+00:01:37,587 --> 00:01:39,268
+Creepy, right?
+
+40
+00:01:39,268 --> 00:01:41,268
+This is like a sign made for value types.
+
+41
+00:01:41,268 --> 00:01:44,162
+You make a copy of the variable.
+
+42
+00:01:44,162 --> 00:01:46,385
+Quentin doesn't own Charles' house
+
+43
+00:01:46,385 --> 00:01:49,737
+and nothing he changes in his house will affect the original.
+
+44
+00:01:49,737 --> 00:01:51,737
+Not even painting it red.
+
+45
+00:01:52,293 --> 00:01:54,293
+If Quentin had Charles' address
+
+46
+00:01:54,293 --> 00:01:56,293
+he wouldn't need to copy the house.
+
+47
+00:01:56,293 --> 00:01:58,293
+He could simply visit any time he likes
+
+48
+00:01:58,293 --> 00:02:00,699
+and see it's content instead.
+
+49
+00:02:01,057 --> 00:02:03,526
+This is like assignment for reference types.
+
+50
+00:02:03,526 --> 00:02:06,658
+You make a note of the memory address of the value you need
+
+51
+00:02:06,658 --> 00:02:08,658
+and return to that address when you need to know
+
+52
+00:02:08,658 --> 00:02:10,658
+the value of the variable.
+
+53
+00:02:12,019 --> 00:02:14,339
+Let's take a look at this in action
+
+54
+00:02:14,339 --> 00:02:16,339
+We have here a scene with a sphere in it.
+
+55
+00:02:16,339 --> 00:02:18,645
+The sphere has a script named
+
+56
+00:02:18,645 --> 00:02:21,077
+DatatypeScript attached to it.
+
+57
+00:02:21,994 --> 00:02:23,994
+Inside the DatatypeScript we first
+
+58
+00:02:23,994 --> 00:02:25,994
+create a vector3 variable named pos
+
+59
+00:02:25,994 --> 00:02:29,316
+and assign to it the value of the transform's position.
+
+60
+00:02:30,219 --> 00:02:32,754
+We then set pos equal to a new vector3
+
+61
+00:02:32,754 --> 00:02:35,320
+with a value of (0, 2, 0).
+
+62
+00:02:35,865 --> 00:02:38,200
+Since we know that pos is a vector3 struct
+
+63
+00:02:38,200 --> 00:02:40,200
+and that structs are value types
+
+64
+00:02:40,200 --> 00:02:43,429
+we know that only pos is affected by this line of code.
+
+65
+00:02:43,429 --> 00:02:45,890
+The transform's position is unaffected.
+
+66
+00:02:46,860 --> 00:02:49,752
+If we go back in to Unity we can run our scene
+
+67
+00:02:49,752 --> 00:02:52,419
+and confirm that the sphere does not move.
+
+68
+00:02:53,460 --> 00:02:56,082
+Value types contain their own copy of data
+
+69
+00:02:56,082 --> 00:02:58,082
+and changing them only affects
+
+70
+00:02:58,082 --> 00:03:00,082
+that specific variable.
+
+71
+00:03:00,748 --> 00:03:03,590
+Back in the DatatypeScript, let's try another approach.
+
+72
+00:03:04,284 --> 00:03:07,112
+Let's start by creating a transform variable named tran,
+
+73
+00:03:07,112 --> 00:03:09,927
+and setting it equal to the object's transform.
+
+74
+00:03:11,260 --> 00:03:14,297
+Then let's set tran's position to a new vector3
+
+75
+00:03:14,297 --> 00:03:17,184
+with a value of (0, 2, 0).
+
+76
+00:03:19,753 --> 00:03:21,434
+Since transform is a class
+
+77
+00:03:21,434 --> 00:03:23,701
+we know that tran is a reference type.
+
+78
+00:03:24,142 --> 00:03:27,155
+Furthermore, since we assign the object's transform to
+
+79
+00:03:27,155 --> 00:03:30,111
+the variable tran using the assignment operator
+
+80
+00:03:30,111 --> 00:03:33,291
+we know that they point at the same memory address.
+
+81
+00:03:33,291 --> 00:03:36,358
+The result is that changing one changes the other.
+
+82
+00:03:37,080 --> 00:03:39,500
+Back in Unity we can run out scene.
+
+83
+00:03:39,899 --> 00:03:42,134
+We should notice immediately that the sphere
+
+84
+00:03:42,134 --> 00:03:44,792
+has moved upwards, even though we never directly
+
+85
+00:03:44,792 --> 00:03:47,718
+changed the value of the sphere's transform.
+
+86
+00:03:48,496 --> 00:03:50,496
+We were able to indirectly change it
+
+87
+00:03:50,496 --> 00:03:52,496
+by using a reference variable.

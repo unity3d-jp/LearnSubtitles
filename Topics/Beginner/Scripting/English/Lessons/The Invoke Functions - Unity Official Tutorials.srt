@@ -1,0 +1,263 @@
+1
+00:00:00,539 --> 00:00:02,706
+The Invoke Functions enable you to schedule
+
+2
+00:00:02,706 --> 00:00:05,742
+a function call after some specified time delay.
+
+3
+00:00:06,543 --> 00:00:08,543
+This allows us to build a useful method
+
+4
+00:00:08,543 --> 00:00:10,543
+call system that is time sensitive.
+
+5
+00:00:11,956 --> 00:00:14,827
+Here we have a scene in Unity with an empty game object.
+
+6
+00:00:15,629 --> 00:00:18,520
+The game object has an InvokeScript attached to it.
+
+7
+00:00:19,799 --> 00:00:21,799
+In the InvokeScript we have
+
+8
+00:00:21,799 --> 00:00:24,176
+a public game object named Target.
+
+9
+00:00:24,722 --> 00:00:27,552
+We also have a method named SpawnObject.
+
+10
+00:00:28,094 --> 00:00:30,522
+The SpawnObject method simply instantiates the
+
+11
+00:00:30,522 --> 00:00:34,424
+target object at the position (0, 2, 0).
+
+12
+00:00:35,882 --> 00:00:39,808
+In the start method we call the function Invoke.
+
+13
+00:00:39,808 --> 00:00:42,439
+The invoke function takes 2 parameters.
+
+14
+00:00:42,439 --> 00:00:45,687
+A sting containing the name of the method we want to call
+
+15
+00:00:45,687 --> 00:00:48,638
+and an amount of time to delay in seconds.
+
+16
+00:00:50,680 --> 00:00:53,921
+We can see from this line of code that after 2 seconds
+
+17
+00:00:53,921 --> 00:00:56,369
+the SpawnObject method will be called.
+
+18
+00:00:57,740 --> 00:00:59,740
+It is worth noting that only methods which
+
+19
+00:00:59,740 --> 00:01:01,740
+take no parameters and have a return
+
+20
+00:01:01,740 --> 00:01:04,806
+type of Void can be called using invoke.
+
+21
+00:01:05,959 --> 00:01:08,682
+Back in Unity let's run our scene.
+
+22
+00:01:09,751 --> 00:01:11,849
+We can see that after 2 seconds an orb
+
+23
+00:01:11,849 --> 00:01:14,506
+is instantiated and falls to the ground.
+
+24
+00:01:15,946 --> 00:01:18,871
+This is useful for calling methods a single time.
+
+25
+00:01:18,871 --> 00:01:21,360
+But what if we wanted to call a method repeatedly?
+
+26
+00:01:22,038 --> 00:01:23,831
+This can be easily done using the
+
+27
+00:01:23,831 --> 00:01:25,831
+InvokeRepeating function.
+
+28
+00:01:27,789 --> 00:01:29,789
+Here in our scene we have the same
+
+29
+00:01:29,789 --> 00:01:31,555
+empty game object.
+
+30
+00:01:31,555 --> 00:01:33,877
+This time however there is an
+
+31
+00:01:33,877 --> 00:01:35,877
+InvokeRepeatingScript attached to it.
+
+32
+00:01:37,544 --> 00:01:39,724
+In the InvokeRepeatingScript
+
+33
+00:01:39,724 --> 00:01:41,724
+we can see that things are laid out almost exactly
+
+34
+00:01:41,724 --> 00:01:44,193
+the same as in the InvokeScript.
+
+35
+00:01:45,571 --> 00:01:48,668
+We still have a public game object named Target
+
+36
+00:01:48,668 --> 00:01:51,015
+and we still have a SpawnObject method.
+
+37
+00:01:51,626 --> 00:01:53,626
+The SpawnObject method in this script
+
+38
+00:01:53,626 --> 00:01:55,821
+still instantiates the target object
+
+39
+00:01:55,821 --> 00:01:59,247
+but now it does so at a random X and Z position.
+
+40
+00:02:01,066 --> 00:02:03,066
+In the start method we have a call to
+
+41
+00:02:03,066 --> 00:02:04,786
+the InvokeRepeating function.
+
+42
+00:02:05,372 --> 00:02:07,372
+This function takes 3 arguments.
+
+43
+00:02:07,372 --> 00:02:09,149
+A string containing the name of the method
+
+44
+00:02:09,149 --> 00:02:10,619
+that we wish to call.
+
+45
+00:02:10,619 --> 00:02:13,428
+The delay in seconds before it calls the method
+
+46
+00:02:13,428 --> 00:02:15,235
+and a delay in seconds between each
+
+47
+00:02:15,235 --> 00:02:17,235
+subsequent call of the method.
+
+48
+00:02:18,985 --> 00:02:20,985
+We can see from this line of code the
+
+49
+00:02:20,985 --> 00:02:23,316
+SpawnObject will be called after 2 seconds
+
+50
+00:02:23,316 --> 00:02:25,760
+and then be called again every 1 second.
+
+51
+00:02:27,802 --> 00:02:29,130
+Let's see this in action.
+
+52
+00:02:30,371 --> 00:02:32,136
+In Unity we can run our scene.
+
+53
+00:02:32,704 --> 00:02:36,570
+We will see that after 2 seconds an orb gets instantiated.
+
+54
+00:02:36,570 --> 00:02:38,750
+Then every 1 second
+
+55
+00:02:38,750 --> 00:02:40,750
+another orb is created.
+
+56
+00:02:42,181 --> 00:02:44,181
+This will keep going infinitely and fill
+
+57
+00:02:44,181 --> 00:02:46,181
+our entire scene with orbs.
+
+58
+00:02:47,778 --> 00:02:49,778
+Obviously it is important to know
+
+59
+00:02:49,778 --> 00:02:51,778
+how to stop a method we have called
+
+60
+00:02:51,778 --> 00:02:53,778
+with the InvokeRepeating function.
+
+61
+00:02:55,181 --> 00:02:57,181
+In order to stop, all instances of
+
+62
+00:02:57,181 --> 00:02:59,181
+an invoked call from this script
+
+63
+00:02:59,181 --> 00:03:01,880
+we can use the CancelInvoke method.
+
+64
+00:03:03,112 --> 00:03:06,049
+If we wish to only stop a specific Invoke
+
+65
+00:03:06,049 --> 00:03:08,049
+we can parse in a string containing the name of
+
+66
+00:03:08,049 --> 00:03:10,049
+the method we wish to stop.

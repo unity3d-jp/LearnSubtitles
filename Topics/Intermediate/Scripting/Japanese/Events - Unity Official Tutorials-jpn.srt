@@ -1,0 +1,587 @@
+1
+00:00:00,269 --> 00:00:01,888
+Events are specialised delegates
+
+2
+00:00:01,888 --> 00:00:03,723
+that are useful for when you want to alert
+
+3
+00:00:03,723 --> 00:00:05,723
+other classes that something has happened.
+
+4
+00:00:06,454 --> 00:00:08,454
+In practice you will see that events
+
+5
+00:00:08,454 --> 00:00:12,087
+function very similarly to public multicast delegates.
+
+6
+00:00:12,856 --> 00:00:14,625
+For more information on delegates
+
+7
+00:00:14,625 --> 00:00:17,069
+see the lesson on delegates linked below.
+
+8
+00:00:18,740 --> 00:00:21,713
+An event can be thought of like broadcast system.
+
+9
+00:00:21,713 --> 00:00:23,713
+Any class that is interested in an event
+
+10
+00:00:23,713 --> 00:00:25,713
+can subscribe methods to it.
+
+11
+00:00:26,550 --> 00:00:28,914
+When that specific situation occurs,
+
+12
+00:00:28,914 --> 00:00:32,458
+like a button click, a power-up or player injury
+
+13
+00:00:32,458 --> 00:00:34,458
+we invoke our event and that in turn
+
+14
+00:00:34,458 --> 00:00:37,110
+calls the methods of the subscribed classes.
+
+15
+00:00:38,495 --> 00:00:40,495
+We have here a scene with 2 orbs in it.
+
+16
+00:00:40,937 --> 00:00:43,754
+One orb has a script called TeleportScript
+
+17
+00:00:43,754 --> 00:00:46,690
+while the other has a script called TurnColorScript.
+
+18
+00:00:47,315 --> 00:00:50,512
+Attached to our camera is an EventManagerScript.
+
+19
+00:00:51,368 --> 00:00:54,466
+An event can be made for just about any situation.
+
+20
+00:00:54,466 --> 00:00:57,175
+But in this example we want to invoke an event
+
+21
+00:00:57,175 --> 00:00:58,877
+whenever the player clicks a button
+
+22
+00:00:58,877 --> 00:01:00,877
+that we are drawing to the screen.
+
+23
+00:01:01,964 --> 00:01:03,964
+In our event manager we can see
+
+24
+00:01:03,964 --> 00:01:06,089
+that we first create a delegate type
+
+25
+00:01:06,089 --> 00:01:08,089
+which we name ClickAction.
+
+26
+00:01:09,031 --> 00:01:12,418
+We can see that any method that wishes to subscribe
+
+27
+00:01:12,418 --> 00:01:16,181
+must take no parameters and have a return type of void.
+
+28
+00:01:16,945 --> 00:01:20,221
+Next we create our event variable.
+
+29
+00:01:20,221 --> 00:01:23,261
+We do this with the Event keyword.
+
+30
+00:01:23,803 --> 00:01:26,235
+Note that this variable is also static
+
+31
+00:01:26,235 --> 00:01:28,235
+so that we can use it outside of the class
+
+32
+00:01:28,235 --> 00:01:31,290
+without instantiating an object of this class.
+
+33
+00:01:32,623 --> 00:01:36,297
+Our event variable, which we have named OnClicked
+
+34
+00:01:36,297 --> 00:01:39,248
+is of the type of the delegate we created above.
+
+35
+00:01:40,012 --> 00:01:42,896
+The only other thing this class is responsible for
+
+36
+00:01:42,896 --> 00:01:44,896
+is calling the event whenever the appropriate
+
+37
+00:01:44,896 --> 00:01:46,616
+situation arrises.
+
+38
+00:01:47,257 --> 00:01:48,949
+Like we stated before,
+
+39
+00:01:48,949 --> 00:01:50,949
+we will call this even whenever the player
+
+40
+00:01:50,949 --> 00:01:52,298
+clicks our button.
+
+41
+00:01:52,298 --> 00:01:55,521
+Therefore this script has an OnGUI method.
+
+42
+00:01:56,729 --> 00:01:58,631
+Inside the OnGUI method
+
+43
+00:01:58,631 --> 00:02:00,631
+we create a button on our screen.
+
+44
+00:02:01,089 --> 00:02:03,089
+When the player clicks the button
+
+45
+00:02:03,089 --> 00:02:06,035
+we use our event variable as if it was a function.
+
+46
+00:02:06,535 --> 00:02:09,328
+This in effect invokes our event.
+
+47
+00:02:10,550 --> 00:02:12,886
+Please note that just like delegates
+
+48
+00:02:12,886 --> 00:02:14,886
+it causes an error if we invoke an event
+
+49
+00:02:14,886 --> 00:02:16,886
+with no subscribers.
+
+50
+00:02:16,886 --> 00:02:18,886
+Therefore we should always make sure
+
+51
+00:02:18,886 --> 00:02:20,886
+that the event does not equal null
+
+52
+00:02:20,886 --> 00:02:22,886
+before invoking it.
+
+53
+00:02:23,789 --> 00:02:26,137
+If you recall the 2 orbs in our
+
+54
+00:02:26,137 --> 00:02:29,393
+scene have 2 different scripts attached to them.
+
+55
+00:02:29,393 --> 00:02:31,393
+These 2 scripts will act as subscribers
+
+56
+00:02:31,393 --> 00:02:33,184
+to this event.
+
+57
+00:02:33,184 --> 00:02:35,184
+Let's take a look at them now.
+
+58
+00:02:36,503 --> 00:02:38,503
+In the TeleportScript we have
+
+59
+00:02:38,503 --> 00:02:40,503
+created a method call Teleport.
+
+60
+00:02:41,114 --> 00:02:43,114
+This is the method that we will be subscribing to
+
+61
+00:02:43,114 --> 00:02:46,023
+the event that we created in the event manager.
+
+62
+00:02:46,815 --> 00:02:50,097
+You will notice that the Teleport method takes no parameters
+
+63
+00:02:50,097 --> 00:02:51,875
+and has a return type of void,
+
+64
+00:02:51,875 --> 00:02:53,583
+just like our delegate.
+
+65
+00:02:54,292 --> 00:02:56,292
+The Teleport method is responsible for
+
+66
+00:02:56,292 --> 00:02:59,492
+positioning the object randomly along the Y axis.
+
+67
+00:03:00,284 --> 00:03:01,980
+Near the top of our script
+
+68
+00:03:01,980 --> 00:03:04,601
+we have a method named OnEnable.
+
+69
+00:03:04,601 --> 00:03:06,601
+This is a built-in method that will be called
+
+70
+00:03:06,601 --> 00:03:08,601
+whenever the object that this script is
+
+71
+00:03:08,601 --> 00:03:12,296
+attached to is created or enabled in a scene.
+
+72
+00:03:13,185 --> 00:03:15,352
+We will use this method to subscribe our
+
+73
+00:03:15,352 --> 00:03:18,429
+Teleport method to the OnClicked event
+
+74
+00:03:18,429 --> 00:03:20,624
+of the EventScript.
+
+75
+00:03:20,624 --> 00:03:22,624
+We can see that we subscribe a method to
+
+76
+00:03:22,624 --> 00:03:25,467
+an event by using the += operator.
+
+77
+00:03:26,425 --> 00:03:28,704
+By subscribing a method to an event
+
+78
+00:03:28,704 --> 00:03:30,997
+we ensure that whenever the event occurs
+
+79
+00:03:30,997 --> 00:03:32,997
+our method will be called.
+
+80
+00:03:33,900 --> 00:03:37,622
+Next we have the OnDisable method.
+
+81
+00:03:37,622 --> 00:03:39,622
+Opposite of the OnEnable method,
+
+82
+00:03:39,622 --> 00:03:41,622
+the OnDisable method is called whenever
+
+83
+00:03:41,622 --> 00:03:45,006
+an object is disabled or destroyed in a scene.
+
+84
+00:03:45,775 --> 00:03:47,955
+Inside the OnDisabled method
+
+85
+00:03:47,955 --> 00:03:50,749
+we are unsubscribing our method from the event.
+
+86
+00:03:51,330 --> 00:03:53,219
+We unsubscribe a method from an event
+
+87
+00:03:53,219 --> 00:03:55,689
+using the -= operator.
+
+88
+00:03:56,511 --> 00:03:58,511
+Doing so will ensure that our method is no
+
+89
+00:03:58,511 --> 00:04:01,037
+longer called when an event occurs.
+
+90
+00:04:02,233 --> 00:04:04,233
+This step is incredibly important
+
+91
+00:04:04,233 --> 00:04:06,233
+and failure to do so can lead to memory
+
+92
+00:04:06,233 --> 00:04:08,233
+leaks and errors in your game.
+
+93
+00:04:08,844 --> 00:04:10,844
+A good rule is that whenever you subscribe
+
+94
+00:04:10,844 --> 00:04:12,844
+a method to an event you must
+
+95
+00:04:12,844 --> 00:04:15,531
+also have a corresponding unsubscribe
+
+96
+00:04:17,017 --> 00:04:19,017
+Our TurnColorScript
+
+97
+00:04:19,017 --> 00:04:22,219
+is structured very similarly to our TeleportScript.
+
+98
+00:04:22,816 --> 00:04:26,081
+In this case we have a method called TurnColor
+
+99
+00:04:26,081 --> 00:04:28,081
+which takes no parameters and has a return
+
+100
+00:04:28,081 --> 00:04:29,619
+type of void.
+
+101
+00:04:30,414 --> 00:04:32,069
+The TurnColor method
+
+102
+00:04:32,069 --> 00:04:34,959
+turns the object's material a random color.
+
+103
+00:04:35,515 --> 00:04:38,182
+Again, we have the OnEnable
+
+104
+00:04:38,182 --> 00:04:40,182
+and OnDisable methods.
+
+105
+00:04:40,793 --> 00:04:42,793
+This time they are subscribing
+
+106
+00:04:42,793 --> 00:04:45,334
+and unsubscribing our TurnColor method
+
+107
+00:04:45,334 --> 00:04:46,862
+from the event.
+
+108
+00:04:47,584 --> 00:04:49,584
+It is worth noting another time
+
+109
+00:04:49,584 --> 00:04:51,584
+that unsubscribing our method from the event
+
+110
+00:04:51,584 --> 00:04:54,232
+is paramount to using events correctly
+
+111
+00:04:54,232 --> 00:04:56,232
+and preventing errors in our code.
+
+112
+00:04:57,454 --> 00:05:00,092
+Back in Unity we can run our scene.
+
+113
+00:05:00,092 --> 00:05:02,092
+The first thing to notice is the button that
+
+114
+00:05:02,092 --> 00:05:03,799
+appears near the top.
+
+115
+00:05:03,799 --> 00:05:05,799
+Clicking this button will invoke our event
+
+116
+00:05:05,799 --> 00:05:09,120
+and call the Teleport and TurnColor methods.
+
+117
+00:05:09,120 --> 00:05:11,120
+We can click the button multiple times
+
+118
+00:05:11,120 --> 00:05:14,600
+and each time the subscribe to methods will be called.
+
+119
+00:05:15,836 --> 00:05:17,836
+As we can see, our event manager
+
+120
+00:05:17,836 --> 00:05:20,338
+only needed to worry about the event itself
+
+121
+00:05:20,338 --> 00:05:22,577
+and the triggers for the event.
+
+122
+00:05:22,577 --> 00:05:24,926
+It did not need to know about the TeleportScript,
+
+123
+00:05:24,926 --> 00:05:26,636
+or the TurnColorScript.
+
+124
+00:05:27,259 --> 00:05:31,055
+Likewise the TeleportScript and TurnColorScript
+
+125
+00:05:31,055 --> 00:05:33,055
+didn't need to know about each other.
+
+126
+00:05:33,916 --> 00:05:35,916
+In this way we are able to create
+
+127
+00:05:35,916 --> 00:05:38,909
+a very robust and flexible broadcast system.
+
+128
+00:05:40,346 --> 00:05:42,346
+You might be wondering why we used a static
+
+129
+00:05:42,346 --> 00:05:45,089
+event variable instead of a public delegate variable
+
+130
+00:05:45,089 --> 00:05:46,669
+in our event manager?
+
+131
+00:05:47,353 --> 00:05:50,205
+The truth is you can achieve the exact same
+
+132
+00:05:50,205 --> 00:05:53,297
+functionality of events with public delegate variables.
+
+133
+00:05:53,797 --> 00:05:56,894
+In fact as we stated at the beginning of this lesson,
+
+134
+00:05:56,894 --> 00:05:59,879
+events are just specialised delegates.
+
+135
+00:05:59,879 --> 00:06:01,879
+The reason we use events over public
+
+136
+00:06:01,879 --> 00:06:04,849
+delegate variables for situations like this
+
+137
+00:06:04,849 --> 00:06:06,849
+is that events have inherent security
+
+138
+00:06:06,849 --> 00:06:08,849
+where delegate variables do not.
+
+139
+00:06:09,433 --> 00:06:11,433
+With events other classes
+
+140
+00:06:11,433 --> 00:06:13,698
+can only subscribe and unsubscribe.
+
+141
+00:06:14,350 --> 00:06:17,584
+If we were to use a public delegate variable instead
+
+142
+00:06:17,584 --> 00:06:19,584
+other classes could invoke or
+
+143
+00:06:19,584 --> 00:06:21,584
+override our delegate variable to do
+
+144
+00:06:21,584 --> 00:06:23,584
+all sorts of nefarious things.
+
+145
+00:06:24,431 --> 00:06:27,348
+Generally speaking, if you want to create a dynamic
+
+146
+00:06:27,348 --> 00:06:30,579
+method system that involves more than 1 class,
+
+147
+00:06:30,579 --> 00:06:33,632
+use event variables instead of delegate variables.
