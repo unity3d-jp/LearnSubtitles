@@ -16,7 +16,7 @@
 
 5
 00:00:08,177 --> 00:00:10,177
-私達は、指定されたGameObjectを集める
+私達は、指定されたゲームオブジェクトを集める
 
 6
 00:00:10,177 --> 00:00:12,479
@@ -24,11 +24,11 @@
 
 7
 00:00:12,732 --> 00:00:14,924
-新しいGameObjectを作成するためには、
+新しいゲームオブジェクトを作成するためには、
 
 8
 00:00:14,924 --> 00:00:17,198
-GameObjectへコンポーネントを追加
+ゲームオブジェクトへコンポーネントを追加
 
 9
 00:00:17,198 --> 00:00:19,432
@@ -36,7 +36,7 @@ GameObjectへコンポーネントを追加
 
 10
 00:00:19,432 --> 00:00:22,582
-ゲームを実行するとGameObjectが配置されます。
+ゲームを実行するとゲームオブジェクトが配置されます。
 
 11
 00:00:22,582 --> 00:00:24,582
@@ -68,76 +68,76 @@ GameObjectへコンポーネントを追加
 
 18
 00:00:36,980 --> 00:00:38,980
-We will see how to detect contact between
+私達はプレイヤーのボールと、集めるゲームオブジェクト
 
 19
 00:00:38,980 --> 00:00:41,512
-the player's ball and the pick-up game objects.
+の接触判定の取り方を知る必要があります。
 
 20
 00:00:41,512 --> 00:00:43,073
-and use these events to collect these
+集めるゲームオブジェクトを収集するために
 
 21
 00:00:43,073 --> 00:00:45,073
-pick-up game objects.
+これらのイベントを使用しています。
 
 22
 00:00:45,794 --> 00:00:47,402
-When we are done we will have made a simple
+それらできれば、プレイヤーが
 
 23
 00:00:47,402 --> 00:00:49,402
-roll-a-ball game where the player controls
+キーボードでボールをコントロールして遊ぶ
 
 24
 00:00:49,402 --> 00:00:50,932
-the ball with the keyboard, picks up and 
+簡単なRoll a ball ゲームを作れているでしょう
 
 25
 00:00:50,932 --> 00:00:52,932
-counts special collectable objects,
+拾うのと、特殊な収集可能オブジェクトをカウント、
 
 26
 00:00:52,932 --> 00:00:54,932
-displays the current count and ends the game
+ゲーム終了時に、取得したすべての
 
 27
 00:00:54,932 --> 00:00:56,035
-when all of the game objects have
+ゲームオブジェクトのカウント数が
 
 28
 00:00:56,035 --> 00:00:57,607
-been picked up.
+表示されます。
 
 29
 00:00:57,607 --> 00:01:00,389
-We won't need to import any assets for this project.
+このプロジェクトのためにすべてのアセットをインポートする必要はありません。
 
 30
 00:01:00,389 --> 00:01:02,142
-We won't be using models, textures,
+このプロジェクトでは、モデル、テクスチャ、
 
 31
 00:01:02,142 --> 00:01:04,694
-sounds or animations for this assignment.
+サウンドやアニメーションなどを使用しません。
 
 32
 00:01:04,694 --> 00:01:06,956
-We will simply use the primitive shapes
+ここでは、Untyが提供するシンプルな
 
 33
 00:01:06,956 --> 00:01:09,497
-like cubes, spheres and planes
+キューブや、スフィアやプレーン
 
 34
 00:01:09,497 --> 00:01:11,043
-provided by Unity.
+を使用します。
 
 35
 00:01:11,043 --> 00:01:13,362
-To begin start with assignment 1 where we
+まずはじめに、始まりとなるゲームオブジェクト
 
 36
 00:01:13,362 --> 00:01:15,847
-setup our game and starting game objects.
+をセットアップする必要があります。
