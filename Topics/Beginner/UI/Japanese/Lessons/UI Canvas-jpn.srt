@@ -1,26 +1,26 @@
 1
 00:00:02,210 --> 00:00:04,740
-The canvas is a component that controls how
+canvas は、UI要素のグループが
 
 2
 00:00:04,740 --> 00:00:07,074
-a group of UI elements will be rendered.
+レンダリングされる方法を制御するコンポーネントです。
 
 3
 00:00:08,331 --> 00:00:11,900
-All UI elements must be children of a canvas.
+すべてのUI要素は、canvas の子でなければなりません。
 
 4
 00:00:13,229 --> 00:00:16,780
-It is possible to have more than one canvas in a scene.
+シーン内に複数の canvas を持つことも可能です。
 
 5
 00:00:16,780 --> 00:00:19,429
-But to use a UI element there needs to be at least
+UI要素を使用するためには、少なくとも1つの使用可能な
 
 6
 00:00:19,429 --> 00:00:21,596
-one available canvas.
+canvas が存在する必要があります。
 
 7
 00:00:21,596 --> 00:00:23,513
