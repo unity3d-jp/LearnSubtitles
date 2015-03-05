@@ -1,492 +1,492 @@
 1
 00:00:02,210 --> 00:00:04,740
-canvas は、UI要素のグループが
+Canvasは、UI要素の一覧のレンダリングを
 
 2
 00:00:04,740 --> 00:00:07,074
-レンダリングされる方法を制御するコンポーネントです。
+制御するコンポーネントをです
 
 3
 00:00:08,331 --> 00:00:11,900
-すべてのUI要素は、canvas の子でなければなりません。
+そのためUI要素は、Canvas の子でなければなりません。
 
 4
 00:00:13,229 --> 00:00:16,780
-シーン内に複数の canvas を持つことも可能です。
+このように、シーン内に複数の Canvas を持つことも可能です。
 
 5
 00:00:16,780 --> 00:00:19,429
-UI要素を使用するためには、少なくとも1つの使用可能な
+しかし、UI要素を使用するためには少なくとも
 
 6
 00:00:19,429 --> 00:00:21,596
-canvas が存在する必要があります。
+一つ以上のCanvasが必要です
 
 7
 00:00:21,596 --> 00:00:23,513
-If a new UI element is created 
+新しいUI要素が作成する時に
 
 8
 00:00:23,513 --> 00:00:25,443
-and no canvas exists
+シーン内に Canvas が存在しない場合、
 
 9
 00:00:25,443 --> 00:00:27,443
-a new canvas will be created
+新しく Canvas が生成され、
 
 10
 00:00:27,443 --> 00:00:29,443
-and the new UI element will be attached
+新しく作成したUI要素は、
 
 11
 00:00:29,443 --> 00:00:31,443
-to that canvas as a child.
+Canvs の子として配置されます。
 
 12
 00:00:32,882 --> 00:00:34,703
-Each canvas has a number of different
+Canvasはそれぞれ、異なるレンダリングモード（Render Mode）を
 
 13
 00:00:34,703 --> 00:00:36,703
-possible render modes.
+設定する事が出来ます
 
 14
 00:00:37,203 --> 00:00:39,203
-The render mode can be set by using
+レンダリングモードは、ポップアップメニューを
 
 15
 00:00:39,203 --> 00:00:41,203
-the Render Mode pop-up menu.
+使用して設定します。
 
 16
 00:00:41,772 --> 00:00:44,729
-Scene Space - Overlay is the most common render mode
+Screen Space - Overlay は、最も一般的なレンダリングモードです
 
 17
 00:00:44,729 --> 00:00:46,549
-and it is the default render mode setting
+それは、Canvas の標準の
 
 18
 00:00:46,549 --> 00:00:47,923
-for a canvas.
+レンダリングモードです。
 
 19
 00:00:48,731 --> 00:00:50,731
-With Screen Space - Overlay selected
+Screen Space - Overlay を選択すると
 
 20
 00:00:50,731 --> 00:00:52,731
-the UI will overlay the scene.
+UIをシーンの最前面に表示します。
 
 21
 00:00:53,231 --> 00:00:55,231
-And all of the UI elements will be drawn
+そして、全てのレンダリング結果の上に
 
 22
 00:00:55,231 --> 00:00:58,197
-on top of 
-everything else rendered in that scene.
+UI要素が表示されます。
 
 23
 00:00:59,056 --> 00:01:01,056
-In this mode the canvas will
+このモードでは、Canvas のサイズを
 
 24
 00:01:01,056 --> 00:01:03,056
-fill the screen automatically
+自動的に最大画面に設定します。
 
 25
 00:01:03,056 --> 00:01:05,056
-and will resize automatically if
+画面サイズが変更された場合も、
 
 26
 00:01:05,056 --> 00:01:07,056
-the screen settings change.
+自動的にサイズを変更します。
 
 27
 00:01:11,672 --> 00:01:15,382
-It is worth noting that in Screen Space - Overlay mode
+Screen Space - Overlay mode に注目して下さい。
 
 28
 00:01:15,382 --> 00:01:18,441
-the canvas will drive the Rect Transform component.
+Canvas は RectTransform コンポーネントで動作するため、
 
 29
 00:01:18,941 --> 00:01:20,941
-And the entire rect transform component
+RectTransform コンポーネントが設定されます。
 
 30
 00:01:20,941 --> 00:01:22,447
-is uneditable.
+これは変更することが出来ません。
 
 31
 00:01:23,041 --> 00:01:25,041
-The canvas will set all of the values
+Canvas は RectTransform の全ての値を
 
 32
 00:01:25,041 --> 00:01:28,430
-in the rect transform to fill the screen automatically.
+画面いっぱいになるように設定します。
 
 33
 00:01:29,234 --> 00:01:32,122
-For more information on the rect transform component
+RectTransform コンポーネントの詳細については、
 
 34
 00:01:32,122 --> 00:01:34,696
-please see the information linked below.
+以下のリンクを参照してください。
 
 35
 00:01:36,004 --> 00:01:38,973
-This render mode has the option of Pixel Perfect.
+このレンダリングモードでは、ピクセルパーフェクトのオプションがあります。
 
 36
 00:01:39,473 --> 00:01:42,064
-When Pixel Perfect is selected UI elements
+ピクセルパーフェクトなUI要素を選択した場合
 
 37
 00:01:42,064 --> 00:01:45,407
-will be adjusted to the nearest pixel when they are rendered.
+レンダリングされる際、最も近いピクセルに調整します。
 
 38
 00:01:45,407 --> 00:01:47,720
-Which can, in some cases, sharpen the look
+そのいくつかの例において、UI要素の外観を
 
 39
 00:01:47,720 --> 00:01:49,720
-of the UI element.
+シャープにすることができます。
 
 40
 00:01:50,662 --> 00:01:52,662
-Screen Space - Camera is very similar
+Screen Space - Camera はScreen Space - Overlayに
 
 41
 00:01:52,662 --> 00:01:54,662
-to Screen Space - Overlay.
+よく似た設定です。
 
 42
 00:01:54,662 --> 00:01:57,051
-It is, however, rendered by a specific
+この設定のUI要素は、シーンにある特定のカメラによって
 
 43
 00:01:57,051 --> 00:01:59,051
-camera in the scene.
+レンダリングされます。
 
 44
 00:01:59,051 --> 00:02:01,550
-This will allow camera-specific settings to be
+これにより、カメラ固有の設定をスクリーン空間のUIに
 
 45
 00:02:01,550 --> 00:02:03,802
-applied to a screen space UI.
+適用する事が出来ます。
 
 46
 00:02:04,975 --> 00:02:07,701
-The most common being the use of a perspective camera
+最も一般的な用途は、遠近投影カメラを使用して
 
 47
 00:02:07,701 --> 00:02:10,037
-to give the UI a feeling of depth.
+UIに奥行きを与える事です。
 
 48
 00:02:16,058 --> 00:02:18,058
-In this mode the canvas will fill the
+このモードでは、Canvas はカメラの
 
 49
 00:02:18,058 --> 00:02:20,419
-camera's viewport automatically
+ビューポートにフィットします。
 
 50
 00:02:20,419 --> 00:02:22,419
-and will resize automatically if the camera's
+カメラのビューポートのサイズが変わった場合も、
 
 51
 00:02:22,419 --> 00:02:24,419
-viewport settings change.
+自動的にフィットします。
 
 52
 00:02:31,314 --> 00:02:33,314
-In this render mode the rect transform
+このレンダリングモードでも Canvas の
 
 53
 00:02:33,314 --> 00:02:36,419
-is also being driven entirely by the canvas.
+RectTransform を基準に動作します。
 
 54
 00:02:37,913 --> 00:02:39,913
-This render mode has several options,
+このレンダリングモードには、いくつかのオプションがあります。
 
 55
 00:02:39,913 --> 00:02:41,732
-including Pixel Perfect,
+Screen Space - Overlay と同じように
 
 56
 00:02:41,732 --> 00:02:44,843
-which acts just the same as in screen space - overlay.
+ピクセルパーフェクトがあります。
 
 57
 00:02:45,302 --> 00:02:47,302
-Render Camera is for setting the camera
+Render Cameraは UI要素を描画するカメラを
 
 58
 00:02:47,302 --> 00:02:50,172
-that will render the UI elements on this canvas.
+設定します。
 
 59
 00:02:50,172 --> 00:02:53,128
-If this is none, the canvas component will use the
+これがnoneの場合、Canvas コンポーネントは
 
 60
 00:02:53,128 --> 00:02:55,128
-screen space - overlay settings
+Screen Space - Overlay と同様の設定を
 
 61
 00:02:55,128 --> 00:02:56,839
-to render this canvas.
+使用して描画します。
 
 62
 00:02:57,408 --> 00:02:59,834
-When Screen Space - Camera is selected
+Screen Space - Camera を選択中し
 
 63
 00:02:59,834 --> 00:03:02,779
-and a camera is assigned to the canvas component
+カメラを Canvas コンポーネントへアサインしている間は、
 
 64
 00:03:02,779 --> 00:03:04,779
-the UI elements will be moved
+UI要素はカメラに合わせて
 
 65
 00:03:04,779 --> 00:03:08,035
-in to the camera's frustum and resized to fit.
+サイズと位置を表示します。
 
 66
 00:03:08,535 --> 00:03:10,978
-This allows for the UI to be rendered relative
+この設定はUIはシーンビュー内のオブジェクトを
 
 67
 00:03:10,978 --> 00:03:12,978
-to game object in the scene view.
+相対的にレンダリングする事が可能です。
 
 68
 00:03:13,575 --> 00:03:15,166
-To control where in the scene the UI
+シーン上でUIを表示する距離は
 
 69
 00:03:15,166 --> 00:03:18,298
-elements will be rendered use Plane Distance
+Plane Distance を使用して設定します。
 
 70
 00:03:18,298 --> 00:03:20,118
-to move the canvas closer to,
+よりCanvas に近い位置を表示
 
 71
 00:03:20,118 --> 00:03:22,449
-or further away from, the camera.
+または遠くの位置を設定する事ができます。
 
 72
 00:03:22,853 --> 00:03:24,853
-The canvas and it's UI elements will be
+Canvas やUI要素は
 
 73
 00:03:24,853 --> 00:03:27,407
-automatically resized to fit the frustum
+自動的にカメラ前での位置に基づいた
 
 74
 00:03:27,407 --> 00:03:29,983
-based on their position in front of the camera.
+サイズを設定します。
 
 75
 00:03:31,053 --> 00:03:33,318
-It is worth noting that the plane distance must
+これは、平面の距離が必要なことに注意して下さい。
 
 76
 00:03:33,318 --> 00:03:35,318
-be within the rendering camera's near and far
+レンダリングカメラの近くと遠くの範囲内にUI要素がない場合
 
 77
 00:03:35,318 --> 00:03:37,318
-clipping planes to be rendered.
+レンダリングするUI要素がクリッピングされます。
 
 78
 00:03:38,578 --> 00:03:40,578
-When using Screen Space - Camera
+Screen Space - Camera を使用すれば、
 
 79
 00:03:41,078 --> 00:03:44,168
-the canvas can be rendered by any camera in the scene.
+Canvas は、シーン内の任意のカメラでレンダリングすることができます。
 
 80
 00:03:44,668 --> 00:03:46,931
-To isolate a canvas and it's contents
+これは Canvas とは異なり
 
 81
 00:03:46,931 --> 00:03:49,481
-from any other cameras rendering the scene
+シーンのレンダリングを他のカメラの
 
 82
 00:03:49,481 --> 00:03:52,032
-use the camera's clear flags culling mask
+マスクやカリングカメラ、デプスの値を使用して
 
 83
 00:03:52,032 --> 00:03:53,285
-and depth properties.
+行います。
 
 84
 00:03:53,785 --> 00:03:55,785
-For more information on how to use these
+これらの詳細な使用方法については、
 
 85
 00:03:55,785 --> 00:03:57,785
-camera properties please see the information
+下記リンクのカメラのプロパティの情報を
 
 86
 00:03:57,785 --> 00:04:00,387
-on cameras linked below.
+参照してください
 
 87
 00:04:01,542 --> 00:04:04,030
-Render Mode World Space renders UI elements
+World Space レンダリングは、シーン内のUI要素を
 
 88
 00:04:04,030 --> 00:04:05,808
-in the scene volume.
+レンダリングします。
 
 89
 00:04:05,808 --> 00:04:08,908
-These UI elements could be static objects in the scene
+これらのUI要素は、シーン内の静的オブジェクトや
 
 90
 00:04:08,908 --> 00:04:10,908
-or mobile objects like speech bubbles
+車両のようなフキダシや
 
 91
 00:04:10,908 --> 00:04:14,324
-or player tags that follow game objects in the scene.
+Playerタグを追跡するオブジェクトかもしれません。
 
 92
 00:04:15,183 --> 00:04:18,429
-The first thing to note about a canvas in world space mode
+Woeld Space モードを使う上で最初に注意すべき事は
 
 93
 00:04:18,429 --> 00:04:22,030
-is that the canvas no longer drives the rect transform
+Canvas は、RectTransform で駆動しておらず、
 
 94
 00:04:22,030 --> 00:04:25,236
-and the canvas can be set anywhere in world space.
+Canvas を世界中どこにでも配置出来る事です。
 
 95
 00:04:25,736 --> 00:04:27,736
-With the understanding that there can be more than
+それはワールド空間のUI要素のため
 
 96
 00:04:27,736 --> 00:04:30,604
-one canvas in the scene it is not uncommon to go
+必要に応じて Warld Space の Canvas を作り、
 
 97
 00:04:30,604 --> 00:04:33,399
-create new world space canvas' as necessary for
+シーン内に複数のキャンバスが作られる事は
 
 98
 00:04:33,399 --> 00:04:35,704
-world space UI elements.
+珍しいことではありません。
 
 99
 00:04:41,106 --> 00:04:43,314
-Event Camera is required to received
+Event CameraはUI要素をクリックするなどの
 
 100
 00:04:43,314 --> 00:04:45,646
-events and determine which camera will be used
+イベントを受信するために必要とされているカメラを
 
 101
 00:04:45,646 --> 00:04:49,001
-to detect events like clicking on a UI element.
+決定します。
 
 102
 00:04:49,349 --> 00:04:52,946
-In most cases, with screen space world selected
+ほとんどの場合、Screen Space や World で選択した
 
 103
 00:04:52,946 --> 00:04:56,766
-this event camera will be the camera rendering the scene.
+レンダリングカメラがイベントカメラになります。
 
 104
 00:04:57,846 --> 00:04:59,846
-Receives Events indicates whether the
+イベントを受け取ると、この Canvas 内の要素は、
 
 105
 00:04:59,846 --> 00:05:01,846
-UI elements on this canvas will
+クリックやホバーのようなイベントを
 
 106
 00:05:01,846 --> 00:05:04,560
-receive events like clicks and hovers.
+受け取るかを示します。
 
 107
 00:05:05,019 --> 00:05:07,350
-Disable this property to ignore events on
+この設定を無効にした場合、このCanvasの
 
 108
 00:05:07,350 --> 00:05:10,363
-all UI elements that are children of this canvas.
+UI要素に対するイベントが無視されるようになります。
 
 109
 00:05:11,346 --> 00:05:13,346
-Sorting Order and Order in Layer are
+Sorting Order と Sorting Layer は、
 
 110
 00:05:13,346 --> 00:05:15,858
-for controlling the render order of the canvas
+シーン内の他のレンダラーと比較した際に
 
 111
 00:05:15,858 --> 00:05:18,812
-when compared to other renderers in the scene.
+Canvas のレンダリング順序を制御するための機能です。
 
 112
 00:05:18,812 --> 00:05:21,502
-Sorting Order and Order in Layer are exposed on the
+Sorting Orderや Sorting Layer は
 
 113
 00:05:21,502 --> 00:05:23,502
-canvas component and are available for
+Screen Space や World Camera等で
 
 114
 00:05:23,502 --> 00:05:26,181
-canvas' set to either screen space - camera
+項目を露出させている場合に
 
 115
 00:05:26,181 --> 00:05:27,767
-or world space.
+使用する事が出来ます。
 
 116
 00:05:28,336 --> 00:05:30,336
-For more information on Sorting Layers
+Sorting Layerや Order In Layerの機能については
 
 117
 00:05:30,336 --> 00:05:34,278
-and Order in Layer please see the information linked below.
+以下のリンクされた情報を参照して下さい。
 
 118
 00:05:35,455 --> 00:05:37,455
-UI elements on a canvas will be rendered
+Canvas 内にあるUI 要素は、トップダウン順に
 
 119
 00:05:37,455 --> 00:05:39,455
-in a top-down order,
+描画されます。
 
 120
 00:05:39,955 --> 00:05:42,422
-where the first items are rendered at the back
+最初の項目は、背面に描画され
 
 121
 00:05:42,422 --> 00:05:45,896
-and lower items are rendered later and appear on top.
+そして下の項目は、後にレンダリングされ、最上部に表示されます。
 
 122
 00:05:45,896 --> 00:05:48,492
-To change the order in which a UI element renders
+Hierarchyでは、UI要素をレンダリングする
 
 123
 00:05:48,492 --> 00:05:50,995
-simply change it's order in the hierarchy
+順番を変更します。
+
