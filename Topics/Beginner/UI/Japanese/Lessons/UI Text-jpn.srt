@@ -1,307 +1,308 @@
 1
 00:00:00,124 --> 00:00:02,127
-  The text component is used to render text
+Text コンポーネントは、テキストをUIの一部として
 
 2
 00:00:02,127 --> 00:00:04,761
-on the screen as part of your UI layouts.
+レンダリングする為に使用します。
 
 3
 00:00:05,261 --> 00:00:07,261
-The primary property of a text component
+Textコンポーネントの主要な機能は
 
 4
 00:00:07,261 --> 00:00:08,457
-is it's text.
+テキストを表示することです。
 
 5
 00:00:08,457 --> 00:00:11,145
-This is the string that will be shown on screen.
+これは画面上に文字列を表示します。
 
 6
 00:00:11,145 --> 00:00:13,145
-It can be used as a simple label,
+また、例えばスコアのような
 
 7
 00:00:13,145 --> 00:00:16,349
-or dynamically to show things like scores for example.
+動的に動くラベルとして使用することが出来ます。
 
 8
 00:00:23,562 --> 00:00:25,562
-One thing to note is that return works within
+もう一つの注目すべきポイントとして、
 
 9
 00:00:25,562 --> 00:00:27,907
-this text field to create new lines.
+このテキストフィールドは改行を使うことが出来ます。
 
 10
 00:00:27,907 --> 00:00:30,075
-So be aware of this, as well as the possibility
+これは例えば、改行だけの
 
 11
 00:00:30,075 --> 00:00:32,075
-of leaving new empty lines.
+行を作成することが出来ます。
 
 12
 00:00:34,136 --> 00:00:36,136
-The Character section of the component defines
+Character は、文字がどのように見えるか
 
 13
 00:00:36,136 --> 00:00:38,136
-how the characters of the string will look.
+定義する項目です。
 
 14
 00:00:38,136 --> 00:00:40,136
-The Font is the font asset used for this
+フォントはこの特定のコンポーネントで
 
 15
 00:00:40,136 --> 00:00:41,647
-particular component.
+使用するフォントを指定します。
 
 16
 00:00:41,647 --> 00:00:45,674
-Unity supports TrueType, OpenType and Dafont typefaces.
+Unity は、TrueType 、OpenTypeの と Dafont 書体をサポートしています。
 
 17
 00:00:45,674 --> 00:00:47,674
-But remember that unlike most software
+しかし、Unityは外部にオーサリングされているため、
 
 18
 00:00:47,674 --> 00:00:49,674
-because Unity is authoring an external
+プロジェクトで使用するには、
 
 19
 00:00:49,674 --> 00:00:52,214
-game or application, your font must be included
+殆どのソフトウェアと異なり、ゲームやアプリケーションに
 
 20
 00:00:52,214 --> 00:00:55,165
-in your project's assets in order to be used.
+フォントが含まれる必要があります。
 
 21
 00:00:55,165 --> 00:00:58,127
-The style can either be normal, bold or italic,
+Style は、通常の太字や斜体、太字斜体の
 
 22
 00:00:58,127 --> 00:00:59,460
-or bold and italic.
+いずれかを指定する事ができます。
 
 23
 00:00:59,460 --> 00:01:01,363
-And the font size will be the font size
+Font Sizeはフォントサイズを
 
 24
 00:01:01,363 --> 00:01:02,453
-that it's forced to.
+変更します。
 
 25
 00:01:02,453 --> 00:01:05,120
-If the font size is too large to fit within the rect
+フォントサイズが四角形内に収まらない場合は
 
 26
 00:01:05,120 --> 00:01:07,120
-then the text will not be displayed
+overflow設定が使用されない限り
 
 27
 00:01:07,120 --> 00:01:09,370
-unless overflow settings are used.
+フォントは表示されません。
 
 28
 00:01:17,977 --> 00:01:20,324
-Line spacing is also available to aid
+テキストの段落を読みやすくするために、
 
 29
 00:01:20,324 --> 00:01:22,708
-legibility within paragraphs of text.
+行間隔を調整する事もできます。
 
 30
 00:01:27,741 --> 00:01:29,741
-The Rich Text checkbox allows the use
+リッチテキストボックスも使用することが出来ます。
 
 31
 00:01:29,741 --> 00:01:32,621
-of text markup, which allows you to use tags
+これはHTMLと同様にタグを使用し
 
 32
 00:01:32,621 --> 00:01:34,289
-in-line to format text
+テキストのマークアップを指定し、
 
 33
 00:01:34,289 --> 00:01:36,289
-in a similar way to HTML.
+インラインテキストの書式を設定できます。
 
 34
 00:01:36,789 --> 00:01:39,549
-For more details on text markup and how to use it
+テキストマークアップの詳細については、
 
 35
 00:01:39,549 --> 00:01:41,549
-see the documentation links below.
+以下のドキュメントのリンクを参照してください。
 
 36
 00:01:41,549 --> 00:01:43,549
-The Paragraph section defines how text
+Pargraph はテキストの
 
 37
 00:01:43,549 --> 00:01:45,004
-will sit within it's rect.
+表示位置を設定します。
 
 38
 00:01:45,004 --> 00:01:47,842
-Text can be aligned left, centre or right,
+テキストは、左・中央・右や
 
 39
 00:01:47,842 --> 00:01:49,315
-top, middle or bottom.
+上部・中央・下部に設定出来ます。
 
 40
 00:01:49,315 --> 00:01:51,635
-Though in this example we cannot see top, middle or bottom
+この例では、スクロールが可能な性質を持つため
 
 41
 00:01:51,635 --> 00:01:54,608
-alignment due to the scrollable nature of the box.
+上部・中央・下部に合わせるデモは行いません。
 
 42
 00:01:54,608 --> 00:01:56,608
-Horizontal Overflow controls what will happen
+Horizonal Overflowは水平で範囲を超えた
 
 43
 00:01:56,608 --> 00:01:59,832
-to the text that exceeds beyond it's horizontal limit.
+テキストに対する処理を行います。
 
 44
 00:02:00,263 --> 00:02:03,616
-Wrap will move any text beyond the limit to the next line.
+Wrapは、範囲を超えた際に開業します。
 
 45
 00:02:03,616 --> 00:02:05,616
-Whereas Overflow will allow the text to extend
+OverflowはRectで制限した水平の範囲を超えて
 
 46
 00:02:05,616 --> 00:02:07,892
-beyond the horizontal bounds of the rect.
+テキストを表示します。
 
 47
 00:02:08,378 --> 00:02:11,268
-Vertical Overflow is similar, but works vertically.
+Vertical Overflowは似ていますが、縦に対し動作します。
 
 48
 00:02:11,268 --> 00:02:13,506
-Truncate means that any text beyond the vertical
+Rectの境界外へ出た任意のテキストは、
 
 49
 00:02:13,506 --> 00:02:15,090
-bounds of the rect will be cut.
+自動的にカットされます。
 
 50
 00:02:15,090 --> 00:02:17,090
-Overflow will allow the text to go beyond the
+Overflowはこの垂直の境界を超えて
 
 51
 00:02:17,090 --> 00:02:18,842
-vertical limits of the rect.
+テキストを表示します。
 
 52
 00:02:18,842 --> 00:02:21,695
-When Best Fit is checked, the text will ignore the
+Bestfit をチェックすると、Overflowのオブションは無視され
 
 53
 00:02:21,695 --> 00:02:24,648
-overflow options and instead make text as large
+代わりにRect境界内に収まるように
 
 54
 00:02:24,648 --> 00:02:26,648
-or as small as necessary to fit within
+テキストの大きさを
 
 55
 00:02:26,648 --> 00:02:28,468
-the available rect.
+調整します。
 
 56
 00:02:28,468 --> 00:02:30,594
-The Min and Max size properties refer to
+フォントサイズの限界については
 
 57
 00:02:30,594 --> 00:02:32,330
-the limits of the font size.
+MinとMaxサイズプロパティを参照しています。
 
 58
 00:02:32,330 --> 00:02:34,330
-When a best fit would mean having text that was
+Best fitはフォントサイズの大きさを
 
 59
 00:02:34,330 --> 00:02:36,330
-beyond either of these font size limits
+MinからMaxの間のサイズに
 
 60
 00:02:36,330 --> 00:02:39,131
-the text will obey the normal font size provided.
+調整して表示します。
 
 61
 00:02:39,852 --> 00:02:42,087
-The appearance of characters of text can be
+Text の色やマテリアル特性を調整して
 
 62
 00:02:42,087 --> 00:02:45,174
-adjusted by using the Color and Material properties.
+テキストの表示を変更することが出来ます。
 
 63
 00:02:45,174 --> 00:02:47,174
-Generally, a texture of a material will
+一般的に、マテリアルの提供する質感は
 
 64
 00:02:47,174 --> 00:02:49,994
-not effect the appearance of text that it's supplied to.
+提供するテキストに影響を与えません。
 
 65
 00:02:49,994 --> 00:02:51,994
-Let's take a quick look at the text component
+それでは Text コンポーネントが動作する所を
 
 66
 00:02:51,994 --> 00:02:53,125
-in use dynamically. 
+見てみましょう。
 
 67
 00:02:53,125 --> 00:02:55,706
-Very simply, this text element represents the
+簡単に言えば、このゲームの得点を表示する要素に
 
 68
 00:02:55,706 --> 00:02:57,386
-score in this game.
+テキストを使用しています。
 
 69
 00:02:57,386 --> 00:03:00,219
-By default we've written in an example line.
+まずは標準の設定で例文を記述します。
 
 70
 00:03:00,219 --> 00:03:02,527
-But this is only for design purposes
+これはプエリヤーのスコアとして
 
 71
 00:03:02,527 --> 00:03:04,527
-as it's replaced at runtime by the 
+動的にスコアを設定し、
 
 72
 00:03:04,527 --> 00:03:06,678
-string defined within our script
+スクリプト内で定義された文字列で
 
 73
 00:03:06,678 --> 00:03:08,678
-which sets the score dynamically
+画面上に表示します。
 
 74
 00:03:08,678 --> 00:03:10,678
-as the player scores points.
+動的にテキストを変更して
 
 75
 00:03:17,670 --> 00:03:19,935
-For more information on the text component
+スコアポイントを変更する機能に関しては
 
 76
 00:03:19,935 --> 00:03:21,755
-and using text dynamically
+以下にリンクした情報を
 
 77
 00:03:21,755 --> 00:03:23,755
-please see the information linked below.
+参照して下さい。
+
