@@ -1,0 +1,143 @@
+1
+00:00:01,581 --> 00:00:03,192
+In this beginner assignment we are going
+
+2
+00:00:03,192 --> 00:00:05,192
+to make a very simple but playable game to
+
+3
+00:00:05,192 --> 00:00:07,192
+use many of the basic concepts from the
+
+4
+00:00:07,192 --> 00:00:09,192
+beginner tutorial modules.
+
+5
+00:00:09,192 --> 00:00:11,192
+We will be making a roll-a-ball game where
+
+6
+00:00:11,192 --> 00:00:13,494
+we will collect special game objects.
+
+7
+00:00:13,747 --> 00:00:15,939
+We will see how to create new game objects,
+
+8
+00:00:15,939 --> 00:00:18,213
+add components to these game objects,
+
+9
+00:00:18,213 --> 00:00:20,447
+set the values on their properties and position
+
+10
+00:00:20,447 --> 00:00:23,597
+these game objects in the scene to create a game.
+
+11
+00:00:23,597 --> 00:00:25,597
+In our game the player will control a ball
+
+12
+00:00:25,597 --> 00:00:27,765
+rolling around the game board.
+
+13
+00:00:27,765 --> 00:00:30,603
+We will move the ball using physics and forces.
+
+14
+00:00:30,603 --> 00:00:32,301
+We will look at the input from the player
+
+15
+00:00:32,301 --> 00:00:34,301
+through the keyboard and we'll use those
+
+16
+00:00:34,301 --> 00:00:36,301
+inputs to apply forces to the ball, making it
+
+17
+00:00:36,301 --> 00:00:37,995
+move in our scene.
+
+18
+00:00:37,995 --> 00:00:39,995
+We will see how to detect contact between
+
+19
+00:00:39,995 --> 00:00:42,527
+the player's ball and the pick-up game objects,
+
+20
+00:00:42,527 --> 00:00:44,088
+and use these events to collect these
+
+21
+00:00:44,088 --> 00:00:46,088
+pick-up game objects.
+
+22
+00:00:46,809 --> 00:00:48,417
+When we are done we will have made a simple
+
+23
+00:00:48,417 --> 00:00:50,417
+roll-a-ball game where the player controls
+
+24
+00:00:50,417 --> 00:00:51,947
+the ball with the keyboard, picks up and 
+
+25
+00:00:51,947 --> 00:00:53,947
+counts special collectable objects,
+
+26
+00:00:53,947 --> 00:00:55,947
+displays the current count and ends the game
+
+27
+00:00:55,947 --> 00:00:57,050
+when all of the game objects
+
+28
+00:00:57,050 --> 00:00:58,622
+have been picked up.
+
+29
+00:00:58,622 --> 00:01:01,404
+We won't need to import any assets for this project.
+
+30
+00:01:01,404 --> 00:01:03,157
+We won't be using models, textures,
+
+31
+00:01:03,157 --> 00:01:05,709
+sounds or animations for this assignment.
+
+32
+00:01:05,709 --> 00:01:07,971
+We will simply use the primitive shapes
+
+33
+00:01:07,971 --> 00:01:10,512
+like cubes, spheres and planes
+
+34
+00:01:10,512 --> 00:01:12,058
+provided by Unity.
+
+35
+00:01:12,058 --> 00:01:14,377
+To begin, start with assignment 1 where we
+
+36
+00:01:14,377 --> 00:01:16,862
+setup our game and starting game objects.

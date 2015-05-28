@@ -1,0 +1,587 @@
+1
+00:00:02,009 --> 00:00:04,585
+Let's begin by creating a new project.
+
+2
+00:00:04,585 --> 00:00:08,631
+We can create a new project from File - New Project.
+
+3
+00:00:09,803 --> 00:00:12,134
+This will bring up the home screen.
+
+4
+00:00:12,897 --> 00:00:15,745
+I'm going to call the new project Roll a Ball.
+
+5
+00:00:17,194 --> 00:00:19,871
+The next thing we need to do is set the destination,
+
+6
+00:00:19,871 --> 00:00:21,874
+or path to our new project.
+
+7
+00:00:22,768 --> 00:00:25,000
+I'm going to put this new project on my desktop.
+
+8
+00:00:28,366 --> 00:00:30,366
+At this point it's worth noting that we can
+
+9
+00:00:30,366 --> 00:00:32,648
+have our new project use default settings
+
+10
+00:00:32,648 --> 00:00:35,682
+for either a 2D project or a 3D project.
+
+11
+00:00:36,040 --> 00:00:38,040
+We will choose 3D.
+
+12
+00:00:38,791 --> 00:00:41,031
+And then I will click on Create Project
+
+13
+00:00:41,031 --> 00:00:42,378
+to make a new project.
+
+14
+00:00:43,212 --> 00:00:46,090
+We now have our new project with a new empty scene.
+
+15
+00:00:46,090 --> 00:00:48,090
+Before creating anything in the new scene
+
+16
+00:00:48,090 --> 00:00:49,451
+we need to save our scene.
+
+17
+00:00:50,147 --> 00:00:54,470
+We can save our scene by going to File - Save Scene
+
+18
+00:00:54,470 --> 00:00:56,470
+or by using the keyboard shortcut.
+
+19
+00:00:58,903 --> 00:01:01,260
+I'm going to save this scene in the Assets directory
+
+20
+00:01:01,260 --> 00:01:04,357
+in a new folder called _scenes.
+
+21
+00:01:04,357 --> 00:01:07,139
+The underscore is optional, I use it to sort this
+
+22
+00:01:07,139 --> 00:01:09,793
+folder to the top of my project window.
+
+23
+00:01:09,793 --> 00:01:12,514
+Now I'm going to call the scene MiniGame.
+
+24
+00:01:15,054 --> 00:01:17,054
+We can now see in our Scenes folder
+
+25
+00:01:17,054 --> 00:01:19,054
+the scene called MiniGame.
+
+26
+00:01:20,574 --> 00:01:23,704
+Let's create our game board, or play field.
+
+27
+00:01:23,704 --> 00:01:26,538
+To do this we will use a stock Unity plane.
+
+28
+00:01:27,038 --> 00:01:28,896
+We can create this plane from either
+
+29
+00:01:28,896 --> 00:01:31,682
+Game Object - 3D Object - Plane.
+
+30
+00:01:33,605 --> 00:01:37,422
+Or from inside the Hierarchy view using the Create menu.
+
+31
+00:01:38,560 --> 00:01:41,532
+Rename this game object Ground.
+
+32
+00:01:41,532 --> 00:01:43,532
+We can do this by either selecting the game object
+
+33
+00:01:43,532 --> 00:01:45,712
+and using the enter or return keys
+
+34
+00:01:45,712 --> 00:01:48,220
+to allow editing, or by clicking on the
+
+35
+00:01:48,220 --> 00:01:50,413
+game object twice, slowly.
+
+36
+00:01:50,413 --> 00:01:52,787
+Type in the new name or hit enter or return
+
+37
+00:01:52,787 --> 00:01:54,787
+to confirm this change.
+
+38
+00:01:55,287 --> 00:01:57,989
+Reset the transform component using the context
+
+39
+00:01:57,989 --> 00:02:00,387
+sensitive gear menu in the upper right.
+
+40
+00:02:00,387 --> 00:02:02,845
+This will place the game object at the location of
+
+41
+00:02:02,845 --> 00:02:05,353
+(0, 0, 0) in our scene.
+
+42
+00:02:05,353 --> 00:02:07,353
+This point is known as the origin point
+
+43
+00:02:07,353 --> 00:02:09,725
+of the world and this is where all of the
+
+44
+00:02:09,725 --> 00:02:12,416
+coordinates in the scene are calculated from.
+
+45
+00:02:12,416 --> 00:02:14,416
+Now with the game object selected and the
+
+46
+00:02:14,416 --> 00:02:17,674
+cursor over the Scene view type the F key, or choose
+
+47
+00:02:17,674 --> 00:02:20,187
+Frame Selected from the Edit menu
+
+48
+00:02:20,187 --> 00:02:22,885
+to see the entire game object in the Scene view.
+
+49
+00:02:23,696 --> 00:02:25,400
+Looking at our current scene,
+
+50
+00:02:25,400 --> 00:02:28,958
+we can see grid lines indicating the plane at origin.
+
+51
+00:02:29,425 --> 00:02:31,425
+For the purposes of this project
+
+52
+00:02:31,425 --> 00:02:32,988
+we will turn them off.
+
+53
+00:02:32,988 --> 00:02:35,984
+Select the Gizmos menu in the Scene view
+
+54
+00:02:35,984 --> 00:02:37,984
+and deselect Show Grid.
+
+55
+00:02:41,895 --> 00:02:44,327
+We need to change the scale of the ground plane.
+
+56
+00:02:44,327 --> 00:02:46,649
+We can do this in a number of ways..
+
+57
+00:02:46,649 --> 00:02:48,447
+We can use the Scale tool,
+
+58
+00:02:48,728 --> 00:02:51,086
+simply grab the axis handle you want to change
+
+59
+00:02:51,086 --> 00:02:53,791
+and drag the handle rescaling the plane.
+
+60
+00:02:53,791 --> 00:02:55,791
+We can click and drag on the title of
+
+61
+00:02:55,791 --> 00:02:57,791
+the fields we want to change.
+
+62
+00:02:58,931 --> 00:03:00,779
+Or we can type a number directly in to the
+
+63
+00:03:00,779 --> 00:03:02,185
+field we want to change.
+
+64
+00:03:02,185 --> 00:03:04,949
+You can tab between fields and hit enter or return
+
+65
+00:03:04,949 --> 00:03:06,949
+to confirm your choice.
+
+66
+00:03:07,878 --> 00:03:10,431
+Now remember a plane has no volume
+
+67
+00:03:10,431 --> 00:03:12,886
+and scale does not work on the Y axis.
+
+68
+00:03:12,886 --> 00:03:15,796
+There will be no change unless you go in to negative numbers.
+
+69
+00:03:15,796 --> 00:03:18,060
+In this case the plane, which is a single
+
+70
+00:03:18,060 --> 00:03:21,044
+sided object will simply face the other direction.
+
+71
+00:03:21,359 --> 00:03:23,830
+If you place a plane in the scene and you can't see it
+
+72
+00:03:23,830 --> 00:03:26,821
+check your orientation between the plane and camera
+
+73
+00:03:26,821 --> 00:03:28,821
+and make sure that you have the correct values
+
+74
+00:03:28,821 --> 00:03:30,488
+for the Y axis of scale.
+
+75
+00:03:30,488 --> 00:03:33,082
+This is usually the value of 1.
+
+76
+00:03:34,759 --> 00:03:36,968
+Let's create our player object.
+
+77
+00:03:36,968 --> 00:03:38,968
+In this assignment our player object
+
+78
+00:03:38,968 --> 00:03:40,968
+will be a Unity sphere.
+
+79
+00:03:40,968 --> 00:03:44,953
+From the Hierarchy - Create menu select Sphere.
+
+80
+00:03:46,033 --> 00:03:48,033
+Rename the sphere Player.
+
+81
+00:03:50,094 --> 00:03:52,810
+Reset the transform to make sure it's a origin.
+
+82
+00:03:53,697 --> 00:03:56,293
+Select Edit - Frame Selected
+
+83
+00:03:57,046 --> 00:03:59,046
+or use the F key while the cursor is
+
+84
+00:03:59,046 --> 00:04:01,297
+over the Scene view to focus our Scene view
+
+85
+00:04:01,297 --> 00:04:03,297
+camera on our game object.
+
+86
+00:04:04,413 --> 00:04:06,413
+See how the sphere is buried in the plane?
+
+87
+00:04:06,413 --> 00:04:08,413
+This is because both game objects
+
+88
+00:04:08,413 --> 00:04:10,997
+are in the exact same location in the scene,
+
+89
+00:04:10,997 --> 00:04:13,523
+the origin point, or (0, 0, 0)
+
+90
+00:04:13,523 --> 00:04:15,523
+on the X, Y and Z axis.
+
+91
+00:04:15,523 --> 00:04:17,523
+We need to move the player's sphere up
+
+92
+00:04:17,523 --> 00:04:19,523
+until it rests on the plane.
+
+93
+00:04:24,134 --> 00:04:27,874
+All Unity primitive objects, cubes, spheres, capsules,
+
+94
+00:04:27,874 --> 00:04:30,150
+have a standard size, they are either
+
+95
+00:04:30,150 --> 00:04:35,059
+1 by 1 by 1 or 1 by 2 by 1 Unity units.
+
+96
+00:04:35,059 --> 00:04:37,059
+As such we simply lift the player object up
+
+97
+00:04:37,059 --> 00:04:39,059
+by half a unit in the Y axis
+
+98
+00:04:39,059 --> 00:04:42,234
+and we know it is laying perfectly on top of plane.
+
+99
+00:04:44,473 --> 00:04:46,696
+If we look in the Game view we can that the
+
+100
+00:04:46,696 --> 00:04:48,696
+player game object is lit and it
+
+101
+00:04:48,696 --> 00:04:50,696
+casts a shadow on the plane.
+
+102
+00:04:51,514 --> 00:04:53,514
+All new Unity scenes come with the
+
+103
+00:04:53,514 --> 00:04:55,514
+default sky box and a directional light
+
+104
+00:04:55,514 --> 00:04:58,641
+to represent the sun, so we don't need to worry
+
+105
+00:04:58,641 --> 00:05:00,641
+about setting up any default lighting.
+
+106
+00:05:01,732 --> 00:05:03,732
+What could be improved however is the
+
+107
+00:05:03,732 --> 00:05:06,935
+white player sphere on the white background.
+
+108
+00:05:08,480 --> 00:05:10,410
+Let's add some colour to our background
+
+109
+00:05:10,410 --> 00:05:14,120
+so there is some contrast between the player and the play field.
+
+110
+00:05:15,211 --> 00:05:17,211
+To add colour or texture to a model
+
+111
+00:05:17,211 --> 00:05:19,598
+we need to use a material.
+
+112
+00:05:19,598 --> 00:05:22,358
+We won't go in to the details of materials now,
+
+113
+00:05:22,358 --> 00:05:25,064
+and we won't be using any textures.
+
+114
+00:05:25,064 --> 00:05:27,672
+We will simply use a standard material
+
+115
+00:05:27,672 --> 00:05:29,672
+to add colour to the objects in our scene.
+
+116
+00:05:30,922 --> 00:05:32,922
+First let's create a new folder in our
+
+117
+00:05:32,922 --> 00:05:35,695
+project to hold our materials.
+
+118
+00:05:36,399 --> 00:05:38,582
+We can do this by using the project's
+
+119
+00:05:38,582 --> 00:05:41,397
+Create menu and selecting Folder.
+
+120
+00:05:43,283 --> 00:05:46,055
+Rename this folder Material.
+
+121
+00:05:46,715 --> 00:05:48,808
+With the Materials folder selected
+
+122
+00:05:48,808 --> 00:05:51,245
+use the project's Create menu again
+
+123
+00:05:51,245 --> 00:05:53,792
+and this time select Material.
+
+124
+00:05:54,518 --> 00:05:58,319
+Note how the material was created in the Materials folder.
+
+125
+00:05:58,319 --> 00:06:00,867
+This is because we had the folder selected
+
+126
+00:06:00,867 --> 00:06:03,370
+when we chose to create our new material
+
+127
+00:06:03,958 --> 00:06:06,569
+Rename this material Background.
+
+128
+00:06:07,228 --> 00:06:10,054
+Select the material and under Main Maps
+
+129
+00:06:10,054 --> 00:06:13,011
+the first property is Albido.
+
+130
+00:06:13,011 --> 00:06:15,011
+Click on the Albido's colour field
+
+131
+00:06:15,011 --> 00:06:16,806
+to open a colour picker.
+
+132
+00:06:16,806 --> 00:06:20,276
+Change the colour to a nice dark shade of blue.
+
+133
+00:06:20,276 --> 00:06:26,053
+In our case I will use the RGB values of 0, 32, 64.
+
+134
+00:06:27,939 --> 00:06:29,939
+For a preview of the material make sure 
+
+135
+00:06:29,939 --> 00:06:31,939
+that the preview window is open.
+
+136
+00:06:33,552 --> 00:06:35,348
+To apply the texture to the plane,
+
+137
+00:06:35,348 --> 00:06:38,014
+simply select the material in the project view
+
+138
+00:06:38,014 --> 00:06:40,538
+and drag it on to the plane in the scene view.
+
+139
+00:06:41,264 --> 00:06:44,221
+Now the player stands out on the dark blue background.
+
+140
+00:06:44,857 --> 00:06:46,857
+I want to make one additional change that
+
+141
+00:06:46,857 --> 00:06:48,857
+will help us later in this project.
+
+142
+00:06:49,311 --> 00:06:51,794
+I want to rotate the main directional light
+
+143
+00:06:51,794 --> 00:06:54,273
+so that we have better lighting on our player.
+
+144
+00:06:55,067 --> 00:06:58,893
+Select the directional light and in the transform component
+
+145
+00:06:58,893 --> 00:07:03,334
+change the Transform Rotation on the Y axis to 60.
+
+146
+00:07:04,561 --> 00:07:07,501
+This will give better shape to our player sphere.
+
+147
+00:07:08,205 --> 00:07:11,757
+Now we have a player game object and a background play field.
