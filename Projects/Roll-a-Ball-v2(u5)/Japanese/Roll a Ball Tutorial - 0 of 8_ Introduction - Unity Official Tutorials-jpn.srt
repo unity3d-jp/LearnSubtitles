@@ -1,143 +1,143 @@
 1
 00:00:01,581 --> 00:00:03,192
-In this beginner assignment we are going
+初心者向けに分類されるこのプロジェクトは
 
 2
 00:00:03,192 --> 00:00:05,192
-to make a very simple but playable game to
+とてもシンプルな構成ですが初心者向けチュートリアルとして
 
 3
 00:00:05,192 --> 00:00:07,192
-use many of the basic concepts from the
+基礎的な知識を多く取り入れており
 
 4
 00:00:07,192 --> 00:00:09,192
-beginner tutorial modules.
+ゲームとしてもプレイが可能となっています。
 
 5
 00:00:09,192 --> 00:00:11,192
-We will be making a roll-a-ball game where
+ゲームとしては、特定のオブジェクトを
 
 6
 00:00:11,192 --> 00:00:13,494
-we will collect special game objects.
+集めて回る「玉転がし」を作成していきます。
 
 7
 00:00:13,747 --> 00:00:15,939
-We will see how to create new game objects,
+シーン内にゲームオブジェクトの作成する方法、
 
 8
 00:00:15,939 --> 00:00:18,213
-add components to these game objects,
+ゲームオブジェクトにコンポーネントを追加する方法、
 
 9
 00:00:18,213 --> 00:00:20,447
-set the values on their properties and position
+ゲームオブジェクトに位置や様々なパラメータを設定していく方法について
 
 10
 00:00:20,447 --> 00:00:23,597
-these game objects in the scene to create a game.
+このゲームの作成を通して学んでいくことが出来ます。
 
 11
 00:00:23,597 --> 00:00:25,597
-In our game the player will control a ball
+このゲームは、プレイヤーの操作によって
 
 12
 00:00:25,597 --> 00:00:27,765
-rolling around the game board.
+ゲームボード上で玉（ボール）を転がします。
 
 13
 00:00:27,765 --> 00:00:30,603
-We will move the ball using physics and forces.
+ボールは物理の力によって移動を行います。
 
 14
 00:00:30,603 --> 00:00:32,301
-We will look at the input from the player
+キーボードによるキー入力を
 
 15
 00:00:32,301 --> 00:00:34,301
-through the keyboard and we'll use those
+ボールを移動させる力として適用させることによって
 
 16
 00:00:34,301 --> 00:00:36,301
-inputs to apply forces to the ball, making it
+シーン内でボールが動くように
 
 17
 00:00:36,301 --> 00:00:37,995
-move in our scene.
+なります。
 
 18
 00:00:37,995 --> 00:00:39,995
-We will see how to detect contact between
+ボールと集めるゲームオブジェクトの間で発生する
 
 19
 00:00:39,995 --> 00:00:42,527
-the player's ball and the pick-up game objects,
+衝突判定についても見て行きましょう。
 
 20
 00:00:42,527 --> 00:00:44,088
-and use these events to collect these
+この衝突判定はゲームオブジェクトを集めるときに
 
 21
 00:00:44,088 --> 00:00:46,088
-pick-up game objects.
+使用しています。
 
 22
 00:00:46,809 --> 00:00:48,417
-When we are done we will have made a simple
+今言った機能を作り上げることができれば
 
 23
 00:00:48,417 --> 00:00:50,417
-roll-a-ball game where the player controls
+キーボードでボールを操作し
 
 24
 00:00:50,417 --> 00:00:51,947
-the ball with the keyboard, picks up and 
+オブジェクトを集め、集めた数をカウントし
 
 25
 00:00:51,947 --> 00:00:53,947
-counts special collectable objects,
+そのカウントを画面に表示して
 
 26
 00:00:53,947 --> 00:00:55,947
-displays the current count and ends the game
+全てのオブジェクトを集めた時にゲームが終了する
 
 27
 00:00:55,947 --> 00:00:57,050
-when all of the game objects
+玉転がしゲームが
 
 28
 00:00:57,050 --> 00:00:58,622
-have been picked up.
+完成していることでしょう。
 
 29
 00:00:58,622 --> 00:01:01,404
-We won't need to import any assets for this project.
+このゲームではアセット（素材）は一切使用していません。
 
 30
 00:01:01,404 --> 00:01:03,157
-We won't be using models, textures,
+モデル、テクスチャ、サウンド、アニメーションなど
 
 31
 00:01:03,157 --> 00:01:05,709
-sounds or animations for this assignment.
+これらを使用せずにゲームを作成します。
 
 32
 00:01:05,709 --> 00:01:07,971
-We will simply use the primitive shapes
+つまり、Unityが提供している
 
 33
 00:01:07,971 --> 00:01:10,512
-like cubes, spheres and planes
+立方体、球体、平面のプリミティブな形状だけで
 
 34
 00:01:10,512 --> 00:01:12,058
-provided by Unity.
+シンプルなゲームが作れてしまいます。
 
 35
 00:01:12,058 --> 00:01:14,377
-To begin, start with assignment 1 where we
+ではさっそく、最初の作業としてプロジェクトを作成し
 
 36
 00:01:14,377 --> 00:01:16,862
-setup our game and starting game objects.
+ゲームのセットアップをしていきましょう。
