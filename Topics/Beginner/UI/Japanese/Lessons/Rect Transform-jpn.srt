@@ -1,631 +1,579 @@
 1
 00:00:01,050 --> 00:00:04,041
-Rect Transform は全てのUI要素で使用され
+RectTransform は新規作成される UI 要素で
 
 2
 00:00:04,041 --> 00:00:06,041
-通常の Transform コンポーネントと置き換わる
+従来の Transform コンポーネントの 
 
 3
 00:00:06,041 --> 00:00:07,957
-新しいコンポーネントです。
+代わりに使われるコンポーネントです
 
 4
 00:00:07,957 --> 00:00:10,912
-通常 Transform コンポーネントはシーン内の3Dオブジェクトにおいて
-Whereas the transform component represented the position,
+これまでの Transform コンポーネントはシーンにある 3D オブジェクトの
 
 5
 00:00:10,912 --> 00:00:14,452
-位置、角度、スケールの値を備えたものです。
-rotation and scale of a 3D object in the scene volume.
+位置・角度・スケールの値を保持していましたが
 
 6
 00:00:15,656 --> 00:00:18,152
-RectTransformは
-The RectTransform represents a 2D
+この RectTransform は
 
 7
 00:00:18,152 --> 00:00:20,152
-幅、高さ、オブジェクトの中心位置を備えた
-rectangle specified by a width
+幅・高さ・オブジェクトの中心位置を備えた
 
 8
 00:00:20,152 --> 00:00:22,525
-2D矩形（長方形）となります。
-and a height related to a pivot point.
+2D 矩形（長方形）です
 
 9
 00:00:24,227 --> 00:00:26,227
-RectTransformはシンプルな2D矩形ではありますが
-Even though the rect transform represents a
+RectTransform はシンプルな 2D 矩形で
 
 10
 00:00:26,227 --> 00:00:28,227
-コンポーネントには
-simple 2D rectangle, the component
+表示されるものの
 
 11
 00:00:28,227 --> 00:00:30,851
-オブジェクトの位置としてZ軸要素が含まれており
-does include a position along the Z axis
+オブジェクトの位置として Z 軸や
 
 12
 00:00:30,851 --> 00:00:32,851
-もちろん角度とスケールといったように
-as well as rotation and scale
+角度とスケールなども扱えるので
 
 13
 00:00:32,851 --> 00:00:34,851
-3Dオブジェクトのような値をシーン内のUI要素として
-so the element can be manipulated in the scene
+シーン内で 3D オブジェクト的に
 
 14
 00:00:34,851 --> 00:00:36,851
-操作することが出来ます。
-volume as a 3D object.
+
+操作することもできます
 
 15
 00:00:43,304 --> 00:00:46,077
-RectTransformと従来のTransformとの間には
-One important difference between a rect transform and
+RectTransform と従来の Transform には
 
 16
 00:00:46,077 --> 00:00:48,077
-大きな違いがあり、それは
-the traditional transform component is the 
+ひとつ大きな違いがあります 
 
 17
 00:00:48,077 --> 00:00:49,717
-アンカーという概念です。
-concept of anchors,
+それは「アンカー」という概念です
 
 18
 00:00:49,717 --> 00:00:52,327
-親子関係のオブジェクト同士がそれぞれRectTransformを持つ場合
-A rect transform can be anchored to it's parent
+親子オブジェクトが両方とも RectTransform を持つ場合
 
 19
 00:00:52,327 --> 00:00:55,359
-子は親に対してアンカーを設定することが出来ます。
-if that parent also has a rect transform component.
+子を親にアンカーすることができます
 
 20
 00:00:56,591 --> 00:00:58,784
-このアンカーの仕組は親のUI要素のRectTransformにある
-Anchoring allows the UI element to move
+アンカーされたオブジェクトは 親 UI 要素の
 
 21
 00:00:58,784 --> 00:01:01,144
-位置とサイズを基にして要素を引き伸ばしたり
-or stretch based on the position and size
+RectTransform に指定された位置やサイズに基いて
 
 22
 00:01:01,144 --> 00:01:04,238
-移動させることが可能になります。
-of the parent UI element's rect transform.
+同様に移動・伸縮されます
 
 23
 00:01:05,332 --> 00:01:07,906
-全てのUI要素は直下ではなくとも
-It is worth noting that all UI elements must
+UI 要素はすべて Canvas の子にしておくのが
 
 24
 00:01:07,906 --> 00:01:10,473
-Canvasの子として配置することで
-ultimately be the child of a canvas,
+理想的です
 
 25
 00:01:10,473 --> 00:01:12,473
-真価を発揮します。
-even if they are not immediate children.
+直子でなくてもかまいません
 
 26
 00:01:14,630 --> 00:01:17,358
-また、Canvas自身にもRectTransformが備わっています。
-Canvases themselves have a rect transform.
+Canvas 自体も RectTransform を含むため
 
 27
 00:01:18,134 --> 00:01:21,031
-ですのでほとんどの場合、UI要素の親は
-So in almost all circumstances the parent
+通常はすべての UI 要素の親オブジェクトが
 
 28
 00:01:21,031 --> 00:01:24,249
-RectTransformを持つことになります。
-of a UI element will also have a rect transform.
+RectTransform を持つことになります
 
 29
 00:01:25,426 --> 00:01:29,193
-さらにUI要素は先ほど紹介した同じ方法で親にアンカーを設定します。
-And the UI element will be anchored to it's parent in some way.
+つまり基本的に「すべての UI 要素は親にアンカーされる」わけです
 
 30
 00:01:30,812 --> 00:01:33,244
-Canvasに関する詳しい情報は
-For more information on the canvas component
+Canvas コンポーネントに関する詳細は
 
 31
 00:01:33,244 --> 00:01:35,244
-ドキュメントにて公開していますのでぜひご覧ください。
-please see the information linked below.
+下記リンク先の情報をご覧ください
 
 32
 00:01:36,656 --> 00:01:39,126
-さて、シーンビューではUI要素を操作するための
-In the Scene view, to manipulate a UI element
+シーン ビューで UI 要素を操作する時は
 
 33
 00:01:39,126 --> 00:01:41,126
-扱いやすいRectツールが備わっています。
-it is best to use the Rect tool.
+Rect ツールを使うのが便利です
 
 34
 00:01:42,248 --> 00:01:44,414
-このRectツールは左上にあるツールバーの
-The Rect tool can be selected by clicking on
+Rect ツールは左上のツールバーで
 
 35
 00:01:44,414 --> 00:01:46,414
-Rect Toolボタンをクリックして使用します。
-the Rect Tool button in the toolbar.
+Rect ツール ボタンをクリックすれば使えます
 
 36
 00:01:46,414 --> 00:01:49,122
-またショートカットキーとして「T」を押しても使用できます。
-or by using the shortcut key T.
+ショートカット キー T を押しても同様です
 
 37
 00:01:49,824 --> 00:01:52,036
-このRect ToolではUI要素の
-With the Rect tool selected it is possible
+Rect ツールでは UI 要素の
 
 38
 00:01:52,036 --> 00:01:54,036
-移動、リサイズ、回転など
-to move, resize and rotate any
+移動・リサイズ・回転など
 
 39
 00:01:54,036 --> 00:01:56,036
-様々な操作が可能です。
-UI element with that one tool.
+様々な操作が可能です
 
 40
 00:01:56,855 --> 00:01:59,635
-UI要素を選択して
-With the UI element selected it can be moved
+UI 要素を移動するには まず対象を選択して
 
 41
 00:01:59,635 --> 00:02:02,538
-矩形をクリックし、ドラッグすると要素を動かすことが出来ます。
-by clicking anywhere within the rectangle and dragging.
+矩形をクリック & ドラッグします
 
 42
 00:02:03,792 --> 00:02:05,792
-UI要素のリサイズは
-The UI element can be resized by
+UI 要素をリサイズするには
 
 43
 00:02:05,792 --> 00:02:09,021
-矩形の端や角をクリックしドラッグすることで出来ます。
-clicking on any of the edges or corners and dragging.
+矩形の端や角をクリック & ドラッグします
 
 44
 00:02:09,967 --> 00:02:11,967
-このような操作ができる判断基準としてマウスカーソルを
-Note how the cursor changes when hovering
+カーソルを注意して見てください
 
 45
 00:02:11,967 --> 00:02:14,650
-矩形の端、角の上に乗せると通常のカーソルアイコンから
-over an edge or corner from the usual pointer
+矩形の端や角の上では 通常のアイコンではなく
 
 46
 00:02:14,650 --> 00:02:16,650
-リサイズができる方向に矢印が表示されるアイコンへと変化し
-to a double arrow aligned with the direction
+ドラッグした時のリサイズ方向を示す
 
 47
 00:02:16,650 --> 00:02:19,132
-UI要素をドラッグすることでリサイズが出来ます。
-the UI element will resize when dragged.
+矢印アイコンに変化しています
 
 48
 00:02:19,983 --> 00:02:22,409
-シフトキーを押しながらUI要素をドラッグすると
-Holding the Shift key will force the UI element
+また Shift キーを押しながら UI 要素をドラッグすると
 
 49
 00:02:22,409 --> 00:02:24,409
-サイズの比率を保ちながらリサイズが可能です。
-to be resized proportionately.
+比率を維持したままリサイズできます
 
 50
 00:02:25,175 --> 00:02:27,569
-次にUI要素の角から「少し外側付近」をクリックして
-The UI element can be rotated by clicking and
+UI 要素を回転させるには
 
 51
 00:02:27,569 --> 00:02:30,905
-ドラッグすることで要素を回転させることが出来ます。
-dragging outside of the rectangle near any of the corners.
+矩形の少し外側をクリック & ドラッグします
 
 52
 00:02:31,564 --> 00:02:33,872
-これもUI要素を回転させるときにはカーソルアイコンが変化し
-Note how the cursor changes, indicating when the 
+この場合もカーソルが「回転」を示すものに 
 
 53
 00:02:33,872 --> 00:02:35,872
-わかりやすくなっています。
-tool can rotate the UI element.
+変化します
 
 54
 00:02:39,792 --> 00:02:42,046
-UI要素のリサイズや回転を行うときには
-Resizing or rotating a UI element is
+UI 要素をリサイズ/回転させる場合には
 
 55
 00:02:42,046 --> 00:02:44,353
-ピポット位置との関係を知っておかなければなりません。
-done in relation to it's pivot point.
+ピポット位置に意識する必要があります
 
 56
 00:02:45,088 --> 00:02:47,157
-
-The pivot point is very much like the centre
+ピボット位置とは一般的なゲームオブジェクトの
 
 57
 00:02:47,157 --> 00:02:49,157
-point of a standard game object.
+中心点にあたるもので
 
 58
 00:02:49,919 --> 00:02:52,404
-The pivot point is indicated by a blue ring
+青色の輪として表示されます
 
 59
 00:02:52,404 --> 00:02:55,762
-which by default starts in the centre of the UI element.
+デフォルトでは UI 要素の中心に配置されます
 
 60
 00:02:56,345 --> 00:02:58,722
-The pivot point can be moved by clicking and
+ピボット位置を移動する場合は シーン ビューで
 
 61
 00:02:58,722 --> 00:03:01,589
-dragging on the pivot point indicator in the scene view.
+青色の輪をクリック & ドラッグします
 
 62
 00:03:02,407 --> 00:03:04,808
-It is worth noting that the pivot point does not need
+なおピボット位置は UI 要素の矩形よりも
 
 63
 00:03:04,808 --> 00:03:07,728
-to be inside the rectangle of the UI element.
+外に配置することも可能です
 
 64
 00:03:08,587 --> 00:03:10,859
-Placing the pivot point outside of the UI element's
+ピボット位置を矩形外に配置すると
 
 65
 00:03:10,859 --> 00:03:13,970
-rectangle can be done for specialised behaviour.
+独特な振る舞いを実現できますが
 
 66
 00:03:13,970 --> 00:03:16,415
-This however is not a common situation.
+一般的には 矩形内に配置します
 
 67
 00:03:17,368 --> 00:03:19,368
-Another difference between the transform component
+RectTransform と transform のもうひとつの
 
 68
 00:03:19,368 --> 00:03:21,368
-and the rect transform is the effective
+大きな違いとして 編集中における
 
 69
 00:03:21,368 --> 00:03:23,835
-global and local space on editing.
+グローバル/ローカル空間に対する影響範囲があります
 
 70
 00:03:24,738 --> 00:03:27,268
-When editing UI elements in local space
+UI 要素をローカル空間で編集している時
 
 71
 00:03:27,268 --> 00:03:30,252
-the rectangle and handles are aligned with the UI element.
+矩形とハンドルは UI 要素に合わせた位置で表示されますが
 
 72
 00:03:31,042 --> 00:03:34,567
-In global space the rectangles and handles are aligned globally
+グローバル空間においては矩形とハンドルの位置がグローバルになり
 
 73
 00:03:34,567 --> 00:03:38,008
-and the rectangle indicates the bounds of the UI element.
+矩形は UI 要素の境界線を示します
 
 74
 00:03:38,632 --> 00:03:42,095
-This is most notable when the UI element is rotated.
+UI 要素を回転させていると 違いが分かりやすいでしょう
 
 75
 00:03:43,686 --> 00:03:46,138
-In the scene view, anchors are indicated by
+シーン ビュー上でのアンカーは小さな三角形を 4 つ輪状に
 
 76
 00:03:46,138 --> 00:03:48,596
-by four small triangles, which by default
+並べた姿で表示されます 位置はデフォルトで
 
 77
 00:03:48,596 --> 00:03:50,596
-are grouped together in the centre of
+親 RectTransform の UI 要素に
 
 78
 00:03:50,596 --> 00:03:53,322
-the UI element's parent rect transform.
+グループ化されます
 
 79
 00:03:55,770 --> 00:03:58,509
-This parent rect transform can be the canvas.
+この親 RectTransform は Canvas にすることができます
 
 80
 00:03:59,506 --> 00:04:02,311
-Anchors will be covered in detail later in this lesson.
+アンカーの詳細については このレッスンの後半で紹介します
 
 81
 00:04:03,405 --> 00:04:05,906
-When looking at the rect transform in the inspector
+さて RectTransform をインスペクターで見てみると
 
 82
 00:04:05,906 --> 00:04:08,490
-it is clearly different from the transform component.
+Transform コンポーネントと明確に違う点があります
 
 83
 00:04:09,542 --> 00:04:11,542
-The position and size of the UI element are shown
+RectTransform では UI 要素の位置とサイズが
 
 84
 00:04:11,542 --> 00:04:13,445
-in the upper right of the inspector for the
+インスペクターの右上に
 
 85
 00:04:13,445 --> 00:04:15,445
-rect transform component.
+表示されるのです
 
 86
 00:04:15,945 --> 00:04:18,672
-Position shows the distance in pixels
+Pos X と Pos Y はアンカーから
 
 87
 00:04:18,672 --> 00:04:20,906
-from the anchor point to the pivot
+ピボット位置までの距離（ピクセル単位）で
 
 88
 00:04:20,906 --> 00:04:22,906
-along the X and Y axis.
+示されます
 
 89
 00:04:23,903 --> 00:04:25,903
-The position Z is the distance along
+Pos Z も同様に距離ですがローカルの Z 軸に
 
 90
 00:04:25,903 --> 00:04:29,494
-the local Z axis and is often left at a value of 0.
+沿っており 通常は 0 になります
 
 91
 00:04:30,049 --> 00:04:34,024
-Width and Height indicate the size of the UI element in pixels.
+Width と Height は UI 要素のサイズを示します（ピクセル単位）
 
 92
 00:04:35,574 --> 00:04:37,574
-The Position and Size fields are dynamic
+位置とサイズは動的なフィールドで
 
 93
 00:04:37,574 --> 00:04:39,199
-and context sensitive.
+状況に応じて変化します
 
 94
 00:04:39,199 --> 00:04:41,698
-These will be covered in more detail in this lesson
+これらはアンカー位置と直接的な関係があるので
 
 95
 00:04:41,698 --> 00:04:44,411
-as they relate directly to the position of the anchor.
+レッスン後半で より詳細な内容を取り上げます
 
 96
 00:04:46,297 --> 00:04:48,297
-The rect transform component includes a
+RectTransform コンポーネントには強力な
 
 97
 00:04:48,297 --> 00:04:50,297
-powerful anchoring mechanism.
+アンカー メカニズムが備わっており
 
 98
 00:04:50,921 --> 00:04:53,435
-Rect transforms can be anchored to their parent
+親ゲーム オブジェクトが RectTransform を含む場合は
 
 99
 00:04:53,435 --> 00:04:56,907
-if the parent game object also has a rect transform component.
+子 RectTransform を親にアンカー付けできます
 
 100
 00:04:57,700 --> 00:04:59,700
-In most cases, every UI element
+通常すべての UI 要素は
 
 101
 00:04:59,700 --> 00:05:02,384
-will be anchored to it's parent in some way.
+何らかの形で親にアンカー付けされます
 
 102
 00:05:03,208 --> 00:05:05,731
-In the scene view the anchors are represented by
+シーン ビュー上でのアンカーは小さな三角形 4 つの
 
 103
 00:05:05,731 --> 00:05:07,731
-four small triangle gizmos.
+ギズモとして表示されます
 
 104
 00:05:08,162 --> 00:05:10,674
-Each triangle represents one anchor.
+この三角形はそれぞれ アンカーを示し
 
 105
 00:05:12,293 --> 00:05:14,529
-And each anchor is associated with one
+RectTransform のそれぞれの
 
 106
 00:05:14,529 --> 00:05:16,529
-corner of the rect transform.
+角に関連付けられています
 
 107
 00:05:18,093 --> 00:05:20,525
-The upper left anchor is associated with the
+左上のアンカーが関連付けられているのは
 
 108
 00:05:20,525 --> 00:05:23,362
-upper left corner on the rect transform,
+RectTransform の左上の角
 
 109
 00:05:23,362 --> 00:05:26,056
-the lower right anchor to the lower right corner.
+同様に 右下は右下 と
 
 110
 00:05:26,056 --> 00:05:29,189
-This is the same for each anchor and each corner.
+各アンカーは対応する角に関連付けられています
 
 111
 00:05:29,965 --> 00:05:32,077
-Anchors are positioned within the bounds of the
+アンカーは親の内側に配置します
 
 112
 00:05:32,077 --> 00:05:35,464
-parent's rectangle, not the UI element's rectangle.
+UI 要素の内側ではないので注意してください
 
 113
 00:05:36,489 --> 00:05:38,489
-Anchors cannot be positioned outside of
+またアンカーは親の矩形の外側には
 
 114
 00:05:38,489 --> 00:05:40,489
-the bounds of the parent's rectangle.
+配置できません
 
 115
 00:05:41,238 --> 00:05:43,238
-Anchors can be moved by clicking and dragging
+アンカーの移動は クリック & ドラッグ操作で
 
 116
 00:05:43,238 --> 00:05:44,921
-on the triangle gizmo.
+行います
 
 117
 00:05:45,655 --> 00:05:47,655
-Clicking in the centre of a group of triangles
+中心部をクリックすると
 
 118
 00:05:47,655 --> 00:05:49,989
-will move the triangles as a group.
+すべての三角形をグループとして移動し
 
 119
 00:05:50,721 --> 00:05:54,421
-Clicking on an individual triangle will move one anchor at a time.
+いずれかの三角形をクリックすると 対象アンカーだけを移動します
 
 120
 00:05:56,413 --> 00:05:58,413
-Anchors have a fixed relationship to
+アンカーはアンカー先の RectTransform に対して
 
 121
 00:05:58,413 --> 00:06:01,515
-their rect transforms, which they are anchoring.
+固定関係にあります
 
 122
 00:06:02,181 --> 00:06:04,181
-Anchors have a flexible relationship to their
+一方で 同じくアンカー先の
 
 123
 00:06:04,181 --> 00:06:07,463
-parent's rect transform, which they are anchoring to.
+親の RectTransform との関係は固定ではありません
 
 124
 00:06:08,281 --> 00:06:10,281
-When setting an anchor, the distance between
+アンカーの設置時
 
 125
 00:06:10,281 --> 00:06:12,281
-the anchor and the associated corner of
+アンカーとそれに対応する RectTransform の角との距離は
 
 126
 00:06:12,281 --> 00:06:15,295
-the rect transform is a fixed value.
+固定値として指定されますが
 
 127
 00:06:16,389 --> 00:06:18,998
-The anchor's position within the parent's rect transform
+親の RectTransform 内でのアンカーの位置は
 
 128
 00:06:18,998 --> 00:06:21,671
-however is relative to the parent's size
+親のサイズに対する相対距離です
 
 129
 00:06:21,671 --> 00:06:23,894
-and is affected by changes to the size
+このため親のサイズが変更されると
 
 130
 00:06:23,894 --> 00:06:25,894
-in the parent's rect transform.
+それに合わせて影響を受けます
 
 131
 00:06:26,449 --> 00:06:28,449
-The anchor's position relative to the parent is
+親に対し相対的なアンカーの位置は
 
 132
 00:06:28,449 --> 00:06:30,449
-a percentage of the parent's size
+X 軸と Y 軸への比率で
 
 133
 00:06:30,449 --> 00:06:32,449
-along the X and Y axis.
+示されます
 
 134
 00:06:35,311 --> 00:06:37,311
-And it's absolute position can change when the
+このため親の RectTransform が変更されると
 
 135
 00:06:37,311 --> 00:06:39,311
-parent's rect transform changes.
+アンカーの絶対位置は変化することになります
 
 136
 00:06:42,656 --> 00:06:44,921
-This percentage is represented by a normalised
+比率は正規化された値で
 
 137
 00:06:44,921 --> 00:06:48,203
-value from 0 to 1 along each axis.
+各軸 0～1 の範囲で指定します
 
 138
 00:06:49,145 --> 00:06:51,145
-Where 0,0 is in the lower left
+0,0 は親 RectTransform の左下
 
 139
 00:06:51,145 --> 00:06:53,792
-of the parent's rect transform, and 1,1
+そして 1,1 は
 
 140
 00:06:53,792 --> 00:06:55,388
-is in the upper right.
+右上を意味します
 
 141
 00:06:56,219 --> 00:06:58,275
-Practically, this means if all four anchors
+通常は 4 つのアンカーすべてが
 
 142
 00:06:58,275 --> 00:07:00,594
-are grouped together around a single point
+ある一点にまとめられているので
 
 143
 00:07:00,594 --> 00:07:03,281
-the UI element will be anchored to that point.
+UI 要素全体がその一点にアンカーされます
 
 144
 00:07:03,281 --> 00:07:06,088
-If the parent rect transform changes in size
+たとえば RectTransform のサイズが変更されても
 
 145
 00:07:06,588 --> 00:07:08,588
@@ -633,568 +581,568 @@ If the parent rect transform changes in size
 
 146
 00:07:09,088 --> 00:07:11,757
-the UI element will move along with the anchor.
+UI 要素はアンカーに合わせて移動するだけで
 
 147
 00:07:12,575 --> 00:07:15,044
-The UI element will not stretch or resize
+縮小/拡大またはリサイズされません
 
 148
 00:07:15,044 --> 00:07:17,487
-as the distance from the anchors to their associated
+これはアンカーとそれに関連付けられた角との距離が
 
 149
 00:07:17,487 --> 00:07:19,487
-corners is fixed.
+固定だからです
 
 150
 00:07:19,987 --> 00:07:22,906
-If, however, the anchors are separated in any way
+逆に アンカーが一点に集まっていない場合は
 
 151
 00:07:22,906 --> 00:07:25,775
-the UI element will stretch along with the parent
+親の変形に合わせて UI 要素も伸縮します
 
 152
 00:07:25,775 --> 00:07:28,124
-as the anchors, and the space between them,
+これはアンカー位置およびアンカー間の距離が
 
 153
 00:07:28,124 --> 00:07:30,526
-are relative to the parent's rect transform
+RectTransform に対して相対的であり
 
 154
 00:07:30,526 --> 00:07:34,155
-and will change in size if the parent changes in size.
+親のサイズ変更を受けてサイズが変わってしまうためです
 
 155
 00:07:35,000 --> 00:07:37,000
-How much the UI element stretches compared to
+この場合 親に対する UI 要素の伸縮比率は
 
 156
 00:07:37,000 --> 00:07:40,137
-it's parent depends upon the placement of the anchors.
+アンカーの位置によって変化します
 
 157
 00:07:43,759 --> 00:07:45,759
-A few common cases are:
+いくつか一般的な例を挙げると:
 
 158
 00:07:46,259 --> 00:07:49,224
-positioning the anchors are the corners of the UI element,
+「アンカーを UI 要素の四隅に設置」
 
 159
 00:07:49,224 --> 00:07:51,224
-in which case the stretch will maintain the
+こうすると 伸縮しても親に対する子 UI 要素の
 
 160
 00:07:51,224 --> 00:07:54,689
-UI element at the same percentage area of the parent.
+表示比率が一定に維持されます
 
 161
 00:07:56,363 --> 00:07:58,695
-Positioning the anchors at the bounds of the parent.
+「アンカーを親の四隅に配置」
 
 162
 00:07:59,678 --> 00:08:01,678
-In which case the space between the edge of
+こうすると UI 要素の端から
 
 163
 00:08:01,678 --> 00:08:04,257
-the UI element and the bounds of the parent
+親の境界線までの距離が
 
 164
 00:08:04,257 --> 00:08:06,963
-will remain the same, creating a fixed border.
+一定に保たれます
 
 165
 00:08:09,383 --> 00:08:11,673
-Positioning a pair of anchors grouped together
+「アンカーを 2 個一組にして
 
 166
 00:08:11,673 --> 00:08:14,090
-at the edges of the parent's rect transform,
+親 RectTransform の角 2 つに配置」
 
 167
 00:08:14,090 --> 00:08:16,090
-in which case the UI element will stretch
+こうすると UI 要素が平行方向にだけ伸縮し
 
 168
 00:08:16,090 --> 00:08:18,342
-horizontally but not vertically.
+垂直方向は固定になります
 
 169
 00:08:22,071 --> 00:08:24,443
-The stretching behaviour of an anchored UI element
+アンカー付けされた UI 要素がどのように伸縮するかは
 
 170
 00:08:24,443 --> 00:08:26,663
-can be quickly tested by grabbing the edge
+親 RectTransform の境界線をドラッグして
 
 171
 00:08:26,663 --> 00:08:29,202
-of the parent's rect transform and dragging it.
+手軽にプレビューすることができます
 
 172
 00:08:29,867 --> 00:08:32,629
-Note the preview label that appears when dragging,
+ドラッグ中はカーソルに「Preview」と表示されます
 
 173
 00:08:32,629 --> 00:08:34,629
-dragging and note that the parent rect transform snaps
+Preview 表示中はサイズをどのように変更しても
 
 174
 00:08:34,629 --> 00:08:37,604
-back to it's original state when the dragging ends.
+ドラッグを放した瞬間に 元の状態に戻ります
 
 175
 00:08:38,477 --> 00:08:41,581
-To make editing easier, when positioning anchors by hand
+アンカーを手動配置するときには
 
 176
 00:08:41,581 --> 00:08:44,094
-holding the Shift key will change the UI element
+Shift キーを押しながら操作すると UI 要素も
 
 177
 00:08:44,094 --> 00:08:45,787
-size as well.
+同時に変更されるので便利です
 
 178
 00:08:46,249 --> 00:08:48,940
-How the rect transform is resized depends upon the
+RectTransform をリサイズした時の挙動は
 
 179
 00:08:48,940 --> 00:08:52,375
-position of the anchor compared to it's associated corner,
+アンカー位置とそれに関連付けられている角の関係によって変わります
 
 180
 00:08:52,375 --> 00:08:55,308
-as the distance between the two is a fixed value.
+これは 両者の距離が固定値であるためです
 
 181
 00:08:58,211 --> 00:09:00,211
-It is important to note a change in the way
+なおアンカーがグループ化されていない状態で
 
 182
 00:09:00,211 --> 00:09:02,211
-the rect transform displays the positioning
+RectTransform の位置/サイズ情報が
 
 183
 00:09:02,211 --> 00:09:04,211
-and size information when the anchors are
+表示されている場合は アンカーの位置として
 
 184
 00:09:04,211 --> 00:09:06,654
-not grouped together, and no longer define
+単一地点が定義されなくなるので
 
 185
 00:09:06,654 --> 00:09:08,654
-a single point as an anchor.
+注意しましょう
 
 186
 00:09:09,485 --> 00:09:11,485
-When all four anchors are grouped together
+たとえばアンカー全 4 個がグループ化されている場合
 
 187
 00:09:11,485 --> 00:09:13,485
-they define a single anchor point.
+アンカーは単一地点として扱われます
 
 188
 00:09:13,930 --> 00:09:16,319
-And the rect transform displays the positional
+このとき RectTransform には
 
 189
 00:09:16,319 --> 00:09:18,319
-offset from the pivot, and the width
+ピボット位置までの距離補正値と
 
 190
 00:09:18,319 --> 00:09:20,319
-and height of the UI element.
+UI 要素の高さと幅が表示されます
 
 191
 00:09:21,054 --> 00:09:23,054
-When the anchors are split apart however,
+しかし アンカーがバラバラの場合は
 
 192
 00:09:23,054 --> 00:09:25,054
-the rect transform displays the fixed
+RectTransform には左右上下に対する
 
 193
 00:09:25,054 --> 00:09:28,141
-values of the left, right, top and bottom.
+固定値が表示されます
 
 194
 00:09:28,779 --> 00:09:32,729
-These are the fixed offsets, along the X and Y axis
+この値は  関連付けられた角に対する
 
 195
 00:09:32,729 --> 00:09:35,659
-of the anchors to their associated corners.
+アンカー位置の固定補正値（X 軸/Y 軸）です
 
 196
 00:09:38,286 --> 00:09:40,286
-If any two anchors are grouped together
+また アンカーが 2 個ずつグループ化されている場合は
 
 197
 00:09:40,286 --> 00:09:43,006
-there will be no stretching along that axis
+対応する軸の伸縮が行われなくなり
 
 198
 00:09:43,006 --> 00:09:45,006
-and the rect transform will continue to display
+RectTransform の表示は対応軸に合わせて
 
 199
 00:09:45,006 --> 00:09:47,791
-the position and width, or position and height
+位置と幅または 位置と高さ
 
 200
 00:09:47,791 --> 00:09:49,791
-for that axis.
+になります
 
 201
 00:09:52,377 --> 00:09:55,373
-When setting the pivot and anchors for a UI element
+UI 要素のピボット位置とアンカーの構成には
 
 202
 00:09:55,373 --> 00:09:58,050
-there are a number of very common configurations.
+一般的なものがたくさんあります
 
 203
 00:09:58,909 --> 00:10:00,839
-To make setting these quick and easy
+そういった一般的用途をすばやく使えるよう
 
 204
 00:10:00,839 --> 00:10:04,317
-the rect transform includes the Anchor Presets window.
+RectTransform には Anchor Presets ウィンドウがあります
 
 205
 00:10:04,927 --> 00:10:06,927
-This can be accessed by clicking on the
+プリセットを使うにはこのボタンを
 
 206
 00:10:06,927 --> 00:10:08,927
-Anchor Presets button.
+クリックします
 
 207
 00:10:09,427 --> 00:10:11,635
-The anchor presets button displays the current
+すると RectTransform の現在の
 
 208
 00:10:11,635 --> 00:10:13,635
-anchoring choice of the rect transform.
+アンカー設定が表示されます
 
 209
 00:10:14,867 --> 00:10:16,867
-In the anchor presets window there is a set of
+このウィンドウでは一般的な
 
 210
 00:10:16,867 --> 00:10:19,653
-common configurations for the anchors and pivots.
+アンカー/ピボット位置構成が指定できます
 
 211
 00:10:20,318 --> 00:10:22,499
-These common configurations are arranged
+構成の並び順は
 
 212
 00:10:22,499 --> 00:10:25,535
-in the matrix based on the position of the anchors.
+アンカーの位置ごとに並んでおり
 
 213
 00:10:26,284 --> 00:10:28,284
-With fixed anchor points in the middle,
+中央部には固定アンカー構成が
 
 214
 00:10:28,284 --> 00:10:30,886
-and stretch options along the outer edge.
+外縁には伸縮アンカー構成があります
 
 215
 00:10:31,668 --> 00:10:33,668
-The anchor position can be set simply by
+アンカー位置はクリックするだけで
 
 216
 00:10:33,668 --> 00:10:36,176
-clicking on the desired configuration.
+簡単に変更できます
 
 217
 00:10:38,074 --> 00:10:41,358
-Additionally, the pivot, the position of the UI element,
+また構成の編集中には UI 要素のピボットと位置の
 
 218
 00:10:41,358 --> 00:10:43,638
-or both, can be set at the same time
+どちらも同時に指定できます
 
 219
 00:10:43,638 --> 00:10:45,638
-as setting the anchors by holding down
+指定するには Shift/Alt キーを押しながら
 
 220
 00:10:45,638 --> 00:10:47,944
-the Shift and/or Alt keys
+指定する構成を
 
 221
 00:10:47,944 --> 00:10:50,266
-when clicking the desired configuration.
+クリックします
 
 222
 00:10:51,107 --> 00:10:53,107
-These optional keys are noted at the
+なお使用できる修飾キーは
 
 223
 00:10:53,107 --> 00:10:55,107
-top of the anchor presets window.
+Anchor Presets ウィンドウ上部に記載されます
 
 224
 00:10:58,038 --> 00:11:00,758
-Pivot defines the pivot point of the UI element
+Pivot は UI 要素のピボット位置を定義する項目で
 
 225
 00:11:00,758 --> 00:11:03,329
-using a normalised value of 0 to 1
+0～1 の範囲で正規化された値を使用します
 
 226
 00:11:03,329 --> 00:11:05,496
-along the X and Y axis
+値はそれぞれ X/Y 軸に対応しており
 
 227
 00:11:05,496 --> 00:11:07,496
-with 0,0 in the lower left
+0,0 が左下
 
 228
 00:11:07,496 --> 00:11:09,663
-and 1,1 in the upper right.
+1,1 が右上を意味します
 
 229
 00:11:10,424 --> 00:11:13,364
-Rotation defines the rotation of the UI element.
+Rotation は UI 要素の回転を定義します
 
 230
 00:11:14,292 --> 00:11:16,540
-In the most common of cases rotation will
+一般的な用途では
 
 231
 00:11:16,540 --> 00:11:18,916
-only need to be done along the Z axis,
+変更するのは Z 軸だけにして
 
 232
 00:11:18,916 --> 00:11:21,736
-keeping the UI element in 2D space.
+UI 要素を 2D 空間内に収めます
 
 233
 00:11:22,466 --> 00:11:25,110
-Rotation is allowed on all 3 axis however,
+Rotation では 3 軸すべてにかけられますが
 
 234
 00:11:25,110 --> 00:11:27,989
-and the element can be viewed in 3D space.
+その場合要素は 3D 空間で見えるようになります
 
 235
 00:11:28,814 --> 00:11:30,814
-Before discussing scale it is important
+スケールについて触れる前に
 
 236
 00:11:30,814 --> 00:11:34,031
-to understand the difference between scaling and size.
+まずスケールとサイズの違いを説明しましょう
 
 237
 00:11:34,724 --> 00:11:36,724
-When adjusting a UI element's size
+シーン ビューで UI 要素の
 
 238
 00:11:36,724 --> 00:11:39,084
-in the scene view, or adjusting the width and height
+サイズを調節したり インスペクターで
 
 239
 00:11:39,084 --> 00:11:40,219
-in the inspector.
+高さ/横幅を調節すると
 
 240
 00:11:40,219 --> 00:11:43,620
-The UI element is being resized, not scaled.
+その UI 要素は「スケール」ではなく「サイズ変更」されます
 
 241
 00:11:44,410 --> 00:11:48,088
-Resizing changes the rect transform's width and/or height,
+サイズ変更した場合 RectTransform の幅と高さが変更され
 
 242
 00:11:48,088 --> 00:11:50,554
-but does not scale the UI element.
+UI 要素のスケールは変更されません
 
 243
 00:11:51,237 --> 00:11:53,377
-When the UI element is resized
+そして UI 要素のサイズを変更しても
 
 244
 00:11:53,377 --> 00:11:55,653
-this will not effect the font sizes,
+対象のフォント サイズや
 
 245
 00:11:55,653 --> 00:11:57,405
-the border on sliced images,
+スライス画像の境界線
 
 246
 00:11:57,405 --> 00:12:00,109
-or other items related to the UI element.
+その他関連項目は影響を受けません
 
 247
 00:12:00,872 --> 00:12:03,136
-When the UI element is scaled however
+一方で UI 要素のスケールを変えると
 
 248
 00:12:03,136 --> 00:12:04,998
-the entire element is scaled,
+要素全体にスケールがかかり
 
 249
 00:12:04,998 --> 00:12:07,537
-including items like fonts and borders.
+フォントや境界線を含めすべてが影響を受けます
 
 250
 00:12:08,258 --> 00:12:10,875
-For layout purposes it is generally recommended
+レイアウト調整の場合は 一般的に
 
 251
 00:12:10,875 --> 00:12:14,164
-to resize a UI element rather than scale it.
+UI 要素のサイズを変更し スケールはそのままにします
 
 252
 00:12:14,761 --> 00:12:16,761
-Scaling on the other hand can be useful
+スケールが便利なケースは
 
 253
 00:12:16,761 --> 00:12:20,085
-for animated effects or other special purposes.
+アニメーション付きエフェクトなど別の用途です
 
 254
 00:12:20,834 --> 00:12:22,834
-It is worth noting that a UI element
+なお UI 要素のサイズに
 
 255
 00:12:22,834 --> 00:12:25,798
-will become invisible if given a negative size.
+負の値を指定すると不可視状態になります
 
 256
 00:12:26,464 --> 00:12:28,701
-Negative scaling however is supported
+他方 スケールは負の値をサポートしていて
 
 257
 00:12:28,701 --> 00:12:31,543
-and can be used for effects, including flipping the
+演出効果として使えます たとえば UI 要素を
 
 258
 00:12:31,543 --> 00:12:34,016
-UI element with a scale of -1.
+スケール -1 でフリップさせる といったように
 
 259
 00:12:35,714 --> 00:12:37,506
-The rect transform component includes
+RectTransform コンポーネントには
 
 260
 00:12:37,506 --> 00:12:39,506
-two optional editing modes.
+この他 2 種類の編集モード
 
 261
 00:12:40,047 --> 00:12:42,544
-Blueprint mode and Raw Edit mode.
+Blueprint モード/Raw Edit モードがあります
 
 262
 00:12:43,472 --> 00:12:45,682
-Blueprint mode allows for the editing of
+Blueprint モードでは RectTransform を
 
 263
 00:12:45,682 --> 00:12:49,095
-rect transforms as if they were not rotated or scaled.
+回転やスケールがかかっていないかのように編集できます
 
 264
 00:12:57,606 --> 00:12:59,606
-It is worth noting that the UI element
+このため Blueprint モードでは
 
 265
 00:12:59,606 --> 00:13:03,033
-cannot be rotated with the rect tool when on blueprint mode.
+Rect ツールを使って UI 要素を回転させられません
 
 266
 00:13:04,334 --> 00:13:07,329
-Normally when editing the pivot or anchor values
+通常 RectTransform でピボット位置や
 
 267
 00:13:07,329 --> 00:13:09,329
-from within the rect transform
+アンカーを編集しても
 
 268
 00:13:09,953 --> 00:13:11,953
-the pivot or anchor will move and the
+ピボットやアンカーだけが移動して
 
 269
 00:13:11,953 --> 00:13:14,133
-UI element will remain in place.
+UI 要素は移動しません
 
 270
 00:13:14,133 --> 00:13:16,851
-Just like editing these items in the scene view.
+言い換えればシーン ビューでの編集と同じ振る舞いをします
 
 271
 00:13:17,489 --> 00:13:19,489
-When in Raw Edit mode however,
+しかし Raw Edit モードを使用すると
 
 272
 00:13:19,489 --> 00:13:21,834
-the pivot, or anchor, will stay in place
+逆にピボットまたはアンカーが固定されて
 
 273
 00:13:21,834 --> 00:13:25,631
-and the UI element will move relative to that fixed item.
+UI 要素が固定項目に対して相対的に移動します
 
 274
 00:13:31,863 --> 00:13:34,587
-There are times when a rect transform
+RectTransform の一部/すべての値が
 
 275
 00:13:34,587 --> 00:13:36,587
-will have some or all of it's values
+親 RectTransform や
 
 276
 00:13:36,587 --> 00:13:38,893
-driven by a parent rect transform
+レイアウト グループなどの UI 要素に
 
 277
 00:13:38,893 --> 00:13:42,194
-or other UI component, such as a layout group.
+制御されている場合
 
 278
 00:13:43,136 --> 00:13:45,735
-In these cases some or all of the
+RectTransform の一部または
 
 279
 00:13:45,735 --> 00:13:47,735
-properties of the rect transform will
+すべてのプロパティが
 
 280
 00:13:47,735 --> 00:13:50,205
-be greyed out and uneditable.
+編集不可状態になります
 
 281
 00:13:50,967 --> 00:13:53,299
-When this is the case there will be a note
+そのような場合には RectTransform の上部に
 
 282
 00:13:53,299 --> 00:13:55,299
-at the top of the rect transform indicating
+値が別のコンポーネントに制御されている旨を
 
 283
 00:13:55,299 --> 00:13:58,752
-that some values are being driven by another component.
+示すメッセージが表示されます
 
 284
 00:13:59,653 --> 00:14:01,653
-For more information on the components
+RectTransform を制御するコンポーネントの
 
 285
 00:14:01,653 --> 00:14:03,653
-driving the rect transform
+詳細については Unity のドキュメントを
 
 286
 00:14:03,653 --> 00:14:05,653
-please see the Unity documentation
+ご覧になるか 対象コンポーネントの
 
 287
 00:14:05,653 --> 00:14:08,800
-or the associated Learn lesson for that component.
+レッスンを視聴してください
