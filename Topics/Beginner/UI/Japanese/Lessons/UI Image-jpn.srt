@@ -1,331 +1,331 @@
-1
+﻿1
 00:00:00,304 --> 00:00:03,014
-The image component is used to give UI elements
+Image コンポーネントは UI 要素を視覚的に
 
 2
 00:00:03,014 --> 00:00:05,359
-actual graphical presence on the screen.
+画面に表示するために使います
 
 3
 00:00:05,359 --> 00:00:07,890
-Images can be used to make up the backgrounds of
+イメージはボタンやパネル スライダーなど
 
 4
 00:00:07,890 --> 00:00:10,887
-buttons, panels, sliders and literally anything you want
+UI 全般の背景画像として
 
 5
 00:00:10,887 --> 00:00:12,997
-to put in to your UI composition.
+表示することができます
 
 6
 00:00:12,997 --> 00:00:16,134
-The first property of an image component is the source image.
+Image コンポーネントの最初のプロパティは Source Image で
 
 7
 00:00:16,938 --> 00:00:18,938
-This is a reference to the sprite that the image
+これは表示されるスプライトを参照します
 
 8
 00:00:18,938 --> 00:00:22,398
-is displaying, when using None, the color will be used
+None（なし）を選ぶと 代わりにカラーが使われ
 
 9
 00:00:22,398 --> 00:00:24,782
-to represent the outline of the image.
+そのイメージの外縁の色が指定されます
 
 10
 00:00:24,782 --> 00:00:26,962
-Here we simply have a white image color,
+今はただの白色を使っていますから
 
 11
 00:00:26,962 --> 00:00:29,183
-so let's add a sprite to our source image.
+まずは Source Image にスプライトを追加してみます
 
 12
 00:00:29,765 --> 00:00:31,471
-The next property is the color.
+次のプロパティは Color（色）です
 
 13
 00:00:31,471 --> 00:00:34,121
-This color is multiplied to the color of the sprite.
+この色はスプライトの色に対して乗算されます
 
 14
 00:00:34,121 --> 00:00:36,121
-As such it can be used for fading
+なので 色を薄くしたり
 
 15
 00:00:36,121 --> 00:00:38,121
-or tinting a sprite.
+薄めに着色する際に使用できます
 
 16
 00:00:45,582 --> 00:00:48,459
-By default an images doesn't need a material.
+デフォルトでは Material（マテリアル）は指定不要ですが
 
 17
 00:00:48,459 --> 00:00:50,459
-But one can be added if you wish to use the
+イメージで シェーダーのプロパティを
 
 18
 00:00:50,459 --> 00:00:52,459
-properties of a shader on the image.
+使いたいときは追加することもできます
 
 19
 00:00:52,959 --> 00:00:55,141
-Note that the texture property of a material
+なおマテリアルのテクスチャのプロパティは
 
 20
 00:00:55,141 --> 00:00:56,433
-will be ignored.
+この場合 無視されます
 
 21
 00:00:57,641 --> 00:00:59,641
-Unity provides a number of shaders that can be
+Unity には UI システムで使用できる
 
 22
 00:00:59,641 --> 00:01:01,434
-used with the UI system.
+シェーダーが多数あります
 
 23
 00:01:01,851 --> 00:01:03,851
-To use them create a material
+シェーダーを使うには まずマテリアルを作り
 
 24
 00:01:03,851 --> 00:01:05,851
-and for it's Shader property select
+その Shader プロパティから
 
 25
 00:01:05,851 --> 00:01:09,236
-one from the uGUI menu in the Shader drop-down.
+ドロップダウンで uGUI 以下の項目を選びます
 
 26
 00:01:11,490 --> 00:01:13,490
-The Image Type property effects how
+Image Type プロパティはソースイメージの
 
 27
 00:01:13,490 --> 00:01:15,075
-the source image is used
+使用方法に関する項目で
 
 28
 00:01:15,075 --> 00:01:17,075
-and has a number of options.
+オプションも複数あります
 
 29
 00:01:17,768 --> 00:01:19,768
-Simple means that the sprite will just stretch to
+Simple（シンプル）はスプライトを
 
 30
 00:01:19,768 --> 00:01:21,768
-fit the rect transform's size.
+RectTransform のサイズに引き伸ばします
 
 31
 00:01:22,586 --> 00:01:24,586
-The Preserve Aspect option here simply means
+Preserve Aspect（アスペクト比を維持）オプションは
 
 32
 00:01:24,586 --> 00:01:26,586
-that the image will be as large as it can be
+矩形内に収まるサイズであれば
 
 33
 00:01:26,586 --> 00:01:28,365
-within it's bounding rect,
+拡大が可能です
 
 34
 00:01:28,365 --> 00:01:30,365
-but maintaining the aspect ratio that
+もちろんインポート時のアスペクト比は
 
 35
 00:01:30,365 --> 00:01:31,738
-it was imported with.
+維持されます
 
 36
 00:01:31,738 --> 00:01:34,151
-This means that it won't lose it's original proportions
+サイズ変更しても縦横比が変わらないオプションと
 
 37
 00:01:34,151 --> 00:01:35,615
-as it's resized.
+覚えてください
 
 38
 00:01:35,615 --> 00:01:37,615
-The Set Native Size button is available
+Simple 使用時にはSet Native Size（ネイティブサイズに設定）
 
 39
 00:01:37,615 --> 00:01:39,615
-whilst using this option also.
+ボタンも使用できます
 
 40
 00:01:39,615 --> 00:01:41,825
-It will revert the rect transform's size
+これは RectTransform のサイズを
 
 41
 00:01:41,825 --> 00:01:43,991
-to the size of the sprite in it's source image.
+スプライトのソースイメージのサイズに戻す機能です
 
 42
 00:01:43,991 --> 00:01:46,479
-Here you can see that our rect has been reverted
+今 ボタンを押したので矩形のサイズが
 
 43
 00:01:46,479 --> 00:01:48,936
-to the 64 square size of our sprite.
+スプライトのサイズ 64 ピクセルの正方形になりましたね
 
 44
 00:01:50,016 --> 00:01:52,016
-Sliced means that the image will be displayed
+Sliced（スライス）ではイメージを 9 個に
 
 45
 00:01:52,016 --> 00:01:54,016
-using the 9 sliced method.
+分割して使用します
 
 46
 00:01:54,516 --> 00:01:56,516
-A 9 sliced sprite is separated
+9 分割されたスプライトは
 
 47
 00:01:56,516 --> 00:01:59,237
-in to 9 sections in a grid pattern.
+升目状に区切られ
 
 48
 00:01:59,237 --> 00:02:02,146
-The outer border sections of this grid do not stretch
+外縁部の 8 個は伸縮されず
 
 49
 00:02:02,146 --> 00:02:03,688
-whilst the centre does,
+中央の 1 個だけが伸縮されます
 
 50
 00:02:03,688 --> 00:02:07,022
-allowing for scaling without distortion of the edges.
+このため周縁部が引き伸ばされて歪むことがありません
 
 51
 00:02:07,022 --> 00:02:09,442
-These sections are defined by the Borders Set
+これらはスプライトエディター上で テクスチャの
 
 52
 00:02:09,442 --> 00:02:11,442
-in the sprite editor for the texture.
+Borders Set 内で定義されます
 
 53
 00:02:11,442 --> 00:02:13,828
-For more information on the sprite editor
+Sprite Editor の詳細については
 
 54
 00:02:13,828 --> 00:02:15,828
-see the information linked below.
+下記リンク先の情報を参照してください
 
 55
 00:02:16,853 --> 00:02:19,271
-The Sliced option also has another property
+Sliced オプションにはもう一つ
 
 56
 00:02:19,271 --> 00:02:20,540
-Fill Centre.
+Fill Centre（中央を塗りつぶし）プロパティがあります
 
 57
 00:02:20,540 --> 00:02:22,967
-This toggles whether or not the centre section
+これは 9 分割された中央部分を
 
 58
 00:02:22,967 --> 00:02:25,325
-of the 09 sliced sprite is shown.
+表示するかどうか指定する項目です
 
 59
 00:02:25,325 --> 00:02:27,325
-This allows you to design and render
+このオプションはイメージの輪郭線だけを
 
 60
 00:02:27,325 --> 00:02:29,325
-borders only of an image.
+描画する際に使います
 
 61
 00:02:30,266 --> 00:02:32,530
-The Tiled option will tile the source image
+Tiled（タイル）オプションはソースイメージを
 
 62
 00:02:32,530 --> 00:02:34,999
-starting from the lower-left corner of the rect.
+矩形の左下角を基準に並べて表示します
 
 63
 00:02:34,999 --> 00:02:37,812
-In this example we're using an un-sliced sprite.
+ここでは スライスしていないスプライトを使っています
 
 64
 00:02:37,812 --> 00:02:39,688
-The next image type is Filled.
+次のイメージタイプは Filled（塗りつぶし）です
 
 65
 00:02:40,160 --> 00:02:42,661
-This type allows you to show a proportion of the image
+このタイプではイメージの表示する場所を
 
 66
 00:02:42,661 --> 00:02:44,936
-defined by the Fill Amount property.
+Fill Amount（塗りつぶし量）プロパティを使って調整できます
 
 67
 00:02:45,479 --> 00:02:47,712
-At 0 none of the image will be shown
+0 では一切イメージが表示されず
 
 68
 00:02:47,712 --> 00:02:49,712
-and at 1 all of it will be.
+1 ですべて表示されます
 
 69
 00:02:50,212 --> 00:02:52,212
-There are a number of sub-options when using
+Filled イメージタイプにはこの他にも
 
 70
 00:02:52,212 --> 00:02:53,629
-the filled image type.
+多数のサブオプションが用意されています
 
 71
 00:02:53,629 --> 00:02:55,629
-The Fill Method along with the Fill Origin
+たとえば Fill Method（塗りつぶし方）と Fill Origin（起点）では
 
 72
 00:02:55,629 --> 00:02:59,206
-determine which point represents the fill amount being 0
+どの地点の塗りつぶしを 0 にするかや
 
 73
 00:02:59,206 --> 00:03:01,206
-and in which direction the image will fill
+数値が上がった時に塗りつぶす方向を
 
 74
 00:03:01,206 --> 00:03:02,900
-as it increases.
+調節できます
 
 75
 00:03:03,526 --> 00:03:06,261
-For radial fill methods the fill origin defines
+Radial（放射状）では Fill Origin（起点）に合わせて
 
 76
 00:03:06,261 --> 00:03:08,610
-where the fill will be carried out from.
+塗りつぶしの進行方向が変更できます
 
 77
 00:03:10,639 --> 00:03:12,639
-For the radial fill methods there is also the
+また Radial（放射状）ではこれ以外にも
 
 78
 00:03:12,639 --> 00:03:16,365
-option to switch between clockwise and anti-clockwise.
+Clockwise（時計回り）とするか否かも指定できます
 
 79
 00:03:16,365 --> 00:03:18,699
-These fills are ideal for making UI for
+このオプションは体力ゲージや
 
 80
 00:03:18,699 --> 00:03:20,452
-health bars or car speedometers
+スピードメーターなどを 放射状塗りつぶしで
 
 81
 00:03:20,452 --> 00:03:22,118
-in the case of radial fills.
+表現する場合に特に便利です
 
 82
 00:03:22,438 --> 00:03:25,016
-For more information on the image component
+Image コンポーネントの詳細については
 
 83
 00:03:25,016 --> 00:03:27,016
-see the information linked below.
+下記リンク先の情報を参照してください
