@@ -1,1094 +1,1091 @@
-1
+﻿1
 00:00:02,265 --> 00:00:06,640
-The button element detects user input and can trigger an event.
-ボタン要素は、ユーザ入力やイベントトリガを検出する事ができます。
+Button はユーザー入力を検出して イベントをトリガーする要素です
+
 2
 00:00:07,140 --> 00:00:09,140
-User input is usually the pointer
-ユーザー入力はポインタ(マウスやトラックパッドの)を
+通常ユーザー入力は ボタングラフィックに対する
+
 3
 00:00:09,140 --> 00:00:11,985
-hovering over or clicking on the button graphic.
-ボタン画像の上を通過させたり、クリックする事で行います。
+マウスオーバーまたはクリックです
 
 4
 00:00:12,803 --> 00:00:15,204
-To create a pre-made button use the
-あらかじめ用意されたボタンを作成するには
+既存のボタンを作成するには
+
 5
 00:00:15,204 --> 00:00:20,486
-Create menu to Create - UI - Button.
-ヒエラルキーにあるCreate→UI→Buttonと選択してください。
+メニューから Create > UI > Button を選択します
+
 6
 00:00:22,442 --> 00:00:24,995
-Like all UI elements the button element must
-全てのUI要素のようにボタン要素も
-7     
+Button 要素も他の UI 要素と同様に
+
+7
 00:00:24,995 --> 00:00:26,995
-be the child of a canvas.
-キャンバスの子要素にしなければいけません。
+Canvas の子にする必要があります
+
 8
 00:00:28,973 --> 00:00:31,964
-If one is not present when creating a pre-made button
-ボタンを作りたい時にキャンバスが無くても
+既存ボタンの作成時に Canvas が存在しない場合は
+
 9
 00:00:31,964 --> 00:00:33,964
-a new canvas will be created.
-新しいキャンバスが自動的に作成されます。
+新たに Canvas が作成されます
+
 10
 00:00:36,688 --> 00:00:38,993
-For more information on the canvas
-キャンバス上での多くの情報が必要であれば
+Canvas の詳細については
+
 11
 00:00:38,993 --> 00:00:41,645
-please see the information linked below.
-UI要素を選択してそれに紐づく様々な情報を確認してください。
+下記リンク先の情報を参照してください
+
 12
 00:00:43,426 --> 00:00:46,258
-A button element requires an Image script
-ボタン要素にはイメージスクリプトと
+Button 要素には Image スクリプトと
+
 13
 00:00:46,258 --> 00:00:48,258
-and a Button script.
-ボタンスクリプトが必要です。
+Button スクリプトが必要です
+
 14
 00:00:49,697 --> 00:00:51,697
-Pre-made button elements also include
-ボタン要素は子要素に
+既存のボタン要素にはこの他に
+
 15
 00:00:51,697 --> 00:00:54,360
-an optional text element attached as a child.
-テキスト要素を無い方しています。
+任意指定のテキスト要素が子としてアタッチされています
+
 16
 00:00:55,136 --> 00:00:57,136
-This text element is optional
-このテキスト要素はオプションとして作成されますが、
+このテキスト要素は任意指定であり
+
 17
 00:00:57,136 --> 00:00:59,136
-and can be removed if the button does not need
-ボタン要素に追加テキストが
+必須ではないので 不要であれば
+
 18
 00:00:59,136 --> 00:01:01,136
-any additional text.
-必要なければ削除できます。
+取り除くことも可能です
+
 19
 00:01:03,142 --> 00:01:06,307
-For more information on the image and text items
-イメージやテキストアイテム情の多くの情報が必要であれば
+イメージとテキストアイテムの詳細については
+
 20
 00:01:06,307 --> 00:01:08,613
-please see the infuriation linked below.
-UI要素を選択してそれに紐づく様々な情報を確認してください。
+下記リンク先の情報を参照してください
 
 21
 00:01:10,384 --> 00:01:12,605
-Inter-actable determines whether or not
-Inter-actableのチェックボックスをTrue・Falseする事で、
+Interactable（インタラクティブ性）項目は
+
 22
 00:01:12,605 --> 00:01:15,019
-this particular button will accept input.
-このボタンが入力を受け付けるかどうかを決定します。
+ボタンが入力を受け付けるか否かを定義します
+
 23
 00:01:15,754 --> 00:01:17,961
-To prevent interaction with this button
-Inter-actableのチェックボックスをFalseにすると
+ボタンに対するアクションを無効化したい場合は
+
 24
 00:01:17,961 --> 00:01:19,961
-set Inter-actable to False.
-ボタンスクリプトの影響を無視する事ができます。
+Interactable を False にしてください
 
 25
 00:01:20,765 --> 00:01:22,973
-When Inter-actable is set to False
-Inter-actableのチェックボックスをFalseにした時は、
+Interactable を False にすると
+
 26
 00:01:22,973 --> 00:01:25,346
-the transition state for this button element
-transition項目内の設定が無効な状態で
+Transition（遷移）の状態が自動的に
+
 27
 00:01:25,346 --> 00:01:27,346
-will be set to the Disabled stated.
-スタートします。
+Disabled（無効）に変更されます
+
 28
 00:01:28,150 --> 00:01:30,150
-By default the button element will display
-ボタン要素のデフォルトはボタン表示時を
+Button 要素はデフォルトでは
+
 29
 00:01:30,150 --> 00:01:32,150
-the normal state of the button.
-通常状態としています。
+Normal（通常）状態で表示されます
+
 30
 00:01:32,995 --> 00:01:34,995
-The look of the normal state is automatically
+Normal 状態での見た目は
 
 31
 00:01:34,995 --> 00:01:36,995
-set by the image component attached
+ボタンにアタッチされている Image コンポーネントにより
 
 32
 00:01:36,995 --> 00:01:38,594
-to the button element.
+自動指定されます
 
 33
 00:01:39,399 --> 00:01:41,805
-Depending upon the transition mode chosen
+Transition モードの指定によっては
 
 34
 00:01:41,805 --> 00:01:44,358
-a button can also display a highlighted,
+これ以外に Highlighted（強調表示）
 
 35
 00:01:44,358 --> 00:01:46,358
-pressed and disabled state.
+Pressed（押下）・Disabled（無効）状態でも表示されます
 
 36
 00:01:46,858 --> 00:01:48,858
-Transition Mode determines whether or not
+対象 Button 要素で表示される
 
 37
 00:01:48,858 --> 00:01:50,858
-the button element will display any of
+状態の種類は Transition（遷移）モードで
 
 38
 00:01:50,858 --> 00:01:53,581
-these additional states, and if so
+定義されますが このとき
 
 39
 00:01:53,581 --> 00:01:56,113
-controls the button's look in each state,
+各状態における見た目や遷移のスタイルも
 
 40
 00:01:56,113 --> 00:01:59,253
-and the style of the transition between these states.
+併せて制御されます
 
 41
 00:01:59,988 --> 00:02:02,418
-A highlighted state is set when the pointer is
+Highlighted（強調表示）状態はカーソルが
 
 42
 00:02:02,418 --> 00:02:04,666
-hovering over the button element.
+ボタン要素の上に位置している場合または
 
 43
 00:02:04,666 --> 00:02:06,666
-Or the button element is selected using
+キーボード / コントローラー操作時にボタンを
 
 44
 00:02:06,666 --> 00:02:08,666
-keyboard or controller navigation.
+選択している場合に使われる状態です
 
 45
 00:02:09,636 --> 00:02:12,898
-The Pressed state is when the button is being held down.
+Pressed（押下）状態はボタンが押されていて
 
 46
 00:02:12,898 --> 00:02:14,898
-Pressed, but not released.
+まだ放されていない状態です
 
 47
 00:02:15,674 --> 00:02:17,438
-The Disabled state is set when the button
+Disabled（無効）状態が指定されている場合
 
 48
 00:02:17,438 --> 00:02:19,438
-element is not inter-actable.
+ボタンに対してアクションは行えません
 
 49
 00:02:20,490 --> 00:02:23,100
-The look and behaviour of these other transition states,
+これら各遷移状態の見た目と挙動は
 
 50
 00:02:23,100 --> 00:02:26,421
-if available, are determined by the Transition Mode.
+Transition Mode で定義・制御されます
 
 51
 00:02:27,156 --> 00:02:29,156
-The transition mode can be set with a
+Transition Mode は
 
 52
 00:02:29,156 --> 00:02:31,156
-transition pop-up menu.
+Transition ポップアップで指定できます
 
 53
 00:02:32,070 --> 00:02:34,248
-None will have no additional states
+None（なし）を指定すると状態は追加されず
 
 54
 00:02:34,248 --> 00:02:36,248
-and therefore no transitions.
+遷移も生じません
 
 55
 00:02:37,190 --> 00:02:39,566
-The button element will work as expected
+この状態でもボタンとしての機能は果たしますが
 
 56
 00:02:39,566 --> 00:02:41,566
-but there will be no visual feedback
+押されても 視覚的な反応は生じず
 
 57
 00:02:41,566 --> 00:02:43,566
-and the unaltered normal state will be
+無調整の Normal 状態で
 
 58
 00:02:43,566 --> 00:02:45,566
-displayed at all times.
+表示され続けます
 
 59
 00:02:46,715 --> 00:02:49,456
-colorTint is the default transition mode.
+ColorTint はデフォルトの Transition モードです
 
 60
 00:02:50,923 --> 00:02:53,228
-In this mode the same graphical element
+このモードではどの状態でも同じ
 
 61
 00:02:53,228 --> 00:02:55,228
-is used for each state.
+グラフィック要素が使用されます
 
 62
 00:02:55,990 --> 00:02:58,993
-Target Graphic is the image component to be tinted.
+Target Graphic は表示色を変える対象のイメージコンポーネントで
 
 63
 00:02:59,824 --> 00:03:01,824
-In almost all cases this will be the image
+通常は Button 要素にアタッチされている
 
 64
 00:03:01,824 --> 00:03:03,824
-component attached to the button element.
+Image コンポーネントが使われます
 
 65
 00:03:04,863 --> 00:03:06,863
-The button script will set this reference to the
+Button スクリプトを対象の
 
 66
 00:03:06,863 --> 00:03:09,084
-attached image component automatically
+ゲームオブジェクトに追加するとき
 
 67
 00:03:09,084 --> 00:03:11,084
-if the image component is attached to the game
+Image コンポーネントがアタッチされていることが
 
 68
 00:03:11,084 --> 00:03:13,468
-object when the button script is added.
+検出されると自動的に参照が張られます
 
 69
 00:03:14,744 --> 00:03:17,855
-Normal, Highlighted, Pressed and Disabled color
+Normal（通常時） Highlighted（強調表示時）・Pressed（押下時）・Disabled（無効時）にはそれぞれ
 
 70
 00:03:17,855 --> 00:03:19,855
-define the tint color that will be applied
+適用する色を指定します
 
 71
 00:03:19,855 --> 00:03:21,855
-to the target graphic when the button
+この指定色が 状態遷移時に
 
 72
 00:03:21,855 --> 00:03:23,855
-is in each of these states.
+ボタンに適用されるわけです
 
 73
 00:03:24,576 --> 00:03:27,281
-color Multiplier multiplies the tint color for
+Color Multiplier では各状態の指定色に
 
 74
 00:03:27,281 --> 00:03:29,281
-each transition by it's value.
+適用する倍率を指定できます
 
 75
 00:03:30,099 --> 00:03:32,845
-This allows for colors greater than 1,
+1 以上の値も指定できるので
 
 76
 00:03:32,845 --> 00:03:34,845
-which is useful for brightening the colors 
+白くない基調色の明るさを上げる時や 
 
 77
 00:03:34,845 --> 00:03:37,554
-or alpha channel on some graphic elements
+アルファが完全ではない場合に
 
 78
 00:03:37,554 --> 00:03:39,861
-whose base color is less than white
+透明度を高める場合などに
 
 79
 00:03:39,861 --> 00:03:41,861
-or less than full alpha.
+便利です
 
 80
 00:03:42,568 --> 00:03:44,998
-Fade Duration is the time, in seconds,
+Fade Duration では状態の切り替えに
 
 81
 00:03:44,998 --> 00:03:47,387
-a transition takes between states.
+かける秒数を指定できます
 
 82
 00:03:49,998 --> 00:03:52,287
-SpriteSwap will use different sprite
+Sprite Swap では状態ごとに
 
 83
 00:03:52,287 --> 00:03:54,121
-images for each state
+スプライト画像を変えられます
 
 84
 00:03:54,121 --> 00:03:57,156
-and swaps them depending upon the state of the button.
+画像はボタンの状態が切り替わるのに合わせて切り替わります
 
 85
 00:03:57,905 --> 00:04:00,457
-In this mode a new graphical element is
+このモードを使用するときは状態ごとに新しい
 
 86
 00:04:00,457 --> 00:04:02,016
-required for each state.
+グラフィック要素の指定が必須です
 
 87
 00:04:02,653 --> 00:04:05,673
-Target Graphic is the image for the normal state.
+Target Graphic は Normal 状態時に表示され
 
 88
 00:04:06,325 --> 00:04:08,325
-In almost all cases this will be the image
+通常は Button 要素にアタッチされている
 
 89
 00:04:08,325 --> 00:04:10,840
-component attached to the button element.
+Image コンポーネントが使われます
 
 90
 00:04:11,557 --> 00:04:14,024
-The highlighted, pressed and disabled sprites
+ここでは Highlighted（強調表示時）・Pressed（押下時）・Disabled（無効時）に
 
 91
 00:04:14,024 --> 00:04:16,024
-are references to the sprite images
+各状態時に表示する
 
 92
 00:04:16,024 --> 00:04:18,024
-to be displayed for each state.
+スプライト画像を指定します
 
 93
 00:04:19,698 --> 00:04:21,989
-Animation allows for each transition to be
+Animation は各 Transition を Unity の
 
 94
 00:04:21,989 --> 00:04:24,905
-fully animated using Unity's animation system.
+アニメーションシステムで動かすモードです
 
 95
 00:04:25,971 --> 00:04:28,361
-This is the most powerful of transition modes
+Transition モードの中でも最も強力で
 
 96
 00:04:28,361 --> 00:04:30,196
-due to the number of properties that can be
+同時に多数のアニメーションを
 
 97
 00:04:30,196 --> 00:04:32,196
-animated simultaneously.
+実行できます
 
 98
 00:04:32,820 --> 00:04:35,097
-To use the animation transition mode
+Animation モードを使用するには 最初に
 
 99
 00:04:35,097 --> 00:04:37,097
-and animator component needs to be attached
+Button 要素に Animator コンポーネントを
 
 100
 00:04:37,097 --> 00:04:39,097
-to the button element.
+アタッチする必要があります
 
 101
 00:04:39,597 --> 00:04:42,277
-To add this animator component automatically
+各状態に対する Animator コンポーネントが組まれた
 
 102
 00:04:42,277 --> 00:04:44,277
-and generate an animator controller
+Animator コントローラーを自動的に
 
 103
 00:04:44,277 --> 00:04:46,277
-with states already setup
+追加するには Auto Generate Animation を
 
 104
 00:04:46,277 --> 00:04:49,060
-click Auto Generate Animation.
+クリックします
 
 105
 00:04:49,698 --> 00:04:52,758
-The new animator controller will need to be saved.
+続けて新規 Animator コントローラーを保存して
 
 106
 00:04:54,294 --> 00:04:57,951
-No action needs to be taken with this new animator controller.
+保存した Animator コントローラーをそのまま使用します
 
 107
 00:04:58,451 --> 00:05:00,451
-The transition between states can be
+状態間の遷移をカスタマイズすることも
 
 108
 00:05:00,451 --> 00:05:03,781
-customised if desired, but this is not necessary.
+できますが 必須ではありません
 
 109
 00:05:04,502 --> 00:05:07,047
-For more information on the Animator Component
+Animator コンポーネントと Animator コントローラーの
 
 110
 00:05:07,047 --> 00:05:08,685
-and the Animator Controller
+詳細については
 
 111
 00:05:08,685 --> 00:05:10,977
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 112
 00:05:12,345 --> 00:05:15,403
-It is worth noting that, unlike most animator controllers
+なお他の Animator コントローラーと違い
 
 113
 00:05:15,403 --> 00:05:17,487
-this controller will also store the animations
+このコントローラーにはボタンの各遷移アニメーションが
 
 114
 00:05:17,487 --> 00:05:19,487
-for the button's transitions.
+格納されます
 
 115
 00:05:20,332 --> 00:05:22,332
-With the animator controller attached
+Animator コントローラーがアタッチされて
 
 116
 00:05:22,332 --> 00:05:23,997
-and the button element selected
+ボタン要素が選択されたら
 
 117
 00:05:23,997 --> 00:05:26,179
-the animations for each of these button's states
+Animation ウィンドウからボタンの各状態に
 
 118
 00:05:26,179 --> 00:05:29,026
-can be edited by opening the animation window.
+割り当てるアニメーションを編集できます
 
 119
 00:05:29,968 --> 00:05:31,803
-The animation window can be found under
+Animation ウィンドウは
 
 120
 00:05:31,803 --> 00:05:34,398
-Window - Animation.
+Window > Animation から開けます
 
 121
 00:05:34,398 --> 00:05:36,744
-Or by using the shortcut keys of
+ショートカット キーで開く場合は
 
 122
 00:05:36,744 --> 00:05:38,510
-command 6 on the mac
+Mac なら Cmd + 6
 
 123
 00:05:38,510 --> 00:05:41,270
-or control 6 on windows.
+Windows なら Ctrl + 6 です
 
 124
 00:05:43,552 --> 00:05:45,552
-To select the state to be edited
+編集する状態を選ぶには
 
 125
 00:05:45,552 --> 00:05:47,552
-use the animation clip pop-up menu
+目的のアニメーションクリップの
 
 126
 00:05:47,552 --> 00:05:49,552
-to select the desired clip.
+ポップアップメニューを使います
 
 127
 00:05:50,287 --> 00:05:52,741
-With these pre-made controllers there should be a
+既定コントローラーには Normal（通常時）の他
 
 128
 00:05:52,741 --> 00:05:56,522
-state for Normal, Highlighted, Pressed and Disabled.
+Highlighted（強調表示時）・Pressed（押下時）・Disabled（無効時）の状態が含まれます
 
 129
 00:05:57,423 --> 00:06:00,894
-In most cases the normal state will be left empty
+通常は Normal 状態は空のまま
 
 130
 00:06:00,894 --> 00:06:03,186
-with no animation keyframes created
+キーフレームも打ちません
 
 131
 00:06:03,186 --> 00:06:05,186
-as the normal state will be set
+これは Normal の状態が
 
 132
 00:06:05,186 --> 00:06:07,534
-by the values on the button element itself.
+Button 要素側の値で設定されているためです
 
 133
 00:06:08,542 --> 00:06:10,349
-On all other states
+その他の状態に対する
 
 134
 00:06:10,349 --> 00:06:12,880
-the most common configuration for each state
+一般的な構成は
 
 135
 00:06:12,880 --> 00:06:15,653
-is a single keyframe at 0 seconds
+0 秒時点にまたは タイムラインの開始点に
 
 136
 00:06:15,653 --> 00:06:17,833
-or the start of the timeline.
+キーフレームを 1 つ追加するものです
 
 137
 00:06:17,833 --> 00:06:20,166
-The transition animation between states
+状態間の Transition（遷移）アニメーションは
 
 138
 00:06:20,166 --> 00:06:22,166
-will be handled by the animator controller
+状態の切り替わり時に再生されるもので
 
 139
 00:06:22,166 --> 00:06:24,317
-as it fades between states.
+Animator コントローラーで制御されます
 
 140
 00:06:25,025 --> 00:06:27,204
-For example, the width of the button
+たとえば強調表示時にボタンの幅を
 
 141
 00:06:27,204 --> 00:06:29,786
-in the highlighted state could be changed
+変えるアニメーションを付けるには
 
 142
 00:06:30,548 --> 00:06:33,515
-by selecting the state to be edited, in this case
+まず編集する「状態」…ここでは Highlighted（強調表示時）を
 
 143
 00:06:33,515 --> 00:06:36,233
-Highlighted from the animation clip pop-up menu.
+アニメーションクリップのポップアップメニューから選択し
 
 144
 00:06:37,134 --> 00:06:39,134
-And with the playhead at 0 seconds
+タイムラインで 0 秒地点または
 
 145
 00:06:39,134 --> 00:06:41,134
-or the start of the timeline.
+最初の地点を選びます
 
 146
 00:06:41,634 --> 00:06:43,634
-Selecting the Record button.
+次に記録ボタンを押し
 
 147
 00:06:45,557 --> 00:06:48,458
-Changing the width of the button in the inspector
+インスペクターでボタン幅を変更して
 
 148
 00:06:50,132 --> 00:06:52,132
-And exiting record mode.
+記録モードを終了します
 
 149
 00:06:55,215 --> 00:06:57,547
-When in Play mode, note how the button
+これで プレイモード時に
 
 150
 00:06:57,547 --> 00:06:59,547
-now grows when highlighted.
+ボタンのアニメーションが再生されます
 
 151
 00:07:00,227 --> 00:07:02,433
-It is worth noting that any number of properties
+単一キーフレームに複数プロパティの
 
 152
 00:07:02,433 --> 00:07:05,561
-can have their values set in this one keyframe.
+値を指定することも可能です
 
 153
 00:07:06,241 --> 00:07:09,464
-For more information on animation, animation clips,
+アニメーション  アニメーションクリップ
 
 154
 00:07:09,464 --> 00:07:11,794
-and the animation window please see the
+および Animation ウィンドウの詳細については
 
 155
 00:07:11,794 --> 00:07:13,794
-information linked below.
+下記リンク先の情報を参照してください
 
 156
 00:07:14,736 --> 00:07:17,141
-If several buttons share the same behaviour
+複数のボタンで同一の振る舞いを共有する場合
 
 157
 00:07:17,141 --> 00:07:20,203
-these button elements can share animator controllers.
+Animator コントローラーも共有できます
 
 158
 00:07:21,076 --> 00:07:23,076
-Make sure all of these buttons have their
+その場合は全ボタンで Transition モードを
 
 159
 00:07:23,076 --> 00:07:25,323
-transition modes set to Animation.
+Animation に設定し さらに
 
 160
 00:07:27,399 --> 00:07:30,640
-And that they all have an animator component attached.
+Animator コンポーネントをアタッチします
 
 161
 00:07:32,507 --> 00:07:36,504
-Finally, associate the shared animator controller
+最後に 共有する Animator コントローラーを
 
 162
 00:07:36,504 --> 00:07:38,504
-with all of the button elements.
+全ボタンに関連付ければ 完了です
 
 163
 00:07:42,375 --> 00:07:43,916
-When in play mode
+プレイモードでも
 
 164
 00:07:44,499 --> 00:07:46,499
-note how all of the buttons now share
+各ボタンのアニメーションが共通しているのが
 
 165
 00:07:46,499 --> 00:07:48,779
-the same animator transitions.
+確認できますね
 
 166
 00:07:52,880 --> 00:07:54,880
-Navigation describes how the selection
+Navigation 項目はキーボードまたは
 
 167
 00:07:54,880 --> 00:07:56,714
-of UI elements is handled
+コントローラーで UI 要素を
 
 168
 00:07:56,714 --> 00:07:58,976
-when using keyboard or controller input.
+選択した時の扱いを制御します
 
 169
 00:07:59,808 --> 00:08:02,320
-Navigation is shared by many UI elements
+Navigation は多数の UI 要素で共有されるものなので
 
 170
 00:08:02,320 --> 00:08:04,320
-and will be covered in it's own lesson.
+単独で取り上げたレッスンを用意してあります
 
 171
 00:08:05,069 --> 00:08:07,069
-For most circumstances navigation
+なお 多くの場合この設定は
 
 172
 00:08:07,069 --> 00:08:09,541
-can simply be set to Automatic.
+Automatic（自動）にして問題ありません
 
 173
 00:08:10,356 --> 00:08:12,356
-For more information on navigation
+Navigation の詳細については
 
 174
 00:08:12,356 --> 00:08:14,867
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 175
 00:08:16,555 --> 00:08:18,666
-The UI framework contains
+さて UI フレームワークは
 
 176
 00:08:18,666 --> 00:08:20,666
-a powerful event system.
+強力なイベントシステムを備えています
 
 177
 00:08:21,166 --> 00:08:23,166
-A new event system is added to the
+このイベントシステムは Canvas 作成時に
 
 178
 00:08:23,166 --> 00:08:25,539
-scene when the canvas is created.
+自動的にシーンに追加されます
 
 179
 00:08:26,439 --> 00:08:28,550
-When the event system detects a press
+このイベントシステムが ボタン要素の
 
 180
 00:08:28,550 --> 00:08:30,854
-and a release over the same button element
+押下と解放を検出すると
 
 181
 00:08:30,854 --> 00:08:33,567
-the event system will process a click
+システムによってクリックが処理され
 
 182
 00:08:33,567 --> 00:08:35,965
-and the On Click event will be called.
+On Click イベントが呼び出されます
 
 183
 00:08:37,862 --> 00:08:40,125
-The button component includes a built-in
+Button コンポーネントには
 
 184
 00:08:40,125 --> 00:08:42,554
-On Click functions list that contains
+On Click リストがあり
 
 185
 00:08:42,554 --> 00:08:44,885
-a list of all the functions that are called
+ここにはクリックされた時に呼び出される
 
 186
 00:08:44,885 --> 00:08:46,885
-when the button is clicked.
+すべての関数がリスト表示されます
 
 187
 00:08:47,385 --> 00:08:49,385
-Additional events can be detected
+Button 要素で検出・使用するイベントは
 
 188
 00:08:49,385 --> 00:08:51,763
-and used by the button element.
+追加することもできます
 
 189
 00:08:51,763 --> 00:08:53,958
-Like when the pointer enters or exits
+たとえばカーソルが Button 要素領域に
 
 190
 00:08:53,958 --> 00:08:55,958
-the area over the button element.
+入る・出るタイミングを検出するなども可能です
 
 191
 00:08:56,389 --> 00:08:59,479
-But this requires an additional component to be attached.
+ただしこれには 新しいコンポーネントをアタッチする必要があります
 
 192
 00:09:00,614 --> 00:09:03,255
-For more information on events, the event system and
+イベント  イベントシステムおよびイベントトリガーの
 
 193
 00:09:03,255 --> 00:09:07,235
-event triggers please see the information linked below.
+詳細については下記リンク先の情報を参照してください
 
 194
 00:09:08,232 --> 00:09:10,232
-All of the functions in the functions list
+関数リストに表示されている関数はすべて
 
 195
 00:09:10,232 --> 00:09:12,441
-will be called when the button is clicked.
+ボタンのクリック時に呼び出されます
 
 196
 00:09:13,436 --> 00:09:15,629
-To add a new function to the function list
+リストに関数を追加するには
 
 197
 00:09:15,629 --> 00:09:19,108
-click the + icon to create a new row in the list.
++ アイコンをクリックして行を追加します
 
 198
 00:09:19,608 --> 00:09:21,926
-To remove a function from the function list
+リストから関数を削除するには
 
 199
 00:09:21,926 --> 00:09:23,926
-click on the row containing the function
+まず削除する関数を選択します
 
 200
 00:09:23,926 --> 00:09:25,926
-even if there is only one
+関数がひとつだけでも 選択はしてください
 
 201
 00:09:25,926 --> 00:09:28,889
-and then click the - icon to remove it.
+その後に - アイコンをクリックすると削除できます
 
 202
 00:09:30,162 --> 00:09:32,510
-Looking at a row in the function list.
+さて関数リストの行ですが
 
 203
 00:09:32,510 --> 00:09:34,788
-The checkbox indicates whether or not
+チェックボックスがあるのが見えますね これは
 
 204
 00:09:34,788 --> 00:09:37,556
-this function will be called by the On Click event.
+On Click イベントで呼び出されるか否かを指定します
 
 205
 00:09:38,415 --> 00:09:40,848
-The first field is an object field.
+その横のフィールドはオブジェクトフィールドです
 
 206
 00:09:41,597 --> 00:09:44,454
-Associating a game object with the object field
+ここでゲームオブジェクトを関連付けると
 
 207
 00:09:44,454 --> 00:09:47,319
-will allow the event system to find all the functions
+そのゲームオブジェクト上の On Click イベントで
 
 208
 00:09:47,319 --> 00:09:49,319
-on that game object eligible to
+呼び出せるすべての関数が検出されて
 
 209
 00:09:49,319 --> 00:09:51,319
-be called by the On Click event.
+表示されます
 
 210
 00:09:52,454 --> 00:09:55,531
-This can be done by either using the object picker
+関連付けはオブジェクトピッカーを使う方法でも
 
 211
 00:09:57,481 --> 00:09:59,915
-or by dragging the object in to the field.
+オブジェクトをフィールドにドラッグする操作でも行えます
 
 212
 00:10:00,658 --> 00:10:02,908
-The function list shows all of the components
+リストには対象ゲームオブジェクトの
 
 213
 00:10:02,908 --> 00:10:05,895
-on the game object, including both the built-in
+全コンポーネント（ビルトインやカスタムスクリプト含む）
 
 214
 00:10:05,895 --> 00:10:08,116
-components and custom scripts.
+が表示されます
 
 215
 00:10:08,823 --> 00:10:11,617
-After selecting the desired component
+目的のコンポーネントを選択すると
 
 216
 00:10:11,617 --> 00:10:13,852
-a new list shows the eligible functions
+合わせて関数リストの表示内容も
 
 217
 00:10:13,852 --> 00:10:15,199
-on the component.
+更新されます
 
 218
 00:10:15,699 --> 00:10:19,186
-Select the function that will be called by the On Click event.
+ここで On Click イベント時に呼び出される関数を選択します
 
 219
 00:10:20,238 --> 00:10:23,125
-The final field is a parameter field.
+最後は引数フィールドです
 
 220
 00:10:23,763 --> 00:10:25,763
-This field is for parsing an argument
+これは呼び出し時に
 
 221
 00:10:25,763 --> 00:10:28,039
-in to the function when it is called,
+引数をパースするフィールドで
 
 222
 00:10:28,039 --> 00:10:30,039
-and can be left empty.
+空白のままにしても構いません
 
 223
 00:10:30,484 --> 00:10:33,196
-To be eligible a function must be public,
+有効な内容を指定するには 関数が public で
 
 224
 00:10:33,196 --> 00:10:35,474
-have the return type of Void,
+戻り値の型が Void で
 
 225
 00:10:35,474 --> 00:10:37,474
-and have 1 or no parameters.
+引数が 0～1 個である必要があります
 
 226
 00:10:38,568 --> 00:10:41,038
-If the function has a parameter it must be a
+引数として有効なのは
 
 227
 00:10:41,038 --> 00:10:45,475
-float, int, string, bool or a Unity object.
+float / int / string / bool / Unity オブジェクトのいずれかです
 
 228
 00:10:46,182 --> 00:10:48,182
-It is worth noting that Unity object
+なお Unity オブジェクトはほぼすべての
 
 229
 00:10:48,182 --> 00:10:51,130
-is the base of almost all classes in Unity
+クラスのベースとなっています
 
 230
 00:10:51,130 --> 00:10:53,297
-including game object, component,
+これにはゲームオブジェクトやコンポーネント
 
 231
 00:10:53,297 --> 00:10:55,297
-mono behaviour and more.
+MonoBehaviour などが含まれます
 
 232
 00:10:56,046 --> 00:10:58,459
-This makes the object parameter more powerful
+これはオブジェクトの引数として
 
 233
 00:10:58,459 --> 00:11:00,459
-than expected at first glance
+実に多様なものを指定できるということなので
 
 234
 00:11:00,459 --> 00:11:03,391
-as it can accept many items as an argument.
+非常に強力な使い方ができます
 
 235
 00:11:04,140 --> 00:11:07,441
-If the parameter is a float, int or string
+引数が float / int / string 型の場合は
 
 236
 00:11:07,441 --> 00:11:10,540
-the value needs to be entered in the parameter field
+引数フィールドに値を入力する必要があります
 
 237
 00:11:12,338 --> 00:11:14,338
-If the parameter is an object
+引数がオブジェクトの場合は
 
 238
 00:11:17,062 --> 00:11:20,245
-an object needs to be associated with the parameter field.
+オブジェクトが引数フィールドと関連付けられている必要があります
 
 239
 00:11:21,021 --> 00:11:24,044
-This can be done by either using the object picker
+関連付けはオブジェクトピッカーを使う方法でも
 
 240
 00:11:24,044 --> 00:11:26,486
-or by dragging the object in to the field.
+オブジェクトをフィールドにドラッグする操作でも行えます
 
 241
 00:11:27,925 --> 00:11:29,925
-If the parameter is a bool
+引数が bool 型の場合は
 
 242
 00:11:31,185 --> 00:11:33,687
-a checkbox will appear and the bool parameter
+チェックボックスが表示されるので
 
 243
 00:11:33,687 --> 00:11:37,092
-can be set by checking on unchecking the box.
+これのオン/オフで bool 値を切り替えられます
 
 244
 00:11:38,697 --> 00:11:40,697
-As an example we can add the sphere
+ここではまずゲームオブジェクトとして
 
 245
 00:11:40,697 --> 00:11:43,215
-as the game object to the first row,
+Sphere オブジェクトを追加して
 
 246
 00:11:43,215 --> 00:11:45,215
-select the mesh renderer,
+MeshRenderer を選択し
 
 247
 00:11:45,215 --> 00:11:48,126
-and then set the mesh renderer's material
+そのマテリアルを設定してみます
 
 248
 00:11:48,957 --> 00:11:51,419
-The parameter needs an object reference
+引数にはオブジェクト参照が必要なので
 
 249
 00:11:51,419 --> 00:11:53,982
-we can choose any available material.
+使えるマテリアルの中から選択します
 
 250
 00:11:55,960 --> 00:11:57,960
-At the same time the On Click event could
+また同時に On Click イベントでは
 
 251
 00:11:57,960 --> 00:11:59,419
-call a second function,
+2 個目の関数を呼べます
 
 252
 00:11:59,419 --> 00:12:01,419
-this time on the capsule.
+今回は Capsule を使います
 
 253
 00:12:02,748 --> 00:12:05,413
-Using the game object itself, the On Click event
+このゲームオブジェクトでは On Click イベントに
 
 254
 00:12:05,413 --> 00:12:07,125
-could call Set Active
+Set Active を呼ばせて
 
 255
 00:12:07,692 --> 00:12:09,692
-with the value of False.
+値として False を指定します
 
 256
 00:12:11,352 --> 00:12:13,352
-The most common function to call will
+一番多く呼び出される関数は
 
 257
 00:12:13,352 --> 00:12:15,352
-most likely be a custom one.
+おそらくカスタム関数になると思います
 
 258
 00:12:17,496 --> 00:12:19,496
-Custom functions need to be public,
+この場合カスタム関数は public である必要があり
 
 259
 00:12:20,273 --> 00:12:21,396
-void,
+戻り値の型が void で
 
 260
 00:12:21,896 --> 00:12:24,286
-and have 1 or no parameters.
+引数が 0～1 個である必要があります
 
 261
 00:12:24,948 --> 00:12:26,948
-If the function has a parameter it
+引数として有効なのは
 
 262
 00:12:26,948 --> 00:12:29,627
-must be a float, int, string
+float / int / string 
 
 263
 00:12:29,627 --> 00:12:31,997
-bool or a Unity object.
+bool / Unity オブジェクトのいずれかです
 
 264
 00:12:33,784 --> 00:12:36,432
-The script must be attached to a game object.
+このスクリプトはゲームオブジェクトにアタッチする必要があり
 
 265
 00:12:40,123 --> 00:12:43,513
-And that game object must be associated with the object field.
+そのゲームオブジェクトはオブジェクトフィールドと関連付けられている必要があります
 
 266
 00:12:45,466 --> 00:12:48,085
-The custom script will be visible in the list
+これでカスタムスクリプトがリストに表示されるようになるので
 
 267
 00:12:48,085 --> 00:12:50,085
-and from the custom script the custom
+カスタムスクリプトからカスタム関数が
 
 268
 00:12:50,085 --> 00:12:51,740
-function can be selected.
+選択できます
 
 269
 00:12:52,433 --> 00:12:54,295
-If there are no parameters
+引数がない場合は
 
 270
 00:12:54,295 --> 00:12:56,490
-the parameter field can be left blank.
+引数フィールドは空白にしておけます
 
 271
 00:12:58,577 --> 00:13:00,354
-Now in play mode
+これでプレイモードで
 
 272
 00:13:01,284 --> 00:13:03,284
-the effect of all three functions can be seen
+ボタンをクリックしたときに
 
 273
 00:13:03,284 --> 00:13:05,284
-when the button is clicked.
+追加した 3 個の関数の効果が確認できるようになりました
