@@ -1,651 +1,651 @@
-1
+﻿1
 00:00:02,086 --> 00:00:04,386
-The Slider is a UI element
+slider は UI 要素のうち
 
 2
 00:00:04,386 --> 00:00:07,390
-that allows the user to select a numeric value
+ユーザーが既定の範囲内の
 
 3
 00:00:07,390 --> 00:00:09,678
-from a predetermined range of numbers
+数値を調節するときに用いられるものです
 
 4
 00:00:09,678 --> 00:00:12,559
-by dragging the handle of the slider control.
+操作はスライダーをドラッグして行います
 
 5
 00:00:13,473 --> 00:00:15,473
-Common controls using a slider
+スライダーのよくある用途としては
 
 6
 00:00:15,473 --> 00:00:20,142
-include settings for audio volume, colour channels or brightness.
+音量 カラーチャンネル 明るさの調整があります
 
 7
 00:00:20,808 --> 00:00:23,055
-The slider element can also be repurposed
+またスライダーは応用することで
 
 8
 00:00:23,055 --> 00:00:25,055
-as a simple display for items like
+さまざまな項目の表示に使えます
 
 9
 00:00:25,055 --> 00:00:27,796
-health bars or volume meters.
+体力ゲージや音量メーターなどですね
 
 10
 00:00:29,074 --> 00:00:31,074
-The slider's value is set by the position
+スライダーの値は全長における
 
 11
 00:00:31,074 --> 00:00:34,137
-of the handle along the length of the slider.
+ハンドルの位置によって決定されます
 
 12
 00:00:34,789 --> 00:00:37,358
-The value starts at a minimum value
+最低値からスタートして
 
 13
 00:00:37,358 --> 00:00:39,661
-and increases up to a maximum value
+逆の端まで移動させると最大値になるため
 
 14
 00:00:39,661 --> 00:00:42,231
-defining a range between the two.
+ユーザーに2点間の値のみを指定させられます
 
 15
 00:00:44,012 --> 00:00:47,656
-To create a new slider use the Create menu
+スライダーを新規作成するには Create メニューから
 
 16
 00:00:47,656 --> 00:00:51,990
-to Create UI Slider.
+UI > Slider の順に選択します
 
 17
 00:00:54,299 --> 00:00:57,006
-Like all UI elements the slider element must be
+slider も他の UI 要素と同様に
 
 18
 00:00:57,006 --> 00:00:59,006
-the child of a canvas.
+Canvas の子にする必要があります
 
 19
 00:00:59,727 --> 00:01:03,109
-If one is not present when creating a pre-made slider
+既存スライダーの作成時に Canvas が存在しない場合は
 
 20
 00:01:04,327 --> 00:01:06,729
-a new canvas will be created.
+新たに Canvas が作成されます
 
 21
 00:01:06,729 --> 00:01:08,729
-For more information on the canvas
+Canvas の詳細については
 
 22
 00:01:08,729 --> 00:01:11,244
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 23
 00:01:12,310 --> 00:01:14,310
-When the slider is created
+作成された slider は
 
 24
 00:01:14,310 --> 00:01:17,135
-it is made from a family of game objects.
+複数のゲームオブジェクトから構成されています
 
 25
 00:01:17,828 --> 00:01:19,828
-The parent game object is where the required
+親ゲームオブジェクトにはスライダーの
 
 26
 00:01:19,828 --> 00:01:21,828
-slider script resides.
+必須スクリプトが置かれます
 
 27
 00:01:22,425 --> 00:01:24,745
-All of the children are the rect transform
+その他の子オブジェクトには RectTransform や
 
 28
 00:01:24,745 --> 00:01:26,745
-and image components that make up the separate
+image コンポーネントなど スライダーの構成要素が
 
 29
 00:01:26,745 --> 00:01:28,745
-elements of the slider control.
+含まれます
 
 30
 00:01:29,728 --> 00:01:31,435
-The elements that make up the slider
+スライダーの構成要素は次のとおり
 
 31
 00:01:31,435 --> 00:01:33,073
-are the background graphic,
+Background（背景）グラフィック
 
 32
 00:01:33,935 --> 00:01:37,611
-the fill graphic, which indicated the relative value chosen,
+Fill（塗りつぶし）グラフィック... これは選択中の値を示す際に使われます
 
 33
 00:01:38,291 --> 00:01:40,291
-and the handle, which displays a
+そして Handle（ハンドル）... これは選択中の値の位置を示す
 
 34
 00:01:40,291 --> 00:01:42,913
-handle at the location of the chosen value.
+ハンドル部分です
 
 35
 00:01:43,675 --> 00:01:46,371
-The background and handle elements are optional.
+なお Background と Handle は任意追加要素です
 
 36
 00:01:47,617 --> 00:01:49,617
-Interact-able determines whether or not
+Interactable（インタラクティブ性）チェックボックスは
 
 37
 00:01:49,617 --> 00:01:52,446
-this particular slider will accept input.
+対象スライダーが入力を受け付けるか否かを指定します
 
 38
 00:01:53,042 --> 00:01:55,461
-To prevent interaction with a slider
+スライダーを表示のみでユーザーに操作させない場合は
 
 39
 00:01:55,461 --> 00:01:57,461
-set Interact-able to false.
+Interactable をオフにしておきます
 
 40
 00:01:58,334 --> 00:02:00,555
-When interact-able is set to false
+Interactable がオフの場合
 
 41
 00:02:00,555 --> 00:02:02,555
-the transition state for the slider element
+transition（遷移）の状態が自動的に
 
 42
 00:02:02,555 --> 00:02:04,875
-will be set to the disabled state.
+Disabled（無効）に変更されます
 
 43
 00:02:05,690 --> 00:02:07,956
-By default the slider element will display
+slider 要素はデフォルトでは
 
 44
 00:02:07,956 --> 00:02:10,289
-the normal state of the slider.
+Normal（通常）状態で表示されます
 
 45
 00:02:11,091 --> 00:02:13,643
-Depending upon the transition mode chosen
+transition モードの指定によっては
 
 46
 00:02:13,643 --> 00:02:16,088
-a slider can also display a highlighted,
+これ以外に Highlighted（強調表示）
 
 47
 00:02:16,088 --> 00:02:18,088
-pressed and disabled state.
+Pressed（押下）・Disabled（無効）状態でも表示されます
 
 48
 00:02:18,643 --> 00:02:20,643
-Transition Mode determines whether or not
+対象 Slider 要素で表示される
 
 49
 00:02:20,643 --> 00:02:22,629
-the slider element will display any of
+状態の種類および
 
 50
 00:02:22,629 --> 00:02:24,435
-these additional states
+各状態における見た目
 
 51
 00:02:24,435 --> 00:02:26,738
-and if so controls the slider's look
+および状態間の遷移時に
 
 52
 00:02:26,738 --> 00:02:28,738
-for each state and the style of the 
+用いられるスタイルは 
 
 53
 00:02:28,738 --> 00:02:30,738
-transition between these states.
+transition（遷移）モードで定義されます
 
 54
 00:02:31,515 --> 00:02:33,515
-The transition mode property is shared
+transition モードのプロパティは
 
 55
 00:02:33,515 --> 00:02:35,515
-by many UI elements and will be covered
+各種 UI 要素と共通であるため
 
 56
 00:02:35,515 --> 00:02:37,070
-in it's own lesson.
+独立したレッスンが設けられています
 
 57
 00:02:37,697 --> 00:02:39,794
-For more information on transitions and
+transition および
 
 58
 00:02:39,794 --> 00:02:41,503
-the transition mode property
+Transaction モードのプロパティの詳細については
 
 59
 00:02:41,503 --> 00:02:43,724
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 60
 00:02:44,542 --> 00:02:46,777
-When using transitions with the slider element
+slider 要素で transition を使用する場合は
 
 61
 00:02:46,777 --> 00:02:48,777
-it is worth noting that with the exception of
+animation transition 以外のケースでは
 
 62
 00:02:48,777 --> 00:02:50,777
-the animation transition
+視覚的な変化はハンドルのグラフィックにのみ
 
 63
 00:02:50,777 --> 00:02:52,777
-any visual change is only seen
+適用され それ以外の UI 要素には
 
 64
 00:02:52,777 --> 00:02:56,539
-on the handle graphic, not the rest of the UI element.
+適用されないので注意してください
 
 65
 00:02:58,282 --> 00:03:00,282
-Navigation describes how the selection
+Navigation はキーボード入力や
 
 66
 00:03:00,282 --> 00:03:02,282
-of the UI elements is handled when using
+コントローラー入力使用時の
 
 67
 00:03:02,282 --> 00:03:04,282
-keyboard or controller input.
+UI 要素の扱われ方を設定する項目です
 
 68
 00:03:04,782 --> 00:03:07,171
-Navigation is shared by many UI elements
+Navigation は多数の UI 要素で共有されるものなので
 
 69
 00:03:07,171 --> 00:03:09,171
-and will be covered in it's own lesson.
+単独で取り上げたレッスンを用意してあります
 
 70
 00:03:10,237 --> 00:03:12,237
-For most circumstances navigation can
+なお 多くの場合この設定は
 
 71
 00:03:12,237 --> 00:03:14,237
-simply be set to Automatic.
+Automatic（自動）にして問題ありません
 
 72
 00:03:15,441 --> 00:03:17,441
-For more information on navigation
+Navigation の詳細については
 
 73
 00:03:17,441 --> 00:03:19,441
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 74
 00:03:20,673 --> 00:03:23,131
-Fill Rect is a reference to the rect transform
+Fill Rect（矩形塗りつぶし）は要素の塗りつぶし領域に
 
 75
 00:03:23,131 --> 00:03:26,428
-on the graphic used for the filled area of the element.
+使われるグラフィックの RectTransform への参照です
 
 76
 00:03:27,204 --> 00:03:29,204
-The slider's current value is displayed
+スライダーの現在値は
 
 77
 00:03:29,204 --> 00:03:31,204
-by the fill graphic.
+Fill グラフィックの隣に表示されます
 
 78
 00:03:31,787 --> 00:03:34,444
-Handle Rect is a reference to the rect transform
+Handle Rect（ハンドル矩形） はハンドルに
 
 79
 00:03:34,444 --> 00:03:36,444
-on the graphic used for the handle.
+使われるグラフィックの RectTransform への参照です
 
 80
 00:03:37,206 --> 00:03:40,035
-This is an optional reference and it can be none.
+これは任意指定で 指定なしにしておくこともできます
 
 81
 00:03:41,005 --> 00:03:43,005
-Direction sets both the axis and
+Direction（方向）ではメーターの縦横と
 
 82
 00:03:43,005 --> 00:03:45,681
-the direction of the value change.
+値の増減方向を指定します
 
 83
 00:03:46,403 --> 00:03:48,529
-The Min Value will be at the
+Min Value（最低値）は
 
 84
 00:03:48,529 --> 00:03:50,529
-starting end of the direction.
+スライダーの始端となります
 
 85
 00:03:51,029 --> 00:03:53,237
-For the choice of left to right
+LeftToRight（左から右）を指定した場合は
 
 86
 00:03:53,237 --> 00:03:56,364
-the min value will be at the left of the slider.
+スライダーの左端が最小値になります
 
 87
 00:03:57,099 --> 00:04:00,089
-The value of the slider will increase proportionally as the
+スライダー値は左から右に移動させるに従い
 
 88
 00:04:00,089 --> 00:04:02,465
-handle moves from left to right
+比例的に増加します
 
 89
 00:04:02,465 --> 00:04:04,986
-and the Max value will be at the right.
+最終的に到達する右端が最大値です
 
 90
 00:04:06,177 --> 00:04:08,467
-The choices for direction are
+方向として選択できるオプションは
 
 91
 00:04:08,467 --> 00:04:14,229
-LeftToRight, RightToLeft, BottomToTop and TopToBottom.
+LeftToRight（左から右）/ RightToLeft（右から左）/ BottomToTop（下から上）/ TopToBottom（上から下）です
 
 92
 00:04:15,820 --> 00:04:18,071
-The range of the slider is determined by
+スライダーの選択範囲は
 
 93
 00:04:18,071 --> 00:04:20,071
-the Min and Max values.
+Min Value と Max Value で定義されます
 
 94
 00:04:20,944 --> 00:04:24,596
-Min value is the minimum value of the range of the slider.
+Min Value はスライダーの選択範囲の最小値を意味し
 
 95
 00:04:25,400 --> 00:04:28,477
-Max value is the maximum range of the slider.
+Max Value は最大値を意味します
 
 96
 00:04:29,226 --> 00:04:31,932
-Minimum value can be a negative number.
+Minimum value には負の値を指定することも可能です
 
 97
 00:04:32,570 --> 00:04:35,041
-The minimum value however should be numerically
+ただし Minimum Value は必ず
 
 98
 00:04:35,041 --> 00:04:37,041
-less than the maximum value
+Maximum Value よりも大きな値を指定しておかないと
 
 99
 00:04:37,041 --> 00:04:40,039
-or aberrant behaviour could result with the slider.
+意図しない挙動を引き起こす可能性があります
 
 100
 00:04:40,746 --> 00:04:43,627
-Whole numbers will clamp the value of the slider to
+Whole numbers（整数）は最小値から
 
 101
 00:04:43,627 --> 00:04:47,167
-whole numbers within the range from min to max value.
+最大値までスライダーの値を整数値にします
 
 102
 00:04:50,429 --> 00:04:52,664
-If the values in the min and max value
+Min および Max Value フィールドの値が
 
 103
 00:04:52,664 --> 00:04:54,664
-fields are not whole numbers
+整数でない場合
 
 104
 00:04:54,664 --> 00:04:56,664
-they will be adjusted to the closest whole
+このチェックボックスをオンにすると
 
 105
 00:04:56,664 --> 00:04:59,208
-number when Whole Numbers is selected.
+最も近い整数値に調整されます
 
 106
 00:05:00,076 --> 00:05:02,875
-Value is the current value of the slider.
+Value（値）はスライダーの現在値を指定します
 
 107
 00:05:04,701 --> 00:05:07,705
-When value is set in the inspector during edit time
+インスペクターで編集中に指定した値は
 
 108
 00:05:07,705 --> 00:05:10,261
-this will set the starting value for the slider.
+スライダーの初期値として設定されます
 
 109
 00:05:11,769 --> 00:05:15,316
-The UI framework contains a powerful events system.
+UI フレームワークが持つ強力なイベントシステムは
 
 110
 00:05:16,037 --> 00:05:18,037
-This is created automatically when the 
+Canvas 作成時に自動的に 
 
 111
 00:05:18,037 --> 00:05:19,760
-canvas is created.
+作成されます
 
 112
 00:05:20,537 --> 00:05:22,537
-When the event system detects the mass
+イベントシステムがスライダー上でマウス押下を
 
 113
 00:05:22,537 --> 00:05:24,189
-down on the slider,
+検出すると
 
 114
 00:05:24,189 --> 00:05:26,189
-either a click or a drag,
+操作がクリックとドラッグのどちらであっても
 
 115
 00:05:26,189 --> 00:05:29,808
-the event system will call an OnValueChanged event.
+OnValueChanged イベントが呼び出されます
 
 116
 00:05:30,432 --> 00:05:32,518
-The slider component includes a built-in
+slider コンポーネントにはビルトインの
 
 117
 00:05:32,518 --> 00:05:34,919
-OnValueChanged function list
+OnValueChanged 関数リストが備わっています
 
 118
 00:05:34,919 --> 00:05:36,919
-that contains a list of all the functions
+このリスト中の関数はすべて
 
 119
 00:05:36,919 --> 00:05:39,711
-that are called when the slider value changes.
+スライダーの値が変化した時に呼び出されます
 
 120
 00:05:40,252 --> 00:05:42,252
-Additional events can be detected
+検出するイベントを追加して
 
 121
 00:05:42,252 --> 00:05:44,556
-and used by the slider element, but this
+slider 要素で使用することもできますが
 
 122
 00:05:44,556 --> 00:05:47,297
-requires an additional component to be attached.
+その場合は追加でコンポーネントをアタッチする必要があります
 
 123
 00:05:48,271 --> 00:05:50,271
-For more information on how to use the
+ビルトイン関数リスト / イベント / イベントシステムおよび
 
 124
 00:05:50,271 --> 00:05:54,573
-built-in function list, events, the event system and event triggers
+イベントトリガーの使い方詳細については
 
 125
 00:05:54,573 --> 00:05:56,948
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 126
 00:05:57,764 --> 00:06:00,085
-To hook up the current value of the slider
+スライダーの現在値とコンポーネントをつなげるには
 
 127
 00:06:00,085 --> 00:06:02,871
-to a component, first create a new row in
+まずビルトイン OnValueChanged リストに
 
 128
 00:06:02,871 --> 00:06:05,302
-the built-in OnValueChanged list.
+新しい行を追加します
 
 129
 00:06:06,089 --> 00:06:08,089
-Associate the game object when the desired
+続けて目的のスクリプトやコンポーネントがアタッチされた
 
 130
 00:06:08,089 --> 00:06:11,611
-script or component attached to the first object field.
+ゲームオブジェクトを行の頭にあるフィールドに入れます
 
 131
 00:06:12,332 --> 00:06:15,224
-Then using the function pull-down menu
+次に関数のプルダウンメニューを開き
 
 132
 00:06:15,724 --> 00:06:17,724
-choose first the component
+コンポーネントを選んで
 
 133
 00:06:18,417 --> 00:06:21,722
-then an eligible function on that component to be called.
+呼び出したい有効な関数を指定します
 
 134
 00:06:22,457 --> 00:06:24,733
-It is worth noting that ever time the value
+なお OnValueChanged イベントは
 
 135
 00:06:24,733 --> 00:06:27,583
-of the slider changes the OnValueChanged
+スライダーの値が変わるたびに毎回
 
 136
 00:06:27,583 --> 00:06:29,011
-event will be called.
+呼び出されます
 
 137
 00:06:29,820 --> 00:06:31,820
-To parse the current value of the slider
+スライダーの現在値をパースするには
 
 138
 00:06:31,820 --> 00:06:35,345
-the eligible function needs to have a float parameter.
+有効な関数に float 型引数が必要になります
 
 139
 00:06:35,345 --> 00:06:38,899
-And this function must be chosen from the dynamic float list.
+またその変数は Dynamic float リストから選択する必要があります
 
 140
 00:06:39,606 --> 00:06:41,606
-This is done by selecting the function from
+これは関数リストの上部に
 
 141
 00:06:41,606 --> 00:06:44,319
-the top part of the list, indicated by the label
+「Dynamic Float」というラベルと共に
 
 142
 00:06:44,319 --> 00:06:45,735
-Dynamic Float.
+表示されています
 
 143
 00:06:46,543 --> 00:06:48,543
-If the only functions in the list are under
+リストに表示されている関数が
 
 144
 00:06:48,543 --> 00:06:50,861
-the header Static Parameters
+Static Parameters ラベル付きのものしかない場合は
 
 145
 00:06:50,861 --> 00:06:52,861
-this means the functions do not have a float
+関数が float 型引数を持たず
 
 146
 00:06:52,861 --> 00:06:54,861
-parameter and won't be able to accept
+slider 要素の現在値を
 
 147
 00:06:54,861 --> 00:06:57,026
-the current value of the slider element.
+受け取れないことを示します
 
 148
 00:07:16,563 --> 00:07:19,142
-The final field is a parameter field
+残る最後のフィールドは引数フィールドです
 
 149
 00:07:20,144 --> 00:07:22,144
-And when the current value of the slider
+スライダーの現在値を
 
 150
 00:07:22,144 --> 00:07:24,144
-is parsed as a dynamic float
+dynamic float としてパースする場合は
 
 151
 00:07:24,644 --> 00:07:26,644
-this field should be left blank.
+このフィールドを空にしておきます
 
 152
 00:07:28,106 --> 00:07:30,354
-It is worth noting that the value of the slider
+なお slider 要素の値は
 
 153
 00:07:30,354 --> 00:07:32,354
-element can also be driven externally,
+外部的に操作することも可能です
 
 154
 00:07:32,854 --> 00:07:34,854
-and the slider will display the current value
+その場合スライダーは送られてきた値を
 
 155
 00:07:34,854 --> 00:07:36,854
-sent to the slider.
+現在値として表示します
 
 156
 00:07:37,846 --> 00:07:39,846
-One classic example of this is the
+典型的な用途としては
 
 157
 00:07:39,846 --> 00:07:42,681
-simple health, mana or fuel bar.
+体力やマナ  燃料ゲージのような使い方があります
 
 158
 00:07:45,371 --> 00:07:48,015
-In a script with a reference to the slider element.
+これは slider 要素を参照するスクリプトです
 
 159
 00:07:48,900 --> 00:07:50,900
-The slider value can be set.
+ご覧のように slider の値を指定することができます
 
 160
 00:07:54,351 --> 00:07:56,351
-In these cases it would be best to 
+こういった使い方をする時には 
 
 161
 00:07:56,351 --> 00:07:59,706
-set the slider's interact-able value to false,
+slider に対する入力が行われないよう
 
 162
 00:07:59,706 --> 00:08:02,038
-preventing any input on the slider.
+interactable をオフにしておくことを推奨します
 
 163
 00:08:02,762 --> 00:08:07,031
-And if desired, removing the handle graphic.
+この他  ハンドルのグラフィックは取り除くことも可能です
