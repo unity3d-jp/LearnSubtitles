@@ -1,99 +1,99 @@
-1
+﻿1
 00:00:00,801 --> 00:00:03,798
-The Mask element is for creating a shaped mask
+mask 要素は UI 要素や そのファミリーを
 
 2
 00:00:03,798 --> 00:00:07,617
-over any UI element or family of UI elements.
+部分的に表示するマスクを作成するときに使用します
 
 3
 00:00:08,324 --> 00:00:12,223
-A mask is often used in conjunction with a scroll rect.
+多くのケースでは scroll rect と組み合わせて使われます
 
 4
 00:00:12,861 --> 00:00:16,521
-Scroll rect's are good for moving oversized elements.
+scroll rect は画面よりも大きな要素を扱うときに便利な要素ですが
 
 5
 00:00:17,201 --> 00:00:20,094
-A mask element is then used to clip this
+mask 要素はその巨大なコンテンツを
 
 6
 00:00:20,094 --> 00:00:22,774
-oversized content to the desired size.
+目的のサイズにクリップするために使われます
 
 7
 00:00:23,578 --> 00:00:26,162
-For more information on the scroll rect
+scroll rect の詳細については
 
 8
 00:00:26,162 --> 00:00:28,551
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 9
 00:00:29,339 --> 00:00:32,733
-Two items are needed to create a working mask.
+さて マスクを機能させるには 2 つの項目が必要です
 
 10
 00:00:33,233 --> 00:00:35,763
-A mask element, to create the mask,
+ひとつはマスクを作る mask 要素
 
 11
 00:00:35,763 --> 00:00:39,007
-and an image element to define the shape of the mask.
+もうひとつがマスクの形状を定義する image 要素です
 
 12
 00:00:39,811 --> 00:00:41,755
-A graphical element does not need to be 
+グラフィック要素はアタッチしなくても 
 
 13
 00:00:41,755 --> 00:00:44,999
-assigned to the image for the mask to work.
+マスクは問題なく機能します
 
 14
 00:00:45,623 --> 00:00:47,915
-If no graphical element is assigned
+グラフィック要素がない場合
 
 15
 00:00:47,915 --> 00:00:49,915
-the mask will use the bounds of the
+代わりに rect transform の輪郭線が
 
 16
 00:00:49,915 --> 00:00:52,748
-rect transform to clip the contents.
+コンテンツのクリップに使われます
 
 17
 00:00:53,497 --> 00:00:55,218
-To change the shape of the mask
+マスクの形状を変更したい場合には
 
 18
 00:00:55,218 --> 00:00:57,218
-change the graphical element.
+グラフィック要素を変更してください
 
 19
 00:01:03,906 --> 00:01:06,446
-Show Mask Graphic is a toggle
+Show Mask Graphic（マスクのグラフィックを表示）は
 
 20
 00:01:06,446 --> 00:01:08,446
-and will toggle whether or not the graphical
+グラフィック要素の表示 / 非表示を切り替える
 
 21
 00:01:08,446 --> 00:01:10,446
-element is displayed.
+チェックボックスです
 
 22
 00:01:11,208 --> 00:01:13,208
-The graphical element does not need to be shown
+グラフィック要素は表示されなくても
 
 23
 00:01:13,208 --> 00:01:14,835
-for the mask to work.
+マスクは機能します
 
 24
 00:01:15,501 --> 00:01:18,288
-For more information on the Image element
+Image 要素の詳細については
 
 25
 00:01:18,288 --> 00:01:20,906
-please see the information linked below.
+下記リンク先の情報を参照してください
