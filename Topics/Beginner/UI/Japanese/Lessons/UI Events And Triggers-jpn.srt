@@ -1,395 +1,395 @@
-1
+﻿1
 00:00:01,395 --> 00:00:04,309
-Often, when using UI elements in a scene
+シーンで使う UI 要素は多くの場合
 
 2
 00:00:04,309 --> 00:00:06,309
-we want them to be interact-able.
+インタラクティブ（入力に対してアクションを返すよう）にします
 
 3
 00:00:06,809 --> 00:00:10,380
-A user interacts with UI elements via events.
+ユーザーからの入力と UI 要素はイベントによって制御されます
 
 4
 00:00:11,323 --> 00:00:15,302
-This lesson covers generating and handling those events.
+このレッスンでは イベントの生成および制御方法を紹介します
 
 5
 00:00:16,285 --> 00:00:18,927
-Whenever a canvas is created in a scene
+シーンに Canvas が作成されると自動的に
 
 6
 00:00:18,927 --> 00:00:22,326
-an Event System game object is also created.
+event system ゲームオブジェクトも合わせて追加されます
 
 7
 00:00:22,826 --> 00:00:25,792
-This game object has components including an
+このゲームオブジェクトには複数のコンポーネントが含まれます  たとえば
 
 8
 00:00:25,792 --> 00:00:30,951
-event system component and one or more input module components.
+event system コンポーネントや各種入力モジュールコンポーネントなどです
 
 9
 00:00:31,893 --> 00:00:35,594
-When a scene starts, the event system looks for input modules
+シーンが開始されると イベントシステムはまず
 
 10
 00:00:35,594 --> 00:00:38,507
-on the same game object, and uses those to
+同ゲームオブジェクト内にある入力モジュールを検出し
 
 11
 00:00:38,507 --> 00:00:42,291
-define how each UI element should react to input.
+検出されたモジュールに応じて各 UI 要素と入力の関係を決定します
 
 12
 00:00:43,288 --> 00:00:45,960
-The event system itself has one property
+event system 自身のプロパティは
 
 13
 00:00:45,960 --> 00:00:47,794
-First Selected.
+First Selected（最初の選択対象）のみです
 
 14
 00:00:47,794 --> 00:00:51,494
-All interact-able UI elements can be selected and
+このプロパティにはすべてのインタラクティブな UI 要素を指定でき
 
 15
 00:00:51,494 --> 00:00:54,075
-whichever element is applied to this property
+指定された UI 要素はシーン開始時に
 
 16
 00:00:54,075 --> 00:00:56,955
-will be selected by default when the scene starts.
+デフォルトで選択されるようになります
 
 17
 00:00:57,731 --> 00:01:01,858
-We could, for example, apply a button to this property.
+ここでは このプロパティにボタンを指定してみましょう
 
 18
 00:01:02,483 --> 00:01:04,607
-Then, when we start the scene,
+続いて シーンを開始すると
 
 19
 00:01:04,607 --> 00:01:07,199
-we can see that it has changed colour slightly
+ボタンの色が若干変化するのが確認できます
 
 20
 00:01:07,199 --> 00:01:09,199
-indicating that it is selected.
+これはボタンが選択状態であることを示します
 
 21
 00:01:10,141 --> 00:01:12,211
-When we press the space bar we see that the button
+ここでスペースキーを押してみると 画面上のボタンが
 
 22
 00:01:12,211 --> 00:01:15,693
-becomes pressed without needing to click on it with the mouse.
+マウスでクリックしなくとも 押された状態になります
 
 23
 00:01:15,693 --> 00:01:18,892
-This is useful for non-pointer based menu systems,
+これはコントローラー操作など マウスカーソルを用いない
 
 24
 00:01:18,892 --> 00:01:21,731
-such as those used with game pads.
+メニューシステムを作る際に便利です
 
 25
 00:01:22,977 --> 00:01:24,977
-Along with the event system components
+さて event system コンポーネントの下には
 
 26
 00:01:24,977 --> 00:01:28,548
-there are by default two input modules.
+デフォルトで 2 個の入力モジュールが追加されます
 
 27
 00:01:28,548 --> 00:01:31,171
-One for standalone builds that make use of a mouse,
+ひとつはスタンドアロンビルド向けのもので 入力にマウスと
 
 28
 00:01:31,171 --> 00:01:32,979
-keyboard or game pads,
+キーボード / ゲームコントローラーを使えます
 
 29
 00:01:32,979 --> 00:01:34,979
-and one for touch input.
+もうひとつはタッチ入力用のものです
 
 30
 00:01:35,589 --> 00:01:38,588
-The standalone input module has a series of properties
+スタンドアロン用の入力モジュールには複数のプロパティがあり
 
 31
 00:01:38,588 --> 00:01:40,781
-that refer to the different input axis
+それぞれがインタラクティブな UI 要素各種の
 
 32
 00:01:40,781 --> 00:01:43,920
-used for navigating different interact-able UI elements.
+選択時に使われる操作上の移動軸を参照しています
 
 33
 00:01:44,869 --> 00:01:49,142
-These input axis include the Submit and Cancel buttons.
+この「入力軸」には Submit（送信）と Cancel（キャンセル）ボタンも含まれます
 
 34
 00:01:49,654 --> 00:01:53,079
-These have been added by default to the input manager.
+これらはすべて入力マネージャーがデフォルトで追加します
 
 35
 00:01:53,579 --> 00:01:57,437
-For more information on navigating between interact-able UI elements
+インタラクティブな UI 要素間を移動する方法の詳細については
 
 36
 00:01:57,437 --> 00:01:59,437
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 37
 00:02:01,318 --> 00:02:04,092
-The frequency of input being registered can be changed
+入力の受け付け頻度を調節したい場合は
 
 38
 00:02:04,092 --> 00:02:07,031
-using the input actions per second property.
+Input Actions Per Second（1 秒あたりの入力アクション）プロパティを使います
 
 39
 00:02:07,933 --> 00:02:12,058
-By default 10 input actions are allowed per second.
+デフォルト設定では 1 秒あたり 10 回の入力アクションを受け付けます
 
 40
 00:02:12,058 --> 00:02:14,757
-This means that there will be a 10th of a second delay
+これは入力アクションが受け取られてから次のアクションが
 
 41
 00:02:14,757 --> 00:02:18,487
-after an input action before the next action is accepted.
+受け取られるまでの間に 1/10 秒の遅延が生じることを意味します
 
 42
 00:02:19,415 --> 00:02:21,415
-The last property allows you to accept standard
+最後のプロパティはモバイルデバイス上でスタンドアロンの
 
 43
 00:02:21,415 --> 00:02:24,133
-alone input whilst on a mobile device.
+入力系を使えるようにするものです
 
 44
 00:02:24,133 --> 00:02:26,480
-By default the standalone input module
+デフォルトではスタンドアロンの入力モジュールは
 
 45
 00:02:26,480 --> 00:02:28,480
-will not function on a mobile device.
+モバイルデバイスでは機能しないよう設定されています
 
 46
 00:02:29,726 --> 00:02:32,183
-Since touch input works like mouse input
+タッチ入力ではマウスと同様に
 
 47
 00:02:32,183 --> 00:02:34,499
-there are no navigation axis.
+操作上の移動軸が不要ですが
 
 48
 00:02:34,499 --> 00:02:37,300
-However, like the standalone input module
+スタンドアロン入力モジュールの時と同様に
 
 49
 00:02:37,300 --> 00:02:39,634
-you can activate the touch input module
+スタンドアロン用のデバイス上でタッチ入力モジュールを
 
 50
 00:02:39,634 --> 00:02:41,634
-while on a standalone device.
+有効化することも可能です
 
 51
 00:02:43,059 --> 00:02:45,059
-There event system and input modules
+イベントシステムと入力モジュールの仕事は
 
 52
 00:02:45,059 --> 00:02:47,366
-determine when events are sent, or fired,
+イベントがいつ 別のゲームオブジェクトに対して
 
 53
 00:02:47,366 --> 00:02:49,076
-to different game objects.
+送信 / 起動されるか定義することです
 
 54
 00:02:49,728 --> 00:02:52,395
-One such event is the OnClick event,
+たとえば OnClick イベントは
 
 55
 00:02:52,395 --> 00:02:54,395
-which is called when a button is pressed.
+ボタンが押された時に呼び出されます
 
 56
 00:02:54,895 --> 00:02:58,249
-Specifically the selected button must have a pointer down
+より厳密に言えば OnClick が発生するのはマウスカーソルがボタン矩形状にあり
 
 57
 00:02:58,249 --> 00:03:00,525
-and a subsequent pointer up event
+対象のボタン上でポインターが押下状態イベントが生じ
 
 58
 00:03:00,525 --> 00:03:02,441
-while over the button's rect
+続いてポインターが放されたことを示す
 
 59
 00:03:02,441 --> 00:03:04,441
-for an OnClick event to occur.
+イベントが生じた時ということになります
 
 60
 00:03:05,659 --> 00:03:08,072
-For details on all of the input events
+各種入力イベントの詳細については
 
 61
 00:03:08,072 --> 00:03:10,072
-see the documentation linked below.
+下記リンク先の情報を参照してください
 
 62
 00:03:11,304 --> 00:03:14,101
-There are many ways to use these events.
+これらイベントにはさまざまな使い道があります
 
 63
 00:03:14,101 --> 00:03:16,957
-Some interact-able UI elements have function lists
+一部インタラクティブ UI 要素のコンポーネントに含まれる
 
 64
 00:03:16,957 --> 00:03:18,957
-on their components that are called when
+関数リストは対象 UI 要素に関連付けられた
 
 65
 00:03:18,957 --> 00:03:21,952
-a specific event pertinent to that element is fired.
+イベントが発行されたときに呼び出されます
 
 66
 00:03:22,825 --> 00:03:26,052
-For example, button components have lists of functions
+たとえば button コンポーネントには OnClick イベントが
 
 67
 00:03:26,052 --> 00:03:28,857
-to be called when the OnClick event is fired.
+発行された時に呼び出される関数のリストがあります
 
 68
 00:03:29,785 --> 00:03:31,923
-To catch a specific event that is not listed
+コンポーネントにデフォルトで登録されていないイベントを
 
 69
 00:03:31,923 --> 00:03:33,923
-on a component by default
+キャッチする必要がある場合は
 
 70
 00:03:33,923 --> 00:03:35,923
-use the Event Trigger component.
+event trigger コンポーネントを使用します
 
 71
 00:03:36,603 --> 00:03:38,603
-This works like any of the other lists
+このコンポーネントの関数リストは他のコンポーネントと
 
 72
 00:03:38,603 --> 00:03:42,207
-for other components, however, the event trigger component
+同様の使い方ができますが 必要なイベントごとに
 
 73
 00:03:42,207 --> 00:03:45,465
-can have multiple lists for which ever events are desired.
+複数のリストを持たせることができる点が異なります
 
 74
 00:03:46,545 --> 00:03:48,629
-For instance, an image control
+たとえば image のコントロールでは
 
 75
 00:03:48,629 --> 00:03:51,412
-does not utilise any specific events.
+特定のイベントに対してアクションを起こせませんが
 
 76
 00:03:52,520 --> 00:03:55,907
-To allow it to use events with the event trigger component
+event trigger コンポーネントを使えばそれが可能になります
 
 77
 00:03:55,907 --> 00:03:58,060
-first add the component by clicking
+その場合は次の順にメニューを選択してコンポーネントを追加します
 
 78
 00:03:58,060 --> 00:04:01,941
-Add Component and then Event and then Event Trigger.
+Add Component > Event > Event Trigger
 
 79
 00:04:02,966 --> 00:04:05,880
-To add a new event click the Add New button.
+新たにイベントを追加するには Add New ボタンをクリックします
 
 80
 00:04:06,380 --> 00:04:08,380
-This will give you a list of all of the different
+これでキャッチ可能な各種イベントが
 
 81
 00:04:08,380 --> 00:04:10,119
-available events to catch.
+リスト表示されます
 
 82
 00:04:10,687 --> 00:04:13,337
-Select one of the events and a list for that event
+ここでイベントを選択するとリストが
 
 83
 00:04:13,337 --> 00:04:15,337
-will be added to the component.
+コンポーネントに追加されます
 
 84
 00:04:16,541 --> 00:04:19,773
-To add a function to the list click the + icon.
+作成したリストに関数を追加するには + アイコンをクリックします
 
 85
 00:04:20,273 --> 00:04:23,576
-This will create  an empty entry for a function to be called.
+すると空の関数が呼び出し可能になります
 
 86
 00:04:24,546 --> 00:04:27,830
-Drag an object that you wish to manipulate with this event
+続いて目的のイベントで操作したいオブジェクトをリストの
 
 87
 00:04:27,830 --> 00:04:30,493
-on to the object property in the list.
+オブジェクトプロパティにドラッグ & ドロップします
 
 88
 00:04:31,697 --> 00:04:34,460
-Once the object has been applied the drop down will
+オブジェクトの適用が完了するとドロップダウンリストが更新され
 
 89
 00:04:34,460 --> 00:04:37,556
-be populated with all of the available functions to be called.
+呼び出し可能な関数が表示されるようになります
 
 90
 00:04:38,553 --> 00:04:40,830
-As you can see, many components have functions
+ご覧のとおり これらイベントで呼び出せる関数は多く
 
 91
 00:04:40,830 --> 00:04:43,206
-that you can call with these events.
+また多数のコンポーネントに存在します
 
 92
 00:04:43,206 --> 00:04:46,035
-You can even call functions on scripts that you write.
+ここでは自分で書いたスクリプトの関数を呼び出すことも可能です
 
 93
 00:04:46,839 --> 00:04:49,032
-In order for an event to call a function
+イベントに関数を呼ばせるには
 
 94
 00:04:49,032 --> 00:04:52,280
-that function must be public, have a void return type
+関数が public かつ戻り値の型が void で
 
 95
 00:04:52,280 --> 00:04:54,798
-and take one or no parameters.
+引数が 0～1 個である必要があります
 
 96
 00:04:55,623 --> 00:04:57,512
-If the function has a parameter
+また関数に引数がある場合は
 
 97
 00:04:57,512 --> 00:04:59,885
-it must be one of the following types:
+次の型である必要があります
 
 98
 00:04:59,885 --> 00:05:03,657
-float, integer, string or an object reference.
+float / integer / string / オブジェクト参照
 
 99
 00:05:05,386 --> 00:05:08,992
-And that's it, your event is setup and ready to go.
+以上! これで イベントは設定完了です
