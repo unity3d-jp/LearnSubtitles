@@ -1,82 +1,82 @@
-1
+﻿1
 00:00:02,154 --> 00:00:04,883
-The Scroll Rect is a UI element that allows the
+scroll rect という UI 要素は
 
 2
 00:00:04,883 --> 00:00:06,883
-user to move another UI element along
+ユーザーに別の UI 要素を移動させるときに使うもので
 
 3
 00:00:06,883 --> 00:00:09,607
-the horizontal and/or vertical axis
+並行軸および垂直軸で制御します
 
 4
 00:00:10,397 --> 00:00:12,397
-This is usually a large image or a
+通常表示されるのは大きなイメージや
 
 5
 00:00:12,397 --> 00:00:14,911
-panel of other UI elements, such as a list of
+別の UI 要素のパネルです よくある用途としては
 
 6
 00:00:14,911 --> 00:00:16,911
-buttons or a large block of text.
+一列に並んだボタン群や大量のテキストブロックがあります
 
 7
 00:00:18,074 --> 00:00:20,074
-This scroll rect is most often used
+scroll rect は多くの場合
 
 8
 00:00:20,074 --> 00:00:22,074
-with a mask element.
+mask 要素と組み合わせて使用されるので
 
 9
 00:00:23,057 --> 00:00:25,939
-And is designed to work seamlessly with scroll bars.
+スクロールバーともシームレスに機能するよう設計されています
 
 10
 00:00:26,729 --> 00:00:29,275
-Masks and scroll bars with be covered in this lesson,
+このレッスンでもマスクとスクロールバーについて多少紹介しますが
 
 11
 00:00:29,275 --> 00:00:30,723
-but only briefly.
+基本的な事柄しか紹介しません
 
 12
 00:00:31,347 --> 00:00:33,347
-For more detailed information on masks
+マスクやスクロールバーの詳細については
 
 13
 00:00:33,347 --> 00:00:36,959
-and scroll bars please see the information linked below.
+下記リンク先の情報を参照してください
 
 14
 00:00:37,629 --> 00:00:39,269
-To create a scroll rect
+scroll rect を作成するには
 
 15
 00:00:39,269 --> 00:00:41,269
-add a scroll rect script to a game
+まず Canvas の子ゲームオブジェクトに
 
 16
 00:00:41,269 --> 00:00:44,000
-object that is the child of canvas.
+scroll rect スクリプトを追加します
 
 17
 00:00:44,624 --> 00:00:46,624
-Like all UI elements, the scroll rect
+scroll rect 要素も他の UI 要素と同様に
 
 18
 00:00:46,624 --> 00:00:48,624
-must be the child of a  canvas/
+Canvas の子にする必要があります
 
 19
 00:00:49,538 --> 00:00:51,538
-One way to add the scroll rect's script
+ゲームオブジェクトに scroll rect のスクリプトを追加するには
 
 20
 00:00:51,538 --> 00:00:55,866
-to the game object is to use Add Component.
+Add Component を使います
 
 21
 00:00:57,056 --> 00:00:59,056
@@ -84,344 +84,344 @@ to the game object is to use Add Component.
 
 22
 00:01:00,067 --> 00:01:01,376
-Scroll Rect.
+scroll rect
 
 23
 00:01:02,180 --> 00:01:04,472
-For this example, the game object
+ここではゲームオブジェクト名を
 
 24
 00:01:04,472 --> 00:01:07,134
-will be renamed Scroll View.
+Scroll View と変更します
 
 25
 00:01:08,574 --> 00:01:10,851
-Content is a referent to the rect transform
+Content（コンテンツ）は scroll rect に制御されている
 
 26
 00:01:10,851 --> 00:01:14,028
-on the UI element being controlled be the scroll rect.
-Associate
+UI 要素の RectTransform への参照です
+
 27
 00:01:14,680 --> 00:01:16,610
-For example an image far larger
+たとえばここに scroll rect よりも
 
 28
 00:01:16,610 --> 00:01:18,513
-than the scroll rect.
+はるかに大きなイメージがあります
 
 29
 00:01:18,513 --> 00:01:21,124
-Associate the content, in this case
+次にコンテンツを... ここでは
 
 30
 00:01:21,124 --> 00:01:22,601
-the large image
+大きなイメージを
 
 31
 00:01:22,601 --> 00:01:25,482
-with the content property on the scroll rect.
+scroll rect の Content プロパティに関連付けてみます
 
 32
 00:01:26,286 --> 00:01:29,847
-When in play mode this content is fully scrollable.
+するとプレイモードで コンテンツがスクロール可能になりました
 
 33
 00:01:31,714 --> 00:01:34,704
-The scroll rect is commonly used with a mask element
+さて通常 scroll rect は mask 要素と組み合わせて使用されます
 
 34
 00:01:35,467 --> 00:01:38,016
-To use a mask element with a scroll rect
+mask 要素と scroll rect を組み合わせて使うには
 
 35
 00:01:38,016 --> 00:01:40,016
-first add an image script to the game object
+まずゲームオブジェクトにマスク用の
 
 36
 00:01:40,016 --> 00:01:42,016
-for the mask to use.
+Image スクリプトを追加します
 
 37
 00:01:43,607 --> 00:01:45,966
-And then add a mask script.
+その後に Mask スクリプトを追加します
 
 38
 00:01:50,957 --> 00:01:52,957
-The mask element will use the image to
+mask 要素はマスクの作成時に
 
 39
 00:01:52,957 --> 00:01:54,684
-create it's mask
+イメージを使います
 
 40
 00:01:55,088 --> 00:01:58,082
-As specific image is not needed on the image script.
+image スクリプトにイメージを指定するのは必須ではありませんが
 
 41
 00:01:58,734 --> 00:02:00,609
-But one can be added for additional
+必要に応じて指定もすることで
 
 42
 00:02:00,609 --> 00:02:02,609
-control over the shape of the mask.
+マスクの形状を制御することができます
 
 43
 00:02:04,670 --> 00:02:07,573
-For more information on the image and mask elements
+image および mask 要素の詳細については
 
 44
 00:02:07,573 --> 00:02:09,905
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 45
 00:02:10,681 --> 00:02:13,112
-Horizontal and vertical enables scrolling
+Horizontal（水平） / Vertical（垂直）はスクロールの
 
 46
 00:02:13,112 --> 00:02:14,681
-along those axis.
+方向を指定します
 
 47
 00:02:15,336 --> 00:02:17,670
-To disable scrolling along one axis
+いずれかの方向へのスクロールを無効化する場合は
 
 48
 00:02:17,670 --> 00:02:20,143
-set that axis property to false.
+対応する軸のチェックボックスをオフにします
 
 49
 00:02:21,040 --> 00:02:23,818
-Movement type describes the scrolling mode.
+Movement Type（移動タイプ）はスクロールモードを示します
 
 50
 00:02:24,580 --> 00:02:26,580
-The scrolling mode can be chosen by the 
+スクロールモードは Movement Type（移動タイプ）の 
 
 51
 00:02:26,580 --> 00:02:28,580
-movement type pop-up menu.
+ポップアップメニューで選択できます
 
 52
 00:02:29,342 --> 00:02:32,955
-Unrestricted allows for unrestricted scrolling movement.
+Unrestricted（制約なし）はスクロール挙動の制約をなくす項目で
 
 53
 00:02:33,538 --> 00:02:35,538
-This is not a common mode to choose
+ふつうは使用することはありません
 
 54
 00:02:35,538 --> 00:02:37,538
-and it is entirely possible without
+使用した場合 メソッドを追加するなどしないと
 
 55
 00:02:37,538 --> 00:02:39,049
-some additional method
+元に戻れないほどコンテンツを
 
 56
 00:02:39,049 --> 00:02:41,919
-to lose the content in a way that is irretrievable.
+スクロールしてしまいます
 
 57
 00:02:42,364 --> 00:02:44,780
-This mode however may prove to be useful
+ただし特定の状況下では
 
 58
 00:02:44,780 --> 00:02:47,305
-under certain circumstances.
+大変便利なモードでもあります
 
 59
 00:02:47,902 --> 00:02:49,722
-When using either elastic or clamped
+Movement Type を Elastic（弾性あり）または
 
 60
 00:02:49,722 --> 00:02:51,303
-as the movement type
+Clamped（クランプ）に設定すると
 
 61
 00:02:51,303 --> 00:02:54,137
-the content cannot leave the bounds of the scroll rect
+コンテンツがスクロール可能な軸上で
 
 62
 00:02:54,137 --> 00:02:56,137
-on any of the scrollable axis.
+scroll rect の範囲外に出なくなります
 
 63
 00:02:57,038 --> 00:02:58,430
-In these two modes,
+なお先述の 2 モードで
 
 64
 00:02:58,430 --> 00:03:00,136
-for the content to be scrollable,
+コンテンツをスクロール可能にするには
 
 65
 00:03:00,136 --> 00:03:02,136
-the rect transform of the content must
+対象コンテンツの RectTransform が
 
 66
 00:03:02,136 --> 00:03:05,131
-be larger than the rect transform of the scroll rect.
+scroll rect の RectTransform よりも大きい必要があります
 
 67
 00:03:05,949 --> 00:03:07,949
-If the rect transform of the content is
+コンテンツの RectTransform が
 
 68
 00:03:07,949 --> 00:03:11,113
-smaller than the rect transform of the scroll rect
+scroll rect の RectTransform よりも小さい場合
 
 69
 00:03:11,113 --> 00:03:13,911
-it cannot be scrolled along that axis.
+軸に沿ってスクロールができなくなります
 
 70
 00:03:14,732 --> 00:03:17,708
-When positioning the content in either of these modes
+なお先述の 2 モードを使用する際にはコンテンツを
 
 71
 00:03:17,708 --> 00:03:19,708
-it is best to position the content so
+scroll rect の領域内に配置するようにしてください
 
 72
 00:03:19,708 --> 00:03:22,237
-that it starts within the bounds of the scroll rect
+領域外に配置した場合
 
 73
 00:03:22,237 --> 00:03:24,237
-or undesirable behaviour may occur.
+予期しない動作が引き起こされる可能性があります
 
 74
 00:03:24,237 --> 00:03:26,237
-as the rect transform tries to bring the
+これは RectTransform がコンテンツを
 
 75
 00:03:26,237 --> 00:03:28,444
-content back within it's bounds.
+領域内に引っ張ろうとするためです
 
 76
 00:03:29,414 --> 00:03:31,848
-When using the movement type Elastic
+Movement Type に Elastic を使うと
 
 77
 00:03:31,848 --> 00:03:33,848
-the content will bounce when it reaches the
+コンテンツが scroll rect の境界線に到達した時に
 
 78
 00:03:33,848 --> 00:03:35,848
-bounds of the scroll rect.
+跳ね返る動作をします
 
 79
 00:03:37,453 --> 00:03:39,453
-The amount of bounce is set by the
+この跳ね返りの量は
 
 80
 00:03:39,453 --> 00:03:41,453
-elasticity property.
+Elasticity（弾性）プロパティで指定します
 
 81
 00:03:43,030 --> 00:03:45,030
-When using the movement type Clamped
+一方で Movement Type に Clamped を使った場合は
 
 82
 00:03:45,030 --> 00:03:47,030
-the content will not bounce when it reaches the
+コンテンツは scroll rect の境界線に到達しても
 
 83
 00:03:47,030 --> 00:03:49,517
-bounds, it will simply stop scrolling.
+スクロールが停止するだけで跳ね返りません
 
 84
 00:03:53,549 --> 00:03:55,549
-Inertia defines whether or not the 
+Inertia（慣性）はコンテンツのドラッグを 
 
 85
 00:03:55,549 --> 00:03:57,549
-content will continue to glide when releasing
+放した時に 慣性ですべる動作を
 
 86
 00:03:57,549 --> 00:03:59,549
-the pointer after a  drag.
+指定する項目です
 
 87
 00:04:00,477 --> 00:04:02,477
-When inertia is false the content
+Inertia チェックボックスをオフにすると
 
 88
 00:04:02,477 --> 00:04:04,477
-will only move when dragged.
+コンテンツがドラッグ中だけ動くようになります
 
 89
 00:04:05,060 --> 00:04:07,060
-If inertia is set to true the
+Inertia をオンにすると
 
 90
 00:04:07,060 --> 00:04:09,060
-content will continue to glide after the pointer
+ドラッグを放した後に
 
 91
 00:04:09,060 --> 00:04:10,644
-has ended the drag.
+スクロールが継続します
 
 92
 00:04:11,394 --> 00:04:13,394
-How soon the content stops gliding
+スクロール継続時間は
 
 93
 00:04:13,394 --> 00:04:16,748
-is determined by the deceleration rate property.
+Deceleration Rate プロパティで制御します
 
 94
 00:04:17,248 --> 00:04:19,248
-A deceleration rate of 0 means
+Deceleration Rate は 0 にすると
 
 95
 00:04:19,248 --> 00:04:21,248
-the gliding will stop instantly.
+スクロールが瞬時に停止し
 
 96
 00:04:22,190 --> 00:04:24,190
-The value of 1 means the gliding will
+1 にすると永遠に
 
 97
 00:04:24,190 --> 00:04:26,190
-never slow down.
+スクロールし続けます
 
 98
 00:04:26,690 --> 00:04:28,690
-Horizontal and vertical scroll bars
+Horizontal / Vertical scrollbar は
 
 99
 00:04:28,690 --> 00:04:32,271
-are optional references to potential scroll bar elements.
+任意指定のプロパティで スクロールバー要素を参照するときに使います
 
 100
 00:04:32,992 --> 00:04:35,351
-To use scroll bars with a scroll rects
+scroll rect でスクロールバーを使うには
 
 101
 00:04:35,351 --> 00:04:38,056
-simply create the scroll bars needed,
+単純に スクロールバーを作成して
 
 102
 00:04:40,089 --> 00:04:41,581
-position them,
+配置し
 
 103
 00:04:42,468 --> 00:04:44,468
-and associate the scroll bars with properties
+scroll rect のプロパティと関連付けるだけで
 
 104
 00:04:44,468 --> 00:04:46,468
-on the scroll rect.
+OK です
 
 105
 00:04:49,413 --> 00:04:51,413
-They will work automatically.
+これで自動的に動作します
 
 106
 00:04:51,913 --> 00:04:54,867
-For more information on scroll bars and how to set them up
+スクロールバーとその設定方法については
 
 107
 00:04:54,867 --> 00:04:57,584
-please see the information linked below.
+下記リンク先の情報を参照してください
