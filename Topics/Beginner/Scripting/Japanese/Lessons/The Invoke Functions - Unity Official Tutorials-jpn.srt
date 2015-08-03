@@ -1,263 +1,263 @@
-1
+﻿1
 00:00:00,539 --> 00:00:02,706
-The Invoke Functions enable you to schedule
+Invoke は一定のディレイ（遅延）後に
 
 2
 00:00:02,706 --> 00:00:05,742
-a function call after some specified time delay.
+関数呼び出しをスケジュールする関数です
 
 3
 00:00:06,543 --> 00:00:08,543
-This allows us to build a useful method
+この関数を利用することでタイミングが
 
 4
 00:00:08,543 --> 00:00:10,543
-call system that is time sensitive.
+重要なシステムを便利に構築することができます
 
 5
 00:00:11,956 --> 00:00:14,827
-Here we have a scene in Unity with an empty game object.
+いま表示されているのは空っぽのゲームオブジェクトが配置された Unity のシーンです
 
 6
 00:00:15,629 --> 00:00:18,520
-The game object has an InvokeScript attached to it.
+このゲームオブジェクトには InvokeScript がアタッチされています
 
 7
 00:00:19,799 --> 00:00:21,799
-In the InvokeScript we have
+この InvokeScript には
 
 8
 00:00:21,799 --> 00:00:24,176
-a public game object named Target.
+public なゲームオブジェクト target があります
 
 9
 00:00:24,722 --> 00:00:27,552
-We also have a method named SpawnObject.
+またこの他にも SpawnObject というメソッドもあります
 
 10
 00:00:28,094 --> 00:00:30,522
-The SpawnObject method simply instantiates the
+SpawnObject メソッドは単純に target オブジェクトを
 
 11
 00:00:30,522 --> 00:00:34,424
-target object at the position (0, 2, 0).
+位置 (0, 2, 0) でインスタンス化しています
 
 12
 00:00:35,882 --> 00:00:39,808
-In the start method we call the function Invoke.
+そして Start メソッドで Invoke 関数を呼び出しています
 
 13
 00:00:39,808 --> 00:00:42,439
-The invoke function takes 2 parameters.
+Invoke 関数は 2 つのパラメーターを取ります
 
 14
 00:00:42,439 --> 00:00:45,687
-A sting containing the name of the method we want to call
+呼び出したいメソッド名の文字列と
 
 15
 00:00:45,687 --> 00:00:48,638
-and an amount of time to delay in seconds.
+ディレイとして指定したい秒数です
 
 16
 00:00:50,680 --> 00:00:53,921
-We can see from this line of code that after 2 seconds
+つまりこの行では 2 秒後に SpawnObject メソッドが
 
 17
 00:00:53,921 --> 00:00:56,369
-the SpawnObject method will be called.
+呼び出されるように指定されているわけです
 
 18
 00:00:57,740 --> 00:00:59,740
-It is worth noting that only methods which
+なお Invoke を使って呼び出せるのは
 
 19
 00:00:59,740 --> 00:01:01,740
-take no parameters and have a return
+パラメーターを取らず戻り値の型がない（void）
 
 20
 00:01:01,740 --> 00:01:04,806
-type of Void can be called using invoke.
+メソッドのみです
 
 21
 00:01:05,959 --> 00:01:08,682
-Back in Unity let's run our scene.
+さて Unity に戻りシーンを実行してみましょう
 
 22
 00:01:09,751 --> 00:01:11,849
-We can see that after 2 seconds an orb
+実行してみると 2 秒後にオーブが
 
 23
 00:01:11,849 --> 00:01:14,506
-is instantiated and falls to the ground.
+インスタンス化されて地面に落ちるのが確認できます
 
 24
 00:01:15,946 --> 00:01:18,871
-This is useful for calling methods a single time.
+確かにこれは一度メソッドを呼び出すには便利そうですが
 
 25
 00:01:18,871 --> 00:01:21,360
-But what if we wanted to call a method repeatedly?
+同じメソッドを何度も呼び出すときはどうしたらいいでしょう?
 
 26
 00:01:22,038 --> 00:01:23,831
-This can be easily done using the
+そういった場合は 単純に
 
 27
 00:01:23,831 --> 00:01:25,831
-InvokeRepeating function.
+InvokeRepeating 関数を使います
 
 28
 00:01:27,789 --> 00:01:29,789
-Here in our scene we have the same
+このシーンでは同じ 空っぽの
 
 29
 00:01:29,789 --> 00:01:31,555
-empty game object.
+ゲームオブジェクトがあります
 
 30
 00:01:31,555 --> 00:01:33,877
-This time however there is an
+ただし今回アタッチされているスクリプトは
 
 31
 00:01:33,877 --> 00:01:35,877
-InvokeRepeatingScript attached to it.
+InvokeRepeatingScript です
 
 32
 00:01:37,544 --> 00:01:39,724
-In the InvokeRepeatingScript
+InvokeRepeatingScript の中は
 
 33
 00:01:39,724 --> 00:01:41,724
-we can see that things are laid out almost exactly
+基本的に InvokeScript とほぼ同じ構造で
 
 34
 00:01:41,724 --> 00:01:44,193
-the same as in the InvokeScript.
+作られているのが見えるでしょうか
 
 35
 00:01:45,571 --> 00:01:48,668
-We still have a public game object named Target
+引き続き target という名前の public なゲームオブジェクトがあり
 
 36
 00:01:48,668 --> 00:01:51,015
-and we still have a SpawnObject method.
+SpawnObject メソッドもあります
 
 37
 00:01:51,626 --> 00:01:53,626
-The SpawnObject method in this script
+そしてこのスクリプトの SpawnObject メソッドも
 
 38
 00:01:53,626 --> 00:01:55,821
-still instantiates the target object
+target オブジェクトをインスタンス化していますが
 
 39
 00:01:55,821 --> 00:01:59,247
-but now it does so at a random X and Z position.
+今回は X と Z の座標がランダムになっています
 
 40
 00:02:01,066 --> 00:02:03,066
-In the start method we have a call to
+さてこのスクリプトの Start メソッドは
 
 41
 00:02:03,066 --> 00:02:04,786
-the InvokeRepeating function.
+InvokeRepeating 関数を呼び出しています
 
 42
 00:02:05,372 --> 00:02:07,372
-This function takes 3 arguments.
+この関数は 3 つの引数を取ります
 
 43
 00:02:07,372 --> 00:02:09,149
-A string containing the name of the method
+最初は呼び出したい
 
 44
 00:02:09,149 --> 00:02:10,619
-that we wish to call.
+メソッド名の文字列
 
 45
 00:02:10,619 --> 00:02:13,428
-The delay in seconds before it calls the method
+次に  メソッドを呼び出すまで待機する秒数
 
 46
 00:02:13,428 --> 00:02:15,235
-and a delay in seconds between each
+最後にメソッドを繰り返し呼び出す際の
 
 47
 00:02:15,235 --> 00:02:17,235
-subsequent call of the method.
+間隔となる秒数です
 
 48
 00:02:18,985 --> 00:02:20,985
-We can see from this line of code the
+つまりこの行では 2 秒後に SpawnObject メソッドが
 
 49
 00:02:20,985 --> 00:02:23,316
-SpawnObject will be called after 2 seconds
+呼び出され  その後は
 
 50
 00:02:23,316 --> 00:02:25,760
-and then be called again every 1 second.
+1 秒ごとに繰り返し 呼び出されます
 
 51
 00:02:27,802 --> 00:02:29,130
-Let's see this in action.
+では実際に見てみましょう
 
 52
 00:02:30,371 --> 00:02:32,136
-In Unity we can run our scene.
+このシーンは Unity 上でそのまま実行できます
 
 53
 00:02:32,704 --> 00:02:36,570
-We will see that after 2 seconds an orb gets instantiated.
+実行するとまず 2 秒後にオーブがインスタンス化され
 
 54
 00:02:36,570 --> 00:02:38,750
-Then every 1 second
+その後は 1 秒ごとに
 
 55
 00:02:38,750 --> 00:02:40,750
-another orb is created.
+新たなオーブが作成されていきます
 
 56
 00:02:42,181 --> 00:02:44,181
-This will keep going infinitely and fill
+オーブは無限に生成されていくので
 
 57
 00:02:44,181 --> 00:02:46,181
-our entire scene with orbs.
+やがてシーンがオーブで埋め尽くされます
 
 58
 00:02:47,778 --> 00:02:49,778
-Obviously it is important to know
+というわけで InvokeRepeating で呼び出した
 
 59
 00:02:49,778 --> 00:02:51,778
-how to stop a method we have called
+メソッドをどのように止めるかを
 
 60
 00:02:51,778 --> 00:02:53,778
-with the InvokeRepeating function.
+理解しておくことは重要です
 
 61
 00:02:55,181 --> 00:02:57,181
-In order to stop, all instances of
+このスクリプトによる Invoke コールの
 
 62
 00:02:57,181 --> 00:02:59,181
-an invoked call from this script
+全インスタンスを止めるには
 
 63
 00:02:59,181 --> 00:03:01,880
-we can use the CancelInvoke method.
+CancelInvoke メソッドを使います
 
 64
 00:03:03,112 --> 00:03:06,049
-If we wish to only stop a specific Invoke
+なお特定の Invoke だけを止めたい場合は
 
 65
 00:03:06,049 --> 00:03:08,049
-we can parse in a string containing the name of
+止めたいメソッドの名前を含む文字列を
 
 66
 00:03:08,049 --> 00:03:10,049
-the method we wish to stop.
+パースすることもできます
