@@ -1,347 +1,347 @@
-1
+﻿1
 00:00:00,264 --> 00:00:01,685
-When working with code
+コードに触れるときには
 
 2
 00:00:01,685 --> 00:00:03,049
-you will inevitably need to work with
+どうしてもさまざまな型の変数に
 
 3
 00:00:03,049 --> 00:00:05,437
-many types of variables.
+触れることになります
 
 4
 00:00:05,437 --> 00:00:07,437
-Ultimately all variables have
+さてこの変数は 突き詰めれば
 
 5
 00:00:07,437 --> 00:00:09,437
-what is called a Datatype.
+すべて Datatype（データ型）を持ちます
 
 6
 00:00:10,687 --> 00:00:12,506
-The 2 primary data types
+二大主要データ型は
 
 7
 00:00:12,506 --> 00:00:14,990
-are value types and reference types.
+value 型と reference 型です
 
 8
 00:00:15,782 --> 00:00:18,477
-Variables like integers, floats,
+変数のうち integer / float
 
 9
 00:00:18,477 --> 00:00:21,258
-doubles, booleans and characters
+double / boolean / character などは
 
 10
 00:00:21,258 --> 00:00:23,511
-are all value types.
+すべて value 型です
 
 11
 00:00:23,511 --> 00:00:25,511
-Additionally there are complex
+この他にもより複雑な
 
 12
 00:00:25,511 --> 00:00:27,511
-variables types known as structs
+struct と呼ばれる変数型もあります
 
 13
 00:00:28,122 --> 00:00:30,122
-Structs are value data types
+struct は value データ型で
 
 14
 00:00:30,122 --> 00:00:33,182
-that simply contain one or more other variables.
+1 つ以上の変数を格納します
 
 15
 00:00:33,863 --> 00:00:35,863
-The two most common structs in Unity
+Unity でよく使われる struct を 2 つ挙げると
 
 16
 00:00:35,863 --> 00:00:38,360
-are vector3 and quaternion.
+Vector3 と Quaternion があります
 
 17
 00:00:39,196 --> 00:00:41,821
-The list of reference types is much simpler.
+一方で reference 型のリストはもっとシンプル
 
 18
 00:00:41,821 --> 00:00:43,821
-Basically any variable that is an
+基本的にクラスのオブジェクトである変数は
 
 19
 00:00:43,821 --> 00:00:46,381
-object of a class is a reference type.
+すべて reference 型です
 
 20
 00:00:47,043 --> 00:00:49,043
-The two most common classes
+よく使われる 2 つのクラス... すなわち
 
 21
 00:00:49,043 --> 00:00:51,871
-and thus the two most common reference types in Unity
+Unity でよく reference 型として使われるクラスは
 
 22
 00:00:51,871 --> 00:00:54,458
-are transform and game object.
+Transform と GameObject です
 
 23
 00:00:55,788 --> 00:00:57,788
-You might be wondering what the difference is
+しかし value と reference 型は何が違うの? と
 
 24
 00:00:57,788 --> 00:01:00,264
-between value and reference types.
+思った方も多いのではないでしょうか
 
 25
 00:01:00,732 --> 00:01:03,368
-Simply put, value type variables
+シンプルに言い換えると value 型の変数は
 
 26
 00:01:03,368 --> 00:01:05,368
-actually contain some value.
+実際に value（値）を含んでいます
 
 27
 00:01:05,368 --> 00:01:07,368
-All reference type variables contain a
+一方 reference 型の変数は値の格納されている
 
 28
 00:01:07,368 --> 00:01:10,243
-memory address where the value is stored.
+メモリアドレスを含んでいます
 
 29
 00:01:11,271 --> 00:01:13,915
-The result if that if a value type changes
+このため value 型の変数が変更されても
 
 30
 00:01:13,915 --> 00:01:16,293
-only that specific variables is affected.
+その変数が影響を受けるだけですが
 
 31
 00:01:16,846 --> 00:01:18,846
-If a reference type changes however
+reference 型が変更されると
 
 32
 00:01:18,846 --> 00:01:20,846
-all variables that contain that memory
+そのメモリアドレスを含むすべての変数が
 
 33
 00:01:20,846 --> 00:01:22,846
-address will also be affected.
+影響を受けることになるわけです
 
 34
 00:01:23,582 --> 00:01:26,272
-As an analogy consider this;
+たとえ話にしてみましょう...
 
 35
 00:01:26,272 --> 00:01:29,906
-Charles has a nice blue house full of his favourite things.
+チャールズは お気に入りのモノでいっぱいの素敵な青い家を持ってます
 
 36
 00:01:29,906 --> 00:01:32,866
-Quentin sees Charles' house online and is jealous
+クエンティンはチャールズの家をオンラインで見かけて嫉妬しました
 
 37
 00:01:32,866 --> 00:01:34,866
-and so makes an exact copy and wills
+そこでチャールズの家の完全なコピーを作って
 
 38
 00:01:34,866 --> 00:01:37,587
-it with duplicates of everything that Charles owns
+中のモノも完璧に複製して再現しました
 
 39
 00:01:37,587 --> 00:01:39,268
-Creepy, right?
+ええ キモいですね
 
 40
 00:01:39,268 --> 00:01:41,268
-This is like a sign made for value types.
+これが value 型の割り当てと考えてください
 
 41
 00:01:41,268 --> 00:01:44,162
-You make a copy of the variable.
+変数の複製を作るだけで
 
 42
 00:01:44,162 --> 00:01:46,385
-Quentin doesn't own Charles' house
+クエンティンはチャールズの家を保有してはいません
 
 43
 00:01:46,385 --> 00:01:49,737
-and nothing he changes in his house will affect the original.
+そしてクエンティンが内装を変えてもチャールズの家には一切影響しません
 
 44
 00:01:49,737 --> 00:01:51,737
-Not even painting it red.
+たとえ赤く塗っても 影響しません
 
 45
 00:01:52,293 --> 00:01:54,293
-If Quentin had Charles' address
+一方  クエンティンがチャールズの家のアドレスを持っている場合
 
 46
 00:01:54,293 --> 00:01:56,293
-he wouldn't need to copy the house.
+クエンティンは家を複製する必要がありません
 
 47
 00:01:56,293 --> 00:01:58,293
-He could simply visit any time he likes
+好きなときにチャールズの家に行って
 
 48
 00:01:58,293 --> 00:02:00,699
-and see it's content instead.
+中身を見ればいいわけですから
 
 49
 00:02:01,057 --> 00:02:03,526
-This is like assignment for reference types.
+これが reference 型の割り当てです
 
 50
 00:02:03,526 --> 00:02:06,658
-You make a note of the memory address of the value you need
+必要なメモリアドレスの値を記録しておいて
 
 51
 00:02:06,658 --> 00:02:08,658
-and return to that address when you need to know
+変数の値を知る必要が生じたら記録したアドレスに
 
 52
 00:02:08,658 --> 00:02:10,658
-the value of the variable.
+戻ってくるわけです
 
 53
 00:02:12,019 --> 00:02:14,339
-Let's take a look at this in action
+それでは実際の様子を見てみましょう
 
 54
 00:02:14,339 --> 00:02:16,339
-We have here a scene with a sphere in it.
+このシーンには Sphere（球体）がひとつあります
 
 55
 00:02:16,339 --> 00:02:18,645
-The sphere has a script named
+Sphere にはスクリプトがアタッチされています
 
 56
 00:02:18,645 --> 00:02:21,077
-DatatypeScript attached to it.
+DatatypeScript というスクリプトがそれです
 
 57
 00:02:21,994 --> 00:02:23,994
-Inside the DatatypeScript we first
+この DatatypeScript の中に
 
 58
 00:02:23,994 --> 00:02:25,994
-create a vector3 variable named pos
+pos という名前で Vector3 変数を作成して...
 
 59
 00:02:25,994 --> 00:02:29,316
-and assign to it the value of the transform's position.
+値を transform の position に割り当てます
 
 60
 00:02:30,219 --> 00:02:32,754
-We then set pos equal to a new vector3
+そして pos = new Vector3 と指定して
 
 61
 00:02:32,754 --> 00:02:35,320
-with a value of (0, 2, 0).
+値を (0, 2, 0) とします
 
 62
 00:02:35,865 --> 00:02:38,200
-Since we know that pos is a vector3 struct
+さて pos は Vector3 の struct です
 
 63
 00:02:38,200 --> 00:02:40,200
-and that structs are value types
+そして struct は value 型でしたよね
 
 64
 00:02:40,200 --> 00:02:43,429
-we know that only pos is affected by this line of code.
+ということはこのコードで影響を受けるのは pos だけで
 
 65
 00:02:43,429 --> 00:02:45,890
-The transform's position is unaffected.
+transform の position は影響を受けません
 
 66
 00:02:46,860 --> 00:02:49,752
-If we go back in to Unity we can run our scene
+これで一旦 Unity に戻りシーンを実行してみると
 
 67
 00:02:49,752 --> 00:02:52,419
-and confirm that the sphere does not move.
+球体が動かないのが確認できると思います
 
 68
 00:02:53,460 --> 00:02:56,082
-Value types contain their own copy of data
+value 型は複製した独立データということになるので
 
 69
 00:02:56,082 --> 00:02:58,082
-and changing them only affects
+その値を変えても 影響を受けるのは
 
 70
 00:02:58,082 --> 00:03:00,082
-that specific variable.
+その変数自身だけなのです
 
 71
 00:03:00,748 --> 00:03:03,590
-Back in the DatatypeScript, let's try another approach.
+さてそれでは DatatypeScript に戻り別の方法を試してみましょう
 
 72
 00:03:04,284 --> 00:03:07,112
-Let's start by creating a transform variable named tran,
+まず Transform 変数に tran という名前をつけて
 
 73
 00:03:07,112 --> 00:03:09,927
-and setting it equal to the object's transform.
+オブジェクトの transform とイコールでつなぎます
 
 74
 00:03:11,260 --> 00:03:14,297
-Then let's set tran's position to a new vector3
+続けて tran の位置を指定するため new Vector3 と書き
 
 75
 00:03:14,297 --> 00:03:17,184
-with a value of (0, 2, 0).
+値を (0, 2, 0) とします
 
 76
 00:03:19,753 --> 00:03:21,434
-Since transform is a class
+Transform はクラスなので
 
 77
 00:03:21,434 --> 00:03:23,701
-we know that tran is a reference type.
+tran は reference 型ということになりますね
 
 78
 00:03:24,142 --> 00:03:27,155
-Furthermore, since we assign the object's transform to
+さらにオブジェクトの transform と
 
 79
 00:03:27,155 --> 00:03:30,111
-the variable tran using the assignment operator
+変数 tran を代入演算子でつないだので
 
 80
 00:03:30,111 --> 00:03:33,291
-we know that they point at the same memory address.
+両方が同一のメモリアドレスを示すようになっています
 
 81
 00:03:33,291 --> 00:03:36,358
-The result is that changing one changes the other.
+このためどちらか一方を変えると 他方にも反映されるようになります
 
 82
 00:03:37,080 --> 00:03:39,500
-Back in Unity we can run out scene.
+それでは Unity 上のシーンに戻ってみます
 
 83
 00:03:39,899 --> 00:03:42,134
-We should notice immediately that the sphere
+球体が先程よりも上に移動しているのが
 
 84
 00:03:42,134 --> 00:03:44,792
-has moved upwards, even though we never directly
+確認できますね 直接 Sphere の transform の値を
 
 85
 00:03:44,792 --> 00:03:47,718
-changed the value of the sphere's transform.
+変更していないにも関わらず移動したわけです
 
 86
 00:03:48,496 --> 00:03:50,496
-We were able to indirectly change it
+reference 変数を使って間接的に
 
 87
 00:03:50,496 --> 00:03:52,496
-by using a reference variable.
+変更できたわけです
