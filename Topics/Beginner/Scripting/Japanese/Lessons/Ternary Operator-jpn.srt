@@ -1,95 +1,95 @@
-1
+﻿1
 00:00:00,193 --> 00:00:01,865
-The ternary operator is a condensed
+Ternary Operator（三項演算子）とは
 
 2
 00:00:01,865 --> 00:00:04,251
-form for an if else statement.
+if else を凝縮したような演算子です
 
 3
 00:00:04,251 --> 00:00:06,586
-In it's most basic form the ternary operator
+最も基本的な用途は
 
 4
 00:00:06,586 --> 00:00:08,586
-is used for deciding between two values
+ブール式で記述された式に基づいて
 
 5
 00:00:08,586 --> 00:00:10,586
-based on some boolean expression.
+2 つの値のいずれを取るかを決定する使用方法です
 
 6
 00:00:11,224 --> 00:00:12,846
-The syntax has the format
+構文は次のように記述します
 
 7
 00:00:12,846 --> 00:00:18,539
-boolean ? true expression : false expression.
+ブール式 ? true 式 : false 式
 
 8
 00:00:18,901 --> 00:00:21,381
-The first parameter is the boolean, or a condition which
+最初の引数はブール値で
 
 9
 00:00:21,381 --> 00:00:24,227
-evaluates to a boolean that you wish to test.
+条件の判定式として機能します
 
 10
 00:00:24,727 --> 00:00:27,172
-The end of this parameter is marked with a question mark
+この引数の最後にはクエスチョンマークを付けます
 
 11
 00:00:27,672 --> 00:00:29,672
-The next parameter is the value that the ternary operator
+次の引数はこの三項演算子で 条件が true と
 
 12
 00:00:29,672 --> 00:00:32,619
-would evaluate to if the condition is true.
+判定された場合に使われます
 
 13
 00:00:32,619 --> 00:00:34,619
-This is followed by a colon.
+この引数は コロンで区切ります
 
 14
 00:00:34,619 --> 00:00:36,412
-Then the final parameter is the value that the
+最後の引数はこの三項演算子で
 
 15
 00:00:36,412 --> 00:00:39,761
-ternary operator would evaluate to if the condition is false.
+条件が false と判定された場合に使われます
 
 16
 00:00:39,761 --> 00:00:42,553
-Here we use a simple ternary operator to determine
+この例はプレイヤーが生きているか死んでいるかを
 
 17
 00:00:42,553 --> 00:00:44,787
-if a player is alive or dead.
+判定するシンプルな三項演算子です
 
 18
 00:00:44,787 --> 00:00:47,411
-Ternary operators can be nested within one another
+三項演算子は入れ子（ネスト）構造にすることもできますが
 
 19
 00:00:47,411 --> 00:00:49,411
-but if used for long expressions
+式が長くなってしまうと
 
 20
 00:00:49,411 --> 00:00:51,919
-this can make code cumbersome and difficult to read.
+コードのメンテナンスが困難になり また可読性も下がります
 
 21
 00:00:52,767 --> 00:00:54,767
-A general rule for when to use a ternary operator
+if 文の代わりに三項演算子を使う
 
 22
 00:00:54,767 --> 00:00:57,322
-instead of an If statement is if your code needs
+目安としては  各 case で端的に
 
 23
 00:00:57,322 --> 00:01:00,067
-a simple If Else structure with a single
+if else 構造を実現したいときに
 
 24
 00:01:00,067 --> 00:01:02,067
-short expression in each case.
+使うと考えればよいでしょう
