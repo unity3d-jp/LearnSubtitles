@@ -1,323 +1,323 @@
-1
+﻿1
 00:00:00,510 --> 00:00:02,337
-When making decisions in code
+コードを条件分岐させるとき
 
 2
 00:00:02,337 --> 00:00:04,337
-it is common to use an If statement
+よく使われるものには if 文や
 
 3
 00:00:04,337 --> 00:00:06,337
-or a series of If Else statements.
+if else 文を続けて使う方法がありますが
 
 4
 00:00:07,183 --> 00:00:10,198
-An alternative to this can be the Switch statement.
+これ以外にも switch 文というものもあります
 
 5
 00:00:10,554 --> 00:00:13,463
-A switch statement is a more streamlined conditional
+switch 文はより効率的に条件分岐をさせられる文で
 
 6
 00:00:13,463 --> 00:00:15,751
-that is used when you want to compare a single variable
+ひとつの変数と定数グループとを比較したい場合に
 
 7
 00:00:15,751 --> 00:00:17,463
-to a series of constants.
+よく使用されます
 
 8
 00:00:18,001 --> 00:00:20,001
-A common use of switches is to make
+switch 文のよくある使われ方としては
 
 9
 00:00:20,001 --> 00:00:22,001
-decisions based on enumerations.
+Enum（列挙）に応じて条件分岐させる場合などがあります
 
 10
 00:00:22,549 --> 00:00:24,549
-For more details on enumerations
+Enum（列挙）の詳細については
 
 11
 00:00:24,549 --> 00:00:27,530
-see the lesson on enumerations linked below.
+下記リンク先にある Enumeration のレッスンをご覧ください
 
 12
 00:00:29,087 --> 00:00:31,087
-Consider a game where a character's conversation
+さて  このレッスンではキャラクターの知性レベルに応じて
 
 13
 00:00:31,087 --> 00:00:33,087
-options were based on their intelligence.
+分岐する会話を作ってみます
 
 14
 00:00:33,904 --> 00:00:35,769
-You could set these options using a series of
+これは if と連続した else を組み合わせて
 
 15
 00:00:35,769 --> 00:00:38,748
-If Else statements, but that could get cumbersome.
+実現することもできますが それでは扱いにくくなってしまいます
 
 16
 00:00:39,373 --> 00:00:42,069
-Instead we can use a switch statement
+そこで代わりに switch 文を使って
 
 17
 00:00:42,069 --> 00:00:44,069
-to more easily implement our solution.
+より簡単に実装してみたいと思います
 
 18
 00:00:45,579 --> 00:00:48,197
-Here we have a script called ConversationScript.
+さてここに ConversationScript というスクリプトがあります
 
 19
 00:00:48,880 --> 00:00:51,610
-In this script we will implement a function
+このスクリプトに関数を実装して
 
 20
 00:00:51,610 --> 00:00:53,929
-that will allow a character to give a greeting
+知性レベルに応じてキャラクターのあいさつを
 
 21
 00:00:53,929 --> 00:00:55,929
-based on their intelligence.
+変化させてみましょう
 
 22
 00:00:56,785 --> 00:00:58,785
-First we will create an integer
+まずはキャラクターの知性を示す
 
 23
 00:00:58,785 --> 00:01:00,785
-for our character's intelligence.
+int 型変数を作成していきます
 
 24
 00:01:01,122 --> 00:01:03,336
-We will set this variable equal to 5.
+次に この変数に 5 を指定します
 
 25
 00:01:04,151 --> 00:01:05,854
-For the purpose of this example
+この例ではひとまず
 
 26
 00:01:05,854 --> 00:01:09,261
-let's say that intelligence ranges from 5 being the highest
+知性レベルは 5 が最高で
 
 27
 00:01:09,261 --> 00:01:11,261
-to 1 being the lowest.
+1 が最低ということにしておきましょう
 
 28
 00:01:12,126 --> 00:01:15,191
-Next we will create a function called Greet,
+次に関数 Greet（あいさつ）を作成します
 
 29
 00:01:15,191 --> 00:01:17,191
-which will use a switch statement to output
+ここで switch 文を使いキャラクターの知性に応じて
 
 30
 00:01:17,191 --> 00:01:19,838
-a greeting based on the character's intelligence.
+あいさつを出力させます
 
 31
 00:01:20,989 --> 00:01:22,864
-The syntax for a switch statement
+switch 文の構文は
 
 32
 00:01:22,864 --> 00:01:24,864
-starts with the keyword switch followed by
+まず switch で始まり  次に
 
 33
 00:01:24,864 --> 00:01:28,630
-the variable which it will be comparing in parenthesis.
+カッコで囲まれた変数が続きます 関数はここで指定した変数を比較に使います
 
 34
 00:01:29,586 --> 00:01:31,726
-In this case we will be comparing
+つまりこの例で比較に使われるのは
 
 35
 00:01:31,726 --> 00:01:33,407
-our intelligence variable.
+先ほどの intelligence 変数になります
 
 36
 00:01:33,962 --> 00:01:37,495
-We follow that with some open and closed braces.
+続けて  開き中カッコと閉じ中カッコを追加し
 
 37
 00:01:38,828 --> 00:01:40,828
-Inside the braces we need to define
+その中カッコの内側で
 
 38
 00:01:40,828 --> 00:01:43,094
-a series of cases.
+case（ケース）を定義していきます
 
 39
 00:01:43,094 --> 00:01:45,094
-These cases are the constants that we are
+case とは変数と比較される
 
 40
 00:01:45,094 --> 00:01:47,094
-comparing our variable against.
+定数のことを指します
 
 41
 00:01:47,622 --> 00:01:50,841
-To create a case we use the keyword case
+case を書くときはまず case キーワードを記入し
 
 42
 00:01:50,841 --> 00:01:53,495
-followed by our constant and a colon.
+続けて定義した定数を入れて 最後にコロンを入力します
 
 43
 00:01:53,993 --> 00:01:55,993
-As you can see we are starting by
+これで知性が 5 のキャラクターが
 
 44
 00:01:55,993 --> 00:01:57,993
-defining what the character will say
+どのようにあいさつするのかを
 
 45
 00:01:57,993 --> 00:02:00,465
-if they have an intelligence of 5.
+定義する準備が整いました
 
 46
 00:02:01,729 --> 00:02:03,729
-Let's print out a greeting that someone of
+それでは知性の高そうな感じの
 
 47
 00:02:03,729 --> 00:02:05,212
-high intelligence might give.
+あいさつを print を使って記入してみましょう
 
 48
 00:02:05,729 --> 00:02:08,611
-As I am not of particularly high intelligence myself
+僕は別に知性が高くないので
 
 49
 00:02:08,611 --> 00:02:10,611
-I'm going to guess.
+それっぽさ優先でいきます
 
 50
 00:02:12,570 --> 00:02:14,570
-That seems about right.
+うん こんな感じでしょう
 
 51
 00:02:15,612 --> 00:02:17,612
-After the instructions for each case
+各 case の終わりには
 
 52
 00:02:17,612 --> 00:02:20,710
-we need to include something called a Jump statement.
+jump 文と呼ばれるものを含めなくてはなりません
 
 53
 00:02:20,710 --> 00:02:22,597
-The most commonly used jump statement for
+switch で一番よく使われる jump 文は
 
 54
 00:02:22,597 --> 00:02:24,470
-switches is Brake.
+break です
 
 55
 00:02:25,053 --> 00:02:27,053
-This is a keyword that jumps the code
+このキーワードは実行時に
 
 56
 00:02:27,053 --> 00:02:29,053
-execution out of the switch
+コードが以後の処理を行うことなく
 
 57
 00:02:29,053 --> 00:02:32,059
-so that none of the subsequent cases are executed.
+switch 文から抜け出すものです
 
 58
 00:02:33,142 --> 00:02:35,816
-Think of brake working like the return keyword.
+return キーワードのようなものと考えても良いかもしれません
 
 59
 00:02:35,816 --> 00:02:37,816
-But whereas return most commonly is used
+ただし return が関数でよく使われるのに対し
 
 60
 00:02:37,816 --> 00:02:41,871
-in functions, brake is used in switches and loops.
+break は switch やループ処理でよく使われます
 
 61
 00:02:42,788 --> 00:02:44,577
-After encountering a brake,
+コードは break に到達すると
 
 62
 00:02:44,577 --> 00:02:46,577
-code will continue execution after the
+現在実行中のブロックを抜けて
 
 63
 00:02:46,577 --> 00:02:48,362
-block of code it is in.
+次のブロックに移行します
 
 64
 00:02:48,362 --> 00:02:50,362
-In our situation, since the brake
+例の場合だと break が
 
 65
 00:02:50,362 --> 00:02:52,043
-is inside of a switch
+switch 文の内部にあるので
 
 66
 00:02:52,043 --> 00:02:54,043
-after it encountered
+break 到達後は
 
 67
 00:02:54,043 --> 00:02:56,043
-execution will continue just after the switch.
+switch 文の直後に移動します
 
 68
 00:02:58,159 --> 00:03:00,159
-Let's put in a couple more cases
+では続けて  知性が低い場合の case を
 
 69
 00:03:00,159 --> 00:03:02,159
-with phrases of decreasing intelligence.
+追記してみましょう
 
 70
 00:03:14,862 --> 00:03:16,930
-For our final case we want to catch
+そして最後の case は定義されていないすべてのケースを
 
 71
 00:03:16,930 --> 00:03:18,930
-everything that doesn't have a case of it's own.
+キャッチするものにしなければなりません
 
 72
 00:03:19,334 --> 00:03:22,076
-To do this, instead of using case,
+これを行うには case キーワードではなく
 
 73
 00:03:22,076 --> 00:03:24,299
-we use another keyword, default.
+default というキーワードを使います
 
 74
 00:03:25,261 --> 00:03:27,261
-Since this should be for any case that hasn't
+この default は上で定義されたいずれにも一致しない場合に
 
 75
 00:03:27,261 --> 00:03:30,004
-already been covered it doesn't need a value.
+実行されるものなので 値は不要です
 
 76
 00:03:30,523 --> 00:03:32,523
-Other than that we treat it as we would
+その他の点では基本的に case を記述する際と同じように
 
 77
 00:03:32,523 --> 00:03:34,040
-any other case.
+扱って問題ありません
 
 78
 00:03:34,648 --> 00:03:36,552
-Think of default as the Else
+default は if else 文における else のようなもの
 
 79
 00:03:36,552 --> 00:03:38,552
-in an If Else statement.
+と考えてもいいかもしれません
 
 80
 00:03:38,552 --> 00:03:40,801
-Just like else, default covered
+else と同様 default も  上にある条件から
 
 81
 00:03:40,801 --> 00:03:44,454
-any situation not caught by a preceding conditional. 
+外れるものすべてをキャッチするべく機能するわけです 
