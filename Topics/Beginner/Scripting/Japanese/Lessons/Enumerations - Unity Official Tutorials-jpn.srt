@@ -1,395 +1,395 @@
-1
+﻿1
 00:00:00,236 --> 00:00:02,486
-When scripting in Unity sometimes we want a
+Unity でスクリプトを書くときには
 
 2
 00:00:02,486 --> 00:00:05,613
-variable that is one of a set of constants.
+定数のセットを変数として使いたい場合があります
 
 3
 00:00:05,613 --> 00:00:07,374
-Consider the points of a compass.
+コンパスの示す方角を例にとってみましょう
 
 4
 00:00:08,016 --> 00:00:10,016
-We could describe these using an integer
+方角は整数値でも示せます
 
 5
 00:00:10,016 --> 00:00:12,767
-where 0 was north, 1 was east,
+0 を北  1 を東
 
 6
 00:00:12,767 --> 00:00:15,211
-2 was south and 3 was west.
+2 を南  3 を西 といった具合に
 
 7
 00:00:15,934 --> 00:00:19,030
-This wouldn't be very easy to read write in code
+ただしこれでは 番号の示す方角を
 
 8
 00:00:19,030 --> 00:00:22,056
-since it would mean remembering what each number referred to.
+記憶する必要がありコードを書くときに不便です
 
 9
 00:00:22,653 --> 00:00:24,848
-Instead we can create something called
+そこで 利用するのが
 
 10
 00:00:24,848 --> 00:00:26,723
-an enumeration.
+Enumeration（列挙）です
 
 11
 00:00:26,723 --> 00:00:30,465
-Enumerations, which are often referred to as Enums,
+Enumeration はよく Enum とも呼ばれ
 
 12
 00:00:30,465 --> 00:00:32,465
-are a special data type that has a specific
+定義された指定値のサブセットを
 
 13
 00:00:32,465 --> 00:00:34,965
-subset of possible values.
+持つ特別なデータ型です
 
 14
 00:00:36,007 --> 00:00:38,866
-Here we have a script named EnumScript.
+さてここに EnumScript というスクリプトがあります
 
 15
 00:00:39,443 --> 00:00:41,443
-Let's create an enumeration to represent
+このスクリプトを使ってコンパスの方角の示す
 
 16
 00:00:41,443 --> 00:00:43,740
-the different directions of a compass.
+Enum を作ってみましょう
 
 17
 00:00:44,433 --> 00:00:47,233
-We can create the enumeration either inside
+Enum はクラスの内部に作ることも
 
 18
 00:00:47,233 --> 00:00:49,058
-or outside of the class.
+外部に作ることもできます
 
 19
 00:00:49,589 --> 00:00:51,589
-We would place an enumeration in the class
+Enum をクラス内部に配置するのは
 
 20
 00:00:51,589 --> 00:00:54,359
-if only that class needed access to it.
+そのクラスしか Enum にアクセスしない場合です
 
 21
 00:00:55,032 --> 00:00:57,032
-We would place the enumeration outside the class
+他のクラスもアクセスする必要がある場合には
 
 22
 00:00:57,032 --> 00:01:00,091
-if other classes also needed access to it.
+Enum はクラスの外側に作ります
 
 23
 00:01:00,697 --> 00:01:02,697
-For this example we will be creating
+この例では クラスの内部に
 
 24
 00:01:02,697 --> 00:01:04,697
-it inside the class.
+Enum を作ってみましょう
 
 25
 00:01:05,957 --> 00:01:08,322
-The syntax when declaring an enumeration
+Enum を宣言する際の構文は
 
 26
 00:01:08,322 --> 00:01:11,098
-is to start with the enum keyword.
+まず enum キーワードから開始し
 
 27
 00:01:12,127 --> 00:01:14,127
-Next we give it a name.
+続いて名前を付けます
 
 28
 00:01:14,608 --> 00:01:18,304
-For our example we'll call the enumeration Direction.
+この例では Direction（方角）としましょう
 
 29
 00:01:18,775 --> 00:01:22,288
-Note that we're using a capital letter for Direction.
+なお Direction の頭文字が大文字なのは
 
 30
 00:01:22,288 --> 00:01:24,288
-That's because we are effectively declaring a type
+変数と区別し 型をきちんと宣言するために
 
 31
 00:01:24,288 --> 00:01:26,288
-and not a variable.
+重要な事なので覚えておいてください
 
 32
 00:01:26,836 --> 00:01:28,682
-Then we need to list the various 
+その後はカッコの内側に 
 
 33
 00:01:28,682 --> 00:01:30,970
-constants of the enumeration separated by
+Enum 型の定数を追加します  区切り文字には
 
 34
 00:01:30,970 --> 00:01:32,806
-commas in braces.
+カンマを使ってください
 
 35
 00:01:33,191 --> 00:01:36,453
-First we want north, then east, south
+最初に North（北）  続けて East（東）そして South（南）
 
 36
 00:01:36,453 --> 00:01:38,088
-and finally west.
+最後に West（西）
 
 37
 00:01:38,847 --> 00:01:41,262
-Unlike when you normally close braces,
+なおこれは命令文の最後になるので
 
 38
 00:01:41,262 --> 00:01:43,262
-this is the end of a statement and so
+閉じカッコの後ろには 通常と違って
 
 39
 00:01:43,262 --> 00:01:45,262
-needs a semi-colon.
+セミコロンを付ける必要があります
 
 40
 00:01:46,243 --> 00:01:48,542
-Each of the constants declared in this enumeration
+Enum で宣言した定数にはそれぞれ
 
 41
 00:01:48,542 --> 00:01:50,542
-has a value which by default
+デフォルトで 0 から始まる
 
 42
 00:01:50,542 --> 00:01:52,542
-is an integer starting at 0.
+整数値が与えられます
 
 43
 00:01:53,917 --> 00:01:55,917
-This is incremented through the set
+この整数値はインクリメントするので
 
 44
 00:01:55,917 --> 00:01:57,917
-so north has a value of 0,
+Northには値 0 が
 
 45
 00:01:57,917 --> 00:01:59,917
-east has a value of 1, 
+East には値 1 が 
 
 46
 00:01:59,917 --> 00:02:01,510
-south has a value of 2
+South には値 2 が
 
 47
 00:02:01,510 --> 00:02:03,510
-and west has a value of 3.
+West には値 3 が与えられます
 
 48
 00:02:04,895 --> 00:02:06,895
-Both the type of value and the
+値の型と値自身はそれぞれ
 
 49
 00:02:06,895 --> 00:02:10,405
-values themselves can be overridden if required.
+必要に応じてオーバーライドさせることができます
 
 50
 00:02:11,222 --> 00:02:12,991
-If we were to declare the Enum
+ですので Enum の宣言で
 
 51
 00:02:12,991 --> 00:02:15,251
-with north = 1
+North = 1 と指定した場合
 
 52
 00:02:15,251 --> 00:02:17,251
-then east would have a value of 2,
+East の値は 2 に
 
 53
 00:02:17,251 --> 00:02:18,963
-south a value of 3
+South の値は 3 に
 
 54
 00:02:18,963 --> 00:02:20,963
-and west a value of 4.
+West の値は 4 になります
 
 55
 00:02:21,736 --> 00:02:24,170
-Alternatively we could declare a value
+この他値の宣言は任意の定数に
 
 56
 00:02:24,170 --> 00:02:27,502
-for each of the constants, such as north = 10,
+することも可能です たとえば North = 10
 
 57
 00:02:27,502 --> 00:02:30,630
-east = 11, south = 15
+East = 11  South = 15
 
 58
 00:02:30,630 --> 00:02:32,630
-and west equals 27.
+West = 27 などにもできます
 
 59
 00:02:33,826 --> 00:02:35,826
-We can also change the type of the constants
+この他 Enum では定数の型を変更することも
 
 60
 00:02:35,826 --> 00:02:37,826
-in an enumeration.
+可能です
 
 61
 00:02:38,398 --> 00:02:40,398
-The constants can be changed to
+定数はどんな整数型でも
 
 62
 00:02:40,398 --> 00:02:41,972
-any integral type.
+指定できます
 
 63
 00:02:42,320 --> 00:02:44,320
-For more information on integral types
+整数型の詳細については
 
 64
 00:02:44,320 --> 00:02:46,320
-see the link below
+以下のリンクをご覧ください
 
 65
 00:02:46,931 --> 00:02:48,931
-We change the type by putting a colon
+型を変更するときには Enum 名の後ろにコロンを
 
 66
 00:02:48,931 --> 00:02:50,931
-after the name of our enumeration and
+入力して その後ろに
 
 67
 00:02:50,931 --> 00:02:52,643
-putting the type afterwards.
+型を入力します
 
 68
 00:02:53,243 --> 00:02:56,889
-For example we could have direction:short.
+たとえば Direction : short とした場合
 
 69
 00:02:56,889 --> 00:02:58,889
-This would mean that the type of the enumeration
+Enum の型が int 型ではなく short 型に
 
 70
 00:02:58,889 --> 00:03:01,517
-was short instead of int.
+変更されます
 
 71
 00:03:02,630 --> 00:03:04,630
-One of the main reasons for changing the type of
+Enum の型を変更する理由として最も主要なものは
 
 72
 00:03:04,630 --> 00:03:07,105
-an enum is optimisation.
+最適化です
 
 73
 00:03:07,105 --> 00:03:09,105
-But we generally won't worry about it.
+ただし通常は それほど気にする必要はありません
 
 74
 00:03:10,212 --> 00:03:12,212
-Once we have our enum declared we
+さて Enum の宣言が完了したら
 
 75
 00:03:12,212 --> 00:03:15,884
-then make variables of the enum's type.
+その Enum 型の変数を作ることができます
 
 76
 00:03:15,884 --> 00:03:19,524
-Let's make a direction variable called myDirection.
+まずは方角を示す変数 myDirection を作ってみましょう
 
 77
 00:03:20,268 --> 00:03:23,125
-We now can treat this just like any other variable
+この変数は他の変数と同様に扱えます
 
 78
 00:03:23,125 --> 00:03:26,229
-but whereas an integer might have a value of 5
+ただし int 型変数が値 5 を持ったり
 
 79
 00:03:26,229 --> 00:03:29,742
-or a float might have a value of 97.3
+float 型変数が値 97.3 を持つように
 
 80
 00:03:29,742 --> 00:03:32,045
-our myDirection variable
+今作った myDirection 変数が持つ値は
 
 81
 00:03:32,045 --> 00:03:34,437
-can have values of direction.north,
+Direction.North
 
 82
 00:03:34,437 --> 00:03:39,189
-direction.east, direction.south or direction.west.
+Direction.East / Direction.South / Direction.West となります
 
 83
 00:03:39,189 --> 00:03:43,557
-Let's set myDirection to a Direction.North in the start function.
+では Start 関数内で myDirection に Direction.North を設定してみましょう
 
 84
 00:03:44,887 --> 00:03:46,887
-Our enum can also be parsed in
+なお Enum は関数でパースされることも
 
 85
 00:03:46,887 --> 00:03:50,078
-to and returned from functions.
+関数から返されることも可能です
 
 86
 00:03:50,078 --> 00:03:52,702
-We simply use the name of the enumeration,
+そういう場合は単に Enum の名前を使います
 
 87
 00:03:52,702 --> 00:03:54,380
-in our case Direction
+この例でいえば型を指定する代わりに
 
 88
 00:03:54,380 --> 00:03:56,380
-where we would use a type.
+Direction を入れます
 
 89
 00:03:56,380 --> 00:03:58,380
-To illustrate this let's make a small
+より具体的に説明するため ここで
 
 90
 00:03:58,380 --> 00:04:01,457
-small function to reverse a given direction.
+指定と反対の方角を返す簡単な関数を作ってみます
 
 91
 00:04:01,457 --> 00:04:05,640
-Given north it should return southern so on.
+North を渡すと South を返す といった具合です
 
 92
 00:04:05,640 --> 00:04:08,211
-The return type for our function is Direction
+まず関数の戻り値の型を Direction とします
 
 93
 00:04:08,211 --> 00:04:12,442
-and we'll call the function ReverseDirection.
+続いて関数の名前を ReverseDirection とします
 
 94
 00:04:12,442 --> 00:04:14,442
-We'll give the function a direction parameter
+この関数では方角の引数を与え
 
 95
 00:04:22,461 --> 00:04:25,684
-which we'll call dir, and return the opposite
+その引数の名前を dir とし 最後に反対の方角を返すようにします
 
 96
 00:04:17,665 --> 00:04:19,665
-Now all we need to do it
+さて  これ以降では
 
 97
 00:04:19,665 --> 00:04:22,461
-compare dir to our various direction constants
+dir を方角の定数と比較させます
 
 98
 00:04:25,482 --> 00:04:27,482
-We only need to check for north, east, 
+チェック項目は 4 種類しかないので North / East 
 
 99
 00:04:27,482 --> 00:04:32,593
-south and west because those are the only possible values.
+South / West だけです
