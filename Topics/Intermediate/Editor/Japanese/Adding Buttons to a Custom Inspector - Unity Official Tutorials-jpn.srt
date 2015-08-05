@@ -1,247 +1,247 @@
-1
+﻿1
 00:00:00,202 --> 00:00:02,021
-In Unity we can add buttons to
+Unity ではエディターの
 
 2
 00:00:02,021 --> 00:00:04,021
-editor windows so that we can call the
+ウィンドウにボタンを追加して
 
 3
 00:00:04,021 --> 00:00:05,694
-functions from our scripts.
+スクリプトから関数を呼び出すことができます
 
 4
 00:00:06,329 --> 00:00:08,329
-Doing so gives us the ability to
+つまりゲームの機能ではなく  ワークフローを
 
 5
 00:00:08,329 --> 00:00:11,502
-write scripts specifically to improve our workflow,
+改良するためのスクリプトが書けるわけです
 
 6
 00:00:11,502 --> 00:00:13,502
-and that is always a good thing.
+ワークフローが良くなるのっていい事ですよね
 
 7
 00:00:14,887 --> 00:00:18,157
-Here we have a script called ObjectBuilderScript
+さてここに ObjectBuilderScript というスクリプトがあります
 
 8
 00:00:18,676 --> 00:00:20,676
-The purpose of this script is to instantiate
+このスクリプトは BuildObject メソッドを使って
 
 9
 00:00:20,676 --> 00:00:22,676
-an object at any given point
+任意のタイミングでオブジェクトを
 
 10
 00:00:22,676 --> 00:00:24,676
-using the BuildObject method.
+インスタンス化します
 
 11
 00:00:26,634 --> 00:00:29,048
-First we declare a game object
+まずは obj という名の GameObject と
 
 12
 00:00:29,048 --> 00:00:33,504
-named obj and a vector3 named spawnPoint.
+spawnPoint という名の Vector3 を宣言します
 
 13
 00:00:34,240 --> 00:00:36,519
-These will contain the object being built
+この 2 つは作成されるオブジェクトの入れ物と
 
 14
 00:00:36,519 --> 00:00:39,644
-and the location to build it respectively.
+その場所として使われます
 
 15
 00:00:40,408 --> 00:00:44,221
-After that we have our method BuildObject,
+そしてその次にあるのが BuildObject メソッドで
 
 16
 00:00:44,221 --> 00:00:46,850
-which handles instantiating our object.
+これがオブジェクトのインスタンス化を行います
 
 17
 00:00:48,916 --> 00:00:51,542
-We also have a custom inspector script
+一方こちらは 先ほどのスクリプトのために作られた
 
 18
 00:00:51,542 --> 00:00:53,542
-written for our object builder script
+ObjectBuilderEditor という名の
 
 19
 00:00:53,542 --> 00:00:56,922
-named ObjectBuilderEditor.
+カスタムインスペクタースクリプトです
 
 20
 00:00:57,603 --> 00:01:00,855
-For more information on writing custom inspector scripts
+なおカスタムインスペクタースクリプトの記述方法の詳細については
 
 21
 00:01:00,855 --> 00:01:04,197
-see the lesson on custom inspectors linked below.
+下記リンク先にあるカスタムインスペクターのレッスンをご覧ください
 
 22
 00:01:05,475 --> 00:01:07,475
-The first thing we have inside the
+この OnInspectorGUI メソッド内では
 
 23
 00:01:07,475 --> 00:01:09,475
-OnInspectorGUI method is the
+最初に DrawDefaultInspector 関数が
 
 24
 00:01:09,475 --> 00:01:11,475
-DrawDefaultInspector function.
+使われています
 
 25
 00:01:12,669 --> 00:01:14,669
-More information on this function can be found
+この関数の詳細については
 
 26
 00:01:14,669 --> 00:01:16,669
-in the lesson linked below.
+下記リンク先にあるレッスンをご覧ください
 
 27
 00:01:18,808 --> 00:01:22,872
-Next we create a button which when clicked
+さて続いては クリック時に ObjectBuilderScript の
 
 28
 00:01:22,872 --> 00:01:25,122
-will call the BuildObject method
+BuildObject メソッドを呼び出す
 
 29
 00:01:25,122 --> 00:01:27,122
-of the ObjectBuilderScript.
+ボタンを作ってみましょう
 
 30
 00:01:28,053 --> 00:01:31,045
-To do this we first create a variable to
+まず myScript という名の変数を作り
 
 31
 00:01:31,045 --> 00:01:33,418
-hold our ObjectBuilderScript reference
+ObjectBuilderScript への参照を
 
 32
 00:01:33,418 --> 00:01:35,418
-named myScript.
+持たせます
 
 33
 00:01:35,960 --> 00:01:38,405
-We set our myScript variable
+myScript 変数は
 
 34
 00:01:38,405 --> 00:01:41,905
-equal to a cast of the inherited target variable.
+継承された target 変数のキャストとイコールでつなぎます
 
 35
 00:01:42,655 --> 00:01:45,370
-Casting allow us to treat the target variable
+ここでキャストを使うのは target 変数を ObjectBuilderScript の
 
 36
 00:01:45,370 --> 00:01:48,681
-as if it was an ObjectBuilderScript variable.
+変数であるかのように扱うためです
 
 37
 00:01:50,181 --> 00:01:52,599
-We then create our button by writing the
+次にボタンを作ってみましょう
 
 38
 00:01:52,599 --> 00:01:54,599
-GUILayout class name
+まず GUILayout クラス そして直後に
 
 39
 00:01:54,599 --> 00:01:57,881
-followed by a . and the Button function.
+.（ピリオド） そして Button 関数
 
 40
 00:01:59,409 --> 00:02:01,409
-We parse in a single parameter,
+ひとつ持たせたパラメーターは
 
 41
 00:02:01,409 --> 00:02:04,822
-which contains the text we want displayed on the button.
+ボタン上に表示されるテキストになります
 
 42
 00:02:06,072 --> 00:02:08,323
-The Button function returns a boolean
+この Button 関数は戻り値としてブール値を持ち
 
 43
 00:02:08,323 --> 00:02:10,685
-that is true if the button is pressed.
+ボタンが押された場合に true を返します
 
 44
 00:02:10,685 --> 00:02:15,253
-Therefore we wrap the whole line up in an If statement.
+なので行全体を if 文で囲みます
 
 45
 00:02:16,989 --> 00:02:18,989
-Then when the If statement
+これでこの if 文が
 
 46
 00:02:18,989 --> 00:02:21,713
-evaluates to true we simply call the
+true を返した時に MyScript 変数の 
 
 47
 00:02:21,713 --> 00:02:25,846
-BuildObject method of our myScript variable.
+BuildObject メソッドが呼び出されます
 
 48
 00:02:27,527 --> 00:02:29,527
-In Unity we have a scene with
+いま表示されているのは空っぽのゲームオブジェクトが
 
 49
 00:02:29,527 --> 00:02:31,527
-an empty game object in it.
+配置された Unity のシーンです
 
 50
 00:02:31,971 --> 00:02:33,971
-Attached to the game object is our
+このゲームオブジェクトには 
 
 51
 00:02:33,971 --> 00:02:35,971
-ObjectBuilderScript.
+ObjectBuilderScript がアタッチされています
 
 52
 00:02:36,749 --> 00:02:39,367
-Notice in the inspector, in addition to the 2
+インスペクターを見てみてください 
 
 53
 00:02:39,367 --> 00:02:41,367
-fields we declared in the script
+スクリプトで宣言した 2 個のフィールド以外に
 
 54
 00:02:41,367 --> 00:02:44,836
-we also have a button that says Build Object.
+Build Object というボタンが表示されています
 
 55
 00:02:46,183 --> 00:02:48,738
-If we click the Build Object button
+この Build Object ボタンをクリックすると
 
 56
 00:02:48,738 --> 00:02:51,582
-we can see that an orb is created in the scene.
+シーン上にオーブが作られるのが確認できます
 
 57
 00:02:52,207 --> 00:02:55,342
-By changing the values of the Spawn Position field
+Spawn Position（スポーン位置）フィールドを変更して
 
 58
 00:02:55,342 --> 00:02:57,342
-we can keep building objects at various
+ボタンを押せば シーン上の任意の場所に
 
 59
 00:02:57,342 --> 00:02:59,342
-places around the scene.
+オブジェクトを生成できます
 
 60
 00:03:00,953 --> 00:03:03,827
-We can see that adding functions to our inspector
+インスペクターに関数を追加すると  このように
 
 61
 00:03:03,827 --> 00:03:05,701
-allows us to add a lot of custom
+実にさまざまなカスタム機能を
 
 62
 00:03:05,701 --> 00:03:07,840
-functionality when working in Unity.
+利用できるようになります
