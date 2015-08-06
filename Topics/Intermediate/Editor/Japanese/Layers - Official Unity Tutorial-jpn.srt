@@ -1,191 +1,191 @@
-1
+﻿1
 00:00:00,500 --> 00:00:02,993
-Layers are used to indicate some functionality
+レイヤーは Unity 上のさまざまな種類のゲームオブジェクトに対して
 
 2
 00:00:02,993 --> 00:00:05,815
-across many different game objects in Unity.
+機能を適用/適用解除するときに使います
 
 3
 00:00:06,465 --> 00:00:09,820
-For instance, layers can be used to indicate
+レイヤーの利用例としては
 
 4
 00:00:09,820 --> 00:00:11,820
-which object should be drawn in the
+シーンビューで描画するオブジェクトの指定
 
 5
 00:00:11,820 --> 00:00:14,436
-scene view, should ignore raycasts,
+レイキャストの無視設定
 
 6
 00:00:14,436 --> 00:00:16,813
-or are invisible to the camera.
+カメラに対する可視性設定などがあります
 
 7
 00:00:18,013 --> 00:00:20,502
-Here we have a scene with 2 orbs in it.
+さて ここに 2 つのオーブが配置されたシーンがあります
 
 8
 00:00:21,069 --> 00:00:24,897
-We can see that both orbs are on the layer Default.
+どちらのオーブもレイヤーは Default に設定されていますね
 
 9
 00:00:26,530 --> 00:00:29,671
-If we wanted to change the layer of 1 of the orbs
+ここでオーブのレイヤーを変更するには
 
 10
 00:00:29,671 --> 00:00:32,555
-we could click the Layer drop-down in the inspector
+インスペクターで Layers ドロップダウンをクリッ-クして
 
 11
 00:00:32,555 --> 00:00:34,555
-and select a new layer.
+新しいレイヤーを指定します
 
 12
 00:00:35,373 --> 00:00:37,878
-We can see that this orb is now on the
+これでオーブのひとつが
 
 13
 00:00:37,878 --> 00:00:39,878
-Ignore Raycast layer
+Ignore Raycast（レイキャストを無視）レイヤーに
 
 14
 00:00:39,878 --> 00:00:43,499
-and will not be hit by any raycasts that pass through it.
+指定されてレイキャストが一切無視されるようになりました
 
 15
 00:00:44,902 --> 00:00:48,296
-We also have the ability to define our own layers.
+レイヤーはこの他にも 独自に作れます
 
 16
 00:00:48,296 --> 00:00:52,415
-We can do so using the Tag And Layer Manager window.
+独自レイヤーを作る場合は Tag And Layer Manager（タグとレイヤー管理）ウィンドウを
 
 17
 00:00:53,026 --> 00:00:56,144
-To access the tag and layer manager window
+使います  このウィンドウを開くには
 
 18
 00:00:56,144 --> 00:00:59,843
-either select Add Layer from the Layers drop-down
+Layers のドロップダウンから Add Layer （レイヤーを追加）を選択するか
 
 19
 00:01:01,093 --> 00:01:06,248
-or click Edit - Project Settings - Tags And Layers.
+メニューで Edit > Project Settings > Tags And Layers の順に選択します
 
 20
 00:01:07,748 --> 00:01:10,432
-Here we can see all of the built-in layers
+この画面にはビルトインのレイヤーと
 
 21
 00:01:10,432 --> 00:01:12,432
-as well as add our own.
+カスタムレイヤーがすべて表示されます
 
 22
 00:01:13,182 --> 00:01:17,195
-Let's create an Ignored By Camera layer.
+次に Ignored By Camera（カメラに無視される）レイヤーを作ってみます
 
 23
 00:01:18,292 --> 00:01:20,292
-We can place our other sphere
+先ほどとは別のオーブを
 
 24
 00:01:20,292 --> 00:01:22,292
-on this newly created layer
+作成したレイヤーに配置してみます
 
 25
 00:01:22,292 --> 00:01:27,586
-by selecting it and choosing the New Ignored By Camera layer
+この操作は Layer ドロップダウンで New Ignored By Camera を
 
 26
 00:01:27,586 --> 00:01:29,586
-from the Layers drop-down.
+選ぶだけです
 
 27
 00:01:30,600 --> 00:01:33,143
-This sphere is now on the
+これでオーブは
 
 28
 00:01:33,143 --> 00:01:35,143
-Ignored By Camera layer.
+Ignored By Camera レイヤーに配置されました
 
 29
 00:01:36,005 --> 00:01:39,115
-The layer has no inherent functionality however
+ただ  このレイヤーには今何の機能もないので
 
 30
 00:01:39,115 --> 00:01:41,716
-so let's modify our camera to ignore it.
+カメラに手を加えて無視するようにしてみます
 
 31
 00:01:43,557 --> 00:01:47,041
-In the Culling Mask property of a camera
+カメラの Culling Mask プロパティでは
 
 32
 00:01:47,041 --> 00:01:49,745
-we can select which layers are seen by the camera
+カメラに見せる / 見せないレイヤーを
 
 33
 00:01:49,745 --> 00:01:51,745
-and which are not.
+指定できます
 
 34
 00:01:52,515 --> 00:01:54,515
-By clicking the drop-down and
+ドロップダウンをクリックして
 
 35
 00:01:54,515 --> 00:01:57,885
-unselecting the Ignored By Camera layer
+Ignored By Camera レイヤーの選択を解除すれば
 
 36
 00:01:58,295 --> 00:02:00,295
-all objects on that layer will no longer
+このレイヤー上のすべてのオブジェクトは
 
 37
 00:02:00,295 --> 00:02:02,807
-be visible to that camera.
+カメラに写らなくなります
 
 38
 00:02:04,285 --> 00:02:05,743
-Let's run our scene.
+ではシーンを実行してみましょう
 
 39
 00:02:06,295 --> 00:02:08,773
-We can see that only a single orb appears.
+表示されているオーブはひとつだけですね
 
 40
 00:02:09,618 --> 00:02:13,843
-The other orb, the one on the Ignored By Camera Layer
+Ignored By Camera レイヤーにあるオーブは
 
 41
 00:02:13,843 --> 00:02:15,843
-is not rendered to the screen.
+画面にレンダーされていません
 
 42
 00:02:16,972 --> 00:02:19,397
-We can also use layers to determine
+この他にもレイヤーは  シーンビュー上での
 
 43
 00:02:19,397 --> 00:02:21,701
-what appears in the scene view.
+表示 / 非表示も切り替えられます
 
 44
 00:02:22,677 --> 00:02:25,320
-By clicking on the Scene Layers drop-down
+Unity エディターの画面右上にある  シーンの
 
 45
 00:02:25,320 --> 00:02:27,897
-at the top right of the Unity editor
+Layers ドロップダウンをクリックすると
 
 46
 00:02:27,897 --> 00:02:30,610
-we can select and deselect layers.
+表示するレイヤーを切り替えられます
 
 47
 00:02:31,982 --> 00:02:34,392
-Doing so will cause all objects
+選択解除されたレイヤーのオブジェクトはすべて
 
 48
 00:02:34,392 --> 00:02:36,517
-on those layers to disappear.
+表示されなくなります
