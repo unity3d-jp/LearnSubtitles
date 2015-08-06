@@ -1,231 +1,231 @@
-1
+﻿1
 00:00:00,290 --> 00:00:02,360
-Unity's built-in profiler
+Unity のビルトイン プロファイラーは
 
 2
 00:00:02,360 --> 00:00:04,860
-allows us to quickly and accurately
+ゲームのパフォーマンスを素早く正確に
 
 3
 00:00:04,860 --> 00:00:07,750
-assess the performance of our games.
+把握するためのツールです
 
 4
 00:00:07,750 --> 00:00:11,060
-Using this information we can keep our scenes running
+シーンを滑らかかつ効率的に実行するには ここに提示される
 
 5
 00:00:11,060 --> 00:00:13,060
-smoothly and efficiently.
+情報の活用が欠かせません
 
 6
 00:00:14,250 --> 00:00:17,190
-In Unity we can access the profiler
+Unity 上でプロファイラーにアクセスするには
 
 7
 00:00:17,190 --> 00:00:20,310
-by clicking Window - Profiler.
+Window > Profiler の順にクリックします
 
 8
 00:00:20,310 --> 00:00:23,540
-Or by pressing Control-7 in Windows
+また Windows ならば Ctrl + 7
 
 9
 00:00:23,540 --> 00:00:25,540
-or Command-7 on a Mac.
+Mac では Cmd + 7 でも開けます
 
 10
 00:00:26,490 --> 00:00:29,330
-The profiler window functions just like every other
+プロファイラーウィンドウは
 
 11
 00:00:29,330 --> 00:00:32,840
-Unity editor window and can be easily docked
+他のウィンドウと同じように扱えるので
 
 12
 00:00:32,840 --> 00:00:35,390
-so that it is more readily available.
+好きな領域に配置してして常時表示しておくこともできます
 
 13
 00:00:36,270 --> 00:00:38,270
-Once the profiler is open
+プロファイラーが開いている間は
 
 14
 00:00:38,270 --> 00:00:40,270
-statistics will be collected about our scene
+シーンが実行されるたびに統計情報が
 
 15
 00:00:40,270 --> 00:00:42,270
-every time it is run.
+収集されます
 
 16
 00:00:42,860 --> 00:00:46,020
-Let's run our scene now and pause execution
+ためしに Unity 上でシーンを実行して 数フレーム後に
 
 17
 00:00:46,020 --> 00:00:48,020
-after a few frames.
+一時停止してみましょう
 
 18
 00:00:49,350 --> 00:00:51,700
-Now that the profiler has some data,
+プロファイラーにデータが表示されましたね
 
 19
 00:00:51,700 --> 00:00:54,180
-we can begin examining it.
+さっそく見てみましょう
 
 20
 00:00:54,180 --> 00:00:58,760
-The profiler window itself is split in to 3 sections.
+まずプロファイラーウィンドウは 3 つのセクションに分かれています
 
 21
 00:00:58,760 --> 00:01:02,080
-The first is the profiler area section
+ひとつめが Profiler Area セクション
 
 22
 00:01:02,080 --> 00:01:05,490
-where we can see the various measurements being recorded.
+記録された各種データが確認できるエリアです
 
 23
 00:01:06,110 --> 00:01:08,480
-Next we have an overview
+次が Overview セクション
 
 24
 00:01:08,480 --> 00:01:10,480
-where we can get a detailed breakdown
+各プロファイルエリアの詳細情報を
 
 25
 00:01:10,480 --> 00:01:12,480
-of each profiler area.
+確認できます
 
 26
 00:01:13,410 --> 00:01:16,730
-Finally we have the pre-object display
+最後が Pre-object Display
 
 27
 00:01:16,730 --> 00:01:18,730
-where we can get information about the
+Overview で選んだ項目の情報が
 
 28
 00:01:18,730 --> 00:01:20,730
-items in our overview.
+表示されます
 
 29
 00:01:22,050 --> 00:01:30,130
-By default the profiler measures CPU usage, GPU usage,
+プロファイラーはデフォルトで CPU 使用率 / GPU 使用率
 
 30
 00:01:30,130 --> 00:01:36,500
-rendering performance, memory usage, audio,
+レンダリングのパフォーマンス / メモリ使用率 / 音声
 
 31
 00:01:37,260 --> 00:01:41,100
-and physics for both 3D and 2D.
+物理演算 (2D / 3D 両方) を計測します
 
 32
 00:01:42,110 --> 00:01:45,080
-Any of these can be selected to get more information
+いずれかの項目についてさらに詳細が知りたいときは
 
 33
 00:01:45,080 --> 00:01:47,080
-in the overview window.
+その項目を選択すれば Overview ウィンドウに表示されます
 
 34
 00:01:48,570 --> 00:01:51,400
-To the right of the profiler area section
+Profiler Area セクションの右側には
 
 35
 00:01:51,400 --> 00:01:54,850
-is a color chart outlining the specific performance
+各エリアのパフォーマンスを示す
 
 36
 00:01:54,850 --> 00:01:57,840
-of different pieces of each area.
+カラーチャートが表示されます
 
 37
 00:01:58,240 --> 00:02:01,850
-For instance, in the CPU Usage component, 
+たとえば CPU Usage（CPU 使用率）コンポーネントでは 
 
 38
 00:02:01,850 --> 00:02:04,610
-we can see that rendering usage is freed
+レンダリングの使用分が緑色で
 
 39
 00:02:04,610 --> 00:02:07,060
-whilst Script Performance is blue.
+スクリプトのパフォーマンスが青色で示されています
 
 40
 00:02:07,760 --> 00:02:09,760
-We can switch these different sections on
+各セクションの表示 / 非表示は名前横のボックスを
 
 41
 00:02:09,760 --> 00:02:13,620
-and off by clicking the box next to their names.
+クリックすれば切り替えられます
 
 42
 00:02:15,470 --> 00:02:19,530
-Clicking anywhere in the color chart will give you a vertical line.
+またカラーチャート上をクリックすると記録データの
 
 43
 00:02:19,530 --> 00:02:23,380
-The line represents a specific frame of recorded data.
+特定のフレームを示す垂直線が表示され
 
 44
 00:02:24,520 --> 00:02:26,630
-We can see what frame we are on
+現在のフレーム数や
 
 45
 00:02:26,630 --> 00:02:28,630
-and the total number of frames
+総フレーム数が確認できます
 
 46
 00:02:28,630 --> 00:02:32,430
-by looking at the frame count in the upper righthand corner.
+なおフレームカウントは右上に表示されます
 
 47
 00:02:33,730 --> 00:02:37,240
-We will also see some numbers appear around our line.
+また垂直線のまわりにも数値が表示されますが
 
 48
 00:02:37,240 --> 00:02:39,640
-These numbers represent the amount of time
+これは指定フレーム中に
 
 49
 00:02:39,640 --> 00:02:42,580
-in milliseconds each of the sessions took
+各セッションが費やした時間を
 
 50
 00:02:42,580 --> 00:02:44,580
-during that specific frame.
+ミリ秒で示したものです
 
 51
 00:02:45,450 --> 00:02:49,480
-Obviously lower numbers mean faster games.
+数字が小さいほどゲームが高速で動作していることを意味します
 
 52
 00:02:51,120 --> 00:02:54,780
-We can see the specific information for the selected frame
+また Overview セクションには指定フレームにおけるより詳細な情報が
 
 53
 00:02:54,780 --> 00:02:56,780
-in the overview section.
+表示されます
 
 54
 00:02:57,340 --> 00:02:59,560
-Items in the overview section with an arrow next
+Overview セクションの項目のうち左に矢印があるものは
 
 55
 00:02:59,560 --> 00:03:03,420
-to them can be expanded for more information.
+より詳細な項目が折りたたまれていることを示します
 
 56
 00:03:04,570 --> 00:03:07,480
-With all of this information at your fingertips
+詳細な情報をまとめて確認できるプロファイラー
 
 57
 00:03:07,480 --> 00:03:09,480
-you will be able to more readily determine
+ゲームパフォーマンスの計測と最適化に
 
 58
 00:03:09,480 --> 00:03:12,700
-the performance of your games and optimise them.
+ぜひ活かしてください
