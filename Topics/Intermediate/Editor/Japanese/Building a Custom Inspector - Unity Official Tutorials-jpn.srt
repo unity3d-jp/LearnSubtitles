@@ -1,539 +1,539 @@
-1
+﻿1
 00:00:00,308 --> 00:00:03,558
-In Unity we can create a custom inspector to control
+Unity ではカスタムインスペクターを作成して
 
 2
 00:00:03,558 --> 00:00:05,558
-which data from our scripts is visible
+スクリプト中の どのデータを表示するか
 
 3
 00:00:05,558 --> 00:00:07,558
-and how it is represented in the editor.
+そしてエディター上でどう表示するかを制御できます
 
 4
 00:00:08,846 --> 00:00:11,547
-That ability to extend the editor in this way
+エディターを拡張できるということは
 
 5
 00:00:11,547 --> 00:00:14,507
-gives us a lot of power and flexibility with our scripts
+スクリプトがより強力かつ柔軟に使えるということで
 
 6
 00:00:14,507 --> 00:00:16,507
-and the resulting workflow.
+ひいてはワークフローの改良にもつながります
 
 7
 00:00:17,997 --> 00:00:19,997
-Let's say we had a levelling system
+たとえばレベルアップシステムを作っているとしましょう
 
 8
 00:00:19,997 --> 00:00:23,729
-where every time a character earned 750 experience points
+これは経験値を 750 ポイント獲得すると
 
 9
 00:00:23,729 --> 00:00:25,224
-they gained a new level.
+レベルがひとつ上がるシステムであるとします
 
 10
 00:00:26,191 --> 00:00:29,140
-This is easy enough to calculate in the beginning
+レベルが低いうちは計算も簡単ですが
 
 11
 00:00:29,140 --> 00:00:31,699
-but it could be a bit cumbersome as characters
+高レベルになるにつれてだんだんと
 
 12
 00:00:31,699 --> 00:00:33,699
-get to higher levels.
+計算がめんどくさくなってきます
 
 13
 00:00:33,699 --> 00:00:35,851
-Luckily we can create a custom
+そこでカスタムインスペクターを
 
 14
 00:00:35,851 --> 00:00:37,851
-inspector to make this much simpler.
+使って この作業を簡単にしてみましょう
 
 15
 00:00:38,947 --> 00:00:40,947
-Here we have a script called LevelScript.
+ここに LevelScript というスクリプトがあります
 
 16
 00:00:41,724 --> 00:00:43,724
-This script represents the experience based
+このスクリプトが先ほどの経験値ベースの
 
 17
 00:00:43,724 --> 00:00:45,724
-levelling system mentioned before.
+レベルアップシステムです
 
 18
 00:00:46,723 --> 00:00:50,312
-In the script we first have a variable named experience
+スクリプトで最初に目に入るのが experience 変数ですね
 
 19
 00:00:50,312 --> 00:00:52,312
-which will contain the total amount of experience
+この関数はキャラクターが獲得した
 
 20
 00:00:52,312 --> 00:00:54,312
-a character has accumulated.
+経験値の累計を格納します
 
 21
 00:00:55,352 --> 00:00:57,921
-Next we have a property named Level.
+次に Level というプロパティがあります
 
 22
 00:00:58,504 --> 00:01:00,504
-We can see that this property takes the current
+このプロパティは 現在の経験値を取り
 
 23
 00:01:00,504 --> 00:01:03,372
-experience value and returns the level equivalent.
+対応するレベルを返します
 
 24
 00:01:03,941 --> 00:01:05,941
-For more information on properties
+プロパティの詳細については
 
 25
 00:01:05,941 --> 00:01:07,941
-see the lesson on properties linked below.
+下記リンク先にあるプロパティのレッスンをご覧ください
 
 26
 00:01:10,216 --> 00:01:12,913
-In Unity we have an empty game object
+さて空っぽのゲームオブジェクトを配置して
 
 27
 00:01:12,913 --> 00:01:14,705
-with the LevelScript attached.
+それに LevelScript をアタッチしてみました
 
 28
 00:01:15,385 --> 00:01:17,385
-Notice how we can see the experience
+Experience（経験値）プロパティがインスペクターに
 
 29
 00:01:17,385 --> 00:01:19,385
-property in the inspector.
+表示されているのが見えますね
 
 30
 00:01:20,092 --> 00:01:23,522
-It is easy to calculate the level when our experience is 0.
+経験値が 0 ならレベルを計算するのも簡単ですが
 
 31
 00:01:23,522 --> 00:01:26,982
-But what if it was 49865?
+49865 だったらどうでしょう?
 
 32
 00:01:28,313 --> 00:01:30,313
-Let's customise the inspector to show
+ここでインスペクターをカスタマイズして
 
 33
 00:01:30,313 --> 00:01:32,313
-the level for us.
+レベルを表示してみましょう
 
 34
 00:01:33,020 --> 00:01:35,020
-In order to customise the inspector we need
+インスペクターをカスタマイズするにはまずエディターの
 
 35
 00:01:35,020 --> 00:01:37,636
-to make a folder to place our editor scripts in.
+スクリプトを格納するフォルダを作成する必要があります
 
 36
 00:01:38,205 --> 00:01:40,205
-Unity requires that this folder is named
+Unity に認識させるためこのフォルダの名前は
 
 37
 00:01:40,205 --> 00:01:42,205
-Editor.
+Editor としてください
 
 38
 00:01:42,649 --> 00:01:45,328
-Inside the editor folder we will create a new script.
+そしてフォルダ内に新規スクリプトを作成します
 
 39
 00:01:46,119 --> 00:01:48,119
-This script will contain our custom inspector.
+このスクリプトにカスタムインスペクターを含めます
 
 40
 00:01:49,588 --> 00:01:51,318
-It can have any name,
+名前は自由に付けられますが
 
 41
 00:01:51,318 --> 00:01:53,318
-but for the sake of this example we will
+今回は内容に沿って
 
 42
 00:01:53,318 --> 00:01:55,570
-call it LevelScriptEditor.
+LevelScriptEditor としましょう
 
 43
 00:01:58,751 --> 00:02:01,363
-In the LevelScriptEditor
+それではこの LevelScriptEditor に
 
 44
 00:02:01,363 --> 00:02:03,476
-we can begin writing our custom inspector.
+カスタムインスペクターを書いていきます
 
 45
 00:02:05,127 --> 00:02:08,169
-Before we begin writing any editor specific code
+エディター固有のコードを書くときはまず
 
 46
 00:02:08,169 --> 00:02:10,169
-we must first declare that we are using the
+UnityEditor 名前空間を使うことを
 
 47
 00:02:10,169 --> 00:02:12,169
-UnityEditor namespace.
+宣言しなくてはいけません
 
 48
 00:02:12,925 --> 00:02:14,925
-For more information on namespaces
+名前空間の詳細については
 
 49
 00:02:14,925 --> 00:02:17,527
-see the lesson on namespaces linked below.
+下記リンク先にある名前空間のレッスンをご覧ください
 
 50
 00:02:19,202 --> 00:02:21,202
-Next we need to inherit from editor
+次に継承元を MonoBehaviour から
 
 51
 00:02:21,202 --> 00:02:23,202
-instead of monobehaviour.
+Editor に変更します
 
 52
 00:02:23,202 --> 00:02:26,301
-This in effect is how we extend the editor.
+エディタの拡張は基本的にこうして行います
 
 53
 00:02:27,900 --> 00:02:29,900
-For more information on inheritance
+継承の詳細については
 
 54
 00:02:29,900 --> 00:02:32,424
-see the lesson on inheritance linked below.
+下記リンク先にある継承のレッスンをご覧ください
 
 55
 00:02:34,081 --> 00:02:36,081
-From here we need to give our custom
+さてここからは カスタムインスペクターに
 
 56
 00:02:36,081 --> 00:02:38,081
-inspector an attribute to tell it which
+属性を与えて どのスクリプトを
 
 57
 00:02:38,081 --> 00:02:40,081
-script we are customising.
+カスタマイズしているのかを示します
 
 58
 00:02:41,133 --> 00:02:43,133
-The syntax for doing this starts with a
+構文はまず開き角カッコ  続けて
 
 59
 00:02:43,133 --> 00:02:45,133
-open square bracket followed by the
+キーワードCustomEditor
 
 60
 00:02:45,133 --> 00:02:48,296
-keyword CustomEditor and parenthesis.
+そしてカッコ
 
 61
 00:02:49,643 --> 00:02:52,737
-Inside the parenthesis we use the keyword
+カッコの中にはキーワード
 
 62
 00:02:52,737 --> 00:02:55,223
-typeOf to specify the type.
+typeOf で型を指定します
 
 63
 00:02:55,962 --> 00:02:58,527
-And then we put the name of our script
+そしてその中にさらにカッコの対を作り
 
 64
 00:02:58,527 --> 00:03:00,527
-in another set of parenthesis.
+スクリプトの名前を入力します
 
 65
 00:03:01,579 --> 00:03:03,579
-We can see that in this example
+この例では ご覧のとおり
 
 66
 00:03:03,579 --> 00:03:06,521
-the script we are customising is the LevelScript.
+カスタマイズするのは LevelScript です
 
 67
 00:03:08,517 --> 00:03:11,397
-We end the line with a closed square bracket.
+そして行を  閉じ角カッコで締めます
 
 68
 00:03:13,031 --> 00:03:15,719
-Inside our LevelScriptEditor class
+続いて LevelScriptEditor クラスの内部に
 
 69
 00:03:15,719 --> 00:03:19,446
-we create the method public override void
+メソッド public override void OnInspectorGUI
 
 70
 00:03:21,870 --> 00:03:23,870
-This is the method that is called every time the
+を作ります
 
 71
 00:03:19,446 --> 00:03:21,446
-OnInspectorGUI
+このメソッドはインスペクターが Unity 上で描画される際に
 
 72
 00:03:23,862 --> 00:03:25,862
-inspector is drawn inside Unity.
+毎回呼び出されます
 
 73
 00:03:27,461 --> 00:03:29,461
-For more information on what the override
+override キーワードの
 
 74
 00:03:29,461 --> 00:03:30,940
-keyword is doing
+挙動の詳細については
 
 75
 00:03:30,940 --> 00:03:33,527
-see the lesson on overriding linked below.
+下記リンク先にあるオーバーライドのレッスンをご覧ください
 
 76
 00:03:36,643 --> 00:03:38,643
-At this point the inspector for the 
+これで LevelScript のインスペクターが 
 
 77
 00:03:38,643 --> 00:03:40,643
-LevelScript has been modified.
+変更されました
 
 78
 00:03:41,269 --> 00:03:43,269
-If we go back in to Unity we can see
+この状態で Unity に戻ると
 
 79
 00:03:43,269 --> 00:03:45,269
-that we no longer see any properties of
+スクリプトのプロパティがひとつも
 
 80
 00:03:45,269 --> 00:03:47,269
-the script in the inspector view.
+インスペクタービューに表示されないのがわかります
 
 81
 00:03:49,033 --> 00:03:51,033
-Since this is not very useful
+これではぜんぜん便利でないので
 
 82
 00:03:51,033 --> 00:03:53,295
-let's continue writing our custom inspector.
+カスタマイズを進めていきましょう
 
 83
 00:03:56,544 --> 00:03:58,544
-Back in the LevelScriptEditor
+LevelScriptEditor に戻って
 
 84
 00:03:58,813 --> 00:04:01,503
-we will want to create some fields for the inspector.
+インスペクターで表示するフィールドを作ってみます
 
 85
 00:04:02,668 --> 00:04:05,893
-We automatically have a reference to our LevelScript object
+OnInspectorGUI メソッドの内部には自動的に LevelScript
 
 86
 00:04:05,893 --> 00:04:09,505
-named target inside the OnInspectorGUI method.
+オブジェクトへの参照である target が含まれます
 
 87
 00:04:11,051 --> 00:04:13,051
-This isn't useable until we cast it in to
+しかしこれは適切な型の変数に
 
 88
 00:04:13,051 --> 00:04:15,051
-an appropriately typed variable however.
+キャストするまでは使えません
 
 89
 00:04:16,077 --> 00:04:18,077
-To do this we will create a
+なのでまず myLevelScript という
 
 90
 00:04:18,077 --> 00:04:21,346
-LevelScript variable named myLevelScript
+LevelScript 変数を作り
 
 91
 00:04:22,006 --> 00:04:25,256
-and set it equal to the inherited variable target.
+継承した変数 target とイコールでつなぎます
 
 92
 00:04:27,524 --> 00:04:29,524
-Finally we will cast the variable
+そして最後に target 変数を
 
 93
 00:04:29,524 --> 00:04:31,524
-target as a LevelScript variable
+LevelScript 変数としてキャストします
 
 94
 00:04:31,524 --> 00:04:35,127
-by writing LevelScript in parenthesis next to it.
+これはカッコで囲んだ LevelScript を隣に書いて表現します
 
 95
 00:04:37,769 --> 00:04:40,493
-We want our inspector to show two pieces of information.
+さてここでインスペクターに表示したい情報は
 
 96
 00:04:41,064 --> 00:04:43,064
-The amount of experience the character has,
+キャラクターの獲得した経験値合計と
 
 97
 00:04:43,412 --> 00:04:45,412
-and the current level of the character.
+現在のレベルの 2 つです
 
 98
 00:04:46,507 --> 00:04:49,038
-We can create an integer field in the inspector
+インスペクターに int フィールドを作るときは
 
 99
 00:04:49,038 --> 00:04:51,746
-using the EditorGUILayout class.
+EditorGUILayout クラスを使います
 
 100
 00:04:52,859 --> 00:04:55,544
-The syntax for this starts with the classname
+構文は  最初にクラス名
 
 101
 00:04:55,544 --> 00:04:58,266
-EditorGUILayout, followed by a period
+EditorGUILayout 続けて.（ピリオド）
 
 102
 00:04:58,796 --> 00:05:00,796
-and then the method IntField
+そしてメソッド IntField
 
 103
 00:05:01,378 --> 00:05:03,378
-followed by parenthesis.
+最後にカッコ
 
 104
 00:05:05,594 --> 00:05:09,103
-Inside the parenthesis we specify the name of the field
+カッコの中にはフィールド名と
 
 105
 00:05:09,103 --> 00:05:10,634
-and the value of the field.
+フィールドの値を指定します
 
 106
 00:05:11,103 --> 00:05:14,736
-In this case we want the field to be named Experience
+今回はフィールド名に Experience（経験値）
 
 107
 00:05:14,736 --> 00:05:17,924
-and the value to be the value of the experience variable
+値に myLevelScript の experience 変数の値を
 
 108
 00:05:17,924 --> 00:05:19,924
-of our myLevelScript.
+指定します
 
 109
 00:05:22,470 --> 00:05:24,470
-Since we want this field to be able to write back
+このフィールドに experience 変数への書き込みも
 
 110
 00:05:24,470 --> 00:05:27,734
-to our Experience variable we set the entire line
+させたいので  行全体を myLevelScript.experience と
 
 111
 00:05:27,734 --> 00:05:30,688
-equal to myLevelScript.experience.
+イコールでつなぎます
 
 112
 00:05:32,930 --> 00:05:35,545
-We follow a similar process for the Level field.
+Level フィールドもだいたい同じように処理していきます
 
 113
 00:05:36,405 --> 00:05:38,405
-This time however we will be using
+ただし今回は
 
 114
 00:05:38,405 --> 00:05:42,484
-the LabelField method of the EditorGUILayout class.
+EditorGUILayout クラスの LabelField メソッドを使います
 
 115
 00:05:43,689 --> 00:05:45,951
-A label is a read-only control
+ラベルは読み取り専用なので
 
 116
 00:05:45,951 --> 00:05:47,951
-so we do not have to worry about the user
+ユーザーがインスペクター上でレベルを
 
 117
 00:05:47,951 --> 00:05:50,371
-attempting to manually adjust the level in the inspector. 
+手動入力してしまうことは起きません 
 
 118
 00:05:52,326 --> 00:05:55,058
-Inside the parenthesis of the LabelField method
+LabelField メソッドのカッコ内には
 
 119
 00:05:55,623 --> 00:05:57,623
-we parse in the name Level
+Level という名前と
 
 120
 00:05:57,623 --> 00:06:00,532
-and the value myLevelScript.Level.
+値 myLevelScript.Level を指定します
 
 121
 00:06:02,748 --> 00:06:06,027
-Since a label control requires a string as a value
+ただしラベルのコントロールは文字列である必要があるので
 
 122
 00:06:06,027 --> 00:06:08,027
-we will call the ToString method
+ここで Level プロパティに対して
 
 123
 00:06:08,027 --> 00:06:10,027
-of the Level property to turn it
+ToString メソッドを使い
 
 124
 00:06:10,027 --> 00:06:11,320
-in to a string.
+文字列に変換します
 
 125
 00:06:13,009 --> 00:06:15,762
-At this point our custom inspector is complete.
+これでカスタムインスペクターは完成です
 
 126
 00:06:16,735 --> 00:06:19,554
-We can go back in to Unity to see the result.
+さっそく Unity に戻って確認してみましょう
 
 127
 00:06:22,500 --> 00:06:24,500
-In the inspector we can see that
+ご覧のとおり インスペクターには
 
 128
 00:06:24,500 --> 00:06:28,923
-when our experience is 49865
+経験値が 49865 のとき
 
 129
 00:06:28,923 --> 00:06:30,923
-our level is 66.
+レベルは 66 と表示されました
 
 130
 00:06:32,296 --> 00:06:34,296
-Furthermore we can see that as
+そして  この経験値のフィールドで
 
 131
 00:06:34,296 --> 00:06:36,296
-we adjust the experience value
+値を変更していくと
 
 132
 00:06:36,296 --> 00:06:38,729
-the inspector automatically tells us the level.
+自動的にレベルの値も変更されていきます
 
 133
 00:06:42,154 --> 00:06:44,154
-By customising the editor for our scripts
+このようにスクリプト向けにエディターを
 
 134
 00:06:44,675 --> 00:06:47,268
-we can simplify and automate
+カスタマイズすると 手動では面倒くさい
 
 135
 00:06:47,268 --> 00:06:49,784
-many of our otherwise cumbersome tasks.
+さまざまな事柄が自動化できるわけです
