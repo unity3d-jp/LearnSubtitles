@@ -276,11 +276,11 @@ we create the method public override void
 
 70
 00:03:21,870 --> 00:03:23,870
-This is the method that is called every time the
+OnInspectorGUI
 
 71
 00:03:19,446 --> 00:03:21,446
-OnInspectorGUI
+This is the method that is called every time the
 
 72
 00:03:23,862 --> 00:03:25,862
