@@ -1,439 +1,439 @@
-1
+﻿1
 00:00:00,580 --> 00:00:02,320
-Delegates allow you to create robust
+デリゲートを使うとスクリプトに複雑かつ堅牢な
 
 2
 00:00:02,320 --> 00:00:04,667
-and complex behaviours in your scripts.
+挙動をさせることができます
 
 3
 00:00:05,442 --> 00:00:07,442
-A delegate can be thought of simply as a container
+単純に言い換えると  デリゲートとは関数のコンテナで
 
 4
 00:00:07,442 --> 00:00:09,931
-for a function that can be parsed around
+変数のようにパースさせられる / 扱えるというふうにも
 
 5
 00:00:09,931 --> 00:00:11,931
-or used like a variable.
+言えます
 
 6
 00:00:11,931 --> 00:00:13,931
-Just like variables, delegates can
+デリゲートにも 変数と同様に
 
 7
 00:00:13,931 --> 00:00:15,321
-values assigned to them
+値を割り当てられるほか
 
 8
 00:00:15,321 --> 00:00:17,321
-and these values can be changed at run-time.
+実行時に値を変更することも可能です
 
 9
 00:00:18,083 --> 00:00:20,083
-The difference is that while variables contain
+大きな違いは 変数がデータを格納するのに対し
 
 10
 00:00:20,083 --> 00:00:22,985
-data delegates contain functions.
+デリゲートは関数を格納する点です
 
 11
 00:00:23,720 --> 00:00:25,720
-Here we have a scene with a game object in it.
+さて ここにゲームオブジェクトがひとつ配置されたシーンがあります
 
 12
 00:00:26,289 --> 00:00:28,955
-The game object has a delegate script attached to it.
+このゲームオブジェクトには delegate スクリプトがアタッチされています
 
 13
 00:00:29,455 --> 00:00:31,455
-We will be monitoring the output of the scene
+ではシーンの出力をコンソールビューで
 
 14
 00:00:31,455 --> 00:00:33,455
-in the console view.
+モニターしてみましょう
 
 15
 00:00:34,300 --> 00:00:36,300
-In the delegate script the first thing we do
+delegate スクリプトではまず delegate テンプレートを
 
 16
 00:00:36,300 --> 00:00:38,174
-is to declare our delegate template.
+宣言するところから始めます
 
 17
 00:00:38,674 --> 00:00:40,674
-This template will dictate exactly what types of
+ここで宣言するテンプレートが割り当てられる
 
 18
 00:00:40,674 --> 00:00:42,674
-methods we can assign to our delegate.
+メソットの種類を決定します
 
 19
 00:00:43,906 --> 00:00:46,804
-We create a delegate with the Delegate keyword.
+デリゲートはまず Delegate キーワードで作成します
 
 20
 00:00:47,304 --> 00:00:49,304
-What follows the delegate keyword is the
+そのキーワードに続くのが
 
 21
 00:00:49,304 --> 00:00:52,305
-delegate's signature. Just like a function
+デリゲートの署名です関数と同様に
 
 22
 00:00:52,305 --> 00:00:54,680
-our delegate has a return type, a name
+デリゲートにも  戻り値の型  名前
 
 23
 00:00:54,680 --> 00:00:56,485
-and a parameter list.
+そしてパラメーターのリストがあります
 
 24
 00:00:56,485 --> 00:00:58,485
-In this example we can see that in
+この例では
 
 25
 00:00:58,485 --> 00:01:01,217
-order for a method to be assigned to this delegate
+デリゲートにメソッドを割り当てるには戻り値の型を void とし
 
 26
 00:01:01,217 --> 00:01:03,217
-it must have a return type of void and
+パラメーターは int 型のものひとつと
 
 27
 00:01:03,217 --> 00:01:05,673
-take a single integer parameter.
+しなければなりません
 
 28
 00:01:07,167 --> 00:01:09,167
-After we create our delegate type we then
+デリゲートの型を作り終わったら
 
 29
 00:01:09,167 --> 00:01:10,999
-declare a member variable.
+続いてメンバー変数を宣言します
 
 30
 00:01:10,999 --> 00:01:12,999
-This member variable has the type of
+このメンバー変数は  先ほど作成したデリゲートの
 
 31
 00:01:12,999 --> 00:01:14,999
-the delegate we just created.
+型を持ちます
 
 32
 00:01:16,176 --> 00:01:18,888
-At the bottom of our script we have two methods,
+スクリプトの最後にはさらに 2 つのメソッドがあります
 
 33
 00:01:18,888 --> 00:01:20,888
-PrintNum and DoubleNum.
+PrintNum と DoubleNum です
 
 34
 00:01:21,816 --> 00:01:23,816
-We can see that each of these methods has a return
+両方のメソッドとも  戻り値の型が
 
 35
 00:01:23,816 --> 00:01:26,490
-type of void and takes a single integer parameter
+デリゲートと同様 void でパラメーターは
 
 36
 00:01:26,490 --> 00:01:28,338
-just like our delegate.
+int 型ひとつですね
 
 37
 00:01:28,338 --> 00:01:30,656
-Additionally, each of these methods does something
+しかしこの 2 つのメソッドはパースされた
 
 38
 00:01:30,656 --> 00:01:33,273
-slightly different with the integer data parsed in.
+int データに対して若干異なる処理を行います
 
 39
 00:01:35,059 --> 00:01:36,200
-Now it's time for us to see
+それではデリゲートがどのように
 
 40
 00:01:36,200 --> 00:01:38,035
-exactly what delegates do.
+動作するか実際に見てみることにしましょう
 
 41
 00:01:38,535 --> 00:01:40,535
-In the Start method you can see that we
+Start メソッドではまず
 
 42
 00:01:40,535 --> 00:01:42,884
-assign the name of our PrintNum method
+PrintNum メソッドの名前が
 
 43
 00:01:42,884 --> 00:01:44,884
-to the myDelegate variable.
+myDelegate 変数に代入しました
 
 44
 00:01:45,481 --> 00:01:47,481
-We then use the myDelegate variable
+そして myDelegate 変数を
 
 45
 00:01:47,481 --> 00:01:49,857
-as if it was a function, and we parse in
+関数のように扱い
 
 46
 00:01:49,857 --> 00:01:51,857
-the value of 50.
+値 50 をパースさせます
 
 47
 00:01:52,923 --> 00:01:55,287
-We then assign the name of the DoubleNum method
+続けて DoubleNum メソッドの名前を
 
 48
 00:01:55,287 --> 00:01:57,287
-to the myDelegate variable.
+myDelegate 変数に代入します
 
 49
 00:01:57,828 --> 00:02:00,242
-Again we call it just like a function.
+そして再び関数のように呼び出します
 
 50
 00:02:00,977 --> 00:02:02,977
-Let's take a look at this code in action.
+ではこれを実行するとどうなるか 見てみましょう
 
 51
 00:02:04,389 --> 00:02:06,692
-Back in Unity we can run our scene
+ここで Unity に戻ってシーンを実行し
 
 52
 00:02:06,692 --> 00:02:08,307
-and look at the console view.
+コンソールビューを見てみましょう
 
 53
 00:02:08,807 --> 00:02:10,807
-We can see that we are able to call 2
+同じデリゲート変数を使って 2 つの
 
 54
 00:02:10,807 --> 00:02:12,807
-different methods using the same
+異なるメソッドが呼び出せたことが
 
 55
 00:02:12,807 --> 00:02:14,346
-delegate variable.
+確認できますね
 
 56
 00:02:15,426 --> 00:02:17,786
-This gives us a lot of power to dynamically 
+これを活用するとゲーム内で呼び出す関数の 
 
 57
 00:02:17,786 --> 00:02:20,190
-control which functions get called in our game.
+動的な制御がとてもやりやすくなります
 
 58
 00:02:22,154 --> 00:02:25,048
-Delegates also have the ability to be multicast.
+またデリゲートはマルチキャストも可能です
 
 59
 00:02:25,548 --> 00:02:27,864
-Multicasting allows a single delegate variable
+マルチキャストすると単一のデリゲート変数で
 
 60
 00:02:27,864 --> 00:02:30,513
-to represent multiple methods at the same time.
+同時に複数のメソッドを示せるようになります
 
 61
 00:02:31,207 --> 00:02:33,207
-Here we have a scene with an orb in it.
+ここにオーブが 1 つ配置されたシーンがあります
 
 62
 00:02:33,707 --> 00:02:36,632
-The orb has a script called MutlicastScript
+オーブには MutlicastScript というスクリプトが
 
 63
 00:02:36,632 --> 00:02:38,076
-attached to it.
+アタッチされています
 
 64
 00:02:39,035 --> 00:02:41,581
-In our MulticastScript we can see that we have
+MulticastScript 内には
 
 65
 00:02:41,581 --> 00:02:43,965
-created a delegate template.
+delegate テンプレートが作成済みです
 
 66
 00:02:43,965 --> 00:02:45,965
-This template defines a delegate named
+このテンプレートで定義されるデリゲートは
 
 67
 00:02:45,965 --> 00:02:48,646
-MultiDelegate which takes no parameters
+名前が MultiDelegate でパラメーターは取らず
 
 68
 00:02:48,646 --> 00:02:50,646
-and has a return type of void.
+戻り値の型は void です
 
 69
 00:02:51,657 --> 00:02:53,657
-Next we create a member variable
+続いて MyMultiDelegate という名前の
 
 70
 00:02:53,657 --> 00:02:55,657
-named MyMultiDelegate
+メンバー変数を作成します
 
 71
 00:02:55,657 --> 00:02:57,768
-that is of the type of the delegate template
+このメンバー変数の型は作成したデリゲートテンプレートの
 
 72
 00:02:57,768 --> 00:02:59,768
-we just created.
+ものになります
 
 73
 00:03:00,696 --> 00:03:02,696
-At the bottom of our script we have 2
+そしてスクリプト下部には 2 つの
 
 74
 00:03:02,696 --> 00:03:05,585
-methods named PowerUp and TurnRed.
+メソッド PowerUp と TurnRed があります
 
 75
 00:03:06,085 --> 00:03:08,085
-Both of these methods take no parameters
+両メソッドともパラメーターは取らず
 
 76
 00:03:08,085 --> 00:03:09,905
-and have a return type of void,
+戻り値の型は void です
 
 77
 00:03:09,905 --> 00:03:11,905
-just like our delegate type.
+デリゲートの型と同じですね
 
 78
 00:03:12,695 --> 00:03:14,475
-The PowerUp method prints
+PowerUp メソッドは画面に
 
 79
 00:03:14,475 --> 00:03:16,889
-'Orb is powering up' to the screen.
+「Orb is powering up」（オーブがパワーアップ中）と出力します
 
 80
 00:03:17,237 --> 00:03:19,237
-The TurnRed method changes the colour
+TurnRed メソッドはオブジェクトの色を
 
 81
 00:03:19,237 --> 00:03:21,237
-of the object to red.
+赤色に変更します
 
 82
 00:03:22,911 --> 00:03:25,077
-In the start method we will multicast
+ここで Start メソッドでデリゲート変数を
 
 83
 00:03:25,077 --> 00:03:27,077
-our delegate variable.
+マルチキャストします
 
 84
 00:03:27,077 --> 00:03:29,751
-We do this by assigning both the PowerUp method
+このとき PowerUp メソッドと TurnRed メソッドは
 
 85
 00:03:29,751 --> 00:03:32,100
-and the TurnRed method to the same
+同じデリゲート変数に対して
 
 86
 00:03:32,100 --> 00:03:36,086
-delegate variable using the += operator.
++= 演算子を使って代入します
 
 87
 00:03:37,801 --> 00:03:41,072
-In this way the variable myMultiDelegate
+こうすることで変数 myMultiDelegate は
 
 88
 00:03:41,072 --> 00:03:44,776
-contains both the PowerUp and TurnRed method.
+PowerUp メソッドと TurnRed メソッドの両方を含みます
 
 89
 00:03:46,036 --> 00:03:48,353
-We then call the variable myMultiDelegate
+続いて変数 myMultiDelegate を
 
 90
 00:03:48,353 --> 00:03:50,035
-as if it were a function.
+関数のように呼び出します
 
 91
 00:03:50,963 --> 00:03:53,747
-If we go back in to Unity and run our scene
+これで一旦 Unity に戻りシーンを実行してみると
 
 92
 00:03:53,747 --> 00:03:56,440
-we can see the multicasting our delegate variable
+デリゲート変数のマルチキャストが行われ
 
 93
 00:03:56,440 --> 00:03:58,440
-allowed it to call both the PowerUp
+PowerUp と TurnRed の両メソッドが
 
 94
 00:03:58,440 --> 00:04:01,276
-and the TurnRed methods with a single call.
+1 回の呼び出しで行われているのを確認できます
 
 95
 00:04:01,807 --> 00:04:03,807
-In this manner we were able to
+複数の機能をまとめて
 
 96
 00:04:03,807 --> 00:04:05,807
-stack functionality.
+積み重ねられたわけです
 
 97
 00:04:06,763 --> 00:04:09,617
-If we want to remove a method from a delegate variable
+デリゲート変数からメソッドを取り除きたい場合は
 
 98
 00:04:09,617 --> 00:04:12,175
-we can do so using the -= operator
+-= 演算子と
 
 99
 00:04:12,175 --> 00:04:14,175
-in conjunction with the method's name.
+メソッド名を記します
 
 100
 00:04:15,904 --> 00:04:17,821
-One thing we must be careful of is
+なお  何も代入していない状態で
 
 101
 00:04:17,821 --> 00:04:20,333
-attempting to call a delegate variable like a function
+デリゲート変数を関数のように
 
 102
 00:04:20,333 --> 00:04:22,333
-before we have assigned anything to it.
+呼び出さないようにしましょう
 
 103
 00:04:22,833 --> 00:04:24,639
-Doing so will cause an error
+呼び出そうとしてしまうと
 
 104
 00:04:24,639 --> 00:04:26,639
-and we like to avoid those.
+エラーが発生してしまいます
 
 105
 00:04:27,457 --> 00:04:29,457
-Any delegate variable that doesn't currently
+メソッドがひとつも代入されていない状態の
 
 106
 00:04:29,457 --> 00:04:31,457
-have a method assigned to it will have
+デリゲート変数は戻り値として
 
 107
 00:04:31,457 --> 00:04:33,347
-a value of null.
+null を返します
 
 108
 00:04:33,347 --> 00:04:35,990
-Therefore it is a good idea to always
+ですのでデリゲートを使うときは
 
 109
 00:04:35,990 --> 00:04:38,363
-check to make sure delegate does not equal null
+まず null とイコールでないことを確認してからに
 
 110
 00:04:38,363 --> 00:04:40,363
-before using it.
+するとよいでしょう
