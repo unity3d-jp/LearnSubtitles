@@ -1,435 +1,435 @@
-1
+﻿1
 00:00:00,345 --> 00:00:02,268
-Generics are a feature where by classes
+Generics とはクラスやメソッドなどが
 
 2
 00:00:02,268 --> 00:00:04,268
-and methods, amongst other things, can be
+型をパラメーターとして扱える
 
 3
 00:00:04,268 --> 00:00:06,046
-parsed a type as a parameter.
+ようにする機能です
 
 4
 00:00:06,046 --> 00:00:08,409
-This in effect allows you to programme generically
+これを使うと 扱っているデータの型が
 
 5
 00:00:08,409 --> 00:00:09,910
-without knowing the exact type of the
+具体的に何かは分からなくても
 
 6
 00:00:09,910 --> 00:00:11,645
-data you will be working with.
+プログラミングを進められるわけです
 
 7
 00:00:11,645 --> 00:00:13,645
-We have seen before that the GetComponment method
+以前にも GetComponment メソッドで
 
 8
 00:00:13,645 --> 00:00:15,645
-uses a generic parameter to get the type
+generic パラメーターを使って目当ての
 
 9
 00:00:15,645 --> 00:00:17,867
-of the component that it is looking for.
+コンポーネントの型を取得しましたね
 
 10
 00:00:17,867 --> 00:00:20,624
-GetComponent is what is known as a generic method.
+GetComponent は generic メソッドとして知られています
 
 11
 00:00:20,986 --> 00:00:22,986
-Let's take a look at creating one.
+今回は ひとつ作ってみましょう
 
 12
 00:00:22,986 --> 00:00:25,329
-Here we have an example of a simple generic method.
+ここにひとつシンプルな generic メソッドがあります
 
 13
 00:00:25,329 --> 00:00:27,980
-The first thing to look at is it's generic parameter.
+最初に目を引くのが generic パラメーターでしょう
 
 14
 00:00:27,980 --> 00:00:31,050
-This is named T and is enclosed in angled brackets
+T と名付けられたこれは山カッコで閉じられて
 
 15
 00:00:33,447 --> 00:00:35,212
-or formal parameters.
+メソッド名と通常の・正式なパラメーター名の間に
 
 16
 00:00:31,060 --> 00:00:33,447
-after the method's name and before the normal
+置かれています
 
 17
 00:00:35,212 --> 00:00:37,448
-Since this T could represent any type
+この T はあらゆる型を表せ
 
 18
 00:00:37,448 --> 00:00:40,328
-it's name is arbitrary, but most use the letter
+名前も任意指定できますが
 
 19
 00:00:40,328 --> 00:00:42,328
-T by convention.
+T を使うのが通則となっています
 
 20
 00:00:42,328 --> 00:00:44,328
-Similarly if you wish to have multiple generic
+また複数の generic パラメーターを作りたい場合は
 
 21
 00:00:44,328 --> 00:00:47,550
-parameters you can use a comma to add more.
+カンマで区切って追加できます
 
 22
 00:00:47,550 --> 00:00:49,550
-The naming convention usually follows that
+この際の命名規則は通常 T に始まり
 
 23
 00:00:49,550 --> 00:00:52,974
-parameters after T are U and then V.
+続けて U そして V と続きます
 
 24
 00:00:53,308 --> 00:00:55,308
-Though generic functions are not limited to only
+generic 関数のパラメーター数は 3 個までに
 
 25
 00:00:55,308 --> 00:00:57,308
-three parameters it is quite uncommon to see one
+制限されているわけではありませんが それ以上が必要になるケースは
 
 26
 00:00:57,308 --> 00:00:58,563
-with more than three.
+まれといえるでしょう
 
 27
 00:00:58,563 --> 00:01:00,563
-We now know that the generic type associated with
+さて これでこのメソッドに関連付けられた generic 型は
 
 28
 00:01:00,563 --> 00:01:02,160
-this method is T.
+T だとわかりましたが
 
 29
 00:01:02,160 --> 00:01:04,160
-T is only a placeholder though, and will end up
+T は単なるプレースホルダーに過ぎません
 
 30
 00:01:04,160 --> 00:01:06,976
-being an actual type when the method is called.
+実際の型はメソッドが呼び出された時に確定します
 
 31
 00:01:06,976 --> 00:01:08,976
-What ever type T ends up being will also
+T の型が何になっても
 
 32
 00:01:08,976 --> 00:01:10,976
-be the return type and the argument type
+メソッドは T を型として使っているので
 
 33
 00:01:10,976 --> 00:01:12,976
-for the method since both of those use
+その戻り値の型と引数の型は
 
 34
 00:01:12,976 --> 00:01:14,726
-T as their type.
+T と同じになります
 
 35
 00:01:15,226 --> 00:01:16,648
-Even though we have a method that works
+さて今見ているのは generic 型を使うメソッドなわけですが
 
 36
 00:01:16,648 --> 00:01:19,680
-with a generic type it's currently not very useful.
+このままではあまり役に立ちません
 
 37
 00:01:19,680 --> 00:01:21,946
-So what can we do with a generic type?
+generic 型はどのように活用すればいいのでしょう?
 
 38
 00:01:21,946 --> 00:01:23,946
-Well since we don't know how this generic type will
+現在私達はこの generic 型がどう作用するのか知らないので
 
 39
 00:01:23,946 --> 00:01:25,946
-act we can't do much with it.
+それを活用することもできません
 
 40
 00:01:26,446 --> 00:01:28,446
-This generic parameter could be anything from a
+generic パラメーターは何にでも たとえば
 
 41
 00:01:28,446 --> 00:01:31,105
-float to a monobehaviour and more.
+float 型でも monobehaviour 型でも何にでもなれます
 
 42
 00:01:31,105 --> 00:01:33,105
-Since we don't know what it is there aren't many
+しかし中身が何か分からないままでは
 
 43
 00:01:33,105 --> 00:01:35,105
-operations we can perform on it.
+それに対して何が行なえるかも分かりません
 
 44
 00:01:35,105 --> 00:01:37,105
-We cannot, for example, multiply our
+たとえば monobehaviour に 2 を掛けるとか
 
 45
 00:01:37,105 --> 00:01:39,451
-monobehaviour by two and we can't access
+float のゲームオブジェクトフィールドに
 
 46
 00:01:39,451 --> 00:01:41,785
-the game object field of a float.
+アクセスするとかいったことはできないわけです
 
 47
 00:01:41,785 --> 00:01:43,785
-Right now it's just treated as though it 
+現時点ではクラスオブジェクトであるかのように 
 
 48
 00:01:43,785 --> 00:01:45,785
-were the class object, which is the base class
+扱われています これはすべての C# クラスが
 
 49
 00:01:45,785 --> 00:01:48,475
-that all C# classes implicitly inherit from.
+黙示的に継承している基本クラスです
 
 50
 00:01:48,975 --> 00:01:51,448
-So how do we perform more operations?
+より多くのことをするには ここからどうしたら?
 
 51
 00:01:51,448 --> 00:01:53,629
-In order to know some of the features of the type
+型を使って何ができるのかを把握するには
 
 52
 00:01:53,629 --> 00:01:55,629
-we have to limit what types it can be by
+まず使われる型に制約を適用する必要があります
 
 53
 00:01:55,629 --> 00:01:58,085
-placing a constraint on the generic parameter.
+これは generic パラメーターに制約を加える事で行います
 
 54
 00:01:58,585 --> 00:02:01,249
-To add constraints to our function we type
+関数に制約を追加するにはまず
 
 55
 00:02:01,249 --> 00:02:03,249
-where after the parameters
+パラメーターの後ろに where と入力します
 
 56
 00:02:03,249 --> 00:02:04,902
-but before the function body.
+関数本文よりも前である点に注意してください
 
 57
 00:02:04,902 --> 00:02:06,902
-This is followed by the generic type we are going
+そして where の後ろに制約する generic 型を入力します
 
 58
 00:02:06,902 --> 00:02:10,326
-to constrain, in our case T and then a colon.
+この場合だと T ですね  続けてコロンを入力し
 
 59
 00:02:10,825 --> 00:02:12,825
-After the colon we have the specific
+コロンの後に制約をカンマで
 
 60
 00:02:12,825 --> 00:02:15,005
-constraints separated by commas.
+区切って入力します
 
 61
 00:02:15,005 --> 00:02:18,113
-The constraints generally fall in to four categories.
+制約は通常 4 つのカテゴリーに分類されます
 
 62
 00:02:18,113 --> 00:02:20,113
-You can use either the keyword 'class' to
+まずキーワード class を使うと
 
 63
 00:02:20,113 --> 00:02:22,280
-make sure T is a reference type
+T が確実に参照型になります
 
 64
 00:02:22,280 --> 00:02:25,240
-or the keyword 'struct' to make sure it's a value type.
+次にキーワード struct を使うと T は値型に
 
 65
 00:02:25,240 --> 00:02:27,106
-You can use the keyword 'new' followed by
+キーワード new とそれに続けて
 
 66
 00:02:27,106 --> 00:02:29,106
-a pair of parenthesis to ensure that it has
+対カッコを入力した場合には T が
 
 67
 00:02:29,106 --> 00:02:31,106
-a public constructor with no parameters
+パラメーターなしの public なコンストラクターになります
 
 68
 00:02:31,647 --> 00:02:33,647
-You can use a class name to say that T
+この他 クラス名を入力して T がそのクラスであると
 
 69
 00:02:33,647 --> 00:02:36,696
-is that class or via polymorphism
+指定することもできますし または polymorphism を使い
 
 70
 00:02:36,696 --> 00:02:38,904
-any class that derives from it.
+派生クラスのいずれかにすることも可能です
 
 71
 00:02:38,904 --> 00:02:41,139
-The last category of constraints is interfaces.
+制約の最後のカテゴリーは インターフェイスです
 
 72
 00:02:41,139 --> 00:02:43,139
-You can use an interface name to say that T
+インターフェイス名を指定することで T が
 
 73
 00:02:43,139 --> 00:02:45,360
-has implemented that interface.
+そのインターフェイスを実装します
 
 74
 00:02:45,360 --> 00:02:47,360
-In order to use a generic method you must
+generic メソッドを使うにはまず
 
 75
 00:02:47,360 --> 00:02:50,209
-specify what type you want it to use.
+使用する型を指定する必要があります
 
 76
 00:02:50,209 --> 00:02:52,209
-Let's say you wanted to use the generic method
+たとえば今作った generic メソッドを
 
 77
 00:02:52,209 --> 00:02:53,545
-you just created.
+使うとしましょう
 
 78
 00:02:53,545 --> 00:02:55,545
-In another class you would write the name of the method
+別のクラスでこのメソッド名を書いて
 
 79
 00:02:55,545 --> 00:02:58,199
-followed by the angle brackets and the type you want.
+続けて山カッコと使いたい型の名前を記入したとします
 
 80
 00:02:58,199 --> 00:02:59,895
-You would then follow that with a parenthesis
+そして続けてカッコを入力し
 
 81
 00:02:59,895 --> 00:03:01,447
-and any arguments.
+引数を入力したとしましょう
 
 82
 00:03:01,447 --> 00:03:03,447
-All of the features that we've discussed apply to
+これまでにお話してきた機能のすべては
 
 83
 00:03:03,447 --> 00:03:06,650
-generic classes and interfaces as well as methods.
+generic クラスとインターフェイス そしてメソッドに適用されます
 
 84
 00:03:06,650 --> 00:03:08,650
-By giving a class generic types you
+クラスに generic 型を与えたことで
 
 85
 00:03:08,650 --> 00:03:10,650
-can effect the types of fields, properties
+そこに含まれるフィールド・プロパティ・メソッドの型が
 
 86
 00:03:10,650 --> 00:03:12,539
-and methods within it.
+影響を受けることになります
 
 87
 00:03:12,539 --> 00:03:14,539
-Making generic classes is one of the more common
+generic クラスを作成するのは generic の使い方として
 
 88
 00:03:14,539 --> 00:03:16,539
-uses of generics and makes it very easy
+非常に一般的なものです これはデータ構造を
 
 89
 00:03:16,539 --> 00:03:18,358
-to implement data structures.
+実装する上で非常に役に立ちます
 
 90
 00:03:18,358 --> 00:03:20,722
-Let's take a look at a generic class now.
+では generic クラスを見てみましょう
 
 91
 00:03:21,636 --> 00:03:23,636
-This class uses a generic type of T.
+このクラスは generic 型 T を用います
 
 92
 00:03:24,012 --> 00:03:26,012
-This means that every instance of the type T
+つまりクラス内で型 T が型として使われる
 
 93
 00:03:26,012 --> 00:03:28,012
-used as a type in the class will
+すべてのインスタンスは使用されるときに
 
 94
 00:03:28,012 --> 00:03:30,583
-be replaced by an actual type when it is used.
+実際の型で置き換えられます
 
 95
 00:03:30,973 --> 00:03:32,973
-This class has a single member variable
+このクラスには item という名の型 T の
 
 96
 00:03:32,973 --> 00:03:35,609
-named 'item' that is of type T.
+メンバー変数がひとつあります
 
 97
 00:03:36,081 --> 00:03:38,568
-The class also has a method called UpdateItem
+またクラスには UpdateItem という名のメソッドもあり
 
 98
 00:03:38,568 --> 00:03:40,485
-that takes in a single argument of type T
+このメソッドは型 T の引数を 1 つ取り
 
 99
 00:03:40,485 --> 00:03:42,485
-and assigns it to the member item.
+それをメンバーアイテムに割り当てます
 
 100
 00:03:43,040 --> 00:03:45,040
-In order to instantiate an object of this class
+このクラスのオブジェクトをインスタンス化するには
 
 101
 00:03:45,040 --> 00:03:47,744
-you must specify a type for T.
+T に型を指定する必要があります
 
 102
 00:03:47,744 --> 00:03:49,744
-You do this by typing the name of the class
+これはクラス名を入力し 続けて
 
 103
 00:03:49,744 --> 00:03:52,477
-followed by angled brackets and the type you want.
+続けて山カッコと使いたい型の名前を記入すれば OK です
 
 104
 00:03:52,904 --> 00:03:54,904
-You must also do this after typing the name of
+なおこれはコンストラクターの名前と
 
 105
 00:03:54,904 --> 00:03:57,888
-the constructor and before the constructor's parameter list.
+コンストラクターのパラメーターリストの間にも入力する必要があります
 
 106
 00:03:58,388 --> 00:04:00,388
-One of the most common uses of generics is for
+generic の一般的な用途のひとつは
 
 107
 00:04:00,388 --> 00:04:02,877
-collections like dictionaries and lists.
+辞書やリストのようなコレクションです
 
 108
 00:04:02,877 --> 00:04:04,877
-For more information on dictionaries and lists
+辞書やリストの詳細については
 
 109
 00:04:04,877 --> 00:04:06,877
-see the lesson linked below.
+下記リンク先にあるレッスンをご覧ください
