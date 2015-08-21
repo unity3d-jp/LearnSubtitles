@@ -1,543 +1,543 @@
-1
+﻿1
 00:00:00,290 --> 00:00:02,058
-The scripting languages that Unity supports
+Unity のサポートするスクリプト言語には
 
 2
 00:00:02,058 --> 00:00:03,752
-have a feature called inheritance.
+継承という機能を備えています
 
 3
 00:00:04,252 --> 00:00:06,252
-Inheritance is one of the cornerstones of object
+この継承はオブジェクト指向プログラミング
 
 4
 00:00:06,252 --> 00:00:09,339
-orientated programming, or OOP for short.
+略してOOP の要の一つとも言える要素です
 
 5
 00:00:10,060 --> 00:00:11,630
-One a class inherits from another
+クラスが他のクラスから継承をすると
 
 6
 00:00:11,630 --> 00:00:14,371
-it gains the features of the class it inherits from.
+継承元クラスの持つすべての機能が使えるようになります
 
 7
 00:00:15,037 --> 00:00:17,437
-When talking about inheritance, the class that being
+継承について話すとき 通常は継承元のクラスのことを
 
 8
 00:00:17,437 --> 00:00:20,258
-inherited from is called the Parent, or base class.
+親 または 基底クラスと呼びます
 
 9
 00:00:20,910 --> 00:00:22,910
-The class that is inheriting is called the Child,
+継承したクラスのことは子 または
 
 10
 00:00:22,910 --> 00:00:24,910
-or derived class.
+派生クラスと呼びます
 
 11
 00:00:25,769 --> 00:00:28,393
-The result of inheritance is that items that exist
+継承をすると 親クラスに存在する
 
 12
 00:00:28,393 --> 00:00:30,393
-in the parent class will also be available
+すべてのアイテムが子クラスでも
 
 13
 00:00:30,393 --> 00:00:32,228
-in the child class.
+使用できるようになります
 
 14
 00:00:32,228 --> 00:00:35,055
-Therefore, methods and variables can be used in the
+このため子クラスでも親クラスの場合と同じように
 
 15
 00:00:35,055 --> 00:00:38,376
-child class as if it was the parent class.
+メソッドや変数を扱うことができます
 
 16
 00:00:38,376 --> 00:00:40,376
-For example, assume you have a parent class
+たとえば親クラスに ClassA というクラスがあり
 
 17
 00:00:40,376 --> 00:00:43,197
-called ClassA, which contains two methods,
+その内部に Dance と Sing という 2 個の
 
 18
 00:00:43,197 --> 00:00:45,197
-Dance and Sing.
+メソッドがあるとします
 
 19
 00:00:46,154 --> 00:00:48,320
-If you have another class, ClassB,
+そして ClassB という
 
 20
 00:00:48,320 --> 00:00:50,320
-which inherits from ClassA,
+ClassA を継承したクラスがあるとします
 
 21
 00:00:50,320 --> 00:00:52,747
-then ClassB will also have the two methods
+するとこの ClassB にも 2 つのメソッド
 
 22
 00:00:52,747 --> 00:00:54,635
-Dance and Sing.
+Dance と Sing が存在します
 
 23
 00:00:54,635 --> 00:00:57,363
-These methods do not need to be created in ClassB
+ClassB 内で作成する必要はありません
 
 24
 00:00:57,363 --> 00:01:00,106
-because they already exist in ClassA.
+なぜなら ClassA に既に存在するからです
 
 25
 00:01:01,228 --> 00:01:03,558
-When dealing with inheritance there are three access
+継承を行なう際には次のアクセス修飾子に
 
 26
 00:01:03,558 --> 00:01:05,196
-modifiers to be aware of;
+注意する必要があります
 
 27
 00:01:05,196 --> 00:01:08,259
-Public, Private and Protected.
+public・private・protected の 3 つです
 
 28
 00:01:09,146 --> 00:01:11,146
-You should already be familiar with the concepts
+public と private アクセス修飾子はすでに馴染みがある
 
 29
 00:01:11,146 --> 00:01:14,182
-of the Public and Private access modifiers.
+のではないかと思います
 
 30
 00:01:14,682 --> 00:01:16,682
-Just be aware that the features of a parent class
+親クラスで public な機能はすべて
 
 31
 00:01:16,682 --> 00:01:19,140
-that are public will exist and be accessible
+子クラスでアクセス可能であると
 
 32
 00:01:19,140 --> 00:01:20,668
-in the child class.
+覚えておきましょう
 
 33
 00:01:20,668 --> 00:01:22,668
-While features that are private will exist
+一方で private な機能は存在するものの
 
 34
 00:01:22,668 --> 00:01:25,438
-but not be accessible in the child class.
+子クラスではアクセスできません
 
 35
 00:01:26,131 --> 00:01:28,131
-The protected access modifier acts as a
+そして protected アクセス修飾子は
 
 36
 00:01:28,131 --> 00:01:30,131
-hybrid between public and private.
+public と private の中間のような振る舞いをします
 
 37
 00:01:30,131 --> 00:01:32,131
-All features of a parent class that are protected
+protected に指定された親クラスのすべての機能は
 
 38
 00:01:32,131 --> 00:01:35,028
-will exist and be accessible in a child class,
+子クラスにも存在しアクセス可能です
 
 39
 00:01:35,028 --> 00:01:37,587
-like public features, but will not be accessible
+これは public と同じですが しかし親または子クラスの外側からは
 
 40
 00:01:37,587 --> 00:01:40,137
-outside of the parent or child classes,
+アクセスできません この点は
 
 41
 00:01:40,137 --> 00:01:41,871
-like private features.
+private と同じです
 
 42
 00:01:41,871 --> 00:01:43,871
-It is likely that most of the classes you have
+おそらくこれまでに Unity で使ってきたクラスはすべて
 
 43
 00:01:43,871 --> 00:01:46,826
-used so far in Unity have been inheriting,
+継承をしていたと思います
 
 44
 00:01:46,826 --> 00:01:48,826
-indeed, all scripts which are applied
+コンポーネントとしてゲームオブジェクトに適用される
 
 45
 00:01:48,826 --> 00:01:52,078
-as components to game objects are monobehaviours.
+すべてのスクリプトは MonoBehaviour だからです
 
 46
 00:01:52,078 --> 00:01:53,581
-This means they have inherited
+これは 全てが MonoBehaviour クラスから
 
 47
 00:01:53,581 --> 00:01:55,733
-from the monobehaviour class.
+継承しているということを意味します
 
 48
 00:01:55,733 --> 00:01:57,733
-By default scripts made in Unity
+デフォルトでは Unity で書かれるスクリプトは
 
 49
 00:01:57,733 --> 00:01:59,126
-follow this format;
+次の書式に沿っています
 
 50
 00:01:59,126 --> 00:02:02,610
-public class followed by the name of the class
+public class 続けてクラスの名前
 
 51
 00:02:02,610 --> 00:02:05,974
-followed by a colon and the classname monobehaviour.
+そしてコロン 最後にクラス名 MonoBehaviour
 
 52
 00:02:06,474 --> 00:02:08,969
-The colon in classname monobehaviour
+このコロンとクラス名 MonoBehaviour は
 
 53
 00:02:08,969 --> 00:02:12,534
-is telling the script that it inherits from monobehaviour.
+このスクリプトが MonoBehaviour を継承していることを意味します
 
 54
 00:02:12,534 --> 00:02:14,769
-To make this class inherit from another class
+このクラスを別のクラスから継承させるには
 
 55
 00:02:14,769 --> 00:02:16,769
-simply change the name monobehaviour
+ここに書かれた MonoBehaviour を
 
 56
 00:02:16,769 --> 00:02:18,769
-to some other class name.
+別のクラス名に書き換えるだけで OK です
 
 57
 00:02:18,769 --> 00:02:20,533
-To change the class so that it doesn't inherit
+クラスを一切継承させないようにして
 
 58
 00:02:20,533 --> 00:02:22,269
-from any parent class
+親クラスを持たせないようにするには
 
 59
 00:02:22,269 --> 00:02:25,328
-simply remove the colon and parent class name.
+コロンと親クラス名を削除します
 
 60
 00:02:25,328 --> 00:02:27,328
-You might be wondering why our scripts inherit
+ではなぜスクリプトは通常
 
 61
 00:02:27,328 --> 00:02:28,749
-from monobehaviour.
+MonoBehaviour を継承するのでしょう?
 
 62
 00:02:28,749 --> 00:02:32,971
-Items like GameObject, Transform, the Start method,
+GameObject・Transform・Start メソッド...
 
 63
 00:02:32,971 --> 00:02:35,276
-the Update method and more
+そして Update メソッドなどこれら
 
 64
 00:02:35,276 --> 00:02:37,276
-all come from monobehaviour.
+すべては MonoBehaviour のものなのです
 
 65
 00:02:37,276 --> 00:02:39,276
-Our scripts inherit from monobehaviour
+MonoBehaviour から継承しているので
 
 66
 00:02:39,276 --> 00:02:41,642
-so that we have access to these features.
+こういった機能にアクセスできるわけですね
 
 67
 00:02:41,642 --> 00:02:44,168
-The inheritance structure is hierarchal.
+継承は階層構造をしています
 
 68
 00:02:44,168 --> 00:02:45,779
-A common way to think of inheritance is
+継承の構造をわかりやすく捉えるため
 
 69
 00:02:45,779 --> 00:02:47,779
-to think of the animal kingdom.
+動物王国を例に挙げて説明してみましょう
 
 70
 00:02:47,779 --> 00:02:51,313
-In this example we'd have a parent class called Animal.
+まず親クラスとして Animal（動物）があります
 
 71
 00:02:51,313 --> 00:02:53,313
-This class would contain all of the definitions
+この中にはこのクラスが動物として
 
 72
 00:02:53,313 --> 00:02:54,882
-and properties necessary to make the
+振る舞う上で必要なすべての
 
 73
 00:02:54,882 --> 00:02:57,089
-class behave like an animal.
+定義とプロパティが揃っています
 
 74
 00:02:57,089 --> 00:02:59,463
-From this Animal base class we might have a
+そして Animal 基底クラスに 2 つの
 
 75
 00:02:59,463 --> 00:03:03,078
-couple of child classes, Vertebrate and Invertebrate.
+子クラスを作ってみます Vertebrate（脊椎動物）と Invertebrate（無脊椎動物）です
 
 76
 00:03:03,578 --> 00:03:05,578
-The Vertebrate class would then in turn be the
+そして Vertebrate（脊椎動物）クラスを親としてさらに
 
 77
 00:03:05,578 --> 00:03:07,578
-parent class for more classes, such as
+子クラスを作ってみましょう
 
 78
 00:03:07,578 --> 00:03:10,260
-Mammal, Reptile and Amphibian.
+ひとまず Mammal（哺乳類）・Reptile（爬虫類）・Amphibian（両生類）としますね
 
 79
 00:03:10,260 --> 00:03:12,260
-Each of these child classes would take the
+これら子クラスは基底クラスの情報を持ち
 
 80
 00:03:12,260 --> 00:03:15,153
-information given by it's base class and add to it.
+さらに追加情報も足されれていきます
 
 81
 00:03:15,696 --> 00:03:17,834
-Just like our animal example, inheritance
+この動物の例もそうですが
 
 82
 00:03:17,834 --> 00:03:19,834
-in object orientated programming is known
+オブジェクト指向プログラミングにおける継承は
 
 83
 00:03:19,834 --> 00:03:21,986
-as an Is A relationship.
+is-a 関係で表されます
 
 84
 00:03:21,986 --> 00:03:25,570
-This means that the child class is a parent class.
+これは 子クラスは親クラスである と読み解きます
 
 85
 00:03:25,570 --> 00:03:28,128
-A reptile is a vertebrate.
+Reptile（爬虫類）は Vertebrate（脊椎動物）である
 
 86
 00:03:28,128 --> 00:03:30,749
-A mammal is an animal.
+Mammal（哺乳類）は Animal（動物）である
 
 87
 00:03:30,749 --> 00:03:32,749
-An example in Unity that you may have come across
+これまで学習してきた内容でたとえると
 
 88
 00:03:32,749 --> 00:03:37,305
-before is a capsule collider is a collider.
+カプセルコライダーはコライダーである などがあります
 
 89
 00:03:37,305 --> 00:03:39,305
-This concept will be covered further in the lesson
+この概念については後々以下のリンク先にある
 
 90
 00:03:39,305 --> 00:03:41,652
-on polymorphism linked below.
+ポリモーフィズムのレッスンで詳しく取り上げます
 
 91
 00:03:42,152 --> 00:03:44,152
-The idea of inheritance can be very useful
+さて 継承の概念はゲーム開発において
 
 92
 00:03:44,152 --> 00:03:46,400
-and applicable in game development.
+非常に便利で応用が効きます
 
 93
 00:03:46,900 --> 00:03:49,977
-We might, for example, have a class called Humanoid.
+たとえば Humanoid というクラスがあるとして
 
 94
 00:03:49,977 --> 00:03:51,977
-This class covers all of the things that Humanoid
+このクラスでゲーム中における Humanoid（ヒューマノイド）に必要な
 
 95
 00:03:51,977 --> 00:03:53,977
-should do in our game.
+情報をすべてカバーしたとします
 
 96
 00:03:53,977 --> 00:03:56,199
-We then have two child classes,
+そして Enemy と Player という子クラスを
 
 97
 00:03:56,199 --> 00:03:57,799
-Enemy and Player.
+作ったと考えてみてください
 
 98
 00:03:57,799 --> 00:03:59,799
-These control the specifics of how players and
+プレイヤーと敵キャラクターがゲーム中でどう振る舞うかは
 
 99
 00:03:59,799 --> 00:04:01,799
-enemies work in the game while already
+個別に指定できる一方で 親クラスが Humanoid なので
 
 100
 00:04:01,799 --> 00:04:03,799
-behaving like humanoids because they've
+すべてのクラスメンバーを継承しており 基本的な
 
 101
 00:04:03,799 --> 00:04:06,898
-inherited all of the humanoid classes members.
+ヒューマノイドとしての動作はカバーされるのです
 
 102
 00:04:06,898 --> 00:04:08,898
-We could then have two more child classes
+さらに Enemy に 2 個の子クラス
 
 103
 00:04:08,898 --> 00:04:11,436
-of Enemy, Ork and Goblin.
+Ork と Goblin を作った場合
 
 104
 00:04:11,436 --> 00:04:13,436
-These already behave like enemies, which in
+敵キャラクターとしての動作を継承しつつ
 
 105
 00:04:13,436 --> 00:04:15,436
-turn behave like humanoids.
+ヒューマノイドとしての動作も継承できます
 
 106
 00:04:15,436 --> 00:04:17,436
-In this way we have much less code to write
+このような構造にすることで
 
 107
 00:04:17,436 --> 00:04:19,436
-to make Orks and Goblins behave
+Humanoid や Enemy クラスの中身を再利用し
 
 108
 00:04:19,436 --> 00:04:21,436
-as we want them to because we're reusing
+オークやゴブリンを敵キャラクターとして
 
 109
 00:04:21,436 --> 00:04:23,436
-the code from Humanoid and Enemy.
+動かすために書くコード量を抑えられるのです
 
 110
 00:04:24,102 --> 00:04:26,407
-Constructors are an exception to what is inherited
+子クラスが継承する内容について
 
 111
 00:04:26,407 --> 00:04:28,699
-by child classes, as they remain
+扱いが例外的なのがコンストラクターです
 
 112
 00:04:28,699 --> 00:04:30,699
-unique to a class and are never shared.
+コンストラクターはクラス固有で共有されません
 
 113
 00:04:31,199 --> 00:04:33,655
-When a constructor is called in a child class however
+コンストラクターが子クラスで呼ばれた場合には
 
 114
 00:04:33,655 --> 00:04:35,655
-the constructor of it's parent class is called
+直前に親クラスのコンストラクターが
 
 115
 00:04:35,655 --> 00:04:37,145
-immediately before.
+呼び出されます
 
 116
 00:04:37,145 --> 00:04:39,891
-Since classes can have many different constructors
+クラスには多様なコンストラクターが存在しうるので
 
 117
 00:04:39,891 --> 00:04:41,891
-we might want to be able to control which base class
+どの基底クラスのコンストラクターが
 
 118
 00:04:41,891 --> 00:04:43,891
-constructor is being called.
+呼び出されるかを制御したい場合もあるでしょう
 
 119
 00:04:43,891 --> 00:04:45,891
-We do this with the keyword Base.
+そのような場合にはキーワード base を使います
 
 120
 00:04:46,474 --> 00:04:48,710
-By following the parameter list of the child's
+子のコンストラクターの後ろにコロンを入力し
 
 121
 00:04:48,710 --> 00:04:51,212
-constructor with a colon you can explicitly
+base キーワードと基底コンストラクターのパラメーターリストを
 
 122
 00:04:51,212 --> 00:04:53,503
-call a specific constructor of the base class
+入力することで基底クラスの
 
 123
 00:04:53,503 --> 00:04:55,503
-using the keyword Base and
+特定のコンストラクターを
 
 124
 00:04:55,503 --> 00:04:58,390
-the base constructors parameter list.
+明示的に呼び出すことができます
 
 125
 00:04:58,390 --> 00:05:00,390
-If the base classes constructor is not
+基底クラスのコンストラクターが明示的に指定されていない
 
 126
 00:05:00,390 --> 00:05:02,585
-called explicitly then the default constructor
+場合は デフォルトのコンストラクターが代わりに
 
 127
 00:05:02,585 --> 00:05:04,972
-will still be called implicitly.
+黙示的に呼び出されます
 
 128
 00:05:07,240 --> 00:05:09,758
-Aside from calling the base classes constructor
+基底クラスのコンストラクターを呼び出すとき以外でも
 
 129
 00:05:09,758 --> 00:05:11,758
-you can also use the Base keyword to access
+base キーワードを使えば基底クラスの他のメンバーに
 
 130
 00:05:11,758 --> 00:05:13,758
-other members of the base class.
+アクセスすることができます
 
 131
 00:05:13,758 --> 00:05:15,758
-This is useful for situations where you wish to 
+これはたとえば派生クラスと基底クラスの間で 
 
 132
 00:05:15,758 --> 00:05:17,758
-access the base classes version of something
+何らかの内容が異なる場合に基底クラスのバージョンに
 
 133
 00:05:17,758 --> 00:05:19,979
-because it is different than the derived version.
+アクセスする必要がある場合などには有用です
 
 134
 00:05:19,979 --> 00:05:22,464
-This happens often when overriding functions.
+関数のオーバーライドを使っている場合などは特にそうでしょう
 
 135
 00:05:22,964 --> 00:05:24,964
-For more information on this see the lesson
+詳細については
 
 136
 00:05:24,964 --> 00:05:26,964
-on Overriding linked below.
+下記リンク先にあるオーバーライドのレッスンをご覧ください
