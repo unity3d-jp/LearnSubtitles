@@ -1,387 +1,387 @@
-1
+﻿1
 00:00:00,249 --> 00:00:01,952
-Interfaces can be thought of as a
+インターフェイスとは
 
 2
 00:00:01,952 --> 00:00:03,648
-contract on functionality.
+機能の契約だとも考えられます
 
 3
 00:00:04,148 --> 00:00:06,148
-Any class that implements an interface
+インターフェイスを実装するクラスは
 
 4
 00:00:06,148 --> 00:00:08,690
-must have all of it's methods and properties.
+すべてのメソッドとプロパティを保持する必要があります
 
 5
 00:00:08,690 --> 00:00:10,871
-In exchange the implementing class
+その代わりに実装するクラスはポリモーフィズム（多態性）を使用し
 
 6
 00:00:10,871 --> 00:00:13,382
-can be treated like the interface by other classes
+他のクラスからインターフェイスのように
 
 7
 00:00:13,382 --> 00:00:15,079
-using polymorphism.
+扱われるようになります
 
 8
 00:00:15,079 --> 00:00:17,079
-It is important to note that interfaces are
+なおインターフェイスはクラスではなく
 
 9
 00:00:17,079 --> 00:00:20,462
-not classes and cannot have their own instances.
+自らのインスタンスを持てない点に注意してください
 
 10
 00:00:21,100 --> 00:00:24,075
-While inheritance is an Is A relationship
+以前取り上げたとおり継承は is-a 関係で表されます
 
 11
 00:00:24,075 --> 00:00:26,075
-where one class inherits from another
+ひとつのクラスが別のクラスから継承するという関係ですね
 
 12
 00:00:26,075 --> 00:00:29,697
-interfaces use an Implements relationship.
+インターフェイスでは Implements （実装）関係で表されます
 
 13
 00:00:29,697 --> 00:00:32,432
-Where one class implements an interface.
+ひとつのクラスがインターフェイスを実装するわけです
 
 14
 00:00:32,808 --> 00:00:36,073
-Interfaces are usually declared outside of a class.
+インターフェイスは通常クラスの外側で宣言されます
 
 15
 00:00:36,073 --> 00:00:38,073
-When declaring interfaces you would
+インターフェイスを宣言する場合には通常
 
 16
 00:00:38,073 --> 00:00:40,458
-commonly use one script per interface,
+インターフェイスごとにスクリプトを作ります
 
 17
 00:00:40,458 --> 00:00:42,458
-but for the purpose of this example we're going
+ただしこの例では同一スクリプトに 2 つのインターフェイスを
 
 18
 00:00:42,458 --> 00:00:44,458
-to show two in the same script.
+宣言してみます
 
 19
 00:00:44,958 --> 00:00:46,958
-By convention interfaces are declared
+インターフェイス名を宣言するときは
 
 20
 00:00:46,958 --> 00:00:49,837
-using a name that starts with a capital I
+通則的に大文字の I からはじめます
 
 21
 00:00:49,837 --> 00:00:53,088
-followed by a name that starts with another capital letter.
+そしてその次の文字も大文字とします
 
 22
 00:00:53,088 --> 00:00:55,687
-Since interfaces normally describe some functionality
+インターフェイスは通常何らかの機能を記述するものなので
 
 23
 00:00:55,687 --> 00:00:57,687
-that the implementing classes will have
+実装クラス内には接尾詞「able」（できる）がついた
 
 24
 00:00:57,687 --> 00:01:00,901
-a lot of interfaces end in the postfix 'able'.
+インターフェイスが多数存在することが多いです
 
 25
 00:01:01,291 --> 00:01:03,291
-It is worth noting however that this is not
+なおこれは必須ではありませんし
 
 26
 00:01:03,291 --> 00:01:05,291
-mandatory and could potentially be
+その用途によっては混乱を招く可能性もあるので
 
 27
 00:01:05,291 --> 00:01:07,710
-misleading depending on the interface.
+気をつけてください
 
 28
 00:01:07,710 --> 00:01:09,960
-We have declared two interfaces here,
+さてこれで 2 つのインターフェイスを宣言できました
 
 29
 00:01:09,960 --> 00:01:12,722
-IKillable and IDamageable.
+IKillable と IDamageable です
 
 30
 00:01:13,222 --> 00:01:16,234
-In IKillable we have a function called Kill,
+IKillable には Kill という関数があります
 
 31
 00:01:16,234 --> 00:01:19,450
-which has a return type of void and no parameters.
+この関数の戻り値の型は void でパラメーターも取りません
 
 32
 00:01:19,798 --> 00:01:22,650
-Any class which implements the IKillable interface
+この IKillable インターフェイスを実装するクラスは
 
 33
 00:01:22,650 --> 00:01:26,195
-must have a public function which matches this signature.
+この署名に合う public な関数を持つ必要があります
 
 34
 00:01:26,695 --> 00:01:30,356
-The IDamageable interface has a generic type T.
+IDamageable インターフェイスは generic 型の T を持ちます
 
 35
 00:01:30,356 --> 00:01:32,356
-This means that anything in the interface
+これはつまりこのインターフェイスでは generic 型を
 
 36
 00:01:32,356 --> 00:01:33,818
-can have a generic type
+持てるということです
 
 37
 00:01:33,818 --> 00:01:35,818
-The function we have in IDamageable,
+IDamageable 内の関数
 
 38
 00:01:35,818 --> 00:01:38,984
-Damage, takes a parameter of type T.
+Damage はパラメーターとして型 T を取ります
 
 39
 00:01:39,484 --> 00:01:41,484
-When an interface with a generic type is
+クラスにより generic 型を持つ
 
 40
 00:01:41,484 --> 00:01:43,484
-implemented by a class
+インターフェイスが実装されている場合は
 
 41
 00:01:43,484 --> 00:01:45,484
-the type must be chosen.
+型を選択する必要があります
 
 42
 00:01:45,484 --> 00:01:48,701
-Then the corresponding type must be used throughout.
+そしてそこで選択された型は使用され続けねばなりません
 
 43
 00:01:49,611 --> 00:01:51,611
-Implementing an interface comes with some
+インターフェイスの実装には
 
 44
 00:01:51,611 --> 00:01:53,486
-requirements and some benefits.
+いくつかの要件とそれに伴う利点が存在します
 
 45
 00:01:53,486 --> 00:01:56,595
-In order to implement an interface a class must
+まずインターフェイスを実装するにはクラスが
 
 46
 00:01:56,595 --> 00:01:58,595
-publicly declare all of the methods,
+インターフェイスに存在する
 
 47
 00:01:58,595 --> 00:02:00,595
-properties, events and indexers 
+すべてのメソッド・プロパティ・イベント・インデクサーを 
 
 48
 00:02:00,595 --> 00:02:02,843
-that exist in that interface.
+ public に宣言する必要があります
 
 49
 00:02:02,843 --> 00:02:05,729
-Failure to do so will result in an error.
+これが行われていない場合はエラーが返されます
 
 50
 00:02:05,729 --> 00:02:07,729
-The major advantage of interfaces is
+インターフェイスの主な利点は
 
 51
 00:02:07,729 --> 00:02:10,160
-that they allow you to define common functionality
+複数のクラス間で一般的な機能を
 
 52
 00:02:10,160 --> 00:02:12,577
-across many classes, therefore,
+定義できる点にあります
 
 53
 00:02:12,577 --> 00:02:14,577
-you are able to safely make assumptions
+このため実装されるインターフェイスから
 
 54
 00:02:14,577 --> 00:02:16,577
-about what classes can do based on
+各クラスで行えることを
 
 55
 00:02:16,577 --> 00:02:18,577
-the interfaces that they implement.
+比較的確実に推測できるわけです
 
 56
 00:02:19,077 --> 00:02:21,077
-To implement an interface simply add a
+インターフェイスを実装するにはクラスの持つ
 
 57
 00:02:21,077 --> 00:02:23,818
-comma after any inheritance the class has
+継承の後ろにカンマを付けて
 
 58
 00:02:23,818 --> 00:02:25,818
-followed by the name of the interface.
+その後ろにインターフェイス名を入力します
 
 59
 00:02:25,818 --> 00:02:27,818
-If the class doesn't inherit then the comma
+クラスが継承を持たない場合は
 
 60
 00:02:27,818 --> 00:02:29,280
-is not required.
+カンマは不要です
 
 61
 00:02:29,280 --> 00:02:31,280
-If the interface has a generic type
+インターフェイスが generic 型を持つ場合は
 
 62
 00:02:31,280 --> 00:02:33,280
-then the name should be followed by angle brackets
+名前が 山カッコで囲まれて
 
 63
 00:02:33,280 --> 00:02:35,210
-with the type in them.
+型とともに入力されます
 
 64
 00:02:35,210 --> 00:02:38,020
-In this case we have class Avatar,
+さて今から見ていくケースではクラス Avatar があり
 
 65
 00:02:38,020 --> 00:02:40,020
-which inherits from monobehaviour
+これは MonoBehaviour を継承します
 
 66
 00:02:40,020 --> 00:02:43,600
-and implements IKillable and IDamageable
+そして IKillable と IDamageable を実装し
 
 67
 00:02:43,600 --> 00:02:45,475
-with the type Float.
+型は Float とします
 
 68
 00:02:45,475 --> 00:02:47,475
-We must also declare both of the functions
+そしてインターフェイスで求められる両方の
 
 69
 00:02:47,475 --> 00:02:49,213
-required for these interfaces.
+関数を宣言する必要があります
 
 70
 00:02:49,213 --> 00:02:51,213
-Note that the body of the functions is
+ここで関数の本文部分は
 
 71
 00:02:51,213 --> 00:02:53,213
-independent of the interfaces and can be
+インターフェイスとは独立しているので
 
 72
 00:02:53,213 --> 00:02:55,213
-implemented however you would like.
+好きなように実装することができます
 
 73
 00:02:55,213 --> 00:02:57,213
-These sorts of interfaces might be useful
+この種のインターフェイスはたとえば製作中のゲームで
 
 74
 00:02:57,213 --> 00:02:59,213
-if there was a situation in your game where you
+一気にダメージを与えたり
 
 75
 00:02:59,213 --> 00:03:01,654
-wanted to do damage or kill everything.
+まとめて殺したりする場合に便利に扱えます
 
 76
 00:03:01,654 --> 00:03:03,654
-Simply by finding everything that implemented
+ただ実装された内容を見ていき
 
 77
 00:03:03,654 --> 00:03:06,150
-IKillable or IDamageable
+この場合は IKillable と IDamageable を
 
 78
 00:03:06,150 --> 00:03:07,499
-you could be sure that they will have the
+見ていけば ダメージやキルの中身も
 
 79
 00:03:07,499 --> 00:03:09,499
-kill or damage functions.
+すぐに見て取れるでしょう
 
 80
 00:03:10,220 --> 00:03:12,054
-You may be wondering to yourself why you would
+ではなぜクラスにインターフェイスを
 
 81
 00:03:12,054 --> 00:03:14,054
-implement an interface in a class when you could
+実装するのでしょう?
 
 82
 00:03:14,054 --> 00:03:16,054
-just define a function once in a class
+関数をクラスの中に書いてそれを
 
 83
 00:03:16,054 --> 00:03:18,499
-and have other classes inherit from it.
+他のクラスでは継承すればいいのでは?
 
 84
 00:03:18,499 --> 00:03:20,499
-The easy answer is that you can implement
+これに対する簡潔な答えは
 
 85
 00:03:20,499 --> 00:03:22,982
-multiple interfaces, but you cannot inherit
+複数のインターフェイスを実装することはできても
 
 86
 00:03:22,982 --> 00:03:25,537
-from multiple classes, therefore,
+複数のクラスを継承することはできないということです
 
 87
 00:03:25,537 --> 00:03:27,537
-interfaces are a nice way to provide a wide
+このため広範にわたる機能を提供するときに
 
 88
 00:03:27,537 --> 00:03:29,537
-range of functionality.
+インターフェイスを使うわけです
 
 89
 00:03:29,537 --> 00:03:31,537
-The better answer though is that interfaces are
+もう少しきちんとした回答をすると インターフェイスは
 
 90
 00:03:31,537 --> 00:03:33,537
-used to define common functionality across
+無関係なさまざまなクラスで
 
 91
 00:03:33,537 --> 00:03:36,317
-many classes that are unrelated to each other.
+共通の機能を使えるよう定義されます
 
 92
 00:03:36,317 --> 00:03:39,822
-Consider two classes, Wall and Car.
+Wall と Car というクラスがあったとしましょう
 
 93
 00:03:39,822 --> 00:03:41,822
-Wall and Car have very little in common with
+当然 Wall と Car にはほとんど共通点がありません
 
 94
 00:03:41,822 --> 00:03:44,408
-each other except that they both are damageable.
+ただしどちらも damageable（破損可能）ではあります
 
 95
 00:03:44,408 --> 00:03:46,701
-Since they are so different from each other
+このように全然中身の違うものに
 
 96
 00:03:46,701 --> 00:03:49,433
-inheriting from a parent class makes little sense.
+親クラスから継承させるのはあまりよい手ではありません
 
 97
 00:03:50,030 --> 00:03:52,818
-Implementing an interface however works great.
+こういった場合にインターフェイスを実装するのは役に立つのです
