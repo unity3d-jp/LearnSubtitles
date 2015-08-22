@@ -1,583 +1,583 @@
-1
+﻿1
 00:00:00,331 --> 00:00:02,921
-In this lesson we'll be covering two generic collections,
+このレッスンでは 2 種類のジェネリックコレクションを取り上げます
 
 2
 00:00:02,921 --> 00:00:04,796
-lists and dictionaries.
+リスト と 辞書 です
 
 3
 00:00:04,796 --> 00:00:06,796
-We will also be using some of their methods.
+またそれらに関連するメソッドについても触れていきます
 
 4
 00:00:06,796 --> 00:00:09,006
-Both work in similar ways to arrays
+いずれも配列と類似した動作をしますが
 
 5
 00:00:09,006 --> 00:00:11,132
-but with some important differences.
+いくつか重要な違いも存在します
 
 6
 00:00:11,132 --> 00:00:13,368
-Let's take a look at the list class first.
+それではまず List クラスについて触れていきます
 
 7
 00:00:13,785 --> 00:00:16,046
-A list is like a dynamically sized array.
+リストとは動的にサイズを変更できる配列のようなものです
 
 8
 00:00:16,046 --> 00:00:18,046
-This means that you don't need to know how many elements
+つまり最初から要素数をいくつにするか分からなくても
 
 9
 00:00:18,046 --> 00:00:19,812
-it's going to have ahead of time.
+自動的に確保されます
 
 10
 00:00:19,812 --> 00:00:21,812
-Before we go too far let's quickly
+さてより詳細な内容に踏み込んでいく前に 簡単に
 
 11
 00:00:21,812 --> 00:00:24,438
-create a class that we can store in our list.
+リストを格納するクラスを作ってみましょう
 
 12
 00:00:24,438 --> 00:00:27,009
-Since a list is generic it can store any type.
+リストは generic なので型は不問です
 
 13
 00:00:27,009 --> 00:00:29,009
-But for our example we're going to create a
+ただこの例ではクラスを作ります 名前は...
 
 14
 00:00:29,009 --> 00:00:30,830
-class called BadGuy.
+BadGuy（悪者）としておきましょう
 
 15
 00:00:30,830 --> 00:00:33,709
-This way we can have a list of badguys.
+これで悪者のリストができます
 
 16
 00:00:33,709 --> 00:00:36,807
-This class will have no inheritants, 2 public fields
+このクラスには継承はなく また 2 つの public フィールド
 
 17
 00:00:36,807 --> 00:00:38,807
-named Name and Power,
+name と power があります
 
 18
 00:00:38,807 --> 00:00:41,622
-and a constructor to allocate these values.
+そして値を割り当てるコンストラクターも
 
 19
 00:00:44,898 --> 00:00:46,608
-Now we can start making our list.
+これでリストを作る準備が整いました
 
 20
 00:00:46,608 --> 00:00:48,608
-The first thing to do when making a list is to include
+リストをつくるとき最初にやることは
 
 21
 00:00:48,608 --> 00:00:52,160
-the System.Collections.Generic namespace.
+System.Collections.Generic 名前空間を含めることです
 
 22
 00:00:52,160 --> 00:00:54,160
-We will do this at the top of the script.
+さっそくスクリプトの一番上でやっておきましょう
 
 23
 00:00:55,254 --> 00:00:56,605
-Next we declare the list.
+次がリストの宣言です
 
 24
 00:00:56,605 --> 00:00:59,101
-List is a generic class, so after any modifiers
+リストは generic クラスなので修飾子が何であれ
 
 25
 00:00:59,101 --> 00:01:01,101
-we put the class name followed by a type
+まずはクラス名 続けてリストに
 
 26
 00:01:01,101 --> 00:01:02,934
-that we want to store in the list.
+格納する型を入れます
 
 27
 00:01:02,934 --> 00:01:04,727
-In our case, BadGuy.
+この場合は BadGuy ですね
 
 28
 00:01:05,227 --> 00:01:07,227
-Then we give the list a name, and since list is
+続いてリストに名前を付けます しかし List はクラスなので
 
 29
 00:01:07,227 --> 00:01:09,589
-a class we call the constructor.
+コンストラクターを呼び出します
 
 30
 00:01:11,329 --> 00:01:14,487
-Currently our list is empty, so let's allocate to it.
+現時点ではリストは空なのでさっそく割り当てていきましょう
 
 31
 00:01:14,487 --> 00:01:16,764
-We do this using the Add function.
+追加は Add 関数で行います
 
 32
 00:01:16,764 --> 00:01:19,221
-This will add a new element to the end of the list.
+この関数は新しい要素をリストの末尾に追加します
 
 33
 00:01:19,721 --> 00:01:21,721
-The parameter for the add function is the object
+Add 関数のパラメーターはリストに
 
 34
 00:01:21,721 --> 00:01:24,014
-that is being added to the list, in our case
+追加されるオブジェクトとします
 
 35
 00:01:24,014 --> 00:01:26,737
-we'll call a constructor for the BadGuy class.
+この場合は BadGuy クラスのコンストラクターを呼び出します
 
 36
 00:01:26,737 --> 00:01:29,031
-Now let's populate the list.
+それではリストの中身を書いてしまいましょう
 
 37
 00:01:31,557 --> 00:01:33,557
-Items in a list can be accessed in the same way
+リスト中のアイテムは配列と同じ方法...
 
 38
 00:01:33,557 --> 00:01:35,557
-as an array, using an index.
+インデックスを用いてアクセスできます
 
 39
 00:01:35,988 --> 00:01:37,988
-It also has a count property which works the same
+この他  配列の Length プロパティと同様に動作する
 
 40
 00:01:37,988 --> 00:01:40,402
-as the length property of arrays.
+Count プロパティもあります
 
 41
 00:01:41,247 --> 00:01:43,075
-Lists have functions like RemoveAt and Insert
+List には RemoveAt や Insert
 
 42
 00:01:43,075 --> 00:01:45,075
-InsertFromManualArrangement.
+InsertFromManualArrangement などの関数もあります
 
 43
 00:01:45,075 --> 00:01:46,867
-RemoveAt removes an element from the list
+RemoveAt は要素をリストから取り除く関数で
 
 44
 00:01:46,867 --> 00:01:48,867
-that are given index, it moves all elements
+指定したインデックスの要素を取り除いた後 それ以前の要素を
 
 45
 00:01:48,867 --> 00:01:50,661
-above it down a place.
+ひとつ下にずらします
 
 46
 00:01:50,661 --> 00:01:52,440
-Insert takes an index and an element,
+Insert はインデックスと要素を取り
 
 47
 00:01:52,440 --> 00:01:55,313
-pushing each element after that index up a place.
+指定インデックス以降の要素をひとつ上にずらします
 
 48
 00:01:56,255 --> 00:01:58,958
-One of the most powerful functions of a list is sort.
+List のうちでトップクラスのパワフルさを持つ機能は Sort でしょう
 
 49
 00:01:58,958 --> 00:02:00,958
-This can be used to order a list of a given type
+これは指定した型のリストの順序を
 
 50
 00:02:00,958 --> 00:02:02,958
-by any variable of that type.
+その型のいずれかの変数に基づいて変更します
 
 51
 00:02:02,958 --> 00:02:04,821
-It relies on the type implementing the
+この挙動は IComparable インターフェイスを
 
 52
 00:02:04,821 --> 00:02:06,959
-IComparable interface.
+実装する型によって異なります
 
 53
 00:02:06,959 --> 00:02:09,390
-Let's go back to our BadGuy class and implement it.
+それでは BadGuy クラスに戻って実装してみましょう
 
 54
 00:02:10,318 --> 00:02:12,860
-First IComparable is in the system namespace
+まず IComparable はシステムの名前空間ですから
 
 55
 00:02:12,860 --> 00:02:15,138
-so we need to declare that we are using it.
+使うことを宣言しなければなりません
 
 56
 00:02:15,802 --> 00:02:17,510
-Next we need to say that this class is
+続いてこのクラスがインターフェイスを
 
 57
 00:02:17,510 --> 00:02:19,161
-implementing the interface.
+実装することを記します
 
 58
 00:02:19,161 --> 00:02:21,161
-This looks like inheritance.
+継承のような感じですね
 
 59
 00:02:21,161 --> 00:02:23,605
-We're going to use the generic IComparable
+ここでは generic な IComparable を使い
 
 60
 00:02:23,605 --> 00:02:26,476
-and it's generic type needs to be this class.
+その generic 型をこのクラスにする必要があります
 
 61
 00:02:27,111 --> 00:02:29,475
-Lastly, in order to complete the contract of the
+最後に IComparable インターフェイスのコントラクトを
 
 62
 00:02:29,475 --> 00:02:31,475
-IComparable interface we need to declare a
+完成させるには public 関数 CompareTo を宣言する
 
 63
 00:02:31,475 --> 00:02:33,475
-public function called CompareTo
+必要があります これはint を返し
 
 64
 00:02:33,475 --> 00:02:35,475
-which returns an integer and takes our  generic
+generic 型の BadGuy を
 
 65
 00:02:35,475 --> 00:02:38,140
-type BadGuy as a parameter.
+パラメーターとして取ります
 
 66
 00:02:38,820 --> 00:02:40,820
-The idea behind the CompareTo method is that
+CompareTo メソッドを使うのは次の理由からです
 
 67
 00:02:40,820 --> 00:02:42,820
-if the object that it is being called from is
+呼び出し元オブジェクトが
 
 68
 00:02:42,820 --> 00:02:44,820
-greater than the object taken as a parameter
+パラメーターのオブジェクトよりも大きい場合に
 
 69
 00:02:44,820 --> 00:02:47,279
-then the function returns a positive.
+関数は正の値を返します
 
 70
 00:02:47,279 --> 00:02:49,279
-If the object the method is called from is less than
+呼び出し元オブジェクトが
 
 71
 00:02:49,279 --> 00:02:51,279
-the object taken as a parameter
+パラメーターのオブジェクトよりも小さい場合には
 
 72
 00:02:51,279 --> 00:02:52,789
-then the function returns a negative,
+関数は負の値を返します
 
 73
 00:02:52,789 --> 00:02:55,245
-and if they are equal then it returns a 0.
+そして両者が同一な場合には 0 が返されます
 
 74
 00:02:55,855 --> 00:02:57,855
-What defines one object being greater than another
+あるオブジェクトが他のオブジェクトよりも大きいかどうかの判断は
 
 75
 00:02:57,855 --> 00:02:59,716
-is decided by the programmer.
+プログラマーによって決定されます
 
 76
 00:02:59,716 --> 00:03:01,716
-For our function we first want to check that the BadGuy
+この例の関数においてはまず BadGuy が
 
 77
 00:03:01,716 --> 00:03:03,716
-parse to the function exists.
+関数が存在するかどうかをパースします
 
 78
 00:03:03,716 --> 00:03:05,716
-If it doesn't then this BadGuy is greater and the
+存在しない場合はこの BadGuy のほうが大きいということとなり
 
 79
 00:03:05,716 --> 00:03:07,450
-function should return a positive.
+関数は正の値を返します
 
 80
 00:03:07,450 --> 00:03:09,450
-Otherwise the function returns the difference
+それ以外の場合 関数は両 BadGuy の power の
 
 81
 00:03:09,450 --> 00:03:11,409
-between the powers of the 2 BadGuys.
+差分を返します
 
 82
 00:03:11,409 --> 00:03:13,409
-Thus it will return a positive if the BadGuy
+このためメソッドの呼び出し元 BadGuy がより大きい場合には
 
 83
 00:03:13,409 --> 00:03:15,409
-the method is being called from is greater.
+関数から返される値は正の値になります
 
 84
 00:03:16,392 --> 00:03:18,849
-Note that we could have based this result on anything.
+なおこの結果については何をベースとするか自由に選べます
 
 85
 00:03:18,849 --> 00:03:21,531
-The interface only requires that we implement the method.
+インターフェイス側ではメソッドが実装されていることだけが重要なのです
 
 86
 00:03:22,031 --> 00:03:24,361
-Now in order to sort the list using this comparison
+さてこの比較を用いてリストをソートする場合
 
 87
 00:03:24,361 --> 00:03:26,361
-we call Badguys.Sort.
+badguys.Sort を呼び出します
 
 88
 00:03:27,579 --> 00:03:29,579
-We will log the Badguys list to the console
+これで Badguys リストがコンソールに出力され
 
 89
 00:03:29,579 --> 00:03:31,579
-to show that they have been sorted.
+ソートが完了したことが確認できます
 
 90
 00:03:32,797 --> 00:03:34,797
-In order to start fresh with the list and remove
+リストの中身をクリアして すべての要素を
 
 91
 00:03:34,797 --> 00:03:37,156
-all of the elements use the the clear function.
+リストから取り除くには Clear 関数を使います
 
 92
 00:03:37,849 --> 00:03:39,486
-These are by no means all of the functions
+もちろん List クラスのすべての関数を削除
 
 93
 00:03:39,486 --> 00:03:40,698
-of the list class.
+というわけではありません
 
 94
 00:03:40,698 --> 00:03:43,470
-To cover everything falls out of the scope of this tutorial.
+このチュートリアルで網羅しきれない内容については
 
 95
 00:03:43,470 --> 00:03:45,470
-For further information please see the related
+下記リンクからそれぞれの関連情報を
 
 96
 00:03:45,470 --> 00:03:47,125
-information links below.
+参照してください
 
 97
 00:03:48,080 --> 00:03:50,080
-Dictionaries work similarly to lists but instead
+辞書もまたリストと似たような機能を持ちますが
 
 98
 00:03:50,080 --> 00:03:52,469
-have 2 types. This means that each element
+2 つの型があるという違いがありますこれはつまり各要素がキー値の
 
 99
 00:03:52,469 --> 00:03:54,042
-makes up a key value pair,
+ペアになるということです
 
 100
 00:03:54,042 --> 00:03:56,475
-sometimes called a KVP for short.
+これは略して KVP と呼ばれたりもします
 
 101
 00:03:56,934 --> 00:04:00,150
-Dictionaries also differ from lists in their intended use.
+辞書はまたその用途もリストとは異なります
 
 102
 00:04:00,150 --> 00:04:02,150
-A list is generally used in place of an array
+リストが通常は配列のように使われ
 
 103
 00:04:02,150 --> 00:04:04,579
-where more flexibility or functionality is required.
+そのために柔軟性と機能性が求められます
 
 104
 00:04:05,079 --> 00:04:07,217
-A dictionary is used as a collection of value
+辞書は一方で値のコレクションとして
 
 105
 00:04:07,217 --> 00:04:09,217
-that can be accessed by 1 or more keys.
+単一または複数のキーでアクセスするものとして扱われます
 
 106
 00:04:09,910 --> 00:04:11,689
-The process for declaring a dictionary is very
+辞書を宣言するプロセスはリストのそれと
 
 107
 00:04:11,689 --> 00:04:13,286
-similar to that for a list.
+非常に類似しています
 
 108
 00:04:13,286 --> 00:04:18,015
-First include the System.Collections.Generic namespace.
+まず System.Collections.Generic 名前空間を含めます
 
 109
 00:04:18,015 --> 00:04:19,918
-Then declare a variable as before
+続けて同様に変数を宣言しますが
 
 110
 00:04:19,918 --> 00:04:21,474
-but with 2 generic types.
+ここでは 2 つの generic 型を宣言します
 
 111
 00:04:21,474 --> 00:04:23,208
-The first type is the key. 
+最初の型がキーとなり 
 
 112
 00:04:23,208 --> 00:04:25,208
-This is the type that is referenced in order to
+2 番目の型... すなわち値にアクセスする際に
 
 113
 00:04:25,208 --> 00:04:27,692
-access the second type, which is the value.
+参照される型となります
 
 114
 00:04:28,260 --> 00:04:30,260
-In our example we have a key type of
+この例ではキーの型として
 
 115
 00:04:30,260 --> 00:04:32,813
-String and a value type of BadGuy.
+String を使い  値の型には BadGuy を使います
 
 116
 00:04:34,100 --> 00:04:35,710
-We are using this dictionary to store different
+ここでは辞書を特定の BadGuy を見つけるために
 
 117
 00:04:35,710 --> 00:04:37,319
-search words that can be used to identify
+使えるさまざまな検索語を格納するために
 
 118
 00:04:37,319 --> 00:04:38,948
-specific BadGuys.
+使用しています
 
 119
 00:04:38,948 --> 00:04:41,778
-In our start method we declared 2 BadGuys.
+この Start メソッドでは 2 人の BadGuy を宣言しています
 
 120
 00:04:41,778 --> 00:04:43,319
-Then we add them to the dictionary
+そして彼ら 2 人を辞書に登録してみましょう
 
 121
 00:04:43,319 --> 00:04:45,025
-just as we would with a list,
+手順はリストの時とほぼ同様です
 
 122
 00:04:45,025 --> 00:04:47,025
-only this time we are adding data from
+一点異なるのは 追加データが
 
 123
 00:04:47,025 --> 00:04:49,025
-both the key and the value.
+キーと値の 2 つからである点です
 
 124
 00:04:51,072 --> 00:04:52,655
-Accessing the value that relates to a key
+キーに関連付けられた値にアクセスする方法は
 
 125
 00:04:52,655 --> 00:04:54,063
-is done very similar to accessing
+配列やリストで要素にアクセスする方法と
 
 126
 00:04:54,063 --> 00:04:55,688
-an element of an array or list.
+非常によく似ています
 
 127
 00:04:55,688 --> 00:04:57,413
-However, instead of using an index
+違う点は  インデックスを使わない点です
 
 128
 00:04:57,413 --> 00:04:59,866
-which would have no inherent meaning to a dictionary
+これは辞書においてインデックスは本質的に意味をなさないからです
 
 129
 00:04:59,866 --> 00:05:02,201
-we insert a key in to the square brackets.
+なので角カッコの中にはキーを入れます
 
 130
 00:05:02,201 --> 00:05:04,409
-In the case for this example we inserted String
+この例の場合は String を入れました
 
 131
 00:05:04,409 --> 00:05:06,700
-and we have the corresponding BadGuy returned.
+結果としてはそのキーに対応する BadGuy が返されます
 
 132
 00:05:07,200 --> 00:05:09,200
-If a key is provided but no such key
+なお指定されたキーが辞書に
 
 133
 00:05:09,200 --> 00:05:10,455
-exists in the dictionary however
+存在しない場合は例外が
 
 134
 00:05:10,455 --> 00:05:11,826
-this will throw an exception.
+投げられます
 
 135
 00:05:11,826 --> 00:05:14,646
-Therefore if it is not guaranteed that the key exists
+このためキーが存在するか定かでない場合は
 
 136
 00:05:14,646 --> 00:05:17,063
-it is best to use the TryGetValue method
+TryGetValue メソッドの使用が推奨されます
 
 137
 00:05:17,563 --> 00:05:19,769
-This method has a parameter of the key's type
+このメソッドはキーの型のパラメーターと
 
 138
 00:05:19,769 --> 00:05:22,045
-and an out parameter of the value's type.
+値の型の out パラメーターを取ります
 
 139
 00:05:22,045 --> 00:05:23,825
-It returns true if the key parsed
+ここでキーがパースされて最初のパラメーターが
 
 140
 00:05:23,825 --> 00:05:25,825
-as the first parameter exists.
+存在すると判定された場合には true が返されます
 
 141
 00:05:26,325 --> 00:05:27,767
-While this is a safer method for returning
+この方法は辞書から安全に値を取得する
 
 142
 00:05:27,767 --> 00:05:29,767
-a value from a dictionary it is slightly slower
+方法ではありますが 当然特定のキーを
 
 143
 00:05:29,767 --> 00:05:32,181
-than directly referencing the specific key.
+直接参照するよりも速度は遅くなります
 
 144
 00:05:32,181 --> 00:05:35,113
-For efficiency use the key within square brackets
+効率を再優先とする場合は角カッコ内にキーを指定する
 
 145
 00:05:35,113 --> 00:05:36,919
-but only when the specified key is
+ほうが良いですが その場合は必ず辞書内に
 
 146
 00:05:36,919 --> 00:05:38,919
-definitely in the dictionary.
+キーが存在するようにしましょう
