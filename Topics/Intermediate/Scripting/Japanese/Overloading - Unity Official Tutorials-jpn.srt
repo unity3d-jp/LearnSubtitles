@@ -1,199 +1,199 @@
-1
+﻿1
 00:00:00,635 --> 00:00:02,538
-Overloading is a process by which you can give
+オーバーロード（多重定義）は単一メソッドに
 
 2
 00:00:02,538 --> 00:00:04,901
-a single method multiple definitions.
+複数の定義を与えられる仕組みです
 
 3
 00:00:04,901 --> 00:00:06,901
-This means that you can use the same method name
+言い換えれば ひとつのメソッドで異なる
 
 4
 00:00:06,901 --> 00:00:08,678
-to do 2 different things.
+2 つのことができる仕組みというわけです
 
 5
 00:00:08,678 --> 00:00:11,208
-Let's say you needed a method to add things together.
+たとえば 2 つのものを足すメソッドが必要だとしましょう
 
 6
 00:00:11,208 --> 00:00:12,971
-You could create an AddNumbers method
+そこで AddNumbers メソッドを作って
 
 7
 00:00:12,971 --> 00:00:15,709
-that would be responsible for adding 2 numbers together.
+2 つの数字を足す機能を作ったとします
 
 8
 00:00:15,709 --> 00:00:18,073
-Adding strings together however works differently
+一方で 2 つの string（文字列）を足すのは仕組みが違います
 
 9
 00:00:18,073 --> 00:00:20,073
-so you would need a new method called AddStrings.
+そこで新たに AddStrings というメソッドを作ったとします
 
 10
 00:00:20,849 --> 00:00:22,849
-This works fine, but the problem is that now you
+これでももちろん問題はありませんが そうした場合には
 
 11
 00:00:22,849 --> 00:00:24,849
-need to remember 2 different method names that
+本質的には同じことをやろうとしているのに
 
 12
 00:00:24,849 --> 00:00:26,849
-in essence to do the same thing.
+2 つの異なるメソッド名を覚えなくてはいけなくなります
 
 13
 00:00:26,849 --> 00:00:28,849
-A better way would be to overload a method name
+そこでメソッド Add をオーバーロードして 数字でも文字列でも
 
 14
 00:00:28,849 --> 00:00:31,535
-Add to work with either Numbers or String.
+足せるようにしてしまおうというのがこのレッスンの主題です
 
 15
 00:00:32,035 --> 00:00:34,035
-Here we have a method names Add that reads in
+そしてこれが Add メソッドです
 
 16
 00:00:34,035 --> 00:00:36,035
-2 numbers and returns a number
+2 つの数字を取り 1 つの数字を返します
 
 17
 00:00:36,035 --> 00:00:38,371
-Every method has what is called a signature.
+さてメソッドには必ずシグネチャが存在します
 
 18
 00:00:38,371 --> 00:00:40,371
-The signature is comprised of a method's name
+シグネチャはメソッドの名前と
 
 19
 00:00:40,371 --> 00:00:41,951
-and parameter list.
+パラメーターのリストから構成されます
 
 20
 00:00:41,951 --> 00:00:43,951
-No 2 methods can have the same signature
+そして同一スコープ内のメソッド間で
 
 21
 00:00:43,951 --> 00:00:45,840
-within the same scope.
+同じシグネチャを使うことはできません
 
 22
 00:00:45,840 --> 00:00:47,840
-We overload methods by giving a new method
+メソッドのオーバーロードをする際には新しいメソッドに
 
 23
 00:00:47,840 --> 00:00:50,693
-the same name but a different signature.
+同一の名前と異なるシグネチャを設定します
 
 24
 00:00:50,693 --> 00:00:52,693
-Using our previous example, we can overload
+先程の例でいえばこの Add メソッドを
 
 25
 00:00:52,693 --> 00:00:54,693
-this Add method to create a new method
+オーバーロードして新たなメソッドを作り
 
 26
 00:00:54,693 --> 00:00:56,693
-that adds Strings.
+文字列を足せるようにするのです
 
 27
 00:00:56,693 --> 00:00:58,693
-Notice that our new Add method has the same
+新しく作った Add メソッドは名前は同一でも
 
 28
 00:00:58,693 --> 00:01:00,693
-name but a different parameter list.
+パラメーターのリストが異なる点に注目してください
 
 29
 00:01:00,693 --> 00:01:03,509
-Since it is a different signature this is allowed.
+シグネチャが異なるので同名でも問題がないわけです
 
 30
 00:01:04,268 --> 00:01:06,268
-In SomeOtherClass, when we try to access
+そして SomeOtherClass に移動して
 
 31
 00:01:06,268 --> 00:01:08,268
-the Add method we can see that there
+Add メソッドにアクセスしようとすると
 
 32
 00:01:08,268 --> 00:01:10,268
-are 2 versions of it.
+2 バージョン存在するのが確認できます
 
 33
 00:01:11,873 --> 00:01:13,873
-The correct version will be chosen based on the
+この場合 渡す引数に応じて
 
 34
 00:01:13,873 --> 00:01:15,708
-arguments you parse in to it.
+適切なバージョンが選択されます
 
 35
 00:01:15,708 --> 00:01:17,708
-By parsing in 2 numbers the method that
+ここでメソッドに 2 つの数字を渡すと
 
 36
 00:01:17,708 --> 00:01:19,708
-adds numbers will run.
+数字を足すほうのバージョンが実行されるわけです
 
 37
 00:01:19,708 --> 00:01:21,708
-Likewise, if you parse in 2 strings
+同様に 2 つの文字列を渡せば
 
 38
 00:01:21,708 --> 00:01:24,152
-then the method that adds strings will run.
+文字列を足すほうのメソッドが実行されます
 
 39
 00:01:24,983 --> 00:01:26,983
-1 of 3 things will happen when the system tries
+オーバーロードされたメソッドが存在するとき
 
 40
 00:01:26,983 --> 00:01:28,983
-to decide on the correct version of an
+どのバージョンが実行するかの判定は
 
 41
 00:01:28,983 --> 00:01:30,830
-overloaded method to run.
+3 段階で行われます
 
 42
 00:01:30,830 --> 00:01:32,830
-First, if there is an exact match to the
+まず完全一致するもの  渡されたパラメーターが
 
 43
 00:01:32,830 --> 00:01:34,830
-parameters parsed in then that version of the
+オーバーロードされたメソッドのいずれかのバージョンと
 
 44
 00:01:34,830 --> 00:01:36,538
-overloaded method will run.
+完全に一致する場合はそれが実行されます
 
 45
 00:01:36,538 --> 00:01:38,538
-If there isn't an exact match the system
+完全一致するバージョンがない場合には
 
 46
 00:01:38,538 --> 00:01:40,538
-will look at all of the possible matches and will choose
+システムが実行可能なバージョンを検索し
 
 47
 00:01:40,538 --> 00:01:43,446
-the 1 that will require the least amount of conversion.
+変換工数の最も低いものが選択されて実行されます
 
 48
 00:01:43,946 --> 00:01:45,946
-Finally, if there are no possible matches
+そして最後に 一致するバージョンが存在しない場合
 
 49
 00:01:45,946 --> 00:01:47,946
-or multiple version that require the same
+または同程度の変換量のバージョンが複数ある場合には
 
 50
 00:01:47,946 --> 00:01:50,625
-amount of conversion then an error is thrown.
+エラーが投げられます
