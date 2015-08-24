@@ -1,259 +1,259 @@
-1
+﻿1
 00:00:00,235 --> 00:00:02,163
-Overriding is the practice of changing a
+オーバーライドは親クラスのメソッドを
 
 2
 00:00:02,163 --> 00:00:04,796
-parent class method in a child class.
+子クラスで変える時に使う手法です
 
 3
 00:00:04,796 --> 00:00:07,016
-The result is that when we call the method
+この時メソッドを呼び出すと その時点で最も新しい
 
 4
 00:00:07,016 --> 00:00:09,016
-the newest or most overridden version of
+最後にオーバーライドされた  バージョンが
 
 5
 00:00:09,016 --> 00:00:11,016
-the method is called.
+呼び出されます
 
 6
 00:00:11,016 --> 00:00:13,016
-When working with inheritance hierarchies
+継承を階層的に使っている場合にはよく
 
 7
 00:00:13,016 --> 00:00:15,016
-we often want to use slightly different versions
+継承した基底クラスの関数とは少し違う動作を
 
 8
 00:00:15,016 --> 00:00:17,016
-of functions from base classes.
+させたい状況が生じます
 
 9
 00:00:17,016 --> 00:00:19,016
-Doing so is easy, you simply have
+やり方はシンプルです
 
 10
 00:00:19,016 --> 00:00:21,488
-to recreate the method in the child class
+子クラスでメソッドを改めて作成し
 
 11
 00:00:21,488 --> 00:00:24,218
-and write it to do what ever it needs to do.
+そこにやらせたい事を書くだけです
 
 12
 00:00:24,218 --> 00:00:27,553
-Consider a situation where we have a Humanoid base class
+例を挙げて見てみましょう  まず Humanoid 基底クラスがあり
 
 13
 00:00:27,553 --> 00:00:29,955
-which has an Enemy derived class
+それを継承した派生クラス Enemy があり
 
 14
 00:00:29,955 --> 00:00:32,834
-which in turn has an Orc derived class.
+さらにそれを継承した派生クラス Orc があるとします
 
 15
 00:00:33,541 --> 00:00:36,121
-The Humanoid class has a function called Yell.
+Humanoid クラスには Yell（叫ぶ）という関数があります
 
 16
 00:00:36,121 --> 00:00:38,647
-When Yell is called by a Humanoid the model makes a
+Humanoid で Yell が呼び出されると  モデルが
 
 17
 00:00:38,647 --> 00:00:42,363
-yelling noise and puts his hands up to cup around it's mouth.
+叫び声をあげる動作と両手を筒型にして口に添える動作をします
 
 18
 00:00:42,363 --> 00:00:44,363
-The Yell method is automatically inherited
+この Yell メソッドは自動的に Enemy クラスに
 
 19
 00:00:44,363 --> 00:00:47,880
-by the Enemy class, however we want to modify it.
+継承されますが  今回はそれを変更していきます
 
 20
 00:00:47,880 --> 00:00:50,763
-We want the Enemy to attract other Enemies.
+Enemy の Yell では他の敵を呼び寄せる効果にします
 
 21
 00:00:50,763 --> 00:00:53,498
-We also want Orc to be able to call this function.
+また Orc の Yell も別の内容にしてみましょう
 
 22
 00:00:53,498 --> 00:00:55,965
-But when Yell is called from an Orc object
+Orc オブジェクトから Yell が呼び出された場合には
 
 23
 00:00:55,965 --> 00:00:57,965
-all of the Orcs in the area get a bonus to
+エリア内の全オークが一時的に攻撃力ボーナスを
 
 24
 00:00:57,965 --> 00:00:59,965
-their attacks for a short time.
+得られるようにします
 
 25
 00:00:59,965 --> 00:01:01,965
-What we effectively need to do it
+これを実現するために必要な事は
 
 26
 00:01:01,965 --> 00:01:03,965
-override the parent version of the Yell method
+子クラスの Yell メソッドで親クラスのバージョンを
 
 27
 00:01:03,965 --> 00:01:06,644
-in each of the child classes.
+オーバーライドすることです
 
 28
 00:01:06,644 --> 00:01:08,644
-Unity will warn us when we attempt to override
+Unity では親のメソッドを子クラスでオーバーライド
 
 29
 00:01:08,644 --> 00:01:10,644
-a parent method in a child class.
+しようとすると警告が出力されます
 
 30
 00:01:10,644 --> 00:01:12,644
-In order to suppress that warning
+この警告を抑制し  Unity にオーバーライドが
 
 31
 00:01:12,644 --> 00:01:15,430
-and tell Unity that we meant to override the method
+意図した動作であることを示すには
 
 32
 00:01:15,430 --> 00:01:18,046
-we use the virtual and override keywords.
+virtual および override キーワードを使います
 
 33
 00:01:18,046 --> 00:01:20,953
-These keywords go before the return type of the method.
+この 2 つのキーワードはメソッドの戻り値の型の前に挿入します
 
 34
 00:01:21,453 --> 00:01:23,453
-The method in the parent class is defined
+親クラスのメソッドでは
 
 35
 00:01:23,453 --> 00:01:26,298
-as virtual, and the methods in all of the
+virtual を使い  それ以下の子クラスでは
 
 36
 00:01:26,298 --> 00:01:29,309
-children classes are defined as override.
+override キーワードを使います
 
 37
 00:01:30,928 --> 00:01:33,744
-Any method that is declared virtual can be overridden
+virtual の宣言がなされたメソッドはその全子クラスで
 
 38
 00:01:33,744 --> 00:01:35,470
-by any child class.
+オーバーライドが可能になります
 
 39
 00:01:35,470 --> 00:01:37,470
-A more interesting use of overriding
+オーバーライドの面白い使い方としては
 
 40
 00:01:37,470 --> 00:01:39,470
-would be if you wanted each child class to
+各子クラスで親クラスのメソッドの
 
 41
 00:01:39,470 --> 00:01:42,295
-add specific functionality to a method
+挙動を持たせたまま
 
 42
 00:01:42,295 --> 00:01:44,295
-without losing the original functionality
+そこに機能を追加する
 
 43
 00:01:44,295 --> 00:01:46,005
-provided by the parent.
+手法があります
 
 44
 00:01:46,574 --> 00:01:49,502
-In order to do this you need to use the base
+この場合は base キーワードを使って
 
 45
 00:01:49,502 --> 00:01:51,502
-keyword to call the parent version
+親バージョンのメソッドを
 
 46
 00:01:51,502 --> 00:01:52,917
-of the method as well.
+呼び出します
 
 47
 00:01:52,917 --> 00:01:54,917
-In our previous example, let's say we wanted
+先ほどの例に戻ると
 
 48
 00:01:54,917 --> 00:01:56,917
-Enemy to keep the functionality of Humanoid
+Enemy の Yell メソッドで Humanoid 版のメソッドを維持したまま
 
 49
 00:01:56,917 --> 00:01:58,334
-while adding it's own effect.
+さらに独自の機能を追加してみます
 
 50
 00:01:58,334 --> 00:02:00,901
-We also want Orc to keep the functionality of Enemy
+また Orc の Yell メソッドでも Enemy 版のメソッドを維持したまま
 
 51
 00:02:00,901 --> 00:02:02,514
-while adding it's own effect.
+同じく独自の機能を追加してみます
 
 52
 00:02:02,514 --> 00:02:04,514
-To accomplish this we would need
+これを実現するには Enemy と Orc で
 
 53
 00:02:04,514 --> 00:02:06,945
-to put a base call to the parent Yell method
+base キーワードを使って親クラスの
 
 54
 00:02:06,945 --> 00:02:08,945
-in both Enemy and Orc.
+Yell メソッドを呼び出します
 
 55
 00:02:10,688 --> 00:02:13,868
-Now when the Orc Yell method is called
+こうすることで Orc の Yell メソッドが呼び出された時に
 
 56
 00:02:13,868 --> 00:02:15,868
-it will call Enemy's Yell method which in turn
+Enemy の Yell メソッドが呼び出されるようになり その結果
 
 57
 00:02:15,868 --> 00:02:18,391
-will call Humanoid's Yell method.
+Humanoid の Yell メソッドが呼び出されることになるのです
 
 58
 00:02:18,391 --> 00:02:21,563
-Overriding is also very useful with polymorphism.
+またオーバーライドはポリモーフィズムにおいても大変有用です
 
 59
 00:02:21,563 --> 00:02:23,563
-By declaring the parent method as virtual
+親メソッドを virtual と宣言して
 
 60
 00:02:23,563 --> 00:02:25,563
-and the child method as override we will
+子メソッドを override と宣言し
 
 61
 00:02:25,563 --> 00:02:28,358
-effectively override the parent version of the method.
+親バージョンのメソッドをオーバーライドしておくと
 
 62
 00:02:28,358 --> 00:02:30,358
-The result is that when we upcast a child
+子の参照を親オブジェクトにアップキャストして
 
 63
 00:02:30,358 --> 00:02:32,358
-reference in to a parent object
+メソッドを呼び出した時に
 
 64
 00:02:32,358 --> 00:02:34,358
-and then call a method the child version
+子バージョンのメソッドが
 
 65
 00:02:34,358 --> 00:02:36,358
-of that method will be called.
+呼び出されるようになるのです
