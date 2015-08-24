@@ -1,475 +1,475 @@
-1
+﻿1
 00:00:00,235 --> 00:00:02,583
-In Unity a transform's rotation is 
+Unity ではTransform の Rotation（角度）は 
 
 2
 00:00:02,583 --> 00:00:04,416
-stored as a quaternion
+クォータニオン（四元数）で格納されます
 
 3
 00:00:05,192 --> 00:00:07,192
-These work similarly to vectors
+これはベクトルと似ていますが
 
 4
 00:00:07,192 --> 00:00:11,174
-but have 4 components, X, Y, Z and W.
+X Y Z W の 4 個のコンポーネントから構成されます
 
 5
 00:00:12,130 --> 00:00:14,408
-These components are interdependent and work
+各コンポーネントは相互に影響し合い
 
 6
 00:00:14,408 --> 00:00:16,144
-together to define any rotations
+オブジェクトの回転を
 
 7
 00:00:16,144 --> 00:00:17,717
-that an object might need.
+定義します
 
 8
 00:00:18,576 --> 00:00:20,576
-One of the most important things to remember about
+クォータニオンを扱う上でまず覚えておくべき事は
 
 9
 00:00:20,576 --> 00:00:22,576
-dealing with quaternions is that since the X,
+X, Y, Z, W の 4 コンポーネントは
 
 10
 00:00:22,576 --> 00:00:25,277
-Y, Z and W components work together
+まとめて扱うものであり 単体で調整しては
 
 11
 00:00:25,277 --> 00:00:27,527
-you should never adjust them individually.
+いけないという点です
 
 12
 00:00:28,136 --> 00:00:30,330
-Thankfully Unity has many built-in
+Unity にはクォータニオンを簡単に管理するための
 
 13
 00:00:30,330 --> 00:00:32,902
-functions to make managing quaternions easy.
+ビルトイン機能が多数備わっています
 
 14
 00:00:33,595 --> 00:00:35,595
-The system for managing rotations that you are
+さて回転を管理するシステムは
 
 15
 00:00:35,595 --> 00:00:37,498
-probably already familiar with is called
+おそらく聞きなじみのある
 
 16
 00:00:37,498 --> 00:00:38,997
-Euler Angles.
+「オイラー角」です
 
 17
 00:00:39,667 --> 00:00:41,667
-The rotation value shown in the Inspector use
+インスペクターで表示される Rotation の値も
 
 18
 00:00:41,667 --> 00:00:45,048
-this system as it is slightly easier to understand.
+利便性の高さからこのシステムを使っています
 
 19
 00:00:45,518 --> 00:00:47,518
-Euler Angle Rotation is based on a rotation
+オイラー角における回転は それぞれ X 軸
 
 20
 00:00:47,518 --> 00:00:50,670
-around each of the X, Y and Z axis.
+Y 軸 Z 軸の回転をベースとしています
 
 21
 00:00:51,874 --> 00:00:54,317
-You might be wondering why Unity uses quaternions
+では オイラー角のほうが分かりやすいなら
 
 22
 00:00:54,317 --> 00:00:56,317
-if euler angles are easier to understand,
+なぜ Unity ではクォータニオンを使っているのでしょう?
 
 23
 00:00:56,317 --> 00:00:58,844
-especially since Unity converts the quaternion
+ましてなぜインスペクターで表示するオイラー角を
 
 24
 00:00:58,844 --> 00:01:00,844
-to euler angles for the Inspector.
+わざわざクォータニオンから変換しているのでしょう
 
 25
 00:01:01,344 --> 00:01:03,344
-Suffice to say that euler angles are subject
+端的に言えば オイラー角では
 
 26
 00:01:03,344 --> 00:01:05,288
-something called Gimbal Lock which can
+ジンバルロックが発生してしまい
 
 27
 00:01:05,288 --> 00:01:08,093
-prevent incremental rotations from working correctly.
+その結果 増分回転が正しく動作しなくなるからです
 
 28
 00:01:08,842 --> 00:01:10,842
-Luckily, since Unity stores rotations
+Unity では回転を
 
 29
 00:01:10,842 --> 00:01:13,530
-as quaternions, which are not subject to Gimbal Lock,
+クォータニオンで格納することでジンバルロックを
 
 30
 00:01:13,530 --> 00:01:15,530
-we do not experience this problem.
+回避しているのです
 
 31
 00:01:16,320 --> 00:01:18,320
-Let's take a look at some of the functionality that
+それでは Quaternion クラスで使える機能を
 
 32
 00:01:18,320 --> 00:01:20,320
-is available through the quaternion class.
+見ていくとしましょう
 
 33
 00:01:20,820 --> 00:01:23,436
-We will start with the LookRotation function.
+まずは LookRotation 関数を見ていきます
 
 34
 00:01:24,516 --> 00:01:27,341
-Here we have a scene setup with a character and a orb.
+さて ここにキャラクターとオーブが配置されたシーンがあります
 
 35
 00:01:27,841 --> 00:01:30,350
-The character has a script called LookAtScript
+キャラクターには LookAtScript というスクリプトが
 
 36
 00:01:30,350 --> 00:01:31,922
-attached to it.
+アタッチされています
 
 37
 00:01:31,922 --> 00:01:33,922
-The orb has a script called MotionScript
+一方のオーブには MotionScript というスクリプトが
 
 38
 00:01:33,922 --> 00:01:35,922
-attached to it.
+アタッチされています
 
 39
 00:01:36,422 --> 00:01:38,422
-The MotionScript simply moves the object
+MotionScript はオブジェクトを Horizontal 入力軸に沿って
 
 40
 00:01:38,422 --> 00:01:41,295
-side to side based on the horizontal input axis.
+単純に左右に移動させるスクリプトです
 
 41
 00:01:42,057 --> 00:01:44,057
-The LookOutScript has a public field for a target
+LookOutScript には target Transform の
 
 42
 00:01:44,057 --> 00:01:46,057
-transform and in the Update function
+public フィールドがあり さらにここの Update 関数で
 
 43
 00:01:46,057 --> 00:01:48,057
-we will be using LookRotation to cause
+LookRotation を使ってオブジェクトを
 
 44
 00:01:48,057 --> 00:01:50,655
-the object to rotation to face the target.
+target を向くよう回転させます
 
 45
 00:01:51,538 --> 00:01:54,652
-The LookRotation function takes in a vector3.
+LookRotation 関数は Vector3 を取り
 
 46
 00:01:54,652 --> 00:01:56,652
-It returns a quaternion rotation 
+パースされた Vector3 に合った 
 
 47
 00:01:56,652 --> 00:01:58,652
-aligned with the vector3 parsed in.
+回転をクォータニオンで返します
 
 48
 00:02:00,160 --> 00:02:02,160
-By calculating the relative vector between
+オブジェクトとターゲット間の相対ベクトルを
 
 49
 00:02:02,160 --> 00:02:04,160
-the object and the target we could
+計算することでオブジェクトのZ軸を
 
 50
 00:02:04,160 --> 00:02:06,160
-make the object's Z axis
+ターゲットのほうに
 
 51
 00:02:06,160 --> 00:02:07,808
-point towards the target.
+向かせることができます
 
 52
 00:02:08,591 --> 00:02:11,620
-This works in a similar way to Transform.LookAt
+Transform.LookAt と似た仕組みですが
 
 53
 00:02:11,620 --> 00:02:15,297
-but utilising quaternions sets the rotation explicitly.
+クォータニオンを用いたほうがより明示的な指定になります
 
 54
 00:02:16,299 --> 00:02:18,299
-It is also worth noting that we can parse
+なお この関数は 2 個の
 
 55
 00:02:18,299 --> 00:02:20,420
-in a second vector3 to the function
+Vector3 をパースすることができます
 
 56
 00:02:20,996 --> 00:02:22,996
-This vector3 tells the function which
+このとき 2 個めの Vector3 はどちらの方向が
 
 57
 00:02:22,996 --> 00:02:24,996
-direction is considered up.
+上かを指定します
 
 58
 00:02:26,344 --> 00:02:28,986
-Back in the Unity Editor, let's run our scene.
+さて Unity に戻りシーンを実行してみましょう
 
 59
 00:02:29,486 --> 00:02:31,894
-We can see that no matter where we move the orb
+オーブをどこに動かしてもキャラクターがそちらに顔を
 
 60
 00:02:31,894 --> 00:02:33,894
-the character turns to face it.
+向けるのが確認できますね
 
 61
 00:02:35,121 --> 00:02:36,728
-The next function we want to look at is
+次に見ていく関数は
 
 62
 00:02:36,728 --> 00:02:38,454
-the Slerp function.
+Slerp 関数です
 
 63
 00:02:38,454 --> 00:02:41,445
-Slerp is short for Spherical Interpolation.
+Slerp は  Spherical Interpolation（球面線形補間）の略です
 
 64
 00:02:41,945 --> 00:02:44,098
-It is very similar to the lerp function
+lerp 関数と非常によく似てますが
 
 65
 00:02:44,098 --> 00:02:46,570
-which stands for Linear Interpolation.
+そちらは Linear Interpolation（線形補間）です
 
 66
 00:02:47,173 --> 00:02:49,173
-The big difference between the two is that
+両者の最大の違いは lerp が 2 つの
 
 67
 00:02:49,173 --> 00:02:51,173
-lerp will interpolate evenly between two
+クォータニオン間で均等に
 
 68
 00:02:51,173 --> 00:02:53,173
-quaternions, while slerp will
+補間するのに対し slerp は
 
 69
 00:02:53,173 --> 00:02:54,868
-interpolate on a curve.
+曲線的に補間する点です
 
 70
 00:02:55,673 --> 00:02:57,673
-The result is that lerp will provide an even
+結果 lerp は均等な結果を
 
 71
 00:02:57,673 --> 00:03:00,378
-change over time, while slerp will start
+返すのに対し slerp は始点と終端近くで遅く
 
 72
 00:03:00,378 --> 00:03:02,952
-and end slower and be faster in the middle.
+中盤で速くなります
 
 73
 00:03:03,832 --> 00:03:07,123
-We have here a scene with another character and orb.
+さて今度もキャラクターとオーブのあるシーンです
 
 74
 00:03:07,123 --> 00:03:09,970
-The character has no scripts attached to it.
+今回のキャラクターにはスクリプトがアタッチされていません
 
 75
 00:03:09,970 --> 00:03:12,456
-The orb has a Gravity script attached to it.
+一方のオーブには Gravity スクリプトがアタッチされています
 
 76
 00:03:13,183 --> 00:03:15,183
-This scene will utilise slerp and some
+このシーンでは slerp と前移動を活用して
 
 77
 00:03:15,183 --> 00:03:18,131
-forward movement to achieve a gravity orbit effect.
+重力軌道的な移動を実現してみます
 
 78
 00:03:19,146 --> 00:03:21,146
-In the Gravity script we have a setup similar
+Gravity スクリプトの構成は先ほどの
 
 79
 00:03:21,146 --> 00:03:23,528
-to the LookAt script from before.
+LookAt スクリプトと似ています
 
 80
 00:03:23,528 --> 00:03:26,465
-Again, we have a public field for a target transform.
+今回も target Transform の public フィールドがあり
 
 81
 00:03:27,131 --> 00:03:29,360
-We are also calculating the relative vector
+オブジェクトとターゲット間の相対ベクトルを
 
 82
 00:03:29,360 --> 00:03:31,752
-between the object and the target, though this time
+計算します ただし今回は
 
 83
 00:03:31,752 --> 00:03:34,552
-we are adding an offset to account for the orbs height.
+オーブの高さを考慮したオフセットを追加します
 
 84
 00:03:35,173 --> 00:03:36,913
-We are also calculating the LookRotation
+また今回も LookRotation を計算していますが
 
 85
 00:03:36,913 --> 00:03:39,350
-like before except we are not storing it in
+今回は計算結果をオブジェクトの
 
 86
 00:03:39,350 --> 00:03:42,224
-the rotation of the object's transform this time.
+Transform の回転に格納していません
 
 87
 00:03:42,815 --> 00:03:44,815
-Instead we are storing it in a quaternion
+代わりに今回はクォータニオン変数である
 
 88
 00:03:44,815 --> 00:03:46,815
-variable named Rotation.
+rotation に格納します
 
 89
 00:03:47,315 --> 00:03:49,315
-We are then storing the local rotation of the
+そしてオブジェクトの localRotation を
 
 90
 00:03:49,315 --> 00:03:52,234
-object in a quaternion variable named Current.
+クォータニオン変数 Current に格納します
 
 91
 00:03:53,143 --> 00:03:55,143
-After that we are using the slerp function
+その後 slerp 関数を使い オブジェクトが
 
 92
 00:03:55,143 --> 00:03:58,264
-to slowly turn the object to face the target.
+ターゲットの方をゆっくりと向くようにします
 
 93
 00:03:58,764 --> 00:04:01,622
-The slerp function reads in the current rotation,
+slerp 関数はまず current の回転を読み
 
 94
 00:04:01,622 --> 00:04:04,444
-the end result rotation and the speed it
+最終結果の回転を読み そして
 
 95
 00:04:04,444 --> 00:04:06,444
-should interpolate or turn.
+補間または向き変更の速度を読みます
 
 96
 00:04:06,944 --> 00:04:08,715
-The fact that the rotation doesn't happen
+即時ではなく時間をかけて
 
 97
 00:04:08,715 --> 00:04:11,366
-immediately but over time is the key to
+回転するのがこのサンプルを
 
 98
 00:04:11,366 --> 00:04:13,122
-making this example work.
+機能させるカギとなっています
 
 99
 00:04:13,866 --> 00:04:15,866
-After we turn the objects slightly towards
+そしてオブジェクトがややターゲットの方を向いたところで
 
 100
 00:04:15,866 --> 00:04:18,674
-the target we move it forward a little bit.
+少しだけオブジェクトを前進させます
 
 101
 00:04:19,583 --> 00:04:21,583
-Back in Unity we can run our scene
+では Unity に戻ってシーンを実行し
 
 102
 00:04:21,583 --> 00:04:23,056
-and see the result.
+結果を確認してみましょう
 
 103
 00:04:23,614 --> 00:04:25,614
-The orb is always moving forward and
+オーブは前進を続けながら
 
 104
 00:04:25,614 --> 00:04:27,614
-turning to face the target, which in this
+ターゲット... 今回はキャラクターのほうを
 
 105
 00:04:27,614 --> 00:04:29,340
-case is the character.
+向き続けています
 
 106
 00:04:29,340 --> 00:04:32,626
-This gives us a nice smooth orbit effect.
+きれいな重力軌道が描けましたね
 
 107
 00:04:33,959 --> 00:04:35,959
-The last thing we are going to look at is the
+さてレッスン最後に見ていくのは
 
 108
 00:04:35,959 --> 00:04:38,401
-identity property of the quaternion class.
+Quaternion クラスの identity プロパティです
 
 109
 00:04:38,989 --> 00:04:41,987
-Setting a quaternion to Quaternion.identity
+クォータニオンを Quaternion.identity にセットすると
 
 110
 00:04:41,987 --> 00:04:43,987
-will effectively set it's euler rotation to
+そのオイラー角が
 
 111
 00:04:43,987 --> 00:04:47,141
-(0,0,0), or no rotation.
+(0,0,0) または回転なしに設定されます
 
 112
 00:04:48,080 --> 00:04:50,370
-There are more functions in the quaternion class
+Quaternion クラスにはこの他にもさまざまな関数が
 
 113
 00:04:50,370 --> 00:04:53,296
-that you can find in the documentation linked below.
+あります  詳細は下記リンク先のドキュメントをご覧ください
 
 114
 00:04:53,796 --> 00:04:56,478
-The most important things to take away from this lesson
+最後に このレッスンで一番覚えておいて欲しい点を改めて
 
 115
 00:04:56,478 --> 00:04:58,478
-are that quaternions are the best way of 
+クォータニオンは回転を制御する 
 
 116
 00:04:58,478 --> 00:05:00,478
-dealing with rotation, and that you should
+最適な方法で  そのコンポーネントは個別に
 
 117
 00:05:00,478 --> 00:05:02,962
-never alter the components independently.
+調節してはいけません
 
 118
 00:05:03,629 --> 00:05:05,629
-There will always be some functionality
+そうしなくとも大丈夫な機能が
 
 119
 00:05:05,629 --> 00:05:07,629
-that you can use instead.
+かならず用意されているはずですから
