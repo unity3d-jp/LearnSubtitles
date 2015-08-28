@@ -1,203 +1,203 @@
-1
+﻿1
 00:00:00,262 --> 00:00:02,417
-Extension methods are a way of adding functionality
+Extension メソッドは 事前に適切な型を作成しておいたり
 
 2
 00:00:02,417 --> 00:00:04,417
-to a type without having to create a derive type
+派生型を変更したりすることなく型を
 
 3
 00:00:04,417 --> 00:00:06,195
-or change the original type.
+拡張する方法として使えます
 
 4
 00:00:06,778 --> 00:00:08,778
-They are perfect for situations where you need to add
+これは編集できないクラスに機能を
 
 5
 00:00:08,778 --> 00:00:11,713
-functionality to a class but cannot edit the class.
+追加したい場合などにぴったりです
 
 6
 00:00:12,075 --> 00:00:14,075
-Consider the class transform which is built in to
+たとえば Transform クラスは Unity ビルトインなので
 
 7
 00:00:14,075 --> 00:00:17,359
-Unity so we do not have access to it's source code.
+ソースコードを変更することができませんが
 
 8
 00:00:17,359 --> 00:00:19,359
-Let's say we wanted an easy way to reset the
+位置・回転・スケールの情報を簡単に
 
 9
 00:00:19,359 --> 00:00:21,359
-position, rotation and scale
+リセットする方法を追加したい場合などが
 
 10
 00:00:21,359 --> 00:00:23,359
-transform using a function.
+これに当たります
 
 11
 00:00:23,359 --> 00:00:25,359
-The ideal place for this function would be in
+この機能を格納する場所として理想的なのは
 
 12
 00:00:25,359 --> 00:00:27,359
-the transform class, but since we can't
+Transform クラスですが このクラスに追加することは
 
 13
 00:00:27,359 --> 00:00:29,359
-directly add to the class and it wouldn't make sense
+できませんしこの関数を派生クラスとして
 
 14
 00:00:29,359 --> 00:00:31,359
-to have this function in a derived class
+作るのも合理的でないので
 
 15
 00:00:31,359 --> 00:00:33,359
-we'll make an extension for it.
+拡張（Extension）を作ることにします
 
 16
 00:00:33,859 --> 00:00:35,594
-Extension methods must be placed in a
+Extension メソッドは generic でない static クラスに
 
 17
 00:00:35,594 --> 00:00:37,594
-non-generic static class.
+格納する必要があります
 
 18
 00:00:37,594 --> 00:00:39,594
-It is common to create a class specifically
+格納するためのクラスを作ってその中に
 
 19
 00:00:39,594 --> 00:00:41,164
-to contain them.
+格納するのが一般的です
 
 20
 00:00:41,164 --> 00:00:43,164
-While extension methods are used like instance
+Extension メソッドはインスタンスメソッドのように使われますが
 
 21
 00:00:43,164 --> 00:00:46,234
-methods, they too are declared static.
+static と宣言されています
 
 22
 00:00:46,234 --> 00:00:48,234
-What makes a function an extension method
+関数と拡張メソッドの違いは
 
 23
 00:00:48,234 --> 00:00:50,234
-instead of a static method is the use
+拡張メソッドではパラメーターに
 
 24
 00:00:50,234 --> 00:00:52,872
-of the This keyword in the parameter.
+this キーワードが使われる点です
 
 25
 00:00:53,303 --> 00:00:55,303
-For our example we will create a static
+この例ではまず static クラス
 
 26
 00:00:55,303 --> 00:00:57,579
-class called ExtensionMethods.
+ExtensionMethods を作成し
 
 27
 00:00:57,579 --> 00:00:59,579
-We then create our extension method named
+続いてその中に Extension メソッド
 
 28
 00:00:59,579 --> 00:01:01,579
-ResetTransformation.
+ResetTransformation を作成します
 
 29
 00:01:01,579 --> 00:01:03,941
-Notice that this method is declared static.
+このメソッドは static と宣言されていますね
 
 30
 00:01:03,941 --> 00:01:05,941
-Also notice that the first parameter has the
+そして最初のパラメーターに
 
 31
 00:01:05,941 --> 00:01:08,198
-this keyword followed by the transform
+this キーワード そして Transform クラス 続けて
 
 32
 00:01:08,198 --> 00:01:10,803
-class and an arbitrary parameter name.
+任意のパラメーター名となっています
 
 33
 00:01:10,803 --> 00:01:13,172
-This first parameter will be the calling object
+なお最初のパラメーターが呼び出し元
 
 34
 00:01:13,172 --> 00:01:15,172
-and thus will not have to be supplied when we
+オブジェクトとなるため呼び出し時に指定する
 
 35
 00:01:15,172 --> 00:01:16,529
-call this function.
+必要はありません
 
 36
 00:01:16,529 --> 00:01:18,994
-Furthermore, this first parameter dictates which
+また最初のパラメーターはこのメソッドが
 
 37
 00:01:18,994 --> 00:01:21,265
-class this method becomes a part of.
+属するクラスも決定します
 
 38
 00:01:21,265 --> 00:01:23,265
-If we wanted any more parameters we
+複数個のパラメーターを指定したい場合は
 
 39
 00:01:23,265 --> 00:01:26,276
-could put them in here without the this keyword.
+this キーワードを省いてここで指定できます
 
 40
 00:01:26,776 --> 00:01:28,776
-Within the method we can now write the code
+ではこのメソッド内に Transform をリセットするコードを
 
 41
 00:01:28,776 --> 00:01:30,776
-to reset the transform.
+書いていきましょう
 
 42
 00:01:32,612 --> 00:01:34,612
-It is important to note that despite this function
+なおこの関数の宣言にはパラメーターがありますが
 
 43
 00:01:34,612 --> 00:01:36,948
-declaration having a parameter, when the function is
+呼び出された時には何も取らないことに
 
 44
 00:01:36,948 --> 00:01:38,596
-called it will have none.
+注意してください
 
 45
 00:01:38,596 --> 00:01:40,596
-The parameter implicitly becomes the
+パラメーターは指定しなくとも
 
 46
 00:01:40,596 --> 00:01:42,596
-instance of the transform.
+Transform のインスタンスとなります
 
 47
 00:01:42,596 --> 00:01:44,596
-In order to use this extension method
+この Extension メソッドは
 
 48
 00:01:44,596 --> 00:01:46,596
-you only need to look for it as a member
+拡張したクラスのメンバーを
 
 49
 00:01:46,596 --> 00:01:48,079
-of the class you extended.
+検索するだけで使えます
 
 50
 00:01:48,079 --> 00:01:50,079
-In this case we extend transform
+この場合は Transform を拡張しているので
 
 51
 00:01:50,079 --> 00:01:53,623
-and can see that the method is now a part of the transform class.
+メソッドが Transform クラスの一部として表示されます
