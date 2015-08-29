@@ -1,587 +1,587 @@
-1
+﻿1
 00:00:00,269 --> 00:00:01,888
-Events are specialised delegates
+Event は他のクラスに何らかの
 
 2
 00:00:01,888 --> 00:00:03,723
-that are useful for when you want to alert
+出来事が起きたことを通知する事に
 
 3
 00:00:03,723 --> 00:00:05,723
-other classes that something has happened.
+特化したデリゲートです
 
 4
 00:00:06,454 --> 00:00:08,454
-In practice you will see that events
+実際には Event は public multicast デリゲートと
 
 5
 00:00:08,454 --> 00:00:12,087
-function very similarly to public multicast delegates.
+よく似た関数のように見えます
 
 6
 00:00:12,856 --> 00:00:14,625
-For more information on delegates
+デリゲートの詳細については
 
 7
 00:00:14,625 --> 00:00:17,069
-see the lesson on delegates linked below.
+下記リンク先にあるデリゲートのレッスンをご覧ください
 
 8
 00:00:18,740 --> 00:00:21,713
-An event can be thought of like broadcast system.
+Event はブロードキャストシステムのように捉えることができます
 
 9
 00:00:21,713 --> 00:00:23,713
-Any class that is interested in an event
+あるイベントに興味を持ったクラスは
 
 10
 00:00:23,713 --> 00:00:25,713
-can subscribe methods to it.
+そのメソッドを購読（サブスクライブ）することができます
 
 11
 00:00:26,550 --> 00:00:28,914
-When that specific situation occurs,
+特定の状況が生じたとき...
 
 12
 00:00:28,914 --> 00:00:32,458
-like a button click, a power-up or player injury
+たとえばボタンのクリックやパワーアップ あるいはプレイヤーが負傷したなどに
 
 13
 00:00:32,458 --> 00:00:34,458
-we invoke our event and that in turn
+イベントを呼び出し その結果として
 
 14
 00:00:34,458 --> 00:00:37,110
-calls the methods of the subscribed classes.
+購読しているクラスのメソッドを呼び出すのです
 
 15
 00:00:38,495 --> 00:00:40,495
-We have here a scene with 2 orbs in it.
+さて ここに 2 つのオーブが配置されたシーンがあります
 
 16
 00:00:40,937 --> 00:00:43,754
-One orb has a script called TeleportScript
+一方のオーブには TeleportScript がアタッチされていて
 
 17
 00:00:43,754 --> 00:00:46,690
-while the other has a script called TurnColorScript.
+他方には TurnColorScript がアタッチされています
 
 18
 00:00:47,315 --> 00:00:50,512
-Attached to our camera is an EventManagerScript.
+そしてカメラには EventManagerScript がアタッチされています
 
 19
 00:00:51,368 --> 00:00:54,466
-An event can be made for just about any situation.
+イベントはどういった状況に対しても発行することができますが
 
 20
 00:00:54,466 --> 00:00:57,175
-But in this example we want to invoke an event
+この例ではプレイヤーが画面に描画している
 
 21
 00:00:57,175 --> 00:00:58,877
-whenever the player clicks a button
+ボタンをクリックした時にイベントを
 
 22
 00:00:58,877 --> 00:01:00,877
-that we are drawing to the screen.
+発行することにします
 
 23
 00:01:01,964 --> 00:01:03,964
-In our event manager we can see
+さて EventManager スクリプトでは
 
 24
 00:01:03,964 --> 00:01:06,089
-that we first create a delegate type
+最初にデリゲートの型を作ります
 
 25
 00:01:06,089 --> 00:01:08,089
-which we name ClickAction.
+名前は ClickAction としておきましょう
 
 26
 00:01:09,031 --> 00:01:12,418
-We can see that any method that wishes to subscribe
+ご覧のとおり イベントを購読するメソッドは
 
 27
 00:01:12,418 --> 00:01:16,181
-must take no parameters and have a return type of void.
+パラメーターなし  戻り値の型なし（void）とする必要があります
 
 28
 00:01:16,945 --> 00:01:20,221
-Next we create our event variable.
+続いてイベント変数を作ります
 
 29
 00:01:20,221 --> 00:01:23,261
-We do this with the Event keyword.
+イベントを作るには event キーワードを使います
 
 30
 00:01:23,803 --> 00:01:26,235
-Note that this variable is also static
+なお  この変数は static なので
 
 31
 00:01:26,235 --> 00:01:28,235
-so that we can use it outside of the class
+このクラスのオブジェクトをインスタンス化しなくとも
 
 32
 00:01:28,235 --> 00:01:31,290
-without instantiating an object of this class.
+クラスの外側からも使用可能です
 
 33
 00:01:32,623 --> 00:01:36,297
-Our event variable, which we have named OnClicked
+ここで OnClicked と名づけられたイベント変数は
 
 34
 00:01:36,297 --> 00:01:39,248
-is of the type of the delegate we created above.
+上で作ったデリゲートの型になります
 
 35
 00:01:40,012 --> 00:01:42,896
-The only other thing this class is responsible for
+さてこのクラスのもう一つの重大な仕事は
 
 36
 00:01:42,896 --> 00:01:44,896
-is calling the event whenever the appropriate
+適切な状況が生じた時にイベントを
 
 37
 00:01:44,896 --> 00:01:46,616
-situation arrises.
+呼び出すことです
 
 38
 00:01:47,257 --> 00:01:48,949
-Like we stated before,
+先述の通り
 
 39
 00:01:48,949 --> 00:01:50,949
-we will call this even whenever the player
+このイベントを呼び出すのはプレイヤーが
 
 40
 00:01:50,949 --> 00:01:52,298
-clicks our button.
+ボタンをクリックした時です
 
 41
 00:01:52,298 --> 00:01:55,521
-Therefore this script has an OnGUI method.
+そのために  このスクリプトには OnGUI メソッドがあります
 
 42
 00:01:56,729 --> 00:01:58,631
-Inside the OnGUI method
+OnGUI メソッド内部では
 
 43
 00:01:58,631 --> 00:02:00,631
-we create a button on our screen.
+画面に表示するボタンを作成します
 
 44
 00:02:01,089 --> 00:02:03,089
-When the player clicks the button
+プレイヤーがボタンをクリックすると
 
 45
 00:02:03,089 --> 00:02:06,035
-we use our event variable as if it was a function.
+イベント変数が関数のように使われて
 
 46
 00:02:06,535 --> 00:02:09,328
-This in effect invokes our event.
+イベントが発行されます
 
 47
 00:02:10,550 --> 00:02:12,886
-Please note that just like delegates
+なおデリゲートの場合と同様に
 
 48
 00:02:12,886 --> 00:02:14,886
-it causes an error if we invoke an event
+サブスクライバーが存在しないイベントを発行すると
 
 49
 00:02:14,886 --> 00:02:16,886
-with no subscribers.
+エラーが生じます
 
 50
 00:02:16,886 --> 00:02:18,886
-Therefore we should always make sure
+このためイベントの発行前には
 
 51
 00:02:18,886 --> 00:02:20,886
-that the event does not equal null
+必ずnull とイコールにならない
 
 52
 00:02:20,886 --> 00:02:22,886
-before invoking it.
+ようにしましょう
 
 53
 00:02:23,789 --> 00:02:26,137
-If you recall the 2 orbs in our
+さて先程のシーンでは 2 つのオーブに
 
 54
 00:02:26,137 --> 00:02:29,393
-scene have 2 different scripts attached to them.
+それぞれ異なるスクリプトがアタッチされていました
 
 55
 00:02:29,393 --> 00:02:31,393
-These 2 scripts will act as subscribers
+この 2 つのスクリプトはイベントのサブスクライバーとして
 
 56
 00:02:31,393 --> 00:02:33,184
-to this event.
+機能します
 
 57
 00:02:33,184 --> 00:02:35,184
-Let's take a look at them now.
+それでは中身を見てみましょう
 
 58
 00:02:36,503 --> 00:02:38,503
-In the TeleportScript we have
+TeleportScript 内には
 
 59
 00:02:38,503 --> 00:02:40,503
-created a method call Teleport.
+Teleport というメソッドが作られています
 
 60
 00:02:41,114 --> 00:02:43,114
-This is the method that we will be subscribing to
+これは EventManager で作成した
 
 61
 00:02:43,114 --> 00:02:46,023
-the event that we created in the event manager.
+イベントを購読することになるメソッドです
 
 62
 00:02:46,815 --> 00:02:50,097
-You will notice that the Teleport method takes no parameters
+ご覧のとおり Teleport メソッドはパラメーターを取らず
 
 63
 00:02:50,097 --> 00:02:51,875
-and has a return type of void,
+戻り値の型もなし（void）です
 
 64
 00:02:51,875 --> 00:02:53,583
-just like our delegate.
+デリゲートと同じですね
 
 65
 00:02:54,292 --> 00:02:56,292
-The Teleport method is responsible for
+Teleport メソッドはオブジェクトの
 
 66
 00:02:56,292 --> 00:02:59,492
-positioning the object randomly along the Y axis.
+Y 軸の位置をランダムに変更するものです
 
 67
 00:03:00,284 --> 00:03:01,980
-Near the top of our script
+スクリプトの最上部近くには
 
 68
 00:03:01,980 --> 00:03:04,601
-we have a method named OnEnable.
+OnEnable というメソッドがあります
 
 69
 00:03:04,601 --> 00:03:06,601
-This is a built-in method that will be called
+これはビルトインメソッドで スクリプトがアタッチされた
 
 70
 00:03:06,601 --> 00:03:08,601
-whenever the object that this script is
+オブジェクトが作成されるかシーンで
 
 71
 00:03:08,601 --> 00:03:12,296
-attached to is created or enabled in a scene.
+有効になると呼び出されます
 
 72
 00:03:13,185 --> 00:03:15,352
-We will use this method to subscribe our
+このメソッドは Teleport メソッドを
 
 73
 00:03:15,352 --> 00:03:18,429
-Teleport method to the OnClicked event
+EventScript の OnClicked イベントに
 
 74
 00:03:18,429 --> 00:03:20,624
-of the EventScript.
+購読させるのに使用します
 
 75
 00:03:20,624 --> 00:03:22,624
-We can see that we subscribe a method to
+ご覧のとおり メソッドをイベントに
 
 76
 00:03:22,624 --> 00:03:25,467
-an event by using the += operator.
+購読させるのには += 演算子を使います
 
 77
 00:03:26,425 --> 00:03:28,704
-By subscribing a method to an event
+メソッドをイベントに購読させると
 
 78
 00:03:28,704 --> 00:03:30,997
-we ensure that whenever the event occurs
+以後はイベントが発生するたびに
 
 79
 00:03:30,997 --> 00:03:32,997
-our method will be called.
+メソッドが呼び出されるようになります
 
 80
 00:03:33,900 --> 00:03:37,622
-Next we have the OnDisable method.
+続いては OnDisable メソッドです
 
 81
 00:03:37,622 --> 00:03:39,622
-Opposite of the OnEnable method,
+OnEnable メソッドとは反対に
 
 82
 00:03:39,622 --> 00:03:41,622
-the OnDisable method is called whenever
+OnDisable メソッドはオブジェクトがシーン内で
 
 83
 00:03:41,622 --> 00:03:45,006
-an object is disabled or destroyed in a scene.
+無効化されるか破壊されると呼び出されます
 
 84
 00:03:45,775 --> 00:03:47,955
-Inside the OnDisabled method
+OnDisabled メソッドの内側では
 
 85
 00:03:47,955 --> 00:03:50,749
-we are unsubscribing our method from the event.
+メソッドをイベントから購読解除しています
 
 86
 00:03:51,330 --> 00:03:53,219
-We unsubscribe a method from an event
+メソッドをイベントから購読解除するには
 
 87
 00:03:53,219 --> 00:03:55,689
-using the -= operator.
+-= 演算子を使用します
 
 88
 00:03:56,511 --> 00:03:58,511
-Doing so will ensure that our method is no
+これでイベントが発生してもメソッドが
 
 89
 00:03:58,511 --> 00:04:01,037
-longer called when an event occurs.
+呼び出されなくなります
 
 90
 00:04:02,233 --> 00:04:04,233
-This step is incredibly important
+この手順は非常に重要なものです
 
 91
 00:04:04,233 --> 00:04:06,233
-and failure to do so can lead to memory
+行わない場合メモリリークやエラーといった
 
 92
 00:04:06,233 --> 00:04:08,233
-leaks and errors in your game.
+結果につながる可能性があります
 
 93
 00:04:08,844 --> 00:04:10,844
-A good rule is that whenever you subscribe
+メソッドをイベントに購読するときは
 
 94
 00:04:10,844 --> 00:04:12,844
-a method to an event you must
+必ずそれに対応する購読解除プロセスを
 
 95
 00:04:12,844 --> 00:04:15,531
-also have a corresponding unsubscribe
+用意すると覚えておくとよいでしょう
 
 96
 00:04:17,017 --> 00:04:19,017
-Our TurnColorScript
+さて TurnColorScript のほうも
 
 97
 00:04:19,017 --> 00:04:22,219
-is structured very similarly to our TeleportScript.
+TeleportScript とかなり似た構造をしています
 
 98
 00:04:22,816 --> 00:04:26,081
-In this case we have a method called TurnColor
+こちらにある TurnColor というメソッドも
 
 99
 00:04:26,081 --> 00:04:28,081
-which takes no parameters and has a return
+パラメーターも取らず  戻り値の型は
 
 100
 00:04:28,081 --> 00:04:29,619
-type of void.
+ありません（void）
 
 101
 00:04:30,414 --> 00:04:32,069
-The TurnColor method
+この TurnColor メソッドは
 
 102
 00:04:32,069 --> 00:04:34,959
-turns the object's material a random color.
+オブジェクトのマテリアルをランダムな色に変更します
 
 103
 00:04:35,515 --> 00:04:38,182
-Again, we have the OnEnable
+そして先程と同様に OnEnable と
 
 104
 00:04:38,182 --> 00:04:40,182
-and OnDisable methods.
+OnDisable メソッドがあります
 
 105
 00:04:40,793 --> 00:04:42,793
-This time they are subscribing
+こちらの場合にはイベントの登録と
 
 106
 00:04:42,793 --> 00:04:45,334
-and unsubscribing our TurnColor method
+登録解除に TurnColor メソッドが
 
 107
 00:04:45,334 --> 00:04:46,862
-from the event.
+使われています
 
 108
 00:04:47,584 --> 00:04:49,584
-It is worth noting another time
+大事なことなので 2 回言いますが
 
 109
 00:04:49,584 --> 00:04:51,584
-that unsubscribing our method from the event
+イベントを正しくエラーなく使う上で
 
 110
 00:04:51,584 --> 00:04:54,232
-is paramount to using events correctly
+メソッドをイベントから購読解除するのは
 
 111
 00:04:54,232 --> 00:04:56,232
-and preventing errors in our code.
+非常に重要です
 
 112
 00:04:57,454 --> 00:05:00,092
-Back in Unity we can run our scene.
+さて Unity に戻ってシーンを実行してみましょう
 
 113
 00:05:00,092 --> 00:05:02,092
-The first thing to notice is the button that
+画面上部にボタンが表示される
 
 114
 00:05:02,092 --> 00:05:03,799
-appears near the top.
+ようになりましたね
 
 115
 00:05:03,799 --> 00:05:05,799
-Clicking this button will invoke our event
+このボタンをクリックするとイベントが発行されて
 
 116
 00:05:05,799 --> 00:05:09,120
-and call the Teleport and TurnColor methods.
+Teleport と TurnColor メソッドが呼び出されます
 
 117
 00:05:09,120 --> 00:05:11,120
-We can click the button multiple times
+ボタンは複数回押してもかまいません
 
 118
 00:05:11,120 --> 00:05:14,600
-and each time the subscribe to methods will be called.
+押されるたびにメソッドの購読が呼び出されます
 
 119
 00:05:15,836 --> 00:05:17,836
-As we can see, our event manager
+こうして見てきたとおり EventManager は
 
 120
 00:05:17,836 --> 00:05:20,338
-only needed to worry about the event itself
+自身とイベントのトリガーだけを
 
 121
 00:05:20,338 --> 00:05:22,577
-and the triggers for the event.
+気にかけておけばよくなっています
 
 122
 00:05:22,577 --> 00:05:24,926
-It did not need to know about the TeleportScript,
+EventManager 側では TeleportScript のことも
 
 123
 00:05:24,926 --> 00:05:26,636
-or the TurnColorScript.
+TurnColorScript のことも知らなくて OK です
 
 124
 00:05:27,259 --> 00:05:31,055
-Likewise the TeleportScript and TurnColorScript
+同様に TeleportScript と TurnColorScript も
 
 125
 00:05:31,055 --> 00:05:33,055
-didn't need to know about each other.
+互いの存在を感知する必要がありません
 
 126
 00:05:33,916 --> 00:05:35,916
-In this way we are able to create
+こうしておくことで実に堅牢で柔軟な
 
 127
 00:05:35,916 --> 00:05:38,909
-a very robust and flexible broadcast system.
+ブロードキャストシステムを構築できるのです
 
 128
 00:05:40,346 --> 00:05:42,346
-You might be wondering why we used a static
+しかし EventManager ではどうして static な
 
 129
 00:05:42,346 --> 00:05:45,089
-event variable instead of a public delegate variable
+イベント変数を使うのでしょう? public なデリゲート変数では
 
 130
 00:05:45,089 --> 00:05:46,669
-in our event manager?
+いけないのでしょうか?
 
 131
 00:05:47,353 --> 00:05:50,205
-The truth is you can achieve the exact same
+実のことを言うと たとえ public なデリゲート変数を使っても
 
 132
 00:05:50,205 --> 00:05:53,297
-functionality of events with public delegate variables.
+まったく同じ機能が実現可能です
 
 133
 00:05:53,797 --> 00:05:56,894
-In fact as we stated at the beginning of this lesson,
+じっさいこのレッスンの最初でも
 
 134
 00:05:56,894 --> 00:05:59,879
-events are just specialised delegates.
+イベントは特別な用途向けのデリゲートであると言いました
 
 135
 00:05:59,879 --> 00:06:01,879
-The reason we use events over public
+ここで public なデリゲート変数を使わず
 
 136
 00:06:01,879 --> 00:06:04,849
-delegate variables for situations like this
+イベントを使っているのは イベントには
 
 137
 00:06:04,849 --> 00:06:06,849
-is that events have inherent security
+デリゲートにはない継承されたセキュリティが
 
 138
 00:06:06,849 --> 00:06:08,849
-where delegate variables do not.
+備わっているからです
 
 139
 00:06:09,433 --> 00:06:11,433
-With events other classes
+イベントの場合 他のクラスは
 
 140
 00:06:11,433 --> 00:06:13,698
-can only subscribe and unsubscribe.
+購読と購読解除のみしか行えません
 
 141
 00:06:14,350 --> 00:06:17,584
-If we were to use a public delegate variable instead
+しかし public なデリゲート関数を使っていたら
 
 142
 00:06:17,584 --> 00:06:19,584
-other classes could invoke or
+他のクラスはデリゲート変数を呼び出したり
 
 143
 00:06:19,584 --> 00:06:21,584
-override our delegate variable to do
+オーバーライドしたりして
 
 144
 00:06:21,584 --> 00:06:23,584
-all sorts of nefarious things.
+色々邪悪なことができてしまいます
 
 145
 00:06:24,431 --> 00:06:27,348
-Generally speaking, if you want to create a dynamic
+一般的に 複数のクラスを含む動的な
 
 146
 00:06:27,348 --> 00:06:30,579
-method system that involves more than 1 class,
+メソッドシステムを作るのであれば デリゲート変数ではなく
 
 147
 00:06:30,579 --> 00:06:33,632
-use event variables instead of delegate variables.
+イベントを使ったほうが良いのです
