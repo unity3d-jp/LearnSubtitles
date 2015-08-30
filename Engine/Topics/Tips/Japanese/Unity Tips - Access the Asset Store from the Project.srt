@@ -1,0 +1,67 @@
+1
+00:00:00,279 --> 00:00:02,843
+A quick tip for finding assets for your game
+
+2
+00:00:02,843 --> 00:00:06,010
+is to use the project panel to search the assets store.
+
+3
+00:00:06,010 --> 00:00:08,010
+So if you're looking through your project thinking
+
+4
+00:00:08,010 --> 00:00:10,333
+'I don't really have the assets that I need'
+
+5
+00:00:10,333 --> 00:00:12,542
+for example I might search for 'zombie'
+
+6
+00:00:12,542 --> 00:00:14,542
+when I've only really got some zombears.
+
+7
+00:00:15,236 --> 00:00:17,714
+Then we can just simply use the toggle
+
+8
+00:00:17,714 --> 00:00:18,914
+below the search field.
+
+9
+00:00:18,914 --> 00:00:21,152
+So you'll see Search, it'll say Assets.
+
+10
+00:00:21,152 --> 00:00:23,821
+If you flip this to Asset Store
+
+11
+00:00:23,821 --> 00:00:26,721
+and then search for what you want, for example Zombie.
+
+12
+00:00:26,721 --> 00:00:29,108
+You'll find all of the results on the store
+
+13
+00:00:29,108 --> 00:00:31,840
+and you can select them, you can
+
+14
+00:00:32,215 --> 00:00:34,701
+move your preview, you can have a look around them,
+
+15
+00:00:34,701 --> 00:00:37,382
+you can import that package, you ca do all that kind of stuff.
+
+16
+00:00:37,382 --> 00:00:39,382
+So it's a quick way to browse the assets store without
+
+17
+00:00:39,382 --> 00:00:42,123
+opening the store and looking through the categories there.

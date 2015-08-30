@@ -1,0 +1,55 @@
+1
+00:00:00,181 --> 00:00:01,764
+A quick tip for Unity.
+
+2
+00:00:01,764 --> 00:00:04,375
+If you're working with the inspector to preview
+
+3
+00:00:04,375 --> 00:00:07,611
+any kind of assets like models, wave forms,
+
+4
+00:00:07,611 --> 00:00:09,000
+anything that you can import,
+
+5
+00:00:09,000 --> 00:00:11,000
+and you're using the preview window quite often
+
+6
+00:00:11,000 --> 00:00:13,665
+it can be helpful to pop it out and view it larger.
+
+7
+00:00:13,665 --> 00:00:15,665
+For example, with this animation clip,
+
+8
+00:00:15,665 --> 00:00:18,141
+I can simply right-click on the header bar
+
+9
+00:00:18,141 --> 00:00:20,141
+of the preview window to pop it out
+
+10
+00:00:20,141 --> 00:00:22,141
+in to a larger window that I can move to another screen
+
+11
+00:00:22,141 --> 00:00:24,141
+or dock wherever I wish.
+
+12
+00:00:25,044 --> 00:00:27,044
+Close the window to dock it back.
+
+13
+00:00:27,697 --> 00:00:29,697
+Right-click the top bar of the preview
+
+14
+00:00:30,641 --> 00:00:33,254
+and it pops out, close to return it.

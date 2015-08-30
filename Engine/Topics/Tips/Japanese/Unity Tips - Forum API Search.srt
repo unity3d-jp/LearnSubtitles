@@ -1,0 +1,35 @@
+1
+00:00:00,236 --> 00:00:01,229
+A quick tip for Unity.
+
+2
+00:00:01,229 --> 00:00:03,229
+If you're using the forums to
+
+3
+00:00:03,229 --> 00:00:05,594
+read C# formatted code
+
+4
+00:00:05,594 --> 00:00:07,594
+you can click on any of the API elements to
+
+5
+00:00:07,594 --> 00:00:11,075
+actually visit the script reference search for that term.
+
+6
+00:00:11,075 --> 00:00:13,075
+So for example if I click on Input,
+
+7
+00:00:14,852 --> 00:00:16,852
+the scripting API will perform a search
+
+8
+00:00:16,852 --> 00:00:18,533
+for that and I can jump to any of the
+
+9
+00:00:18,533 --> 00:00:20,533
+relevant properties of that.

@@ -1,0 +1,75 @@
+1
+00:00:00,708 --> 00:00:02,500
+Here's a quick tip for moving objects
+
+2
+00:00:02,500 --> 00:00:04,500
+around by defined increments.
+
+3
+00:00:04,917 --> 00:00:06,792
+So you can snap objects by holding
+
+4
+00:00:06,792 --> 00:00:09,278
+command on Mac or control on PC,
+
+5
+00:00:09,278 --> 00:00:11,125
+and they'll move in defined increments.
+
+6
+00:00:11,125 --> 00:00:13,923
+For example if I drag this now holding the command key
+
+7
+00:00:13,923 --> 00:00:15,923
+I can move it around.
+
+8
+00:00:17,270 --> 00:00:20,415
+You can set these increments by going to Edit
+
+9
+00:00:20,804 --> 00:00:25,212
+Snap Settings and define how many units you want things to move by
+
+10
+00:00:25,212 --> 00:00:27,212
+And you can see from this panel that the same goes
+
+11
+00:00:27,212 --> 00:00:29,212
+for scaling and rotation.
+
+12
+00:00:29,212 --> 00:00:31,128
+Holding command will move
+
+13
+00:00:31,128 --> 00:00:33,715
+those defined amount of degrees at a time.
+
+14
+00:00:37,462 --> 00:00:39,462
+If you want to snap by vertex
+
+15
+00:00:39,462 --> 00:00:41,126
+you can hold down the V key
+
+16
+00:00:41,726 --> 00:00:45,021
+and then drag a particular vertex of your model
+
+17
+00:00:45,021 --> 00:00:47,021
+to a vertex on the environment.
+
+18
+00:00:47,715 --> 00:00:49,715
+This is more useful when snapping together
+
+19
+00:00:49,715 --> 00:00:51,715
+modular parts of an environment.

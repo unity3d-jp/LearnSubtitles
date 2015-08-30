@@ -1,0 +1,40 @@
+1
+00:00:00,820 --> 00:00:02,840
+Here's a quick Unity tip.
+
+2
+00:00:02,840 --> 00:00:07,200
+When you're working in Unity and you want to find a game object in the Hierarchy
+
+3
+00:00:07,360 --> 00:00:11,380
+With a specific component or script attached
+
+4
+00:00:11,560 --> 00:00:20,280
+You can type the Full Case Sensitive Name in the Hierarchy search
+
+5
+00:00:21,565 --> 00:00:27,345
+Notice that the object will not appear until the full name has been completed
+
+6
+00:00:27,624 --> 00:00:31,984
+Here we can see that we've found our game object 'Player'
+
+7
+00:00:32,000 --> 00:00:36,640
+Which has the dummy script 'FindMe' attached
+
+8
+00:00:37,040 --> 00:00:49,920
+You can also use this technique to find attached Unity components - in this case, the Animator
+
+9
+00:00:49,920 --> 00:00:54,714
+As we can see, the Player object also has an Animator component attached
+
+10
+00:00:54,720 --> 00:01:01,040
+Which we have found, by searching in the Hierarchy for it's name
+

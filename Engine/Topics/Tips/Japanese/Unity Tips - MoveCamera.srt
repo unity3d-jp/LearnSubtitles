@@ -1,0 +1,107 @@
+1
+00:00:00,278 --> 00:00:03,175
+A quick tip for positioning cameras in Unity.
+
+2
+00:00:03,175 --> 00:00:05,175
+So it can be painful to select cameras
+
+3
+00:00:05,175 --> 00:00:07,175
+and use the transform controls to
+
+4
+00:00:07,175 --> 00:00:08,635
+kind of move them around.
+
+5
+00:00:08,635 --> 00:00:10,635
+It's much easier to actually use the
+
+6
+00:00:10,635 --> 00:00:13,555
+scene view camera to get the actual
+
+7
+00:00:13,555 --> 00:00:15,387
+frame that you want with the camera
+
+8
+00:00:15,387 --> 00:00:17,387
+and then move the camera to that position.
+
+9
+00:00:18,206 --> 00:00:20,851
+For example I can move my scene view camera around
+
+10
+00:00:20,851 --> 00:00:22,851
+like this, I could use right-click,
+
+11
+00:00:22,851 --> 00:00:25,626
+and look around and then use the
+
+12
+00:00:25,626 --> 00:00:27,626
+cursor keys to kind of move that around,
+
+13
+00:00:28,390 --> 00:00:30,390
+get the exact shot that I want,
+
+14
+00:00:31,418 --> 00:00:33,418
+then select the camera
+
+15
+00:00:33,418 --> 00:00:35,418
+and go to Game Object
+
+16
+00:00:36,224 --> 00:00:38,224
+Align With View.
+
+17
+00:00:40,808 --> 00:00:44,094
+That then puts the camera exactly where you want it.
+
+18
+00:00:44,094 --> 00:00:46,094
+You've also got the ability to jump the scene
+
+19
+00:00:46,094 --> 00:00:48,094
+view camera back to that position if you've
+
+20
+00:00:48,094 --> 00:00:50,919
+left it and you want to kind of re-evaluate.
+
+21
+00:00:50,919 --> 00:00:54,630
+You can go back to Game Object - Align View To Selected.
+
+22
+00:00:54,630 --> 00:00:56,630
+That will take you back.
+
+23
+00:00:56,630 --> 00:00:58,630
+So remember, get the scene view camera to where
+
+24
+00:00:58,630 --> 00:01:02,224
+you want it, command-shift-F or control-shift-F,
+
+25
+00:01:03,349 --> 00:01:05,349
+to reposition it.
+
+26
+00:01:08,863 --> 00:01:11,617
+Or if you want to go back and start reevaluating
+
+27
+00:01:11,617 --> 00:01:14,992
+if you've moved away use Align View To Selected.

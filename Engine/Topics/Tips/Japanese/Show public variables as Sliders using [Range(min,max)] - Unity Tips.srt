@@ -1,0 +1,87 @@
+1
+00:00:00,250 --> 00:00:01,635
+A quick tip for Unity.
+
+2
+00:00:01,635 --> 00:00:03,635
+If you're working with public variables that are
+
+3
+00:00:03,635 --> 00:00:05,483
+exposed in the inspector,
+
+4
+00:00:05,483 --> 00:00:08,426
+such as this Speed variable in our PlayerMovement script,
+
+5
+00:00:08,426 --> 00:00:10,426
+you may wish to turn them in to a slider
+
+6
+00:00:10,426 --> 00:00:13,823
+instead of simply a float value that you can type in to.
+
+7
+00:00:13,823 --> 00:00:15,823
+You can do this very easily.
+
+8
+00:00:15,823 --> 00:00:17,823
+In your script simply place above the
+
+9
+00:00:17,823 --> 00:00:21,161
+public variable range declaration
+
+10
+00:00:21,161 --> 00:00:22,784
+which looks like this;
+
+11
+00:00:22,784 --> 00:00:24,693
+Open square brackets and type Range,
+
+12
+00:00:24,693 --> 00:00:26,693
+and then in to normal brackets type in
+
+13
+00:00:26,693 --> 00:00:30,500
+the two float values that you'd like the slider to go to and from.
+
+14
+00:00:30,500 --> 00:00:32,750
+So for example with my player's speed
+
+15
+00:00:32,750 --> 00:00:36,234
+I might want to have a minimum value of  1
+
+16
+00:00:36,234 --> 00:00:38,234
+and a maximum value of 10.
+
+17
+00:00:38,706 --> 00:00:40,789
+That way I can limit any kind of
+
+18
+00:00:40,789 --> 00:00:42,998
+game designer that plays around with this script
+
+19
+00:00:42,998 --> 00:00:46,071
+from going over the potential maximum value.
+
+20
+00:00:46,071 --> 00:00:48,789
+I save my script and switch back.
+
+21
+00:00:49,386 --> 00:00:51,968
+And as soon as the script compiles I now have a slider
+
+22
+00:00:51,968 --> 00:00:53,968
+to play around with the speed.
