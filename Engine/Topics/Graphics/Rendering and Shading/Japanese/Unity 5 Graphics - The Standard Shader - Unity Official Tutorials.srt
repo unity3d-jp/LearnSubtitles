@@ -1,0 +1,1087 @@
+1
+00:00:03,150 --> 00:00:06,451
+The Standard Shader is a powerful and versatile shader.
+
+2
+00:00:07,520 --> 00:00:09,520
+This single physically-based shader
+
+3
+00:00:09,520 --> 00:00:11,520
+can be used to make such a wide variety
+
+4
+00:00:11,520 --> 00:00:13,520
+of materials it's easily
+
+5
+00:00:13,520 --> 00:00:15,520
+possible that this one shader can make
+
+6
+00:00:15,520 --> 00:00:18,121
+every material in a given project.
+
+7
+00:00:19,812 --> 00:00:24,026
+The standard is used to create Unity's default material.
+
+8
+00:00:24,026 --> 00:00:26,026
+So all mesh rendered using
+
+9
+00:00:26,026 --> 00:00:29,768
+the default material will be using the standard shader.
+
+10
+00:00:33,412 --> 00:00:36,190
+All new materials that are created
+
+11
+00:00:36,930 --> 00:00:38,930
+will use the standard shader as well.
+
+12
+00:00:40,121 --> 00:00:42,611
+To change the shader used by a material
+
+13
+00:00:42,611 --> 00:00:45,236
+select the Shader menu on the material.
+
+14
+00:00:46,046 --> 00:00:49,291
+Select Standard to use the standard shader.
+
+15
+00:00:49,971 --> 00:00:51,971
+It is worth noting the Unity
+
+16
+00:00:51,971 --> 00:00:53,971
+has shaders available for both
+
+17
+00:00:53,971 --> 00:00:56,779
+popular approaches to physically-based rendering.
+
+18
+00:00:57,736 --> 00:00:59,443
+Metallic, as default,
+
+19
+00:00:59,930 --> 00:01:01,613
+and specular.
+
+20
+00:01:01,613 --> 00:01:03,251
+To choose the standard shader
+
+21
+00:01:03,251 --> 00:01:05,167
+using the specular approach
+
+22
+00:01:05,167 --> 00:01:07,601
+select Standard (Specular Setup).
+
+23
+00:01:08,475 --> 00:01:10,475
+Otherwise use Standard
+
+24
+00:01:10,475 --> 00:01:12,475
+for the metallic approach.
+
+25
+00:01:14,750 --> 00:01:16,750
+It is important to understand that the
+
+26
+00:01:16,750 --> 00:01:19,337
+metallic approach to physically-based shading
+
+27
+00:01:19,337 --> 00:01:21,337
+is not only for materials which are
+
+28
+00:01:21,337 --> 00:01:23,100
+supposed to look metallic.
+
+29
+00:01:23,696 --> 00:01:25,696
+This mode is known as metallic
+
+30
+00:01:25,696 --> 00:01:27,696
+because this approach is based on
+
+31
+00:01:27,696 --> 00:01:30,761
+defining how metallic or non-metallic
+
+32
+00:01:30,761 --> 00:01:32,761
+that material's surface is.
+
+33
+00:01:33,427 --> 00:01:35,703
+This is opposed to the specular approach
+
+34
+00:01:35,703 --> 00:01:37,451
+which defines how specular, 
+
+35
+00:01:37,451 --> 00:01:39,451
+or non-specular that surface is.
+
+36
+00:01:40,505 --> 00:01:42,505
+Both approaches are valid ways to
+
+37
+00:01:42,505 --> 00:01:44,505
+describe a physically-based material.
+
+38
+00:01:47,459 --> 00:01:49,459
+This physically-based material is
+
+39
+00:01:49,459 --> 00:01:51,362
+still a standard Unity material
+
+40
+00:01:51,695 --> 00:01:53,695
+and this material is associated
+
+41
+00:01:53,695 --> 00:01:56,302
+with a renderer in the same way as usual.
+
+42
+00:02:00,014 --> 00:02:02,990
+There are three sections to the standard shader.
+
+43
+00:02:03,601 --> 00:02:05,601
+Rendering Mode.
+
+44
+00:02:05,601 --> 00:02:07,601
+Main Maps
+
+45
+00:02:07,601 --> 00:02:09,601
+and Secondary Maps.
+
+46
+00:02:11,865 --> 00:02:14,685
+The standard shader has four rendering modes.
+
+47
+00:02:14,685 --> 00:02:17,996
+Opaque, Cutout, Fade and Transparent.
+
+48
+00:02:19,038 --> 00:02:22,598
+Most materials are opaque, or solid materials.
+
+49
+00:02:23,167 --> 00:02:25,558
+Opaque is the default render mode.
+
+50
+00:02:26,350 --> 00:02:29,225
+For transparent materials, such as glass,
+
+51
+00:02:29,225 --> 00:02:31,225
+choose Transparent.
+
+52
+00:02:31,656 --> 00:02:33,656
+In transparent rendering mode
+
+53
+00:02:34,142 --> 00:02:36,819
+the alpha channel on the diffuse colour property
+
+54
+00:02:36,819 --> 00:02:39,930
+is used to control the level of transparency.
+
+55
+00:02:41,569 --> 00:02:43,918
+With rendering mode cutout
+
+56
+00:02:43,918 --> 00:02:45,918
+the alpha channel of the diffuse image
+
+57
+00:02:45,918 --> 00:02:49,022
+is used to mask out parts of the texture.
+
+58
+00:02:49,689 --> 00:02:53,240
+If the alpha channel has a gradient value to the mask
+
+59
+00:02:53,240 --> 00:02:55,240
+the alpha cutoff slider can be used
+
+60
+00:02:55,240 --> 00:02:57,240
+to adjust the shape of the cutout.
+
+61
+00:02:57,240 --> 00:03:00,837
+based on the strength of the mask in the alpha channel.
+
+62
+00:03:02,546 --> 00:03:04,546
+Rendering mode fade is similar
+
+63
+00:03:04,546 --> 00:03:06,546
+to rendering mode transparent.
+
+64
+00:03:07,509 --> 00:03:09,509
+Fade is intended for fading out
+
+65
+00:03:09,509 --> 00:03:11,509
+game objects on screen.
+
+66
+00:03:12,192 --> 00:03:14,192
+With rendering mode transparent
+
+67
+00:03:14,192 --> 00:03:16,750
+a transparent material will preserve it's
+
+68
+00:03:16,750 --> 00:03:20,681
+reflectivity regardless of it's alpha value.
+
+69
+00:03:20,681 --> 00:03:22,681
+Fade however will fade all
+
+70
+00:03:22,681 --> 00:03:24,681
+relevant aspects of the material
+
+71
+00:03:24,681 --> 00:03:28,018
+so the faded material is completely invisible.
+
+72
+00:03:30,347 --> 00:03:33,736
+The main map section defines the look of the material.
+
+73
+00:03:34,361 --> 00:03:37,301
+Before going in to the details of each property
+
+74
+00:03:37,301 --> 00:03:40,578
+there are a few subjects that are worth covering first.
+
+75
+00:03:41,314 --> 00:03:43,131
+Optimisation.
+
+76
+00:03:43,131 --> 00:03:46,071
+The standard shader is highly optimised.
+
+77
+00:03:46,613 --> 00:03:48,613
+When the standard shader is built
+
+78
+00:03:48,613 --> 00:03:50,613
+two important things happen.
+
+79
+00:03:51,113 --> 00:03:54,698
+All properties that are not being used are discarded.
+
+80
+00:03:55,240 --> 00:03:57,240
+The build target is checked
+
+81
+00:03:57,240 --> 00:03:59,907
+and the shader is optimised for that device.
+
+82
+00:04:00,559 --> 00:04:03,653
+Because of this there is no need to populate every
+
+83
+00:04:03,653 --> 00:04:06,073
+property with a map or values.
+
+84
+00:04:07,681 --> 00:04:09,681
+And there is no need to worry about wasted
+
+85
+00:04:09,681 --> 00:04:12,357
+resources due to unused properties.
+
+86
+00:04:15,750 --> 00:04:17,750
+Physically-based shading.
+
+87
+00:04:18,451 --> 00:04:20,451
+Physically-based shading tries to define
+
+88
+00:04:20,451 --> 00:04:23,952
+certain physical aspects of a material's surface.
+
+89
+00:04:23,952 --> 00:04:25,952
+Including it's diffuse colour,
+
+90
+00:04:25,952 --> 00:04:27,952
+specular refection and other properties
+
+91
+00:04:27,952 --> 00:04:30,355
+so the material behaves correctly
+
+92
+00:04:30,355 --> 00:04:33,279
+and believably in all lighting environments.
+
+93
+00:04:33,938 --> 00:04:36,325
+The response of the scene lighting to the material
+
+94
+00:04:36,325 --> 00:04:38,325
+created with a physically based shader
+
+95
+00:04:38,325 --> 00:04:41,192
+mimics light in the real physical world.
+
+96
+00:04:41,839 --> 00:04:43,839
+This means that even though there is
+
+97
+00:04:43,839 --> 00:04:45,839
+full control over the values on
+
+98
+00:04:45,839 --> 00:04:48,613
+all of the properties in the standard shader
+
+99
+00:04:48,613 --> 00:04:50,613
+there are certain ranges of values that
+
+100
+00:04:50,613 --> 00:04:53,359
+work best for certain types of materials.
+
+101
+00:04:54,057 --> 00:04:57,736
+This is particularly true of the metallic and specular values
+
+102
+00:04:57,736 --> 00:05:00,543
+depending up which approach is being used
+
+103
+00:05:01,273 --> 00:05:03,723
+Taking specular colour for example,
+
+104
+00:05:03,723 --> 00:05:06,199
+when analysing real-world materials
+
+105
+00:05:06,199 --> 00:05:08,199
+most materials have a specular range
+
+106
+00:05:08,199 --> 00:05:10,199
+that is a very dark grey.
+
+107
+00:05:10,768 --> 00:05:15,416
+Metals created with a specular workflow are one of the few exceptions,
+
+108
+00:05:15,416 --> 00:05:18,095
+they have very bright specular values.
+
+109
+00:05:19,043 --> 00:05:22,066
+As well, no material, even the most dull,
+
+110
+00:05:22,066 --> 00:05:24,066
+has no specularity at all.
+
+111
+00:05:24,997 --> 00:05:26,997
+This means to have a physically based
+
+112
+00:05:26,997 --> 00:05:28,997
+material behave correctly
+
+113
+00:05:28,997 --> 00:05:30,997
+some attention needs to be paid in using
+
+114
+00:05:30,997 --> 00:05:34,316
+the correct physical values for some key properties,
+
+115
+00:05:34,316 --> 00:05:37,149
+especially the specular or metallic properties
+
+116
+00:05:37,149 --> 00:05:39,149
+depending upon the approach being used.
+
+117
+00:05:40,224 --> 00:05:42,863
+For more information on physical-based shading,
+
+118
+00:05:42,863 --> 00:05:45,553
+material charts and sample materials
+
+119
+00:05:45,553 --> 00:05:47,553
+please see the information linked below.
+
+120
+00:05:48,512 --> 00:05:50,512
+There is no need to panic however.
+
+121
+00:05:50,512 --> 00:05:53,002
+Items with materials from previous versions of Unity
+
+122
+00:05:53,002 --> 00:05:55,284
+will work well out of the box.
+
+123
+00:05:55,894 --> 00:05:58,214
+Upgrading from a legacy diffuse shader
+
+124
+00:05:58,214 --> 00:06:01,265
+to the standard shader should display little or no difference.
+
+125
+00:06:03,307 --> 00:06:05,738
+In the main map section each of these properties
+
+126
+00:06:05,738 --> 00:06:08,318
+control one aspect of the final material.
+
+127
+00:06:09,127 --> 00:06:11,942
+Each property can be defined by a texture map.
+
+128
+00:06:13,328 --> 00:06:15,096
+With the metallic approach,
+
+129
+00:06:15,096 --> 00:06:18,163
+for the albido, metallic and emission properties
+
+130
+00:06:18,163 --> 00:06:20,163
+the texture is optional.
+
+131
+00:06:20,661 --> 00:06:22,904
+The albido and emission properties
+
+132
+00:06:22,904 --> 00:06:25,531
+can simply use a colour value instead of a texture.
+
+133
+00:06:26,508 --> 00:06:28,416
+The colour value is not available on
+
+134
+00:06:28,416 --> 00:06:30,416
+the emission property until the emissive
+
+135
+00:06:30,416 --> 00:06:32,416
+scale is larger than 0.
+
+136
+00:06:34,775 --> 00:06:36,775
+The metallic property can use a slider
+
+137
+00:06:36,775 --> 00:06:38,775
+instead of a texture.
+
+138
+00:06:42,516 --> 00:06:44,516
+The albido property uses a
+
+139
+00:06:44,516 --> 00:06:46,516
+combination of an optional texture.
+
+140
+00:06:48,543 --> 00:06:51,598
+And a colour value to define the base look of the material.
+
+141
+00:06:52,685 --> 00:06:55,682
+The colour value will tint the texture.
+
+142
+00:06:57,470 --> 00:07:00,535
+Where pure white leaves the main texture unaffected,
+
+143
+00:07:01,552 --> 00:07:03,552
+if there is no texture being used
+
+144
+00:07:03,552 --> 00:07:06,792
+the tint colour will be the base colour for the material
+
+145
+00:07:09,884 --> 00:07:11,884
+The metallic property can be defined
+
+146
+00:07:11,884 --> 00:07:13,884
+by either a texture
+
+147
+00:07:15,248 --> 00:07:18,303
+or a value from 0 to 1
+
+148
+00:07:18,303 --> 00:07:20,303
+set by the slider.
+
+149
+00:07:20,303 --> 00:07:23,506
+This defines the metalness of the material surface.
+
+150
+00:07:24,538 --> 00:07:27,332
+Metalness works very closely with smoothness.
+
+151
+00:07:28,548 --> 00:07:30,548
+The smoothness property is used to
+
+152
+00:07:30,548 --> 00:07:32,061
+control the smoothness,
+
+153
+00:07:32,061 --> 00:07:35,453
+or micro-surface detail, of the material.
+
+154
+00:07:35,453 --> 00:07:38,453
+It is also a value between 0 and 1.
+
+155
+00:07:41,028 --> 00:07:43,028
+The less smooth the surface is,
+
+156
+00:07:43,028 --> 00:07:44,824
+the more diffuse the reflections will be.
+
+157
+00:07:45,360 --> 00:07:48,204
+The more smooth, the sharper the reflections.
+
+158
+00:07:52,650 --> 00:07:54,650
+The metallic property can use a texture
+
+159
+00:07:54,650 --> 00:07:57,426
+to define the material's metalness.
+
+160
+00:07:58,071 --> 00:08:00,071
+This texture can be a simple shade of grey
+
+161
+00:08:00,071 --> 00:08:03,163
+used to define the metalness from black,
+
+162
+00:08:03,163 --> 00:08:04,517
+or non-metallic,
+
+163
+00:08:04,517 --> 00:08:06,517
+to white, completely metallic.
+
+164
+00:08:07,217 --> 00:08:10,339
+However, the advantage of using a texture
+
+165
+00:08:10,339 --> 00:08:12,686
+to define the metalness of a material
+
+166
+00:08:12,686 --> 00:08:14,686
+is to vary the metalness value
+
+167
+00:08:14,686 --> 00:08:16,686
+across the surface of the material.
+
+168
+00:08:17,589 --> 00:08:20,654
+An additional advantage is this texture's alpha channel.
+
+169
+00:08:21,524 --> 00:08:23,524
+This alpha channel can be used to define
+
+170
+00:08:23,524 --> 00:08:25,524
+a smoothness map.
+
+171
+00:08:27,791 --> 00:08:29,791
+Many materials are far more complex
+
+172
+00:08:29,791 --> 00:08:31,791
+than a single uniform surface.
+
+173
+00:08:32,657 --> 00:08:34,657
+Take this leather case for example.
+
+174
+00:08:35,486 --> 00:08:37,486
+With a single value for metalness and a
+
+175
+00:08:37,486 --> 00:08:39,131
+single value for smoothness
+
+176
+00:08:39,615 --> 00:08:41,615
+the case looks good.
+
+177
+00:08:41,615 --> 00:08:43,138
+But it could look better.
+
+178
+00:08:43,891 --> 00:08:45,891
+Use a metalness and smoothness map
+
+179
+00:08:45,891 --> 00:08:47,891
+to describe the properties.
+
+180
+00:08:49,660 --> 00:08:51,660
+And it looks much better.
+
+181
+00:08:51,660 --> 00:08:53,660
+Note how the straps are far more glossy
+
+182
+00:08:53,660 --> 00:08:55,660
+than the main body of the case.
+
+183
+00:08:55,660 --> 00:08:57,660
+Giving them a feel of polished leather.
+
+184
+00:08:58,969 --> 00:09:00,969
+It is worth noting that when using a texture
+
+185
+00:09:00,969 --> 00:09:02,969
+to define the metalness
+
+186
+00:09:02,969 --> 00:09:04,969
+the smoothness value must also be
+
+187
+00:09:04,969 --> 00:09:06,969
+defined by that texture's alpha channel.
+
+188
+00:09:07,983 --> 00:09:09,983
+It is also worth noting that the metalness
+
+189
+00:09:09,983 --> 00:09:11,983
+value is stored only in the red
+
+190
+00:09:11,983 --> 00:09:15,013
+channel of the metalness map's RGB values.
+
+191
+00:09:15,990 --> 00:09:17,990
+The green and blue channels are ignored.
+
+192
+00:09:19,059 --> 00:09:21,923
+It is often easier however to visualise
+
+193
+00:09:21,923 --> 00:09:23,923
+the metalness values of a texture
+
+194
+00:09:23,923 --> 00:09:26,709
+if all three colour channels share the same map,
+
+195
+00:09:26,709 --> 00:09:29,573
+so the texture appears as a greyscale image.
+
+196
+00:09:30,716 --> 00:09:33,440
+When using the standard shader with the specular setup
+
+197
+00:09:35,615 --> 00:09:37,615
+the metallic property is replaced with
+
+198
+00:09:37,615 --> 00:09:39,173
+the specular property.
+
+199
+00:09:39,891 --> 00:09:41,891
+The specular approach also uses
+
+200
+00:09:41,891 --> 00:09:44,775
+a smoothness property, which behaves essentially
+
+201
+00:09:44,775 --> 00:09:47,546
+in the same way as with the metalness approach.
+
+202
+00:09:50,956 --> 00:09:53,585
+The specualar property can either be a texture
+
+203
+00:09:55,278 --> 00:09:56,728
+or a colour value
+
+204
+00:09:57,499 --> 00:09:59,499
+and defines the specular reflectivity
+
+205
+00:09:59,499 --> 00:10:01,628
+of the material's surface.
+
+206
+00:10:01,628 --> 00:10:04,527
+The specular value can have some colour in it
+
+207
+00:10:04,527 --> 00:10:06,527
+but looking at real world values
+
+208
+00:10:06,527 --> 00:10:08,527
+with the exception of some metals
+
+209
+00:10:08,527 --> 00:10:11,449
+this is usually a grey and often very dark.
+
+210
+00:10:12,610 --> 00:10:15,518
+Specular maps are usually a dark grey as well.
+
+211
+00:10:17,545 --> 00:10:20,332
+When a specular texture map is not being used
+
+212
+00:10:20,332 --> 00:10:22,332
+the overall surface smoothness can be
+
+213
+00:10:22,332 --> 00:10:24,332
+set with the slider.
+
+214
+00:10:26,765 --> 00:10:28,765
+This is easier to see when the albido
+
+215
+00:10:28,765 --> 00:10:30,765
+texture is removed.
+
+216
+00:10:31,502 --> 00:10:33,502
+The ball looks like polished porcelain.
+
+217
+00:10:34,737 --> 00:10:38,692
+For a more true mirror, the specular from dark grey,
+
+218
+00:10:38,692 --> 00:10:40,692
+which makes the ball look like porcelain
+
+219
+00:10:40,692 --> 00:10:43,547
+in to the range of metals and it will now
+
+220
+00:10:43,547 --> 00:10:45,547
+reflect the sky and surroundings.
+
+221
+00:10:46,487 --> 00:10:49,357
+The smoother the surface, the more it is mirror-like.
+
+222
+00:10:50,330 --> 00:10:53,077
+The rougher the surface the more diffuse,
+
+223
+00:10:53,077 --> 00:10:55,077
+or scattered the reflections are.
+
+224
+00:10:56,588 --> 00:10:58,938
+The normal map property is an optional property
+
+225
+00:10:58,938 --> 00:11:01,787
+used to define the apparent bumpiness of the surface.
+
+226
+00:11:02,893 --> 00:11:04,893
+When a normal map is applied
+
+227
+00:11:05,649 --> 00:11:07,649
+the strength of the normal map can be controlled
+
+228
+00:11:07,649 --> 00:11:09,927
+by adjusting the normal map value.
+
+229
+00:11:11,033 --> 00:11:13,033
+As well as positive numbers, this value
+
+230
+00:11:13,033 --> 00:11:14,758
+can be a negative number
+
+231
+00:11:15,420 --> 00:11:16,455
+or 0.
+
+232
+00:11:18,040 --> 00:11:20,040
+The height map property is an optional
+
+233
+00:11:20,040 --> 00:11:22,040
+property used to define the apparent
+
+234
+00:11:22,040 --> 00:11:24,040
+height of the surface.
+
+235
+00:11:24,040 --> 00:11:26,040
+When a height map is applied
+
+236
+00:11:26,667 --> 00:11:28,667
+the strength of the height map can be controlled
+
+237
+00:11:28,667 --> 00:11:30,667
+by adjusting the height map value.
+
+238
+00:11:32,842 --> 00:11:34,842
+The occlusion property uses a
+
+239
+00:11:34,842 --> 00:11:36,842
+texture map to define the amount of
+
+240
+00:11:36,842 --> 00:11:39,509
+ambient occlusion that is applied to the material.
+
+241
+00:11:40,799 --> 00:11:42,799
+This is used to help darken
+
+242
+00:11:42,799 --> 00:11:45,095
+hidden or recessed areas on the texture.
+
+243
+00:11:46,200 --> 00:11:48,200
+The ambient occlusion map also
+
+244
+00:11:48,200 --> 00:11:50,200
+prevents specular and reflections in
+
+245
+00:11:50,200 --> 00:11:52,676
+these occluded areas, given the material
+
+246
+00:11:52,676 --> 00:11:54,676
+a more realistic look.
+
+247
+00:11:56,058 --> 00:11:58,690
+The emission property controls whether or not
+
+248
+00:11:58,690 --> 00:12:00,690
+the material's surface will emit light.
+
+249
+00:12:01,630 --> 00:12:03,630
+The material's emission value can contribute
+
+250
+00:12:03,630 --> 00:12:05,630
+to the scene's global illumination.
+
+251
+00:12:06,791 --> 00:12:08,791
+The strength of the emission can be controlled
+
+252
+00:12:08,791 --> 00:12:10,791
+by the emission value.
+
+253
+00:12:11,215 --> 00:12:14,235
+The shape of the emission can be controlled with an emission map.
+
+254
+00:12:15,359 --> 00:12:17,359
+The map can be a simple black and white map.
+
+255
+00:12:23,699 --> 00:12:26,447
+bBut this texture can also be a colour map.
+
+256
+00:12:32,529 --> 00:12:34,529
+When there is a value for emission
+
+257
+00:12:34,529 --> 00:12:36,529
+the contribution of the emissive light
+
+258
+00:12:36,529 --> 00:12:39,262
+can be assigned to either the baked light maps
+
+259
+00:12:40,607 --> 00:12:42,607
+or to the real time light maps.
+
+260
+00:12:45,740 --> 00:12:48,930
+The detail mask property is an optional mask element
+
+261
+00:12:48,930 --> 00:12:50,930
+to control the secondary maps.
+
+262
+00:12:52,054 --> 00:12:54,708
+Tiling and offset control the position of the map.
+
+263
+00:12:55,961 --> 00:12:57,961
+The secondary maps are used to define
+
+264
+00:12:57,961 --> 00:12:59,961
+additional surface detail.
+
+265
+00:12:59,961 --> 00:13:03,608
+This additional detail, sometimes referred to as micro detail,
+
+266
+00:13:03,608 --> 00:13:05,608
+is added on top of the surface defined
+
+267
+00:13:05,608 --> 00:13:07,111
+by the main maps.
+
+268
+00:13:07,848 --> 00:13:09,848
+This helps to add extra detail and
+
+269
+00:13:09,848 --> 00:13:12,657
+variation to a material, which is overlaid
+
+270
+00:13:12,657 --> 00:13:15,460
+on top of the main maps defining that material.
+
+271
+00:13:16,187 --> 00:13:19,217
+Because detail maps can be tiled across meshes
+
+272
+00:13:19,899 --> 00:13:22,693
+they can add incredibly high levels of surface detail.
