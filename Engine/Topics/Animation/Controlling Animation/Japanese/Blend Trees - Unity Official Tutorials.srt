@@ -1,0 +1,703 @@
+1
+00:00:00,525 --> 00:00:03,046
+Sometimes when animating you want a mix
+
+2
+00:00:03,046 --> 00:00:05,046
+of two or more animations.
+
+3
+00:00:05,836 --> 00:00:08,293
+For example if you have animations
+
+4
+00:00:08,293 --> 00:00:10,788
+for running left, running forward
+
+5
+00:00:10,788 --> 00:00:13,761
+and running right you might want animations
+
+6
+00:00:13,761 --> 00:00:16,764
+for running only slightly to the left or right.
+
+7
+00:00:18,040 --> 00:00:20,040
+Another common example is having
+
+8
+00:00:20,040 --> 00:00:22,512
+walking and running animations
+
+9
+00:00:22,512 --> 00:00:24,512
+but wanting the character to be able to move
+
+10
+00:00:24,512 --> 00:00:26,332
+at different speeds between the two.
+
+11
+00:00:26,971 --> 00:00:29,983
+Blend trees can be used to achieve this.
+
+12
+00:00:30,828 --> 00:00:33,939
+To create a blend tree right-click on empty space
+
+13
+00:00:33,939 --> 00:00:35,939
+in the animator window.
+
+14
+00:00:35,939 --> 00:00:39,203
+Choose Create State - From New Blend Tree.
+
+15
+00:00:40,145 --> 00:00:42,521
+This creates a state that has a blend tree
+
+16
+00:00:42,521 --> 00:00:45,446
+as it's motion instead of a single animation.
+
+17
+00:00:46,278 --> 00:00:48,278
+Double clicking on the state allows you to
+
+18
+00:00:48,278 --> 00:00:49,947
+edit the blend tree.
+
+19
+00:00:50,502 --> 00:00:52,723
+The breadcrumb in the upper left hand corner
+
+20
+00:00:52,723 --> 00:00:55,405
+shows us that we are working in our blend tree.
+
+21
+00:00:55,872 --> 00:00:57,914
+Clicking the base layer name will bring us
+
+22
+00:00:57,914 --> 00:00:59,914
+back out of the blend tree.
+
+23
+00:01:01,312 --> 00:01:03,781
+With the blend tree selected we can see it's
+
+24
+00:01:03,781 --> 00:01:05,781
+properties in the Inspector.
+
+25
+00:01:06,391 --> 00:01:07,988
+The first thing to note is that
+
+26
+00:01:07,988 --> 00:01:09,905
+blend tree's have names.
+
+27
+00:01:09,905 --> 00:01:11,725
+These can be different from the state
+
+28
+00:01:11,725 --> 00:01:13,086
+that holds them.
+
+29
+00:01:13,852 --> 00:01:15,852
+Next comes the blend type.
+
+30
+00:01:16,352 --> 00:01:18,352
+For now we will be concentrating on
+
+31
+00:01:18,352 --> 00:01:20,036
+one dimensional blend trees.
+
+32
+00:01:20,548 --> 00:01:22,548
+We will be coming back to the different types
+
+33
+00:01:22,548 --> 00:01:24,548
+of 2 dimensional blend trees later.
+
+34
+00:01:25,559 --> 00:01:27,849
+One dimensional blend trees use a single
+
+35
+00:01:27,849 --> 00:01:29,849
+parameter to control how much of each
+
+36
+00:01:29,849 --> 00:01:31,849
+of it's motions should be played.
+
+37
+00:01:32,625 --> 00:01:34,528
+In the example given earlier of
+
+38
+00:01:34,528 --> 00:01:37,184
+running left or right the blend tree's
+
+39
+00:01:37,184 --> 00:01:39,184
+parameter might be something like
+
+40
+00:01:39,184 --> 00:01:41,623
+direction or angular speed.
+
+41
+00:01:42,112 --> 00:01:44,332
+Or for the walking/running example
+
+42
+00:01:44,332 --> 00:01:46,332
+the parameter could be speed.
+
+43
+00:01:47,426 --> 00:01:49,730
+Next is the list of motions.
+
+44
+00:01:50,327 --> 00:01:53,277
+To add motions click the + icon.
+
+45
+00:01:53,998 --> 00:01:57,064
+This gives you the options of Ad Motion Field,
+
+46
+00:01:57,064 --> 00:01:59,064
+and New Blend Tree.
+
+47
+00:01:59,757 --> 00:02:01,646
+Selecting New Blend Tree
+
+48
+00:02:01,646 --> 00:02:04,005
+allows you to have nested blend trees
+
+49
+00:02:04,005 --> 00:02:06,005
+so you can blend animations 
+
+50
+00:02:06,005 --> 00:02:08,005
+based on more than one parameter.
+
+51
+00:02:08,947 --> 00:02:11,802
+However, if you wish to do this
+
+52
+00:02:11,802 --> 00:02:14,453
+an easier approach is usually
+
+53
+00:02:14,453 --> 00:02:16,453
+to use 2 dimensional blend trees.
+
+54
+00:02:17,284 --> 00:02:19,629
+As such we'll be dealing with
+
+55
+00:02:19,629 --> 00:02:21,629
+just adding motion fields.
+
+56
+00:02:22,405 --> 00:02:25,605
+Each motion field represents an animation.
+
+57
+00:02:25,605 --> 00:02:27,716
+These can be dragged on from the Assets
+
+58
+00:02:27,716 --> 00:02:31,002
+in the Project panel or selected from a list
+
+59
+00:02:31,002 --> 00:02:33,405
+by using the circle select button.
+
+60
+00:02:34,538 --> 00:02:37,552
+Each motion field then has 3 properties.
+
+61
+00:02:38,135 --> 00:02:40,135
+The threshold is the value of the
+
+62
+00:02:40,135 --> 00:02:42,039
+parameter you have selected
+
+63
+00:02:42,039 --> 00:02:45,757
+that represents a blend using entirely this animation.
+
+64
+00:02:46,437 --> 00:02:48,437
+For example, let's say you have a walking
+
+65
+00:02:48,437 --> 00:02:51,239
+and running animation and their thresholds
+
+66
+00:02:51,239 --> 00:02:54,163
+are 5 and 10  respectively.
+
+67
+00:02:54,898 --> 00:02:57,453
+If the Speed parameter is set to 10
+
+68
+00:02:57,453 --> 00:02:58,964
+then the blend tree will play just
+
+69
+00:02:58,964 --> 00:03:00,964
+the running animation.
+
+70
+00:03:00,964 --> 00:03:05,410
+If it's set to 7.5 it will play a 50/50 blend
+
+71
+00:03:05,410 --> 00:03:07,410
+of walking and running.
+
+72
+00:03:08,504 --> 00:03:10,893
+The next property is the Time Scale.
+
+73
+00:03:11,391 --> 00:03:14,501
+This affects the speed the animation is played at
+
+74
+00:03:14,501 --> 00:03:16,906
+just the same as the speed property
+
+75
+00:03:16,906 --> 00:03:18,906
+for normal states.
+
+76
+00:03:19,447 --> 00:03:21,845
+The last property decides whether or not
+
+77
+00:03:21,845 --> 00:03:24,816
+the animation is mirrored left to right.
+
+78
+00:03:25,979 --> 00:03:28,600
+After adding motion fields you'll notice that a
+
+79
+00:03:28,600 --> 00:03:30,919
+blue cross pattern diagram appears
+
+80
+00:03:30,919 --> 00:03:32,919
+above the list of motions.
+
+81
+00:03:33,419 --> 00:03:35,835
+This is an illustration of where the different
+
+82
+00:03:35,835 --> 00:03:39,253
+motions lay on the scale of the parameter.
+
+83
+00:03:39,253 --> 00:03:41,323
+The lowest threshold on the left,
+
+84
+00:03:41,323 --> 00:03:43,323
+the highest on the right.
+
+85
+00:03:44,154 --> 00:03:46,546
+You can use the red scrubber to preview the
+
+86
+00:03:46,546 --> 00:03:49,232
+blended animation for various values.
+
+87
+00:03:50,505 --> 00:03:52,367
+If you wish to change the order of the motions
+
+88
+00:03:52,367 --> 00:03:54,618
+on a blend tree for any reason
+
+89
+00:03:54,618 --> 00:03:56,618
+you can drag the motions around using
+
+90
+00:03:56,618 --> 00:03:59,995
+the handle on the left of the motion property.
+
+91
+00:04:01,089 --> 00:04:03,814
+Below the list of motions are a few properties
+
+92
+00:04:03,814 --> 00:04:06,387
+that help adjust the attributes of your motions.
+
+93
+00:04:07,281 --> 00:04:10,067
+Generally it's a good idea to use these options
+
+94
+00:04:10,067 --> 00:04:11,475
+once you have added all of the motion
+
+95
+00:04:11,475 --> 00:04:14,615
+fields you need and given them animations.
+
+96
+00:04:15,826 --> 00:04:18,655
+If Automate Thresholds is checked
+
+97
+00:04:18,655 --> 00:04:20,200
+then the thresholds you have for each
+
+98
+00:04:20,200 --> 00:04:23,668
+animation will be set and won't be changeable.
+
+99
+00:04:24,265 --> 00:04:26,569
+If it is unchecked then we can use
+
+100
+00:04:26,569 --> 00:04:28,569
+the following 2 options.
+
+101
+00:04:29,069 --> 00:04:31,069
+Compute Thresholds will calculate
+
+102
+00:04:31,069 --> 00:04:32,779
+and set values for the thresholds of each
+
+103
+00:04:32,779 --> 00:04:34,457
+of your motion fields.
+
+104
+00:04:35,182 --> 00:04:37,056
+It will do this based on a property of
+
+105
+00:04:37,056 --> 00:04:39,390
+root motion, which you select.
+
+106
+00:04:40,219 --> 00:04:43,490
+These properties are Speed, Velocity X,
+
+107
+00:04:43,490 --> 00:04:46,264
+Velocity Y, Velocity Z
+
+108
+00:04:46,264 --> 00:04:49,142
+and Angular Speed in either radians
+
+109
+00:04:49,142 --> 00:04:51,142
+or degrees.
+
+110
+00:04:52,153 --> 00:04:54,443
+Since blend trees often have their thresholds
+
+111
+00:04:54,443 --> 00:04:57,030
+based on these root motion properties
+
+112
+00:04:57,030 --> 00:04:58,849
+these are also common examples
+
+113
+00:04:58,849 --> 00:05:00,849
+of animator parameters.
+
+114
+00:05:02,288 --> 00:05:05,103
+Using Adjust Time Scale
+
+115
+00:05:05,103 --> 00:05:07,103
+you can make the speed for each animation
+
+116
+00:05:07,103 --> 00:05:08,964
+homogenous.
+
+117
+00:05:08,964 --> 00:05:10,756
+This means that each of the animations
+
+118
+00:05:10,756 --> 00:05:13,969
+will result in the same speed of root motion.
+
+119
+00:05:15,229 --> 00:05:17,229
+2 dimensional blend trees work in a very
+
+120
+00:05:17,229 --> 00:05:20,097
+similar way to 1 dimensional blend trees
+
+121
+00:05:20,097 --> 00:05:22,497
+but blend according to 2 parameters
+
+122
+00:05:22,497 --> 00:05:24,221
+instead of 1.
+
+123
+00:05:24,928 --> 00:05:28,046
+There are 3 types of 2D blend trees.
+
+124
+00:05:28,046 --> 00:05:31,710
+The first 2 are for blending based on direction.
+
+125
+00:05:31,710 --> 00:05:34,478
+They are 2D Simple Directional
+
+126
+00:05:34,478 --> 00:05:36,909
+and 2D Freeform Directional.
+
+127
+00:05:37,461 --> 00:05:40,668
+The last type is 2D Freeform Cartesian
+
+128
+00:05:40,668 --> 00:05:42,668
+and it is used for situations where the
+
+129
+00:05:42,668 --> 00:05:45,138
+parameters do not represent direction.
+
+130
+00:05:46,328 --> 00:05:48,675
+2D Simple Directional is used for
+
+131
+00:05:48,675 --> 00:05:50,675
+when you want to blend movement based
+
+132
+00:05:50,675 --> 00:05:53,092
+on directional parameters and have single
+
+133
+00:05:53,092 --> 00:05:54,966
+animations on each direction,
+
+134
+00:05:54,966 --> 00:05:59,704
+such as walk forward, walk back, walk left, etcetera.
+
+135
+00:06:00,425 --> 00:06:03,781
+2D Freeform Directional is used similarly
+
+136
+00:06:03,781 --> 00:06:05,991
+but can include multiple animations
+
+137
+00:06:05,991 --> 00:06:07,522
+in the same direction.
+
+138
+00:06:07,522 --> 00:06:11,469
+For example walk forward and run forward.
+
+139
+00:06:12,701 --> 00:06:15,704
+2D Freeform Cartesian is used when the
+
+140
+00:06:15,704 --> 00:06:18,256
+parameters are not based on direction,
+
+141
+00:06:18,256 --> 00:06:21,783
+for example speed and angular speed.
+
+142
+00:06:22,794 --> 00:06:24,835
+Creating each of these types of blend trees
+
+143
+00:06:24,835 --> 00:06:26,502
+works the same.
+
+144
+00:06:26,502 --> 00:06:28,502
+Once you have chosen a type
+
+145
+00:06:28,502 --> 00:06:30,502
+choose an animator parameter to represent
+
+146
+00:06:30,502 --> 00:06:34,429
+the X axis and one to represent the Y axis.
+
+147
+00:06:35,026 --> 00:06:37,164
+For the directional types a standard
+
+148
+00:06:37,164 --> 00:06:41,020
+X axis parameter might be velocity X.
+
+149
+00:06:41,020 --> 00:06:43,764
+And a standard Y axis parameter might be
+
+150
+00:06:43,764 --> 00:06:45,764
+velocity Z.
+
+151
+00:06:46,499 --> 00:06:48,346
+For Freeform Cartesian
+
+152
+00:06:48,346 --> 00:06:50,346
+this choice is more open.
+
+153
+00:06:51,702 --> 00:06:54,777
+Once you have chosen your parameters the next step
+
+154
+00:06:54,777 --> 00:06:56,693
+is to add motions.
+
+155
+00:06:56,693 --> 00:06:59,012
+Just as with 2D blend trees
+
+156
+00:06:59,012 --> 00:07:02,108
+these can be either blend trees or motion fields.
+
+157
+00:07:02,608 --> 00:07:05,568
+However unlike 1D blend trees
+
+158
+00:07:05,568 --> 00:07:08,555
+the order in which they are added doesn't matter.
+
+159
+00:07:09,463 --> 00:07:11,463
+Once you have added motions you will see a
+
+160
+00:07:11,463 --> 00:07:13,463
+diagram of where the motions are
+
+161
+00:07:13,463 --> 00:07:15,463
+according to their thresholds.
+
+162
+00:07:15,935 --> 00:07:18,499
+This again works the same as
+
+163
+00:07:18,499 --> 00:07:21,286
+1D blend trees, but since it is based on
+
+164
+00:07:21,286 --> 00:07:25,097
+2 thresholds, an X threshold and a Y threshold
+
+165
+00:07:25,097 --> 00:07:27,097
+the diagram is in 2 dimensions.
+
+166
+00:07:28,274 --> 00:07:30,746
+Each of the motions can be positioned manually
+
+167
+00:07:30,746 --> 00:07:32,746
+by dragging them on the diagram
+
+168
+00:07:32,746 --> 00:07:35,319
+positioned by setting the thresholds manually
+
+169
+00:07:35,319 --> 00:07:38,376
+or by using the Computer Positions option.
+
+170
+00:07:38,876 --> 00:07:41,127
+This works the same as the Compute Thresholds
+
+171
+00:07:41,127 --> 00:07:44,003
+option for 1D blend trees but computes the
+
+172
+00:07:44,003 --> 00:07:46,824
+threshold based on both parameters.
+
+173
+00:07:48,340 --> 00:07:51,070
+1 dimensional blend trees use a red scrubber
+
+174
+00:07:51,070 --> 00:07:53,070
+to preview the motion.
+
+175
+00:07:53,070 --> 00:07:55,912
+For 2D blend trees there is a red dot
+
+176
+00:07:55,912 --> 00:07:57,912
+that can be dragged around.

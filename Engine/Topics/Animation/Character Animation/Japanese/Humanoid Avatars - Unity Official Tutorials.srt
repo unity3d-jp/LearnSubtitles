@@ -1,0 +1,611 @@
+1
+00:00:00,414 --> 00:00:03,165
+In Unity avatars are definitions that tell
+
+2
+00:00:03,165 --> 00:00:05,165
+the animation system how to animate
+
+3
+00:00:05,165 --> 00:00:06,832
+the transforms of a model.
+
+4
+00:00:07,485 --> 00:00:10,380
+For humanoid models these can be configured
+
+5
+00:00:10,380 --> 00:00:12,380
+to your own specifications.
+
+6
+00:00:13,446 --> 00:00:15,653
+When you select a mesh in a Project panel
+
+7
+00:00:15,653 --> 00:00:17,807
+the Inspector will have three tabs,
+
+8
+00:00:17,807 --> 00:00:20,499
+Model, Rig and Animations.
+
+9
+00:00:21,039 --> 00:00:24,287
+To configure the avatar click the rig tab.
+
+10
+00:00:25,685 --> 00:00:27,685
+For this tutorial we are assuming that
+
+11
+00:00:27,685 --> 00:00:30,114
+the model is a humanoid, as such
+
+12
+00:00:30,114 --> 00:00:32,809
+the animation type should be humanoid.
+
+13
+00:00:33,443 --> 00:00:37,025
+Below that is the avatar definition property.
+
+14
+00:00:37,525 --> 00:00:40,110
+The options are Create From This Model,
+
+15
+00:00:40,110 --> 00:00:42,110
+and Copy From Other Avatar.
+
+16
+00:00:42,955 --> 00:00:45,095
+Copy From Other Avatar simply copies
+
+17
+00:00:45,095 --> 00:00:47,095
+an avatar definition from one that has
+
+18
+00:00:47,095 --> 00:00:48,789
+already been configured.
+
+19
+00:00:49,415 --> 00:00:51,832
+In most cases Unity will be able to 
+
+20
+00:00:51,832 --> 00:00:54,067
+configure your model automatically,
+
+21
+00:00:54,067 --> 00:00:56,411
+in which case you will see a tick mark
+
+22
+00:00:56,411 --> 00:00:58,411
+next to the configure button.
+
+23
+00:00:58,411 --> 00:01:01,461
+Otherwise it can be configured manually.
+
+24
+00:01:02,555 --> 00:01:04,345
+We will discuss configuring an avatar
+
+25
+00:01:04,345 --> 00:01:07,025
+manually in just a moment, but first
+
+26
+00:01:07,025 --> 00:01:09,343
+let's finish talking about the Rig tab,
+
+27
+00:01:09,343 --> 00:01:13,230
+specifically the Optimise Game Objects check box.
+
+28
+00:01:14,462 --> 00:01:18,007
+By default Unity does not optimise model rigging.
+
+29
+00:01:18,397 --> 00:01:20,593
+What that means is that Unity will create
+
+30
+00:01:20,593 --> 00:01:22,593
+many empty game objects to represent
+
+31
+00:01:22,593 --> 00:01:24,593
+all of the model's bones and joints.
+
+32
+00:01:25,231 --> 00:01:27,231
+This gives you access to the transforms of all
+
+33
+00:01:27,231 --> 00:01:30,664
+of the model's parts, but it is much less efficient.
+
+34
+00:01:30,664 --> 00:01:32,773
+In most cases you will not need this
+
+35
+00:01:32,773 --> 00:01:34,137
+level of control.
+
+36
+00:01:34,844 --> 00:01:37,957
+Therefore it is recommended to check
+
+37
+00:01:37,957 --> 00:01:39,957
+Optimise Game Objects.
+
+38
+00:01:40,664 --> 00:01:43,709
+By checking this box Unity will not create
+
+39
+00:01:43,709 --> 00:01:45,961
+extra empty game objects.
+
+40
+00:01:45,961 --> 00:01:49,136
+Obviously not managing all of those transforms
+
+41
+00:01:49,136 --> 00:01:51,385
+will improve the performance of your game.
+
+42
+00:01:52,133 --> 00:01:54,820
+However under some circumstances
+
+43
+00:01:54,820 --> 00:01:56,485
+we might want to reference a particular
+
+44
+00:01:56,485 --> 00:01:59,362
+part of a model in code or in the Hierarchy.
+
+45
+00:02:00,111 --> 00:02:02,819
+We might, for example, want to add a cup of
+
+46
+00:02:02,819 --> 00:02:04,819
+coffee to the hand of the model.
+
+47
+00:02:05,250 --> 00:02:08,129
+We can still complete this in an optimised model
+
+48
+00:02:08,129 --> 00:02:10,623
+by exposing the transforms we want.
+
+49
+00:02:11,720 --> 00:02:15,195
+To expose a transform click the + sign under the
+
+50
+00:02:15,195 --> 00:02:18,176
+Extra Transforms To Expose box.
+
+51
+00:02:18,176 --> 00:02:20,001
+Then simply drill down and find the
+
+52
+00:02:20,001 --> 00:02:21,767
+transform you want.
+
+53
+00:02:21,767 --> 00:02:23,767
+In this case we will drill down
+
+54
+00:02:23,767 --> 00:02:25,767
+to find the model's right hand.
+
+55
+00:02:29,886 --> 00:02:32,578
+If you change the optimisation of a model
+
+56
+00:02:32,578 --> 00:02:34,467
+you will need to reconfigure the avatar
+
+57
+00:02:34,467 --> 00:02:36,398
+definition afterwards.
+
+58
+00:02:36,398 --> 00:02:39,266
+To do this click on the Configure button.
+
+59
+00:02:39,766 --> 00:02:41,766
+You will be asked if you want to keep the
+
+60
+00:02:41,766 --> 00:02:43,766
+unapplied import settings you have made
+
+61
+00:02:43,766 --> 00:02:47,212
+to the model, choose apply to keep your changes.
+
+62
+00:02:48,057 --> 00:02:50,620
+If you have unsaved changes to your scene
+
+63
+00:02:50,620 --> 00:02:53,006
+Unity will also ask if you want to save them
+
+64
+00:02:53,006 --> 00:02:56,585
+because configuring an avatar is done in another scene.
+
+65
+00:02:58,162 --> 00:03:00,453
+The configuration scene is empty
+
+66
+00:03:00,453 --> 00:03:02,635
+apart from our model with it's entire
+
+67
+00:03:02,635 --> 00:03:04,635
+hierarchy exposed.
+
+68
+00:03:05,135 --> 00:03:09,312
+The Inspector has 2 tabs, Mapping and Muscles.
+
+69
+00:03:09,312 --> 00:03:11,312
+First we will discuss Mapping.
+
+70
+00:03:12,364 --> 00:03:14,364
+This is the mapping of the model's imported
+
+71
+00:03:14,364 --> 00:03:16,685
+hierarchy to Unity's definition for how
+
+72
+00:03:16,685 --> 00:03:18,685
+a humanoid should be laid out.
+
+73
+00:03:19,517 --> 00:03:22,303
+Immediately below the tabs is a representation
+
+74
+00:03:22,303 --> 00:03:24,149
+of the humanoid model with various
+
+75
+00:03:24,149 --> 00:03:25,504
+circles and dots.
+
+76
+00:03:26,552 --> 00:03:28,691
+These represent the bones of the model.
+
+77
+00:03:29,190 --> 00:03:31,273
+Ones that are circled with a dotted line
+
+78
+00:03:31,273 --> 00:03:33,384
+are optional and are not necessary
+
+79
+00:03:33,384 --> 00:03:34,890
+for the definition.
+
+80
+00:03:35,566 --> 00:03:37,706
+On the diagram you can select which
+
+81
+00:03:37,706 --> 00:03:39,651
+part of the model you are looking at.
+
+82
+00:03:39,651 --> 00:03:42,394
+The body, head or either hand
+
+83
+00:03:42,394 --> 00:03:45,286
+by clicking the buttons on the left side.
+
+84
+00:03:46,400 --> 00:03:49,260
+Below the diagram is a list of all of the bones
+
+85
+00:03:49,260 --> 00:03:51,667
+organised by section with a transform that
+
+86
+00:03:51,667 --> 00:03:53,667
+has been applied to that bone.
+
+87
+00:03:54,540 --> 00:03:57,036
+In order to apply a transform to a bone
+
+88
+00:03:57,036 --> 00:03:59,036
+you can either drag the transform from the
+
+89
+00:03:59,036 --> 00:04:01,702
+hierarchy to the dots on the diagram,
+
+90
+00:04:01,702 --> 00:04:04,451
+the specific property below the diagram
+
+91
+00:04:04,451 --> 00:04:06,922
+or you can use the circle select button.
+
+92
+00:04:07,973 --> 00:04:10,946
+Below the list of bones are 2 drop-down menus,
+
+93
+00:04:10,946 --> 00:04:12,946
+Mapping and Pose.
+
+94
+00:04:13,487 --> 00:04:15,487
+Mapping has 4 options.
+
+95
+00:04:15,487 --> 00:04:19,186
+Clear, Automap, Load and Save.
+
+96
+00:04:20,251 --> 00:04:23,331
+Clear will remove all of the bone allocations.
+
+97
+00:04:24,124 --> 00:04:26,880
+Automap will get Unity to try and fit the
+
+98
+00:04:26,880 --> 00:04:29,021
+correct transforms to their bones.
+
+99
+00:04:29,456 --> 00:04:31,456
+Generally this is the best approach
+
+100
+00:04:31,456 --> 00:04:34,019
+to start with when configuring an avatar.
+
+101
+00:04:35,105 --> 00:04:37,105
+Load and Save are for dealing with
+
+102
+00:04:37,105 --> 00:04:39,105
+humanoid templates so you can use
+
+103
+00:04:39,105 --> 00:04:41,748
+configurations across multiple avatars.
+
+104
+00:04:42,463 --> 00:04:44,310
+These are generally not required
+
+105
+00:04:44,310 --> 00:04:46,310
+as Unity will usually be able to automap
+
+106
+00:04:46,310 --> 00:04:47,721
+your avatar.
+
+107
+00:04:48,376 --> 00:04:50,691
+The Pose drop-down has 3 options.
+
+108
+00:04:50,691 --> 00:04:55,383
+Reset, Sample Bind Pose and Enforce T-Pose.
+
+109
+00:04:56,013 --> 00:04:58,686
+Reset removes any pose from the avatar
+
+110
+00:04:58,686 --> 00:05:00,686
+and sets it to it's default.
+
+111
+00:05:01,273 --> 00:05:04,428
+Sample Bind Pose tries to set the avatar to
+
+112
+00:05:04,428 --> 00:05:06,428
+the pose in which it was modelled.
+
+113
+00:05:07,156 --> 00:05:09,751
+Enforce T-Pose sets the avatar
+
+114
+00:05:09,751 --> 00:05:11,413
+in to a T pose.
+
+115
+00:05:11,969 --> 00:05:13,664
+This is the way that Unity prefers to
+
+116
+00:05:13,664 --> 00:05:15,502
+deal with avatars.
+
+117
+00:05:15,502 --> 00:05:17,502
+When you have finished mapping it is best
+
+118
+00:05:17,502 --> 00:05:20,218
+to set the avatar in to a T pose.
+
+119
+00:05:21,196 --> 00:05:24,025
+When you have finished mapping your avatar's bones
+
+120
+00:05:24,025 --> 00:05:26,122
+click Apply to keep the changes.
+
+121
+00:05:26,122 --> 00:05:27,774
+Then click on the Muscles tab
+
+122
+00:05:27,774 --> 00:05:29,774
+to deal with the model's muscles.
+
+123
+00:05:30,415 --> 00:05:33,059
+If you have unapplied import settings
+
+124
+00:05:33,059 --> 00:05:35,451
+Unity will ask if you wish to apply them.
+
+125
+00:05:37,611 --> 00:05:40,638
+Under the Muscles tab are 3 groups of settings.
+
+126
+00:05:41,138 --> 00:05:43,138
+The first group is just for previewing
+
+127
+00:05:43,138 --> 00:05:45,842
+the overall range of movement of the avatar.
+
+128
+00:05:46,440 --> 00:05:48,015
+And if you're going to adjust any of the
+
+129
+00:05:48,015 --> 00:05:51,007
+muscle ranges it is best to leave these
+
+130
+00:05:51,007 --> 00:05:52,888
+at their default by clicking the
+
+131
+00:05:52,888 --> 00:05:54,888
+Reset All button.
+
+132
+00:05:55,725 --> 00:05:57,725
+The second group of settings are the
+
+133
+00:05:57,725 --> 00:05:59,725
+Per-Muscle settings.
+
+134
+00:06:00,279 --> 00:06:02,084
+These are grouped by body areas
+
+135
+00:06:02,084 --> 00:06:04,279
+and each one takes the form of a slider
+
+136
+00:06:04,279 --> 00:06:05,942
+which can be used to adjust the range
+
+137
+00:06:05,942 --> 00:06:07,304
+of muscle movement.
+
+138
+00:06:07,933 --> 00:06:12,806
+The number's range between -180 and 180,
+
+139
+00:06:12,806 --> 00:06:14,438
+representing the number of degrees of
+
+140
+00:06:14,438 --> 00:06:16,438
+movement around that axis.
+
+141
+00:06:18,024 --> 00:06:20,918
+The third section is for additional settings.
+
+142
+00:06:21,494 --> 00:06:23,440
+The Twist settings are how much of the
+
+143
+00:06:23,440 --> 00:06:25,440
+twist affects the neighbouring joints.
+
+144
+00:06:26,059 --> 00:06:28,591
+The Stretch settings, for how much the bones
+
+145
+00:06:28,591 --> 00:06:31,333
+can stretch when the avatar is retargeted
+
+146
+00:06:31,333 --> 00:06:32,714
+to another model.
+
+147
+00:06:33,409 --> 00:06:35,572
+Finally the Feet Spacing
+
+148
+00:06:35,572 --> 00:06:37,823
+is the default distance between the feet.
+
+149
+00:06:38,354 --> 00:06:40,473
+You can use this to affect things
+
+150
+00:06:40,473 --> 00:06:42,473
+like walking animations.
+
+151
+00:06:43,570 --> 00:06:45,972
+Once you have set the muscles as you like
+
+152
+00:06:45,972 --> 00:06:48,416
+you can apply your changes and press Done
+
+153
+00:06:48,416 --> 00:06:50,416
+to return to your scene.

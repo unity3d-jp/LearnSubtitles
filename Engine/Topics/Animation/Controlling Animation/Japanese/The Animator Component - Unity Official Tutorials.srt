@@ -1,0 +1,375 @@
+1
+00:00:00,456 --> 00:00:02,260
+In order to animate the properties of
+
+2
+00:00:02,260 --> 00:00:04,742
+game objects in Unity we use the
+
+3
+00:00:04,742 --> 00:00:06,385
+Animator Component.
+
+4
+00:00:06,885 --> 00:00:09,315
+Animator components have a number of properties
+
+5
+00:00:09,315 --> 00:00:11,804
+which may differ depending on what you are animating.
+
+6
+00:00:12,304 --> 00:00:15,374
+For example, a 3D humanoid character
+
+7
+00:00:15,374 --> 00:00:18,321
+will require different settings than a 2D sprite.
+
+8
+00:00:19,415 --> 00:00:21,415
+Here we have a scene with a model in it.
+
+9
+00:00:21,998 --> 00:00:24,944
+The model has an animator component attached.
+
+10
+00:00:25,900 --> 00:00:28,347
+The first property of the animator component
+
+11
+00:00:28,347 --> 00:00:31,418
+stores a reference to an animator controller asset.
+
+12
+00:00:31,821 --> 00:00:34,072
+Animator controllers are Unity generated
+
+13
+00:00:34,072 --> 00:00:36,817
+assets that contain one or more state machines
+
+14
+00:00:36,817 --> 00:00:39,247
+which determine which animation is being played
+
+15
+00:00:39,247 --> 00:00:40,736
+while the scene is running.
+
+16
+00:00:41,664 --> 00:00:44,112
+These state machines can be on multiple layers
+
+17
+00:00:44,112 --> 00:00:46,388
+and use parameters of various types.
+
+18
+00:00:46,388 --> 00:00:48,774
+To affect when they transition between states
+
+19
+00:00:48,774 --> 00:00:49,901
+and blend.
+
+20
+00:00:50,594 --> 00:00:51,618
+For example
+
+21
+00:00:51,939 --> 00:00:53,494
+you can set the parameters of an
+
+22
+00:00:53,494 --> 00:00:56,101
+animator controller from your scripts to tell it
+
+23
+00:00:56,101 --> 00:00:58,351
+if the character is running, jumping
+
+24
+00:00:58,351 --> 00:00:59,712
+or shooting a gun.
+
+25
+00:01:00,212 --> 00:01:02,776
+It will then play and blend the animation
+
+26
+00:01:02,776 --> 00:01:04,210
+automatically.
+
+27
+00:01:05,014 --> 00:01:07,815
+The avatar is an asset that Unity creates
+
+28
+00:01:07,815 --> 00:01:09,815
+when importing a 3D humanoid.
+
+29
+00:01:10,743 --> 00:01:12,743
+It contains a definition of the
+
+30
+00:01:12,743 --> 00:01:15,479
+skeletal rig the character has.
+
+31
+00:01:16,226 --> 00:01:17,909
+When adding a character of this type to
+
+32
+00:01:17,909 --> 00:01:20,048
+your scene the avatar field will
+
+33
+00:01:20,048 --> 00:01:22,048
+automatically be filled in with an asset
+
+34
+00:01:22,048 --> 00:01:24,048
+created for that character.
+
+35
+00:01:24,866 --> 00:01:27,185
+Try to think of the avatar as the glue
+
+36
+00:01:27,185 --> 00:01:29,464
+that binds the model to be animated
+
+37
+00:01:29,464 --> 00:01:30,884
+to the animator.
+
+38
+00:01:32,199 --> 00:01:34,199
+For generic objects without skeletal
+
+39
+00:01:34,199 --> 00:01:37,232
+rigging an avatar is not required.
+
+40
+00:01:38,672 --> 00:01:41,145
+The Apply Root Motion field
+
+41
+00:01:41,145 --> 00:01:43,145
+determines whether the animation can affect
+
+42
+00:01:43,145 --> 00:01:45,453
+the transform of the game object
+
+43
+00:01:45,453 --> 00:01:48,126
+and is generally used with 3D humanoids.
+
+44
+00:01:48,875 --> 00:01:50,875
+Root Motion is the core movement
+
+45
+00:01:50,875 --> 00:01:52,682
+within an animation clip.
+
+46
+00:01:53,251 --> 00:01:54,546
+For example
+
+47
+00:01:54,546 --> 00:01:56,546
+imagine the difference between an animation
+
+48
+00:01:56,546 --> 00:01:58,809
+of a character running on the spot
+
+49
+00:01:58,809 --> 00:02:00,809
+verses one that is animated running a few
+
+50
+00:02:00,809 --> 00:02:02,326
+paces forward.
+
+51
+00:02:03,074 --> 00:02:04,601
+In the latter example
+
+52
+00:02:04,601 --> 00:02:06,601
+we can use the motion of the character moving
+
+53
+00:02:06,601 --> 00:02:08,783
+forward to drive the character
+
+54
+00:02:08,783 --> 00:02:10,616
+around in our game.
+
+55
+00:02:10,616 --> 00:02:13,323
+Looping that clip to give us realistic
+
+56
+00:02:13,323 --> 00:02:14,933
+continuous motion.
+
+57
+00:02:15,478 --> 00:02:17,478
+However, if you simply have
+
+58
+00:02:17,478 --> 00:02:19,716
+animations that run on the spot
+
+59
+00:02:19,716 --> 00:02:22,130
+you would uncheck Apply Root Motion
+
+60
+00:02:22,130 --> 00:02:25,012
+and instead move the character via script.
+
+61
+00:02:26,617 --> 00:02:28,381
+It is also possible to override this
+
+62
+00:02:28,381 --> 00:02:29,942
+property entirely.
+
+63
+00:02:30,840 --> 00:02:32,840
+This is done by creating a script with a
+
+64
+00:02:32,840 --> 00:02:36,055
+call to the onAnimatorMove function
+
+65
+00:02:36,055 --> 00:02:38,754
+and attaching it to your game object.
+
+66
+00:02:39,364 --> 00:02:41,544
+See the documentation link below
+
+67
+00:02:41,544 --> 00:02:43,544
+for more information on this.
+
+68
+00:02:44,610 --> 00:02:46,928
+Animate Physics can be either checked
+
+69
+00:02:46,928 --> 00:02:48,177
+or unchecked.
+
+70
+00:02:48,903 --> 00:02:50,903
+When it is checked it means that the
+
+71
+00:02:50,903 --> 00:02:53,402
+animations will be executed in time
+
+72
+00:02:53,402 --> 00:02:54,957
+with the physics engine.
+
+73
+00:02:55,584 --> 00:02:57,889
+Generally this is advised 
+
+74
+00:02:57,889 --> 00:02:59,558
+if what ever you are animating
+
+75
+00:02:59,558 --> 00:03:01,087
+has a rigidbody.
+
+76
+00:03:02,017 --> 00:03:04,017
+The Culling Mode of an animator effects
+
+77
+00:03:04,017 --> 00:03:06,212
+whether or not the animations are being played
+
+78
+00:03:06,212 --> 00:03:08,016
+while they're not being rendered.
+
+79
+00:03:08,712 --> 00:03:10,558
+Always Animate means that the
+
+80
+00:03:10,558 --> 00:03:12,558
+animations will play even while not
+
+81
+00:03:12,558 --> 00:03:13,766
+being rendered.
+
+82
+00:03:14,266 --> 00:03:16,266
+Based On Renderers means that the
+
+83
+00:03:16,266 --> 00:03:19,323
+animation will only play while being rendered.
+
+84
+00:03:19,823 --> 00:03:21,781
+Meaning that when the character is
+
+85
+00:03:21,781 --> 00:03:24,380
+obscured from view animation will cease
+
+86
+00:03:24,380 --> 00:03:26,380
+to save performance.
+
+87
+00:03:27,322 --> 00:03:29,571
+With either option the root motion
+
+88
+00:03:29,571 --> 00:03:31,641
+is applied as it would normally.
+
+89
+00:03:31,641 --> 00:03:33,822
+That is if a character was being made
+
+90
+00:03:33,822 --> 00:03:36,336
+to walk with root motion applied
+
+91
+00:03:36,336 --> 00:03:38,336
+then they would continue to move even while
+
+92
+00:03:38,336 --> 00:03:40,558
+not being rendered so that the character
+
+93
+00:03:40,558 --> 00:03:42,350
+would end up in the correct place
+
+94
+00:03:42,350 --> 00:03:44,350
+when they became visible again.
