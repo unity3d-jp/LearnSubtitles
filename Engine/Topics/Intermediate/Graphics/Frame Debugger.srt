@@ -1,0 +1,359 @@
+1
+00:00:01,137 --> 00:00:04,006
+In Unity rendering a frame to the screen
+
+2
+00:00:04,006 --> 00:00:06,811
+occurs in a linear sequence of events.
+
+3
+00:00:08,600 --> 00:00:11,029
+The Frame Debugger is a tool which lets
+
+4
+00:00:11,029 --> 00:00:13,654
+you see all the steps involved
+
+5
+00:00:13,654 --> 00:00:16,545
+in rendering a frame step by step.
+
+6
+00:00:17,086 --> 00:00:20,154
+It allows you to the see intermediate render targets,
+
+7
+00:00:20,154 --> 00:00:22,942
+shadow maps and each draw call
+
+8
+00:00:22,942 --> 00:00:25,686
+that contributes to the frame, in order.
+
+9
+00:00:26,856 --> 00:00:28,856
+The frame debugger is accessed from
+
+10
+00:00:28,856 --> 00:00:30,856
+Window - Frame Debugger.
+
+11
+00:00:41,411 --> 00:00:44,749
+The editor will pause and in the frame debug window
+
+12
+00:00:44,749 --> 00:00:47,737
+a sequential list of each step involved
+
+13
+00:00:47,737 --> 00:00:50,840
+in current frame will displayed.
+
+14
+00:00:51,839 --> 00:00:53,936
+Many of these are draw called.
+
+15
+00:00:53,936 --> 00:00:57,369
+But they also involve other render related events
+
+16
+00:00:57,369 --> 00:00:58,867
+like frame buffer clears,
+
+17
+00:00:58,867 --> 00:01:01,477
+which set the initial colours of the screen,
+
+18
+00:01:01,477 --> 00:01:03,905
+or compute shader invocation.
+
+19
+00:01:04,585 --> 00:01:07,852
+A draw call is a command in which the CPU
+
+20
+00:01:07,852 --> 00:01:11,066
+sends content to be rendered, like meshes,
+
+21
+00:01:11,066 --> 00:01:14,959
+to the GPU to be rendered as pixels for display.
+
+22
+00:01:16,013 --> 00:01:18,013
+At the top of the window are two
+
+23
+00:01:18,013 --> 00:01:20,013
+forward and back buttons
+
+24
+00:01:20,942 --> 00:01:24,976
+along with a slider, which will allow you to step through this list in order.
+
+25
+00:01:49,053 --> 00:01:53,035
+Selecting a single step in the process from the main list
+
+26
+00:01:53,035 --> 00:01:55,987
+will cause that draw call or event,
+
+27
+00:01:55,987 --> 00:01:57,987
+along with the steps prior to it,
+
+28
+00:01:57,987 --> 00:01:59,987
+to be drawn in the game view.
+
+29
+00:02:01,180 --> 00:02:03,667
+If that step is drawing a mesh renderer
+
+30
+00:02:03,667 --> 00:02:06,406
+the game object with that mesh renderer attached
+
+31
+00:02:06,406 --> 00:02:08,406
+will be highlighted in the hierarchy.
+
+32
+00:02:11,790 --> 00:02:13,790
+Viewing a step in the main list allows
+
+33
+00:02:13,790 --> 00:02:15,790
+you to see where in the overall
+
+34
+00:02:15,790 --> 00:02:17,790
+process of drawing the frame it occurs.
+
+35
+00:02:18,137 --> 00:02:20,137
+Related steps are grouped together
+
+36
+00:02:20,137 --> 00:02:23,228
+and their views can be expanded or collapsed.
+
+37
+00:02:24,102 --> 00:02:26,102
+Analysing frames in this way is useful
+
+38
+00:02:26,102 --> 00:02:30,322
+to learn precisely how and in what order
+
+39
+00:02:30,322 --> 00:02:32,322
+Unity is rendering your frame.
+
+40
+00:02:37,052 --> 00:02:39,052
+When setting up a new project we
+
+41
+00:02:39,052 --> 00:02:41,858
+can choose between 4 different render paths.
+
+42
+00:02:42,593 --> 00:02:45,301
+Each render path renders content differently.
+
+43
+00:02:46,105 --> 00:02:48,105
+Choosing which to use is highly 
+
+44
+00:02:48,105 --> 00:02:50,105
+dependent on the nature of your project.
+
+45
+00:02:51,686 --> 00:02:54,129
+To choose a render path for your project
+
+46
+00:02:54,129 --> 00:03:00,069
+navigate to Edit - Project Settings - Player
+
+47
+00:03:03,952 --> 00:03:07,873
+and select a rendering path from the drop-down
+
+48
+00:03:07,873 --> 00:03:09,873
+under Other Settings.
+
+49
+00:03:14,727 --> 00:03:16,727
+For more information about the available
+
+50
+00:03:16,727 --> 00:03:19,673
+render paths please see the information linked below.
+
+51
+00:03:20,727 --> 00:03:22,727
+Each render path can use a different
+
+52
+00:03:22,727 --> 00:03:25,660
+number of render targets.
+
+53
+00:03:25,660 --> 00:03:27,660
+A render target is a feature of
+
+54
+00:03:27,660 --> 00:03:29,660
+GPUs that allow a scene
+
+55
+00:03:29,660 --> 00:03:32,623
+to be rendered to an intermediate memory buffer.
+
+56
+00:03:33,941 --> 00:03:36,497
+Using the for Forward rendering path
+
+57
+00:03:36,497 --> 00:03:39,374
+1 render target is used by default.
+
+58
+00:03:40,220 --> 00:03:43,483
+Here shown as RT0,
+
+59
+00:03:43,483 --> 00:03:45,483
+along with a depth buffer.
+
+60
+00:03:46,967 --> 00:03:49,495
+Using customer shaders it's possible
+
+61
+00:03:49,495 --> 00:03:52,497
+to use more render targets in forward rendering
+
+62
+00:03:52,497 --> 00:03:54,497
+but using the standard shader this is
+
+63
+00:03:54,497 --> 00:03:56,497
+the default behaviour.
+
+64
+00:03:58,258 --> 00:04:01,679
+This project is in differed rendering mode.
+
+65
+00:04:01,679 --> 00:04:06,002
+In differed rendering mode multiple render targets are used.
+
+66
+00:04:06,002 --> 00:04:08,560
+When rendering to multiple targets at once
+
+67
+00:04:08,560 --> 00:04:12,219
+you can select which display using the drop down menu.
+
+68
+00:04:13,772 --> 00:04:16,371
+In this example we can see the diffuse,
+
+69
+00:04:17,508 --> 00:04:19,508
+specular,
+
+70
+00:04:21,547 --> 00:04:23,547
+normals,
+
+71
+00:04:25,697 --> 00:04:28,950
+and emission and indirect lighting buffers
+
+72
+00:04:28,950 --> 00:04:31,644
+in in Unity 5 differed shading mode
+
+73
+00:04:31,644 --> 00:04:33,644
+using the standard shader.
+
+74
+00:04:34,656 --> 00:04:36,656
+You can also see the depth buffer by
+
+75
+00:04:36,656 --> 00:04:38,656
+selecting it from the same drop down.
+
+76
+00:04:43,510 --> 00:04:45,510
+When an event is highlighted
+
+77
+00:04:45,510 --> 00:04:47,510
+information will be displayed about that event
+
+78
+00:04:47,510 --> 00:04:49,510
+in the information panel.
+
+79
+00:04:51,784 --> 00:04:53,784
+In the case of draw calls the information
+
+80
+00:04:53,784 --> 00:04:55,784
+panel also includes buttons which will
+
+81
+00:04:55,784 --> 00:04:59,344
+allow you to isolate and visualise information,
+
+82
+00:04:59,344 --> 00:05:01,344
+including the red, 
+
+83
+00:05:02,800 --> 00:05:04,173
+green,
+
+84
+00:05:05,185 --> 00:05:08,165
+blue and alpha channels
+
+85
+00:05:08,165 --> 00:05:10,165
+of the selected render target.
+
+86
+00:05:11,455 --> 00:05:13,455
+You can also adjust the brightness of the
+
+87
+00:05:13,455 --> 00:05:17,124
+display using the levels bracketed slider here.
+
+88
+00:05:19,218 --> 00:05:21,929
+This can be useful in HDR rendering
+
+89
+00:05:21,929 --> 00:05:23,929
+to isolate certain luminance ranges
+
+90
+00:05:23,929 --> 00:05:26,783
+of a frame for analysis.
