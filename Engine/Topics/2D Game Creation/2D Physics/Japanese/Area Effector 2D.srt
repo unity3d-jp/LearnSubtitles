@@ -1,0 +1,567 @@
+1
+00:00:02,205 --> 00:00:05,561
+In Unity it's possible to add physics forces
+
+2
+00:00:05,561 --> 00:00:08,250
+to 2D objects within an area
+
+3
+00:00:08,250 --> 00:00:10,250
+using effectors.
+
+4
+00:00:10,250 --> 00:00:12,250
+The Area Effector 2D allows us to
+
+5
+00:00:12,250 --> 00:00:14,250
+add physics forces to 2D object
+
+6
+00:00:14,250 --> 00:00:16,250
+which trigger or collide with it.
+
+7
+00:00:17,193 --> 00:00:19,193
+Some example uses for this might be to create
+
+8
+00:00:19,193 --> 00:00:21,193
+an area of a scene in which a fan
+
+9
+00:00:21,193 --> 00:00:22,942
+blows objects in a certain direction
+
+10
+00:00:23,304 --> 00:00:25,304
+or to create a speed boost area
+
+11
+00:00:25,304 --> 00:00:27,304
+in a top-down driving game.
+
+12
+00:00:27,304 --> 00:00:29,304
+In our example scene we have a hat
+
+13
+00:00:29,304 --> 00:00:31,220
+which spawns coins.
+
+14
+00:00:31,220 --> 00:00:33,716
+The coin prefab contains a sprite renderer,
+
+15
+00:00:33,716 --> 00:00:36,544
+circle collider and rigid body collider 2D
+
+16
+00:00:36,544 --> 00:00:38,115
+with default values.
+
+17
+00:00:38,919 --> 00:00:40,919
+The coins fall in to our first
+
+18
+00:00:40,919 --> 00:00:43,271
+area effector 2D which is attached
+
+19
+00:00:43,271 --> 00:00:45,271
+to our game object ArrowsRight.
+
+20
+00:00:46,367 --> 00:00:48,367
+When they enter the collider they are propelled
+
+21
+00:00:48,367 --> 00:00:50,367
+to the right where they are caught and lifted
+
+22
+00:00:50,367 --> 00:00:52,838
+by our second area effector 2D
+
+23
+00:00:52,838 --> 00:00:54,838
+which is attached to ArrowsUp.
+
+24
+00:00:57,459 --> 00:00:59,459
+For an area effector to function it
+
+25
+00:00:59,459 --> 00:01:01,459
+must be attached to a game object which
+
+26
+00:01:01,459 --> 00:01:03,459
+also has a 2D collider.
+
+27
+00:01:04,985 --> 00:01:08,657
+On the box collider 2D attached to ArrowsRight
+
+28
+00:01:08,657 --> 00:01:10,657
+the Used By Effector field is
+
+29
+00:01:10,657 --> 00:01:12,587
+set to true.
+
+30
+00:01:12,587 --> 00:01:14,587
+If this field is not checked you'll see
+
+31
+00:01:14,587 --> 00:01:17,573
+a warning on your area effector component
+
+32
+00:01:17,573 --> 00:01:19,573
+that the effector will not function until
+
+33
+00:01:19,573 --> 00:01:21,880
+there is at least 1 enabled 2D collider
+
+34
+00:01:21,880 --> 00:01:24,977
+with Used By Effector checked on this game object.
+
+35
+00:01:26,516 --> 00:01:28,516
+Additionally the box collider 2D
+
+36
+00:01:28,516 --> 00:01:30,516
+should have it's Is Trigger field
+
+37
+00:01:30,516 --> 00:01:32,516
+checked and set to true.
+
+38
+00:01:33,251 --> 00:01:35,251
+This will allow the objects to enter 
+
+39
+00:01:35,251 --> 00:01:38,820
+the trigger volume in which they will be effected by
+
+40
+00:01:38,834 --> 00:01:42,011
+the forces set in the area effector settings.
+
+41
+00:01:42,817 --> 00:01:46,132
+Area effectors are designed to be used with triggers.
+
+42
+00:01:46,132 --> 00:01:48,132
+It's possible to use an area effector with 
+
+43
+00:01:48,132 --> 00:01:50,437
+non-trigger colliders, but the forces will
+
+44
+00:01:50,437 --> 00:01:52,437
+only be applied when the target collider
+
+45
+00:01:52,437 --> 00:01:55,223
+is in contact with the source.
+
+46
+00:01:56,138 --> 00:01:58,643
+To control what forces are applied
+
+47
+00:01:58,643 --> 00:02:01,252
+when an object enters the trigger volume
+
+48
+00:02:01,252 --> 00:02:04,620
+the area effector 2d the following settings.
+
+49
+00:02:05,508 --> 00:02:07,508
+The collider mask allows users to
+
+50
+00:02:07,508 --> 00:02:10,910
+include or exclude layers from being
+
+51
+00:02:10,910 --> 00:02:12,910
+effected by this effector's forces.
+
+52
+00:02:13,770 --> 00:02:16,862
+For more on layers please see the information linked below.
+
+53
+00:02:17,847 --> 00:02:20,515
+Here the effector is effecting everything.
+
+54
+00:02:21,583 --> 00:02:23,583
+The force direction is the angle at
+
+55
+00:02:23,583 --> 00:02:25,583
+which the force will be applied
+
+56
+00:02:25,583 --> 00:02:30,396
+in degrees ranging from 0 to 359.99
+
+57
+00:02:30,868 --> 00:02:34,830
+If we input a number greater than 359.99
+
+58
+00:02:34,830 --> 00:02:39,019
+it will clamp to 359.99.
+
+59
+00:02:39,019 --> 00:02:41,366
+If we use a negative value
+
+60
+00:02:41,366 --> 00:02:43,366
+the force direction will be applied
+
+61
+00:02:43,366 --> 00:02:45,366
+in the opposite direction.
+
+62
+00:02:46,087 --> 00:02:49,985
+The force direction is calculated in world space,
+
+63
+00:02:49,985 --> 00:02:53,147
+incrementing in a counter-clockwise direction.
+
+64
+00:02:54,243 --> 00:02:56,243
+If force direction is set to 0
+
+65
+00:02:56,243 --> 00:02:59,169
+the object will be pushed directly to the right.
+
+66
+00:02:59,169 --> 00:03:02,490
+If set to 90 it will be pushed upwards,
+
+67
+00:03:02,490 --> 00:03:05,072
+if set to 180 it will be pushed to the left
+
+68
+00:03:05,072 --> 00:03:07,875
+and if set to 270 it will be pushed down.
+
+69
+00:03:08,931 --> 00:03:11,153
+Note that the force direction is directly
+
+70
+00:03:11,153 --> 00:03:13,153
+relative to world space and not 
+
+71
+00:03:13,153 --> 00:03:15,153
+to the object's local rotation.
+
+72
+00:03:15,930 --> 00:03:17,930
+Rotating the object will not rotate
+
+73
+00:03:17,930 --> 00:03:20,539
+the direction which the force is applied in.
+
+74
+00:03:21,538 --> 00:03:24,143
+The force magnitude is the magnitude of the 
+
+75
+00:03:24,143 --> 00:03:26,143
+force to be applied to each object
+
+76
+00:03:26,143 --> 00:03:29,072
+while it remains within the trigger volume.
+
+77
+00:03:29,793 --> 00:03:33,125
+In this case we've set our force magnitude to 22,
+
+78
+00:03:33,125 --> 00:03:35,125
+to give our objects a relatively gentle
+
+79
+00:03:35,125 --> 00:03:38,141
+push towards our second effector.
+
+80
+00:03:40,152 --> 00:03:43,337
+The force variation here is set to 0.
+
+81
+00:03:43,337 --> 00:03:45,337
+Force variation allows us to
+
+82
+00:03:45,337 --> 00:03:48,792
+add or subtract a random amount
+
+83
+00:03:48,792 --> 00:03:52,860
+ranging from 0 to the amount specified.
+
+84
+00:03:52,860 --> 00:03:54,860
+by setting force variation to a positive
+
+85
+00:03:54,860 --> 00:03:56,860
+number we can add
+
+86
+00:03:56,860 --> 00:04:00,691
+between 0 and that number to the force magnitude
+
+87
+00:04:00,691 --> 00:04:02,691
+and by setting it to a negative number we 
+
+88
+00:04:02,691 --> 00:04:06,645
+can subtract between 0 and that number.
+
+89
+00:04:08,295 --> 00:04:11,141
+In the case of our first area effector 2D,
+
+90
+00:04:11,141 --> 00:04:14,480
+we've set the drag and angular drag to 0.
+
+91
+00:04:15,090 --> 00:04:17,090
+Modifying the drag values allows
+
+92
+00:04:17,090 --> 00:04:19,670
+us to add drag or angular drag
+
+93
+00:04:19,670 --> 00:04:23,101
+to 2D rigid bodies that enter the effector's trigger volume.
+
+94
+00:04:23,101 --> 00:04:25,101
+The drag coefficient specified in the 
+
+95
+00:04:25,101 --> 00:04:27,101
+area effector 2D are applied
+
+96
+00:04:27,101 --> 00:04:29,530
+in addition to any already set
+
+97
+00:04:29,530 --> 00:04:32,561
+in the target object's rigid body 2D settings.
+
+98
+00:04:33,504 --> 00:04:36,537
+In our second effector attached to ArrowsUp
+
+99
+00:04:36,537 --> 00:04:38,537
+we're using drag to catch and
+
+100
+00:04:38,537 --> 00:04:40,980
+slow down the incoming coins
+
+101
+00:04:40,980 --> 00:04:43,506
+so that we can then move them directly upwards.
+
+102
+00:04:44,242 --> 00:04:46,242
+If we temporarily reduce the drag value
+
+103
+00:04:46,242 --> 00:04:48,242
+from 10 to 0 we can see that the
+
+104
+00:04:48,242 --> 00:04:51,579
+velocity of the coins causes them to pass
+
+105
+00:04:51,579 --> 00:04:54,992
+through the trigger volume and out of it to the right.
+
+106
+00:04:59,944 --> 00:05:01,944
+To demonstrate the angular drag
+
+107
+00:05:01,944 --> 00:05:05,840
+and force target parameters of our area effector 2D
+
+108
+00:05:05,840 --> 00:05:07,840
+we've modified our scene slightly.
+
+109
+00:05:08,242 --> 00:05:11,426
+We've added our 2Planks game object
+
+110
+00:05:11,426 --> 00:05:14,382
+which has a rigid body 2D attached
+
+111
+00:05:14,382 --> 00:05:16,382
+with 2 child objects
+
+112
+00:05:16,382 --> 00:05:18,675
+which hold a sprite renderer
+
+113
+00:05:18,675 --> 00:05:20,675
+and box collider 2D.
+
+114
+00:05:21,882 --> 00:05:24,855
+We've also duplicated our ArrowsRight object
+
+115
+00:05:24,855 --> 00:05:26,855
+to make ArrowsRight2.
+
+116
+00:05:28,339 --> 00:05:30,339
+When we play our scene you can see
+
+117
+00:05:30,339 --> 00:05:32,686
+that the 2Planks object falls
+
+118
+00:05:32,686 --> 00:05:35,368
+in to the two ArrowsRight effectors,
+
+119
+00:05:35,368 --> 00:05:36,978
+is moved to the right,
+
+120
+00:05:36,978 --> 00:05:39,673
+and then is moved upwards by ArrowsUp.
+
+121
+00:05:40,394 --> 00:05:43,844
+Currently the angular drag is set to 0
+
+122
+00:05:43,844 --> 00:05:45,844
+and the force target is rigid body.
+
+123
+00:05:46,815 --> 00:05:49,209
+Because the force target is rigid body 
+
+124
+00:05:49,209 --> 00:05:51,209
+the force is applied to the centre
+
+125
+00:05:51,209 --> 00:05:53,209
+of mass of the rigid body
+
+126
+00:05:53,209 --> 00:05:56,223
+and therefore does not case rotation.
+
+127
+00:05:56,806 --> 00:06:00,482
+If we highlight our 3 area effector objects
+
+128
+00:06:00,482 --> 00:06:03,550
+and switch the force target to collider
+
+129
+00:06:03,550 --> 00:06:05,550
+and then play our scene again
+
+130
+00:06:06,632 --> 00:06:08,632
+we can see that setting the
+
+131
+00:06:08,632 --> 00:06:10,632
+force target to collider causes
+
+132
+00:06:10,632 --> 00:06:12,632
+the object to rotate.
+
+133
+00:06:13,520 --> 00:06:15,520
+Angular drag allows us to
+
+134
+00:06:15,520 --> 00:06:18,173
+slow an object's rotation
+
+135
+00:06:18,173 --> 00:06:20,963
+as we increase the drag value.
+
+136
+00:06:22,392 --> 00:06:24,392
+If we then switch the angular drag
+
+137
+00:06:24,392 --> 00:06:28,646
+value for all 3 area effectors 2Ds to 10
+
+138
+00:06:29,353 --> 00:06:31,353
+We can see that by increasing
+
+139
+00:06:31,353 --> 00:06:35,136
+angular drag the rotation still occurs
+
+140
+00:06:35,136 --> 00:06:37,136
+but is minimised.
+
+141
+00:06:37,136 --> 00:06:39,539
+For more on area effectors please see
+
+142
+00:06:39,539 --> 00:06:41,539
+the information linked below.
