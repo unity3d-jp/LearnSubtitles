@@ -1,35 +1,35 @@
-1
+﻿1
 00:00:00,236 --> 00:00:01,229
-A quick tip for Unity.
+ここで Unity のお役立ち技をひとつ
 
 2
 00:00:01,229 --> 00:00:03,229
-If you're using the forums to
+実はフォーラムに表示されている
 
 3
 00:00:03,229 --> 00:00:05,594
-read C# formatted code
+C# コードを見ている時には
 
 4
 00:00:05,594 --> 00:00:07,594
-you can click on any of the API elements to
+書かれている API 要素をクリックすることで
 
 5
 00:00:07,594 --> 00:00:11,075
-actually visit the script reference search for that term.
+対応するスクリプトリファレンスのページに飛べます
 
 6
 00:00:11,075 --> 00:00:13,075
-So for example if I click on Input,
+たとえばここで Input をクリックすると
 
 7
 00:00:14,852 --> 00:00:16,852
-the scripting API will perform a search
+スクリプティング API が検索を行って
 
 8
 00:00:16,852 --> 00:00:18,533
-for that and I can jump to any of the
+その検索結果から必要なプロパティのページに
 
 9
 00:00:18,533 --> 00:00:20,533
-relevant properties of that.
+アクセスできるんですね

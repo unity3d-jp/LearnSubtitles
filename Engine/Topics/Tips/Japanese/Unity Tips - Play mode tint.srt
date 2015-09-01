@@ -1,67 +1,67 @@
-1
+﻿1
 00:00:00,139 --> 00:00:01,621
-A quick Unity tip.
+Unity のお役立ち情報をひとつ
 
 2
 00:00:01,621 --> 00:00:03,080
-When you're working in the editor
+エディター上で作業している時
 
 3
 00:00:03,080 --> 00:00:05,080
-it's easy to forget that you're in play mode,
+うっかり Play モードのままにしていることってありますよね
 
 4
 00:00:05,080 --> 00:00:07,080
-and what can happen is that when you're
+そんな時 そのままゲームオブジェクトの
 
 5
 00:00:07,080 --> 00:00:09,010
-adjusting values of game objects,
+値を調整してしまうと
 
 6
 00:00:09,010 --> 00:00:12,047
-when you leave play mode those settings can be forgotten.
+Play モード終了時に変更内容が消えてしまいます
 
 7
 00:00:12,047 --> 00:00:14,727
-So it's quite useful to be able to remind yourself
+そんな事が起きないよう  この動画では
 
 8
 00:00:14,727 --> 00:00:18,365
-of being in play mode, and you can do this using tinting.
+Play モード時に画面を薄く色付けする小技を紹介します
 
 9
 00:00:18,365 --> 00:00:20,822
-So if you go to Unity Preferences on Mac,
+Mac 版なら Unity Preferences を
 
 10
 00:00:20,822 --> 00:00:22,822
-or Edit Preferences on PC
+Windows 版なら Edit Preferences を開いて
 
 11
 00:00:22,822 --> 00:00:24,822
-you can go to the Colours section
+Colors セクションに移動してください
 
 12
 00:00:24,822 --> 00:00:27,200
-and in there you'll find Playmode tint.
+このセクションにある Playmode tint で
 
 13
 00:00:27,200 --> 00:00:29,200
-Simply set this to a colour that's kind of
+ある程度目立つ 分かりやすい色を
 
 14
 00:00:29,200 --> 00:00:30,488
-obvious and will stick out
+指定してみてください
 
 15
 00:00:30,488 --> 00:00:32,488
-and then the editor will entirely tint
+するとそれ以降 Play モード中にはエディターの
 
 16
 00:00:32,488 --> 00:00:34,488
-to this colour when you're in play mode
+画面が指定色で表示される
 
 17
 00:00:34,488 --> 00:00:36,488
-to remind you. It looks like this.
+ようになりますこんな感じですね

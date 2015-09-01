@@ -1,87 +1,87 @@
-1
+﻿1
 00:00:00,250 --> 00:00:01,635
-A quick tip for Unity.
+ここで Unity のお役立ち技をひとつ
 
 2
 00:00:01,635 --> 00:00:03,635
-If you're working with public variables that are
+インスペクターに対して公開されている
 
 3
 00:00:03,635 --> 00:00:05,483
-exposed in the inspector,
+public 変数を扱う時  たとえば...
 
 4
 00:00:05,483 --> 00:00:08,426
-such as this Speed variable in our PlayerMovement script,
+ここでの PlayerMovement スクリプトに含まれる Speed 変数のような場合
 
 5
 00:00:08,426 --> 00:00:10,426
-you may wish to turn them in to a slider
+float 値を入力して指定するフィールドの代わりに
 
 6
 00:00:10,426 --> 00:00:13,823
-instead of simply a float value that you can type in to.
+スライダーにしたいケースというのが考えられます
 
 7
 00:00:13,823 --> 00:00:15,823
-You can do this very easily.
+実はそれ 簡単にできるんです
 
 8
 00:00:15,823 --> 00:00:17,823
-In your script simply place above the
+これにはまずスクリプトで public 変数の直上に
 
 9
 00:00:17,823 --> 00:00:21,161
-public variable range declaration
+range 宣言を入力します
 
 10
 00:00:21,161 --> 00:00:22,784
-which looks like this;
+具体的には次のようになります
 
 11
 00:00:22,784 --> 00:00:24,693
-Open square brackets and type Range,
+開き角カッコに続いて Range と入力し
 
 12
 00:00:24,693 --> 00:00:26,693
-and then in to normal brackets type in
+続けて対カッコ  そしてそのカッコ内に
 
 13
 00:00:26,693 --> 00:00:30,500
-the two float values that you'd like the slider to go to and from.
+スライダーの最小値と最大値にしたい float 値を 2 個入れます
 
 14
 00:00:30,500 --> 00:00:32,750
-So for example with my player's speed
+この例ではプレイヤーのスピードの値ですね
 
 15
 00:00:32,750 --> 00:00:36,234
-I might want to have a minimum value of  1
+ひとまずここでは最小値を 1
 
 16
 00:00:36,234 --> 00:00:38,234
-and a maximum value of 10.
+最大値を 10 としましょう
 
 17
 00:00:38,706 --> 00:00:40,789
-That way I can limit any kind of
+こうしておくことでゲームデザイナーが
 
 18
 00:00:40,789 --> 00:00:42,998
-game designer that plays around with this script
+うっかり最大値よりも大きな値を指定してしまう危険を
 
 19
 00:00:42,998 --> 00:00:46,071
-from going over the potential maximum value.
+未然に回避することができます
 
 20
 00:00:46,071 --> 00:00:48,789
-I save my script and switch back.
+さてこれで スクリプトを保存して Unity に戻ってみましょう
 
 21
 00:00:49,386 --> 00:00:51,968
-And as soon as the script compiles I now have a slider
+スクリプトのコンパイルが完了するとすぐに Speed を調節する
 
 22
 00:00:51,968 --> 00:00:53,968
-to play around with the speed.
+フィールドがスライダーに変化したのが確認できますね

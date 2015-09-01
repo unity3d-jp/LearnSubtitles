@@ -1,51 +1,51 @@
-1
+﻿1
 00:00:00,486 --> 00:00:02,116
-A quick tip for Unity.
+ここで Unity のお役立ち技をひとつ
 
 2
 00:00:02,116 --> 00:00:03,879
-When looking for documentation
+コンポーネントの右側には
 
 3
 00:00:03,879 --> 00:00:05,879
-you'll find a link in the form of a book icon
+ドキュメント検索に使える
 
 4
 00:00:05,879 --> 00:00:07,368
-with a question mark on it
+クエスチョンマークの付いた
 
 5
 00:00:07,368 --> 00:00:09,285
-to the right of each component.
+本アイコンがありますよね
 
 6
 00:00:09,285 --> 00:00:11,285
-Clicking this will take you to the locally installed
+このアイコンをクリックするとローカル環境にインストールされた
 
 7
 00:00:11,285 --> 00:00:13,285
-documentation for that component.
+対象コンポーネントに関するドキュメントが開きます
 
 8
 00:00:19,284 --> 00:00:21,284
-Note that when dealing with script components
+なおスクリプトコンポーネントの場合は
 
 9
 00:00:21,284 --> 00:00:23,830
-you'll be taken to the script reference definition
+スクリプトリファレンスの MonoBehaviour 定義ページが
 
 10
 00:00:23,830 --> 00:00:25,830
-for mono behaviour.
+表示されます
 
 11
 00:00:27,261 --> 00:00:29,261
-This will allow you to then backtrack and look at
+これはこのページからスクリプト内で使われているかもしれない
 
 12
 00:00:29,261 --> 00:00:31,817
-some of the functions that might be used in your script.
+関数をチェックできるようにするための措置です
 
 13
 00:00:35,623 --> 00:00:38,668
-Otherwise you'll simply get the reference for that component.
+それ以外のケースでは 対応するコンポーネントのリファレンスがそのまま表示されます
