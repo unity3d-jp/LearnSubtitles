@@ -1,351 +1,351 @@
-1
+﻿1
 00:00:00,470 --> 00:00:02,129
-The state machines of animator controllers
+アニメーターコントローラーのステートマシンは複数の
 
 2
 00:00:02,129 --> 00:00:04,129
-can be split up in to layers.
+レイヤーに分割することができます
 
 3
 00:00:05,251 --> 00:00:07,251
-These are generally used to handle
+通常レイヤー分けするのは
 
 4
 00:00:07,251 --> 00:00:08,973
-animating different body parts.
+体の部位ごとにアニメーション付けするためです
 
 5
 00:00:09,627 --> 00:00:12,243
-For example you might use the base layer
+たとえばベースクラスではキャラクターの
 
 6
 00:00:12,243 --> 00:00:14,714
-to handle the overall movement of a character
+移動全般を扱うようにしている状態で
 
 7
 00:00:14,714 --> 00:00:17,170
-while also allowing the character to wave.
+キャラクターに手を振らせたいとしましょう
 
 8
 00:00:17,628 --> 00:00:19,628
-You could handle the separate waving animation
+こういう時独立した「手を振る」アニメーションを
 
 9
 00:00:19,628 --> 00:00:21,628
-on another layer so that the character
+別のレイヤーに配置することでキャラクターの「移動」と
 
 10
 00:00:21,628 --> 00:00:24,443
-could move and wave simultaneously.
+「手を振る」アニメーションを同時に再生できるのです
 
 11
 00:00:25,620 --> 00:00:27,812
-By default an animator controller will
+デフォルトではアニメーターコントローラーには
 
 12
 00:00:27,812 --> 00:00:30,253
-have one layer called Base Layer.
+Base Layer というレイヤー 1 つしかありません
 
 13
 00:00:30,782 --> 00:00:32,782
-The only adjustable properties for this layer
+このレイヤーで調整可能なプロパティは
 
 14
 00:00:32,782 --> 00:00:35,017
-are it's name and whether or not it does
+レイヤーの名前と IK Pass の設定
 
 15
 00:00:35,017 --> 00:00:36,797
-an IK Pass.
+だけです
 
 16
 00:00:36,797 --> 00:00:39,988
-IK is short for Inverse Kinematics.
+この IK は Inverse Kinematics（逆運動学）の略です
 
 17
 00:00:40,764 --> 00:00:42,764
-When a layer does an IK pass
+IK Pass をオンにするということは
 
 18
 00:00:42,764 --> 00:00:45,588
-it means that the onAnimatorIK function
+そのレイヤーに対して onAnimatorIK 関数が
 
 19
 00:00:45,588 --> 00:00:47,588
-will be called for that layer with the
+適切なレイヤーのインデックスと共に
 
 20
 00:00:47,588 --> 00:00:49,588
-appropriate layer index.
+呼ばれるということを意味します
 
 21
 00:00:49,588 --> 00:00:52,289
-The base layer has a layer index of 0.
+ベースレイヤーのレイヤーインデックスは 0 で
 
 22
 00:00:52,289 --> 00:00:54,442
-Any additional layers have indices
+追加レイヤーのインデックスは 1 から始まり
 
 23
 00:00:54,442 --> 00:00:56,890
-starting at 1 and counting upwards.
+レイヤー毎に 1 ずつ増えていきます
 
 24
 00:00:57,550 --> 00:01:00,107
-For more information on IK and the
+IK および onAnimatorIK 関数の
 
 25
 00:01:00,107 --> 00:01:02,330
-onAnimatorIK function
+詳細については
 
 26
 00:01:02,330 --> 00:01:05,030
-please see the documentation linked below.
+下記リンク先の情報を参照してください
 
 27
 00:01:06,128 --> 00:01:08,128
-Subsequent layers have additional options
+追加レイヤーにはそれ以前のレイヤーに対して
 
 28
 00:01:08,128 --> 00:01:10,753
-to do with how they react to previous layers.
+どう反応するかを指定する追加オプションがあります
 
 29
 00:01:11,598 --> 00:01:13,598
-We can create a new layer by clicking the
+新規レイヤーを作成するには Layers の
 
 30
 00:01:13,598 --> 00:01:16,424
-+ icon next to the word Layers.
+隣に表示される + アイコンをクリックします
 
 31
 00:01:17,573 --> 00:01:19,726
-All layers have a name and that is set with
+レイヤーには必ず名前がつきますがこれは
 
 32
 00:01:19,726 --> 00:01:21,423
-the Name property.
+Name プロパティで指定します
 
 33
 00:01:21,423 --> 00:01:23,423
-The Weight represents how much the layer
+Weight（重み付け）は対象レイヤーが最終的な
 
 34
 00:01:23,423 --> 00:01:25,326
-effects the final animation.
+アニメーションに対してどの程度影響するかを示します
 
 35
 00:01:25,326 --> 00:01:27,408
-A weight of 0 means the layer will not
+Weight を 0 にした場合には
 
 36
 00:01:27,408 --> 00:01:29,185
-effect animation at all.
+アニメーションは一切反映されません
 
 37
 00:01:29,185 --> 00:01:31,240
-Inversely a weight of 1
+逆に Weight を 1 にすると
 
 38
 00:01:31,240 --> 00:01:33,240
-will completely change the animation.
+アニメーションを完全に変えてしまいます
 
 39
 00:01:34,210 --> 00:01:36,392
-Layers of higher weights have priority
+Weight（重み付け）の高いレイヤーは低いレイヤーよりも
 
 40
 00:01:36,392 --> 00:01:37,795
-over lower ones.
+優先度が高くなります
 
 41
 00:01:38,466 --> 00:01:41,195
-The slider sets the default value of the weight
+Weight のデフォルト値はスライダーで指定されますが
 
 42
 00:01:41,195 --> 00:01:43,694
-but it can still be set in code at runtime
+この値はランタイムに Animator クラスの
 
 43
 00:01:43,694 --> 00:01:46,450
-using the setLayerWeight function
+setLayerWeight 関数を使用して
 
 44
 00:01:46,450 --> 00:01:48,450
-of the animator class.
+設定することも可能です
 
 45
 00:01:49,185 --> 00:01:51,757
-The Mask property of a layer defines which,
+レイヤーの Mask プロパティは
 
 46
 00:01:51,757 --> 00:01:54,246
-if any, avatar mask the layer will use
+アニメーション時に特定の身体部位を
 
 47
 00:01:54,246 --> 00:01:56,789
-to isolate body parts for animation.
+分離するアバターマスクを指定するものです
 
 48
 00:01:57,519 --> 00:01:59,851
-For more information about avatar masks
+アバターマスクの詳細については
 
 49
 00:01:59,851 --> 00:02:01,851
-see the lesson linked below.
+下記リンク先にあるレッスンをご覧ください
 
 50
 00:02:03,124 --> 00:02:05,055
-The blending of a layer can either be
+レイヤーのブレンディングには
 
 51
 00:02:05,055 --> 00:02:07,055
-Override or Additive.
+Override と Additive の 2 種類があります
 
 52
 00:02:07,790 --> 00:02:09,790
-If the blending mode is override
+ブレンディングモードが Override の場合
 
 53
 00:02:09,790 --> 00:02:11,790
-then the resultant animation will override
+最終的なアニメーションは
 
 54
 00:02:11,790 --> 00:02:13,790
-the animation of the lower layer
+重み付けの低いレイヤーを
 
 55
 00:02:13,790 --> 00:02:15,790
-as defined by the weight.
+オーバーライドします
 
 56
 00:02:16,331 --> 00:02:18,331
-Additive blending will result in the
+ブレンディングモードが Additive の場合は
 
 57
 00:02:18,331 --> 00:02:20,801
-animations on the additive layer being added to
+Additive レイヤーのアニメーションが重み付けの
 
 58
 00:02:20,801 --> 00:02:22,801
-or combined with the animations
+低いレイヤーのアニメーションに加算・合体されて
 
 59
 00:02:22,801 --> 00:02:24,106
-of lower layers.
+出力されます
 
 60
 00:02:24,583 --> 00:02:26,917
-An example of this might be using a layer
+これにはたとえばキャラクターが
 
 61
 00:02:26,917 --> 00:02:28,917
-to represent a character breathing heavily
+疲れてくるにしたがって息が荒くなっていく
 
 62
 00:02:28,917 --> 00:02:30,875
-as they become tired.
+といった用途があります
 
 63
 00:02:30,875 --> 00:02:32,875
-In this example the heavy breathing
+そういった場合には「息を荒くする」アニメーションが
 
 64
 00:02:32,875 --> 00:02:36,029
-animation would be added to an animation
+低レイヤーで定義されているアニメーションに
 
 65
 00:02:36,029 --> 00:02:37,903
-defined on the lower layers.
+「加算」されます
 
 66
 00:02:37,903 --> 00:02:39,682
-The weight could be used to measure how
+その場合 Weight（重み付け）はキャラクターの
 
 67
 00:02:39,682 --> 00:02:41,682
-tired the character was.
+疲労度として使うこともできます
 
 68
 00:02:41,682 --> 00:02:43,765
-As the weight of the layer increased
+レイヤーの重み付けが大きくなるにしたがい
 
 69
 00:02:43,765 --> 00:02:45,667
-the heavy breathing animation would be
+「息を荒くする」アニメーションがより顕著に
 
 70
 00:02:45,667 --> 00:02:46,900
-more apparent.
+出力されるようになるわけです
 
 71
 00:02:47,753 --> 00:02:50,016
-The last option for a layer is Sync.
+最後のオプションは Sync です
 
 72
 00:02:50,419 --> 00:02:52,182
-Where you check the Sync box
+Sync をオンにすると
 
 73
 00:02:52,182 --> 00:02:54,099
-you are given an option of which layer
+どのレイヤーと同期（Sync）するのかを
 
 74
 00:02:54,099 --> 00:02:55,683
-you wish to sync with.
+選ぶオプションが表示されます
 
 75
 00:02:56,183 --> 00:02:58,183
-This will create an identical state machine
+そしてモーションを持たない点以外は
 
 76
 00:02:58,183 --> 00:02:59,974
-to the one on the selected layer
+選択レイヤーと同一のステートマシンが
 
 77
 00:02:59,974 --> 00:03:01,529
-but with no motions.
+作成されます
 
 78
 00:03:02,071 --> 00:03:04,071
-This means that the animator will always
+このためアニメーターは常に両レイヤーで
 
 79
 00:03:04,071 --> 00:03:06,462
-be in the same state in both layers.
+同一ステートにあることになります
 
 80
 00:03:06,985 --> 00:03:08,887
-This can be used for things such as
+これは傷ついた際の
 
 81
 00:03:08,887 --> 00:03:10,319
-a wounded behaviour.
+振る舞いなどに使うことができます
 
 82
 00:03:10,319 --> 00:03:12,045
-If you have a set of animations for when
+具体的には キャラクターが健康な時用のアニメーションセットと
 
 83
 00:03:12,045 --> 00:03:14,045
-the character is healthy and a set for
+傷ついた時用のアニメーションセットがあるとき
 
 84
 00:03:14,045 --> 00:03:16,045
-when the character is wounded these can be
+体力が低くなるにつれて
 
 85
 00:03:16,045 --> 00:03:18,982
-blended between as the character looses health.
+両者をブレンドしていくようにして使います
 
 86
 00:03:20,214 --> 00:03:22,395
-The Timing checkbox allows the animator
+Timing チェックボックスは同期中のレイヤーで
 
 87
 00:03:22,395 --> 00:03:24,339
-to adjust how long each animation
+どの程度の長さアニメーションを再生するかを
 
 88
 00:03:24,339 --> 00:03:27,958
-in synced layers takes determined by the weight.
+重み付けに基づいて決定します

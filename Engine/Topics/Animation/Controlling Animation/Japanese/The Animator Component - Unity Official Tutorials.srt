@@ -1,375 +1,375 @@
-1
+﻿1
 00:00:00,456 --> 00:00:02,260
-In order to animate the properties of
+Unity でゲームオブジェクトのプロパティを
 
 2
 00:00:02,260 --> 00:00:04,742
-game objects in Unity we use the
+アニメーションさせる際には Animator
 
 3
 00:00:04,742 --> 00:00:06,385
-Animator Component.
+コンポーネントを使用します
 
 4
 00:00:06,885 --> 00:00:09,315
-Animator components have a number of properties
+Animator コンポーネントはアニメーションを追加する
 
 5
 00:00:09,315 --> 00:00:11,804
-which may differ depending on what you are animating.
+対象に応じたさまざまなプロパティを備えています
 
 6
 00:00:12,304 --> 00:00:15,374
-For example, a 3D humanoid character
+これはたとえば 3D ヒューマノイドキャラクターと
 
 7
 00:00:15,374 --> 00:00:18,321
-will require different settings than a 2D sprite.
+2D スプライトでは異なる設定が必要になるためです
 
 8
 00:00:19,415 --> 00:00:21,415
-Here we have a scene with a model in it.
+さてここにモデルが 1 体配置配置されたシーンがあります
 
 9
 00:00:21,998 --> 00:00:24,944
-The model has an animator component attached.
+モデルには Animator コンポーネントがアタッチされています
 
 10
 00:00:25,900 --> 00:00:28,347
-The first property of the animator component
+Animator コンポーネントの最初のプロパティには
 
 11
 00:00:28,347 --> 00:00:31,418
-stores a reference to an animator controller asset.
+アニメーターコントローラーアセットへの参照が格納されています
 
 12
 00:00:31,821 --> 00:00:34,072
-Animator controllers are Unity generated
+アニメーターコントローラーは Unity が生成するアセットで
 
 13
 00:00:34,072 --> 00:00:36,817
-assets that contain one or more state machines
+シーンの実行中にどのアニメーションを
 
 14
 00:00:36,817 --> 00:00:39,247
-which determine which animation is being played
+再生するかを決定するステートマシンを
 
 15
 00:00:39,247 --> 00:00:40,736
-while the scene is running.
+1 個以上含みます
 
 16
 00:00:41,664 --> 00:00:44,112
-These state machines can be on multiple layers
+ステートマシンは複数レイヤー化することができ
 
 17
 00:00:44,112 --> 00:00:46,388
-and use parameters of various types.
+さまざまな型のパラメーターを取ることができ
 
 18
 00:00:46,388 --> 00:00:48,774
-To affect when they transition between states
+それに応じてステート間の遷移やブレンドを
 
 19
 00:00:48,774 --> 00:00:49,901
-and blend.
+行います
 
 20
 00:00:50,594 --> 00:00:51,618
-For example
+たとえば
 
 21
 00:00:51,939 --> 00:00:53,494
-you can set the parameters of an
+スクリプトでアニメーターコントローラーのパラメーターを
 
 22
 00:00:53,494 --> 00:00:56,101
-animator controller from your scripts to tell it
+指定することで  キャラクターが走っているのかジャンプしているのか
 
 23
 00:00:56,101 --> 00:00:58,351
-if the character is running, jumping
+あるいは銃を撃っているのかを
 
 24
 00:00:58,351 --> 00:00:59,712
-or shooting a gun.
+伝えることなどができます
 
 25
 00:01:00,212 --> 00:01:02,776
-It will then play and blend the animation
+その後はステートマシンが アニメーションを
 
 26
 00:01:02,776 --> 00:01:04,210
-automatically.
+自動的に再生およびブレンドします
 
 27
 00:01:05,014 --> 00:01:07,815
-The avatar is an asset that Unity creates
+Avatar は Unity が 3D ヒューマノイドを
 
 28
 00:01:07,815 --> 00:01:09,815
-when importing a 3D humanoid.
+インポートする際に作成するアセットです
 
 29
 00:01:10,743 --> 00:01:12,743
-It contains a definition of the
+Avatar にはキャラクターが持つ
 
 30
 00:01:12,743 --> 00:01:15,479
-skeletal rig the character has.
+スケルタルリグの定義が含まれます
 
 31
 00:01:16,226 --> 00:01:17,909
-When adding a character of this type to
+このタイプのキャラクターをシーンに追加する場合
 
 32
 00:01:17,909 --> 00:01:20,048
-your scene the avatar field will
+Avatar フィールドは自動的に
 
 33
 00:01:20,048 --> 00:01:22,048
-automatically be filled in with an asset
+そのキャラクター向けに作られた
 
 34
 00:01:22,048 --> 00:01:24,048
-created for that character.
+アセットが割り当てられます
 
 35
 00:01:24,866 --> 00:01:27,185
-Try to think of the avatar as the glue
+Avatar はアニメーションを付けるときに
 
 36
 00:01:27,185 --> 00:01:29,464
-that binds the model to be animated
+モデルを繋ぎ合わせておいてくれる接着剤のように
 
 37
 00:01:29,464 --> 00:01:30,884
-to the animator.
+考えると良いかもしれません
 
 38
 00:01:32,199 --> 00:01:34,199
-For generic objects without skeletal
+スケルタルリグを持たない汎用オブジェクトの場合
 
 39
 00:01:34,199 --> 00:01:37,232
-rigging an avatar is not required.
+Avatar は不要です
 
 40
 00:01:38,672 --> 00:01:41,145
-The Apply Root Motion field
+Apply Root Motion（ルートモーションを適用）フィールドはアニメーションが
 
 41
 00:01:41,145 --> 00:01:43,145
-determines whether the animation can affect
+ゲームオブジェクトの Transform に影響を
 
 42
 00:01:43,145 --> 00:01:45,453
-the transform of the game object
+及ぼすかどうかを指定するもので
 
 43
 00:01:45,453 --> 00:01:48,126
-and is generally used with 3D humanoids.
+通常は 3D ヒューマノイドに対して使用されます
 
 44
 00:01:48,875 --> 00:01:50,875
-Root Motion is the core movement
+この Root Motion とは  アニメーション
 
 45
 00:01:50,875 --> 00:01:52,682
-within an animation clip.
+クリップ内でコアとなる動作を指します
 
 46
 00:01:53,251 --> 00:01:54,546
-For example
+たとえば
 
 47
 00:01:54,546 --> 00:01:56,546
-imagine the difference between an animation
+移動せずに足踏み走りしている
 
 48
 00:01:56,546 --> 00:01:58,809
-of a character running on the spot
+キャラクターアニメーションと
 
 49
 00:01:58,809 --> 00:02:00,809
-verses one that is animated running a few
+少しずつ前進していくアニメーションを
 
 50
 00:02:00,809 --> 00:02:02,326
-paces forward.
+想像してみてください
 
 51
 00:02:03,074 --> 00:02:04,601
-In the latter example
+後者のアニメーションであれば
 
 52
 00:02:04,601 --> 00:02:06,601
-we can use the motion of the character moving
+ゲーム内を移動するときの
 
 53
 00:02:06,601 --> 00:02:08,783
-forward to drive the character
+前進用アニメーションとして
 
 54
 00:02:08,783 --> 00:02:10,616
-around in our game.
+利用できます
 
 55
 00:02:10,616 --> 00:02:13,323
-Looping that clip to give us realistic
+そして  そのクリップをループさせることで
 
 56
 00:02:13,323 --> 00:02:14,933
-continuous motion.
+リアルな連続的モーションを実現できます
 
 57
 00:02:15,478 --> 00:02:17,478
-However, if you simply have
+しかし  もし足踏み走りする
 
 58
 00:02:17,478 --> 00:02:19,716
-animations that run on the spot
+アニメーションしかなかったら
 
 59
 00:02:19,716 --> 00:02:22,130
-you would uncheck Apply Root Motion
+Apply Root Motion オプションは外して
 
 60
 00:02:22,130 --> 00:02:25,012
-and instead move the character via script.
+キャラクターをスクリプトで移動させたほうが良いでしょう
 
 61
 00:02:26,617 --> 00:02:28,381
-It is also possible to override this
+またこのプロパティは完全にオーバーライド
 
 62
 00:02:28,381 --> 00:02:29,942
-property entirely.
+することも可能です
 
 63
 00:02:30,840 --> 00:02:32,840
-This is done by creating a script with a
+オーバーライドする場合には  まずスクリプトを作成して
 
 64
 00:02:32,840 --> 00:02:36,055
-call to the onAnimatorMove function
+onAnimatorMove 関数を呼び出し
 
 65
 00:02:36,055 --> 00:02:38,754
-and attaching it to your game object.
+ゲームオブジェクトにアタッチします
 
 66
 00:02:39,364 --> 00:02:41,544
-See the documentation link below
+この手順についての詳細は以下の
 
 67
 00:02:41,544 --> 00:02:43,544
-for more information on this.
+ドキュメントのリンクを参照してください
 
 68
 00:02:44,610 --> 00:02:46,928
-Animate Physics can be either checked
+Animate Physics（物理アニメーション）はオンでも
 
 69
 00:02:46,928 --> 00:02:48,177
-or unchecked.
+オフでもかまいません
 
 70
 00:02:48,903 --> 00:02:50,903
-When it is checked it means that the
+オンにした場合にはアニメーションが
 
 71
 00:02:50,903 --> 00:02:53,402
-animations will be executed in time
+物理演算エンジンに合わせて
 
 72
 00:02:53,402 --> 00:02:54,957
-with the physics engine.
+実行されます
 
 73
 00:02:55,584 --> 00:02:57,889
-Generally this is advised 
+一般的にこの設定はアニメーション追加対象が 
 
 74
 00:02:57,889 --> 00:02:59,558
-if what ever you are animating
+Rgidbody（剛体）を含む場合に
 
 75
 00:02:59,558 --> 00:03:01,087
-has a rigidbody.
+オンにします
 
 76
 00:03:02,017 --> 00:03:04,017
-The Culling Mode of an animator effects
+Culling Mode（カリングモード）は
 
 77
 00:03:04,017 --> 00:03:06,212
-whether or not the animations are being played
+レンダリングされていない時にアニメーションを
 
 78
 00:03:06,212 --> 00:03:08,016
-while they're not being rendered.
+再生するかどうかを指定するオプションです
 
 79
 00:03:08,712 --> 00:03:10,558
-Always Animate means that the
+Always Animate（常にアニメーション）を指定すると
 
 80
 00:03:10,558 --> 00:03:12,558
-animations will play even while not
+レンダリングされていない状態でも
 
 81
 00:03:12,558 --> 00:03:13,766
-being rendered.
+アニメーションが再生されます
 
 82
 00:03:14,266 --> 00:03:16,266
-Based On Renderers means that the
+Based On Renderers（レンダラーに合わせる）を指定すると
 
 83
 00:03:16,266 --> 00:03:19,323
-animation will only play while being rendered.
+レンダリングされている間だけアニメーションが再生されます
 
 84
 00:03:19,823 --> 00:03:21,781
-Meaning that when the character is
+こうすることでビューから外れたキャラクターの
 
 85
 00:03:21,781 --> 00:03:24,380
-obscured from view animation will cease
+アニメーションを停止し  パフォーマンスを
 
 86
 00:03:24,380 --> 00:03:26,380
-to save performance.
+高めることができるわけです
 
 87
 00:03:27,322 --> 00:03:29,571
-With either option the root motion
+いずれのオプションを指定しても Root Motion は
 
 88
 00:03:29,571 --> 00:03:31,641
-is applied as it would normally.
+通常と同じように適用されます
 
 89
 00:03:31,641 --> 00:03:33,822
-That is if a character was being made
+このためキャラクターが Root Motion で歩くように
 
 90
 00:03:33,822 --> 00:03:36,336
-to walk with root motion applied
+指定されている場合
 
 91
 00:03:36,336 --> 00:03:38,336
-then they would continue to move even while
+レンダリングされていない状態でも
 
 92
 00:03:38,336 --> 00:03:40,558
-not being rendered so that the character
+歩行移動を続けるので
 
 93
 00:03:40,558 --> 00:03:42,350
-would end up in the correct place
+次に表示される時に正しい位置で
 
 94
 00:03:42,350 --> 00:03:44,350
-when they became visible again.
+レンダリングされるようになります

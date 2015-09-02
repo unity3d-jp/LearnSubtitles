@@ -1,575 +1,575 @@
-1
+﻿1
 00:00:00,249 --> 00:00:02,445
-The animation view allows you to create and
+Animation ビューは Unity 上で直接
 
 2
 00:00:02,445 --> 00:00:06,040
-modify animation clips directly inside Unity.
+アニメーションクリップを作成・修正するためのビューです
 
 3
 00:00:06,595 --> 00:00:08,595
-It is designed to act as a powerful
+このビューは外部 3D アニメーションプログラムの
 
 4
 00:00:08,595 --> 00:00:10,595
-and straightforward alternative to external
+代替品となるべく強力かつ直観的な
 
 5
 00:00:10,595 --> 00:00:12,595
-3D animation programmes.
+デザインがなされています
 
 6
 00:00:13,772 --> 00:00:15,772
-For instance, if we wanted to have
+たとえばプレイヤーにシーン全体を
 
 7
 00:00:15,772 --> 00:00:17,772
-a camera fly around a scene to give
+把握させるため シーン内を「見回す」
 
 8
 00:00:17,772 --> 00:00:20,186
-a player an overview of a level
+カメラを作るといったアニメーションも
 
 9
 00:00:20,186 --> 00:00:23,313
-we can create that animation for it in Unity.
+Unity 上で作成することができます
 
 10
 00:00:24,794 --> 00:00:26,794
-Here we have a scene with a camera
+さてここに 隅にカメラが配置された
 
 11
 00:00:26,794 --> 00:00:28,040
-in the corner.
+シーンがあります
 
 12
 00:00:29,018 --> 00:00:31,018
-We would like to create an animation
+ここでカメラにシーンの
 
 13
 00:00:31,018 --> 00:00:33,512
-for that camera which will allow it to move
+端から端まで移動する
 
 14
 00:00:33,512 --> 00:00:36,129
-from one side of the scene to the other.
+アニメーションを作るとしましょう
 
 15
 00:00:36,965 --> 00:00:38,965
-Since we want to make an animation for the
+まずアニメーションを付けるのはカメラですから
 
 16
 00:00:38,965 --> 00:00:40,965
-camera we will want to ensure
+最初に Hierarchy ビューで
 
 17
 00:00:40,965 --> 00:00:43,986
-that it is selected in the Hierarchy view.
+カメラを選択しておきます
 
 18
 00:00:44,652 --> 00:00:46,955
-We can then open the Animation view
+次に Animation ビューを開きます
 
 19
 00:00:46,955 --> 00:00:49,356
-by clicking Window - Animation.
+これは Window > Animation の順に操作してください
 
 20
 00:00:50,477 --> 00:00:53,015
-Like any other view this is moveable
+Animation ビューも他のビューと同様に  移動や
 
 21
 00:00:53,015 --> 00:00:55,015
-resizable and dockable.
+サイズ変更・ドッキングなどが可能です
 
 22
 00:00:55,805 --> 00:00:57,805
-There are many different buttons and options
+初めて Animation ビューを開くと
 
 23
 00:00:57,805 --> 00:01:00,723
-visible when you first open the Animation view.
+多数のボタンやオプションが表示されます
 
 24
 00:01:01,355 --> 00:01:04,862
-First and foremost is the animation drop-down.
+まず最初に重要なアニメーションドロップダウンを見ていきましょう
 
 25
 00:01:04,862 --> 00:01:06,572
-Here is where we can select our different
+ここでは編集する各種アニメーションを
 
 26
 00:01:06,572 --> 00:01:08,252
-animations to edit.
+選択できます
 
 27
 00:01:08,906 --> 00:01:11,404
-Since we don't currently have any animations
+現時点ではアニメーションが存在していないので
 
 28
 00:01:11,404 --> 00:01:13,404
-this drop-down is blank except for the
+このドロップダウンは空白で 新規作成する
 
 29
 00:01:13,404 --> 00:01:15,974
-ability to create a new animation.
+以外のオプションはありません
 
 30
 00:01:17,907 --> 00:01:19,907
-When you create a new animation you will
+新規アニメーションを作成する時には
 
 31
 00:01:19,907 --> 00:01:22,447
-be prompted for a name and a location
+アニメーションの名前とアニメーションファイルを
 
 32
 00:01:22,447 --> 00:01:24,447
-to save the animation file.
+保存する場所を指定するよう求められます
 
 33
 00:01:25,140 --> 00:01:27,140
-We will create an animation called 
+ここでは新規アニメーションに 
 
 34
 00:01:27,140 --> 00:01:29,140
-CameraFlyThu and place it
+CameraFlyThu という名前を付けて
 
 35
 00:01:29,140 --> 00:01:31,140
-in the Animations folder.
+Animations フォルダーに格納します
 
 36
 00:01:32,496 --> 00:01:34,426
-The Add Curve button allows us to choose
+Add Curve（カーブを追加）ボタンは
 
 37
 00:01:34,426 --> 00:01:36,148
-which components of our object,
+アニメーションで修正する
 
 38
 00:01:36,148 --> 00:01:38,148
-or any child objects, we wish to modify
+オブジェクト/子オブジェクトのコンポーネントを
 
 39
 00:01:38,148 --> 00:01:40,148
-with our animation.
+選択する際に使用します
 
 40
 00:01:41,090 --> 00:01:43,020
-Each component can be expanded
+各コンポーネントは展開して
 
 41
 00:01:43,020 --> 00:01:45,020
-to view more options.
+詳細なオプションを指定することもできます
 
 42
 00:01:45,520 --> 00:01:47,982
-To add a curve click the + sign next
+カーブを追加するには追加したい項目の
 
 43
 00:01:47,982 --> 00:01:49,692
-to the item you wish to add.
+横に表示される + 記号をクリックします
 
 44
 00:01:50,192 --> 00:01:52,748
-Since we want our camera to fly around the scene
+ここではシーンを飛び回るカメラを作りたいので
 
 45
 00:01:52,748 --> 00:01:56,847
-we will add the transform's position and rotation.
+Transform の Position（位置）と Rotation（回転）を追加します
 
 46
 00:01:57,969 --> 00:01:59,969
-The timeline is where you will be able to
+タイムラインではアニメーションの
 
 47
 00:01:59,969 --> 00:02:02,786
-establish the timing of your animation.
+タイミングを指定してきます
 
 48
 00:02:02,786 --> 00:02:05,408
-The timeline is measured in frames and seconds.
+タイムラインはフレーム数および秒数で表示されます
 
 49
 00:02:06,004 --> 00:02:08,152
-The red scrubber allows you to choose what
+タイムラインの赤線は修正するフレームを
 
 50
 00:02:08,152 --> 00:02:10,152
-frame you wish to modify.
+指定するものです
 
 51
 00:02:12,171 --> 00:02:14,700
-Next is the Record and Play buttons.
+次は記録および再生ボタンです
 
 52
 00:02:15,085 --> 00:02:16,920
-When the record button is pressed
+記録ボタンを押すと
 
 53
 00:02:16,920 --> 00:02:18,529
-changes made to the chosen object
+Scene ビュー内における指定オブジェクトへの変更が
 
 54
 00:02:18,529 --> 00:02:21,336
-in the Scene view will be added automatically
+自動的にアニメーションで現在選択している
 
 55
 00:02:21,336 --> 00:02:24,345
-to the animation at the currently selected frame.
+フレームに追加されます
 
 56
 00:02:25,714 --> 00:02:27,949
-The play button will allow you to preview
+再生ボタンを押すとアニメーションのプレビューを
 
 57
 00:02:27,949 --> 00:02:29,249
-your animation.
+確認できます
 
 58
 00:02:30,670 --> 00:02:32,409
-The left and right arrows allow you to
+左右矢印ボタンはアニメーション内の
 
 59
 00:02:32,409 --> 00:02:34,930
-navigate through the keyframes of the animation.
+キーフレーム間を移動する際に使用します
 
 60
 00:02:35,696 --> 00:02:37,847
-Next are the buttons which allow you to
+続いて紹介する各ボタンは
 
 61
 00:02:37,847 --> 00:02:39,847
-add keyframes and events to the
+選択中のフレームにキーフレームや
 
 62
 00:02:39,847 --> 00:02:41,847
-currently selected frame.
+イベントを追加する機能を持ちます
 
 63
 00:02:42,430 --> 00:02:44,430
-The Sample property determines how many
+次の Sample プロパティはアニメーション 1 秒を
 
 64
 00:02:44,430 --> 00:02:46,747
-frames make up one second of animation.
+何フレームとするかを指定するオプションです
 
 65
 00:02:47,192 --> 00:02:50,618
-Reducing this number makes our animations slower.
+この数値を小さくするとアニメーションがゆっくりになります
 
 66
 00:02:52,057 --> 00:02:54,057
-At the bottom are two buttons that allow
+また下部にある 2 つのボタンは
 
 67
 00:02:54,057 --> 00:02:56,777
-you to transition between dope sheet mode,
+現在指定中の Dope Sheet モードと
 
 68
 00:02:56,777 --> 00:02:58,447
-which we are currently on,
+もう一つの Curves ビューモードを
 
 69
 00:02:58,447 --> 00:03:00,447
-and curve view mode.
+切り替えるボタンです
 
 70
 00:03:01,541 --> 00:03:03,541
-With the record button pressed
+記録ボタンを押した後は
 
 71
 00:03:03,541 --> 00:03:05,803
-it can be very easy to rough out the animation
+簡単にざっくりとしたアニメーションを
 
 72
 00:03:05,803 --> 00:03:07,081
-that we want.
+付けられます
 
 73
 00:03:07,698 --> 00:03:10,306
-Simply select the frame we want to modify
+まず Scene ビューで修正するフレームと
 
 74
 00:03:12,306 --> 00:03:14,802
-and rotation in the scene view.
+回転を指定てし
 
 75
 00:03:10,306 --> 00:03:12,306
-and then set the desired camera position
+カメラを希望する位置へと移動します
 
 76
 00:03:15,306 --> 00:03:17,540
-You will notice that a keyframe has been added
+こうして移動させることでタイムラインに適切な値を含む
 
 77
 00:03:17,540 --> 00:03:20,149
-to the timeline with the appropriate values.
+キーフレームが新規追加されたのがご覧いただけたでしょうか
 
 78
 00:03:20,883 --> 00:03:22,883
-Properties that are currently being animated
+アニメーション付加中のプロパティは
 
 79
 00:03:22,883 --> 00:03:25,588
-are highlighted in red in the Inspector.
+インスペクター上では赤色で表示されます
 
 80
 00:03:27,054 --> 00:03:29,941
-We can continue doing this for the various phases
+これを繰り返すことで「シーン見回し」アニメーションの
 
 81
 00:03:29,941 --> 00:03:31,941
-of our fly through animation.
+各フェーズを構築できます
 
 82
 00:03:33,325 --> 00:03:35,463
-To preview the animation click the
+アニメーションをプレビューするには
 
 83
 00:03:35,463 --> 00:03:38,116
-play icon next to the record icon
+Animation ビューで記録アイコンの隣にある
 
 84
 00:03:38,116 --> 00:03:40,116
-in the animator view.
+再生アイコンをクリックします
 
 85
 00:03:41,776 --> 00:03:44,381
-If we were satisfied with our animation
+満足いくアニメーションが完成したら
 
 86
 00:03:44,381 --> 00:03:46,381
-we could be done now.
+それで作業は完了です
 
 87
 00:03:46,381 --> 00:03:49,297
-If we wanted to fine tune our animation however
+アニメーションにさらに微調整を加えたい場合には
 
 88
 00:03:49,297 --> 00:03:51,717
-we would want to look at the curves mode.
+Curves モードを使います
 
 89
 00:03:52,253 --> 00:03:55,364
-To enter the curves mode select the Curves button
+Curves モードに移行するには Animation ビューの
 
 90
 00:03:55,364 --> 00:03:58,082
-at the bottom of the animation view.
+下部にある Curves ボタンをクリックします
 
 91
 00:03:59,010 --> 00:04:01,010
-Here we can see the various curves of our
+このモードでは左側でコンポーネントを
 
 92
 00:04:01,010 --> 00:04:03,497
-animation by selecting the corresponding
+選ぶと対応するアニメーションのカーブが
 
 93
 00:04:03,497 --> 00:04:05,677
-component on the left.
+表示されます
 
 94
 00:04:05,677 --> 00:04:08,771
-Again we can select a frame using the red
+ここでもフレームの選択には
 
 95
 00:04:08,771 --> 00:04:10,771
-red scrubber on the timeline.
+タイムラインで赤線を使います
 
 96
 00:04:13,509 --> 00:04:15,605
-To modify a value on a curve
+カーブの値を変更する場合は
 
 97
 00:04:15,605 --> 00:04:17,605
-click and drag a keyframe to the new
+キーフレームを変更後の値まで
 
 98
 00:04:17,605 --> 00:04:19,479
-desired value.
+クリック & ドラッグします
 
 99
 00:04:19,479 --> 00:04:21,852
-To create a new keyframe click the
+キーフレームを新規作成する場合は
 
 100
 00:04:21,852 --> 00:04:23,742
-Create Keyframe button,
+キーフレーム作成ボタンをクリックするか
 
 101
 00:04:23,742 --> 00:04:25,742
-or double click on the curve.
+カーブ上でダブルクリックをします
 
 102
 00:04:26,974 --> 00:04:28,779
-Right-clicking on a keyframe will pull up
+またキーフレーム上で右クリックをすると
 
 103
 00:04:28,779 --> 00:04:30,695
-some of it's options.
+オプションが表示されます
 
 104
 00:04:30,695 --> 00:04:32,695
-the most notable of these options is the ability
+ここで使える重要なオプションとしては
 
 105
 00:04:32,695 --> 00:04:34,695
-to choose Free Smooth.
+Free Smooth があります
 
 106
 00:04:35,278 --> 00:04:37,830
-This will create two handles are the keyframe
+このオプションはキーフレーム周辺に 2 つのハンドルを表示するもので
 
 107
 00:04:37,830 --> 00:04:39,830
-which you can use to smooth the curve
+ユーザーの好みに合わせてカーブを滑らかな
 
 108
 00:04:39,830 --> 00:04:41,830
-to your liking.
+形にすることができます
 
 109
 00:04:42,786 --> 00:04:44,786
-Another way to control our curves is to
+カーブを制御する方法としてはこの他にも
 
 110
 00:04:44,786 --> 00:04:46,786
-choose the Broken option.
+Broken オプションがあります
 
 111
 00:04:47,949 --> 00:04:49,687
-This allows you to control each side of the
+このオプションはキーフレームの右サイドと左サイドを
 
 112
 00:04:49,687 --> 00:04:51,687
-keyframe indecently.
+別々に制御するものです
 
 113
 00:04:52,960 --> 00:04:55,400
-In this example we will want to add
+この例では Transform の
 
 114
 00:04:55,400 --> 00:04:56,986
-a little variance to the exposition
+Position.X にちょっと変化を加えたいと
 
 115
 00:04:56,986 --> 00:04:58,791
-of the transform.
+思います
 
 116
 00:04:58,791 --> 00:05:01,205
-Doing so will give us more of a weightless feel
+具体的にはアニメーションをもう少し
 
 117
 00:05:01,205 --> 00:05:03,205
-to our animation.
+軽い感じにしてみます
 
 118
 00:05:04,492 --> 00:05:07,323
-Again we can do so by creating keyframes
+これは先ほどと同様 Position.X のカーブに
 
 119
 00:05:07,323 --> 00:05:09,323
-on the exposition curve and changing
+新たにキーフレームを追加して値を手動調整する
 
 120
 00:05:09,323 --> 00:05:11,323
-our values manually.
+方法で実現できます
 
 121
 00:05:13,356 --> 00:05:16,192
-The animations created in Unity have the same
+インスペクターの設定は Unity 上で
 
 122
 00:05:16,192 --> 00:05:18,555
-Inspector settings as animations made
+作成されたアニメーションでも外部プログラムで
 
 123
 00:05:18,555 --> 00:05:20,237
-in external programmes.
+作成されたアニメーションでも同一です
 
 124
 00:05:20,654 --> 00:05:22,403
-We can see these by selecting our clip
+インスペクター設定を確認するにはクリップを
 
 125
 00:05:22,403 --> 00:05:24,636
-in the Project view.
+Project ビューで選択します
 
 126
 00:05:24,636 --> 00:05:26,319
-Since we want our camera to fly across the
+この例ではカメラを一度だけ「シーン見回し」
 
 127
 00:05:26,319 --> 00:05:29,278
-screen only once, we best uncheck
+させたいので Loop Time プロパティは
 
 128
 00:05:29,278 --> 00:05:31,278
-are Loop Time property.
+オフにしておきます
 
 129
 00:05:32,441 --> 00:05:34,828
-It is interesting to note that an animator
+なお興味深いことにアニメーションの再生は
 
 130
 00:05:34,828 --> 00:05:36,828
-is in charge of animation playback for generic
+それが汎用オブジェクトであれヒューマノイドであれ
 
 131
 00:05:36,828 --> 00:05:39,463
-objects the same as it is for humanoids.
+Animator によって制御されます
 
 132
 00:05:40,184 --> 00:05:42,184
-Unity has automatically added the
+この例でも Unity は自動的にカメラに Animator を追加し
 
 133
 00:05:42,184 --> 00:05:44,543
-animator to our camera and created an
+アニメーターコントローラー / ステートマシンを
 
 134
 00:05:44,543 --> 00:05:47,113
-animator controller, a state machine
+作成しこのコンポーネントに
 
 135
 00:05:47,113 --> 00:05:49,113
-and added it to this component
+追加しています
 
 136
 00:05:50,000 --> 00:05:52,477
-The clip we just created is added to the
+先ほど作成したクリップはステートマシンに
 
 137
 00:05:52,477 --> 00:05:54,477
-state machine as the default clip
+デフォルトクリップとして追加され
 
 138
 00:05:54,477 --> 00:05:56,477
-that would be played at runtime.
+実行時に再生されるようになっています
 
 139
 00:05:57,695 --> 00:05:59,695
-This means we can go on to record
+なのでこの後別のクリップを記録して
 
 140
 00:05:59,695 --> 00:06:01,695
-other clips and use the animator
+さらにこの Animator を使い
 
 141
 00:06:01,695 --> 00:06:03,695
-to decide when to play them.
+再生タイミングを決定できます
 
 142
 00:06:04,195 --> 00:06:06,473
-In this manner, once our animation clip
+この場合には作成したアニメーションクリップの
 
 143
 00:06:06,473 --> 00:06:08,952
-is completed we can run our scene
+再生が完了するとシーンが
 
 144
 00:06:08,952 --> 00:06:10,952
-to see it in action.
+ご覧のとおり実行されます
