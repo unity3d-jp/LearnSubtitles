@@ -1,435 +1,435 @@
-1
+﻿1
 00:00:00,497 --> 00:00:02,367
-In addition to other properties
+アニメーションクリップに用意されている
 
 2
 00:00:02,367 --> 00:00:05,205
-animation clips have Curves and Events.
+プロパティの中には Curves と Events というものがあります
 
 3
 00:00:05,205 --> 00:00:06,681
-These are found at the bottom of the
+これらプロパティは Project ビューで
 
 4
 00:00:06,681 --> 00:00:09,194
-animation's tab when you have a model selected
+モデルを選択した状態でアニメーションのタブの
 
 5
 00:00:09,194 --> 00:00:11,194
-in the Project Panel.
+最下部に表示されます
 
 6
 00:00:11,943 --> 00:00:13,790
-Curves can be used to define values 
+このうち Curves は  時間経過に伴う 
 
 7
 00:00:13,790 --> 00:00:15,455
-over the length of an animation.
+アニメーションの値調整に使います
 
 8
 00:00:15,872 --> 00:00:18,647
-For instance, if we had a jumping animation
+たとえばジャンプのアニメーションならば
 
 9
 00:00:18,647 --> 00:00:21,315
-we could define a height value on a curve.
+カーブを用いて高さを定義できます
 
 10
 00:00:21,796 --> 00:00:23,796
-This height value could be set to match the
+この高さの値をジャンプ時に
 
 11
 00:00:23,796 --> 00:00:25,796
-height of the model's torso during the
+モデルの胴体の高さと同じになるように
 
 12
 00:00:25,796 --> 00:00:27,020
-jump animation.
+セットできます
 
 13
 00:00:27,423 --> 00:00:30,046
-We could then retrieve that value in our scripts
+この値はその後 スクリプトで読み込んで
 
 14
 00:00:30,046 --> 00:00:33,029
-and adjust the size of our model's collider with it.
+モデルのコライダーの大きさ調整に利用できます
 
 15
 00:00:34,054 --> 00:00:36,428
-In this way the model's collider would
+こうするとモデルのコライダーが正しく
 
 16
 00:00:36,428 --> 00:00:38,428
-accurately align with the model's movement.
+モデルの動作とマッチするようになるわけです
 
 17
 00:00:39,135 --> 00:00:41,135
-Let's take a look at how to add an animation
+それではアニメーションクリップにアニメーションカーブを
 
 18
 00:00:41,135 --> 00:00:43,135
-curve to an animation clip.
+追加する方法を見ていきましょう
 
 19
 00:00:43,911 --> 00:00:45,911
-Start by expanding the Curves drop-down.
+まず Curves ドロップダウンを展開し
 
 20
 00:00:46,411 --> 00:00:49,231
-Then click the + icon to add a new curve.
++ アイコンをクリックして新規カーブを追加します
 
 21
 00:00:50,334 --> 00:00:52,802
-Next we should name the curve.
+続いてカーブに名前をつけます
 
 22
 00:00:52,802 --> 00:00:54,802
-For our example we might name it something
+この例では仮の名前で
 
 23
 00:00:54,802 --> 00:00:56,871
-like Jumpheight.
+Jumpheight とでもしましょう
 
 24
 00:00:56,871 --> 00:00:58,871
-This curve name must also be added
+このカーブ名は  カーブを使う
 
 25
 00:00:58,871 --> 00:01:01,610
-as a float parameter to any animator controller
+アニメーターコントローラーに対し
 
 26
 00:01:01,610 --> 00:01:03,472
-that you wish to use the curve on 
+float パラメーターとして 
 
 27
 00:01:03,472 --> 00:01:05,472
-or else you will not be able to access it.
+追加しないとアクセスできません
 
 28
 00:01:06,621 --> 00:01:09,905
-There are 2 ways of editing the curve itself.
+カーブを編集する方法は 2 種類あります
 
 29
 00:01:09,905 --> 00:01:11,434
-Clicking on the image of the curve
+まず  カーブ画像をクリックすると 
 
 30
 00:01:11,434 --> 00:01:13,144
-opens up the curve editor.
+Curve エディターが開きます
 
 31
 00:01:13,561 --> 00:01:15,798
-This is the best way for fine tuning a curve
+これはカーブの微調整など
 
 32
 00:01:15,798 --> 00:01:17,603
-where accuracy is important.
+精度が重要なときに便利な方法です
 
 33
 00:01:18,103 --> 00:01:20,103
-In the curve editor you can double click
+Curve エディター上では線をダブルクリックすると
 
 34
 00:01:20,103 --> 00:01:22,103
-on the line to create a keyframe.
+キーフレームを作成できます
 
 35
 00:01:22,506 --> 00:01:24,836
-and you can drag the keyframes around
+作成したキーフレームはドラッグして
 
 36
 00:01:24,836 --> 00:01:26,574
-to the appropriate values.
+目的の値に指定できます
 
 37
 00:01:27,074 --> 00:01:29,545
-The curve can be reset by clicking one of the
+カーブはいつでもデフォルトの形状にリセット可能です
 
 38
 00:01:29,545 --> 00:01:32,028
-default curve values at the bottom.
+その際は下部のカーブ形をクリックしてください
 
 39
 00:01:32,791 --> 00:01:35,123
-The other method to add values to a curve
+カーブに値を追加するもう一つの方法は
 
 40
 00:01:35,123 --> 00:01:37,344
-is to scrub through the animation using
+プレビューウィンドウの再生時指定線を
 
 41
 00:01:37,344 --> 00:01:39,344
-the preview window's scrubber.
+目的の地点まで移動させるやり方です
 
 42
 00:01:40,010 --> 00:01:42,372
-You can then set keyframes at appropriate
+その後はカーブの左にあるボタンをクリックすれば
 
 43
 00:01:42,372 --> 00:01:45,541
-times using the button just left of the curve.
+その地点にキーフレームを追加できます
 
 44
 00:01:46,593 --> 00:01:48,705
-To the left of the keyframe button is the
+そのボタンのさらに左にあるのは
 
 45
 00:01:48,705 --> 00:01:51,023
-value display where you can set the value
+値フィールドで ここではキーフレームの値を確認したり
 
 46
 00:01:51,023 --> 00:01:52,447
-for that keyframe.
+指定したりできます
 
 47
 00:01:53,109 --> 00:01:55,750
-Using the left and right buttons below the name
+名前の下に表示される左右ボタンと組み合わせれば
 
 48
 00:01:55,750 --> 00:01:57,610
-you can move between the keyframes
+キーフレーム間を移動しながら値を調整して
 
 49
 00:01:57,610 --> 00:01:59,513
-and set their values.
+いくことができます
 
 50
 00:01:59,513 --> 00:02:01,516
-Unity will then automatically make a 
+値の指定後は Unity 側で自動的に 
 
 51
 00:02:01,516 --> 00:02:03,516
-smooth curve between them.
+カーブの形が滑らかにされます
 
 52
 00:02:04,196 --> 00:02:06,503
-If you are blending between multiple clips
+複数のクリップをブレンドしていてさらに
 
 53
 00:02:06,503 --> 00:02:08,572
-each with a curve of the same name
+各クリップが同一名のカーブを持っている
 
 54
 00:02:08,572 --> 00:02:10,710
-then an average value will be taken based
+場合にはブレンドの重み付けに応じて
 
 55
 00:02:10,710 --> 00:02:12,710
-on the weight of the blending.
+平均値が算出されます
 
 56
 00:02:13,320 --> 00:02:15,856
-To find the value of a curve in a script
+カーブの値をスクリプトで取得するときには
 
 57
 00:02:15,856 --> 00:02:17,759
-we use the Get Float function
+Animator コンポーネントの
 
 58
 00:02:17,759 --> 00:02:19,440
-of the animator component.
+GetFloat 関数を使います
 
 59
 00:02:20,107 --> 00:02:22,341
-This function takes either the name
+この関数はパラメーターとして
 
 60
 00:02:22,341 --> 00:02:25,466
-or the name hash of the curve as a parameter.
+カーブ名またはカーブ名のハッシュを取ります
 
 61
 00:02:25,966 --> 00:02:28,201
-The return value is the value of the curve
+戻り値は関数が呼び出された時点での
 
 62
 00:02:28,201 --> 00:02:30,201
-at the moment the function is called.
+カーブの値になります
 
 63
 00:02:31,198 --> 00:02:34,019
-For more information on the Get Float method,
+GetFloat メソッド/ アニメーターから
 
 64
 00:02:34,019 --> 00:02:36,019
-getting values from animators,
+値を取得する方法
 
 65
 00:02:36,019 --> 00:02:38,255
-or on animator scripting in general
+または関連スクリプト利用方法については
 
 66
 00:02:38,255 --> 00:02:41,243
-see the lesson on animator scripting linked below.
+下記リンク先にあるアニメータースクリプティングのレッスンをご覧ください
 
 67
 00:02:42,882 --> 00:02:45,006
-Events allow us to call functions
+イベントを使うとアニメーションの途中で
 
 68
 00:02:45,006 --> 00:02:47,365
-in our scripts at different points
+スクリプトから関数を呼び出す
 
 69
 00:02:47,365 --> 00:02:48,840
-in an animation.
+ことができます
 
 70
 00:02:49,865 --> 00:02:53,083
-For instance, if we have a jumping animation
+たとえばジャンプのアニメーションで
 
 71
 00:02:53,083 --> 00:02:56,114
-we may want to play a sound when the model lands.
+モデルが着地した瞬間に音を鳴らしたいとします
 
 72
 00:02:56,849 --> 00:02:59,528
-This is easy to achieve by creating an event
+こういった動作はアニメーション中に
 
 73
 00:02:59,528 --> 00:03:01,528
-at the point in the animation where the model's
+モデルの足が地面に着くポイントにイベントを
 
 74
 00:03:01,528 --> 00:03:03,528
-feet land on the ground.
+作ることで実現できます
 
 75
 00:03:04,235 --> 00:03:06,359
-To add an event start by expanding
+イベントを追加するにはまず Events 
 
 76
 00:03:06,359 --> 00:03:08,359
-the Events drop-down.
+ドロップダウンを展開します
 
 77
 00:03:08,859 --> 00:03:10,859
-You can then scrub through the animation
+その後はプレビューウィンドウの再生時指定線を
 
 78
 00:03:10,859 --> 00:03:13,026
-using the preview scrubber.
+目当ての時点まで移動させていき
 
 79
 00:03:13,026 --> 00:03:14,763
-Add events using the button
+タイムライン左側にあるボタンを押して
 
 80
 00:03:14,763 --> 00:03:16,763
-to the left of the timeline.
+イベントを追加します
 
 81
 00:03:17,470 --> 00:03:18,997
-This opens a window displaying the
+これでイベントのプロパティを表示する
 
 82
 00:03:18,997 --> 00:03:20,997
-properties of the event.
+ウィンドウが開きます
 
 83
 00:03:20,997 --> 00:03:22,776
-First is the name of the function
+最初は呼び出される
 
 84
 00:03:22,776 --> 00:03:24,224
-that is called.
+関数の名前です
 
 85
 00:03:24,224 --> 00:03:26,224
-This must be a function that is in
+この関数は  アニメーションを再生する
 
 86
 00:03:26,224 --> 00:03:28,224
-a script that is attached to the same
+アニメーターコンポーネントと同じ
 
 87
 00:03:28,224 --> 00:03:30,884
-game object as the animator component
+ゲームオブジェクトにアタッチされている
 
 88
 00:03:30,884 --> 00:03:32,608
-that plays the animation.
+スクリプト内に存在しなくてはなりません
 
 89
 00:03:33,205 --> 00:03:35,980
-For our example let's pretend we have a script
+この例ではひとまず PlayLandingSound（着地時に音を再生）という
 
 90
 00:03:35,980 --> 00:03:39,059
-with a function called Play Landing Sound.
+関数を呼び出すスクリプトがあるとしましょう
 
 91
 00:03:39,559 --> 00:03:41,999
-We would type play landing sound
+なので関数プロパティに PlayLandingSound と
 
 92
 00:03:41,999 --> 00:03:43,999
-in our function property.
+入力します
 
 93
 00:03:44,623 --> 00:03:46,623
-The following properties are potential
+次のプロパティは関数がパラメーターを取るとき
 
 94
 00:03:46,623 --> 00:03:48,456
-parameters for the function.
+に使用するためのものです
 
 95
 00:03:49,026 --> 00:03:51,534
-Only one can be used for a function call.
+関数の呼び出しに対していずれか 1 つが利用できます
 
 96
 00:03:52,200 --> 00:03:54,503
-Which is used depends on the parameters
+使えるパラメーターはイベントで呼び出される
 
 97
 00:03:54,503 --> 00:03:57,126
-of the function that is being called in the event.
+関数の種類によって変わります
 
 98
 00:03:57,928 --> 00:04:00,108
-When blending between clips with events
+イベントを含むクリップを複数ブレンドしている場合
 
 99
 00:04:00,108 --> 00:04:01,705
-all of the events will be called
+イベントはすべて呼び出されます
 
 100
 00:04:01,705 --> 00:04:03,705
-so it's best to keep that in mind.
+この点はよく覚えておきましょう
 
 101
 00:04:04,412 --> 00:04:06,093
-If you are going to use an event to play 
+イベントを使って着地時の効果音を 
 
 102
 00:04:06,093 --> 00:04:08,617
-a sound effect such as a footfall
+鳴らす場合などはその時点で再生中の
 
 103
 00:04:08,617 --> 00:04:10,172
-you would probably want to limit the
+効果音がないかどうかをチェックしてから
 
 104
 00:04:10,172 --> 00:04:12,172
-number of times it can be played by checking
+次の効果音を鳴らすようにするなど
 
 105
 00:04:12,172 --> 00:04:14,033
-whether the sound is currently playing
+再生制限をかけたほうが
 
 106
 00:04:14,033 --> 00:04:16,157
-before playing it again.
+よいでしょう
 
 107
 00:04:16,157 --> 00:04:18,157
-Otherwise you're likely to have multiple
+そうしないとおそらく
 
 108
 00:04:18,157 --> 00:04:19,813
-versions of the same sound
+同じ音の異なるバージョンが複数個重ねて
 
 109
 00:04:19,813 --> 00:04:21,813
-playing simultaneously.
+再生されてしまうことになります

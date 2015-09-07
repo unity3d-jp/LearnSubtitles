@@ -1,487 +1,487 @@
-1
+﻿1
 00:00:00,580 --> 00:00:01,951
-When you have a model highlighted
+Project パネルでモデルを選択した状態では
 
 2
 00:00:01,951 --> 00:00:04,227
-in the project panel you can define how
+インスペクターからメッシュや
 
 3
 00:00:04,227 --> 00:00:06,931
-Unity interprets the mesh, animation,
+アニメーションなどのプロパティを
 
 4
 00:00:06,931 --> 00:00:09,709
-and other properties using the Inspector.
+Unity でどう扱わせるか指定できます
 
 5
 00:00:10,830 --> 00:00:13,082
-These properties come in 3 parts
+それらプロパティは次の 3 種に大別されます
 
 6
 00:00:13,082 --> 00:00:15,955
-Model, Rig and Animations.
+Model・Rig・Animations
 
 7
 00:00:16,455 --> 00:00:18,455
-In this lesson we'll be looking at the
+このレッスンではそのうち
 
 8
 00:00:18,455 --> 00:00:20,455
-Animations section.
+Animations について見ていきます
 
 9
 00:00:21,024 --> 00:00:23,024
-The first option under Animations
+Animations セクションの最初の項目は
 
 10
 00:00:23,024 --> 00:00:25,760
-is whether or not to import animations.
+アニメーションをインポートするか否かです
 
 11
 00:00:26,260 --> 00:00:29,193
-This must be check to use any of the animations
+モデル内に格納されているアニメーションを使用するには
 
 12
 00:00:29,193 --> 00:00:31,193
-stored within the model file.
+この項目をオンにしてください
 
 13
 00:00:32,743 --> 00:00:35,399
-Bake Animations is used when an animation
+Bake Animations（アニメーションをベイク）は
 
 14
 00:00:35,399 --> 00:00:37,316
-has been created in a separate modelling
+対象アニメーションが別のモデリング/アニメーション
 
 15
 00:00:37,316 --> 00:00:40,711
-or animation program using inverse kinematics,
+プログラムで IK（逆運動学）を使って作成されていて
 
 16
 00:00:40,711 --> 00:00:42,711
-or IK for short.
+なおかつ
 
 17
 00:00:42,711 --> 00:00:45,853
-And it has no yet been converted to forward kinematics
+FK（順運動学）に変換されていない場合に使用します
 
 18
 00:00:46,962 --> 00:00:48,343
-You can also choose what sort of
+次に アニメーションの
 
 19
 00:00:48,343 --> 00:00:50,398
-compression you'd like for your animations.
+圧縮方法についての項目があります
 
 20
 00:00:50,398 --> 00:00:52,910
-By default there is no compression
+デフォルトでは圧縮はありませんが
 
 21
 00:00:52,910 --> 00:00:55,062
-but you can choose Keyframe Reduction,
+Keyframe Reduction（キーフレーム削減）や
 
 22
 00:00:55,062 --> 00:00:56,454
-or Optimal.
+Optimal（最適化）が選択できます
 
 23
 00:00:57,438 --> 00:00:59,659
-If you choose to compress the animations
+アニメーションの圧縮を選択した場合は
 
 24
 00:00:59,659 --> 00:01:01,369
-you need to decide what error you wish to
+アニメーションの位置・回転・スケールについて
 
 25
 00:01:01,369 --> 00:01:04,344
-allow for position, rotation and scale.
+許容するエラーについて決定する必要があります
 
 26
 00:01:04,968 --> 00:01:06,968
-The smaller the values, the higher the
+値は小さくするほど精度が上がりますが
 
 27
 00:01:06,968 --> 00:01:09,783
-precision, the less compression you get.
+その分圧縮率は下がります
 
 28
 00:01:11,305 --> 00:01:13,305
-Below the compression options
+圧縮オプションの下には
 
 29
 00:01:13,305 --> 00:01:15,486
-there's a list of clips that are available
+モデルから利用できるクリップの
 
 30
 00:01:15,486 --> 00:01:17,122
-from the model.
+リストが表示されます
 
 31
 00:01:17,122 --> 00:01:19,412
-These can be added to or deleted
+これらは + または - アイコンを使って
 
 32
 00:01:19,412 --> 00:01:22,005
-using the + and - icon.
+追加または削除できます
 
 33
 00:01:23,390 --> 00:01:25,390
-Next to each of the names are the
+クリップ名の隣には
 
 34
 00:01:25,390 --> 00:01:27,804
-start and end frames for the clip.
+クリップの開始 / 終了フレームが表示されます
 
 35
 00:01:28,304 --> 00:01:31,735
-This is what makes each clip in the take different.
+テイク内のクリップを個別に扱うときにはこの項目を使います
 
 36
 00:01:32,981 --> 00:01:35,105
-When one of these clips is selected
+いずれかのクリップを選択状態にすると
 
 37
 00:01:35,105 --> 00:01:37,105
-all of the options are available for that
+そのアニメーションクリップに対する
 
 38
 00:01:37,105 --> 00:01:39,105
-specific animation clip.
+すべてのオプションが利用可能になります
 
 39
 00:01:40,972 --> 00:01:43,797
-The first option is the name of the clip.
+最初のオプションはクリップ名です
 
 40
 00:01:43,797 --> 00:01:46,642
-Also, if the file has multiple takes
+ファイルに複数のテイクがある場合は
 
 41
 00:01:46,642 --> 00:01:49,295
-you will see what take that clip is from.
+どのテイクからのクリップかも表示されます
 
 42
 00:01:50,803 --> 00:01:53,167
-Next is the timeline of the animation.
+次はアニメーションのタイムラインです
 
 43
 00:01:53,621 --> 00:01:55,621
-Using the handles in the timeline
+タイムラインではハンドルや
 
 44
 00:01:55,621 --> 00:01:57,759
-or the Start and End fields
+Start / End フィールドを使って
 
 45
 00:01:57,759 --> 00:01:59,759
-you can edit on which frame
+クリップの開始 / 終了フレームを
 
 46
 00:01:59,759 --> 00:02:01,759
-the clip begins and ends.
+編集することができます
 
 47
 00:02:03,571 --> 00:02:05,433
-Below the start and end controls
+そして開始 / 終了フレーム制御の下が
 
 48
 00:02:05,433 --> 00:02:06,831
-is the loop controls.
+ループ制御です
 
 49
 00:02:07,574 --> 00:02:09,823
-Loop Time, when checked,
+まず Loop Time をオンにすると
 
 50
 00:02:09,823 --> 00:02:11,616
-means that when the animation is finished
+アニメーションの再生が終わった時
 
 51
 00:02:11,616 --> 00:02:13,616
-playing it will start again.
+再び最初から再生が始まります
 
 52
 00:02:14,710 --> 00:02:17,181
-If Loop Pose is checked Unity will
+Loop Pose をオンにすると Unity が自動的に
 
 53
 00:02:17,181 --> 00:02:19,979
-try and match up the start and end pose
+開始ポーズと終了ポーズを合わせて
 
 54
 00:02:19,979 --> 00:02:22,819
-so that the looping clip looks smooth.
+クリップのループを滑らかにします
 
 55
 00:02:24,344 --> 00:02:26,635
-The Cycle Offset is for adjusting
+Cycle Offset はクリップの開始と終了の
 
 56
 00:02:26,635 --> 00:02:28,635
-when the clip starts and ends.
+タイミングを調整するオプションです
 
 57
 00:02:29,370 --> 00:02:31,660
-Use this for mirroring animations.
+これはアニメーションのミラーリング時に使います
 
 58
 00:02:32,050 --> 00:02:34,464
-For example, if you want a run clip
+たとえば走るクリップをミラーリング
 
 59
 00:02:34,464 --> 00:02:37,051
-to be mirrored then you might set the offset
+する場合オフセットを 0.5 にしておくと
 
 60
 00:02:37,051 --> 00:02:41,022
-to 0.5 so that the other foot is on the floor.
+片方の足だけが地面に着くようになるわけです
 
 61
 00:02:42,171 --> 00:02:44,479
-The Root Transform Rotation
+Root Transform Rotation は
 
 62
 00:02:44,479 --> 00:02:46,854
-affects how the rotation of an animation
+アニメーションの回転がアバターに
 
 63
 00:02:46,854 --> 00:02:48,854
-affects the avatar.
+与える影響に関係します
 
 64
 00:02:49,534 --> 00:02:52,146
-If the root transform rotation is baked
+Root Transform Rotation の
 
 65
 00:02:52,146 --> 00:02:54,852
-in to the pose then the avatar will not
+Bake Into Pose がオンになっているとアバターは
 
 66
 00:02:54,852 --> 00:02:58,187
-rotate with any turning in the animation.
+アニメーションがターンしても回転しなくなくなります
 
 67
 00:02:59,225 --> 00:03:01,432
-Use this option for animations
+このオプションはまっすぐ走る
 
 68
 00:03:01,432 --> 00:03:03,597
-such as running in a straight line
+場合などに使うと
 
 69
 00:03:03,597 --> 00:03:05,597
-so that any slight deviation from a straight
+少しずれるようなことがあっても
 
 70
 00:03:05,597 --> 00:03:07,597
-line will not affect it.
+影響を受けずに済みます
 
 71
 00:03:08,815 --> 00:03:11,190
-The root transform rotation can either be
+なお Root Transform Rotation は
 
 72
 00:03:11,190 --> 00:03:13,190
-based on body orientation at the start
+アニメーション開始時のボディの向き（Body Orientation）か
 
 73
 00:03:13,190 --> 00:03:16,473
-of the animation or the original source file
+アニメーションのオリジナルソースファイルの向き（Original）か
 
 74
 00:03:16,473 --> 00:03:18,473
-of the animation.
+指定できます
 
 75
 00:03:18,473 --> 00:03:20,709
-If Body Orientation is chosen
+Body Orientation を選択した場合は
 
 76
 00:03:20,709 --> 00:03:23,137
-then the upper body will point forward.
+上半身が前を向きます
 
 77
 00:03:24,466 --> 00:03:27,021
-You can use the offset to fine tune
+Offset はアニメーションの方向を
 
 78
 00:03:27,021 --> 00:03:29,021
-the direction of the animation.
+微調整するときに使用します
 
 79
 00:03:30,239 --> 00:03:32,239
-The next options refer to the root
+次のオプションは Root Transform の
 
 80
 00:03:32,239 --> 00:03:35,295
-transform position in the Y axis.
+Y 軸位置に関するものです
 
 81
 00:03:36,327 --> 00:03:40,057
-As with root transform rotation if you check
+Root Transform Rotation と同様
 
 82
 00:03:40,057 --> 00:03:42,917
-Bake Into Pose the avatar will not
+Bake Into Pose をオンにするとアバターが
 
 83
 00:03:42,917 --> 00:03:45,750
-move up or down during the animation.
+アニメーション中に上がったり下がったりしなくなります
 
 84
 00:03:47,295 --> 00:03:49,295
-There are a few options of what the 
+位置のベースとなるオプションは 
 
 85
 00:03:49,295 --> 00:03:51,295
-position can be based on.
+複数個あります
 
 86
 00:03:52,085 --> 00:03:54,419
-Original takes the Y position
+Original は Y 軸位置を
 
 87
 00:03:54,419 --> 00:03:56,186
-from the source fail.
+ソースファイルから取ります
 
 88
 00:03:56,186 --> 00:03:58,476
-Otherwise it can be based on the avatar's
+それ以外に場合にはアバターの
 
 89
 00:03:58,476 --> 00:04:02,295
-centre of mass or the position of it's feet.
+質量中心（Center of Mass）または足の位置から取られます
 
 90
 00:04:03,085 --> 00:04:05,528
-Again the offset can be used to
+ここでも Offset を使うと
 
 91
 00:04:05,528 --> 00:04:08,265
-fine tune the movement in the Y axis.
+Y 軸の動きを微調整できます
 
 92
 00:04:09,630 --> 00:04:12,671
-Root transform position XZ
+Root Transform Position XZ は
 
 93
 00:04:12,671 --> 00:04:15,811
-works similarly to the Y axis option
+Y 軸のオプションと似たような働きをしますが
 
 94
 00:04:15,811 --> 00:04:17,631
-except that it affects the horizontal
+こちらはアバター移動の水平方向に
 
 95
 00:04:17,631 --> 00:04:19,631
-movement of the avatar.
+作用する点が異なります
 
 96
 00:04:20,835 --> 00:04:23,735
-Baking in to the pose will restrict movement
+Baking Into Pose は XZ 平面での
 
 97
 00:04:23,735 --> 00:04:25,735
-on the XZ plane.
+移動を制限します
 
 98
 00:04:27,133 --> 00:04:29,691
-This can be based on either the original file
+これはオリジナルファイルまたは質量中心の
 
 99
 00:04:29,691 --> 00:04:31,691
-or the centre of mass.
+いずれかをベースとします
 
 100
 00:04:33,227 --> 00:04:35,392
-When you use the handles on the timeline
+タイムラインのハンドルを使ってアニメーションを
 
 101
 00:04:35,392 --> 00:04:38,317
-to adjust the animation you will see a graph
+調節するとき各プロパティの下にはグラフが
 
 102
 00:04:38,317 --> 00:04:40,206
-for each of the properties below it
+表示されクリップをループした時の
 
 103
 00:04:40,206 --> 00:04:42,206
-representing how well it will match
+マッチ具合を確認することが
 
 104
 00:04:42,206 --> 00:04:44,206
-when the clip is looped.
+できます
 
 105
 00:04:44,927 --> 00:04:47,318
-Based on this matching each option
+このマッチ具合はプロパティごとに
 
 106
 00:04:47,318 --> 00:04:49,318
-has a traffic light indicating how well
+信号機のようなライトで
 
 107
 00:04:49,318 --> 00:04:50,807
-it matches.
+示されます
 
 108
 00:04:50,807 --> 00:04:52,807
-Green for a good loop match,
+それぞれ緑は良いループ
 
 109
 00:04:52,807 --> 00:04:54,545
-yellow for an okay match
+黄色は悪くないループ
 
 110
 00:04:54,545 --> 00:04:56,545
-and red for a not good match.
+赤は良くないループを示します
 
 111
 00:04:57,611 --> 00:04:59,295
-Depending on what sort of animation clip
+編集しているアニメーションクリップによっては
 
 112
 00:04:59,295 --> 00:05:02,353
-you are trimming you may or may not
+良いループである必要性は
 
 113
 00:05:02,353 --> 00:05:04,353
-want these to loop nicely.
+変わります
 
 114
 00:05:04,353 --> 00:05:07,480
-For example, with a walking animation
+たとえば歩きのアニメーションであれば
 
 115
 00:05:07,480 --> 00:05:10,034
-you would want the pose to loop nicely
+ポーズのループはきれいなほうがいいですが
 
 116
 00:05:10,034 --> 00:05:12,034
-but you probably wouldn't want the transform
+おそらく Transform Position XZ は
 
 117
 00:05:12,034 --> 00:05:14,297
-position XZ to loop.
+ループさせないでしょう
 
 118
 00:05:15,957 --> 00:05:17,957
-If the Mirror box is checked
+Mirror をオンにすると
 
 119
 00:05:17,957 --> 00:05:21,288
-then the animation will be flipped left to right.
+アニメーションが左右反転されます
 
 120
 00:05:23,178 --> 00:05:25,855
-For information on the avatar mask
+アバターマスクやアニメーションカーブと
 
 121
 00:05:25,855 --> 00:05:28,522
-and animation curves and events options
+イベントオプションの詳細については
 
 122
 00:05:28,522 --> 00:05:30,838
-see the lessons linked below.
+下記リンク先にあるレッスンをご覧ください

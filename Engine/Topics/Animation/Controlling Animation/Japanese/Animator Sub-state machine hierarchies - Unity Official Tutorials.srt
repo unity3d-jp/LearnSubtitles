@@ -1,764 +1,764 @@
-1
+﻿1
 00:00:00,163 --> 00:00:02,164
-When creating complex state-based logic
+アニメーターコントローラー内で複雑な
 
 2
 00:00:02,164 --> 00:00:04,623
-systems in an animator controller
+ステートを含むロジックシステムを作成するとき
 
 3
 00:00:04,623 --> 00:00:06,623
-it can greatly help organisation to use
+ステートマシンを階層化すると
 
 4
 00:00:06,623 --> 00:00:08,623
-a hierarchy of state machines.
+とてもきれいに整理できます
 
 5
 00:00:08,883 --> 00:00:10,883
-To create a state machine right click
+ステートマシンを作成するには Animator ウィンドウで
 
 6
 00:00:10,883 --> 00:00:13,125
-on the background on the animator window.
+何もない箇所を右クリックして
 
 7
 00:00:13,125 --> 00:00:15,656
-and select Create Sub-State Machine
+Create Sub-State Machine（サブステートマシンを作成）をクリックします
 
 8
 00:00:21,146 --> 00:00:23,213
-This will create a state machine within the current
+これで現在のレイヤーまたはステートマシンレベルに新しい
 
 9
 00:00:23,213 --> 00:00:25,213
-layer or state machine level.
+ステートマシンが作成されます
 
 10
 00:00:25,665 --> 00:00:28,326
-Note the hexagonal shape of sub-state machines
+標準の四角っぽい形とは異なり
 
 11
 00:00:28,326 --> 00:00:31,019
-versus the standard rounded rectangular shape
+サブステートマシンは六角形っぽい形を
 
 12
 00:00:31,019 --> 00:00:32,607
-of individual states.
+していますね
 
 13
 00:00:32,607 --> 00:00:35,271
-Let's look at an example of when they are useful.
+それでは 便利な使い方を見ていきましょう
 
 14
 00:00:36,021 --> 00:00:38,021
-Here we have an animator controller
+ここにちょっと ごちゃごちゃしてきた
 
 15
 00:00:38,021 --> 00:00:39,741
-that's starting to look cluttered
+アニメーターコントローラーがあります
 
 16
 00:00:39,741 --> 00:00:42,268
-so before many more states are added to it
+ここにさらにステートを追加していく前に
 
 17
 00:00:42,268 --> 00:00:43,931
-it should be tidied up.
+整理しておきたいところです
 
 18
 00:00:43,931 --> 00:00:45,931
-To do this some of the states
+それには一部のステートを
 
 19
 00:00:45,931 --> 00:00:47,931
-can be placed in to a state machine.
+ステートマシンに入れてしまう方法があります
 
 20
 00:00:47,931 --> 00:00:49,931
-In this case we could group all of the
+この例だとAirborne（空中）にいる時の
 
 21
 00:00:49,931 --> 00:00:52,250
-states that are to do with being Airborne
+ステートのグループはすべて
 
 22
 00:00:52,250 --> 00:00:54,144
-in to one sub-state machine.
+サブステートマシンにまとめられそうです
 
 23
 00:00:54,144 --> 00:00:56,442
-To do this, first we make the state machine
+さっそくステートマシンを作るため
 
 24
 00:00:56,442 --> 00:00:58,442
-by right clicking on the background of the
+Animator ウィンドウを右クリックして
 
 25
 00:00:58,442 --> 00:01:01,990
-animator window and selecting Create Sub-State Machine.
+Create Sub-State Machine を選択します
 
 26
 00:01:04,605 --> 00:01:06,605
-We can rename the state machine by clicking on
+ステートマシンの名前はインスペクターで
 
 27
 00:01:06,605 --> 00:01:08,605
-it and changing it's name in the inspector,
+クリックすればいつでも変更できます
 
 28
 00:01:08,605 --> 00:01:10,317
-just like single states.
+ステートと同じですね
 
 29
 00:01:11,403 --> 00:01:14,191
-Next we need to put some states in to this new state machine.
+次に作ったステートマシンにステートを追加していきますが
 
 30
 00:01:14,778 --> 00:01:16,278
-We do this by selecting all the
+これは追加するステートを選択して
 
 31
 00:01:16,278 --> 00:01:18,278
-states that we want to move and dragging them
+ステートマシンにドラッグするだけで
 
 32
 00:01:18,278 --> 00:01:20,075
-on to the state machine.
+OK です
 
 33
 00:01:20,075 --> 00:01:22,858
-For this example we want to move Leap Takeoff,
+この例でステートマシンに含めたいのは Leap Takeoff
 
 34
 00:01:22,858 --> 00:01:26,469
-Leap Airborne, Falling and Landing states.
+Leap Airborne・Falling・Landing ステートです
 
 35
 00:01:27,267 --> 00:01:29,267
-Note the + icon that appears next to
+ドラッグ中には追加できる場合に + アイコンが
 
 36
 00:01:29,267 --> 00:01:31,267
-your cursor as you are dragging.
+表示されるので注意してください
 
 37
 00:01:35,430 --> 00:01:37,866
-When the states have been added to the state machine
+こうしてステートをステートマシンに追加すると
 
 38
 00:01:37,866 --> 00:01:40,745
-they will disappear from the current state machine or layer.
+現在のステートマシン / レイヤーからは消えてしまいます
 
 39
 00:01:41,226 --> 00:01:43,226
-To see them again in order to edit
+もう一度これらステートを表示したり
 
 40
 00:01:43,226 --> 00:01:45,226
-any of their properties for example
+プロパティを編集したりするには
 
 41
 00:01:45,495 --> 00:01:48,041
-simply double click on the sub-state machine.
+サブステートマシンをダブルクリックします
 
 42
 00:01:51,079 --> 00:01:52,945
-To go back to the containing layer
+格納レイヤーやステートマシンに
 
 43
 00:01:52,945 --> 00:01:55,989
-or state machine double click on the Up node.
+戻る場合は「Up」ノードをダブルクリックします
 
 44
 00:01:56,345 --> 00:01:58,345
-Note that the breadcrumb at the top of the window
+現在どの階層にいるのかはウィンドウの上部に
 
 45
 00:01:58,345 --> 00:02:00,345
-shows you where abouts you are
+パンくず式で表示されるので
 
 46
 00:02:00,345 --> 00:02:01,855
-within the state machines.
+そこで確認してください
 
 47
 00:02:09,028 --> 00:02:12,232
-State machines can be used in a hierarchical structure.
+さてステートマシンは階層構造で使うことができます
 
 48
 00:02:12,232 --> 00:02:14,415
-This means that within each layer of an animator
+これはつまりアニメーターコントローラーの各レイヤーには
 
 49
 00:02:14,415 --> 00:02:17,310
-controller there could be several state machines.
+複数のステートマシンが存在しうるということです
 
 50
 00:02:17,916 --> 00:02:19,916
-Each of those could, in turn, have
+そしてそのステートマシーンにもさらに
 
 51
 00:02:19,916 --> 00:02:22,314
-sub-state machines within them, and so on.
+サブステートマシンを持たせることなどができます
 
 52
 00:02:25,570 --> 00:02:28,150
-Transitions can go from states outside
+そして遷移（Transition）はステートマシンの
 
 53
 00:02:28,150 --> 00:02:30,150
-to those inside a state machine.
+外部から内部へと移動できます
 
 54
 00:02:30,477 --> 00:02:32,477
-We can see from this example that when
+この例でもサブステートマシンに格納した
 
 55
 00:02:32,477 --> 00:02:35,048
-our states were added to the sub-state machine
+ステートへの遷移がそのまま維持されている
 
 56
 00:02:35,048 --> 00:02:38,568
-their transitions were retained.
+のが見えますね
 
 57
 00:02:43,740 --> 00:02:46,192
-To make a new transition to a state machine
+ステートマシンに新しい遷移を追加するには
 
 58
 00:02:46,192 --> 00:02:48,192
-right click on the state or state machine
+遷移元とするステートまたはステートマシンを
 
 59
 00:02:48,192 --> 00:02:49,903
-from which you are transitioning
+右クリックし 続けて
 
 60
 00:02:49,903 --> 00:02:51,903
-and select Make Transition.
+Make Transition（遷移を作成）を選択します
 
 61
 00:02:52,470 --> 00:02:54,470
-Then left click on the state machine you wish
+続けて遷移先のステートマシンを
 
 62
 00:02:54,470 --> 00:02:56,097
-to transition to.
+左クリックします
 
 63
 00:02:57,008 --> 00:02:59,219
-From here a pop-up menu will appear
+するとポップアップメニューが表示され
 
 64
 00:02:59,219 --> 00:03:01,872
-offering you the choice to transition to any state,
+ステートマシン内のどのステートに遷移させるか
 
 65
 00:03:01,872 --> 00:03:05,016
-or state machine within the selected state machine.
+あるいはステートマシン自体に遷移させるかを
 
 66
 00:03:05,449 --> 00:03:07,449
-This includes the state machine itself.
+指定するよう求められます
 
 67
 00:03:10,054 --> 00:03:12,054
-One way to transition out of a state machine
+ステートマシンから出る遷移を作る方法としては
 
 68
 00:03:12,054 --> 00:03:14,188
-is to use the Up node.
+「Up」ノードを使う方法があります
 
 69
 00:03:14,188 --> 00:03:16,188
-This works like a link to all states
+これは現在のステートマシンに含まれない
 
 70
 00:03:16,188 --> 00:03:18,188
-and state machines that are not contained
+全ステート/ステートマシンへの
 
 71
 00:03:18,188 --> 00:03:19,986
-in the current state machine.
+リンクのように機能します
 
 72
 00:03:20,371 --> 00:03:22,246
-The up node is labelled Up
+Up ノードにはまず「Up」ラベルが
 
 73
 00:03:22,246 --> 00:03:24,476
-followed by the name of the parent state machine.
+続いて親ステートマシンの名前が表示されています
 
 74
 00:03:25,091 --> 00:03:27,091
-If there is not parent state machine
+親ステートマシンが存在しない場合は
 
 75
 00:03:27,091 --> 00:03:29,091
-it will show the name of the layer it is in.
+帰属するレイヤーの名前が表示されます
 
 76
 00:03:29,697 --> 00:03:31,697
-In this example there was no parent
+この例では親ステートマシンがないので
 
 77
 00:03:31,697 --> 00:03:34,063
-state machine so the up node is labelled
+Up ノードのラベルは次のようになっています
 
 78
 00:03:34,063 --> 00:03:35,717
-(Up) Base Layer.
+(Up) Base Layer
 
 79
 00:03:35,717 --> 00:03:38,176
-To make a transition out of a state machine
+ステートマシンから出る遷移を作るには
 
 80
 00:03:38,176 --> 00:03:40,176
-right click on the state or state machine
+遷移元とするステート / ステートマシンを
 
 81
 00:03:40,176 --> 00:03:41,928
-that you wish to transition from
+右クリックしてから
 
 82
 00:03:42,312 --> 00:03:44,513
-and select Make Transition
+Make Transition（遷移を作成）を選択し
 
 83
 00:03:44,513 --> 00:03:46,513
-then left click on the up node.
+続けて Up ノードを左クリックします
 
 84
 00:03:47,789 --> 00:03:49,789
-You are then offered the same choices as
+するとステートマシンに遷移する時と似た
 
 85
 00:03:49,789 --> 00:03:52,515
-when transitioning in to a state machine.
+オプションが表示されます
 
 86
 00:03:52,515 --> 00:03:54,515
-Only this time it is a choice of the states
+ただしこの場合選択肢としては
 
 87
 00:03:54,515 --> 00:03:56,361
-and state machines above the
+現在よりも上の階層のステートマシンや
 
 88
 00:03:56,361 --> 00:03:57,829
-current one you were viewing.
+ステートが表示されます
 
 89
 00:04:00,059 --> 00:04:02,059
-In every layer and state machine
+レイヤー / ステートマシンには必ず
 
 90
 00:04:02,059 --> 00:04:05,122
-there are green entry and red exit nodes.
+緑色の Entry と赤色の Exit ノードが存在します
 
 91
 00:04:05,371 --> 00:04:07,650
-These are used to encapsulate state machines
+これらは他のステートやステートマシンへの
 
 92
 00:04:07,650 --> 00:04:09,650
-so that they have less dependence on
+依存性を抑える目的でカプセル化する
 
 93
 00:04:09,650 --> 00:04:11,650
-states or state machines.
+ために用いられ
 
 94
 00:04:11,650 --> 00:04:14,436
-They represent an alternative to using the up node.
+Up ノードの代替物のように扱うことができます
 
 95
 00:04:14,791 --> 00:04:16,791
-Transitions to and from state machines
+ステートマシンを遷移先とする場合も遷移元とする場合も
 
 96
 00:04:16,791 --> 00:04:18,791
-can either use the up node or
+ユーザーは Up ノード /
 
 97
 00:04:18,791 --> 00:04:20,427
-the entry and exit nodes.
+Entry ノード / Exit ノードを使えます
 
 98
 00:04:20,945 --> 00:04:22,347
-Using the up node,
+Up ノードを使った場合
 
 99
 00:04:22,347 --> 00:04:24,347
-transitions happen directly from 
+遷移はステート間または 
 
 100
 00:04:24,347 --> 00:04:27,375
-state to state or from state to state machine.
+ステートとステートマシンの間で起こります
 
 101
 00:04:27,740 --> 00:04:30,039
-When using entry and exit nodes
+Entry および Exit ノードを使った場合
 
 102
 00:04:30,039 --> 00:04:32,039
-the transitions are to and from
+遷移元も遷移先も
 
 103
 00:04:32,039 --> 00:04:34,039
-the state machine itself.
+ステートマシン自体となります
 
 104
 00:04:34,039 --> 00:04:36,039
-A transition to a state machine
+ステートマシンへの遷移は
 
 105
 00:04:36,039 --> 00:04:38,039
-will come in at the entry node
+Entry ノードから来て
 
 106
 00:04:38,960 --> 00:04:40,960
-and leave via the exit node.
+Exit ノードから出て行くわけです
 
 107
 00:04:48,436 --> 00:04:50,050
-This may mean designing your transitions
+そうなると遷移の設計も色々と
 
 108
 00:04:50,050 --> 00:04:51,847
-in a very different way.
+考慮しなくてはいけない点が出てきます
 
 109
 00:04:51,847 --> 00:04:54,652
-Instead of having a single transition through the up node
+Up ノードのように単一の遷移が入っているだけでなく
 
 110
 00:04:54,652 --> 00:04:56,048
-there maybe be many.
+多数の遷移が存在しうるからです
 
 111
 00:04:56,048 --> 00:04:58,048
-Let's take a look at an example.
+例を見てみましょう
 
 112
 00:04:58,048 --> 00:05:01,279
-This is the same controller we saw in our earlier example.
+これは先ほど見ていたコントローラーと同じものです
 
 113
 00:05:03,244 --> 00:05:05,693
-But the Locomotion and Airborne states
+ただし Locomotion と Airborne はそれぞれ
 
 114
 00:05:05,693 --> 00:05:08,049
-have been put in to their own state machines.
+個別のステートマシン化されています
 
 115
 00:05:09,190 --> 00:05:11,190
-However instead of using transitions
+そして先ほどのように各ステートを
 
 116
 00:05:11,190 --> 00:05:13,190
-between each of the states as before
+遷移でつなぐのではなく
 
 117
 00:05:13,190 --> 00:05:15,506
-entry and exit nodes are used.
+Entry ノードと Exit ノードが使われています
 
 118
 00:05:15,506 --> 00:05:17,506
-In the previous example there were transitions
+先ほどの例では Standing Locomotion から
 
 119
 00:05:17,506 --> 00:05:21,242
-from Standing Locomotion to Leap Take Off and Falling.
+Leap Take Off と Falling への遷移があり
 
 120
 00:05:23,641 --> 00:05:25,641
-And a transition from Landing
+また Landing から
 
 121
 00:05:25,641 --> 00:05:27,641
-to Standing Locomotion.
+Standing Locomotion への遷移もありました
 
 122
 00:05:29,455 --> 00:05:31,455
-The condition to go from Standing Locomotion
+Standing Locomotion から Leap Take Off への
 
 123
 00:05:31,455 --> 00:05:34,397
-to Leap Take Off is the Jump trigger.
+遷移条件は Jump トリガーでした
 
 124
 00:05:35,952 --> 00:05:37,952
-However, once we have encapsulated a
+しかし Locomotion ステートを
 
 125
 00:05:37,952 --> 00:05:40,355
-locomotion state in to a state machine
+ステートマシンにカプセル化したので
 
 126
 00:05:40,355 --> 00:05:42,355
-it no longer matters what state we are
+遷移先のステートは無関係になって
 
 127
 00:05:42,355 --> 00:05:43,758
-transitioning to.
+しまっています
 
 128
 00:05:43,758 --> 00:05:45,758
-Instead it just matters that we no longer
+この場合ただこのステートマシンから
 
 129
 00:05:45,758 --> 00:05:47,758
-want to be in this state machine.
+出たいという状態になります
 
 130
 00:05:47,998 --> 00:05:49,998
-So we transition to the exit node
+なので Exit ノードへの遷移で
 
 131
 00:05:49,998 --> 00:05:51,998
-with the jump trigger as a condition.
+条件に Jump トリガーを指定します
 
 132
 00:05:57,112 --> 00:05:59,361
-Back in the complex animator controller
+さて先ほどの複雑なアニメーターコントローラーでは
 
 133
 00:05:59,361 --> 00:06:01,361
-the condition to go from standing locomotion
+Standing Locomotion から Falling へ
 
 134
 00:06:01,361 --> 00:06:03,361
-to Falling is that the parameter
+遷移する条件はパラメーター
 
 135
 00:06:03,361 --> 00:06:05,361
-"Grounded" is false
+"Grounded" が false の時でした
 
 136
 00:06:06,781 --> 00:06:08,781
-In the entry and exit node example
+そして Entry / Exit ノードの例でも
 
 137
 00:06:08,781 --> 00:06:10,781
-the same condition is required for a second
+2 個目の遷移で Locomotion ステートマシンを
 
 138
 00:06:10,781 --> 00:06:13,820
-transition to exit the locomotion state machine.
+出るときに同じ条件が必要になります
 
 139
 00:06:21,074 --> 00:06:23,431
-Since we only have two state machines
+ステートマシンは 2 個しかないので
 
 140
 00:06:23,431 --> 00:06:26,222
-we can assume that if we are leaving one state machine
+一方のステートマシンを出るときは
 
 141
 00:06:26,222 --> 00:06:27,769
-we want to go in to the other
+他方に入るようにしたいですよね
 
 142
 00:06:28,491 --> 00:06:32,204
-As such there are no conditions for transitions between them.
+このため両者間の遷移には条件をつけません
 
 143
 00:06:33,528 --> 00:06:35,789
-We have two transitions from the entry node
+さて Airborne ステートマシンには Entry ノードから
 
 144
 00:06:35,789 --> 00:06:37,789
-of the Airborne state machine.
+2 個の遷移が出ています
 
 145
 00:06:38,480 --> 00:06:40,480
-The first is the default transition
+1 個目は Entry ノードからの
 
 146
 00:06:40,480 --> 00:06:42,067
-from the entry node.
+デフォルトの遷移です
 
 147
 00:06:42,067 --> 00:06:44,616
-We can see this because it is orange in colour,
+デフォルトであるのは矢印が通常の白ではなく
 
 148
 00:06:44,616 --> 00:06:46,616
-instead of the normal white.
+オレンジ色であるところから分かります
 
 149
 00:06:47,374 --> 00:06:49,759
-This transition will be used when no other transition
+この遷移は他に Entry ノードから
 
 150
 00:06:49,759 --> 00:06:51,759
-from the entry node can be used
+移行できる遷移がない時または
 
 151
 00:06:51,759 --> 00:06:54,113
-or if it's the only available transition.
+この遷移のみが利用可能なときに使われます
 
 152
 00:06:54,594 --> 00:06:56,392
-The other transition is greyed out.
+もう一方の遷移はグレーになっていますね
 
 153
 00:06:56,757 --> 00:06:58,757
-When a transition is grey like this
+このようにグレーで表示される遷移は
 
 154
 00:06:58,757 --> 00:07:00,757
-it means that it has no knowledge of the state
+遷移元のステートがわからないことを
 
 155
 00:07:00,757 --> 00:07:02,332
-it is coming from.
+示します
 
 156
 00:07:02,332 --> 00:07:03,910
-This particular transition
+この例で言えば
 
 157
 00:07:03,910 --> 00:07:05,910
-is coming in to the state machine from
+Entry ノードからステートマシンへの
 
 158
 00:07:05,910 --> 00:07:08,245
-the entry node, so it doesn't know which
+遷移であるため 遷移元のステートは
 
 159
 00:07:08,245 --> 00:07:11,640
-state it is coming from, as it could be from any source.
+何でもあり得ます
 
 160
 00:07:11,915 --> 00:07:14,541
-We can see that the transitions between the locomotion
+この他にも Locomotion と Airborne の
 
 161
 00:07:14,541 --> 00:07:17,518
-and Airborne state machines were also greyed out.
+両ステートマシン間の遷移もグレーで表示されています
 
 162
 00:07:19,504 --> 00:07:21,504
-Again this is because they don't know
+これらも同様に 遷移元のステートが
 
 163
 00:07:21,504 --> 00:07:23,504
-which state they are transitioning from.
+不明であるためグレーなのです
 
 164
 00:07:24,617 --> 00:07:26,617
-When a transition is greyed out, the only
+グレーになっている遷移では
 
 165
 00:07:26,617 --> 00:07:28,617
-editable aspect are it's conditions.
+条件のみが編集可能です
 
 166
 00:07:29,164 --> 00:07:31,164
-Since the transition doesn't know which state
+遷移元のステートが分からない状態では
 
 167
 00:07:31,164 --> 00:07:33,164
-it is coming from any other details
+その他の詳細設定は
 
 168
 00:07:33,164 --> 00:07:35,164
-about the transition would be meaningless.
+意味がありませんから
 
 169
 00:07:35,164 --> 00:07:38,047
-To control the duration and other aspects 
+持続時間やその他の情報を制御する際は 
 
 170
 00:07:38,047 --> 00:07:40,956
-use the transition from the originating state.
+遷移元のステートからの遷移を使います
 
 171
 00:07:43,374 --> 00:07:45,374
-The transition to Falling has the condition
+Falling への遷移の条件には
 
 172
 00:07:45,374 --> 00:07:47,374
-that "Grounded" is false.
+"Grounded" が false と設定されています
 
 173
 00:07:47,691 --> 00:07:49,546
-These two transitions combined
+この 2 つの遷移は組み合わせて考えると
 
 174
 00:07:49,546 --> 00:07:51,546
-mean that when we enter this state machine
+このステートマシンに入った時 "grounded" が false であれば
 
 175
 00:07:51,546 --> 00:07:54,259
-if grounded is false Falling will be played.
+Falling が再生されるという結果が得られます
 
 176
 00:07:55,343 --> 00:07:58,353
-Otherwise the default transition will be used
+そしてそれ以外の場合はデフォルトの遷移が使用され
 
 177
 00:07:58,360 --> 00:08:00,360
-and "Leap Take Off" will be played.
+"Leap Take Off" が再生されます
 
 178
 00:08:01,610 --> 00:08:03,610
-The benefit of using entry and exit nodes
+Entry / Exit ノードを使用してステートマシンを
 
 179
 00:08:03,610 --> 00:08:05,610
-to encapsulate state machines like this
+カプセル化することの最大の利点は
 
 180
 00:08:05,610 --> 00:08:07,466
-is reusability.
+その再利用性にあります
 
 181
 00:08:07,466 --> 00:08:09,466
-If a particular animator controller has a 
+特定のアニメーターコントローラーに 
 
 182
 00:08:09,466 --> 00:08:11,466
-state machine that could be used elsewhere
+他の場所でも使えるステートマシンがあった時
 
 183
 00:08:11,831 --> 00:08:14,158
-then the state machine can simply be copied
+ステートマシンをそのまま別の
 
 184
 00:08:14,158 --> 00:08:16,158
-to the other animator controller.
+アニメーターコントローラーにコピーできるからです
 
 185
 00:08:16,158 --> 00:08:18,544
-Because the state machine is self-contained,
+ステートマシンは自己完結型であり
 
 186
 00:08:18,544 --> 00:08:21,803
-i.e. it doesn't have any dependencies outside of itself
+外部への依存性を持たないので
 
 187
 00:08:21,803 --> 00:08:23,803
-it doesn't matter what other states or
+コピー先の別のアニメーター
 
 188
 00:08:23,803 --> 00:08:25,803
-state machines are in the other animators
+で他のステートやステートマシンが
 
 189
 00:08:25,803 --> 00:08:27,189
-that you copy to.
+どうなっていても関係ないわけです
 
 190
 00:08:27,189 --> 00:08:29,189
-For more information on animators and
+アニメーターとアニメーターコントローラーの
 
 191
 00:08:29,189 --> 00:08:32,168
-animator controllers please see the information linked below.
+詳細については下記リンク先の情報をご覧ください
 
