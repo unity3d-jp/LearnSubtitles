@@ -1,335 +1,335 @@
-1
+﻿1
 00:00:00,456 --> 00:00:02,894
-Sometimes when animating an avatar
+アバターにアニメーションを付けている時
 
 2
 00:00:02,894 --> 00:00:04,894
-we want to isolate areas of the body
+アニメーションに影響を受ける体の一部を
 
 3
 00:00:04,894 --> 00:00:06,894
-that are actually effected by the animation.
+分離したいケースというのが生じることがあります
 
 4
 00:00:07,767 --> 00:00:10,735
-For example we might have a wave animation
+具体的には 手を振るアニメーションがある場合に
 
 5
 00:00:10,735 --> 00:00:13,191
-but we want to be able to wave while running,
+それを 走行中・歩行中・ジャンプ中などにも
 
 6
 00:00:13,191 --> 00:00:15,191
-walking, jumping, etcetera.
+再生したい場合などがそれです
 
 7
 00:00:15,953 --> 00:00:17,773
-In order to achieve this effect
+これを実現するのに使われるのが
 
 8
 00:00:17,773 --> 00:00:19,773
-we can use an avatar mask.
+アバターマスクです
 
 9
 00:00:20,176 --> 00:00:22,425
-In this way we can restrict the effect
+アバターマスクを使うと たとえばこの例であれば
 
 10
 00:00:22,425 --> 00:00:24,425
-of this animation to be purely based
+アニメーションの影響範囲をアバターの腕のだけに
 
 11
 00:00:24,425 --> 00:00:26,425
-on the arm of the avatar.
+制限することができます
 
 12
 00:00:28,057 --> 00:00:30,475
-Avatar masks can be created and used
+アバターマスクは 2 つの異なる方法で作成・使用
 
 13
 00:00:30,475 --> 00:00:32,907
-in 2 distinct ways, but the overall effect
+することができますが 全体としての機能は
 
 14
 00:00:32,907 --> 00:00:34,907
-of the mask is the same.
+どちらの場合でも同一です
 
 15
 00:00:36,153 --> 00:00:38,153
-Avatar masks can first be created on a
+まずアバターマスクはアニメーションごとに
 
 16
 00:00:38,153 --> 00:00:39,946
-per-animation basis.
+作成することができます
 
 17
 00:00:40,460 --> 00:00:43,111
-For this method go to the Animations tab
+この方法を取る場合はまず
 
 18
 00:00:43,111 --> 00:00:45,292
-of the Model Importer by selecting a model
+Project パネルでモデルを選択した状態で
 
 19
 00:00:45,292 --> 00:00:47,126
-in the Project Panel and clicking on the 
+Animations タブをクリックして Model Importer の 
 
 20
 00:00:47,126 --> 00:00:49,126
-Animations tab.
+Animations タブを開きます
 
 21
 00:00:49,971 --> 00:00:51,971
-When you select an animations clip
+アニメーションクリップを選択すると
 
 22
 00:00:51,971 --> 00:00:53,529
-there are a number of properties that appear
+クリップ名の下に複数のプロパティが
 
 23
 00:00:53,529 --> 00:00:55,085
-below the clip name.
+表示されます
 
 24
 00:00:55,085 --> 00:00:57,937
-One of these is a drop-down called Mask.
+そのひとつが Mask ドロップダウンです
 
 25
 00:00:58,768 --> 00:01:00,962
-Here you can create a mask that is unique
+ここでは編集中の特定のアニメーションに
 
 26
 00:01:00,962 --> 00:01:03,625
-to the specific animation you are editing.
+固有のマスクを作成できます
 
 27
 00:01:04,843 --> 00:01:06,954
-The other method for creating an avatar mask
+アバターマスクを作るもう一つの方法は
 
 28
 00:01:06,954 --> 00:01:09,771
-is to create it as an asset in your Project Panel
+Project パネルでアセットとして作成する方法です
 
 29
 00:01:09,771 --> 00:01:14,009
-by right-clicking and selecting Create - Avatar Mask.
+この場合は Project パネルを右クリックして Create > Avatar Mask を選びます
 
 30
 00:01:15,476 --> 00:01:17,742
-Once it is created it can then be applied
+作成後は Animator ウィンドウで
 
 31
 00:01:17,742 --> 00:01:19,742
-to the layers of an animator controller
+アニメーションコントローラーのレイヤーに
 
 32
 00:01:19,742 --> 00:01:21,505
-using the Animator window.
+適用することができます
 
 33
 00:01:22,062 --> 00:01:24,686
-Creating and applying a mask this way will
+マスクの作成と適用はそのアニメーターレイヤーの
 
 34
 00:01:24,686 --> 00:01:27,994
-effect all animations on an animator layer.
+全アニメーションに影響を及ぼします
 
 35
 00:01:29,392 --> 00:01:31,600
-For more information on animator layers
+アニメーターレイヤーの詳細については
 
 36
 00:01:31,600 --> 00:01:33,600
-see the lesson linked below.
+下記リンク先にあるレッスンをご覧ください
 
 37
 00:01:34,984 --> 00:01:37,386
-An avatar mask has 2 parts,
+さてアバターマスクには 2 つの項目
 
 38
 00:01:37,386 --> 00:01:39,386
-Humanoid and Transform.
+Humanoid と Transform があります
 
 39
 00:01:40,646 --> 00:01:42,646
-The Humanoid drop-down has a diagram
+Humanoid ドロップダウンにはこちらを向いている
 
 40
 00:01:42,646 --> 00:01:45,381
-of a humanoid facing you from the screen.
+ヒューマノイドの図が表示されます
 
 41
 00:01:45,922 --> 00:01:48,299
-This means that the diagram's left hand
+なので この図で左側にある手は実際には
 
 42
 00:01:48,299 --> 00:01:50,299
-is on the right side.
+右手を意味します
 
 43
 00:01:51,075 --> 00:01:53,423
-By clicking on each section you can toggle
+ここで体の部位をクリックすると色が赤と緑の間で
 
 44
 00:01:53,423 --> 00:01:55,423
-it's colour between red and green.
+切り替わります
 
 45
 00:01:56,033 --> 00:01:58,200
-You can also click outside the diagram
+また図の外側をクリックすると図全体を
 
 46
 00:01:58,200 --> 00:02:00,960
-to toggle between all red and all green.
+赤と緑の間で切り替えられます
 
 47
 00:02:02,219 --> 00:02:04,219
-The colour indicates which parts of a humanoid
+この色はヒューマノイドアバターのパーツのどれが
 
 48
 00:02:04,219 --> 00:02:07,143
-avatar will be animated when using this mask.
+このマスクでアニメーション付けされるかを示します
 
 49
 00:02:08,016 --> 00:02:10,640
-Green indicates that the body part will be used
+緑色は対象の身体部位が使われる事を示し
 
 50
 00:02:10,640 --> 00:02:13,068
-and red indicates that it will not be used.
+赤色は使われないことを示します
 
 51
 00:02:13,927 --> 00:02:16,548
-For our wave animation we have all but the
+今回の手を振るアニメーションの場合は右腕を除く全身を
 
 52
 00:02:16,548 --> 00:02:18,548
-right arm deselected.
+選択解除した状態にします
 
 53
 00:02:18,548 --> 00:02:20,178
-This means that only the right arm
+これでアニメーションは右腕にのみ
 
 54
 00:02:20,178 --> 00:02:22,178
-will be effected by the animation.
+適用されるようになります
 
 55
 00:02:23,742 --> 00:02:27,013
-The second part is the Transform Mask.
+アバターマスクのもう一つの項目は Transform マスクです
 
 56
 00:02:27,013 --> 00:02:29,623
-Transform masks are used for generically
+Transform マスクは通常  リグ付きのモデルや
 
 57
 00:02:29,623 --> 00:02:32,150
-rigged models and humanoid rigged models
+ヒューマノイドのリグ付きモデルのうち
 
 58
 00:02:32,150 --> 00:02:34,150
-with extra bones.
+外部骨があるものに使います
 
 59
 00:02:34,150 --> 00:02:37,290
-For example, if you had a 4 legged robot
+たとえば 4 本足のロボットや
 
 60
 00:02:37,290 --> 00:02:39,290
-or a humanoid with wings.
+羽付きヒューマノイドなどがこれに当たります
 
 61
 00:02:40,025 --> 00:02:42,177
-Here you need to select the avatar
+ここではマスクのベースとするアバターを
 
 62
 00:02:42,177 --> 00:02:43,899
-to base the mask on.
+選択する必要があります
 
 63
 00:02:44,497 --> 00:02:47,505
-This is done using the circle select button.
+選択は丸い選択ボタンで行います
 
 64
 00:02:50,312 --> 00:02:52,242
-When an avatar has been selected
+アバターが選択されてインポートされると
 
 65
 00:02:52,242 --> 00:02:55,224
-and imported a full list of all of the transforms
+アバターの全 Transform の
 
 66
 00:02:55,224 --> 00:02:57,224
-for that avatar appear.
+リストが表示されます
 
 67
 00:02:57,224 --> 00:03:00,034
-From this you can select or deselect
+ここでアニメーションが影響を及ぼす/及ぼさない
 
 68
 00:03:00,034 --> 00:03:01,673
-which transforms should be effected
+Transform を選択することが
 
 69
 00:03:01,673 --> 00:03:03,477
-by the animation.
+できます
 
 70
 00:03:03,477 --> 00:03:05,477
-If a transform is checked then it will be
+ここで Transform を選択すると
 
 71
 00:03:05,477 --> 00:03:08,594
-part of the mask and will move when animated.
+マスクの一部となりアニメーションによって動くようになります
 
 72
 00:03:09,094 --> 00:03:11,204
-For example, imagine we have a 
+たとえば尻尾を持つヒューマノイドアバター 
 
 73
 00:03:11,204 --> 00:03:13,204
-humanoid avatar with a tail.
+がいる場合を想像してみてください
 
 74
 00:03:13,594 --> 00:03:16,144
-In the base layer of the animator state machine
+キャラクターの Locomotion は Animator の
 
 75
 00:03:16,144 --> 00:03:18,655
-the character has it's locomotion managed.
+ステートマシンのベースレイヤーで制御されています
 
 76
 00:03:19,100 --> 00:03:21,849
-On subsequent layers other animations
+その他のアニメーション（たとえば攻撃など）は
 
 77
 00:03:21,849 --> 00:03:23,849
-such as attacking are handled.
+それ以降のレイヤーで制御されます
 
 78
 00:03:24,625 --> 00:03:26,625
-It might be a good idea for these subsequent
+こういう状態であればベース以降のレイヤーに
 
 79
 00:03:26,625 --> 00:03:28,751
-layers to have a transform mask where
+Transform マスクを持たせて尻尾のボーンの
 
 80
 00:03:28,751 --> 00:03:30,751
-the tail bones are unchecked.
+チェックを外しておくのも良いでしょう
 
 81
 00:03:31,748 --> 00:03:33,914
-This means that the tail is not effected
+こうすることで尻尾が他のレイヤーのアニメーションに
 
 82
 00:03:33,914 --> 00:03:35,914
-by animations on those layers
+影響を受けないようにした上で
 
 83
 00:03:35,914 --> 00:03:38,496
-and will still be moved by animations playing
+ベースレイヤーで再生されているアニメーションによって
 
 84
 00:03:38,496 --> 00:03:40,496
-on the base layer.
+動きが付けられるようになるわけです
