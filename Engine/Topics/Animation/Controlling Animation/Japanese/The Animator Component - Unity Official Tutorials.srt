@@ -252,7 +252,7 @@ Apply Root Motion オプションは外して
 
 64
 00:02:32,840 --> 00:02:36,055
-onAnimatorMove 関数を呼び出し
+OnAnimatorMove 関数を呼び出し
 
 65
 00:02:36,055 --> 00:02:38,754
