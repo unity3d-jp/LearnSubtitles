@@ -1,651 +1,651 @@
-1
+﻿1
 00:00:01,188 --> 00:00:05,348
-Unity supports 2D projects as well as 3D projects.
+Unity は3D プロジェクト以外に 2D プロジェクトもサポートしています
 
 2
 00:00:05,348 --> 00:00:07,821
-When working on a 2D game or application
+2D ゲーム / アプリケーションの製作時には
 
 3
 00:00:07,821 --> 00:00:10,531
-workflow can be improved by marking the project
+エディター設定でプロジェクトを 2D とマークして
 
 4
 00:00:10,531 --> 00:00:13,213
-as a 2D project in the Editor settings,
+エディターモードの Scene ビューを
 
 5
 00:00:13,213 --> 00:00:15,283
-and setting the scene view in the editor mode
+2D にするとワークフローを
 
 6
 00:00:15,283 --> 00:00:16,765
-to 2D mode.
+向上させられます
 
 7
 00:00:17,327 --> 00:00:19,327
-When starting a new 2D project
+これら設定は 2D プロジェクトを
 
 8
 00:00:19,327 --> 00:00:21,854
-these can be preset in the new project wizard
+新規作成する際 プロジェクトウィザードで
 
 9
 00:00:21,854 --> 00:00:24,915
-by selecting Setup Defaults For 2D.
+Setup Defaults For を 2D に指定すればプリセットされます
 
 10
 00:00:26,851 --> 00:00:29,461
-If a project has been preset as 2D
+プロジェクトが 2D とプリセットされていると
 
 11
 00:00:29,461 --> 00:00:31,711
-when the new project opens it will have
+そのプロジェクトを開いた際にエディター設定と
 
 12
 00:00:31,711 --> 00:00:33,920
-it's editor settings and scene view configured
+Scene ビューが 2D プロジェクトとして
 
 13
 00:00:33,920 --> 00:00:35,920
-for a 2D project.
+構成されます
 
 14
 00:00:36,420 --> 00:00:39,114
-This means that the scene view will be in 2D mode
+これはつまり Scene ビューは 2D モードとなり
 
 15
 00:00:39,114 --> 00:00:42,501
-and the default editor mode will be set to 2D.
+デフォルトのエディターモードも 2D になるということです
 
 16
 00:00:43,222 --> 00:00:45,222
-It is important not to confuse the 2D
+ここで意識しておきたいのは 2D エディターモードと
 
 17
 00:00:45,222 --> 00:00:47,862
-editor mode with the 2D scene view mode.
+2D Scene ビューモードの違いについてです
 
 18
 00:00:48,606 --> 00:00:50,606
-The editor mode describes how the editor
+エディターモードとはエディターがプロジェクトを
 
 19
 00:00:50,606 --> 00:00:52,606
-will treat the project.
+どう扱うかを示すものです
 
 20
 00:00:52,606 --> 00:00:55,282
-The 2D scene view mode simply switches between the
+2D Scene ビューモードは単純にシーンのビューを
 
 21
 00:00:55,282 --> 00:00:57,833
-2D and 3D views of the scene.
+2D と 3D で切り替えるだけのものです
 
 22
 00:00:58,693 --> 00:01:01,961
-Importantly these 2 settings are independent of each other.
+これら 2 つの設定は完全に別々のものです
 
 23
 00:01:02,779 --> 00:01:05,096
-The scene view mode is indicated in the editor
+Scene ビューモードはエディター上の
 
 24
 00:01:05,096 --> 00:01:07,598
-with the 2D mode button in the header bar.
+ヘッダーバーに 2D モードボタンとして表示されます
 
 25
 00:01:08,328 --> 00:01:10,328
-With this button we can toggle the editor 
+このボタンをクリックすれば エディターを 2D / 3D 間で 
 
 26
 00:01:10,328 --> 00:01:12,551
-between 2D and 3D mode.
+切り替えられます
 
 27
 00:01:14,416 --> 00:01:17,217
-The editor mode can be changed at any time.
+エディターモードはいつでも変更できます
 
 28
 00:01:17,814 --> 00:01:20,960
-o view or change the editor settings select Edit -
+エディター設定を確認・変更するには Edit >
 
 29
 00:01:22,358 --> 00:01:23,778
-Project Settings - 
+Project Settings > 
 
 30
 00:01:25,507 --> 00:01:26,603
-Editor.
+Editor の順に操作します
 
 31
 00:01:28,711 --> 00:01:30,711
-The editor setting that related to a 2D
+2D プロジェクトに関係するエディター設定は
 
 32
 00:01:30,711 --> 00:01:33,282
-project is Default Behaviour mode.
+Default Behavior Mode オプションです
 
 33
 00:01:33,860 --> 00:01:36,150
-When Setup Defaults For 2D is selected
+ここで 2D が指定されている場合
 
 34
 00:01:36,150 --> 00:01:38,829
-in the new project wizard the wizard sets default
+新規プロジェクトウィザードのデフォルト挙動も
 
 35
 00:01:38,829 --> 00:01:40,829
-behaviour mode to 2D.
+2D となります
 
 36
 00:01:41,909 --> 00:01:44,514
-When default behaviour mode is set to 2D,
+Default Behavior Mode が 2D の状態で
 
 37
 00:01:44,514 --> 00:01:46,266
-and a new scene is created,
+新しいシーンが作成されると
 
 38
 00:01:46,266 --> 00:01:49,654
-the default camera will be set as orthographic,
+デフォルトのカメラが Orthographic（平行投影）になり
 
 39
 00:01:50,430 --> 00:01:52,803
-with an orthographic size of 5.
+Size は 5 に指定されます
 
 40
 00:01:54,145 --> 00:01:57,009
-When a new image is imported, the default texture imported
+そして新しい画像がインポートされる際にも
 
 41
 00:01:57,009 --> 00:01:59,009
-will be set to the texture type of
+デフォルトの Texture Type が
 
 42
 00:01:59,009 --> 00:02:01,009
-sprite rather than texture.
+Texture ではなく Sprite になります
 
 43
 00:02:01,923 --> 00:02:03,701
-For more information on textures,
+テクスチャ / テクスチャインポーター
 
 44
 00:02:03,701 --> 00:02:05,701
-the texture importer and cameras,
+カメラ / 平行投影カメラの
 
 45
 00:02:05,701 --> 00:02:07,896
-including the orthographic camera,
+詳細については
 
 46
 00:02:07,896 --> 00:02:09,896
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 47
 00:02:11,570 --> 00:02:14,039
-When working on a project it is important to note
+なお  どちらの Scene ビューを使っているかは
 
 48
 00:02:14,039 --> 00:02:16,039
-that the scene view mode will not effect the
+エディター上で制作しているゲームに
 
 49
 00:02:16,039 --> 00:02:18,039
-game being built in the editor.
+制限をかけるものではありません
 
 50
 00:02:18,760 --> 00:02:20,926
-It is possible to make a 2D game with
+2D に最適化されたゲームオブジェクトを使って
 
 51
 00:02:20,926 --> 00:02:22,926
-2D optimised game objects
+2D ゲームを作るときに
 
 52
 00:02:22,926 --> 00:02:24,926
-while the scene view is in 3D mode.x
+Scene ビューは 3D モードでも構いませんし
 
 53
 00:02:25,730 --> 00:02:27,730
-It is possible to mix both 2D and
+ひとつのゲーム中に 2D 要素と 3D 要素を
 
 54
 00:02:27,730 --> 00:02:30,131
-3D elements in the same game.
+混在させることも可能です
 
 55
 00:02:31,003 --> 00:02:33,003
-Having the scene view in 2D mode however
+ただ Scene モードを 2D にしておいたほうが
 
 56
 00:02:33,003 --> 00:02:35,993
-can help improve the workflow of a 2D project
+2D プロジェクトのワークフローは良くなり
 
 57
 00:02:35,993 --> 00:02:37,993
-and makes working with 2D optimised game
+2D に最適化されたゲームオブジェクトの扱いが楽になる
 
 58
 00:02:37,993 --> 00:02:39,993
-objects much easier.
+というだけなのです
 
 59
 00:02:40,617 --> 00:02:42,617
-When the scene view is in 2D mode
+Scene ビューを 2D モードにすると
 
 60
 00:02:42,617 --> 00:02:44,617
-there will be some noticeable changed to the scene
+3D モードの時とは大きく異なる点が
 
 61
 00:02:44,617 --> 00:02:46,617
-view compared to 3D mode.
+いくつかあります
 
 62
 00:02:47,297 --> 00:02:50,828
-In 2D mode the scene view is locked in an orthographic
+2D モードでは Scene ビューは平行投影で固定され
 
 63
 00:02:50,828 --> 00:02:53,605
-non-perspective view, looking along the Z axis
+奥行きのない Z 軸に対し並行な
 
 64
 00:02:53,605 --> 00:02:55,605
-towards the X/Y plane.
+X/Y 平面が表示されます
 
 65
 00:02:56,395 --> 00:02:58,812
-The X axis is aligned horizontally
+X 軸は水平に引かれ
 
 66
 00:02:58,812 --> 00:03:01,384
-and the Y axis is aligned vertically
+Y 軸は垂直に引かれます
 
 67
 00:03:01,384 --> 00:03:03,564
-with positive values up and to the right
+正の値は右上方向
 
 68
 00:03:03,564 --> 00:03:05,898
-and negative values down and to the left.
+負の値は左下方向になります
 
 69
 00:03:06,603 --> 00:03:08,603
-In 2D mode there is no ability to
+2D モードでは Scene ビューカメラを
 
 70
 00:03:08,603 --> 00:03:10,534
-rotate the scene view camera
+回転させることはできません
 
 71
 00:03:10,534 --> 00:03:13,702
-so in 2D mode the scene gizmo is hidden.S
+このため 2D モードではシーンギズモは表示されません
 
 72
 00:03:15,092 --> 00:03:17,301
-To navigate the scene and position game objects
+シーン内の移動やゲームオブジェクトの配置には
 
 73
 00:03:17,301 --> 00:03:20,853
-in the scene there are transform tools in the menu bar.
+メニューバーの Transform ツールを使います
 
 74
 00:03:21,270 --> 00:03:23,546
-These tools are the Hand tool,
+ここには Hand ツール
 
 75
 00:03:23,546 --> 00:03:25,144
-the Translate tool,
+Translate ツール
 
 76
 00:03:25,144 --> 00:03:27,872
-the Rotate tool and the Scale tool.
+Rotate ツールと Scale ツールがあります
 
 77
 00:03:28,317 --> 00:03:31,030
-In 2D mode the primary tool will be
+2D モードで最も頻繁に使うのは
 
 78
 00:03:31,030 --> 00:03:33,030
-the Translate tool.
+Translate ツールです
 
 79
 00:03:33,627 --> 00:03:36,180
-These tool buttons can be selected by clicking on them
+各ツールボタンはクリックするか
 
 80
 00:03:36,180 --> 00:03:38,180
-or by using a shortcut key.
+ショートカットキーを押すと選択できます
 
 81
 00:03:39,039 --> 00:03:41,039
-The shortcut keys for these buttons are the
+各ボタンのショートカットキーは
 
 82
 00:03:41,039 --> 00:03:43,412
-Q, W, E and R keys.
+Q / W / E / R キーです
 
 83
 00:03:44,312 --> 00:03:46,836
-An easy way to remember these shortcut keys
+ショートカットキーは
 
 84
 00:03:46,836 --> 00:03:48,836
-is that the transform tools are the buttons
+ツールの位置がエディターの
 
 85
 00:03:48,836 --> 00:03:51,070
-in the upper left of the editor
+左上部にあるので
 
 86
 00:03:51,070 --> 00:03:53,349
-and the shortcut keys are the keys in the
+対応するショートカットキーも
 
 87
 00:03:53,349 --> 00:03:55,349
-upper left of the keyboard, and they are
+キーボードの左上にあると覚えるとよいでしょう
 
 88
 00:03:55,349 --> 00:03:57,349
-in the same order, left to right.
+並び順は左から右に
 
 89
 00:03:57,849 --> 00:04:00,531
-Q is the shortcut key for the hand tool.
+Q は Hand ツール
 
 90
 00:04:00,531 --> 00:04:03,389
-W is the shortcut key for the translate tool.
+W は Translate ツール
 
 91
 00:04:03,889 --> 00:04:06,442
-E is the shortcut key for the rotate tool
+E は Rotate ツール
 
 92
 00:04:06,442 --> 00:04:09,919
-and R is the shortcut key for the scale tool.
+R は Scale ツールです
 
 93
 00:04:10,778 --> 00:04:13,218
-The hand tool moves the scene view.
+Hand ツールは Scene ビューを動かすツールです
 
 94
 00:04:14,049 --> 00:04:17,218
-Click and drag anywhere in the scene to move the view.
+クリックしてドラッグするとビューを動かせます
 
 95
 00:04:18,091 --> 00:04:20,091
-The hand tool can be modified by using
+Hand ツールは Ctrl キーを押した状態だと
 
 96
 00:04:20,091 --> 00:04:22,965
-the control keys to zoom the scene view.
+Scene ビューをズームする機能に変化します
 
 97
 00:04:23,838 --> 00:04:25,838
-It's useful to note that the hand tool
+なお Hand ツールは他のツールを
 
 98
 00:04:25,838 --> 00:04:27,838
-can be used when any of the other transform
+選択した状態であっても
 
 99
 00:04:27,838 --> 00:04:29,838
-tools are active by holding down either the
+Alt または Option キーを押すと
 
 100
 00:04:29,838 --> 00:04:31,838
-Alt or Option key.
+有効になります
 
 101
 00:04:32,628 --> 00:04:34,628
-The zoom tool can also be used when any
+同様にズーム機能も
 
 102
 00:04:34,628 --> 00:04:36,628
-of the other transform tools are active by
+他のツールを選択した状態であっても
 
 103
 00:04:36,628 --> 00:04:38,628
-holding down both the control and either the
+Ctrl と Alt または Option キーを押すことで
 
 104
 00:04:38,628 --> 00:04:40,628
-Alt or Option keys.
+いつでも使えます
 
 105
 00:04:41,308 --> 00:04:43,308
-The right mouse button can also be used
+この他にはマウスの右ボタンも
 
 106
 00:04:43,308 --> 00:04:45,308
-to activate the hand tool
+Hand ツールへの切り替えに使えますし
 
 107
 00:04:45,308 --> 00:04:47,980
-and the mouse wheel can be used to zoom.
+マウスホイールはズーム機能に使えます
 
 108
 00:04:49,148 --> 00:04:51,451
-The translate, rotate and scale tools
+Translate / Rotate / Scale ツールは
 
 109
 00:04:51,451 --> 00:04:53,451
-are used to select and position
+シーン内でゲームオブジェクトを
 
 110
 00:04:53,451 --> 00:04:55,368
-game objects in the scene.
+選択・配置するときに使用します
 
 111
 00:04:55,716 --> 00:04:58,023
-With any of the transform tools active
+いずれかのツールを選択した状態で
 
 112
 00:04:58,023 --> 00:05:00,023
-click on a game object to select it.
+ゲームオブジェクトをクリックすると選択状態になります
 
 113
 00:05:01,227 --> 00:05:03,227
-When selected a gizmo will appear
+選択状態になるとゲームオブジェクトの周囲に
 
 114
 00:05:03,227 --> 00:05:05,171
-around the game object.
+ギズモが表示されます
 
 115
 00:05:05,171 --> 00:05:07,171
-Each tool has it's own gizmo and the
+表示されるギズモは選択中の
 
 116
 00:05:07,171 --> 00:05:09,903
-gizmo will change when the tool is changed.
+ツールによって異なります
 
 117
 00:05:11,577 --> 00:05:15,312
-The translate tool is for moving game objects in the scene.
+Translate ツールはゲームオブジェクトを移動するツールですが
 
 118
 00:05:15,812 --> 00:05:17,979
-When a scene view mode is set for 2D
+Scene ビューが 2D に設定されている場合
 
 119
 00:05:17,979 --> 00:05:19,979
-the translate tool can also be used to
+Translate ツールはスプライトの
 
 120
 00:05:19,979 --> 00:05:21,979
-scale and rotate sprites.
+拡大縮小・回転にも使えます
 
 121
 00:05:23,129 --> 00:05:25,588
-If the game object is a sprite and the scene view
+ゲームオブジェクトがスプライトで Scene ビューが
 
 122
 00:05:25,588 --> 00:05:28,530
-is in 2D mode, the translate gizmo
+2D の場合 Translate ギズモは
 
 123
 00:05:28,530 --> 00:05:30,530
-is replaced by the sprite gizmo.
+Sprite ギズモに変化します
 
 124
 00:05:31,430 --> 00:05:33,975
-The sprite gizmo adds additional functionality
+この Sprite ギズモは機能を追加する以外にも
 
 125
 00:05:33,975 --> 00:05:35,975
-to the translate tool and improves
+2D ワークフローを向上させる
 
 126
 00:05:35,975 --> 00:05:37,975
-the 2D workflow.
+側面も持ちます
 
 127
 00:05:37,975 --> 00:05:40,322
-When working with sprites in 2D mode
+2D モードでスプライトを扱う場合には基本的に
 
 128
 00:05:40,322 --> 00:05:43,952
-it is possible to work exclusively with the translate tool.
+Translate ツールだけを使って操作を進めることが可能です
 
 129
 00:05:44,687 --> 00:05:46,839
-The sprite gizmo can be used to position the 
+Sprite ギズモならクリック&ドラッグで 
 
 130
 00:05:46,839 --> 00:05:48,839
-sprite in the scene by clicking and dragging
+シーン内のどこへでも
 
 131
 00:05:48,839 --> 00:05:51,511
-anywhere within the area of the sprite gizmo.
+スプライトを移動できます
 
 132
 00:05:52,375 --> 00:05:54,375
-The sprite gizmo can also be used to 
+また Sprite ギズモで回転や 
 
 133
 00:05:54,375 --> 00:05:56,375
-rotate or scale the sprite.
+拡大 / 縮小も可能です
 
 134
 00:05:57,179 --> 00:05:59,814
-To rotate a sprite using the translate tool
+Translate ツールを使ってスプライトを回転させるには
 
 135
 00:05:59,814 --> 00:06:02,008
-click and drag on a point outside of the
+Sprite ギズモの外周角にあるポイントを
 
 136
 00:06:02,008 --> 00:06:04,559
-sprite gizmo near one corner.
+クリック&ドラッグします
 
 137
 00:06:04,559 --> 00:06:06,463
-This point is indicated by the
+回転できるポイントはポインターに
 
 138
 00:06:06,463 --> 00:06:08,463
-rotate icon appearing on the pointer.
+表示される回転アイコンで判別できます
 
 139
 00:06:13,548 --> 00:06:16,001
-To scale a sprite using the translate tool
+Sprite ギズモを使ってスプライトを
 
 140
 00:06:16,001 --> 00:06:17,599
-click and drag on either the corner
+拡大・縮小するには四隅または
 
 141
 00:06:17,599 --> 00:06:19,599
-or the edge of the sprite gizmo.
+境界線をクリック&ドラッグします
 
 142
 00:06:20,582 --> 00:06:22,582
-This is indicated by the pointer icon
+拡大・縮小できる場合はこの場合はポインターが
 
 143
 00:06:22,582 --> 00:06:25,140
-changing to a double arrow icon
+両端矢印アイコンに変化します
 
 144
 00:06:25,140 --> 00:06:27,140
-which will be oriented in the direction the
+この矢印の方向はドラッグした場合の
 
 145
 00:06:27,140 --> 00:06:29,140
-sprite will scale when dragged.
+拡縮の方向を示します
 
 146
 00:06:30,110 --> 00:06:32,676
-By default the sprite will scale proportionally.
+拡大・縮小時  デフォルトでは縦横比率は保たれます
 
 147
 00:06:33,494 --> 00:06:35,690
-To scale the sprite disproportionally
+縦横比を保持せずに拡大・縮小する場合は
 
 148
 00:06:35,690 --> 00:06:38,138
-hold the Shift key while dragging on an edge
+Shift キーを押しながら Sprite ギズモで
 
 149
 00:06:38,138 --> 00:06:40,138
-or corner of the sprite gizmo.
+四隅 / 境界線をクリックしてください
 
 150
 00:06:40,900 --> 00:06:43,457
-When rotating, holding the Shift key will step
+また回転時に Shift キーを押していると
 
 151
 00:06:43,457 --> 00:06:46,437
-the rotation in 15 degree increments.
+回転が 15 度刻みになります
 
 152
 00:06:47,891 --> 00:06:49,891
-The rotate and scale tools are used
+Rotate および Scale ツールは
 
 153
 00:06:49,891 --> 00:06:52,942
-to rotate and scale the selected game object,
+選択したゲームオブジェクトの回転とスケールに使われ
 
 154
 00:06:52,942 --> 00:06:55,834
-and their behaviour is unchanged in 2D mode.
+その振る舞いは 2D モードでも変わりません
 
 155
 00:06:56,583 --> 00:06:58,583
-For more information on transform tools,
+Transform ツールや
 
 156
 00:06:58,583 --> 00:07:00,583
-including the rotate and scale tools,
+Rotate ツール / Scale ツールの詳細については
 
 157
 00:07:00,583 --> 00:07:02,583
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 158
 00:07:03,898 --> 00:07:05,898
-The order in which sprites are rendered
+スプライトがレンダリングされる順序は
 
 159
 00:07:05,898 --> 00:07:07,898
-depends upon details controlled by the
+Sprite Renderer とその Sorting Layer
 
 160
 00:07:07,898 --> 00:07:10,423
-sprite renderer and it's sorting layers.
+によって細かく制御されています
 
 161
 00:07:11,089 --> 00:07:13,089
-For more information on the sprite renderer
+Sprite Renderer コンポーネントおよび
 
 162
 00:07:13,089 --> 00:07:14,897
-component and sorting layers
+Sorting Layer の詳細については
 
 163
 00:07:14,897 --> 00:07:17,245
-please see the information linked below.
+下記リンク先の情報を参照してください

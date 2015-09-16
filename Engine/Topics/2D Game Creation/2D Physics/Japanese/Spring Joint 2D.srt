@@ -1,259 +1,259 @@
-1
+﻿1
 00:00:00,262 --> 00:00:02,044
-The spring joint 2D component
+Spring Joint 2D コンポーネントは
 
 2
 00:00:02,044 --> 00:00:04,044
-allows you to create 2D springs
+Rigidbody 2D 物理演算オブジェクトを使って
 
 3
 00:00:04,044 --> 00:00:07,118
-using your rigidbody 2D physics objects.
+2D スプリング（バネ）を作る時に使います
 
 4
 00:00:07,715 --> 00:00:09,715
-It can be added to your game object
+ゲームオブジェクトへはコンポーネントメニューの
 
 5
 00:00:09,715 --> 00:00:11,206
-from the physics 2D area
+Physics 2D エリアから
 
 6
 00:00:11,206 --> 00:00:13,206
-of the component menus.
+追加できます
 
 7
 00:00:14,507 --> 00:00:16,632
-In this example we have a plank
+この例で表示されている
 
 8
 00:00:16,632 --> 00:00:18,869
-and a meteor, both of which are
+オブジェクトである木版と隕石は
 
 9
 00:00:18,869 --> 00:00:20,456
-2D physics objects,
+ともに 2D 物理演算なので
 
 10
 00:00:20,456 --> 00:00:22,360
-meaning that they have rigidbody 2D 
+Rigidbody 2D コンポーネントが 
 
 11
 00:00:22,360 --> 00:00:24,084
-components attached.
+アタッチされています
 
 12
 00:00:28,437 --> 00:00:30,561
-The meteor game object has the spring joint
+そして隕石ゲームオブジェクトにはさらに Spring Joint 2D
 
 13
 00:00:30,561 --> 00:00:32,421
-2D component attached
+コンポーネントがアタッチされています
 
 14
 00:00:32,421 --> 00:00:33,766
-as this is the object we which to 
+これは隕石がスプリングの影響を 
 
 15
 00:00:33,766 --> 00:00:35,766
-affect with our spring.
+受けるオブジェクトだからです
 
 16
 00:00:36,418 --> 00:00:38,418
-A spring joint 2D can be attached
+Spring Joint 2D はスプリングの
 
 17
 00:00:38,418 --> 00:00:40,418
-to your object if you wish it to be
+影響を受けさせたいオブジェクトに
 
 18
 00:00:40,418 --> 00:00:42,013
-affected by a spring.
+アタッチします
 
 19
 00:00:42,013 --> 00:00:44,013
-But it also needs to be anchored to a point
+ただしその際  シーン中の任意のポイントに
 
 20
 00:00:44,013 --> 00:00:45,131
-in your scene.
+アンカーさせる必要もあります
 
 21
 00:00:45,670 --> 00:00:48,524
-This is defined by the connected rigidbody.
+これを定義する設定が Connected Rigid Body です
 
 22
 00:00:48,524 --> 00:00:50,524
-Here we have dragged our Plank game object
+ここでは木板ゲームオブジェクトをプロパティに
 
 23
 00:00:50,524 --> 00:00:52,174
-on to this property.
+ドラッグしてあります
 
 24
 00:00:52,674 --> 00:00:55,584
-Note that this plank is a kinematic rigidbody.
+この木板は Is Kinematic がオンの Rigidbody である点に注意してください
 
 25
 00:00:59,330 --> 00:01:01,689
-This means that it won't be affected by physics.
+これは「物理演算に影響を受けない」という意味です
 
 26
 00:01:01,689 --> 00:01:04,640
-it won't be pulled down by the meteor being attached.
+なのでアタッチされている隕石に引っ張られて落ちることはありません
 
 27
 00:01:04,640 --> 00:01:06,640
-This is perfect for an anchor point.
+アンカーポイントとしては理想的ですよね
 
 28
 00:01:06,640 --> 00:01:08,640
-Let's look at this in action.
+それでは実際の様子を見てみましょう
 
 29
 00:01:13,076 --> 00:01:15,726
-As we can see, the meteor is attached to the plank.
+このように隕石は木板にアタッチされています
 
 30
 00:01:18,035 --> 00:01:20,035
-And in the scene view we can see that there are
+そして Scene ビューではスプリングを示すギズモが
 
 31
 00:01:20,035 --> 00:01:22,035
-gizmos representing the spring.
+表示されているのが見えると思います
 
 32
 00:01:22,701 --> 00:01:24,311
-If I move the meteor
+ここで隕石を動かすと
 
 33
 00:01:25,394 --> 00:01:26,893
-the spring reacts.
+スプリングが反応します
 
 34
 00:01:27,894 --> 00:01:29,365
-And if I move the plank
+そして木板のほうを移動しても
 
 35
 00:01:30,063 --> 00:01:31,539
-the spring continues to act
+隕石についたスプリングは引き続き
 
 36
 00:01:31,539 --> 00:01:32,917
-on our meteor.
+きちんと反応します
 
 37
 00:01:34,647 --> 00:01:37,644
-If we want to offset the position of our anchor point
+アンカーポイントの位置や隕石上でのアタッチ先を
 
 38
 00:01:37,644 --> 00:01:39,644
-or where it attaches to our meteor
+オフセットしたい場合は Anchor または
 
 39
 00:01:39,644 --> 00:01:42,091
-we can use the anchor, or connected anchor
+Connected Anchor の X / Y 値を
 
 40
 00:01:42,091 --> 00:01:43,443
-X and Y values.
+調整します
 
 41
 00:01:44,784 --> 00:01:47,783
-You can see this using the gizmo in the scene view.
+Scene ビューのギズモで見ると分かりやすいですが
 
 42
 00:01:49,941 --> 00:01:51,691
-Adjusting the anchor will adjust the
+Anchor を調節すると
 
 43
 00:01:51,691 --> 00:01:53,691
-position of connection.
+接続部分の位置が変わります
 
 44
 00:01:55,420 --> 00:01:57,420
-And adjusting the connected anchor
+そして Connected Anchor を調節すると
 
 45
 00:01:57,420 --> 00:01:59,766
-will adjust the position of anchoring
+接続された Rigidbody のアンカー部分の
 
 46
 00:01:59,766 --> 00:02:01,533
-to the connected rigidbody.
+位置が変わります
 
 47
 00:02:01,533 --> 00:02:03,381
-So if your sprite has a point that makes
+たとえば使っているスプライトにアタッチする
 
 48
 00:02:03,381 --> 00:02:05,381
-visual sense to attach to you can use this
+合理性のある箇所があればこのオプションを使って
 
 49
 00:02:05,381 --> 00:02:07,672
-offset to attach the spring here.
+目的の場所にスプリングをアタッチしましょう
 
 50
 00:02:07,672 --> 00:02:09,212
-For example, we may want to connect
+この例であれば 隕石の端に
 
 51
 00:02:09,212 --> 00:02:11,212
-to the edge of our meteor.
+接続する  といった具合です
 
 52
 00:02:19,807 --> 00:02:22,668
-The distance is how long the spring should be.
+Distance はスプリングの長さを指定する項目です
 
 53
 00:02:32,726 --> 00:02:35,431
-And the frequency acts as a strength value.
+そして Frequency は強度値として使われます
 
 54
 00:02:35,431 --> 00:02:37,431
-Having a low frequency makes for a very
+この値を小さくすると跳ね返りが非常に
 
 55
 00:02:37,431 --> 00:02:39,431
-slow bouncing response.
+「ゆるく」なりますが
 
 56
 00:02:45,718 --> 00:02:49,202
-And having a high frequency makes for a very tight spring.
+値を大きくするとバネが「きつく」なります
 
 57
 00:02:57,161 --> 00:02:59,938
-Damping ratio is a value from 0 to 1
+Damping Ratio は 0 ～ 1 の間で指定する値で
 
 58
 00:02:59,938 --> 00:03:02,646
-which will allow you to dampen the response of the spring,
+バネの跳ね返りを弱めて  オブジェクトへの
 
 59
 00:03:02,646 --> 00:03:04,646
-slowing it's affect on your object.
+影響を遅くすることができます
 
 60
 00:03:05,395 --> 00:03:07,834
-As with all of the physics 2D components
+これは Physics 2D コンポーネント全体に共通することですが
 
 61
 00:03:07,834 --> 00:03:09,834
-the best thing to do is to play around with these values
+一番良いのは 色々と数値を調整してみて
 
 62
 00:03:09,834 --> 00:03:11,834
-until you find something that feels satisfactory
+ゲームプレイや視覚的表現として満足いくまで
 
 63
 00:03:11,834 --> 00:03:14,910
-for your game play and visuals.
+試行錯誤することでしょう
 
 64
 00:03:14,910 --> 00:03:17,423
-For more information on the spring joint 2D
+Spring Joint 2D の詳細については
 
 65
 00:03:17,423 --> 00:03:19,423
-please see the resources linked below.
+下記リンク先の情報を参照してください

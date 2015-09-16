@@ -1,567 +1,567 @@
-1
+﻿1
 00:00:02,205 --> 00:00:05,561
-In Unity it's possible to add physics forces
+Unity ではエフェクターを使うことで特定のエリア内の
 
 2
 00:00:05,561 --> 00:00:08,250
-to 2D objects within an area
+2D オブジェクトに対して物理的な力を
 
 3
 00:00:08,250 --> 00:00:10,250
-using effectors.
+働かせることができます
 
 4
 00:00:10,250 --> 00:00:12,250
-The Area Effector 2D allows us to
+Area Effector 2D はコライド/トリガーが検出された
 
 5
 00:00:12,250 --> 00:00:14,250
-add physics forces to 2D object
+2D オブジェクトに対して物理的な力を
 
 6
 00:00:14,250 --> 00:00:16,250
-which trigger or collide with it.
+働かせるコンポーネントです
 
 7
 00:00:17,193 --> 00:00:19,193
-Some example uses for this might be to create
+具体的な使用例としてはたとえば
 
 8
 00:00:19,193 --> 00:00:21,193
-an area of a scene in which a fan
+大きな扇風機がオブジェクトを
 
 9
 00:00:21,193 --> 00:00:22,942
-blows objects in a certain direction
+特定方向へ吹き飛ばすとか
 
 10
 00:00:23,304 --> 00:00:25,304
-or to create a speed boost area
+見下ろし型のドライブゲームで
 
 11
 00:00:25,304 --> 00:00:27,304
-in a top-down driving game.
+加速エリアを作るとかいったものが挙げられます
 
 12
 00:00:27,304 --> 00:00:29,304
-In our example scene we have a hat
+さて  このサンプルシーンにはコインを生み出す
 
 13
 00:00:29,304 --> 00:00:31,220
-which spawns coins.
+帽子があります
 
 14
 00:00:31,220 --> 00:00:33,716
-The coin prefab contains a sprite renderer,
+コインのプレハブにはSprite Renderer
 
 15
 00:00:33,716 --> 00:00:36,544
-circle collider and rigid body collider 2D
+Circle Collider そしてRigidbody 2D が
 
 16
 00:00:36,544 --> 00:00:38,115
-with default values.
+デフォルト値でアタッチされています
 
 17
 00:00:38,919 --> 00:00:40,919
-The coins fall in to our first
+落ちてきたコインはまず
 
 18
 00:00:40,919 --> 00:00:43,271
-area effector 2D which is attached
+ArrowsRight というゲームオブジェクトにアタッチされた
 
 19
 00:00:43,271 --> 00:00:45,271
-to our game object ArrowsRight.
+最初の Area Effector 2D に当たります
 
 20
 00:00:46,367 --> 00:00:48,367
-When they enter the collider they are propelled
+そしてコライダーに入ると右側に飛ばされていき
 
 21
 00:00:48,367 --> 00:00:50,367
-to the right where they are caught and lifted
+続けてゲームオブジェクト ArrowsUpby にアタッチされた
 
 22
 00:00:50,367 --> 00:00:52,838
-by our second area effector 2D
+2 番目の Area Effector 2D に当たり
 
 23
 00:00:52,838 --> 00:00:54,838
-which is attached to ArrowsUp.
+上に吹き飛ばされます
 
 24
 00:00:57,459 --> 00:00:59,459
-For an area effector to function it
+エリアエフェクターは機能させるためには
 
 25
 00:00:59,459 --> 00:01:01,459
-must be attached to a game object which
+2D コライダーを持つゲームオブジェクトに
 
 26
 00:01:01,459 --> 00:01:03,459
-also has a 2D collider.
+アタッチする必要があります
 
 27
 00:01:04,985 --> 00:01:08,657
-On the box collider 2D attached to ArrowsRight
+ArrowsRight にアタッチされている Box Collider 2D の 
 
 28
 00:01:08,657 --> 00:01:10,657
-the Used By Effector field is
+Used By Effector フィールドがオンに
 
 29
 00:01:10,657 --> 00:01:12,587
-set to true.
+設定されているのが見えるでしょうか
 
 30
 00:01:12,587 --> 00:01:14,587
-If this field is not checked you'll see
+このフィールドがオフになっている場合
 
 31
 00:01:14,587 --> 00:01:17,573
-a warning on your area effector component
+Area Effector コンポーネントから
 
 32
 00:01:17,573 --> 00:01:19,573
-that the effector will not function until
+「このゲームオブジェクトに有効な 2D コライダーがあり 
 
 33
 00:01:19,573 --> 00:01:21,880
-there is at least 1 enabled 2D collider
+Used By Effector がオンになっていないとエフェクターが
 
 34
 00:01:21,880 --> 00:01:24,977
-with Used By Effector checked on this game object.
+機能しません」という内容の警告が表示されます
 
 35
 00:01:26,516 --> 00:01:28,516
-Additionally the box collider 2D
+また Box Collider 2D の
 
 36
 00:01:28,516 --> 00:01:30,516
-should have it's Is Trigger field
+Is Trigger フィールドは
 
 37
 00:01:30,516 --> 00:01:32,516
-checked and set to true.
+オンでなくてはいけません
 
 38
 00:01:33,251 --> 00:01:35,251
-This will allow the objects to enter 
+これがオンだとオブジェクトはトリガーボリュームに 
 
 39
 00:01:35,251 --> 00:01:38,820
-the trigger volume in which they will be effected by
+入れるようになりその結果エリアエフェクターで
 
 40
 00:01:38,834 --> 00:01:42,011
-the forces set in the area effector settings.
+定められた力の影響を受けるようになります
 
 41
 00:01:42,817 --> 00:01:46,132
-Area effectors are designed to be used with triggers.
+エリアエフェクターはトリガーと組み合わせて使うようにできています
 
 42
 00:01:46,132 --> 00:01:48,132
-It's possible to use an area effector with 
+エリアエフェクターをトリガーでないコライダーと 
 
 43
 00:01:48,132 --> 00:01:50,437
-non-trigger colliders, but the forces will
+組み合わせて使うことも不可能ではありませんが
 
 44
 00:01:50,437 --> 00:01:52,437
-only be applied when the target collider
+その場合力が適用されるのはターゲットコライダーが
 
 45
 00:01:52,437 --> 00:01:55,223
-is in contact with the source.
+ソースと接触した場合に限られます
 
 46
 00:01:56,138 --> 00:01:58,643
-To control what forces are applied
+オブジェクトがトリガーボリュームに
 
 47
 00:01:58,643 --> 00:02:01,252
-when an object enters the trigger volume
+入った時にどの力が適用されるのかは
 
 48
 00:02:01,252 --> 00:02:04,620
-the area effector 2d the following settings.
+Area Effector 2D の設定で指定します
 
 49
 00:02:05,508 --> 00:02:07,508
-The collider mask allows users to
+Collider Mask を使うとエフェクターの
 
 50
 00:02:07,508 --> 00:02:10,910
-include or exclude layers from being
+及ぼす力を作用させるレイヤーと
 
 51
 00:02:10,910 --> 00:02:12,910
-effected by this effector's forces.
+作用させないレイヤーを指定できます
 
 52
 00:02:13,770 --> 00:02:16,862
-For more on layers please see the information linked below.
+レイヤーについての詳細は下記リンク先の情報を参照してください
 
 53
 00:02:17,847 --> 00:02:20,515
-Here the effector is effecting everything.
+ここではエフェクターがすべて（Everything）に作用するよう設定されています
 
 54
 00:02:21,583 --> 00:02:23,583
-The force direction is the angle at
+Force Direction は力の作用する
 
 55
 00:02:23,583 --> 00:02:25,583
-which the force will be applied
+方向を 0 ～ 359.99 で
 
 56
 00:02:25,583 --> 00:02:30,396
-in degrees ranging from 0 to 359.99
+指定するオプションです
 
 57
 00:02:30,868 --> 00:02:34,830
-If we input a number greater than 359.99
+359.99 を超える値を指定した場合は
 
 58
 00:02:34,830 --> 00:02:39,019
-it will clamp to 359.99.
+自動的に 359.99 が指定されます
 
 59
 00:02:39,019 --> 00:02:41,366
-If we use a negative value
+また負の値を指定した場合は
 
 60
 00:02:41,366 --> 00:02:43,366
-the force direction will be applied
+力の作用する方向が
 
 61
 00:02:43,366 --> 00:02:45,366
-in the opposite direction.
+反対方向になります
 
 62
 00:02:46,087 --> 00:02:49,985
-The force direction is calculated in world space,
+Force Direction はワールド空間で計算され
 
 63
 00:02:49,985 --> 00:02:53,147
-incrementing in a counter-clockwise direction.
+反時計回りに増加します
 
 64
 00:02:54,243 --> 00:02:56,243
-If force direction is set to 0
+Force Direction を 0 に指定すると
 
 65
 00:02:56,243 --> 00:02:59,169
-the object will be pushed directly to the right.
+オブジェクトは右に押し出されていき
 
 66
 00:02:59,169 --> 00:03:02,490
-If set to 90 it will be pushed upwards,
+90 に指定すると上方向へ
 
 67
 00:03:02,490 --> 00:03:05,072
-if set to 180 it will be pushed to the left
+180 に指定すると左方向に
 
 68
 00:03:05,072 --> 00:03:07,875
-and if set to 270 it will be pushed down.
+270 に指定すると下方向に押されます
 
 69
 00:03:08,931 --> 00:03:11,153
-Note that the force direction is directly
+なお Force Direction はオブジェクトの
 
 70
 00:03:11,153 --> 00:03:13,153
-relative to world space and not 
+ローカル回転ではなくワールド空間との 
 
 71
 00:03:13,153 --> 00:03:15,153
-to the object's local rotation.
+相対位置である点に注意してください
 
 72
 00:03:15,930 --> 00:03:17,930
-Rotating the object will not rotate
+オブジェクトを回転させても
 
 73
 00:03:17,930 --> 00:03:20,539
-the direction which the force is applied in.
+力の作用する方向は変更されません
 
 74
 00:03:21,538 --> 00:03:24,143
-The force magnitude is the magnitude of the 
+Force Magnitude はオブジェクトが 
 
 75
 00:03:24,143 --> 00:03:26,143
-force to be applied to each object
+トリガーボリューム内に存在する間に
 
 76
 00:03:26,143 --> 00:03:29,072
-while it remains within the trigger volume.
+受け続ける力の大きさを示します
 
 77
 00:03:29,793 --> 00:03:33,125
-In this case we've set our force magnitude to 22,
+この例では 22 に指定して
 
 78
 00:03:33,125 --> 00:03:35,125
-to give our objects a relatively gentle
+次のエフェクターに届くまで
 
 79
 00:03:35,125 --> 00:03:38,141
-push towards our second effector.
+やや弱めに押し出しています
 
 80
 00:03:40,152 --> 00:03:43,337
-The force variation here is set to 0.
+Force Variation は今回は 0 に指定しています
 
 81
 00:03:43,337 --> 00:03:45,337
-Force variation allows us to
+Force Variation は
 
 82
 00:03:45,337 --> 00:03:48,792
-add or subtract a random amount
+指定した範囲内でランダムに
 
 83
 00:03:48,792 --> 00:03:52,860
-ranging from 0 to the amount specified.
+作用する力を加算 / 減算します
 
 84
 00:03:52,860 --> 00:03:54,860
-by setting force variation to a positive
+Force Variation を正の値にすると
 
 85
 00:03:54,860 --> 00:03:56,860
-number we can add
+作用する力（Force Magnitude）に
 
 86
 00:03:56,860 --> 00:04:00,691
-between 0 and that number to the force magnitude
+0 ～指定値までがランダムに加算されるようになり
 
 87
 00:04:00,691 --> 00:04:02,691
-and by setting it to a negative number we 
+負の値を指定した場合は 
 
 88
 00:04:02,691 --> 00:04:06,645
-can subtract between 0 and that number.
+0 ～指定値までがランダムに減算されるようになります
 
 89
 00:04:08,295 --> 00:04:11,141
-In the case of our first area effector 2D,
+さて最初の Area Effector 2D では
 
 90
 00:04:11,141 --> 00:04:14,480
-we've set the drag and angular drag to 0.
+Drag と Angular Drag を 0 としました
 
 91
 00:04:15,090 --> 00:04:17,090
-Modifying the drag values allows
+これら Drag 値を変更するとエフェクターの
 
 92
 00:04:17,090 --> 00:04:19,670
-us to add drag or angular drag
+トリガーボリュームに入る
 
 93
 00:04:19,670 --> 00:04:23,101
-to 2D rigid bodies that enter the effector's trigger volume.
+2D Rigidbody に対して Drag や Angular Drag を適用できます
 
 94
 00:04:23,101 --> 00:04:25,101
-The drag coefficient specified in the 
+Area Effector 2D で指定される 
 
 95
 00:04:25,101 --> 00:04:27,101
-area effector 2D are applied
+Drag 係数は  ターゲットオブジェクトの
 
 96
 00:04:27,101 --> 00:04:29,530
-in addition to any already set
+Rigidbody 2D 設定に
 
 97
 00:04:29,530 --> 00:04:32,561
-in the target object's rigid body 2D settings.
+上乗せするかたちで適用されます
 
 98
 00:04:33,504 --> 00:04:36,537
-In our second effector attached to ArrowsUp
+ArrowsUp にアタッチされた 2 個めのエフェクターでは
 
 99
 00:04:36,537 --> 00:04:38,537
-we're using drag to catch and
+Drag を使って飛んでくるコインの
 
 100
 00:04:38,537 --> 00:04:40,980
-slow down the incoming coins
+動きを遅くして受け止め
 
 101
 00:04:40,980 --> 00:04:43,506
-so that we can then move them directly upwards.
+その後上方向に移動させています
 
 102
 00:04:44,242 --> 00:04:46,242
-If we temporarily reduce the drag value
+ここで Drag の値を 10 から 0 に
 
 103
 00:04:46,242 --> 00:04:48,242
-from 10 to 0 we can see that the
+下げてみるとコインの速度が速すぎて
 
 104
 00:04:48,242 --> 00:04:51,579
-velocity of the coins causes them to pass
+トリガーボリュームの右側へ
 
 105
 00:04:51,579 --> 00:04:54,992
-through the trigger volume and out of it to the right.
+突き抜けていってしまいます
 
 106
 00:04:59,944 --> 00:05:01,944
-To demonstrate the angular drag
+Area Effector 2D の Angular Drag と
 
 107
 00:05:01,944 --> 00:05:05,840
-and force target parameters of our area effector 2D
+Force Target パラメーターのしくみを詳しく説明するため
 
 108
 00:05:05,840 --> 00:05:07,840
-we've modified our scene slightly.
+少しシーンを変更してみました
 
 109
 00:05:08,242 --> 00:05:11,426
-We've added our 2Planks game object
+まず 2Planks ゲームオブジェクトを追加
 
 110
 00:05:11,426 --> 00:05:14,382
-which has a rigid body 2D attached
+これには Rigidbody 2D がアタッチされ
 
 111
 00:05:14,382 --> 00:05:16,382
-with 2 child objects
+さらに 2 つの子オブジェクトを持ち
 
 112
 00:05:16,382 --> 00:05:18,675
-which hold a sprite renderer
+それぞれ Sprite Renderer と
 
 113
 00:05:18,675 --> 00:05:20,675
-and box collider 2D.
+Box Collider 2D がアタッチされています
 
 114
 00:05:21,882 --> 00:05:24,855
-We've also duplicated our ArrowsRight object
+そして ArrowsRight オブジェクトを複製し
 
 115
 00:05:24,855 --> 00:05:26,855
-to make ArrowsRight2.
+ArrowsRight2 も作りました
 
 116
 00:05:28,339 --> 00:05:30,339
-When we play our scene you can see
+ここでシーンを実行してみると
 
 117
 00:05:30,339 --> 00:05:32,686
-that the 2Planks object falls
+2Planks オブジェクトが
 
 118
 00:05:32,686 --> 00:05:35,368
-in to the two ArrowsRight effectors,
+2 個の ArrowsRight エフェクターの上に落ちて
 
 119
 00:05:35,368 --> 00:05:36,978
-is moved to the right,
+右に運ばれていき
 
 120
 00:05:36,978 --> 00:05:39,673
-and then is moved upwards by ArrowsUp.
+ArrowsUp により上に運ばれていきます
 
 121
 00:05:40,394 --> 00:05:43,844
-Currently the angular drag is set to 0
+現在 Angular Drag は 0 で
 
 122
 00:05:43,844 --> 00:05:45,844
-and the force target is rigid body.
+Force Target は Rigidbody です
 
 123
 00:05:46,815 --> 00:05:49,209
-Because the force target is rigid body 
+Force Target が Rigidbody の場合 
 
 124
 00:05:49,209 --> 00:05:51,209
-the force is applied to the centre
+力は Rigidbody の質量中心に
 
 125
 00:05:51,209 --> 00:05:53,209
-of mass of the rigid body
+作用しますから
 
 126
 00:05:53,209 --> 00:05:56,223
-and therefore does not case rotation.
+回転は発生しません
 
 127
 00:05:56,806 --> 00:06:00,482
-If we highlight our 3 area effector objects
+ここで エリアエフェクターオブジェクト 3 個を選択し
 
 128
 00:06:00,482 --> 00:06:03,550
-and switch the force target to collider
+すべての Force Target を Collider に変更して
 
 129
 00:06:03,550 --> 00:06:05,550
-and then play our scene again
+シーンをもう一度実行してみましょう
 
 130
 00:06:06,632 --> 00:06:08,632
-we can see that setting the
+Force Target を Colider にしたことで
 
 131
 00:06:08,632 --> 00:06:10,632
-force target to collider causes
+オブジェクトが回転するようになったのが
 
 132
 00:06:10,632 --> 00:06:12,632
-the object to rotate.
+確認できますね
 
 133
 00:06:13,520 --> 00:06:15,520
-Angular drag allows us to
+Angular Drag の値は
 
 134
 00:06:15,520 --> 00:06:18,173
-slow an object's rotation
+大きくするとオブジェクトの回転を
 
 135
 00:06:18,173 --> 00:06:20,963
-as we increase the drag value.
+遅くすることができます
 
 136
 00:06:22,392 --> 00:06:24,392
-If we then switch the angular drag
+そこで Area Effectors 2D
 
 137
 00:06:24,392 --> 00:06:28,646
-value for all 3 area effectors 2Ds to 10
+すべての Angular Drag を 10 に変更すると
 
 138
 00:06:29,353 --> 00:06:31,353
-We can see that by increasing
+回転はなくならないものの
 
 139
 00:06:31,353 --> 00:06:35,136
-angular drag the rotation still occurs
+Angular Drag のおかげで最小限に
 
 140
 00:06:35,136 --> 00:06:37,136
-but is minimised.
+なっているのが確認できます
 
 141
 00:06:37,136 --> 00:06:39,539
-For more on area effectors please see
+エリアエフェクターの詳細については
 
 142
 00:06:39,539 --> 00:06:41,539
-the information linked below.
+下記リンク先の情報を参照してください

@@ -1,595 +1,595 @@
-1
+﻿1
 00:00:01,229 --> 00:00:04,401
-The rigidbody 2D is a component that allows
+Rigidbody 2D はゲームオブジェクトを
 
 2
 00:00:04,401 --> 00:00:07,135
-a game object to be affected by 2D physics.
+2D 物理演算で制御するためのコンポーネントです
 
 3
 00:00:07,978 --> 00:00:10,804
-The game object must also have a collider 2D
+また 2D 物理演算を使って対象のゲームオブジェクトを
 
 4
 00:00:10,804 --> 00:00:13,608
-component attached to interact with other game objects
+他のゲームオブジェクトと干渉させるには Collider 2D コンポーネントも
 
 5
 00:00:13,608 --> 00:00:15,221
-using 2D physics.
+アタッチする必要があります
 
 6
 00:00:16,067 --> 00:00:18,925
-A rigidbody 2D is required when working with
+また 2D ジョイントのような特殊な 2D 物理演算コンポーネントを
 
 7
 00:00:18,925 --> 00:00:20,925
-specialised 2D physics components
+使用する場合にも Rigidbody 2D は
 
 8
 00:00:20,925 --> 00:00:22,925
-such as 2D joints.
+必要になります
 
 9
 00:00:23,922 --> 00:00:27,036
-The rigidbody 2D is also used to define important
+Rigidbody 2D はまた質量・リニア・回転抵抗・
 
 10
 00:00:27,036 --> 00:00:29,230
-physical properties about the game object,
+重力スケールなどゲームオブジェクトの重要な
 
 11
 00:00:29,230 --> 00:00:32,339
-such as it's mass, linear and angular drag,
+物理プロパティを定義する時にも
 
 12
 00:00:32,339 --> 00:00:34,781
-gravity scale and other properties.
+使用します
 
 13
 00:00:35,640 --> 00:00:38,491
-It is worth noting that unlike 3D physics
+なお 3D 物理演算とは異なり
 
 14
 00:00:38,491 --> 00:00:41,398
-the rigidbody 2D has a gravity scale
+Rigidbody 2D では
 
 15
 00:00:41,398 --> 00:00:43,398
-which allows gravity to be set on a
+ゲームオブジェクトごとに
 
 16
 00:00:43,398 --> 00:00:45,398
-per-game-object basis.
+重力スケールが指定できます
 
 17
 00:00:46,271 --> 00:00:48,465
-In this scene the prop_ammo_crate
+さてこのシーンにある prop_ammo_crate は
 
 18
 00:00:48,465 --> 00:00:50,548
-is a simple game object with a sprite
+スプライトを格納しレンダリングする Sprite Renderer を
 
 19
 00:00:50,548 --> 00:00:52,963
-renderer to hold and render the sprite.
+持つだけのシンプルなゲームオブジェクトです
 
 20
 00:00:55,010 --> 00:00:58,405
-Enter play mode, and nothing happens.
+ここで Play モードに入っても 何も生じません
 
 21
 00:00:59,872 --> 00:01:02,834
-2D physics behaviour can be added to the ammo crate
+まずこの弾薬箱に 2D 物理演算の挙動を追加してみましょう
 
 22
 00:01:02,834 --> 00:01:05,469
-by attaching a rigidbody 2D
+まず Rigidbody 2D を追加するため
 
 23
 00:01:05,469 --> 00:01:12,463
-with Add Component - Physics 2D - Rigidbody 2D.
+Add Component > Physics 2D > Rigidbody 2D の順に操作します
 
 24
 00:01:13,833 --> 00:01:15,833
-It is worth noting that there are other ways to
+なおゲームオブジェクトにコンポーネントを
 
 25
 00:01:15,833 --> 00:01:17,833
-attach a component to a game object.
+アタッチする方法は他にも存在します
 
 26
 00:01:19,535 --> 00:01:21,535
-For more information on components and
+コンポーネントおよびゲームオブジェクトへの
 
 27
 00:01:21,535 --> 00:01:23,151
-how to add them to game objects
+追加方法については
 
 28
 00:01:23,151 --> 00:01:25,473
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 29
 00:01:27,074 --> 00:01:29,842
-When in play mode, the ammo crate now falls
+さて Play モードに入ると弾薬箱が重力の
 
 30
 00:01:29,842 --> 00:01:32,108
-under the influence of gravity.
+影響を受けて落ちるようになりました
 
 31
 00:01:32,108 --> 00:01:34,314
-But it does not collide with the space ship.
+ただ宇宙船と衝突（コライド）していません
 
 32
 00:01:35,616 --> 00:01:39,205
-To interact with other game objects using 2D physics
+2D 物理演算で他のゲームオブジェクトと干渉させるには
 
 33
 00:01:39,205 --> 00:01:43,100
-all game objects involved need collider 2d components
+干渉させるすべてのゲームオブジェクトに Collider 2D コンポーネントが
 
 34
 00:01:43,100 --> 00:01:46,959
-and at least 1 needs to have a rigidbody 2D attached.
+そして最低 1 個のゲームオブジェクトに Rigidbody 2D がアタッチされている必要があります
 
 35
 00:01:47,873 --> 00:01:50,856
-The space ship already has a 2D collider.
+宇宙船にはすでに2D コライダーがアタッチされています
 
 36
 00:01:50,856 --> 00:01:53,022
-A collider 2D component can be added
+Collider 2D コンポーネントを弾薬箱に
 
 37
 00:01:53,022 --> 00:01:55,161
-to the ammo crate by selecting
+追加するには Add Component >
 
 38
 00:01:55,161 --> 00:02:01,349
-Add Component - Physics 2D - Box Collider.
+Physics 2D > Box Collider の順に選択します
 
 39
 00:02:02,650 --> 00:02:04,871
-The size of the 2D collider will automatically
+2D コライダーのサイズは自動的に
 
 40
 00:02:04,871 --> 00:02:06,871
-match the size of the sprite.
+スプライトのサイズに合わせられます
 
 41
 00:02:08,075 --> 00:02:10,075
-In this case the collider needs to be adjusted
+今回の場合はコライダーの大きさを
 
 42
 00:02:10,075 --> 00:02:12,605
-to match the image of the ammo box.
+弾薬箱の画像に合うよう調整する必要があります
 
 43
 00:02:17,298 --> 00:02:19,159
-Now, when in play mode,
+さてこれで Play モードで
 
 44
 00:02:19,659 --> 00:02:22,385
-the ammo crate collides with, and comes to rest on
+弾薬箱が無事に衝突して宇宙船の上に
 
 45
 00:02:22,385 --> 00:02:24,026
-the top of the space ship.
+みごと落ちました
 
 46
 00:02:24,788 --> 00:02:26,788
-For more information on 2D colliders
+2D コライダーの詳細については
 
 47
 00:02:26,788 --> 00:02:29,244
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 48
 00:02:31,015 --> 00:02:33,683
-The rigidbody 2D component not only allows a
+Rigidbody 2D コンポーネントは単に
 
 49
 00:02:33,683 --> 00:02:36,315
-game object to be affected by 2D physics,
+ゲームオブジェクトを 2D 物理演算で
 
 50
 00:02:36,315 --> 00:02:38,815
-it is used to define important physical
+制御させる以外にもゲーム重要な
 
 51
 00:02:38,815 --> 00:02:40,815
-properties about that game object.
+物理プロパティを定義する役割があります
 
 52
 00:02:42,669 --> 00:02:45,589
-Mass is the mass of the rigidbody 2D.
+Mass は Rigidbody 2D の質量を示します
 
 53
 00:02:46,006 --> 00:02:48,090
-2D rigidbodies with higher mass,
+質量の高い 2D Rigidbody は
 
 54
 00:02:48,090 --> 00:02:49,866
-like those in the real world,
+現実世界と同じように
 
 55
 00:02:49,866 --> 00:02:52,378
-take more force to move and will have greater affect
+動かすのに必要な力が大きくなり  また他の 2D Rigidbody と
 
 56
 00:02:52,378 --> 00:02:55,074
-when colliding with other 2D rigidbodies.
+衝突した時にも大きな影響を及ぼすようになります
 
 57
 00:02:55,955 --> 00:02:57,845
-In this first case the ammo crate
+最初にお見せする例では弾薬箱と
 
 58
 00:02:57,845 --> 00:02:59,845
-and the asteroid have the same mass.
+隕石の質量は同じです
 
 59
 00:03:05,704 --> 00:03:07,969
-When the mass is changed on the asteroid
+しかし隕石の質量を変更すると
 
 60
 00:03:08,897 --> 00:03:10,897
-the interaction between the two game objects
+両オブジェクトの干渉結果は大きく
 
 61
 00:03:10,897 --> 00:03:12,897
-is significantly different.
+変化します
 
 62
 00:03:19,253 --> 00:03:21,475
-Linear and Angular drag affect
+Linear Drag と Angular Drag は
 
 63
 00:03:21,475 --> 00:03:24,029
-the velocity of 2D rigidbodies.
+2D Rigidbody の速度に影響します
 
 64
 00:03:24,969 --> 00:03:28,211
-Think of this as something similar to air resistance.
+空気抵抗のようなものと考えると分かりやすいかもしれません
 
 65
 00:03:29,098 --> 00:03:31,404
-Linear drag will slow the speed, or velocity
+Linear Drag は Rigidbody 2D の
 
 66
 00:03:31,404 --> 00:03:33,404
-of the rigidbody 2D.
+スピード（速度）を遅くします
 
 67
 00:03:39,899 --> 00:03:42,270
-And angular drag will slow it's rotation
+Angular Drag は回転... あるいは
 
 68
 00:03:42,270 --> 00:03:44,270
-or angular velocity.
+角速度を遅くします
 
 69
 00:04:00,874 --> 00:04:05,008
-Gravity Scale controls how gravity affects the rigidbody 2D.
+Gravity Scale は重力が Rigidbody 2D に与える影響を制御します
 
 70
 00:04:05,646 --> 00:04:08,351
-Unlike changing the global value of gravity
+グローバルな Gravity の値とは異なり
 
 71
 00:04:08,351 --> 00:04:10,351
-gravity scale allows for precise
+Gravity Scale では対象ゲームオブジェクト
 
 72
 00:04:10,351 --> 00:04:12,765
-control on a per-game-object basis.
+単体の細やかな制御が可能です
 
 73
 00:04:13,928 --> 00:04:15,928
-When in play mode the ammo crate
+Play モードでは弾薬箱が重力の
 
 74
 00:04:15,928 --> 00:04:18,218
-falls under the influence of gravity.
+影響を受けて落下していますね
 
 75
 00:04:19,243 --> 00:04:21,243
-Lower the gravity scale value
+ここで Gravity Scale の値を下げると
 
 76
 00:04:24,008 --> 00:04:26,008
-and the game object falls more slowly.
+ゲームオブジェクトの落下速度は遅くなります
 
 77
 00:04:26,798 --> 00:04:29,452
-To disable gravity set this value to 0.
+重力を無効化する場合には値を 0 にセットします
 
 78
 00:04:31,121 --> 00:04:33,411
-When Fixed Angle is selected the rigidbody
+Fixed Angle をオンにすると Rigidbody 2D は
 
 79
 00:04:33,411 --> 00:04:35,991
-2D will respond to 2D physics forces
+2D 物理演算の力には作用されるものの
 
 80
 00:04:35,991 --> 00:04:37,991
-but it will not rotate.
+回転しなくなります
 
 81
 00:04:37,991 --> 00:04:40,559
-Under normal conditions the asteroid will fall,
+通常の条件下であれば隕石は落下して
 
 82
 00:04:40,559 --> 00:04:43,277
-collide with the ammo box and roll away.
+弾薬箱に衝突して転がり落ちていきますが
 
 83
 00:04:44,758 --> 00:04:47,258
-When Fixed Angle is selected
+Fixed Angle をオンにすると
 
 84
 00:04:47,258 --> 00:04:50,866
-the asteroid will continue to react to physical forces,
+隕石は  衝突のような物理的な力には
 
 85
 00:04:51,808 --> 00:04:53,419
-such as the collision.
+作用されるものの
 
 86
 00:04:53,990 --> 00:04:55,990
-But it will not rotate.
+回転はしなくなります
 
 87
 00:04:58,230 --> 00:05:00,313
-When Is Kinematic is selected
+Is Kinematic をオンにすると
 
 88
 00:05:00,313 --> 00:05:02,823
-the rigidbody 2D is considered to be a
+Rigidbody 2D は
 
 89
 00:05:02,823 --> 00:05:04,823
-kinematic rigidbody 2D
+2D 物理演算の
 
 90
 00:05:04,823 --> 00:05:07,505
-and is not affected by 2D physics forces,
+力や重力あるいは衝突の
 
 91
 00:05:07,505 --> 00:05:09,505
-including gravity and collisions.
+影響を受けなくなります
 
 92
 00:05:10,516 --> 00:05:12,516
-This is typically done when moving a game object
+このオプションは主に 2D コライダーを持つ
 
 93
 00:05:12,516 --> 00:05:14,516
-with a 2D collider without using
+ゲームオブジェクトを物理演算や
 
 94
 00:05:14,516 --> 00:05:16,516
-physics or physics forces.
+力を使わずに動かす場合に使われます
 
 95
 00:05:17,196 --> 00:05:20,053
-For example, when creating a moving platform.
+たとえば移動する足場を作る場合
 
 96
 00:05:20,053 --> 00:05:22,053
-The platform could be controlled by a
+足場はスクリプトやアニメーションで
 
 97
 00:05:22,053 --> 00:05:24,053
-script or animation
+制御されて
 
 98
 00:05:24,053 --> 00:05:26,219
-and be moved by it's transform,
+物理的な力ではなく
 
 99
 00:05:26,219 --> 00:05:28,219
-not by physics forces.
+Transform で動かされます
 
 100
 00:05:28,650 --> 00:05:30,650
-However, the platform needs to interact
+しかし足場は他の 2D ゲームオブジェクトとも
 
 101
 00:05:30,650 --> 00:05:32,650
-with other 2D game objects.
+干渉できなくてはいけません
 
 102
 00:05:33,150 --> 00:05:35,426
-So the platform needs a 2D collider
+このため足場にも 2D コライダーを
 
 103
 00:05:35,426 --> 00:05:37,136
-attached as well.
+アタッチするわけです
 
 104
 00:05:38,036 --> 00:05:40,426
-This means there is now a moving game object
+これで2D コライダーのアタッチされた移動する
 
 105
 00:05:40,426 --> 00:05:42,426
-with a collider 2D attached.
+ゲームオブジェクトができました
 
 106
 00:05:43,658 --> 00:05:47,018
-When moving a collider 2D while the game is playing
+ゲーム中に Collider 2D を動かす場合には
 
 107
 00:05:47,018 --> 00:05:49,824
-it is highly recommended that a rigidbody 2D
+Rigidbody 2D もアタッチしておくことを
 
 108
 00:05:49,824 --> 00:05:51,479
-be attached as well.
+推奨します
 
 109
 00:05:52,241 --> 00:05:54,419
-Yet we don't want this platform to react
+しかし足場には物理的な力に
 
 110
 00:05:54,419 --> 00:05:56,419
-to physics forces.
+反応して欲しくないので
 
 111
 00:05:57,002 --> 00:05:59,002
-In this case, the rigidbody will be set
+この場合には Rigidbody の Is Kinematic を
 
 112
 00:05:59,002 --> 00:06:01,002
-to Is Kinematic.
+オンに設定するのです
 
 113
 00:06:01,861 --> 00:06:03,861
-This platform is moved via scripting
+この足場はスクリプトで動かされ
 
 114
 00:06:03,861 --> 00:06:05,861
-with a 2D collider attached.
+さらに 2D コライダーがアタッチされています
 
 115
 00:06:16,678 --> 00:06:18,373
-The Interpolate settings can help smooth
+Interpolate 設定はゲームオブジェクトの
 
 116
 00:06:18,373 --> 00:06:20,373
-movement of a game object.
+動きを滑らかにするものです
 
 117
 00:06:20,373 --> 00:06:22,373
-If a game object appears to jitter when
+Rigidbody 2D で動かされているゲームオブジェクトの
 
 118
 00:06:22,373 --> 00:06:24,937
-being moved by it's rigidbody 2D
+動きがカクカクしている場合
 
 119
 00:06:24,937 --> 00:06:26,937
-use the Interpolate settings to help
+Interpolate 設定を使うと Transform の
 
 120
 00:06:26,937 --> 00:06:28,937
-smooth it's transform movement.
+移動が滑らかになります
 
 121
 00:06:29,796 --> 00:06:31,796
-The Interpolate setting will smooth the
+Interpolate 設定はゲームオブジェクトの
 
 122
 00:06:31,796 --> 00:06:33,601
-movement based on the game object's
+直前のフレームにおける位置をベースに
 
 123
 00:06:33,601 --> 00:06:35,601
-position in the previous frame.
+動きを滑らかにします
 
 124
 00:06:36,902 --> 00:06:38,902
-And the Extrapolate setting will use the
+他方の Extrapolate 設定は
 
 125
 00:06:38,902 --> 00:06:40,902
-predicted position in the next frame.
+次のフレームの位置を予測して動きを滑らかにします
 
 126
 00:06:42,590 --> 00:06:44,590
-Sleeping Mode controls how the rigidbody
+Sleeping Mode は Rigidbody をスリープさせて
 
 127
 00:06:44,590 --> 00:06:47,322
-will sleep to save processing time.
+処理時間を短縮するためのオプションです
 
 128
 00:06:47,794 --> 00:06:50,280
-Never Sleep will disable sleeping
+Never Sleep はスリーピングを無効化し
 
 129
 00:06:50,780 --> 00:06:53,280
-Start Awake will make sure the rigidbody 2D
+Start Awake は Rigidbody 2D が
 
 130
 00:06:53,280 --> 00:06:56,176
-is awake when instantiated.
+インスタンス化された時にスリープ解除します
 
 131
 00:06:56,176 --> 00:06:58,176
-Start Asleep will initially set the
+Start Asleep はまず Rigidbody 2D を
 
 132
 00:06:58,176 --> 00:07:00,176
-rigidbody 2D to sleep
+スリープ状態としておき衝突時に
 
 133
 00:07:00,176 --> 00:07:02,590
-but it can be woken by collisions.
+スリープ解除するようにします
 
 134
 00:07:03,988 --> 00:07:05,864
-For more information on sleeping
+スリープの詳細については
 
 135
 00:07:05,864 --> 00:07:08,351
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 136
 00:07:09,690 --> 00:07:11,690
-The collision detection settings control
+Collision Detection 設定は
 
 137
 00:07:11,690 --> 00:07:13,690
-the type of collision detection used
+Rigidbody 2D で使用する衝突判定の
 
 138
 00:07:13,690 --> 00:07:15,690
-when a rigidbody 2D.
+種類を制御する項目です
 
 139
 00:07:16,673 --> 00:07:18,673
-The default is Discrete
+デフォルトは Discrete で
 
 140
 00:07:18,673 --> 00:07:20,673
-and it is best to use discrete unless
+問題がない限りは Discrete を
 
 141
 00:07:20,673 --> 00:07:22,506
-there are problems.
+使うことをお勧めします
 
 142
 00:07:22,506 --> 00:07:24,939
-In this case collisions are registered if
+今回の場合ではゲームオブジェクトの
 
 143
 00:07:24,939 --> 00:07:27,232
-the game object's 2D collider
+2D コライダーが物理演算のアップデート中に
 
 144
 00:07:27,232 --> 00:07:30,566
-is in contact with another during a physics update.
+他のコライダーと接触した時に衝突が登録されます
 
 145
 00:07:31,522 --> 00:07:34,189
-Continuous is for fast moving game objects
+Continuous は高速で動くゲームオブジェクトがある時
 
 146
 00:07:34,189 --> 00:07:36,189
-and collisions are registered if the game object
+次のアップデートまでの間に衝突が発生したと思われる場合に
 
 147
 00:07:36,189 --> 00:07:40,048
-appears to have collided with another between updates.
+衝突を登録する時に使用する設定です
 
 148
 00:07:42,164 --> 00:07:45,944
-For more information on physics 2D and the rigidbody 2D
+Physics 2D と Rigidbody 2D の詳細については
 
 149
 00:07:45,944 --> 00:07:48,522
-please see the information linked below.
+下記リンク先の情報を参照してください

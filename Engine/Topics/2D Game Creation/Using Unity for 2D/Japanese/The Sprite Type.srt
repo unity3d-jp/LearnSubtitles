@@ -1,299 +1,299 @@
-1
+﻿1
 00:00:01,312 --> 00:00:02,836
-The Sprite Type.
+スプライトタイプ...
 
 2
 00:00:03,902 --> 00:00:06,359
-When importing image assets as sprites
+画像アセットをスプライトとしてインポートする場合
 
 3
 00:00:06,359 --> 00:00:08,902
-the texture type should be set to Sprite.
+Texture Type は Sprite に設定する必要があります
 
 4
 00:00:10,438 --> 00:00:13,708
-If the project has been set as a 2D project
+プロジェクトが 2D プロジェクトと設定されている場合には
 
 5
 00:00:13,708 --> 00:00:15,652
-the texture importer will use the 
+テクスチャインポーターは新規画像アセットを 
 
 6
 00:00:15,652 --> 00:00:17,889
-Sprite Type by default on any new image
+インポートする際にデフォルトで
 
 7
 00:00:17,889 --> 00:00:19,889
-assets being imported.
+スプライトタイプを使用します
 
 8
 00:00:20,941 --> 00:00:23,134
-For more information on setting up a project
+プロジェクト を 2D プロジェクトとして設定する方法の
 
 9
 00:00:23,134 --> 00:00:26,727
-as 2D please see the information linked below.
+詳細については下記リンク先の情報を参照してください
 
 10
 00:00:27,752 --> 00:00:30,001
-If any image asset has been imported
+画像をインポートした時にタイプが
 
 11
 00:00:30,001 --> 00:00:32,504
-and the type has not been set to sprite
+Sprite に設定されなかった場合には
 
 12
 00:00:32,504 --> 00:00:35,656
-the sprite type can be set manually in the importer.
+インポーターで手動で指定することも可能です
 
 13
 00:00:36,391 --> 00:00:38,391
-To select the sprite type in the importer
+インポーターでスプライトタイプを選択する場合は
 
 14
 00:00:38,391 --> 00:00:42,326
-use the Texture Type pull-down and select Sprite.
+Texture Type プルダウンから Sprite を選択してください
 
 15
 00:00:45,216 --> 00:00:47,714
-Sprite Mode has 2 options
+Sprite Mode には 2 つのオプション
 
 16
 00:00:47,714 --> 00:00:49,714
-Single and Multiple.
+Single と Multiple があります
 
 17
 00:00:50,601 --> 00:00:53,549
-Single should be chosen when the entire image asset
+Single はその画像全体を単一要素として扱い
 
 18
 00:00:53,549 --> 00:00:57,010
-is 1 element and will be used as a single sprite.
+単一スプライトとして使用する場合に選択します
 
 19
 00:00:58,643 --> 00:01:00,904
-Multiple should be chosen when the image
+Multiple は画像アセット内に
 
 20
 00:01:00,904 --> 00:01:04,240
-asset contains multiple elements in the same file,
+複数の要素が含まれる場合
 
 21
 00:01:04,240 --> 00:01:07,031
-such as an atlas of sprite elements
+たとえばスプライト要素のアトラスや
 
 22
 00:01:07,031 --> 00:01:09,031
-or an animated sprite sheet.
+アニメーションのスプライトシートに使用します
 
 23
 00:01:11,948 --> 00:01:14,209
-There is an optional Packing Tag.
+任意指定の Packing Tag オプションには
 
 24
 00:01:14,209 --> 00:01:16,501
-This is the name of the optional sprite
+テクスチャをパック可能な
 
 25
 00:01:16,501 --> 00:01:19,156
-atlas in to which this texture could be packed.
+オプションスプライトアトラスの名前を指定します
 
 26
 00:01:20,264 --> 00:01:24,075
-For more information on texture packing and the texture packer
+テクスチャパッキングとテクスチャパッカーの詳細については
 
 27
 00:01:24,075 --> 00:01:26,635
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 28
 00:01:27,266 --> 00:01:29,531
-Pixels To Units defines the scale
+Pixels To Units はインポートされるスプライトの
 
 29
 00:01:29,531 --> 00:01:31,531
-of the imported sprite.
+スケールを定義します
 
 30
 00:01:32,224 --> 00:01:34,224
-Pixels To Units defines the number of
+Pixels To Units にはワールド空間での
 
 31
 00:01:34,224 --> 00:01:36,473
-pixels from the sprite that will correspond
+1 ユニットに対応するスプライトの
 
 32
 00:01:36,473 --> 00:01:38,871
-to 1 unit in world space.
+ピクセル数を指定します
 
 33
 00:01:39,815 --> 00:01:42,495
-At the default scale of 100 pixels per unit
+デフォルトの 100 ピクセル/ユニットでは
 
 34
 00:01:42,495 --> 00:01:45,841
-a 256 by 64 pixel image
+256 x 64 ピクセルの画像が
 
 35
 00:01:45,841 --> 00:01:48,407
-will be applied to a game object that is
+ゲームオブジェクトに 2.56 x 0.64
 
 36
 00:01:48,407 --> 00:01:53,564
-2.56 by 0.64 Unity units.
+Unity ユニットで適用されます
 
 37
 00:01:55,639 --> 00:01:57,971
-With Sprite Mode Single selected
+Sprite Mode に Single を選択した場合
 
 38
 00:01:57,971 --> 00:02:00,551
-Pivot sets the pivot point of the sprite.
+Pivot はスプライトのピボットポイントを定義します
 
 39
 00:02:01,134 --> 00:02:03,134
-The default is centre.
+デフォルトは Center です
 
 40
 00:02:03,731 --> 00:02:05,911
-The drop-down menu allows this to be changed
+このドロップダウンでは自由に四隅や
 
 41
 00:02:05,911 --> 00:02:08,496
-to any of the corners or sides.
+四辺を選択できます
 
 42
 00:02:09,074 --> 00:02:11,725
-Custom reveals X and Y value fields
+Custom を選択すると X / Y 値フィールドが表示され
 
 43
 00:02:11,725 --> 00:02:13,725
-to set a custom pivot.
+カスタムピボットポイントが指定できるようになります
 
 44
 00:02:14,626 --> 00:02:17,844
-Custom pivots use values between 0 and 1.
+カスタムピボットは 0 ～ 1 の間で指定します
 
 45
 00:02:17,844 --> 00:02:22,192
-Starting from the lower left, 0 is the start or minimum value,
+開始位置は左下で 0 が始点 / 最小値
 
 46
 00:02:22,192 --> 00:02:26,512
-and 1 is the end or maximum value on each axis.
+1 が終端 / 各軸の最大値となります
 
 47
 00:02:26,512 --> 00:02:31,828
-(0.5, 0.5) is directly in the middle of the rectangle.
+(0.5, 0.5) で四角形の中心を示します
 
 48
 00:02:34,607 --> 00:02:36,912
-With Sprite Mode Multiple selected
+Sprite Mode が Multiple に指定されていると
 
 49
 00:02:36,912 --> 00:02:38,773
-the option to set the pivot point is
+ピボットポイントのオプションは
 
 50
 00:02:38,773 --> 00:02:40,773
-unavailable in the importer.
+インポーターでは指定できません
 
 51
 00:02:42,198 --> 00:02:45,659
-The pivot point is set per sprite in the sprite editor.
+これは Sprite Editor で各スプライトごとに指定されるためです
 
 52
 00:02:46,560 --> 00:02:48,560
-The sprite editor button will open this
+ここで Sprite Editor ボタンを押すと
 
 53
 00:02:48,560 --> 00:02:51,292
-image asset in the sprite editor.
+画像アセットが Sprite Editor で開かれます
 
 54
 00:02:51,292 --> 00:02:53,484
-For more information on the sprite editor
+Sprite Editor の詳細については
 
 55
 00:02:53,484 --> 00:02:55,915
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 56
 00:02:56,951 --> 00:02:59,448
-The Filter Mode and Per Platform Overrides
+フィルターモードとプラットフォーム単位のオーバーライドは
 
 57
 00:02:59,448 --> 00:03:02,545
-are unchanged by the texture type Sprite.
+テクスチャータイプ Sprite の場合は変更ありません
 
 58
 00:03:03,584 --> 00:03:07,512
-For more information on Filter Mode, or the Per Platform Overrides
+フィルターモードとプラットフォーム単位のオーバーライドの詳細については
 
 59
 00:03:07,512 --> 00:03:10,486
-please see the lessons on textures linked below.
+下記リンク先にあるテクスチャのレッスンをご覧ください
 
 60
 00:03:11,759 --> 00:03:14,490
-It is worth noting that an atlas, or sprite sheet,
+なおアトラスやスプライトシートは画像テクスチャの
 
 61
 00:03:14,490 --> 00:03:16,490
-maybe larger than the default max
+デフォルトの最大サイズである 1024 よりも
 
 62
 00:03:16,490 --> 00:03:19,730
-size of 1024 for an image texture.
+大きい可能性があります
 
 63
 00:03:20,948 --> 00:03:22,948
-If the image to be imported is larger
+そのような画像がインポートされる場合
 
 64
 00:03:22,948 --> 00:03:24,948
-than the max size value
+アセットはインポート時に
 
 65
 00:03:24,948 --> 00:03:26,948
-the asset will be resized to this
+許容される最大サイズに
 
 66
 00:03:26,948 --> 00:03:29,638
-value during the import process.
+リサイズされます
 
 67
 00:03:29,638 --> 00:03:32,868
-To prevent the resizing of large images on import
+大きな画像がインポート時にリサイズされないようにするには
 
 68
 00:03:32,868 --> 00:03:36,034
-the max size value may need to be adjusted.
+必要に応じて最大サイズ値を調整してください
 
 69
 00:03:37,785 --> 00:03:41,158
- When an image asset is successfully imported as a sprite
+ 画像アセットが正常にスプライトとしてインポートされると
 
 70
 00:03:41,158 --> 00:03:43,817
-the asset will update in the project window
+Project ウィンドウでアセットが更新されます
 
 71
 00:03:43,817 --> 00:03:45,817
-and a new sprite, or group of sprites,
+その後は新しいスプライト / スプライト群は
 
 72
 00:03:45,817 --> 00:03:48,040
-can be seen as a child, or children,
+元の画像の下に子 / 子のグループとして
 
 73
 00:03:48,040 --> 00:03:50,040
-of the original image asset.
+表示されます
 
 74
 00:03:51,465 --> 00:03:53,987
-For more information on these sprite children
+スプライトの子についての詳細は
 
 75
 00:03:53,987 --> 00:03:57,671
-please see the information on the Sprite Editor linked below.
+下記リンク先の Sprite Editor の情報をご覧ください

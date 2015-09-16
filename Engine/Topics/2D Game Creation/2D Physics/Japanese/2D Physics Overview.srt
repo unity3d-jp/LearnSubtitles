@@ -1,479 +1,479 @@
-1
+﻿1
 00:00:01,298 --> 00:00:04,351
-To have convincing physical behaviour a game object must
+ゲームオブジェクトに信ぴょう性のある物理挙動をさせるには
 
 2
 00:00:04,351 --> 00:00:07,226
-accelerate correctly, have a feeling of proper mass
+適切な加速・質量感があることの他にも
 
 3
 00:00:07,226 --> 00:00:09,750
-and be affected by collisions, gravity and other
+コリジョンや重力などの力がリアルかつ適切に
 
 4
 00:00:09,750 --> 00:00:11,750
-forces in a realistic way.
+作用するようにしなければなりません
 
 5
 00:00:13,300 --> 00:00:16,257
-Unity's built-in physics engines provide components
+Unity のビルトイン物理演算エンジンはそういった
 
 6
 00:00:16,257 --> 00:00:19,083
-that handle these physical simulations.
+物理シミュレーションを扱うためのコンポーネントが揃っています
 
 7
 00:00:21,713 --> 00:00:24,524
-There are two separate physics engines in Unity.
+Unity には 2 種類の物理演算エンジンがあります
 
 8
 00:00:24,524 --> 00:00:27,977
-One for 2D physics and one for 2D physics.
+3D 物理演算向けのものと 2D 物理演算向けのものです
 
 9
 00:00:29,320 --> 00:00:31,870
-The main concepts are identical between these two
+両者の主要コンセプトは同一ですが
 
 10
 00:00:31,870 --> 00:00:33,870
-physics engines, except for the extra
+当然ながら 3D 物理演算の場合は次元がひとつ
 
 11
 00:00:33,870 --> 00:00:36,119
-third dimension in 3D physics.
+追加されたものになっています
 
 12
 00:00:36,840 --> 00:00:38,840
-These systems are implemented however with
+しかしシステムとして見た場合両者は
 
 13
 00:00:38,840 --> 00:00:40,840
-completely different components.
+完全に異なるコンポーネントとして実装されています
 
 14
 00:00:41,685 --> 00:00:45,467
-When using 2D physics the physic 2D components
+3D 物理演算エンジンを使ったことのある人であれば
 
 15
 00:00:45,467 --> 00:00:48,895
-will seem familiar to those who have used the 3D physics engine.
+2D 物理演算の Physics2D コンポーネントはなじみのある物に見えると思います
 
 16
 00:00:49,657 --> 00:00:51,657
-Most of the physics 2D components
+実際  ほとんどの Physics2D コンポーネントは
 
 17
 00:00:51,657 --> 00:00:54,783
-behave in a similar way to their 3D counterparts.
+3D の場合と同様の挙動をします
 
 18
 00:00:54,783 --> 00:00:56,921
-Except in 2 dimensions.
+もちろん 2D 空間で  ですが
 
 19
 00:00:56,921 --> 00:00:59,475
-And have similar names, except with 2D after
+名前も似ていますが  こちらは名前の後に
 
 20
 00:00:59,475 --> 00:01:01,475
-the descriptive part of the name.
+2D という文字が付いています
 
 21
 00:01:01,795 --> 00:01:04,002
-For example, in 3D physics
+たとえば 3D 物理演算の
 
 22
 00:01:04,002 --> 00:01:06,002
-there is a rigidbody component.
+Rigidbody コンポーネントは
 
 23
 00:01:06,502 --> 00:01:08,866
-In 2D physics there is analogous
+2D 物理演算ではほぼ似た名前の
 
 24
 00:01:08,866 --> 00:01:10,866
-rigidbody 2D component.
+Rigidbody 2D コンポーネントとなっています
 
 25
 00:01:11,463 --> 00:01:13,853
-This pattern will hold true for most of the  physics
+これはその他の Physics 2D コンポーネントや
 
 26
 00:01:13,853 --> 00:01:16,462
-2D components and scripting methods.
+スクリプティングメソッドでも同様です
 
 27
 00:01:16,462 --> 00:01:20,384
-Including box collider and box collider 2D.
+たとえば Box Collider は Box Collider 2D に
 
 28
 00:01:20,384 --> 00:01:24,099
-Or OnTriggerEnter and OnTriggerEnter2D.
+OnTriggerEnter は OnTriggerEnter2D になっています
 
 29
 00:01:25,013 --> 00:01:27,677
-It is important to note that these 2 physics systems
+ただし両者は非常に似ているものの互換性はありません
 
 30
 00:01:27,677 --> 00:01:30,133
-are comparable but not compatible.
+この点だけは注意しておいてください
 
 31
 00:01:30,826 --> 00:01:33,229
-3D physics and 2D physics can be present
+3D 物理演算と 2D 物理演算を同一シーンに
 
 32
 00:01:33,229 --> 00:01:36,437
-in the same scene, but they will not interact with each other.
+共存させることは可能ですが 両者は干渉しません
 
 33
 00:01:40,887 --> 00:01:42,887
-There are some important differences between
+2D 物理演算と 3D 物理演算には
 
 34
 00:01:42,887 --> 00:01:45,318
-2D physics and 3D physics.
+いくつか重要な相違点があります
 
 35
 00:01:45,318 --> 00:01:47,318
-The most critical difference is that there is no
+最も大きな違いが 2D 物理演算では
 
 36
 00:01:47,318 --> 00:01:49,930
-concept of depth in 2D physics.
+奥行きの概念がないことでしょう
 
 37
 00:01:50,840 --> 00:01:53,668
-All 2D physics plays out on the X/Y plane
+すべての 2D 物理演算は X/Y 平面上で行われ
 
 38
 00:01:53,668 --> 00:01:57,472
-with this 2D plane at 0 along the Z axis.
+この 2D 平面は Z 軸上では 0 となります
 
 39
 00:01:58,276 --> 00:02:01,311
-Game object under control of the 2D physics engine
+2D 物理演算エンジンに制御されているゲームオブジェクトは
 
 40
 00:02:01,311 --> 00:02:03,311
-can only move on an X/Y plane
+X/Y 平面で移動することができますが
 
 41
 00:02:03,311 --> 00:02:06,209
-and can only rotate around the Z axis.
+Z 軸に対しては回転のみが可能です
 
 42
 00:02:07,096 --> 00:02:09,096
-As it is possible to view a 2D game
+なお 2D ゲームもエディターの
 
 43
 00:02:09,096 --> 00:02:11,432
-when the editor is in 3D mode
+3D モードで表示でき
 
 44
 00:02:11,432 --> 00:02:13,432
-and it is possible to change the transform
+2D 物理演算を用いたゲームオブジェクトの
 
 45
 00:02:13,432 --> 00:02:15,805
-position Z of a game object
+Transform 位置 Z を
 
 46
 00:02:15,805 --> 00:02:17,612
-that is using 2D physics
+変更することもできますが
 
 47
 00:02:17,612 --> 00:02:19,612
-it is important to remember that all of the
+ここで覚えておくべき事項は
 
 48
 00:02:19,612 --> 00:02:22,083
-physics interaction takes place at the
+物理演算上の干渉はすべて
 
 49
 00:02:22,083 --> 00:02:24,601
-Z axis position of 0.
+Z 軸位置 0 で起きるということです
 
 50
 00:02:26,144 --> 00:02:29,081
-2D physics has a number of project-wide settings.
+さて 2D 物理演算のいくつかの設定はプロジェクト単位で指定されます
 
 51
 00:02:29,081 --> 00:02:30,956
-These can be edited by selecting
+これらを編集する場合は
 
 52
 00:02:30,956 --> 00:02:34,266
-Edit - Project Settings - Physics 2D.
+Edit > Project Settings > Physics 2D にアクセスします
 
 53
 00:02:34,987 --> 00:02:36,987
-These settings contain details on the
+ここでは各種詳細設定  たとえば
 
 54
 00:02:36,987 --> 00:02:39,647
-properties like strength and direction of gravity,
+重力の強さと方向のようなプロパティ
 
 55
 00:02:39,647 --> 00:02:44,095
-the default material and the layer collision matrix, and more.
+デフォルトのマテリアル  そしてレイヤーコリジョンのマトリクスなどを指定できます
 
 56
 00:02:44,871 --> 00:02:47,759
-For more information on the physics 2D settings
+Physics2DSettings の詳細については
 
 57
 00:02:47,759 --> 00:02:50,422
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 58
 00:02:51,488 --> 00:02:53,752
-One of the primary components used in physics 2D
+Physics 2D で最も重要なコンポーネントのひとつが
 
 59
 00:02:53,752 --> 00:02:56,166
-is the rigidbody 2D.
+Rigidbody 2D です
 
 60
 00:02:56,597 --> 00:02:58,887
-Attaching a rigidbody 2D component
+Rigidbody 2D コンポーネントをアタッチすると
 
 61
 00:02:58,887 --> 00:03:00,887
-places a game object under the control
+そのゲームオブジェクトが 2D 物理演算エンジンの
 
 62
 00:03:00,887 --> 00:03:02,887
-of the 2D physics engine.
+制御下に入ります
 
 63
 00:03:05,625 --> 00:03:08,518
-The rigidbody 2D component works with colliders
+Rigidbody 2D コンポーネントはコリジョンを検出する
 
 64
 00:03:08,518 --> 00:03:11,774
-to detect collisions, can receive forces and torque
+コライダーと共に使い 力やトルクを受け取ったり
 
 65
 00:03:11,774 --> 00:03:13,456
-operate various types of joints
+各種ジョイントを動かしたり
 
 66
 00:03:13,456 --> 00:03:16,643
-and other specialised 2D physics behaviour.
+その他 2D 物理演算固有の挙動を実現します
 
 67
 00:03:17,378 --> 00:03:19,570
-This component is also used to keep track
+またこのコンポーネントはアタッチされた
 
 68
 00:03:19,570 --> 00:03:21,890
-of important physical properties about the game
+ゲームオブジェクトの重要な物理プロパティの
 
 69
 00:03:21,890 --> 00:03:23,890
-object the component is attached to.
+経過を追う役割も果たします
 
 70
 00:03:24,708 --> 00:03:27,309
-It has properties for the object's mass
+たとえば Mass のほかに
 
 71
 00:03:27,309 --> 00:03:30,915
-linear and angular drag, gravity scale and many others.
+Linear / Angular Drag そして Gravity Scale などのプロパティがあります
 
 72
 00:03:31,664 --> 00:03:34,644
-For more information on the rigidbody 2D component
+Rigidbody 2D コンポーネントの詳細については
 
 73
 00:03:34,644 --> 00:03:37,114
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 74
 00:03:38,373 --> 00:03:40,799
-Every 2D project has a default value in the
+2Dプロジェクトの Physics2DSettings には必ず
 
 75
 00:03:40,799 --> 00:03:42,799
-physics 2D setting for Gravity.
+Gravity のデフォルト値が指定されています
 
 76
 00:03:43,520 --> 00:03:46,547
-Gravity will effect all game objects with a rigidbody,
+Gravity は Rigidbody で明示的に無視するよう指定されていない限り
 
 77
 00:03:46,547 --> 00:03:49,747
-unless that rigidbody is set to ignore gravity.
+Rigidbody を持つすべてのゲームオブジェクトに影響を及ぼします
 
 78
 00:03:50,620 --> 00:03:54,936
-This is done by setting the gravity scale to 0.
+無視するようにする場合は Gravity Scale を 0 に指定してください
 
 79
 00:03:58,737 --> 00:04:01,098
-Any other value for gravity scale
+Gravity Scale にその他の値を指定した場合は
 
 80
 00:04:01,098 --> 00:04:03,098
-will be used to modify the default value
+デフォルト値を修正するかたちで反映されます
 
 81
 00:04:03,098 --> 00:04:05,699
-for gravity, and this can be done on a
+なおこれを修正する場合には
 
 82
 00:04:05,699 --> 00:04:08,399
-game object per game object basis.
+ゲームオブジェクト単位で指定を行う必要があります
 
 83
 00:04:09,373 --> 00:04:12,042
-If the game object has a collider 2D attached
+ゲームオブジェクトにCollider 2D がアタッチされている場合は
 
 84
 00:04:12,042 --> 00:04:15,787
-it can participate in physical collisions or trigger events.
+物理的なコリジョンやトリガーイベントに干渉できるようになります
 
 85
 00:04:16,536 --> 00:04:18,896
-2D colliders allow game objects to have
+2D コライダーは 2D 空間においてゲームオブジェクトに
 
 86
 00:04:18,896 --> 00:04:22,292
-physical shape, or presence, in the scene's 2D environment.
+物理的な形や存在性を与えます
 
 87
 00:04:26,576 --> 00:04:28,535
-There are several types of 2D colliders
+Rigidbody 2D と共に使える 2D コライダーには
 
 88
 00:04:28,535 --> 00:04:30,535
-that work with a rigidbody 2D.
+複数の種類... すなわち
 
 89
 00:04:31,822 --> 00:04:36,327
-The circle, the box, the edge and the polygon collider.
+円形 / 四角形 / エッジ / ポリゴンコライダーがあります
 
 90
 00:04:37,089 --> 00:04:39,632
-Each collider type has a different set of behaviours
+各コライダーのタイプにはそれぞれ異なる挙動のセットが備わっており
 
 91
 00:04:39,632 --> 00:04:42,295
-and can be used in different circumstances.
+その用途も異なります
 
 92
 00:04:43,016 --> 00:04:45,785
-For more information on the collider 2D component
+Collider 2D コンポーネントの詳細については
 
 93
 00:04:45,785 --> 00:04:48,018
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 94
 00:04:49,058 --> 00:04:52,051
-When a game object has a rigidbody 2D attached
+ゲームオブジェクトにRigidbody 2D がアタッチされている場合
 
 95
 00:04:52,051 --> 00:04:55,880
-it can use one of the several joint 2D components available.
+いくつか存在する Joint 2D コンポーネントを使うことができます
 
 96
 00:04:56,560 --> 00:04:58,753
-When using a joint 2D component
+Joint 2D コンポーネントを使うと
 
 97
 00:04:58,753 --> 00:05:01,487
-the game object can participate in complex and
+ゲームオブジェクトに複雑で特殊な物理挙動をさせることが
 
 98
 00:05:01,487 --> 00:05:04,147
-specialised physical behaviour, like hinges,
+可能になります これにはヒンジ
 
 99
 00:05:04,147 --> 00:05:06,717
-springs, sliders and couplings.
+バネ・スライダー・連結などがあります
 
 100
 00:05:07,420 --> 00:05:09,420
-2D joints allow a game object to be
+2D ジョイントを使うとゲームオブジェクトを
 
 101
 00:05:09,420 --> 00:05:11,420
-anchored to either a point in the scene
+シーンの任意地点や別のゲームオブジェクトに
 
 102
 00:05:11,420 --> 00:05:13,088
-or another game object,
+アンカーさせ  そのアンカーに対して
 
 103
 00:05:13,088 --> 00:05:15,088
-and react physically to that anchor.
+物理的な挙動をさせることが可能になります
 
 104
 00:05:15,975 --> 00:05:18,154
-In some cases several game objects
+また Joint 2D を持つゲームオブジェクト同士を
 
 105
 00:05:18,154 --> 00:05:20,814
-with a joint 2D can be attached to each other
+組み合わせることで たとえばチェーンのようなより複雑で
 
 106
 00:05:20,814 --> 00:05:24,093
-for more interesting and complex behaviours like chains.
+面白い挙動をさせることが可能になります
 
 107
 00:05:24,883 --> 00:05:27,269
-For more information on the joint 2D components
+Joint 2D コンポーネントの詳細や
 
 108
 00:05:27,269 --> 00:05:28,363
-and how to use them,
+その使用方法については
 
 109
 00:05:28,363 --> 00:05:30,612
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 110
 00:05:32,327 --> 00:05:34,617
-The surface properties of a collider 2D are
+Collider 2D のサーフェスプロパティは
 
 111
 00:05:34,617 --> 00:05:36,617
-defined by a special type of material.
+特別なタイプ Material で定義されます
 
 112
 00:05:37,573 --> 00:05:41,296
-This material is the physics material 2D asset.
+この Material は Physics Material 2D アセットです
 
 113
 00:05:42,032 --> 00:05:44,887
-A physics material 3D is used to control the
+Physics Material 2D は Collider 2D コンポーネントの
 
 114
 00:05:44,887 --> 00:05:47,766
-friction and bounce that occurs between  2 game objects
+アタッチされた 2 つのゲームオブジェクトが衝突した際の
 
 115
 00:05:47,766 --> 00:05:51,345
-with collider 2D components attached when they collider.
+摩擦と弾性を制御するために使用されます
 
 116
 00:05:51,804 --> 00:05:55,691
-To make a bouncing ball, or slippery ice covered 
+弾むボールや滑る氷の床などを作る場合は 
 
 117
 00:05:55,691 --> 00:05:57,691
-use a different physics material 2D
+ゲームオブジェクトごとに異なる Physics Material 2D を
 
 118
 00:05:57,691 --> 00:05:59,691
-on each game object.
+使うようにします
 
 119
 00:06:00,108 --> 00:06:02,288
-For more information on material assets
+Material アセットと Physics Material の詳細については
 
 120
 00:06:02,288 --> 00:06:06,152
-and physics materials please see the information linked below.
+下記リンク先の情報を参照してください

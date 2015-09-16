@@ -1,479 +1,479 @@
-1
+﻿1
 00:00:01,215 --> 00:00:03,701
-To have any physical presence in the scene
+シーン内においてゲームオブジェクトが物理的な
 
 2
 00:00:03,701 --> 00:00:05,701
-a game object must use one of the
+存在性を持つには何らかの Collider コンポーネントを
 
 3
 00:00:05,701 --> 00:00:08,826
-collider components to define it's physical shape
+使って物理的な形状と対応する物理演算エンジンによる
 
 4
 00:00:08,826 --> 00:00:11,783
-and to interact with the relevant physics engine.
+扱われ方を定義する必要があります
 
 5
 00:00:12,504 --> 00:00:14,904
-Unity has 2 physics engines.
+Unity には 2 種類の物理演算エンジン...
 
 6
 00:00:14,904 --> 00:00:17,719
-One for 3D and one for 2D.
+すなわち 3D 用のものと 2D 用のものがあります
 
 7
 00:00:18,371 --> 00:00:21,909
-These two physics engines do not interact with each other.
+この 2 種の物理演算エンジンは相互に干渉しません
 
 8
 00:00:22,754 --> 00:00:25,783
-For more information on physics and physics 2D
+物理演算と Physics 2D の詳細については
 
 9
 00:00:25,783 --> 00:00:28,446
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 10
 00:00:29,429 --> 00:00:31,429
-When using the 2D physics engine
+2D 物理演算エンジンを使う場合には
 
 11
 00:00:31,429 --> 00:00:34,535
-a collider 2D component must be used.
+Collider 2D コンポーネントを使う必要があります
 
 12
 00:00:35,574 --> 00:00:39,215
-There are 4 collider 2D components to choose from.
+この Collider 2D コンポーネントは 4 種類存在し  それぞれ
 
 13
 00:00:39,950 --> 00:00:41,950
-The circle collider 2D,
+Circle Collider 2D
 
 14
 00:00:41,950 --> 00:00:43,950
-the box collider 2D,
+Box Collider 2D
 
 15
 00:00:43,950 --> 00:00:46,335
-the polygon collider 2D
+Polygon Collider 2D
 
 16
 00:00:46,335 --> 00:00:48,623
-and the edge collider 2D.
+Edge Collider 2D と呼ばれます
 
 17
 00:00:49,636 --> 00:00:52,905
-All of these collider components share many properties
+これら 4 種はすべて汎用のベース Collider 2D から
 
 18
 00:00:52,905 --> 00:00:54,905
-as they all derive from the same generic
+派生したものであるため共通するプロパティが
 
 19
 00:00:54,905 --> 00:00:56,905
-base collider 2D.
+多数あります
 
 20
 00:00:57,723 --> 00:01:00,112
-Each collider 2D component however is
+しかし Collider 2D コンポーネントはそれぞれ
 
 21
 00:01:00,112 --> 00:01:02,112
-optimised for a particular shape.
+特定の形に最適化されています
 
 22
 00:01:03,040 --> 00:01:04,777
-The circle collider 2D works with
+Circle Collider 2D は円形のオブジェクトに対して
 
 23
 00:01:04,777 --> 00:01:06,777
-round circular objects.
+使われるものですし
 
 24
 00:01:07,898 --> 00:01:11,607
-The box collider 2D works well with rectangular objects.
+Box Collider 2D は四角形のオブジェクトに使われます
 
 25
 00:01:12,357 --> 00:01:14,357
-The polygon collider 2D work
+Polygon Collider 2D は複雑な
 
 26
 00:01:14,357 --> 00:01:16,357
-best with complex shapes.
+形状のオブジェクトに対して使われますし
 
 27
 00:01:17,451 --> 00:01:21,263
-And the edge collider 2D works well for surfaces.
+Edge Collider 2D は地表など表面的なものに使われます
 
 28
 00:01:22,821 --> 00:01:26,458
-The edge collider and polygon colliders are very similar.
+このエッジコライダーとポリゴンコライダーはとても似ています
 
 29
 00:01:27,197 --> 00:01:30,000
-They are created by several points, or vertices,
+複数のポイント... つまり頂点から構成され
 
 30
 00:01:30,000 --> 00:01:32,000
-with edges connecting them.
+それらの間がエッジでつながれているのです
 
 31
 00:01:32,721 --> 00:01:36,020
-The main difference between them is that the polygon collider
+最大の違いはポリゴンコライダーの場合は覆う空間が
 
 32
 00:01:36,020 --> 00:01:38,882
-must be a closed shape covering an area.
+閉じていなければいけない点です
 
 33
 00:01:39,921 --> 00:01:41,921
-And the edge collider must be open,
+逆にエッジコライダーは開いたままでなくてはならず
 
 34
 00:01:41,921 --> 00:01:45,207
-defining an edge of one or more segments.
+対象の個数に関わらずその表面を定義するものでなくてはなりません
 
 35
 00:01:45,969 --> 00:01:48,093
-One good use of the edge collider
+エッジコライダーの良い使い方としては
 
 36
 00:01:48,093 --> 00:01:50,385
-is to make a single solid surface
+ビジュアル的には複数のスプライトが使われている状況でも
 
 37
 00:01:50,385 --> 00:01:53,130
-rather than a series of 2D colliders
+地表面を一度に定義する場合があります
 
 38
 00:01:53,130 --> 00:01:55,379
-even if several sprites are used to create
+こうすることで複数の 2D コライダーを置かなくとも
 
 39
 00:01:55,379 --> 00:01:57,807
-the visual aspect of the surface.
+一度に地表面が定義できるわけです
 
 40
 00:01:59,744 --> 00:02:01,744
-When comparing all 2D colliders
+さて 2D コライダーにはすべて
 
 41
 00:02:01,744 --> 00:02:04,299
-there are 2 properties exposed in the inspector
+インスペクターに対して公開されている共通プロパティが
 
 42
 00:02:04,299 --> 00:02:05,883
-that they all share.
+2 つ存在します
 
 43
 00:02:06,383 --> 00:02:09,134
-Is Trigger and Material.
+Is Trigger と Material です
 
 44
 00:02:09,808 --> 00:02:11,808
-The other unique properties are for defining
+その他のコライダー固有のプロパティはその
 
 45
 00:02:11,808 --> 00:02:14,840
-the shape of that particular 2D collider.
+2D コライダーの形状を定義するために使用されます
 
 46
 00:02:15,658 --> 00:02:18,160
-The Is Trigger property will set the collider
+Is Trigger プロパティはコライダーをトリガーコライダーとして
 
 47
 00:02:18,160 --> 00:02:20,160
-to behave as a trigger collider.
+振る舞わせるときに設定します
 
 48
 00:02:21,157 --> 00:02:23,462
-With normal 2D physics collisions
+通常の 2D 物理演算コリジョン（衝突）では
 
 49
 00:02:23,462 --> 00:02:25,462
-the 2D physics engine will prevent
+2D 物理演算エンジンが 2D コライダー同士が
 
 50
 00:02:25,462 --> 00:02:28,332
-2D colliders from passing through each other.
+すり抜けてしまわないように処理します
 
 51
 00:02:29,965 --> 00:02:31,965
-2D trigger colliders will not participate
+他方の 2D トリガーコライダーは物理的なコリジョンは
 
 52
 00:02:31,965 --> 00:02:35,036
-in physical collisions and will send 2D
+生じさません  2D コリジョンメッセージではなく
 
 53
 00:02:35,036 --> 00:02:38,685
-trigger messages rather than 2D collision messages.
+2D トリガーメッセージを発するからです
 
 54
 00:02:39,420 --> 00:02:41,420
-These trigger messages can be used to
+このトリガーメッセージはシーン内で新たな
 
 55
 00:02:41,420 --> 00:02:43,904
-initiate new actions in the scene.
+アクションを開始するために使用できます
 
 56
 00:02:44,597 --> 00:02:46,707
-For more information on Is Trigger
+Is Trigger とコライダーから
 
 57
 00:02:46,707 --> 00:02:48,707
-and the messages sent by colliders
+送信されるメッセージの詳細については
 
 58
 00:02:48,707 --> 00:02:51,138
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 59
 00:02:53,362 --> 00:02:56,381
-The material property is a reference to the
+Material プロパティは Collider 2D に使われる
 
 60
 00:02:56,381 --> 00:02:59,556
-physics material 2D being used by the collider 2D
+Physics Material 2D への参照で
 
 61
 00:02:59,556 --> 00:03:01,556
-and this can be none.
+None（なし）にしておくこともできます
 
 62
 00:03:02,056 --> 00:03:04,056
-Physics materials define how colliders
+物理演算におけるマテリアルは
 
 63
 00:03:04,056 --> 00:03:06,056
-will react when they collider
+衝突時のコライダーの反応を定義するもので
 
 64
 00:03:06,056 --> 00:03:08,056
-and define both the bounciness and
+コライダーの Bounciness と Friction が
 
 65
 00:03:08,056 --> 00:03:10,473
-the friction of the collider's surface.
+調整可能です
 
 66
 00:03:11,274 --> 00:03:14,886
-To make a bouncy ball or slippery ice covered platform
+弾むボールや滑る氷の床などを作る時には
 
 67
 00:03:14,886 --> 00:03:17,277
-use a different physics material 2D
+Collider 2D ごとに異なる Physics Material 2D を
 
 68
 00:03:17,277 --> 00:03:19,277
-with each collider 2D.
+使用すれば実現できます
 
 69
 00:03:20,150 --> 00:03:23,281
-For more information on physics material 2D
+Physics Material 2D の詳細については
 
 70
 00:03:23,281 --> 00:03:25,833
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 71
 00:03:27,121 --> 00:03:30,188
-To use a collider 2D it must be attached
+Collider 2D を使うにはまずゲームオブジェクトに
 
 72
 00:03:30,188 --> 00:03:31,649
-to a game object.
+アタッチする必要があります
 
 73
 00:03:32,412 --> 00:03:35,013
-One way of attaching a collider 2D component
+Collider 2D コンポーネントをアタッチする方法は複数ありますが
 
 74
 00:03:35,013 --> 00:03:37,342
-is to use the Add Component button
+ひとつには Add Component ボタンをクリックして
 
 75
 00:03:37,342 --> 00:03:39,342
-and select Physics 2D
+Physics 2D を選択し
 
 76
 00:03:39,342 --> 00:03:42,402
-and select a Collider 2D Component.
+Collider 2D Component を選択する方法があります
 
 77
 00:03:43,261 --> 00:03:45,442
-For more information on game objects,
+ゲームオブジェクトやコンポーネント
 
 78
 00:03:45,442 --> 00:03:47,442
-components and how to use them
+およびそれらの使い方については
 
 79
 00:03:47,442 --> 00:03:49,856
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 80
 00:03:50,674 --> 00:03:52,883
-When a collider 2D component is attached
+さて Collider 2D コンポーネントがアタッチされると
 
 81
 00:03:52,883 --> 00:03:56,542
-Unity will try to size the collider 2D to the sprite.
+Unity は自動的に Collider 2D のサイズをスプライトに合わせようとします
 
 82
 00:03:57,480 --> 00:03:59,480
-If the size and shape of the collider 2D
+この Collider 2D のサイズや形状が
 
 83
 00:03:59,480 --> 00:04:03,319
-is undesirable then the shape can be edited by either
+希望と異なる場合にはインスペクター上で値を調整したり
 
 84
 00:04:03,319 --> 00:04:05,319
-changing the values in the inspector
+Scene ビューで直接 Collider 2D を編集することで
 
 85
 00:04:07,021 --> 00:04:10,501
-or changing the collider 2D itself in the scene view.
+自由に変更することができます
 
 86
 00:04:11,360 --> 00:04:14,157
-To edit a collider 2D in the scene view
+Collider 2D を Scene ビューで編集する場合は
 
 87
 00:04:14,157 --> 00:04:16,157
-hold down the shift key.
+Shift キーを押したまま行ってください
 
 88
 00:04:16,657 --> 00:04:19,279
-This will display handles on the 2D collider's
+これで Scene ビューで 2D コライダーのギズモに
 
 89
 00:04:19,279 --> 00:04:21,279
-gizmo in the scene view.
+ハンドルが表示されるようになります
 
 90
 00:04:21,779 --> 00:04:23,779
-These handles are drag-able.
+このハンドルはドラッグ可能です
 
 91
 00:04:26,310 --> 00:04:29,362
-In the case of the edge collider and the polygon collider
+なおエッジコライダーやポリゴンコライダーの場合には
 
 92
 00:04:29,362 --> 00:04:31,362
-dragging an existing handle will move
+表示されたハンドルをドラッグすると
 
 93
 00:04:31,362 --> 00:04:34,389
-the collider's vertex, and change the collider's shape
+コライダーのサイズが変更されるのではなく
 
 94
 00:04:34,389 --> 00:04:36,722
-rather than resizing the collider.
+コライダーの頂点が移動されて形状が変化します
 
 95
 00:04:37,593 --> 00:04:40,121
-By moving the cursor over an empty edge
+またエッジコライダーやポリゴンコライダーでは
 
 96
 00:04:40,121 --> 00:04:43,024
-on either the edge collider or the polygon collider
+カーソルを何もないエッジに合わせて移動させてから
 
 97
 00:04:43,024 --> 00:04:45,814
-a new vertex can be created by clicking.
+クリックすると新しい頂点が作成されます
 
 98
 00:04:46,673 --> 00:04:49,404
-This is indicated by a new handle appearing
+この場合は新しいハンドルが表示され  さらに
 
 99
 00:04:49,404 --> 00:04:51,946
-and the edge highlighting in green.
+エッジ部分が緑色で強調表示されます
 
 100
 00:04:57,720 --> 00:05:00,752
-In the case of the edge collider and the polygon collider
+この他にもエッジコライダーやポリゴンコライダーでは
 
 101
 00:05:00,752 --> 00:05:02,628
-holding the control key will allow a
+Ctrl キーを押しながらクリックすると
 
 102
 00:05:02,628 --> 00:05:04,628
-vertex to the be deleted when clicked.
+頂点を削除することができます
 
 103
 00:05:05,529 --> 00:05:07,529
-This is indicated by the handle
+この場合はハンドルとエッジ部分が
 
 104
 00:05:07,529 --> 00:05:09,529
-and the edge highlighting in red.
+赤色で強調表示されます
 
 105
 00:05:16,451 --> 00:05:18,784
-A game object does not need a rigidbodied
+さてゲームオブジェクトでは Rigidbody 2D なしでも
 
 106
 00:05:18,784 --> 00:05:21,340
-2D to use a collider 2D.
+Collider 2D を使えます
 
 107
 00:05:22,196 --> 00:05:24,778
-To participate in 2D collision and trigger events
+ただし 2D コリジョンやイベントのトリガーに参加するには
 
 108
 00:05:24,778 --> 00:05:26,778
-however at least 1 of the game objects
+関連する 1 つ以上のゲームオブジェクトに
 
 109
 00:05:26,778 --> 00:05:30,359
-involved must have a rigidbody 2D attached.
+Rigidbody 2D がアタッチされていなくてはなりません
 
 110
 00:05:31,025 --> 00:05:33,025
-A common pattern for best performance
+最適なパフォーマンスを得るためによく取られる手法としては
 
 111
 00:05:33,025 --> 00:05:35,507
-would be to attach collider 2D components
+まず静的な/固定されている一方で他の 2D 物理演算には
 
 112
 00:05:35,507 --> 00:05:37,507
-but not rigidbody components
+関与させたいゲームオブジェクトには
 
 113
 00:05:37,507 --> 00:05:40,102
-to all of the static, or non-moving game objects
+Rigidbody コンポーネントはアタッチせず
 
 114
 00:05:40,102 --> 00:05:42,648
-that need to interact with 2D physics.
+Collider 2D コンポーネントをアタッチします
 
 115
 00:05:43,431 --> 00:05:46,451
-And attach a collider 2D and a rigidbody 2D
+そして動的な/移動するゲームオブジェクトには
 
 116
 00:05:46,451 --> 00:05:48,828
-to the dynamic, or moving, game object
+Collider 2D とRgidbody 2D をアタッチして
 
 117
 00:05:48,828 --> 00:05:50,828
-that need to interact in the scene.
+シーン内での各種干渉を行わせる方法があります
 
 118
 00:05:53,524 --> 00:05:55,840
-For more information on physics 2D
+Physics 2D や Collider 2D および
 
 119
 00:05:55,840 --> 00:05:58,254
-collider 2D, collisions and triggers
+コリジョンやトリガーの詳細については
 
 120
 00:05:58,254 --> 00:06:00,707
-please see the information linked below.
+下記リンク先の情報を参照してください

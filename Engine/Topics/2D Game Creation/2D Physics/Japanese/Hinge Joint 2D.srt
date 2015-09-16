@@ -1,375 +1,375 @@
-1
+﻿1
 00:00:01,257 --> 00:00:03,778
-The hinge joint 2D is a 2D component
+Hinge Joint 2D は2D Rigidbody 物理演算の影響下で
 
 2
 00:00:03,778 --> 00:00:05,778
-that allows a sprite to rotate around a point
+任意のポイントを中心にスプライトを
 
 3
 00:00:05,778 --> 00:00:09,137
-while being controlled by 2D rigidbody physics.
+回転させるための 2D コンポーネントです
 
 4
 00:00:09,830 --> 00:00:11,830
-The most obvious use of a hinge joint
+ヒンジジョイントのよくある使われ方としては
 
 5
 00:00:11,830 --> 00:00:13,830
-is to rotate a sprite around a point
+ポイントを中心に回転する
 
 6
 00:00:13,830 --> 00:00:15,830
-to make a door.
+ドアなどがあります
 
 7
 00:00:15,830 --> 00:00:18,465
-But there are many other uses of the 2D hinge joint,
+ただしこれ以外にも 2D ヒンジジョイントには多数の使い道...
 
 8
 00:00:18,465 --> 00:00:20,699
-including machine parts, pendulums
+たとえばマシーンの部品や時計の振り子
 
 9
 00:00:20,699 --> 00:00:22,699
-and spring loaded trap doors.
+スプリング仕込みの隠し扉などがあります
 
 10
 00:00:23,351 --> 00:00:25,558
-A group of sprites with 2D hinge joints components
+また Hinge Joint 2D コンポーネントをアタッチした
 
 11
 00:00:25,558 --> 00:00:28,738
-attached can work together to make a chain.
+複数個のスプライトをつなげてチェーンを作ることも可能です
 
 12
 00:00:30,702 --> 00:00:32,702
-At the heart of the hinge joint 2D is the
+Hinge Joint 2D ではどのポイントを中心に
 
 13
 00:00:32,702 --> 00:00:35,265
-point which the sprite will rotate around.
+スプライトを回転させるかが非常に重要です
 
 14
 00:00:35,975 --> 00:00:37,878
-This is either a point in the scene
+これはシーン内の任意の地点であったり
 
 15
 00:00:37,878 --> 00:00:41,023
-or another sprite with a 2D rigidbody attached.
+Rigidbody 2D のアタッチされた別のスプライトだったりします
 
 16
 00:00:42,642 --> 00:00:44,765
-This point is determined by the connected
+このポイントは Connected Rigidbody と
 
 17
 00:00:44,765 --> 00:00:47,937
-rigidbody and the 2 anchor properties.
+2 つのAnchor プロパティで定義されます
 
 18
 00:00:49,210 --> 00:00:51,595
-To connect the hinge joint 2D to the world
+Hinge Joint 2D をワールドまたはシーン内の任意地点に
 
 19
 00:00:51,595 --> 00:00:54,583
-or a point in the scene, leave the connected rigidbody
+接続する場合はConnected Rigidbody プロパティは
 
 20
 00:00:54,583 --> 00:00:56,583
-property empty.
+空白のままにしておきます
 
 21
 00:01:02,802 --> 00:01:05,618
-To connect the 2D hinge joint to another sprite
+Hinge Joint 2D を別のスプライトと接続する場合には
 
 22
 00:01:06,201 --> 00:01:09,329
-the other sprite must have a rigidbody 2D attached.
+接続先スプライトに Rigidbody 2D がアタッチされていなければなりません
 
 23
 00:01:10,050 --> 00:01:13,177
-A reference to this rigidbody 2D needs to be made.
+そしてこの Rigidbody 2D への参照を作る必要があります
 
 24
 00:01:13,884 --> 00:01:15,884
-One way of doing this is to drag the
+これにはいくつかやり方がありますがそのひとつに
 
 25
 00:01:15,884 --> 00:01:19,017
-desired sprite with the rigidbody 2D attached
+Rigidbody 2D のアタッチされた目的のスプライトを
 
 26
 00:01:19,017 --> 00:01:22,454
-on to the connected rigidbody slot in the inspector.
+インスペクター上の Connected Rigidbody スロットにドラッグする方法があります
 
 27
 00:01:23,258 --> 00:01:25,812
-To define the exact position of the pivot point
+ピボットポイントの厳密な位置を定義するには
 
 28
 00:01:25,812 --> 00:01:27,688
-the properties of Anchor and
+Anchor と Connected Anchor の
 
 29
 00:01:27,688 --> 00:01:29,688
-Connected Anchor need to be set.
+プロパティを指定する必要があります
 
 30
 00:01:30,588 --> 00:01:32,285
-These two properties are needed to
+これらプロパティはひとつのピボットポイントを
 
 31
 00:01:32,285 --> 00:01:34,285
-define a single pivot point.
+定義する上で両方とも必要です
 
 32
 00:01:34,785 --> 00:01:37,681
-The first property, Anchor, is the point the
+最初のプロパティ Anchor はスプライトが
 
 33
 00:01:37,681 --> 00:01:39,681
-sprite rotates around relative to the
+回転するポイントで  ローカル空間における
 
 34
 00:01:39,681 --> 00:01:41,681
-sprite in local space.
+スプライトとの相対位置で示されます
 
 35
 00:01:42,416 --> 00:01:45,611
-This point does not need to be within the bounds of the sprite.
+このポイントはスプライトの範囲内である必要はありません
 
 36
 00:01:46,498 --> 00:01:48,884
-The second property, connected anchor,
+次のプロパティ Connected Anchor は
 
 37
 00:01:48,884 --> 00:01:51,710
-is where in the scene this point is placed
+シーン内のどこにポイントを配置するかを指定します
 
 38
 00:01:52,279 --> 00:01:55,230
-and this point is relative to the connected item.
+このポイントは接続された項目との相対位置で示されます
 
 39
 00:01:56,711 --> 00:01:58,711
-When connected to the world in the scene
+シーン内のワールドに接続されている場合は
 
 40
 00:01:58,711 --> 00:02:00,918
-these values are in world-space.
+値はワールド空間に存在することになります
 
 41
 00:02:01,736 --> 00:02:03,916
-When connected to another 2D rigidbody
+対して別の 2D Rigidbody に接続されている場合
 
 42
 00:02:03,916 --> 00:02:07,645
-these values are in the connected body's local space.
+これらの値はボディのローカル空間に存在することになります
 
 43
 00:02:12,215 --> 00:02:14,215
-When rotating around another sprite
+別のスプライトの周囲を回転する場合には
 
 44
 00:02:14,215 --> 00:02:17,708
-it is important to note the Collide Connected checkbox.
+Collide Connected チェックボックスの扱いが非常に重要です
 
 45
 00:02:18,208 --> 00:02:20,208
-With collide connected unselected
+Collide Connected がオフの場合
 
 46
 00:02:20,208 --> 00:02:23,617
-the sprite will ignore collisions with a connected sprite.
+スプライトは接続されたスプライトとの衝突判定を無視します
 
 47
 00:02:24,269 --> 00:02:26,269
-To collide with the other sprite make sure
+スプライト同士を衝突させる必要がある場合には
 
 48
 00:02:26,269 --> 00:02:29,094
-the collide connect is selected.
+Collide Connected はオンにしておきましょう
 
 49
 00:02:36,725 --> 00:02:38,725
-The Use Motor and Use Limits are special
+Use Motor と Use Limits は
 
 50
 00:02:38,725 --> 00:02:40,725
-properties for the hinge joint.
+ヒンジジョイントの特別なプロパティです
 
 51
 00:02:41,363 --> 00:02:44,366
-The hinge joint can be actively powered by a motor.
+ヒンジジョイントはモーターから力を得ることができます
 
 52
 00:02:45,115 --> 00:02:47,115
-When use motor is selected the hinge
+Use Motor をオンにすると Hinge Joint 2D は
 
 53
 00:02:47,115 --> 00:02:50,674
-joint 2D will apply torque and rotate the sprite.
+トルクを適用してスプライトを回転させます
 
 54
 00:02:51,257 --> 00:02:53,643
-Motor Speed is the target speed in degrees
+Motor Speed は目標速度で
 
 55
 00:02:53,643 --> 00:02:55,992
-per second the motor will try to reach.
+1 秒あたりに進む角度で指定します
 
 56
 00:02:56,682 --> 00:02:59,392
-Maximum Motor Force is the maximum torque
+Maximum Motor Force は目標速度に
 
 57
 00:02:59,392 --> 00:03:01,392
-the motor can apply while attempting to reach
+達するまでに出力するモーターの
 
 58
 00:03:01,392 --> 00:03:03,392
-this target speed.
+最大トルクです
 
 59
 00:03:12,718 --> 00:03:15,571
-When Use Limits is selected the 2D hinge joint
+Use Limits をオンにすると 2D ヒンジジョイントが
 
 60
 00:03:15,571 --> 00:03:18,663
-will be prevented from making a full rotation.
+一周しきらないようになります
 
 61
 00:03:19,412 --> 00:03:21,535
-Lower Angle is the lower end of the
+Lower Angle は回転許容範囲の
 
 62
 00:03:21,535 --> 00:03:23,535
-rotation allowed by the limit.
+下側を定義するもので
 
 63
 00:03:24,035 --> 00:03:26,035
-Upper Angle is the upper end of the rotation
+他方の Upper Angle は回転許容範囲の
 
 64
 00:03:26,035 --> 00:03:28,035
-allowed by the limit.
+上側を定義します
 
 65
 00:03:29,336 --> 00:03:31,336
-Note the gizmo indicating the angle
+Scene ビューではギズモにより角度の制限が
 
 66
 00:03:31,336 --> 00:03:33,336
-limit of the joint in the scene view.
+表示されているのが確認できるでしょうか
 
 67
 00:03:39,789 --> 00:03:41,789
-Motors and limits can be used together to
+Motors と Limits を組み合わせると
 
 68
 00:03:41,789 --> 00:03:43,789
-create new and interesting behaviour.
+興味深く新しい挙動を実現することができます
 
 69
 00:03:44,496 --> 00:03:47,707
-One use would be to make a spring-loaded trap door.
+たとえばこの組み合わせによりバネ仕込みの隠し扉が作れます
 
 70
 00:03:48,317 --> 00:03:50,317
-Use limits to prevent the trap door from
+Lmits で隠し扉が開き過ぎないように
 
 71
 00:03:50,317 --> 00:03:51,758
-moving too far,
+設定して
 
 72
 00:03:52,341 --> 00:03:54,341
-and use the motor to return the trap door
+Motor で隠し扉が自動的に
 
 73
 00:03:54,341 --> 00:03:56,341
-to it's starting position.
+最初の位置まで戻るようにするわけです
 
 74
 00:04:04,065 --> 00:04:05,926
-A series of hinge joints can be used
+この他  ヒンジジョイントをつなげることで
 
 75
 00:04:05,926 --> 00:04:07,338
-to make a chain.
+チェーンを作ることも可能です
 
 76
 00:04:08,087 --> 00:04:10,087
-In this example a kinematic platform
+この例では固定された足場を
 
 77
 00:04:10,087 --> 00:04:12,087
-is the base sprite to which is attached
+ベーススプライトとしてその下にスプライトが連なって
 
 78
 00:04:12,087 --> 00:04:15,068
-a series of sprites, each with rigidbody 2D
+アタッチされています  連結を実現するため
 
 79
 00:04:15,068 --> 00:04:17,068
-components to make the links.
+各スプライトには Rigidbody 2D コンポーネントがアタッチされています
 
 80
 00:04:17,830 --> 00:04:19,649
-Each link is connected to the link above
+各連結部は上の連結部と Hinge Joint 2D で
 
 81
 00:04:19,649 --> 00:04:21,469
-with a hinge joint 2D.
+つながっています
 
 82
 00:04:22,039 --> 00:04:24,857
-Note that collide connected is deselected.
+ここで Collide Connected がオフになっている点に注意してください
 
 83
 00:04:25,702 --> 00:04:28,417
-At the bottom is the 16 tonne weight.
+そして末尾には 16 トンの重りがついています
 
 84
 00:04:28,417 --> 00:04:30,417
-Unlike the links, the mass,
+連結部床となり Mass や
 
 85
 00:04:30,417 --> 00:04:33,018
-linear drag and angular drag have been increased
+Linear Drag / Angular Drag が大きな値に設定されて
 
 86
 00:04:33,018 --> 00:04:36,272
-to give the weigh a proper feel in the scene.
+シーン内で適切な重量感が表現されるようにしてあります
 
 87
 00:04:55,929 --> 00:04:58,287
-It is worth noting that a distance joint 2D
+なお  ここではよりリアルな振る舞いを
 
 88
 00:04:58,287 --> 00:05:00,287
-with Max Distance Only enabled
+させるために ベースリンクから
 
 89
 00:05:00,287 --> 00:05:02,025
-has been added to the weight
+重りまでの最大距離を固定するべく
 
 90
 00:05:02,025 --> 00:05:04,025
-to limit the maximum distance of the weight
+Distance Joint 2D の 
 
 91
 00:05:04,025 --> 00:05:06,592
-from the base link, and to make the chain
+Max Distance Only プロパティが
 
 92
 00:05:06,592 --> 00:05:08,592
-perform more realistically.
+オンになっています
 
 93
 00:05:09,092 --> 00:05:11,857
-For more information on the distance joint 2D
+Distance Joint 2D の詳細については
 
 94
 00:05:11,857 --> 00:05:14,014
-please see the information linked below.
+下記リンク先の情報を参照してください

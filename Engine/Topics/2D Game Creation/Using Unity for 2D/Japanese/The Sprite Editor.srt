@@ -1,511 +1,511 @@
-1
+﻿1
 00:00:01,257 --> 00:00:03,709
-The Sprite Editor is used to take images
+Sprite Editor はアトラスやスプライトシートのように
 
 2
 00:00:03,709 --> 00:00:07,689
-containing multiple elements like an atlas or sprite sheet
+複数の要素を持つ画像を取得して個別の
 
 3
 00:00:07,689 --> 00:00:10,338
-and slice them in to individual sprites.
+スプライトに分割するためのツールです
 
 4
 00:00:14,002 --> 00:00:16,277
-It is important that the sprite mode of the image
+この時  画像の Sprite Mode は必ず Multiple（複数）に
 
 5
 00:00:16,277 --> 00:00:18,277
-is set to Multiple.
+指定しておきましょう
 
 6
 00:00:19,371 --> 00:00:21,371
-Images with sprite modes set to single
+これを Single に設定してしまうと
 
 7
 00:00:21,371 --> 00:00:24,443
-cannot use the sprite editor window at this time.
+Sprite Editor ウィンドウでは扱えなくなってしまいます
 
 8
 00:00:24,943 --> 00:00:29,033
-For more information on sprites, sprite mode and the sprite type
+スプライト / スプライトモード / スプライトタイプの詳細については
 
 9
 00:00:29,033 --> 00:00:31,033
-please see the information link below.
+下記リンク先の情報を参照してください
 
 10
 00:00:32,306 --> 00:00:34,679
-When sprite mode multiple is selected
+Sprite Mode が Multiple に指定されていると
 
 11
 00:00:34,679 --> 00:00:37,000
-the sprite editor button will appear on the
+Sprite Editor というボタンがインスペクターの
 
 12
 00:00:37,000 --> 00:00:39,000
-texture importer in the inspector.
+テクスチャインポーターに表示されます
 
 13
 00:00:40,011 --> 00:00:43,300
-Click the sprite editor button to open the sprite editor.
+このボタンをクリックして Sprite Editor を開きます
 
 14
 00:00:45,292 --> 00:00:47,445
-The sprite editor can also be opened by selecting
+なお Sprite Editor はこの他に  メニュー操作
 
 15
 00:00:47,445 --> 00:00:50,452
-Window  - Sprite Editor.
+Window  > Sprite Editor でも開けます
 
 16
 00:00:52,665 --> 00:00:55,568
-The sprite editor window is a standard Unity window.
+Sprite Editor ウィンドウは標準の Unity ウィンドウなので
 
 17
 00:00:55,568 --> 00:00:58,529
-It can be used and docked like any other window.
+他のウィンドウと同様に扱ったりドッキングしたりできます
 
 18
 00:01:00,217 --> 00:01:02,536
-To create sprites in the sprite editor window
+Sprite Editor では目的の要素を
 
 19
 00:01:02,536 --> 00:01:04,673
-slice the image by clicking and dragging
+クリック & ドラッグ操作で選択すると
 
 20
 00:01:04,673 --> 00:01:06,423
-over the desired elements.
+スプライトを作成できます
 
 21
 00:01:06,785 --> 00:01:10,531
-This will create rectangular selections that define each sprite.
+ここで選択した矩形選択部分が独立したスプライトとして作成されます
 
 22
 00:01:11,445 --> 00:01:13,445
-The rectangular selection can be adjusted
+矩形選択の形はその矩形を
 
 23
 00:01:13,445 --> 00:01:15,445
-by clicking and dragging the rectangle.
+クリック & ドラッグして自由に変更できます
 
 24
 00:01:16,567 --> 00:01:19,856
-Click and drag anywhere inside the rectangle to move it.
+句形の内側をドラッグすれば位置の調整が可能で
 
 25
 00:01:20,605 --> 00:01:24,286
-Click and drag any of the corners or edges to resize it.
+四隅をや四辺をドラッグすればサイズ変更が可能です
 
 26
 00:01:29,095 --> 00:01:31,095
-Click and drag the pivot point gizmo to move
+またピボットポイントギズモをドラッグすれば
 
 27
 00:01:31,095 --> 00:01:33,318
-the pivot point for that sprite.
+スプライトのピボットポイントも変更できます
 
 28
 00:01:37,062 --> 00:01:39,981
-When a sprite is selected a sprite panel appears
+スプライトの選択中には Sprite Editor 右下に
 
 29
 00:01:39,981 --> 00:01:41,981
-in the lower right of the sprite editor
+Sprite パネルが表示され
 
 30
 00:01:41,981 --> 00:01:44,607
-with details about the selected sprite.
+詳細を確認することができます
 
 31
 00:01:45,614 --> 00:01:47,614
-Name is the name of the sprite.
+Name はスプライトの名前
 
 32
 00:01:48,542 --> 00:01:51,731
-The name is created from the name of the original image
+名前は元画像の名前と
 
 33
 00:01:51,731 --> 00:01:54,364
-and the order in which it was sliced from that image,
+スライスされた順番（0 スタート）を
 
 34
 00:01:54,364 --> 00:01:55,944
-starting with 0.
+組み合わせて作られます
 
 35
 00:01:56,615 --> 00:01:58,203
-Position defines where the sprite
+Position は画像上でのスプライトの
 
 36
 00:01:58,203 --> 00:02:00,203
-is on the image, in pixels.
+位置をピクセルで表示します
 
 37
 00:02:00,924 --> 00:02:04,153
-X and Y define the start point of the sprite.
+X と Y はスプライトの始点を定義し
 
 38
 00:02:04,153 --> 00:02:06,153
-measured from the lower left corner of the image.
+画像の左下からスプライトの左下までの
 
 39
 00:02:06,153 --> 00:02:08,805
-to the lower left corner of the sprite.
+距離で示されます
 
 40
 00:02:09,606 --> 00:02:11,955
-W and H define the width and height
+W と H はスプライトの
 
 41
 00:02:11,955 --> 00:02:13,955
-of the sprite, from the start point.
+始点からの幅と高さを示します
 
 42
 00:02:16,416 --> 00:02:18,416
-The trim button can be used to trim off any
+Trim ボタンは要素周辺の
 
 43
 00:02:18,416 --> 00:02:20,306
-excess space around the element,
+余分なスペースを切り落とし
 
 44
 00:02:20,306 --> 00:02:22,978
-creating the tightest fitting rectangle possible.
+無駄のないきっちりとした矩形を作ります
 
 45
 00:02:25,334 --> 00:02:27,334
-Pivot sets the pivot point for this sprite.
+Pivot はスプライトのピボットポイントを定義します
 
 46
 00:02:27,986 --> 00:02:30,291
-The pivot drop-down menu includes presets
+ドロップダウンには四隅や各四辺の中央が
 
 47
 00:02:30,291 --> 00:02:32,995
-for each corner and the centre of each edge.
+既定の設定として用意されています
 
 48
 00:02:34,269 --> 00:02:36,269
-Custom allows for a custom pivot point
+Custom はカスタムピボットポイントを
 
 49
 00:02:36,269 --> 00:02:38,890
-to be set numerically under Custom Pivot.
+Custom Pivot で数値指定する時に使用します
 
 50
 00:02:40,496 --> 00:02:42,300
-Along the top of the sprite editor are a
+Sprite Editor の上部にはこの他にも
 
 51
 00:02:42,300 --> 00:02:43,859
-number of tools.
+次のようなツールが揃っています
 
 52
 00:02:44,552 --> 00:02:46,203
-The slice menu,
+Slice メニュー
 
 53
 00:02:46,896 --> 00:02:48,896
-the revert and apply buttons,
+Revert および Apply ボタン
 
 54
 00:02:49,672 --> 00:02:51,672
-the RGB alpha toggle
+RGB アルファトグルボタン
 
 55
 00:02:52,683 --> 00:02:54,683
-and the zoom slider.
+ズームスライダー
 
 56
 00:02:56,550 --> 00:03:00,140
-The slice menu is used to automatically create sprites
+Slice メニューは画像から自動的にスプライトを
 
 57
 00:03:00,140 --> 00:03:02,785
-by slicing the sprite elements from the image.
+切り出して作成する時に使用します
 
 58
 00:03:03,731 --> 00:03:07,018
-The slice type is either automatic or grid.
+種類は Automatic と Grid の 2 種類です
 
 59
 00:03:07,960 --> 00:03:10,499
-Automatic is best for slicing individual
+Automatic はアトラスのように  大きさの
 
 60
 00:03:10,499 --> 00:03:12,499
-uneven elements, like from an atlas.
+異なる要素を切り出す時に最も有効です
 
 61
 00:03:13,648 --> 00:03:15,648
-Elements on the image are automatically
+画像中の要素検出は周囲の
 
 62
 00:03:15,648 --> 00:03:17,939
-detected based on the empty space around them.
+空白スペースに基いて自動的に行われます
 
 63
 00:03:18,659 --> 00:03:20,896
-Each sprite will have effectively been trimmed
+このため  各スプライトはトリムされた
 
 64
 00:03:20,896 --> 00:03:22,146
-as a result.
+状態となります
 
 65
 00:03:23,065 --> 00:03:26,301
-With automatic selected minimum size defines the
+Automatic を選択した場合  Minimum Size は
 
 66
 00:03:26,301 --> 00:03:29,123
-minimum size for each individual sprite.
+各スプライトの最小サイズを定義します
 
 67
 00:03:30,051 --> 00:03:32,697
-If this value is set too high smaller elements
+この値を大きくしすぎると  最小サイズを満たさない
 
 68
 00:03:32,697 --> 00:03:34,697
-that are near each other could be combined
+小さな要素が並んでいるような場合に
 
 69
 00:03:34,697 --> 00:03:36,780
-in to 1 larger sprite to meet
+ひとつの大きなスプライトとして
 
 70
 00:03:36,780 --> 00:03:38,780
-the minimum size requirements.
+検出されてしまう可能性があります
 
 71
 00:03:39,667 --> 00:03:41,667
-Pivot sets the default pivot point that will
+Pivot は画像からスライスされる
 
 72
 00:03:41,667 --> 00:03:43,585
-be applied to all sprites when they are
+全スプライトのデフォルトピボットポイントを
 
 73
 00:03:43,585 --> 00:03:45,115
-spiced from the image.
+設定します
 
 74
 00:03:46,085 --> 00:03:49,644
-Just like the sprite panel, the pivot drop-down menu
+Sprite パネルと同じくここでもドロップダウンから
 
 75
 00:03:49,644 --> 00:03:52,683
-includes presets for each corner and the centre of each edge.
+四隅や各四辺の中央が既定値として用意されています
 
 76
 00:03:54,689 --> 00:03:57,750
-To set a custom pivot, once the sprites have been sliced
+カスタムピボットポイントを設定する場合はスプライトのスライスが終わってから
 
 77
 00:03:57,750 --> 00:03:59,750
-select any sprite and adjust it's pivot point
+スプライトを選択して Sprite パネルから
 
 78
 00:03:59,750 --> 00:04:01,750
-in the sprite panel,
+ピボットポイントを変更するか
 
 79
 00:04:01,750 --> 00:04:04,054
-or adjust it visually in the editor.
+エディター上で直接調節します
 
 80
 00:04:05,645 --> 00:04:07,825
-Method lets you choose how to deal with existing
+Method は既存のスプライトを Sprite Editor ウィンドウで
 
 81
 00:04:07,825 --> 00:04:10,060
-sprites in the sprite editor window.
+どう扱うかを指定するオプションです
 
 82
 00:04:10,988 --> 00:04:13,334
-Delete Existing will replace any sprites
+Delete Existing は既存のスプライトをすべて
 
 83
 00:04:13,334 --> 00:04:15,705
-that already exist with new sprites.
+新規スプライトで置き換えます
 
 84
 00:04:16,649 --> 00:04:18,842
-Smart will attempt to create new sprites
+Smart は既存のスプライトを保持・調整しながら
 
 85
 00:04:18,842 --> 00:04:21,329
-while retaining and adjusting existing ones.
+スプライトの新規作成を試行します
 
 86
 00:04:22,240 --> 00:04:24,240
-Safe will add new sprites without
+Safe は既存のスプライトに一切
 
 87
 00:04:24,240 --> 00:04:26,685
-changing any sprites already created.
+変更を加えず 新規スプライトを作成します
 
 88
 00:04:28,909 --> 00:04:31,944
-When the settings are correct select the Slice button
+各オプションを正しく設定したら Slice ボタンをクリックすると
 
 89
 00:04:31,944 --> 00:04:34,695
-to slice the image in to individual sprites.
+画像が個別スプライトにスライスされます
 
 90
 00:04:35,963 --> 00:04:39,232
-After slicing, each sprite can be edited individually.
+スライスした後は各スプライトが個別に編集可能になります
 
 91
 00:04:41,486 --> 00:04:44,094
-With the sprite sheet, where each element is designed
+なおスプライトシートは全要素が同一サイズであることを
 
 92
 00:04:44,094 --> 00:04:46,784
-to be a regular identical size,
+前提として作成されているものなので
 
 93
 00:04:46,784 --> 00:04:49,508
-if Slice Type Automatic is used
+Slice Type を Automatic にしてしまうと
 
 94
 00:04:49,508 --> 00:04:52,352
-small changes in the individual sprite's shape
+各スプライトの細かな差異と
 
 95
 00:04:52,352 --> 00:04:54,352
-and the amount of empty space surrounding it
+周辺の空白スペースの変化により
 
 96
 00:04:54,352 --> 00:04:57,161
-could cause the sprites to be cut out unevenly.
+スプライトが均一に切り出されない可能性があります
 
 97
 00:04:58,371 --> 00:05:01,777
-To evenly slice a sprite sheet made of regular elements
+このため均一要素を含むスプライトシートの場合には
 
 98
 00:05:01,777 --> 00:05:03,777
-choose Slice Type Grid.
+Slice Type を Grid にします
 
 99
 00:05:05,948 --> 00:05:09,202
-Pixel Size sets the size of the grid in pixels.
+Pixel Size はグリッドの大きさをピクセル単位で指定します
 
 100
 00:05:10,489 --> 00:05:13,151
-Pivot sets the default pivot point that will be applied
+Pivot は画像からスライスされる
 
 101
 00:05:13,151 --> 00:05:16,136
-to all sprites when they are sliced from the image.
+全スプライトのデフォルトピボットポイントを指定します
 
 102
 00:05:16,136 --> 00:05:19,235
-To set a custom pivot, once the sprites have been sliced,
+カスタムピボットポイントを設定する場合はスプライトのスライスが終わってから
 
 103
 00:05:19,235 --> 00:05:21,595
-select any sprite and adjust it's pivot point
+スプライトを選択して Sprite パネルから
 
 104
 00:05:21,595 --> 00:05:24,956
-in the sprite panel, or adjust it visually in the editor.
+ピボットポイントを変更するか  エディター上で直接調節します
 
 105
 00:05:25,926 --> 00:05:28,340
-When the settings are correct use the slice button
+各オプションを正しく設定したら Slice ボタンをクリックすると
 
 106
 00:05:28,340 --> 00:05:30,895
-to slice the image in to individual sprites.
+画像が個別スプライトにスライスされます
 
 107
 00:05:32,017 --> 00:05:35,341
-After slicing each sprite can be edited individually.
+スライスした後は各スプライトが個別に編集可能になります
 
 108
 00:05:36,199 --> 00:05:38,990
-When slicing is complete, to save any changes,
+スライスを完了して内容を保存するには
 
 109
 00:05:38,990 --> 00:05:40,990
-select Apply.
+Apply をクリックします
 
 110
 00:05:41,421 --> 00:05:44,454
-Or discard any change by selecting Revert.
+変更内容を破棄する場合には Revert をクリックします
 
 111
 00:05:46,487 --> 00:05:48,487
-The RGB Alpha toggle switches the
+RGB アルファトグルスイッチは Sprite Editor 上での
 
 112
 00:05:48,487 --> 00:05:51,587
-display of the sprite editor between the colour image
+表示をカラー画像とアルファチャンネル表示で
 
 113
 00:05:51,587 --> 00:05:54,146
-and it's alpha channel, making it easier to see
+切り替えることで細部を確認しやすくして
 
 114
 00:05:54,146 --> 00:05:56,849
-fine details when manually adjusting edges.
+エッジの手動調整を支援します
 
 115
 00:05:57,929 --> 00:06:01,418
-The zoom slider controls the zoom when viewing the image.
+ズームスライダーは画像のズーム制御に使用します
 
 116
 00:06:03,589 --> 00:06:05,589
-When an image has been successfully edited
+画像の編集が正常に完了して
 
 117
 00:06:05,589 --> 00:06:07,589
-and the changes applied
+変更が適用されると
 
 118
 00:06:08,089 --> 00:06:10,494
-the asset will update in the project window.
+Project ウィンドウでアセットが更新されます
 
 119
 00:06:12,164 --> 00:06:14,566
-And a new sprite, or set of sprites
+その後は新しいスプライト / スプライト群は
 
 120
 00:06:14,566 --> 00:06:17,082
-can be seen as a child or group of children
+画像の下に子 / 子のグループとして
 
 121
 00:06:17,082 --> 00:06:18,579
-under the image.
+表示されます
 
 122
 00:06:19,292 --> 00:06:21,833
-When viewing thumbnails in the project view
+Project ビューでサムネイルを表示中に子項目を
 
 123
 00:06:21,833 --> 00:06:24,676
-click the turn-down arrow to see any children.
+表示したい時は下向き矢印をクリックしてください
 
 124
 00:06:26,639 --> 00:06:30,136
-Each child represents a useable sprite from that image.
+子項目はそれぞれ画像の中の使用可能なスプライトを示します
 
 125
 00:06:30,981 --> 00:06:32,662
-Any of these sprites can be used in the
+これらスプライトはプロジェクト内で
 
 126
 00:06:32,662 --> 00:06:35,459
-project independently, or grouped together
+個別に使用することも グループ化して
 
 127
 00:06:35,459 --> 00:06:37,459
-to create a character, for example,
+たとえばキャラクターを構成したり あるいは
 
 128
 00:06:38,139 --> 00:06:40,776
-or used sequentially as animations.
+アニメーションとして使ったりできます

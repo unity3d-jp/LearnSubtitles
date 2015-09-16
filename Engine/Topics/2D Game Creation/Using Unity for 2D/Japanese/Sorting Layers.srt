@@ -1,312 +1,312 @@
-1
+﻿1
 00:00:01,257 --> 00:00:04,354
-When making a 2D game detailed control over the
+2D ゲームを制作している時  項目の描画順序は
 
 2
 00:00:04,354 --> 00:00:07,390
-order in which items are rendered is a necessity.
+細かく制御できければなりません
 
 3
 00:00:08,180 --> 00:00:10,180
-One way of doing this is by using the
+ひとつの方法としてはカメラとスプライト間の距離を
 
 4
 00:00:10,180 --> 00:00:12,612
-distance of the sprite from the camera.
+利用する方法がありますが
 
 5
 00:00:13,440 --> 00:00:15,440
-Unity however provides a much more
+Unity ではこの他にも強力な
 
 6
 00:00:15,440 --> 00:00:17,177
-powerful tool to do this,
+制御ツールがあります
 
 7
 00:00:17,567 --> 00:00:19,094
-sorting layers.
+それが Sorting Layer（ソーティングレイヤー）です
 
 8
 00:00:20,164 --> 00:00:22,360
-Sorting layers work with the sprite renderer
+Sorting Layer は Sprite Renderer と
 
 9
 00:00:22,360 --> 00:00:24,906
-to determine the rendering order of sprites
+組み合わせて使用し  カメラからの距離に関係なく
 
 10
 00:00:24,906 --> 00:00:27,298
-regardless of their distance from the camera.
+スプライトの描画順を指定します
 
 11
 00:00:28,221 --> 00:00:30,454
-A sprite, or group of sprites, can be
+ソーティングレイヤーには単一のスプライト以外に
 
 12
 00:00:30,454 --> 00:00:32,454
-assigned to a sorting layer.
+スプライトのグループも割り当てられます
 
 13
 00:00:32,982 --> 00:00:35,765
-These sorting layers are given a sorting order.
+これらのレイヤーには並び順が指定され
 
 14
 00:00:36,445 --> 00:00:38,764
-The items in the sorting layer are rendered
+ソーティングレイヤーに含まれる項目は
 
 15
 00:00:38,764 --> 00:00:40,917
-regardless of distance to the camera
+指定順に従い  カメラからの
 
 16
 00:00:40,917 --> 00:00:42,917
-based on this sorting order.
+距離に関係なく描画されます
 
 17
 00:00:43,541 --> 00:00:45,541
-It is worthwhile noting that the sprites
+なおカメラの枠内に存在しない
 
 18
 00:00:45,541 --> 00:00:48,572
-must still be within the camera's frustum to be rendered.
+スプライトは描画されないので注意してください
 
 19
 00:00:49,486 --> 00:00:51,946
-For even more control, individual sprites
+またより詳細な制御が必要な場合には
 
 20
 00:00:51,946 --> 00:00:54,320
-can be assigned an Order In Layer value
+各スプライトの Order In Layer フィールドに
 
 21
 00:00:54,320 --> 00:00:56,320
-to define the rendering order of sprites
+個別に値を指定してソーティングレイヤー内での描画順を
 
 22
 00:00:56,320 --> 00:00:58,320
-within a sorting layer.
+細かく制御することもできます
 
 23
 00:00:59,193 --> 00:01:01,028
-Sorting layers can be found in the
+Sorting Layers 設定項目は
 
 24
 00:01:01,028 --> 00:01:03,028
-Tags and Layers Settings panel.
+Tags & Layers パネルにあり
 
 25
 00:01:03,970 --> 00:01:06,191
-The tags and layers settings panel can be
+このパネルには次の 2 種類の方法で
 
 26
 00:01:06,191 --> 00:01:08,191
-accessed in 2 ways.
+アクセスできます
 
 27
 00:01:08,815 --> 00:01:10,815
-From the sprite renderer component select
+ひとつめは Sprite Renderer コンポーネントで
 
 28
 00:01:10,815 --> 00:01:14,516
-Sorting Layer - Add Sorting Layer.
+Sorting Layer > Add Sorting Layer を選択する方法
 
 29
 00:01:15,320 --> 00:01:17,347
-From anywhere within the editor select
+ふたつめはエディター上で Edit >
 
 30
 00:01:17,347 --> 00:01:21,657
-Edit - Project Settings - Tags And Layers.
+Project Settings > Tags And Layers を選択する方法です
 
 31
 00:01:22,875 --> 00:01:24,875
-With the tags and layers panel open
+この Tags & Layers パネルでは
 
 32
 00:01:24,875 --> 00:01:28,236
-sorting layers can be added, deleted or rearranged.
+ソーティングレイヤーを追加 / 削除 / 順番変更できます
 
 33
 00:01:29,150 --> 00:01:30,984
-There will always be a default layer 
+レイヤーのうちひとつはデフォルトで 
 
 34
 00:01:30,984 --> 00:01:32,984
-present in the sorting layers list.
+必ず存在しています
 
 35
 00:01:33,885 --> 00:01:36,852
-The default layer cannot be renamed or removed
+デフォルトレイヤーは名前変更 / 削除はできませんが
 
 36
 00:01:36,852 --> 00:01:38,852
-but it can be rearranged.
+順番変更することは可能です
 
 37
 00:01:39,739 --> 00:01:42,675
-To add a new sorting layer click the plus button.
+新たにソーティングレイヤーを追加するには + ボタンをクリックします
 
 38
 00:01:43,368 --> 00:01:45,368
-To rename a sorting layer select
+ソーティングレイヤー名を変更するには
 
 39
 00:01:45,368 --> 00:01:47,936
-the Name field and enter a new name.
+名前フィールドを選択して新しい名前を入力します
 
 40
 00:01:48,697 --> 00:01:51,239
-To rearrange the order of a sorting layer
+ソーティングレイヤーを順番を変更するには
 
 41
 00:01:51,239 --> 00:01:53,827
-click and drag the layer in to a new position.
+単純に目的の位置までクリック&ドラッグします
 
 42
 00:01:54,595 --> 00:01:56,637
-The sorting layers will render in
+ソーティングレイヤーは
 
 43
 00:01:56,637 --> 00:01:58,500
-list order from top to bottom
+上から下の順番に描画され
 
 44
 00:01:58,500 --> 00:02:00,500
-with the first item drawn at the back
+最初に描画された項目が奥に
 
 45
 00:02:00,500 --> 00:02:03,656
-and the last item drawn on top as the last layer.
+最後に描画された項目が最後のレイヤーとして手前に描画されます
 
 46
 00:02:04,598 --> 00:02:06,598
-To assign a sprite to a sorting layer
+ソーティングレイヤーにスプライトを割り当てるには
 
 47
 00:02:06,598 --> 00:02:08,598
-select the sprite to be assigned
+まず割り当てるスプライトを選択して
 
 48
 00:02:08,598 --> 00:02:10,598
-and in the sprite renderer component
+その Sprite Renderer コンポーネントの
 
 49
 00:02:10,598 --> 00:02:12,820
-use the Sorting Layer drop-down list
+Sorting Layer ドロップダウンリストで
 
 50
 00:02:12,820 --> 00:02:14,820
-to choose a sorting layer.
+割り当てるソーティングレイヤーを選択します
 
 51
 00:02:15,541 --> 00:02:17,541
-For detailed control over multiple
+同一ソーティングレイヤー内で複数スプライトの
 
 52
 00:02:17,541 --> 00:02:19,541
-sprites on the same sorting layer the
+描画順を細かく指定したい場合には
 
 53
 00:02:19,541 --> 00:02:21,986
-Order In Layer value can be set.
+Order In Layer に値を指定します
 
 54
 00:02:22,801 --> 00:02:24,801
-If, for example, multiple sprites
+仮にキャラクターを複数のスプライトで
 
 55
 00:02:24,801 --> 00:02:26,926
-are used to create a character
+構成していて  それらスプライトが
 
 56
 00:02:26,926 --> 00:02:28,926
-all the sprites used to create that character
+同一ソーティングレイヤーに
 
 57
 00:02:28,926 --> 00:02:31,409
-could be assigned to one sorting layer.
+属しているとします
 
 58
 00:02:31,882 --> 00:02:34,091
-And then within that sorting layer
+そういった場合には そのソーティングレイヤーの
 
 59
 00:02:34,091 --> 00:02:36,091
-Order In Layer can be used to determine
+Order In Layer を細かく指定することで
 
 60
 00:02:36,091 --> 00:02:39,312
-the draw order of the sprites, creating the character.
+キャラクターを構成するスプライトの描画順を指定できるのです
 
 61
 00:02:40,599 --> 00:02:42,599
-It is worth noting that sorting layers
+なおソーティングレイヤーと
 
 62
 00:02:42,599 --> 00:02:44,890
-and Order In Layer are global and available
+Order In Layer はグローバルで Unity の
 
 63
 00:02:44,890 --> 00:02:46,890
-to all renderers in Unity.
+全レンダラーで利用可能です
 
 64
 00:02:47,514 --> 00:02:49,998
-Every renderer, including particle renderers
+インスペクターにプロパティを公開するのは
 
 65
 00:02:49,998 --> 00:02:52,344
-can specify a sorting layer and use a
+Sprite Renderer だけですが  たとえば
 
 66
 00:02:52,344 --> 00:02:55,348
-Order In Layer value, even though only the sprite
+パーティクルレンダラーでもソーティングレイヤーを
 
 67
 00:02:55,348 --> 00:02:58,645
-renderer exposes these properties in the inspector.
+指定して Order In Layer を入力することはできます
 
 68
 00:02:59,394 --> 00:03:01,658
-To use sorting layers and Order In Layer with
+他のレンダラーでソーティングレイヤーと
 
 69
 00:03:01,658 --> 00:03:03,961
-other renderers simply use a script
+Order In Layer を使う場合には
 
 70
 00:03:03,961 --> 00:03:05,961
-to assign these values.
+スクリプトを使って値を割り当ててください
 
 71
 00:03:06,585 --> 00:03:08,585
-It is possible to set the sorting layer
+ソーティングレイヤーの指定に
 
 72
 00:03:08,585 --> 00:03:12,761
-by name or ID with renderer.sortingLayerName.
+renderer.sortingLayerName で名前や
 
 73
 00:03:13,813 --> 00:03:16,914
-Or renderer.sortingLayerID.
+renderer.sortingLayerID で ID を使うこともできます
 
 74
 00:03:17,718 --> 00:03:20,310
-To set the Order In Layer property use
+また Order In Layer プロパティを指定するには
 
 75
 00:03:20,310 --> 00:03:22,658
-renderer.sortingOrder.
+renderer.sortingOrder を使います
 
 
 76
 00:03:23,432 --> 00:03:26,136
-For more information on renderers, tags and layers
+レンダラーや Tags & Layers
 
 77
 00:03:26,136 --> 00:03:29,399
-including sorting layers and the Order In Layer
+ソーティングレイヤーや Order In Layer の詳細については
 
 78
 00:03:29,399 --> 00:03:31,758
-please see the information linked below.
+下記リンク先の情報を参照してください
