@@ -1,0 +1,363 @@
+1
+00:00:00,180 --> 00:00:04,379
+As well as supporting input from devices like a mouse and keyboard
+
+2
+00:00:04,379 --> 00:00:07,574
+Unity also support input from touch screens.
+
+3
+00:00:08,143 --> 00:00:10,395
+Because of the nature of touch input
+
+4
+00:00:10,395 --> 00:00:12,395
+it is handled slightly differently.
+
+5
+00:00:13,641 --> 00:00:15,641
+We still use the input class
+
+6
+00:00:15,641 --> 00:00:18,309
+as we would for other input devices.
+
+7
+00:00:18,309 --> 00:00:20,309
+However, since the user may be making
+
+8
+00:00:20,309 --> 00:00:23,863
+multiple touches at once they are stored as an array.
+
+9
+00:00:25,067 --> 00:00:27,540
+If we want to retrieve a specific touch
+
+10
+00:00:27,540 --> 00:00:30,282
+it is efficient to use the Get.Touch function
+
+11
+00:00:30,282 --> 00:00:32,005
+of the input class.
+
+12
+00:00:32,782 --> 00:00:35,803
+The Get.Touch function reads in a single integer
+
+13
+00:00:35,803 --> 00:00:39,231
+and returns a touch from the array at that index.
+
+14
+00:00:39,731 --> 00:00:41,731
+For example, if we want to access
+
+15
+00:00:41,731 --> 00:00:43,731
+the first touch in the array
+
+16
+00:00:43,731 --> 00:00:45,731
+we can create a touch variable and set 
+
+17
+00:00:45,731 --> 00:00:50,523
+it equal to Input.GetTouch parsing in a 0.
+
+18
+00:00:51,230 --> 00:00:55,030
+A touch variable is an instance of the touch struct.
+
+19
+00:00:55,640 --> 00:00:58,584
+A struct is very similar to a class.
+
+20
+00:00:58,584 --> 00:01:01,001
+It is a collection of variables and functions
+
+21
+00:01:01,001 --> 00:01:03,849
+just the same as a class and for this example
+
+22
+00:01:03,849 --> 00:01:05,849
+they can be thought of as the same.
+
+23
+00:01:06,611 --> 00:01:09,179
+The touch struct has a number of properties
+
+24
+00:01:09,179 --> 00:01:10,886
+that we can use in different ways
+
+25
+00:01:10,886 --> 00:01:14,032
+depending on how we want the touches to effect our game.
+
+26
+00:01:14,974 --> 00:01:17,750
+The fingerId property is an identifier
+
+27
+00:01:17,750 --> 00:01:19,750
+that is unique to that specific touch
+
+28
+00:01:19,750 --> 00:01:21,156
+for its lifetime.
+
+29
+00:01:21,849 --> 00:01:25,819
+Using this you can track the actions of a specific touch.
+
+30
+00:01:26,319 --> 00:01:28,662
+Once the touch is no longer in the array
+
+31
+00:01:28,662 --> 00:01:32,405
+the touch has finished and other touches can have this ID.
+
+32
+00:01:33,582 --> 00:01:37,716
+The position property is the position of the touch on the screen.
+
+33
+00:01:38,216 --> 00:01:41,686
+This is a vector2 measured in screen space.
+
+34
+00:01:42,186 --> 00:01:44,628
+Screen space is measured in pixels
+
+35
+00:01:44,628 --> 00:01:46,628
+from the bottom left corner.
+
+36
+00:01:46,628 --> 00:01:50,715
+That means the axis are between 0 in the lower left corner
+
+37
+00:01:50,715 --> 00:01:53,873
+and the screen's width in pixels on the right
+
+38
+00:01:53,873 --> 00:01:56,726
+and screen's height in pixels at the top.
+
+39
+00:01:57,437 --> 00:02:00,366
+The delta position property is a vector2
+
+40
+00:02:00,366 --> 00:02:02,146
+that is the difference between the touches
+
+41
+00:02:02,146 --> 00:02:05,787
+position last frame to it's position this frame.
+
+42
+00:02:06,276 --> 00:02:08,511
+This is very useful for any system
+
+43
+00:02:08,511 --> 00:02:11,561
+where you need to know the movement direction of a touch.
+
+44
+00:02:12,213 --> 00:02:14,364
+In addition to the delta position
+
+45
+00:02:14,364 --> 00:02:17,596
+the touch struct also has a delta time property.
+
+46
+00:02:18,151 --> 00:02:21,344
+This is the time since there was an update of the touch.
+
+47
+00:02:21,941 --> 00:02:25,323
+Generally touches are detected in the update loop.
+
+48
+00:02:25,892 --> 00:02:28,332
+Under these circumstances the delta time
+
+49
+00:02:28,332 --> 00:02:31,788
+property would be the same as the time.deltaTime.
+
+50
+00:02:32,288 --> 00:02:34,806
+Each touch has a tapCount property.
+
+51
+00:02:35,306 --> 00:02:37,306
+This is a measure of how many taps are
+
+52
+00:02:37,306 --> 00:02:39,114
+made in quick succession.
+
+53
+00:02:39,654 --> 00:02:43,249
+When a tap is recorded the fingerId is maintained.
+
+54
+00:02:43,749 --> 00:02:47,352
+However if you have multiple fingers tapping at once
+
+55
+00:02:47,352 --> 00:02:49,627
+then this will be treated as the same finger
+
+56
+00:02:49,627 --> 00:02:51,239
+jumping around the screen.
+
+57
+00:02:52,307 --> 00:02:55,277
+The last property is the touches phase.
+
+58
+00:02:55,277 --> 00:02:58,285
+This is an enumeration called TouchPhase.
+
+59
+00:02:58,785 --> 00:03:00,803
+The possible values for the phase are 
+
+60
+00:03:00,803 --> 00:03:05,546
+Began, Cancelled, Ended, Moved and Stationary.
+
+61
+00:03:06,350 --> 00:03:07,972
+The phase Began will be returned on the
+
+62
+00:03:07,972 --> 00:03:09,972
+first frame of the touch.
+
+63
+00:03:09,972 --> 00:03:12,638
+Stationary is when the touch isn't moving.
+
+64
+00:03:13,138 --> 00:03:17,414
+And Moved is when the touch has changed position on the screen.
+
+65
+00:03:18,439 --> 00:03:22,278
+Ended is returned on the last frame of the touch.
+
+66
+00:03:23,165 --> 00:03:25,165
+The touch will have a phase of Cancelled when the
+
+67
+00:03:25,165 --> 00:03:27,879
+device can't handle the input of the screen.
+
+68
+00:03:28,379 --> 00:03:30,379
+This might be where there are more touches
+
+69
+00:03:30,379 --> 00:03:32,323
+than the device supports
+
+70
+00:03:32,323 --> 00:03:34,921
+or a large surface presses on the screen.
+
+71
+00:03:37,875 --> 00:03:40,516
+We can also retrieve the entire array
+
+72
+00:03:40,516 --> 00:03:42,516
+by creating an array of touch objects
+
+73
+00:03:42,516 --> 00:03:45,360
+and setting it equal to the touches property
+
+74
+00:03:45,360 --> 00:03:47,099
+of the input class.
+
+75
+00:03:47,653 --> 00:03:49,653
+Now that we have our touch array
+
+76
+00:03:49,653 --> 00:03:53,139
+generally it is a good idea to iterate through them.
+
+77
+00:03:53,542 --> 00:03:57,063
+By doing so we can treat each touch individually
+
+78
+00:03:57,063 --> 00:03:58,644
+based on it's properties.
+
+79
+00:03:59,213 --> 00:04:01,997
+To do this we will us a For Loop.
+
+80
+00:04:02,566 --> 00:04:05,428
+In order to loop the correct number of times
+
+81
+00:04:05,428 --> 00:04:08,598
+we could use the length property of the touches array.
+
+82
+00:04:09,098 --> 00:04:11,542
+However it is again more efficient
+
+83
+00:04:11,542 --> 00:04:14,860
+to use the touchCount property of the input class.
+
+84
+00:04:15,470 --> 00:04:18,865
+From here we can treat touch individually
+
+85
+00:04:18,865 --> 00:04:21,453
+However, this might not be the way you want
+
+86
+00:04:21,453 --> 00:04:23,968
+to treat touches in every circumstance.
+
+87
+00:04:24,657 --> 00:04:28,034
+For example, there are times where you might want to write code
+
+88
+00:04:28,034 --> 00:04:30,407
+that requires a specific number of touches
+
+89
+00:04:30,407 --> 00:04:32,407
+for complex gestures.
+
+90
+00:04:32,907 --> 00:04:35,507
+For more examples of touch based input
+
+91
+00:04:35,507 --> 00:04:37,757
+see the assignments linked below.
