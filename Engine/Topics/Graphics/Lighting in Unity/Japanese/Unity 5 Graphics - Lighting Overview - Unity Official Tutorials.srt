@@ -1,835 +1,835 @@
-1
+﻿1
 00:00:02,635 --> 00:00:06,218
-Lighting in Unity is more fully featured than ever.
+今 Unity のライティング機能はかつてないほど充実しています
 
 2
 00:00:07,635 --> 00:00:11,786
-The lighting pipeline includes realtime global illumination,
+ライティングパイプラインには従来のベイクライトマッピング手法の
 
 3
 00:00:11,786 --> 00:00:15,109
-in addition to traditional baked light mapping techniques.
+他にリアルタイムグローバルイルミネーションも加わりました
 
 4
 00:00:16,621 --> 00:00:19,710
-These combined with physically-based rendering
+これらを物理ベースレンダリングと Standard シェーダーと
 
 5
 00:00:19,710 --> 00:00:21,297
-and the standard shader
+組み合わせることで
 
 6
 00:00:21,297 --> 00:00:25,421
-give more power and versatility to light more complex scenes.
+複雑なシーンのライティングをより強力かつ汎用性の高い形で実現できるようになったのです
 
 7
 00:00:28,492 --> 00:00:32,688
-Unity uses physically-based rendering, or PBR
+Unity では物理ベースレンダリング略してPBR を使うことで
 
 8
 00:00:32,688 --> 00:00:35,699
-to create a friendly way of achieving a consistent
+各種ライティング状況におけるマテリアルの見た目に
 
 9
 00:00:35,699 --> 00:00:39,956
-plausible look for materials under all lighting conditions.
+一貫性と説得力を手軽に持たせることができます
 
 10
 00:00:39,956 --> 00:00:44,764
-In order to do so, Unity models how light actually behaves
+これを実現するため Unity ではライトの実際の振る舞いをモデルし
 
 11
 00:00:44,764 --> 00:00:46,764
-and follows the laws of physics on how
+マテリアルに対するライトの干渉が物理法則に
 
 12
 00:00:46,764 --> 00:00:48,764
-light interacts with materials.
+沿ったものになるようにしています
 
 13
 00:00:49,612 --> 00:00:53,704
-These materials are usually created using the standard shader.
+これらマテリアルは通常  Standard シェーダーを用いて作成されます
 
 14
 00:00:53,704 --> 00:00:55,704
-The standard shader makes physically
+Standard シェーダーは物理ベースレンダリングを
 
 15
 00:00:55,704 --> 00:00:58,749
-based rendering easy and accessible to use.
+簡単で扱いやすくします
 
 16
 00:01:01,322 --> 00:01:03,322
-One of the most powerful tools in the Unity
+Unity のパイプラインでもトップクラスの強力を
 
 17
 00:01:03,322 --> 00:01:07,195
-pipeline is Unity's realtime global illumination,
+持つのがリアルタイムグローバルイルミネーション
 
 18
 00:01:07,195 --> 00:01:08,948
-or GI.
+略して GI です
 
 19
 00:01:08,948 --> 00:01:12,404
-Using GI, all lights in the scene can effect
+GI ではシーン内の全ライトが
 
 20
 00:01:12,404 --> 00:01:14,923
-the object's within range with both
+範囲内のオブジェクトに直接光と
 
 21
 00:01:14,923 --> 00:01:17,928
-direct and indirect illumination.
+間接光を投射できます
 
 22
 00:01:17,928 --> 00:01:19,928
-Direct illumination comes from lights
+直接光とはシーン内のオブジェクトに
 
 23
 00:01:19,928 --> 00:01:23,564
-shining directly on the objects in the scene.
+直接光を当てるライトから来るものですが
 
 24
 00:01:23,564 --> 00:01:25,564
-Indirect illumination however
+他方の間接光は
 
 25
 00:01:25,564 --> 00:01:28,780
-is the light reflected, or bounced off of
+シーン内のサーフェイスに反射・跳ね返ってきた
 
 26
 00:01:28,780 --> 00:01:30,780
-the light surfaces in the scene.
+光を示します
 
 27
 00:01:31,364 --> 00:01:33,364
-This bounced indirect light
+跳ね返った間接光は
 
 28
 00:01:33,364 --> 00:01:35,364
-can illuminate nearby objects
+近くのオブジェクトを照らし
 
 29
 00:01:35,364 --> 00:01:38,694
-mimicking how light behaves in the real world
+現実世界の光の振る舞いを模倣します
 
 30
 00:01:38,694 --> 00:01:40,694
-This indirect light is effected
+この間接光は跳ね返る
 
 31
 00:01:40,694 --> 00:01:43,551
-by the colour of the surfaces it bounces off of,
+サーフェイスの色に影響され
 
 32
 00:01:43,551 --> 00:01:47,375
-taking a contribution of that surface's colour with it.
+投射先にその色の影響を伝えます
 
 33
 00:01:47,375 --> 00:01:49,375
-Direct and indirect light will
+直接光と間接光は
 
 34
 00:01:49,375 --> 00:01:52,971
-blend together to create a much more realistic look.
+混ぜ合わさることでよりリアルな外観を作り出します
 
 35
 00:01:56,368 --> 00:01:58,368
-In addition to the default main camera
+Unity の新シーンにはデフォルトのメインカメラの他
 
 36
 00:01:58,368 --> 00:02:00,368
-a new scene in Unity comes with
+デフォルトのスカイボックスが
 
 37
 00:02:00,368 --> 00:02:02,368
-a default sky box
+含まれるようになりました
 
 38
 00:02:02,368 --> 00:02:04,368
-and a default directional light aligned
+このスカイボックスにはデフォルトのディレクショナルライトが
 
 39
 00:02:04,368 --> 00:02:06,368
-with that sky box.
+付いてきます
 
 40
 00:02:09,609 --> 00:02:11,609
-Each scene also contains default
+各シーンにはまた環境光（Ambient Light）の
 
 41
 00:02:11,609 --> 00:02:13,609
-values for ambient light.
+デフォルト値が設定されています
 
 42
 00:02:14,683 --> 00:02:17,974
-Ambient light illuminates all surfaces in the scene.
+環境光はシーン内の全サーフェイスを照らします
 
 43
 00:02:19,435 --> 00:02:22,015
-Ambient light is controlled by the settings in the
+この環境光の設定は Lighting パネル >
 
 44
 00:02:22,015 --> 00:02:24,523
-lighting panels Environment Lighting tab.
+Environment Lighting タブで指定できます
 
 45
 00:02:27,783 --> 00:02:29,783
-Ambient light can be created by either
+環境光は
 
 46
 00:02:29,783 --> 00:02:31,783
-using a sky box,
+Skybox の他にも
 
 47
 00:02:32,650 --> 00:02:35,917
-a user generated gradient of 3 colours,
+ユーザー指定の 3 色グラデーションや
 
 48
 00:02:44,208 --> 00:02:46,208
-or a single colour.
+単色でも作成できます
 
 49
 00:02:54,593 --> 00:02:56,593
-All objects added to the scene
+基本的にシーン内の全オブジェクトは
 
 50
 00:02:56,593 --> 00:02:58,499
-will receive ambient light
+環境光を受けますが
 
 51
 00:02:58,499 --> 00:03:01,881
-unless the ambient intensity value is set to 0
+Ambient Intensity 値を 0 にしたり
 
 52
 00:03:02,898 --> 00:03:06,265
-or the ambient light's colour values are set to black.
+環境光のカラー値を黒にしたりすると受けなくなります
 
 53
 00:03:08,093 --> 00:03:10,093
-It is rare, if not impossible
+現実世界のマテリアルが
 
 54
 00:03:10,093 --> 00:03:12,093
-for any real-world material
+反射率を持たないということは
 
 55
 00:03:12,093 --> 00:03:15,638
-to have absolutely no reflectivity.
+基本的にあり得ません
 
 56
 00:03:15,638 --> 00:03:18,676
-By default all objects in the scene
+デフォルトではシーン内の全オブジェクトが
 
 57
 00:03:18,676 --> 00:03:21,433
-will also receive reflection information.
+反射情報を受け取ります
 
 58
 00:03:22,055 --> 00:03:25,630
-Even though the cube, sphere and plane in the scene
+なのでこの例ではスフィア・キューブ・プレーンのいずれも
 
 59
 00:03:25,630 --> 00:03:28,970
-are unlit and ambient light is none
+ライトを受けず  また環境光も無いにも関わらず
 
 60
 00:03:28,970 --> 00:03:30,970
-they still receive lighting information
+ライティング情報は反射というかたちで
 
 61
 00:03:30,970 --> 00:03:33,631
-in the form of reflections.
+受け取られているわけです
 
 62
 00:03:33,631 --> 00:03:37,015
-The default reflection source is the sky box.
+デフォルトの Reflection Source（反射ソース）は Skybox です
 
 63
 00:03:37,015 --> 00:03:40,034
-This can be changed to a custom cube map.
+これはカスタムキューブマップに変更も可能です
 
 64
 00:03:40,034 --> 00:03:42,352
-To receive no default reflections
+デフォルトの反射を無くすには
 
 65
 00:03:42,352 --> 00:03:44,352
-either set the custom cube map to none,
+カスタムキューブマップを無しにするか
 
 66
 00:03:47,084 --> 00:03:49,084
-or remove the sky box.
+スカイボックスを削除します
 
 67
 00:03:52,024 --> 00:03:54,024
-It is worth noting that the default sky box
+なおデフォルトのスカイボックスはプロシージャルに
 
 68
 00:03:54,024 --> 00:03:56,494
-is procedurally generated
+生成されますが  プロシージャルな
 
 69
 00:03:56,494 --> 00:03:58,494
-and new procedural sky boxes
+スカイボックスはアセットとして
 
 70
 00:03:58,494 --> 00:04:00,494
-can be created and saved as assets.
+新規作成・保存が可能です
 
 71
 00:04:13,646 --> 00:04:15,646
-When lighting scenes in Unity
+Unity 上でシーンにライティングを加える場合には
 
 72
 00:04:15,646 --> 00:04:17,646
-we can work with realtime lighting,
+Realtime ライティングと
 
 73
 00:04:18,475 --> 00:04:19,881
-baked lighting,
+Baked ライティング
 
 74
 00:04:20,475 --> 00:04:22,053
-or a mixture of both.
+およびその両方（Mixed）を使うことができます
 
 75
 00:04:22,607 --> 00:04:26,129
-Realtime lighting is more easily modified at run time.
+Realtime ライティングは実行時に容易に変更が可能ですが
 
 76
 00:04:26,129 --> 00:04:28,129
-but it comes at a cost to performance.
+パフォーマンスとの兼ね合いが重要になります
 
 77
 00:04:29,429 --> 00:04:31,562
-Baked lighting on the other hand pre-calculates
+一方の Baked はより詳細なライティング情報を
 
 78
 00:04:31,562 --> 00:04:34,004
-much more detailed lighting information
+事前に演算してライトマップテクスチャとして
 
 79
 00:04:34,004 --> 00:04:36,961
-and saves it to a light mapped texture on disc.
+ディスクに保存しておくことが可能です
 
 80
 00:04:37,470 --> 00:04:39,470
-This light map information is then
+このライトマップ情報はその後実行時に
 
 81
 00:04:39,470 --> 00:04:41,470
-read from the texture at run time,
+テクスチャから読み込まれるので
 
 82
 00:04:41,470 --> 00:04:43,470
-avoiding the need to do any lighting
+プロジェクトの実行時には
 
 83
 00:04:43,470 --> 00:04:45,470
-calculations when the project is running.
+ライティングの演算が不要になります
 
 84
 00:04:46,450 --> 00:04:48,450
-This saves performance,
+パフォーマンス上は良いことずくめですが
 
 85
 00:04:48,450 --> 00:04:51,846
-but at the cost of dynamic changes in the scene.
+その代償としてシーンの動的な変更には対応できません
 
 86
 00:04:51,846 --> 00:04:54,722
-Baked light maps are not updated at run time.
+Baked ライトマップは実行時に更新されないからです
 
 87
 00:04:55,363 --> 00:04:58,975
-Lights can be switched between realtime, baked,
+ライトを Realtime / baked / Mixed の
 
 88
 00:04:58,975 --> 00:05:00,975
-and mixed lighting on a per-light basis.
+いずれにするかはライト単位で指定できます
 
 89
 00:05:02,256 --> 00:05:04,256
-Using baked lighting exclusively
+Baked ライティングだけを使うケースとしては
 
 90
 00:05:04,256 --> 00:05:07,020
-would be more appropriate for target platforms
+ハードウェア性能の低いモバイルデバイスなど
 
 91
 00:05:07,020 --> 00:05:10,844
-such as mobile devices with lower performance capabilities.
+特定のプラットフォーム向けに作る場合が考えられます
 
 92
 00:05:13,674 --> 00:05:16,011
-The light mapping system can either work
+ライトマッピングシステムは継続的にも
 
 93
 00:05:16,011 --> 00:05:18,011
-continuously or on demand.
+オンデマンドにも機能させられます
 
 94
 00:05:19,575 --> 00:05:22,081
-When continuous baking is selected
+Continuous Baking をオンにすると
 
 95
 00:05:22,081 --> 00:05:25,019
-lighting changes will be baked in the background while editing.
+ライティングの変更が編集中にバックグラウンドでベイクされます
 
 96
 00:05:25,754 --> 00:05:27,754
-These changes can either be properties
+これはインスペクターでプロパティを変更したり
 
 97
 00:05:27,754 --> 00:05:29,242
-adjusted in the inspector,
+シーン内でオブジェクトを
 
 98
 00:05:29,242 --> 00:05:31,926
-or objects changed in the scene.
+変更したりした場合に反映されます
 
 99
 00:05:43,058 --> 00:05:45,343
-When continuous baking is not selected
+Continuous Baking をオフにした場合には
 
 100
 00:05:46,189 --> 00:05:48,686
-changes will only preview on demand.
+変更内容のプレビューはオンデマンドになり
 
 101
 00:05:50,137 --> 00:05:53,426
-When the Build button in the lighting panel has been selected.
+Lighting パネルの Build ボタンを選択した時に反映されます
 
 102
 00:06:00,360 --> 00:06:02,360
-In this scene there is a directional light
+さてこのシーンには天井から差し込む
 
 103
 00:06:02,360 --> 00:06:05,004
-coming in through the skylight in the ceiling.
+ディレクショナルライトがあります
 
 104
 00:06:05,607 --> 00:06:09,488
-This light contributes to the illumination of the entire scene
+このライトはシーン全体の証明に影響を与えています
 
 105
 00:06:09,488 --> 00:06:11,488
-as the light bounces off of the surfaces
+まず直接あたったサーフェイスからの
 
 106
 00:06:11,488 --> 00:06:13,127
-it lights directly,
+跳ね返りによる影響があり
 
 107
 00:06:13,127 --> 00:06:16,096
-on to other nearby surfaces in an indirect manner.
+そしてその跳ね返った光が間接的に近くのサーフェスに与える影響があるためです
 
 108
 00:06:17,445 --> 00:06:19,445
-This light continues to indirectly
+この間接的な光は
 
 109
 00:06:19,445 --> 00:06:21,445
-illuminate nearby surfaces
+光の強度（Intensity）が落ちて
 
 110
 00:06:21,445 --> 00:06:23,445
-until the strength of the light fades
+跳ね返らなくなるまで繰り返し跳ね返って
 
 111
 00:06:23,445 --> 00:06:24,993
-and it can bounce no more.
+近くのサーフェイスを間接的に照らします
 
 112
 00:06:25,860 --> 00:06:27,594
-Decrease the intensity of the light
+ここで光の強度（Intensity）を落とせば
 
 113
 00:06:28,048 --> 00:06:31,132
-and the illumination of the scene decreases accordingly.
+シーン内の照明もそれに応じて暗くなります
 
 114
 00:06:34,693 --> 00:06:36,693
-Likewise, if the directional light
+同様にディレクショナルライトを
 
 115
 00:06:36,693 --> 00:06:38,693
-is rotated to directly light a
+シーン内の別の箇所を
 
 116
 00:06:38,693 --> 00:06:40,562
-different part of the scene,
+照らすように移動すると
 
 117
 00:06:40,562 --> 00:06:43,349
-it will now illuminate the scene in a different way,
+シーン内の照明結果も直接光・間接光共に
 
 118
 00:06:43,349 --> 00:06:45,971
-with both it's direct and indirect lighting.
+それに応じて変化します
 
 119
 00:06:49,306 --> 00:06:51,948
-As materials created with a standard shader
+Standard シェーダーで作られたマテリアルは実にさまざまな
 
 120
 00:06:51,948 --> 00:06:55,297
-can mimic a wide variety of physical surfaces
+物理的なサーフェイスを模倣できますが
 
 121
 00:06:55,297 --> 00:06:57,297
-and different materials can have different
+マテリアルはそれぞれ反射率が異なるため
 
 122
 00:06:57,297 --> 00:06:59,030
-amounts of reflectivity
+使用するマテリアルに応じて
 
 123
 00:06:59,030 --> 00:07:01,030
-this can effect the scene's lighting.
+シーン内でのライティング結果に影響が生じます
 
 124
 00:07:01,690 --> 00:07:05,475
-To help balance this the Bounce Intensity can be adjusted
+これを調整するため Bounce Intensity（バウンス強度）設定は
 
 125
 00:07:05,475 --> 00:07:07,832
-on either a per-light basis
+ライト単位で調整する他
 
 126
 00:07:07,832 --> 00:07:09,832
-or globally by adjusting the settings
+Lighting パネルからグローバルにも
 
 127
 00:07:09,832 --> 00:07:11,832
-in the lighting panel.
+調整できるようになっています
 
 128
 00:07:12,981 --> 00:07:15,338
-Adjustments can be made here to artificially
+ここでは照らされたサーフェイスの跳ね返りを
 
 129
 00:07:15,338 --> 00:07:18,705
-change the potential bounce of light from a lit surface.
+人工的に調整することができるわけです
 
 130
 00:07:20,307 --> 00:07:22,307
-Adjust the mount of indirect light
+この他にもシーンの Indirect Intensity（間接光強度）を
 
 131
 00:07:22,307 --> 00:07:24,307
-in the scene, and more.
+調整することなども可能です
 
 132
 00:07:26,982 --> 00:07:28,982
-In addition to lights we can use
+また照明においてはライトの他にも
 
 133
 00:07:28,982 --> 00:07:32,328
-emissive surfaces to contribute to the scene's lighting.
+エミッシブ（Emissive / 自己発光）サーフェイスを使うことができます
 
 134
 00:07:33,421 --> 00:07:35,421
-This scene is lit with a variety of lights
+このシーンにはさまざまなライトとライトタイプが使われていますが
 
 135
 00:07:35,421 --> 00:07:39,297
-and light types, including emissive surfaces.
+そのうちのひとつがこのエミッシブサーフェイスです
 
 136
 00:07:39,297 --> 00:07:42,550
-Emissive surfaces are a light source, 
+エミッシブサーフェイスは光源のひとつですが 
 
 137
 00:07:42,550 --> 00:07:46,836
-but they behave very much like indirect bounced light.
+跳ね返った間接光のように振る舞います
 
 138
 00:07:46,836 --> 00:07:48,836
-The primary emissive surfaces in the scene
+このシーン内で最も大きなエミッシブサーフェイスは
 
 139
 00:07:48,836 --> 00:07:50,836
-are in the main corridor junction.
+メイン通路のジャンクション部分ですが
 
 140
 00:07:51,194 --> 00:07:54,044
-But additional panels are located throughout the scene.
+この他にもパネルが多数配置されています
 
 141
 00:07:56,644 --> 00:07:58,644
-All of these emissive surfaces use
+これらエミッシブサーフェイスは
 
 142
 00:07:58,644 --> 00:08:00,872
-the standard shader's Emission property
+Standard シェーダーの Emission プロパティで
 
 143
 00:08:01,814 --> 00:08:04,255
-by adjusting the Emissive scale.
+スケール調節して使用されています
 
 144
 00:08:04,255 --> 00:08:07,382
-The float value next to the Emission property
+ここで Emission プロパティの横に表示される float 値と
 
 145
 00:08:07,382 --> 00:08:09,229
-and by adding a touch of colour,
+さらに隣になる色を指定すると
 
 146
 00:08:09,229 --> 00:08:11,229
-the mood of our scene changes.
+シーンの雰囲気は大きく変わります
 
 147
 00:08:13,697 --> 00:08:16,996
-As these lights can participate in realtime light mapping
+これらのライトもリアルタイムライトマッピングの一部であるため
 
 148
 00:08:16,996 --> 00:08:18,996
-they can be controlled at runtime using
+コードやアニメーションを利用して
 
 149
 00:08:18,996 --> 00:08:20,996
-code or animation to create
+プロジェクトの実行中に
 
 150
 00:08:20,996 --> 00:08:22,996
-complex changes in mood
+シーンの雰囲気を変えるのに
 
 151
 00:08:22,996 --> 00:08:24,996
-while our projects are running.
+使うことができます
 
 152
 00:08:28,200 --> 00:08:30,200
-The final contributing factor in lighting
+Unity におけるライティングの構成要素として
 
 153
 00:08:30,200 --> 00:08:32,200
-a Unity scene are probes.
+ここで最後に紹介するのがプローブです
 
 154
 00:08:32,822 --> 00:08:34,822
-There are 2 types of probes in Unity.
+Unity には 2 種類のプローブがあります
 
 155
 00:08:35,425 --> 00:08:36,931
-Light probes
+ライトプローブと
 
 156
 00:08:37,915 --> 00:08:39,915
-and reflection probes.
+リフレクションプローブです
 
 157
 00:08:41,121 --> 00:08:43,121
-Light probes sample the lighting in the scene
+ライトプローブはシーン内のライティングのサンプルを
 
 158
 00:08:43,121 --> 00:08:45,121
-at different positions in the world.
+ワールドのさまざまな位置で取得します
 
 159
 00:08:46,892 --> 00:08:49,568
-The information in these probes can be used
+プローブの情報を活用するとパフォーマンス負荷を
 
 160
 00:08:49,568 --> 00:08:51,568
-to light dynamic elements in the scene
+抑えたまま  シーン内の動的な要素
 
 161
 00:08:52,944 --> 00:08:55,912
-such as characters or other moving objects
+たとえばキャラクターや移動するオブジェクトの
 
 162
 00:08:55,912 --> 00:08:57,912
-at a low cost to performance.
+ライティングに活用できます
 
 163
 00:09:02,492 --> 00:09:04,492
-Reflection probes on the other hand
+もう一方のリフレクションプローブは
 
 164
 00:09:04,492 --> 00:09:06,492
-act as a single point of reference to
+反射元の計算に使用する
 
 165
 00:09:06,492 --> 00:09:08,492
-calculate reflections from
+単一の参照ポイントとして作用します
 
 166
 00:09:09,114 --> 00:09:11,114
-Surrounding each reflection probes
+リフレクションプローブは
 
 167
 00:09:11,114 --> 00:09:13,114
-is a cuboid that specifies
+反射に含まれるべき内容を
 
 168
 00:09:13,114 --> 00:09:15,618
-what should be included in that reflection.
+指定する立方骨に囲まれています
 
 169
 00:09:16,522 --> 00:09:19,840
-These probes sample the elements surrounding them
+そして各プローブは ボックス投影を使用して
 
 170
 00:09:19,840 --> 00:09:21,840
-using box projection,
+周辺の要素からサンプルを取得し
 
 171
 00:09:21,840 --> 00:09:23,840
-and store that information in a cube map.
+情報をキューブマップに格納します
 
 172
 00:09:26,779 --> 00:09:28,779
-Materials with reflective surfaces
+そして反射サーフェイスマテリアルを含むオブジェクトが
 
 173
 00:09:28,779 --> 00:09:32,656
-that are on objects within the reflection probe's volume
+リフレクションプローブのボリューム内にある場合に
 
 174
 00:09:32,656 --> 00:09:34,656
-can then reference this cube map to
+このキューブマップを参照して
 
 175
 00:09:34,656 --> 00:09:36,352
-create reflective surfaces.
+反射サーフェイスを作成するのです
 
 176
 00:09:36,939 --> 00:09:38,939
-By default there is one built-in
+デフォルトでは各シーンにひとつビルトインの
 
 177
 00:09:38,939 --> 00:09:41,070
-reflection probe in every scene.
+リフレクションプローブが配置されます
 
 178
 00:09:41,070 --> 00:09:43,070
-This default reflection probe
+このデフォルトリフレクションプローブは
 
 179
 00:09:43,070 --> 00:09:46,486
-reflects the sky box to create basic reflections.
+スカイボックスを反射して基本的な反射を生み出します
 
 180
 00:09:46,486 --> 00:09:48,486
-For more detail in the reflections
+より細やかなリフレクションが必要な場合には
 
 181
 00:09:48,486 --> 00:09:50,486
-additional reflection probes
+リフレクションプローブを追加して
 
 182
 00:09:50,486 --> 00:09:52,486
-should be added and positioned appropriately
+関係するオブジェクトに対して適切に
 
 183
 00:09:52,486 --> 00:09:54,486
-for the reflective objects.
+配置する必要があります
 
 184
 00:09:57,124 --> 00:09:59,919
-It is worth noting that phyically-based rendering
+物理ベースレンダリングは
 
 185
 00:09:59,919 --> 00:10:01,919
-works best in linear colour space.
+リニアカラースペースでその真価を発揮します
 
 186
 00:10:02,484 --> 00:10:04,484
-Linear colour space will give
+リニアカラースペースでは
 
 187
 00:10:04,484 --> 00:10:07,621
-a more realistic and mathematically correct result.
+よりリアルで数学的にも正しい結果が得られます
 
 188
 00:10:09,788 --> 00:10:11,788
-For best results make sure that
+最適な結果を得るには
 
 189
 00:10:11,788 --> 00:10:13,788
-the colour space is set to linear
+Color Space 設定を Linear に設定します
 
 190
 00:10:13,788 --> 00:10:15,788
-in the project's
+これはプロジェクトの
 
 191
 00:10:15,788 --> 00:10:17,788
-Player Settings window.
+Player Settings ウィンドウで指定します
 
 192
 00:10:18,919 --> 00:10:22,065
-Linear colour space is the default setting.
+なお Linear は Color Space のデフォルト設定です
 
 193
 00:10:22,988 --> 00:10:24,988
-Be aware that not all platforms 
+なお一部のプラットフォームでは 
 
 194
 00:10:24,988 --> 00:10:26,988
-support linear colour space however,
+リニアカラースペースがサポートされておらず
 
 195
 00:10:26,988 --> 00:10:28,988
-and that gamma is currently the
+現時点では大半のモバイルプラットフォームで
 
 196
 00:10:28,988 --> 00:10:31,964
-required colour space for most mobile platforms,.
+Gamma が必須カラースペースであることを記憶しておいてください
 
 197
 00:10:35,280 --> 00:10:37,280
-When looking at all these aspects
+これまでカバーしてきた要素を振り返ると
 
 198
 00:10:37,280 --> 00:10:39,280
-to lighting a scene in Unity
+Unity でシーンのライティングを
 
 199
 00:10:39,280 --> 00:10:41,906
-they can be summed up effectively
+効果的に行なう上での重要な要素は
 
 200
 00:10:41,906 --> 00:10:44,210
-with the main contributory factors.
+次のようにまとめられます
 
 201
 00:10:46,544 --> 00:10:47,914
-Ambient light.
+環境光（Ambient Light）
 
 202
 00:10:48,762 --> 00:10:50,762
-Reflections.
+リフレクション（Reflection / 反射）
 
 203
 00:10:50,762 --> 00:10:52,762
-And light sources.
+そして光源です
 
 204
 00:10:53,271 --> 00:10:55,271
-Working with materials created
+Standard シェーダーで作られたマテリアルを
 
 205
 00:10:55,271 --> 00:10:57,271
-with the standard shader being
+物理ベースレンダリングで描画し
 
 206
 00:10:57,271 --> 00:11:00,182
-drawn using phyically-based rendering
+グローバルイルミネーションで
 
 207
 00:11:00,182 --> 00:11:02,182
-with global illumination to calculate
+間接光を計算し
 
 208
 00:11:02,182 --> 00:11:04,182
-the indirect light and create
+より複雑でもっとリアルな
 
 209
 00:11:04,182 --> 00:11:07,308
-more complex, more realistic scenes.
+シーンを作ってみてください

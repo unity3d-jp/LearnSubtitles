@@ -1,174 +1,174 @@
-1
+﻿1
 00:00:03,150 --> 00:00:06,451
-The Standard Shader is a powerful and versatile shader.
+Standard シェーダーは強力かつ汎用性の高いシェーダーです
 
 2
 00:00:07,520 --> 00:00:09,520
-This single physically-based shader
+この物理ベースシェーダーひとつで
 
 3
 00:00:09,520 --> 00:00:11,520
-can be used to make such a wide variety
+実に多様なマテリアルを作成できるため
 
 4
 00:00:11,520 --> 00:00:13,520
-of materials it's easily
+このシェーダーのみで
 
 5
 00:00:13,520 --> 00:00:15,520
-possible that this one shader can make
+プロジェクトの全マテリアルを
 
 6
 00:00:15,520 --> 00:00:18,121
-every material in a given project.
+作成することも可能なほどです
 
 7
 00:00:19,812 --> 00:00:24,026
-The standard is used to create Unity's default material.
+Standard シェーダーは Unity のデフォルトマテリアル作成時に使われます
 
 8
 00:00:24,026 --> 00:00:26,026
-So all mesh rendered using
+つまりデフォルトマテリアルを使う
 
 9
 00:00:26,026 --> 00:00:29,768
-the default material will be using the standard shader.
+全 Mesh Renderer は Standard シェーダーを使用するわけです
 
 10
 00:00:33,412 --> 00:00:36,190
-All new materials that are created
+新規作成されるマテリアルもまた
 
 11
 00:00:36,930 --> 00:00:38,930
-will use the standard shader as well.
+すべて Standard シェーダーを使用します
 
 12
 00:00:40,121 --> 00:00:42,611
-To change the shader used by a material
+マテリアルで使用するシェーダーを変更するには
 
 13
 00:00:42,611 --> 00:00:45,236
-select the Shader menu on the material.
+マテリアルの Shader メニューを使います
 
 14
 00:00:46,046 --> 00:00:49,291
-Select Standard to use the standard shader.
+Standard シェーダーを使うなら Standard を選択します
 
 15
 00:00:49,971 --> 00:00:51,971
-It is worth noting the Unity
+なお Unity では物理ベースレンダリングの
 
 16
 00:00:51,971 --> 00:00:53,971
-has shaders available for both
+主要アプローチのそれぞれに
 
 17
 00:00:53,971 --> 00:00:56,779
-popular approaches to physically-based rendering.
+対応するシェーダーを用意してあります
 
 18
 00:00:57,736 --> 00:00:59,443
-Metallic, as default,
+デフォルトの Metallic と
 
 19
 00:00:59,930 --> 00:01:01,613
-and specular.
+Specular です
 
 20
 00:01:01,613 --> 00:01:03,251
-To choose the standard shader
+Standard シェーダーを
 
 21
 00:01:03,251 --> 00:01:05,167
-using the specular approach
+Specular アプローチで使う場合は
 
 22
 00:01:05,167 --> 00:01:07,601
-select Standard (Specular Setup).
+Standard (Specular Setup) を選択してください
 
 23
 00:01:08,475 --> 00:01:10,475
-Otherwise use Standard
+Standard を選択すると
 
 24
 00:01:10,475 --> 00:01:12,475
-for the metallic approach.
+Metallic アプローチとなります
 
 25
 00:01:14,750 --> 00:01:16,750
-It is important to understand that the
+なお物理ベースシェーディングにおける
 
 26
 00:01:16,750 --> 00:01:19,337
-metallic approach to physically-based shading
+Metalic アプローチはメタリックな見た目の
 
 27
 00:01:19,337 --> 00:01:21,337
-is not only for materials which are
+マテリアル用というわけではないので
 
 28
 00:01:21,337 --> 00:01:23,100
-supposed to look metallic.
+注意してください
 
 29
 00:01:23,696 --> 00:01:25,696
-This mode is known as metallic
+Metallic と呼ばれているのは
 
 30
 00:01:25,696 --> 00:01:27,696
-because this approach is based on
+このアプローチがマテリアルの
 
 31
 00:01:27,696 --> 00:01:30,761
-defining how metallic or non-metallic
+サーフェイスのメタリック度 / 非メタリック度を
 
 32
 00:01:30,761 --> 00:01:32,761
-that material's surface is.
+定義するためです
 
 33
 00:01:33,427 --> 00:01:35,703
-This is opposed to the specular approach
+反対に Specular アプローチでは
 
 34
 00:01:35,703 --> 00:01:37,451
-which defines how specular, 
+サーフェイスがどの程度 Specular（鏡面反射） 
 
 35
 00:01:37,451 --> 00:01:39,451
-or non-specular that surface is.
+するかを定義していきます
 
 36
 00:01:40,505 --> 00:01:42,505
-Both approaches are valid ways to
+いずれのアプローチも物理ベースマテリアルを
 
 37
 00:01:42,505 --> 00:01:44,505
-describe a physically-based material.
+記述する上では有効な方法です
 
 38
 00:01:47,459 --> 00:01:49,459
-This physically-based material is
+この物理ベースマテリアルも
 
 39
 00:01:49,459 --> 00:01:51,362
-still a standard Unity material
+標準の Unity マテリアルですから
 
 40
 00:01:51,695 --> 00:01:53,695
-and this material is associated
+通常と同じように
 
 41
 00:01:53,695 --> 00:01:56,302
-with a renderer in the same way as usual.
+レンダラーに関連付けることが可能です
 
 42
 00:02:00,014 --> 00:02:02,990
-There are three sections to the standard shader.
+Standard シェーダーは次の 3 セクションに分かれています
 
 43
 00:02:03,601 --> 00:02:05,601
-Rendering Mode.
+Rendering Mode
 
 44
 00:02:05,601 --> 00:02:07,601
@@ -176,912 +176,912 @@ Main Maps
 
 45
 00:02:07,601 --> 00:02:09,601
-and Secondary Maps.
+Secondary Maps
 
 46
 00:02:11,865 --> 00:02:14,685
-The standard shader has four rendering modes.
+Standard シェーダーには次の 4 つのレンダリングモードがあります
 
 47
 00:02:14,685 --> 00:02:17,996
-Opaque, Cutout, Fade and Transparent.
+Opaque / Cutout / Fade / Transparent
 
 48
 00:02:19,038 --> 00:02:22,598
-Most materials are opaque, or solid materials.
+多くのマテリアルは Opaque つまり不透明なマテリアルですので
 
 49
 00:02:23,167 --> 00:02:25,558
-Opaque is the default render mode.
+Opaque はデフォルトのレンダリングモードになっています
 
 50
 00:02:26,350 --> 00:02:29,225
-For transparent materials, such as glass,
+ガラスのような透明なマテリアルには
 
 51
 00:02:29,225 --> 00:02:31,225
-choose Transparent.
+Transparent を使用します
 
 52
 00:02:31,656 --> 00:02:33,656
-In transparent rendering mode
+Transparent レンダリングモードでは
 
 53
 00:02:34,142 --> 00:02:36,819
-the alpha channel on the diffuse colour property
+ディフューズカラープロパティのアルファチャンネルが
 
 54
 00:02:36,819 --> 00:02:39,930
-is used to control the level of transparency.
+透明度の制御に使われます
 
 55
 00:02:41,569 --> 00:02:43,918
-With rendering mode cutout
+レンダリングモード Cutout では
 
 56
 00:02:43,918 --> 00:02:45,918
-the alpha channel of the diffuse image
+ディフューズイメージのアルファチャンネルが
 
 57
 00:02:45,918 --> 00:02:49,022
-is used to mask out parts of the texture.
+テクスチャの一部をマスクする用途で使われます
 
 58
 00:02:49,689 --> 00:02:53,240
-If the alpha channel has a gradient value to the mask
+アルファチャンネルがマスクに対してグラデーション値を持っている場合は
 
 59
 00:02:53,240 --> 00:02:55,240
-the alpha cutoff slider can be used
+Alpha Cutoff スライダーを使うと
 
 60
 00:02:55,240 --> 00:02:57,240
-to adjust the shape of the cutout.
+アルファチャンネルのマスクの強さに応じて
 
 61
 00:02:57,240 --> 00:03:00,837
-based on the strength of the mask in the alpha channel.
+カットアウト部分の形状を調整できます
 
 62
 00:03:02,546 --> 00:03:04,546
-Rendering mode fade is similar
+レンダリングモード Fade は
 
 63
 00:03:04,546 --> 00:03:06,546
-to rendering mode transparent.
+レンダリングモード Transparent に似ています
 
 64
 00:03:07,509 --> 00:03:09,509
-Fade is intended for fading out
+Fade はゲームオブジェクトを画面から
 
 65
 00:03:09,509 --> 00:03:11,509
-game objects on screen.
+フェードアウトさせる時に使います
 
 66
 00:03:12,192 --> 00:03:14,192
-With rendering mode transparent
+レンダリングモード Transparent では
 
 67
 00:03:14,192 --> 00:03:16,750
-a transparent material will preserve it's
+アルファ値がいくつになっても
 
 68
 00:03:16,750 --> 00:03:20,681
-reflectivity regardless of it's alpha value.
+反射率は保持されましたが
 
 69
 00:03:20,681 --> 00:03:22,681
-Fade however will fade all
+Fade の場合にはマテリアルに関する
 
 70
 00:03:22,681 --> 00:03:24,681
-relevant aspects of the material
+一切の項目がフェードするため
 
 71
 00:03:24,681 --> 00:03:28,018
-so the faded material is completely invisible.
+完全にフェードされたマテリアルは不可視になります
 
 72
 00:03:30,347 --> 00:03:33,736
-The main map section defines the look of the material.
+Main Map セクションはマテリアルの見た目を定義します
 
 73
 00:03:34,361 --> 00:03:37,301
-Before going in to the details of each property
+ここでは各プロパティの詳細を見て行く前に
 
 74
 00:03:37,301 --> 00:03:40,578
-there are a few subjects that are worth covering first.
+いくつか重要な点についてカバーしておきたいと思います
 
 75
 00:03:41,314 --> 00:03:43,131
-Optimisation.
+まず  最適化
 
 76
 00:03:43,131 --> 00:03:46,071
-The standard shader is highly optimised.
+Standard シェーダーは高度な最適化がなされています
 
 77
 00:03:46,613 --> 00:03:48,613
-When the standard shader is built
+Standard シェーダーのビルド時には
 
 78
 00:03:48,613 --> 00:03:50,613
-two important things happen.
+2 つの重要なことが起きます
 
 79
 00:03:51,113 --> 00:03:54,698
-All properties that are not being used are discarded.
+まず使用されていないプロパティがすべて破棄されます
 
 80
 00:03:55,240 --> 00:03:57,240
-The build target is checked
+次にビルドターゲットがチェックされ
 
 81
 00:03:57,240 --> 00:03:59,907
-and the shader is optimised for that device.
+シェーダーが対象デバイスに向けて最適化されます
 
 82
 00:04:00,559 --> 00:04:03,653
-Because of this there is no need to populate every
+このため各プロパティにマップや値を
 
 83
 00:04:03,653 --> 00:04:06,073
-property with a map or values.
+入れる必要はありません
 
 84
 00:04:07,681 --> 00:04:09,681
-And there is no need to worry about wasted
+そして使用されていないプロパティが無駄に
 
 85
 00:04:09,681 --> 00:04:12,357
-resources due to unused properties.
+リソースを取ってしまう心配も不要です
 
 86
 00:04:15,750 --> 00:04:17,750
-Physically-based shading.
+物理ベースシェーディング
 
 87
 00:04:18,451 --> 00:04:20,451
-Physically-based shading tries to define
+物理ベースシェーディングではマテリアルの
 
 88
 00:04:20,451 --> 00:04:23,952
-certain physical aspects of a material's surface.
+サーフェイスの特定の物理的側面を定義しようとします
 
 89
 00:04:23,952 --> 00:04:25,952
-Including it's diffuse colour,
+これにはディフューズカラー
 
 90
 00:04:25,952 --> 00:04:27,952
-specular refection and other properties
+スペキュラ反射やその他のプロパティが含まれます
 
 91
 00:04:27,952 --> 00:04:30,355
-so the material behaves correctly
+これらはあらゆるライティング条件下で
 
 92
 00:04:30,355 --> 00:04:33,279
-and believably in all lighting environments.
+マテリアルが正しく説得力のある外観を持つようにするためです
 
 93
 00:04:33,938 --> 00:04:36,325
-The response of the scene lighting to the material
+物理ベースシェーダーで作られたマテリアルを
 
 94
 00:04:36,325 --> 00:04:38,325
-created with a physically based shader
+シーンライティングが照らした時の反応は
 
 95
 00:04:38,325 --> 00:04:41,192
-mimics light in the real physical world.
+現実の物理世界の光と近くなります
 
 96
 00:04:41,839 --> 00:04:43,839
-This means that even though there is
+つまり Standard シェーダーでは
 
 97
 00:04:43,839 --> 00:04:45,839
-full control over the values on
+すべてのプロパティの値を
 
 98
 00:04:45,839 --> 00:04:48,613
-all of the properties in the standard shader
+制御できますがマテリアルによって
 
 99
 00:04:48,613 --> 00:04:50,613
-there are certain ranges of values that
+最適な値の範囲があると
 
 100
 00:04:50,613 --> 00:04:53,359
-work best for certain types of materials.
+いうことを意味します
 
 101
 00:04:54,057 --> 00:04:57,736
-This is particularly true of the metallic and specular values
+これは特に Metallic と Specular の値で顕著です
 
 102
 00:04:57,736 --> 00:05:00,543
-depending up which approach is being used
+どちらのアプローチを採用しているかにもよりますが
 
 103
 00:05:01,273 --> 00:05:03,723
-Taking specular colour for example,
+ここでは仮に Specular カラーを取り上げましょう
 
 104
 00:05:03,723 --> 00:05:06,199
-when analysing real-world materials
+現実世界のマテリアルを分析してみると
 
 105
 00:05:06,199 --> 00:05:08,199
-most materials have a specular range
+多くのマテリアルのスペキュラ範囲は
 
 106
 00:05:08,199 --> 00:05:10,199
-that is a very dark grey.
+とても暗い灰色をしています
 
 107
 00:05:10,768 --> 00:05:15,416
-Metals created with a specular workflow are one of the few exceptions,
+ただしスペキュラワークフローでもメタルは例外的で
 
 108
 00:05:15,416 --> 00:05:18,095
-they have very bright specular values.
+とても明るいスペキュラ値をしています
 
 109
 00:05:19,043 --> 00:05:22,066
-As well, no material, even the most dull,
+そしてどのようなマテリアルであっても
 
 110
 00:05:22,066 --> 00:05:24,066
-has no specularity at all.
+スペキュラ値がないことはありません
 
 111
 00:05:24,997 --> 00:05:26,997
-This means to have a physically based
+これは物理ベースマテリアルを正しく見せるには
 
 112
 00:05:26,997 --> 00:05:28,997
-material behave correctly
+主要プロパティに適切な値を
 
 113
 00:05:28,997 --> 00:05:30,997
-some attention needs to be paid in using
+入れる必要があることを意味します
 
 114
 00:05:30,997 --> 00:05:34,316
-the correct physical values for some key properties,
+特に使用するアプローチに応じて
 
 115
 00:05:34,316 --> 00:05:37,149
-especially the specular or metallic properties
+Specular / Metallic プロパティを適切に
 
 116
 00:05:37,149 --> 00:05:39,149
-depending upon the approach being used.
+設定することが重要です
 
 117
 00:05:40,224 --> 00:05:42,863
-For more information on physical-based shading,
+物理ベースシェーディングやマテリアルチャート
 
 118
 00:05:42,863 --> 00:05:45,553
-material charts and sample materials
+サンプルマテリアルの詳細については
 
 119
 00:05:45,553 --> 00:05:47,553
-please see the information linked below.
+下記リンク先の情報を参照してください
 
 120
 00:05:48,512 --> 00:05:50,512
-There is no need to panic however.
+でもあわてる必要はありません
 
 121
 00:05:50,512 --> 00:05:53,002
-Items with materials from previous versions of Unity
+過去バージョンの Unity から持ってきたマテリアル付きアイテムも
 
 122
 00:05:53,002 --> 00:05:55,284
-will work well out of the box.
+そのまま使うことができます
 
 123
 00:05:55,894 --> 00:05:58,214
-Upgrading from a legacy diffuse shader
+レガシーのデフューズシェーダーから
 
 124
 00:05:58,214 --> 00:06:01,265
-to the standard shader should display little or no difference.
+Standard シェーダーにアップグレードしても違いはほぼないはずです
 
 125
 00:06:03,307 --> 00:06:05,738
-In the main map section each of these properties
+Main Map セクションにあるプロパティは
 
 126
 00:06:05,738 --> 00:06:08,318
-control one aspect of the final material.
+最終マテリアルの各項目を制御するものです
 
 127
 00:06:09,127 --> 00:06:11,942
-Each property can be defined by a texture map.
+各プロパティはテクスチャーマップで定義することができます
 
 128
 00:06:13,328 --> 00:06:15,096
-With the metallic approach,
+Metallic アプローチを取る場合
 
 129
 00:06:15,096 --> 00:06:18,163
-for the albido, metallic and emission properties
+Albido / Metallic / Emission プロパティの
 
 130
 00:06:18,163 --> 00:06:20,163
-the texture is optional.
+テクスチャは任意指定です
 
 131
 00:06:20,661 --> 00:06:22,904
-The albido and emission properties
+Albido と Emission プロパティには
 
 132
 00:06:22,904 --> 00:06:25,531
-can simply use a colour value instead of a texture.
+テクスチャの代わりにカラー値を指定できます
 
 133
 00:06:26,508 --> 00:06:28,416
-The colour value is not available on
+Emission プロパティのカラー値は
 
 134
 00:06:28,416 --> 00:06:30,416
-the emission property until the emissive
+フィールド値が 0 よりも大きくならないと
 
 135
 00:06:30,416 --> 00:06:32,416
-scale is larger than 0.
+有効になりません
 
 136
 00:06:34,775 --> 00:06:36,775
-The metallic property can use a slider
+Metallic プロパティではテクスチャの代わりに
 
 137
 00:06:36,775 --> 00:06:38,775
-instead of a texture.
+スライダーを使用できます
 
 138
 00:06:42,516 --> 00:06:44,516
-The albido property uses a
+Albido プロパティには
 
 139
 00:06:44,516 --> 00:06:46,516
-combination of an optional texture.
+任意指定のテクスチャを追加した後
 
 140
 00:06:48,543 --> 00:06:51,598
-And a colour value to define the base look of the material.
+さらにカラーを追加してマテリアルの見た目を定義することができます
 
 141
 00:06:52,685 --> 00:06:55,682
-The colour value will tint the texture.
+このカラー値はテクスチャーにTint（淡い色付け）します
 
 142
 00:06:57,470 --> 00:07:00,535
-Where pure white leaves the main texture unaffected,
+真っ白にした場合にはテクスチャに変化は起きません
 
 143
 00:07:01,552 --> 00:07:03,552
-if there is no texture being used
+テクスチャが使用されていない場合は
 
 144
 00:07:03,552 --> 00:07:06,792
-the tint colour will be the base colour for the material
+この Tint 色がマテリアルのベース色になります
 
 145
 00:07:09,884 --> 00:07:11,884
-The metallic property can be defined
+Metallic プロパティは
 
 146
 00:07:11,884 --> 00:07:13,884
-by either a texture
+テクスチャーを使うか
 
 147
 00:07:15,248 --> 00:07:18,303
-or a value from 0 to 1
+0 ～ 1 の値を
 
 148
 00:07:18,303 --> 00:07:20,303
-set by the slider.
+スライダーで指定して定義します
 
 149
 00:07:20,303 --> 00:07:23,506
-This defines the metalness of the material surface.
+このプロパティはマテリアルのサーフェイスのメタルネスを定義します
 
 150
 00:07:24,538 --> 00:07:27,332
-Metalness works very closely with smoothness.
+メタルネスと Smoothness には深い相関関係があります
 
 151
 00:07:28,548 --> 00:07:30,548
-The smoothness property is used to
+Smoothness プロパティは
 
 152
 00:07:30,548 --> 00:07:32,061
-control the smoothness,
+マテリアルの滑らかさ あるいは
 
 153
 00:07:32,061 --> 00:07:35,453
-or micro-surface detail, of the material.
+サーフェイスの細かなディテールを制御するプロパティです
 
 154
 00:07:35,453 --> 00:07:38,453
-It is also a value between 0 and 1.
+値は 0 ～ 1 で指定します
 
 155
 00:07:41,028 --> 00:07:43,028
-The less smooth the surface is,
+サーフェイスがスムースでないほど
 
 156
 00:07:43,028 --> 00:07:44,824
-the more diffuse the reflections will be.
+反射は拡散し
 
 157
 00:07:45,360 --> 00:07:48,204
-The more smooth, the sharper the reflections.
+スムースであるほど反射は鋭角になります
 
 158
 00:07:52,650 --> 00:07:54,650
-The metallic property can use a texture
+Metallic プロパティではテクスチャを使って
 
 159
 00:07:54,650 --> 00:07:57,426
-to define the material's metalness.
+マテリアルのメタルネスを定義することが可能です
 
 160
 00:07:58,071 --> 00:08:00,071
-This texture can be a simple shade of grey
+このテクスチャーは灰色のグラデーションで
 
 161
 00:08:00,071 --> 00:08:03,163
-used to define the metalness from black,
+メタルネスを定義します  黒は
 
 162
 00:08:03,163 --> 00:08:04,517
-or non-metallic,
+非メタリック
 
 163
 00:08:04,517 --> 00:08:06,517
-to white, completely metallic.
+白は完全にメタリックを意味します
 
 164
 00:08:07,217 --> 00:08:10,339
-However, the advantage of using a texture
+テクスチャを使用する利点は
 
 165
 00:08:10,339 --> 00:08:12,686
-to define the metalness of a material
+マテリアルのサーフェイスの
 
 166
 00:08:12,686 --> 00:08:14,686
-is to vary the metalness value
+部分ごとに異なるメタルネスを
 
 167
 00:08:14,686 --> 00:08:16,686
-across the surface of the material.
+与えられる点にあります
 
 168
 00:08:17,589 --> 00:08:20,654
-An additional advantage is this texture's alpha channel.
+またさらに便利なのがテクスチャのアルファチャンネルです
 
 169
 00:08:21,524 --> 00:08:23,524
-This alpha channel can be used to define
+このアルファチャンネルはスムースネスマップの
 
 170
 00:08:23,524 --> 00:08:25,524
-a smoothness map.
+定義にも使用できます
 
 171
 00:08:27,791 --> 00:08:29,791
-Many materials are far more complex
+マテリアルの多くはすべて同じサーフェイスではなく
 
 172
 00:08:29,791 --> 00:08:31,791
-than a single uniform surface.
+より複雑な構造をしています
 
 173
 00:08:32,657 --> 00:08:34,657
-Take this leather case for example.
+たとえばこのレザーケース
 
 174
 00:08:35,486 --> 00:08:37,486
-With a single value for metalness and a
+メタルネスとスムースネスの値を
 
 175
 00:08:37,486 --> 00:08:39,131
-single value for smoothness
+それぞれ指定しただけの状態でも
 
 176
 00:08:39,615 --> 00:08:41,615
-the case looks good.
+見た目はそれなりに良いですが
 
 177
 00:08:41,615 --> 00:08:43,138
-But it could look better.
+これはもっと良くできます
 
 178
 00:08:43,891 --> 00:08:45,891
-Use a metalness and smoothness map
+メタルネスとスムースネスのマップを使って
 
 179
 00:08:45,891 --> 00:08:47,891
-to describe the properties.
+プロパティを記述してみましょう
 
 180
 00:08:49,660 --> 00:08:51,660
-And it looks much better.
+ほら グッと良くなりました
 
 181
 00:08:51,660 --> 00:08:53,660
-Note how the straps are far more glossy
+ストラップ部分がケースの他の部分よりも
 
 182
 00:08:53,660 --> 00:08:55,660
-than the main body of the case.
+ピカピカしているのが分かるでしょうか?
 
 183
 00:08:55,660 --> 00:08:57,660
-Giving them a feel of polished leather.
+磨かれた皮革の感じが出てきますね
 
 184
 00:08:58,969 --> 00:09:00,969
-It is worth noting that when using a texture
+なおテクスチャを使ってメタルネスを
 
 185
 00:09:00,969 --> 00:09:02,969
-to define the metalness
+定義する場合には
 
 186
 00:09:02,969 --> 00:09:04,969
-the smoothness value must also be
+スムースネスの値をそのテクスチャの
 
 187
 00:09:04,969 --> 00:09:06,969
-defined by that texture's alpha channel.
+アルファチャンネルで定義しておく必要があります
 
 188
 00:09:07,983 --> 00:09:09,983
-It is also worth noting that the metalness
+またメタルネスの値はメタルネスマップの
 
 189
 00:09:09,983 --> 00:09:11,983
-value is stored only in the red
+RGB 値において Red チャンネルにのみ
 
 190
 00:09:11,983 --> 00:09:15,013
-channel of the metalness map's RGB values.
+格納されることも覚えておいてください
 
 191
 00:09:15,990 --> 00:09:17,990
-The green and blue channels are ignored.
+Green と Blue チャンネルの値は無視されます
 
 192
 00:09:19,059 --> 00:09:21,923
-It is often easier however to visualise
+ただカラーチャンネル 3 つが同じマップを
 
 193
 00:09:21,923 --> 00:09:23,923
-the metalness values of a texture
+使っているのならメタルネス値を
 
 194
 00:09:23,923 --> 00:09:26,709
-if all three colour channels share the same map,
+示すのに問題はないのでテクスチャは
 
 195
 00:09:26,709 --> 00:09:29,573
-so the texture appears as a greyscale image.
+グレースケールで表示されます
 
 196
 00:09:30,716 --> 00:09:33,440
-When using the standard shader with the specular setup
+Standard シェーダーを Specular セットアップで使用する場合
 
 197
 00:09:35,615 --> 00:09:37,615
-the metallic property is replaced with
+Metallic プロパティは
 
 198
 00:09:37,615 --> 00:09:39,173
-the specular property.
+Specular プロパティと置き換わります
 
 199
 00:09:39,891 --> 00:09:41,891
-The specular approach also uses
+Specular アプローチでも
 
 200
 00:09:41,891 --> 00:09:44,775
-a smoothness property, which behaves essentially
+Smoothness プロパティを使い  その振る舞いも
 
 201
 00:09:44,775 --> 00:09:47,546
-in the same way as with the metalness approach.
+基本的には Metalic アプローチの時と同じです
 
 202
 00:09:50,956 --> 00:09:53,585
-The specualar property can either be a texture
+Specualar プロパティはテクスチャーまたは
 
 203
 00:09:55,278 --> 00:09:56,728
-or a colour value
+カラー値になり
 
 204
 00:09:57,499 --> 00:09:59,499
-and defines the specular reflectivity
+マテリアルのサーフェイスの
 
 205
 00:09:59,499 --> 00:10:01,628
-of the material's surface.
+スペキュラ反射率を定義します
 
 206
 00:10:01,628 --> 00:10:04,527
-The specular value can have some colour in it
+Specular 値には色を持たせることが可能ですが
 
 207
 00:10:04,527 --> 00:10:06,527
-but looking at real world values
+現実世界の観点から見るとこの色は
 
 208
 00:10:06,527 --> 00:10:08,527
-with the exception of some metals
+一部の金属を除いて灰色
 
 209
 00:10:08,527 --> 00:10:11,449
-this is usually a grey and often very dark.
+あるいは暗い灰色になります
 
 210
 00:10:12,610 --> 00:10:15,518
-Specular maps are usually a dark grey as well.
+スペキュラマップも通常は暗い灰色になります
 
 211
 00:10:17,545 --> 00:10:20,332
-When a specular texture map is not being used
+スペキュラテクスチャマップが使われていない場合は
 
 212
 00:10:20,332 --> 00:10:22,332
-the overall surface smoothness can be
+サーフェイス全体のスムースネスは
 
 213
 00:10:22,332 --> 00:10:24,332
-set with the slider.
+スライダーで指定できます
 
 214
 00:10:26,765 --> 00:10:28,765
-This is easier to see when the albido
+Albido テクスチャを外してみると
 
 215
 00:10:28,765 --> 00:10:30,765
-texture is removed.
+スムースネスはより分かりやすくなります
 
 216
 00:10:31,502 --> 00:10:33,502
-The ball looks like polished porcelain.
+ボールはよく磨かれた陶器のように見えますね
 
 217
 00:10:34,737 --> 00:10:38,692
-For a more true mirror, the specular from dark grey,
+これを鏡のようにするには Specular の色を暗い灰色から変えてみます
 
 218
 00:10:38,692 --> 00:10:40,692
-which makes the ball look like porcelain
+こうすると先ほどまでは陶器のようだったボールが
 
 219
 00:10:40,692 --> 00:10:43,547
-in to the range of metals and it will now
+金属のような見た目になり
 
 220
 00:10:43,547 --> 00:10:45,547
-reflect the sky and surroundings.
+空や周辺を反射するようになります
 
 221
 00:10:46,487 --> 00:10:49,357
-The smoother the surface, the more it is mirror-like.
+Smoothness は高いほど鏡のようになります
 
 222
 00:10:50,330 --> 00:10:53,077
-The rougher the surface the more diffuse,
+サーフェイスが荒くなるほどデフューズがかかり
 
 223
 00:10:53,077 --> 00:10:55,077
-or scattered the reflections are.
+反射は四散するようになります
 
 224
 00:10:56,588 --> 00:10:58,938
-The normal map property is an optional property
+Normal Map プロパティは任意指定のプロパティで
 
 225
 00:10:58,938 --> 00:11:01,787
-used to define the apparent bumpiness of the surface.
+サーフェイスの凹凸を定義するのに使用されます
 
 226
 00:11:02,893 --> 00:11:04,893
-When a normal map is applied
+Normal Map の適用後は
 
 227
 00:11:05,649 --> 00:11:07,649
-the strength of the normal map can be controlled
+Normal Map の値でノーマルマップの強さを
 
 228
 00:11:07,649 --> 00:11:09,927
-by adjusting the normal map value.
+調節できるようになります
 
 229
 00:11:11,033 --> 00:11:13,033
-As well as positive numbers, this value
+ここでは正の値はもちろん
 
 230
 00:11:13,033 --> 00:11:14,758
-can be a negative number
+負の値や
 
 231
 00:11:15,420 --> 00:11:16,455
-or 0.
+0 を指定することも可能です
 
 232
 00:11:18,040 --> 00:11:20,040
-The height map property is an optional
+Height Map は任意指定のプロパティで
 
 233
 00:11:20,040 --> 00:11:22,040
-property used to define the apparent
+サーフェイスの高さを定義する
 
 234
 00:11:22,040 --> 00:11:24,040
-height of the surface.
+際に使用します
 
 235
 00:11:24,040 --> 00:11:26,040
-When a height map is applied
+Height Map 適用後は
 
 236
 00:11:26,667 --> 00:11:28,667
-the strength of the height map can be controlled
+Height Map の値でハイトマップの強さを
 
 237
 00:11:28,667 --> 00:11:30,667
-by adjusting the height map value.
+調節できるようになります
 
 238
 00:11:32,842 --> 00:11:34,842
-The occlusion property uses a
+Occlusion プロパティは
 
 239
 00:11:34,842 --> 00:11:36,842
-texture map to define the amount of
+テクスチャマップを使ってマテリアルに
 
 240
 00:11:36,842 --> 00:11:39,509
-ambient occlusion that is applied to the material.
+適用されたアンビエントオクルージョンを定義します
 
 241
 00:11:40,799 --> 00:11:42,799
-This is used to help darken
+これは暗い部分 / 隠された部分 /
 
 242
 00:11:42,799 --> 00:11:45,095
-hidden or recessed areas on the texture.
+あるいは凹みを補佐する目的で使用します
 
 243
 00:11:46,200 --> 00:11:48,200
-The ambient occlusion map also
+またアンビエントオクルージョンマップは
 
 244
 00:11:48,200 --> 00:11:50,200
-prevents specular and reflections in
+遮蔽エリアのスペキュラと反射を防ぎ
 
 245
 00:11:50,200 --> 00:11:52,676
-these occluded areas, given the material
+マテリアルがよりリアルな見た目を
 
 246
 00:11:52,676 --> 00:11:54,676
-a more realistic look.
+実現できるようにします
 
 247
 00:11:56,058 --> 00:11:58,690
-The emission property controls whether or not
+Emission プロパティはマテリアルのサーフェイスが
 
 248
 00:11:58,690 --> 00:12:00,690
-the material's surface will emit light.
+自己発光するかどうかを制御します
 
 249
 00:12:01,630 --> 00:12:03,630
-The material's emission value can contribute
+マテリアルの Emission 値はシーンの
 
 250
 00:12:03,630 --> 00:12:05,630
-to the scene's global illumination.
+グローバルイルミネーションにも関係してきます
 
 251
 00:12:06,791 --> 00:12:08,791
-The strength of the emission can be controlled
+Emission の強さは横にあるフィールドに
 
 252
 00:12:08,791 --> 00:12:10,791
-by the emission value.
+指定する値で定義されます
 
 253
 00:12:11,215 --> 00:12:14,235
-The shape of the emission can be controlled with an emission map.
+Emission の形は Emission Map で制御します
 
 254
 00:12:15,359 --> 00:12:17,359
-The map can be a simple black and white map.
+このマップは単純な白黒マップで OK ですが
 
 255
 00:12:23,699 --> 00:12:26,447
-bBut this texture can also be a colour map.
+色付きのマップにすることも可能です
 
 256
 00:12:32,529 --> 00:12:34,529
-When there is a value for emission
+Emission に値が指定されている場合
 
 257
 00:12:34,529 --> 00:12:36,529
-the contribution of the emissive light
+その光の割り当て先として
 
 258
 00:12:36,529 --> 00:12:39,262
-can be assigned to either the baked light maps
+Baked ライトマップまたは
 
 259
 00:12:40,607 --> 00:12:42,607
-or to the real time light maps.
+Realtime ライトマップが指定できます
 
 260
 00:12:45,740 --> 00:12:48,930
-The detail mask property is an optional mask element
+Detail Mask プロパティは任意指定のマスク要素で
 
 261
 00:12:48,930 --> 00:12:50,930
-to control the secondary maps.
+セカンダリマップの管理に使用します
 
 262
 00:12:52,054 --> 00:12:54,708
-Tiling and offset control the position of the map.
+Tiling と Offset はマップの位置を制御するのに使用します
 
 263
 00:12:55,961 --> 00:12:57,961
-The secondary maps are used to define
+Secondary Maps はサーフェイスにより
 
 264
 00:12:57,961 --> 00:12:59,961
-additional surface detail.
+補足的ディテールを追加する際に使用します
 
 265
 00:12:59,961 --> 00:13:03,608
-This additional detail, sometimes referred to as micro detail,
+補足的ディテール あるいはマイクロディテールは
 
 266
 00:13:03,608 --> 00:13:05,608
-is added on top of the surface defined
+メインマップで定義されたサーフェイスの上に
 
 267
 00:13:05,608 --> 00:13:07,111
-by the main maps.
+追加されます
 
 268
 00:13:07,848 --> 00:13:09,848
-This helps to add extra detail and
+これらはうまく活用することでメインマップの上に
 
 269
 00:13:09,848 --> 00:13:12,657
-variation to a material, which is overlaid
+マテリアルを上乗せしてより細やかな
 
 270
 00:13:12,657 --> 00:13:15,460
-on top of the main maps defining that material.
+書き込みをしたり変化を加えたりすることが可能になります
 
 271
 00:13:16,187 --> 00:13:19,217
-Because detail maps can be tiled across meshes
+ディテールマップはメッシュに対してタイル配置できるので
 
 272
 00:13:19,899 --> 00:13:22,693
-they can add incredibly high levels of surface detail.
+サーフェイスに驚くほど細やかなディテールを加える事が可能です
