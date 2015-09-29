@@ -1,123 +1,123 @@
-1
+﻿1
 00:00:00,290 --> 00:00:02,744
-Most smartphones and tablets have something known
+スマートフォンやタブレットの多くには加速度計という
 
 2
 00:00:02,744 --> 00:00:04,744
-as an accelerometer.
+ものが付いています
 
 3
 00:00:05,244 --> 00:00:07,244
-This can be used to find out information
+これはデバイスの使用中に
 
 4
 00:00:07,244 --> 00:00:11,665
-about the physical orientation of the device as we use it.
+物理的なデバイスの向き情報を取得する際に利用できます
 
 5
 00:00:12,165 --> 00:00:15,308
-This information is accessed through a vector3 property
+この情報には input クラスの一部 vector3 プロパティの
 
 6
 00:00:15,308 --> 00:00:19,489
-called acceleration, which is a part of the input class.
+acceleration からアクセスできます
 
 7
 00:00:20,528 --> 00:00:22,528
-The axis of the accelerometer are setup
+加速度計の軸は Unity 上での軸と
 
 8
 00:00:22,528 --> 00:00:24,277
-to match the axis in Unity.
+一致するようになっています
 
 9
 00:00:24,777 --> 00:00:27,711
-Therefore Y is the vertical axis,
+つまり Y が垂直軸で
 
 10
 00:00:27,711 --> 00:00:30,003
-X is the horizontal axis,
+X が水平軸  そして
 
 11
 00:00:30,003 --> 00:00:32,280
-and Z is the depth axis.
+Z が深度軸です
 
 12
 00:00:33,276 --> 00:00:35,276
-This holds true regardless of whether you are
+これはポートレートモードでもランドスケープモードでも
 
 13
 00:00:35,276 --> 00:00:37,276
-in portrait or landscape mode.
+同じです
 
 14
 00:00:37,679 --> 00:00:41,175
-Unity automatically adjusts the accelerometer input
+Unity は加速度計の入力を自動的に調整して
 
 15
 00:00:41,175 --> 00:00:43,175
-to match the device's orientation.
+デバイスの向きに合わせます
 
 16
 00:00:44,393 --> 00:00:47,422
-Here we have a scene in Unity with a cube in in.
+ここにキューブが配置されたシーンがあります
 
 17
 00:00:47,422 --> 00:00:49,505
-The cube has a script called 
+キューブには Accelerometer Input という名の 
 
 18
 00:00:49,505 --> 00:00:52,002
-Accelerometer Input attached.
+スクリプトがアタッチされています
 
 19
 00:00:53,110 --> 00:00:55,486
-Inside the accelerometer input script
+Accelerometer Input スクリプトの内部では
 
 20
 00:00:55,486 --> 00:00:57,486
-we can see that in the update method we are
+Update メソッドでキューブを
 
 21
 00:00:57,486 --> 00:01:01,704
-moving the cube based on the Input.acceleration vector3.
+Input.acceleration vector3 に基いて動かそうとしています
 
 22
 00:01:03,129 --> 00:01:06,697
-We have mapped the accelerometer's X axis
+ここでは加速度計の X 軸を
 
 23
 00:01:06,697 --> 00:01:09,345
-to the cube's X axis.
+キューブの X 軸にマップしています
 
 24
 00:01:09,345 --> 00:01:11,553
-And we have mapped the negative of the
+そしてこちらでは加速度計の負の Z 軸を
 
 25
 00:01:11,553 --> 00:01:16,297
-accelerometer's Z axis to the cube's Z axis.
+キューブの Z 軸にマップしています
 
 26
 00:01:16,975 --> 00:01:19,567
-The values of the accelerometer's axis
+加速度計の値の許容範囲は
 
 27
 00:01:19,567 --> 00:01:23,106
-range from -1 to 1 and so we can use it 
+-1 から 1 までなので 
 
 28
 00:01:23,106 --> 00:01:26,371
-in the same manner as input.getAxis.
+input.getAxis と同様に扱うことができます
 
 29
 00:01:27,161 --> 00:01:29,383
-When we build and deploy our project
+ここでプロジェクトをビルドしてデプロイしてみると
 
 30
 00:01:29,383 --> 00:01:31,881
-we can see that by tilting our mobile device
+モバイルデバイスを傾けると
 
 31
 00:01:31,881 --> 00:01:34,841
-we are able to move the cube around the scene.
+キューブがシーン内を移動するのが確認できます
