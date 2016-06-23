@@ -1,0 +1,823 @@
+1
+00:00:02,732 --> 00:00:04,954
+In this video we'll setup
+
+2
+00:00:04,954 --> 00:00:07,328
+the collisions for our scene.
+
+3
+00:00:08,091 --> 00:00:11,460
+Let's start by zooming out our scene view.
+
+4
+00:00:12,181 --> 00:00:15,450
+I'm going to do this by scrolling the mouse wheel
+
+5
+00:00:17,094 --> 00:00:19,698
+to bring the entire background in to view.
+
+6
+00:00:20,398 --> 00:00:22,398
+Right now our background image
+
+7
+00:00:22,828 --> 00:00:26,064
+shows a visual representation of walls.
+
+8
+00:00:26,064 --> 00:00:27,688
+But as we'll have noticed,
+
+9
+00:00:27,688 --> 00:00:29,688
+these walls do not actually prevent
+
+10
+00:00:29,688 --> 00:00:31,688
+the player from moving through them.
+
+11
+00:00:31,688 --> 00:00:34,345
+They're simply artwork on a 2D sprite.
+
+12
+00:00:34,886 --> 00:00:36,886
+They don't affect the mechanics of the game
+
+13
+00:00:36,886 --> 00:00:39,374
+beyond giving us something to look at.
+
+14
+00:00:40,675 --> 00:00:42,675
+In order for the Player game object
+
+15
+00:00:42,675 --> 00:00:44,675
+or any other physics object to be
+
+16
+00:00:44,675 --> 00:00:47,175
+obstructed by the walls we'll need to add
+
+17
+00:00:47,175 --> 00:00:49,867
+collider components to the game object
+
+18
+00:00:49,867 --> 00:00:51,867
+to represent these walls.
+
+19
+00:00:52,810 --> 00:00:54,810
+A collider is a shape or
+
+20
+00:00:54,810 --> 00:00:57,607
+volume which is used by the physics engine
+
+21
+00:00:57,607 --> 00:00:59,607
+to identify collisions.
+
+22
+00:01:00,300 --> 00:01:02,300
+The physics engine detects collisions
+
+23
+00:01:02,300 --> 00:01:04,744
+between two or more colliders in the scene.
+
+24
+00:01:05,285 --> 00:01:07,285
+For the physics engine to identify the
+
+25
+00:01:07,285 --> 00:01:09,285
+collision at least one of the
+
+26
+00:01:09,285 --> 00:01:10,966
+colliding game objects
+
+27
+00:01:10,966 --> 00:01:14,277
+must have a rigidbody2D component.
+
+28
+00:01:15,573 --> 00:01:17,573
+As we discussed before, in this project
+
+29
+00:01:17,573 --> 00:01:19,573
+we're using 2D physics.
+
+30
+00:01:19,573 --> 00:01:22,669
+And so we'll be using the collider2D component.
+
+31
+00:01:23,584 --> 00:01:25,584
+The collider2D component defines
+
+32
+00:01:25,584 --> 00:01:27,584
+a 2D shape, or line, which the 
+
+33
+00:01:27,584 --> 00:01:29,584
+2D physics engine will use
+
+34
+00:01:29,584 --> 00:01:31,584
+to calculate collisions.
+
+35
+00:01:32,583 --> 00:01:34,901
+In this project we'll place 2D colliders
+
+36
+00:01:34,901 --> 00:01:36,901
+around the edge of the play field
+
+37
+00:01:36,901 --> 00:01:38,901
+to keep our Player game object from
+
+38
+00:01:38,901 --> 00:01:40,901
+leaving the game.
+
+39
+00:01:40,901 --> 00:01:43,543
+We'll also add a collider to the Player
+
+40
+00:01:43,543 --> 00:01:45,543
+so that the 2D physics engine can
+
+41
+00:01:45,543 --> 00:01:47,917
+detect collisions with the environment.
+
+42
+00:01:48,930 --> 00:01:50,930
+Let's highlight the Player game object.
+
+43
+00:01:52,206 --> 00:01:54,206
+The Player game object already has
+
+44
+00:01:54,206 --> 00:01:57,551
+a rigidbody2D component attached.
+
+45
+00:01:57,551 --> 00:01:59,551
+So we don't need to add another.
+
+46
+00:02:00,078 --> 00:02:02,078
+This will allow the Player game object to
+
+47
+00:02:02,078 --> 00:02:04,078
+participate in collisions as
+
+48
+00:02:04,078 --> 00:02:06,078
+it will meet the requirement of
+
+49
+00:02:06,078 --> 00:02:08,660
+having at least one game object
+
+50
+00:02:08,660 --> 00:02:11,314
+with a rigidbody2D attached
+
+51
+00:02:11,314 --> 00:02:13,314
+in order to detect collisions.
+
+52
+00:02:15,186 --> 00:02:18,236
+First let's add a 2D collider to our Player.
+
+53
+00:02:19,055 --> 00:02:20,845
+The Player is circular in shape,
+
+54
+00:02:20,845 --> 00:02:24,216
+so we'll use a circle collider 2d component.
+
+55
+00:02:26,007 --> 00:02:28,007
+With the Player still highlighted
+
+56
+00:02:28,007 --> 00:02:30,007
+click the Add Component button.
+
+57
+00:02:30,645 --> 00:02:32,451
+If we type Circle
+
+58
+00:02:32,451 --> 00:02:34,451
+the circle collider 2D will appear.
+
+59
+00:02:35,366 --> 00:02:37,366
+Select that and add it to the Player.
+
+60
+00:02:39,238 --> 00:02:42,595
+With the collider added let's focus in on the Player.
+
+61
+00:02:43,374 --> 00:02:45,039
+Place your mouse over the scene area
+
+62
+00:02:45,039 --> 00:02:48,296
+and with the Player selected press the F key.
+
+63
+00:02:49,960 --> 00:02:51,960
+When we add a collider it's
+
+64
+00:02:51,960 --> 00:02:53,960
+automatically scaled to match
+
+65
+00:02:53,960 --> 00:02:55,960
+the size of the sprite.
+
+66
+00:02:56,418 --> 00:02:58,418
+In this case this leaves us with
+
+67
+00:02:58,418 --> 00:03:01,043
+some empty space around our UFO.
+
+68
+00:03:01,709 --> 00:03:03,709
+We can modify this by changing the
+
+69
+00:03:03,709 --> 00:03:05,709
+collider's radius.
+
+70
+00:03:06,597 --> 00:03:08,597
+Let's set the radius so that it
+
+71
+00:03:08,597 --> 00:03:11,312
+more or less matches the shape of the sprite.
+
+72
+00:03:12,879 --> 00:03:14,879
+By clicking and dragging on the
+
+73
+00:03:14,879 --> 00:03:16,879
+title of the Radius field
+
+74
+00:03:17,448 --> 00:03:22,872
+we can see that a value of 2.15 works pretty nicely.
+
+75
+00:03:24,025 --> 00:03:26,025
+Now let's add colliders
+
+76
+00:03:26,025 --> 00:03:28,025
+to our walls.
+
+77
+00:03:30,244 --> 00:03:32,244
+Let's highlight the background.
+
+78
+00:03:32,244 --> 00:03:34,244
+Mouse over the scene.
+
+79
+00:03:34,244 --> 00:03:36,673
+And push F to frame selected.
+
+80
+00:03:37,229 --> 00:03:40,124
+And we'll use the mouse wheel to zoom it in.
+
+81
+00:03:40,693 --> 00:03:42,693
+With the Background object selected
+
+82
+00:03:43,470 --> 00:03:45,470
+let's choose Add Component
+
+83
+00:03:47,425 --> 00:03:49,425
+Physics 2D
+
+84
+00:03:51,089 --> 00:03:53,089
+Box Collider 2D.
+
+85
+00:03:55,419 --> 00:03:57,419
+In the scene view we'll notice
+
+86
+00:03:57,419 --> 00:03:59,419
+that a green box has appeared
+
+87
+00:03:59,419 --> 00:04:01,907
+around the borders of our background sprite.
+
+88
+00:04:02,626 --> 00:04:04,626
+Let's play the scene to test.
+
+89
+00:04:09,175 --> 00:04:10,866
+As we can see, 
+
+90
+00:04:10,866 --> 00:04:12,866
+the Player flies up to the
+
+91
+00:04:12,866 --> 00:04:14,641
+top of the screen.
+
+92
+00:04:14,641 --> 00:04:16,641
+The reason this is happening is because
+
+93
+00:04:16,641 --> 00:04:18,641
+when we start our game the physics engine
+
+94
+00:04:18,641 --> 00:04:20,641
+determines that we have two objects 
+
+95
+00:04:20,641 --> 00:04:22,641
+occupying the same 2D space.
+
+96
+00:04:22,641 --> 00:04:24,641
+The Player is inside the box
+
+97
+00:04:24,641 --> 00:04:26,374
+collider for the background.
+
+98
+00:04:26,374 --> 00:04:28,374
+The physics engine's solution
+
+99
+00:04:28,374 --> 00:04:31,027
+is to push the two objects apart
+
+100
+00:04:31,027 --> 00:04:33,027
+by adding forces to any
+
+101
+00:04:33,027 --> 00:04:35,732
+attached rigidbody2Ds.
+
+102
+00:04:35,732 --> 00:04:37,732
+Because the Player is the only game object
+
+103
+00:04:37,732 --> 00:04:39,732
+with a rigidbody2D attached
+
+104
+00:04:39,732 --> 00:04:41,732
+it's the only game object that will have
+
+105
+00:04:41,732 --> 00:04:43,180
+forces applied to it,
+
+106
+00:04:43,180 --> 00:04:45,180
+and it goes flying out of the way.
+
+107
+00:04:45,485 --> 00:04:47,485
+The issue here is that our physics
+
+108
+00:04:47,485 --> 00:04:49,485
+system currently thinks our background
+
+109
+00:04:49,485 --> 00:04:52,645
+object is a single solid object,
+
+110
+00:04:53,130 --> 00:04:56,730
+and that the Player, also a single solid object,
+
+111
+00:04:56,730 --> 00:04:58,730
+shouldn't be in the middle of it.
+
+112
+00:04:59,701 --> 00:05:01,701
+To fix this we're going to replace
+
+113
+00:05:01,701 --> 00:05:03,701
+our single large collider
+
+114
+00:05:03,701 --> 00:05:05,701
+with a set of smaller colliders.
+
+115
+00:05:05,701 --> 00:05:07,701
+to represent the walls.
+
+116
+00:05:08,311 --> 00:05:10,311
+To make the colliders easier to see
+
+117
+00:05:10,311 --> 00:05:12,311
+we can temporarily switch the
+
+118
+00:05:12,311 --> 00:05:14,850
+scene view from Shaded Mode
+
+119
+00:05:14,850 --> 00:05:16,447
+to Wire Frame Mode
+
+120
+00:05:16,447 --> 00:05:19,013
+using the Draw Mode menu
+
+121
+00:05:19,013 --> 00:05:21,747
+in the upper-left of the scene view window.
+
+122
+00:05:22,995 --> 00:05:24,995
+Now we can see just the 
+
+123
+00:05:24,995 --> 00:05:27,413
+underlying shapes of the objects in our scene
+
+124
+00:05:27,413 --> 00:05:29,413
+without the distraction of the texture
+
+125
+00:05:29,413 --> 00:05:31,413
+of our sprites.
+
+126
+00:05:32,065 --> 00:05:34,065
+The game object can have multiple
+
+127
+00:05:34,065 --> 00:05:36,065
+colliders attached to it, and we're going to
+
+128
+00:05:36,065 --> 00:05:38,065
+take advantage of this for our game.
+
+129
+00:05:39,147 --> 00:05:42,012
+Currently we have one collider 2D component.
+
+130
+00:05:42,548 --> 00:05:44,548
+Let's move it in to a better position
+
+131
+00:05:44,548 --> 00:05:46,062
+before we add another one.
+
+132
+00:05:46,936 --> 00:05:49,797
+Each collider has it's own properties.
+
+133
+00:05:49,797 --> 00:05:51,449
+We're going to use the Offset
+
+134
+00:05:51,449 --> 00:05:55,079
+and Size properties of our box collider 2D
+
+135
+00:05:55,079 --> 00:05:57,079
+to scale and position our collider
+
+136
+00:05:57,079 --> 00:05:59,079
+to have it act as a wall.
+
+137
+00:06:00,660 --> 00:06:02,660
+First let's set our collider's
+
+138
+00:06:02,660 --> 00:06:04,660
+shape using the Size properties.
+
+139
+00:06:05,700 --> 00:06:07,700
+By default Unity attempts
+
+140
+00:06:07,700 --> 00:06:09,700
+to fit the size of the collider
+
+141
+00:06:09,700 --> 00:06:12,515
+to the size of the sprite it's attached to.
+
+142
+00:06:13,250 --> 00:06:15,250
+This means that one dimension
+
+143
+00:06:15,250 --> 00:06:17,250
+of our square is already correct.
+
+144
+00:06:17,985 --> 00:06:19,985
+Let's keep the value for the Y axis
+
+145
+00:06:19,985 --> 00:06:21,985
+and adjust the value for X.
+
+146
+00:06:22,387 --> 00:06:27,095
+We'll start by setting the X size to 3.3
+
+147
+00:06:28,218 --> 00:06:30,218
+Let's switch the scene view back
+
+148
+00:06:30,218 --> 00:06:31,684
+to shaded mode.
+
+149
+00:06:32,565 --> 00:06:34,565
+Now we have a shape that's
+
+150
+00:06:34,565 --> 00:06:37,657
+reasonably wall-like but in the wrong position.
+
+151
+00:06:37,657 --> 00:06:40,154
+We'll use the Offset X property
+
+152
+00:06:40,154 --> 00:06:42,154
+to move our first collider over
+
+153
+00:06:42,154 --> 00:06:43,725
+to the right side.
+
+154
+00:06:44,237 --> 00:06:46,237
+This can be done either by clicking
+
+155
+00:06:46,237 --> 00:06:48,237
+and dragging on the title of the
+
+156
+00:06:48,237 --> 00:06:51,189
+X axis field or by entering
+
+157
+00:06:51,189 --> 00:06:52,912
+the value numerically.
+
+158
+00:06:53,466 --> 00:06:55,466
+Let's set the x Offset
+
+159
+00:06:55,466 --> 00:06:57,466
+to 14.3
+
+160
+00:06:58,243 --> 00:06:59,925
+We now have one wall,
+
+161
+00:06:59,925 --> 00:07:01,925
+but we need three more.
+
+162
+00:07:02,785 --> 00:07:05,366
+Let's duplicate our first collider
+
+163
+00:07:05,366 --> 00:07:07,366
+to create the opposing wall.
+
+164
+00:07:09,280 --> 00:07:11,280
+Using the component context menu
+
+165
+00:07:11,280 --> 00:07:13,280
+in the upper-right of the component
+
+166
+00:07:13,280 --> 00:07:15,280
+choose Copy Component.
+
+167
+00:07:17,568 --> 00:07:20,620
+Afterwards click the same menu again
+
+168
+00:07:20,620 --> 00:07:23,675
+and choose Paste Component As New.
+
+169
+00:07:23,675 --> 00:07:25,675
+This will paste a new copy of
+
+170
+00:07:25,675 --> 00:07:28,146
+the component with the same settings.
+
+171
+00:07:29,006 --> 00:07:31,006
+Now we're going to reverse the position
+
+172
+00:07:31,006 --> 00:07:33,006
+of the box collider 2D along
+
+173
+00:07:33,006 --> 00:07:35,006
+the X axis by setting
+
+174
+00:07:35,006 --> 00:07:39,513
+the X Offset to -14.3
+
+175
+00:07:40,831 --> 00:07:42,831
+Next we'll use the same process
+
+176
+00:07:42,831 --> 00:07:45,496
+to create our upper and lower walls.
+
+177
+00:07:46,315 --> 00:07:49,092
+Choose Paste Component As New again
+
+178
+00:07:49,092 --> 00:07:51,092
+to create a third copy of our
+
+179
+00:07:51,092 --> 00:07:52,867
+box collider 2D.
+
+180
+00:07:53,453 --> 00:07:55,453
+Now we're going to move it in to position
+
+181
+00:07:55,453 --> 00:07:58,727
+by swapping the X and Y values.
+
+182
+00:07:59,326 --> 00:08:02,550
+Set the Y Size to 3.3
+
+183
+00:08:03,146 --> 00:08:06,482
+and X to 31.64
+
+184
+00:08:10,254 --> 00:08:13,137
+Now set the X Offset to 0
+
+185
+00:08:13,137 --> 00:08:15,896
+and the Y Offset to 14.3
+
+186
+00:08:17,144 --> 00:08:20,541
+Now using the component context menu
+
+187
+00:08:20,541 --> 00:08:23,453
+let's copy the component values of the third collider
+
+188
+00:08:25,284 --> 00:08:27,284
+and Paste Component As New
+
+189
+00:08:27,284 --> 00:08:29,284
+to create the fourth wall.
+
+190
+00:08:31,753 --> 00:08:35,851
+We'll set the Y Offset to be -14.3
+
+191
+00:08:36,406 --> 00:08:37,548
+and we're done.
+
+192
+00:08:37,548 --> 00:08:39,548
+Let's enter play mode to test.
+
+193
+00:08:45,899 --> 00:08:47,899
+Now the Player will collide with all
+
+194
+00:08:47,899 --> 00:08:50,951
+four walls and stay within the play field.
+
+195
+00:08:50,951 --> 00:08:52,951
+It's worth noting the although the 
+
+196
+00:08:52,951 --> 00:08:56,168
+box colliders we added overlap each other,
+
+197
+00:08:56,168 --> 00:08:58,902
+they won't create a collision or go flying
+
+198
+00:08:58,902 --> 00:09:01,457
+because they don't have a rigidbody2D
+
+199
+00:09:01,457 --> 00:09:03,457
+component attached and therefore
+
+200
+00:09:03,457 --> 00:09:05,457
+won't receive forces from one another.
+
+201
+00:09:06,345 --> 00:09:08,345
+It's fairly common for colliders
+
+202
+00:09:08,345 --> 00:09:10,345
+to overlap each other in this manner
+
+203
+00:09:10,345 --> 00:09:12,345
+when laying out levels
+
+204
+00:09:12,345 --> 00:09:14,926
+using static non-moving objects.
+
+205
+00:09:15,897 --> 00:09:17,897
+In our next video we'll get our
+
+206
+00:09:17,897 --> 00:09:19,897
+camera moving and following the Player.

@@ -1,0 +1,1207 @@
+1
+00:00:04,008 --> 00:00:06,487
+Now we need a tool to
+
+2
+00:00:06,487 --> 00:00:09,754
+store the value of our counted collectables.
+
+3
+00:00:10,392 --> 00:00:12,392
+And another tool to add
+
+4
+00:00:12,392 --> 00:00:14,392
+to that value as we
+
+5
+00:00:14,392 --> 00:00:16,060
+collect and count them.
+
+6
+00:00:16,739 --> 00:00:18,739
+Let's add this tool to our
+
+7
+00:00:18,739 --> 00:00:20,739
+PlayerController script.
+
+8
+00:00:21,696 --> 00:00:23,696
+Select the Player game object
+
+9
+00:00:24,362 --> 00:00:27,845
+and open the PlayerController script for editing.
+
+10
+00:00:31,909 --> 00:00:34,602
+Let's add a private variable
+
+11
+00:00:35,074 --> 00:00:37,074
+to hold our count
+
+12
+00:00:37,074 --> 00:00:39,074
+of collectables we've picked up.
+
+13
+00:00:39,767 --> 00:00:41,767
+This will be an int,
+
+14
+00:00:41,767 --> 00:00:43,767
+as our count will be a whole number
+
+15
+00:00:43,767 --> 00:00:46,113
+we won't be collecting partial objects.
+
+16
+00:00:46,862 --> 00:00:48,862
+And let's call it Count.
+
+17
+00:00:50,346 --> 00:00:54,198
+Type private int count;
+
+18
+00:00:55,324 --> 00:00:57,324
+So in our game we will
+
+19
+00:00:57,324 --> 00:00:59,726
+first start with a count of 0.
+
+20
+00:01:00,461 --> 00:01:02,461
+Then we will need to increment
+
+21
+00:01:02,461 --> 00:01:04,797
+our count value by 1
+
+22
+00:01:04,797 --> 00:01:06,797
+when we pick up a new object.
+
+23
+00:01:08,753 --> 00:01:11,325
+We need to set our count value to 0.
+
+24
+00:01:12,237 --> 00:01:14,237
+As this variable is private
+
+25
+00:01:14,237 --> 00:01:16,237
+we don't have any access to it
+
+26
+00:01:16,237 --> 00:01:18,237
+in the inspector.
+
+27
+00:01:18,237 --> 00:01:20,237
+This variable is only available
+
+28
+00:01:20,237 --> 00:01:23,132
+for use within this script.
+
+29
+00:01:23,575 --> 00:01:25,575
+And as such we will need to set
+
+30
+00:01:25,575 --> 00:01:28,216
+it's starting value here in the script.
+
+31
+00:01:28,882 --> 00:01:30,882
+There are several ways we can set the starting value
+
+32
+00:01:30,882 --> 00:01:32,882
+of count but in this assignment
+
+33
+00:01:32,882 --> 00:01:35,441
+we will do it in the Start function.
+
+34
+00:01:35,885 --> 00:01:38,245
+In Start set our count
+
+35
+00:01:38,245 --> 00:01:40,245
+to be equal to 0.
+
+36
+00:01:41,826 --> 00:01:44,579
+Type count = 0
+
+37
+00:01:45,865 --> 00:01:47,865
+Next we need to add to count
+
+38
+00:01:47,865 --> 00:01:50,690
+when we pick up our collectable game objects.
+
+39
+00:01:51,550 --> 00:01:53,550
+We will pick up our objects
+
+40
+00:01:53,550 --> 00:01:56,299
+in onTriggerEnter2D
+
+41
+00:01:56,299 --> 00:01:58,299
+if the other game object
+
+42
+00:01:58,299 --> 00:02:00,299
+has the tag Pickup.
+
+43
+00:02:00,757 --> 00:02:03,384
+So this is where we add our counting code.
+
+44
+00:02:04,077 --> 00:02:06,077
+After setting the other game object's
+
+45
+00:02:06,077 --> 00:02:08,077
+active state to false
+
+46
+00:02:08,077 --> 00:02:10,077
+we'll set our new value
+
+47
+00:02:10,077 --> 00:02:12,077
+for count to be equal to our
+
+48
+00:02:12,077 --> 00:02:14,601
+old value plus 1.
+
+49
+00:02:16,168 --> 00:02:21,999
+We'll type count = count + 1.
+
+50
+00:02:23,955 --> 00:02:25,955
+There are other ways to add,
+
+51
+00:02:25,955 --> 00:02:27,955
+count up or increment a value
+
+52
+00:02:27,955 --> 00:02:29,955
+when coding in Unity,
+
+53
+00:02:29,955 --> 00:02:32,581
+but this one is very easy to understand
+
+54
+00:02:32,581 --> 00:02:34,860
+and this is the one that we're going to use in this assignment.
+
+55
+00:02:35,595 --> 00:02:38,287
+Let's save our script and return to Unity.
+
+56
+00:02:42,269 --> 00:02:44,269
+Now we can store and
+
+57
+00:02:44,269 --> 00:02:46,269
+increment our count but we have no
+
+58
+00:02:46,269 --> 00:02:48,269
+way of displaying it.
+
+59
+00:02:48,269 --> 00:02:50,269
+It would also be good to display a message
+
+60
+00:02:50,269 --> 00:02:52,269
+when the game is over.
+
+61
+00:02:53,309 --> 00:02:55,309
+To display text we will be using
+
+62
+00:02:55,309 --> 00:02:57,309
+Unity's user interface,
+
+63
+00:02:57,309 --> 00:02:59,544
+or UI toolset.
+
+64
+00:03:00,238 --> 00:03:02,238
+First let's create a new
+
+65
+00:03:02,238 --> 00:03:04,238
+UI text element
+
+66
+00:03:04,238 --> 00:03:07,035
+from the hierarchy's Create menu.
+
+67
+00:03:13,068 --> 00:03:15,068
+We seem to have gotten more than we've bargained for.
+
+68
+00:03:15,456 --> 00:03:17,456
+We don't just have a UI text element
+
+69
+00:03:17,456 --> 00:03:19,456
+but we've also created a
+
+70
+00:03:19,456 --> 00:03:21,804
+parent canvas element
+
+71
+00:03:21,804 --> 00:03:25,105
+and an EventSystem game object.
+
+72
+00:03:26,076 --> 00:03:28,076
+These are all required
+
+73
+00:03:28,076 --> 00:03:30,076
+by the UI toolset.
+
+74
+00:03:30,783 --> 00:03:32,783
+The single most important thing
+
+75
+00:03:32,783 --> 00:03:35,022
+about these additional items is that
+
+76
+00:03:35,022 --> 00:03:37,022
+all UI elements must
+
+77
+00:03:37,022 --> 00:03:39,022
+be the child of a canvas
+
+78
+00:03:39,022 --> 00:03:41,022
+to behave correctly.
+
+79
+00:03:41,618 --> 00:03:44,324
+For more information on the UI tools
+
+80
+00:03:44,324 --> 00:03:47,764
+including the canvas and the EventSystem
+
+81
+00:03:47,764 --> 00:03:50,157
+please see the information linked below.
+
+82
+00:03:51,401 --> 00:03:53,996
+Let's rename the text element
+
+83
+00:03:53,996 --> 00:03:55,996
+CountText.
+
+84
+00:04:00,254 --> 00:04:02,254
+With the CountText still highlighted
+
+85
+00:04:03,045 --> 00:04:05,547
+place the cursor over the scene view
+
+86
+00:04:05,547 --> 00:04:07,950
+and press the F key to frame select it.
+
+87
+00:04:09,420 --> 00:04:11,420
+Let's zoom out so that we can see
+
+88
+00:04:11,975 --> 00:04:13,975
+where the text is positioned
+
+89
+00:04:13,975 --> 00:04:15,975
+relative to the entire canvas.
+
+90
+00:04:17,639 --> 00:04:19,639
+If for some reason this doesn't appear in
+
+91
+00:04:19,639 --> 00:04:21,639
+the centre then we can use the
+
+92
+00:04:21,639 --> 00:04:23,639
+context sensitive gear menu
+
+93
+00:04:23,639 --> 00:04:26,209
+to reset the rect transform.
+
+94
+00:04:28,373 --> 00:04:30,373
+Now that our text is centred let's
+
+95
+00:04:30,373 --> 00:04:31,846
+customise this element a bit.
+
+96
+00:04:31,846 --> 00:04:33,846
+The default text is a bit dark,
+
+97
+00:04:33,846 --> 00:04:35,846
+let's make the text colour yellow
+
+98
+00:04:35,846 --> 00:04:37,846
+so it's easier to see.
+
+99
+00:04:38,276 --> 00:04:40,276
+Click on the colour swatch
+
+100
+00:04:42,870 --> 00:04:44,870
+in the colour picker let's set
+
+101
+00:04:44,870 --> 00:04:47,385
+the red value to 255, 
+
+102
+00:04:47,385 --> 00:04:49,385
+the green value to 255 and
+
+103
+00:04:49,385 --> 00:04:51,385
+the blue value to 0.
+
+104
+00:04:52,092 --> 00:04:54,092
+You can do this by clicking and dragging
+
+105
+00:04:54,092 --> 00:04:56,520
+or entering the values numerically.
+
+106
+00:04:57,158 --> 00:04:58,951
+Close the colour picker.
+
+107
+00:04:58,951 --> 00:05:00,951
+Now let's add some placeholder text
+
+108
+00:05:00,951 --> 00:05:02,951
+and replace the string New Text
+
+109
+00:05:02,951 --> 00:05:04,951
+with Count Text.
+
+110
+00:05:06,061 --> 00:05:08,061
+Currently the text element
+
+111
+00:05:08,061 --> 00:05:10,061
+is in the centre of the screen
+
+112
+00:05:10,061 --> 00:05:12,061
+because it's anchored to the
+
+113
+00:05:12,061 --> 00:05:14,061
+centre of it's parent, which is
+
+114
+00:05:14,061 --> 00:05:16,061
+in this case the canvas.
+
+115
+00:05:16,061 --> 00:05:18,061
+If is worth noting that the 
+
+116
+00:05:18,061 --> 00:05:20,531
+transform component on UI elements
+
+117
+00:05:20,531 --> 00:05:22,531
+is different from that of 
+
+118
+00:05:22,531 --> 00:05:24,531
+other game objects in Unity.
+
+119
+00:05:25,100 --> 00:05:27,100
+For UI elements the standard
+
+120
+00:05:27,100 --> 00:05:29,100
+transform has been replaced
+
+121
+00:05:29,100 --> 00:05:31,100
+with the rect transform,
+
+122
+00:05:31,710 --> 00:05:33,710
+which takes in to account
+
+123
+00:05:33,710 --> 00:05:35,710
+many specialised features
+
+124
+00:05:35,710 --> 00:05:39,103
+necessary for a versatile UI system
+
+125
+00:05:39,103 --> 00:05:42,199
+including anchoring and positioning.
+
+126
+00:05:43,114 --> 00:05:45,765
+For more information on the rect transform
+
+127
+00:05:45,765 --> 00:05:47,765
+please see the information linked below.
+
+128
+00:05:49,138 --> 00:05:51,138
+One of the easiest ways to move
+
+129
+00:05:51,138 --> 00:05:53,138
+the CountText element in to the
+
+130
+00:05:53,138 --> 00:05:55,138
+upper left is to anchor it
+
+131
+00:05:55,138 --> 00:05:58,069
+to the upper left corner of the canvas
+
+132
+00:05:58,069 --> 00:06:00,069
+rather than to it's centre.
+
+133
+00:06:01,262 --> 00:06:03,262
+When we re-anchor this text
+
+134
+00:06:03,262 --> 00:06:05,262
+element we also want
+
+135
+00:06:05,262 --> 00:06:07,262
+to set the pivot and the
+
+136
+00:06:07,262 --> 00:06:10,255
+position based on the new anchor.
+
+137
+00:06:10,907 --> 00:06:12,907
+To do this open the
+
+138
+00:06:12,907 --> 00:06:15,172
+Anchors And Presets menu
+
+139
+00:06:15,172 --> 00:06:17,172
+by clicking on the button displaying
+
+140
+00:06:17,172 --> 00:06:19,172
+the current anchor preset.
+
+141
+00:06:20,226 --> 00:06:24,256
+Hold down the Shift and Option keys on Mac,
+
+142
+00:06:24,256 --> 00:06:28,274
+or shift and Alt keys on Windows
+
+143
+00:06:28,274 --> 00:06:33,066
+and select the upper left preset by clicking on it.
+
+144
+00:06:35,049 --> 00:06:36,579
+That's done it. 
+
+145
+00:06:36,579 --> 00:06:38,274
+Now it looks budged up against
+
+146
+00:06:38,274 --> 00:06:40,274
+the corner of the game view.
+
+147
+00:06:40,274 --> 00:06:42,274
+Let's give it some space between the
+
+148
+00:06:42,274 --> 00:06:44,567
+text and the edges of the screen.
+
+149
+00:06:45,508 --> 00:06:47,902
+As we're anchored to the upper left
+
+150
+00:06:47,902 --> 00:06:49,902
+corner of the canvas and we've
+
+151
+00:06:49,902 --> 00:06:53,084
+set our pivot to the upper left corner as well.
+
+152
+00:06:53,570 --> 00:06:55,763
+The easiest way to give the text
+
+153
+00:06:55,763 --> 00:06:57,763
+a little breathing room is to
+
+154
+00:06:57,763 --> 00:07:00,303
+change the rect transform's
+
+155
+00:07:00,303 --> 00:07:02,303
+position X and 
+
+156
+00:07:02,303 --> 00:07:04,303
+position Y values.
+
+157
+00:07:05,274 --> 00:07:08,546
+In this case an X position of 10
+
+158
+00:07:08,546 --> 00:07:11,288
+and a Y position of -10
+
+159
+00:07:11,288 --> 00:07:13,288
+seem about right.
+
+160
+00:07:14,814 --> 00:07:16,814
+This gives us some room around it
+
+161
+00:07:16,814 --> 00:07:19,552
+yet it's still up and out of the way.
+
+162
+00:07:21,979 --> 00:07:23,979
+Now let's wire up
+
+163
+00:07:23,979 --> 00:07:25,979
+the UI text element to
+
+164
+00:07:25,979 --> 00:07:28,818
+display our count value.
+
+165
+00:07:30,122 --> 00:07:32,122
+Let's start by opening the
+
+166
+00:07:32,122 --> 00:07:34,499
+PlayerController script for editing.
+
+167
+00:07:40,086 --> 00:07:42,086
+Before we can code anything related to
+
+168
+00:07:42,086 --> 00:07:44,086
+any UI elements we need to tell
+
+169
+00:07:44,086 --> 00:07:46,086
+our script more about them.
+
+170
+00:07:46,086 --> 00:07:48,086
+The details about the UI
+
+171
+00:07:48,086 --> 00:07:50,086
+toolset are held in what's
+
+172
+00:07:50,086 --> 00:07:52,086
+called a namespace.
+
+173
+00:07:52,835 --> 00:07:54,835
+We need to use this namespace
+
+174
+00:07:54,835 --> 00:07:56,835
+just as we are using
+
+175
+00:07:56,835 --> 00:08:00,121
+UnityEngine and System.Collections.
+
+176
+00:08:00,565 --> 00:08:03,358
+So to do this, at the top of our script
+
+177
+00:08:03,358 --> 00:08:09,211
+we'll write using UnityEngine.UI
+
+178
+00:08:09,835 --> 00:08:11,835
+With this in place we can now
+
+179
+00:08:11,835 --> 00:08:13,394
+write our code.
+
+180
+00:08:13,793 --> 00:08:16,112
+First create a new public
+
+181
+00:08:16,112 --> 00:08:19,632
+text variable called CountText
+
+182
+00:08:20,062 --> 00:08:22,062
+to hold a reference to the
+
+183
+00:08:22,062 --> 00:08:24,062
+UI Text component 
+
+184
+00:08:24,062 --> 00:08:26,425
+on our UI Text game object.
+
+185
+00:08:27,671 --> 00:08:31,996
+Type public Text countText
+
+186
+00:08:32,925 --> 00:08:35,689
+We need to set the starting value
+
+187
+00:08:35,689 --> 00:08:39,132
+of the UI text's Text property.
+
+188
+00:08:39,756 --> 00:08:42,336
+WE can do this in Start as well.
+
+189
+00:08:43,085 --> 00:08:54,482
+Write countText.text = "Count: " + count.ToString ()
+
+190
+00:08:55,351 --> 00:08:57,969
+And we need the parenthesis.
+
+191
+00:08:57,969 --> 00:08:59,969
+Now this line of code
+
+192
+00:08:59,969 --> 00:09:01,969
+must be written after the line
+
+193
+00:09:01,969 --> 00:09:03,969
+setting our count value
+
+194
+00:09:03,969 --> 00:09:06,875
+because Count must have some value 
+
+195
+00:09:06,875 --> 00:09:08,875
+for us to set the text with.
+
+196
+00:09:09,602 --> 00:09:11,602
+Now we also need to update this text
+
+197
+00:09:11,602 --> 00:09:13,602
+property every time we pick up
+
+198
+00:09:13,602 --> 00:09:15,061
+a new collectable,
+
+199
+00:09:15,061 --> 00:09:17,061
+so in OnTriggerEnter
+
+200
+00:09:17,061 --> 00:09:19,267
+after we increment our count value
+
+201
+00:09:19,267 --> 00:09:20,802
+let's write again
+
+202
+00:09:20,802 --> 00:09:28,250
+countText.Text = "Count: " + count.ToString ()
+
+203
+00:09:29,989 --> 00:09:32,398
+We've now written the same line of code
+
+204
+00:09:32,398 --> 00:09:34,398
+twice in the same script.
+
+205
+00:09:35,030 --> 00:09:37,030
+This is generally bad form.
+
+206
+00:09:37,805 --> 00:09:39,805
+One way to made this a little more elegant
+
+207
+00:09:39,805 --> 00:09:41,805
+is to create a function that
+
+208
+00:09:41,805 --> 00:09:43,805
+does the work in one place
+
+209
+00:09:43,805 --> 00:09:45,805
+and we simply call this function
+
+210
+00:09:45,805 --> 00:09:47,470
+every time we need it.
+
+211
+00:09:48,074 --> 00:09:50,074
+Let's create a new function called
+
+212
+00:09:50,074 --> 00:09:52,074
+SetCountText.
+
+213
+00:09:52,627 --> 00:09:56,551
+Type void SetCountText
+
+214
+00:09:56,551 --> 00:09:58,946
+followed by an empty set of parenthesis
+
+215
+00:09:59,689 --> 00:10:01,689
+and an empty set of brackets.
+
+216
+00:10:02,701 --> 00:10:04,701
+Now let's move one
+
+217
+00:10:04,701 --> 00:10:06,701
+instance of this line of code
+
+218
+00:10:06,701 --> 00:10:09,757
+in to the function by cutting and pasting it.
+
+219
+00:10:17,155 --> 00:10:19,155
+And in it's place let's put
+
+220
+00:10:19,155 --> 00:10:22,287
+a line of code simply calling the function.
+
+221
+00:10:23,789 --> 00:10:25,789
+Finally let's replace the
+
+222
+00:10:25,789 --> 00:10:28,608
+other line with the function call as well.
+
+223
+00:10:30,492 --> 00:10:32,492
+Save and return to Unity.
+
+224
+00:10:36,096 --> 00:10:38,526
+Now we see our PlayerController script
+
+225
+00:10:38,526 --> 00:10:40,526
+has a new text property.
+
+226
+00:10:40,526 --> 00:10:42,526
+We can associate a reference to our
+
+227
+00:10:42,526 --> 00:10:46,558
+Count Text simply by dragging and dropping
+
+228
+00:10:46,558 --> 00:10:49,177
+the CountText game object
+
+229
+00:10:49,177 --> 00:10:51,177
+on to this slot.
+
+230
+00:10:51,177 --> 00:10:53,177
+Unity will find the text component
+
+231
+00:10:53,177 --> 00:10:55,177
+on the game object and correctly
+
+232
+00:10:55,177 --> 00:10:57,177
+associate the reference.
+
+233
+00:10:57,904 --> 00:10:59,904
+Let's save the scene and play.
+
+234
+00:11:06,401 --> 00:11:09,291
+Great, now not only do we collect
+
+235
+00:11:09,291 --> 00:11:11,643
+these objects but we can count them now.
+
+236
+00:11:13,461 --> 00:11:15,461
+Let's exit play mode.
+
+237
+00:11:15,461 --> 00:11:17,461
+We need to display a message
+
+238
+00:11:17,461 --> 00:11:19,701
+when we have collected all of the pickups.
+
+239
+00:11:20,283 --> 00:11:22,283
+To do this we will need another
+
+240
+00:11:22,283 --> 00:11:24,283
+UI text object.
+
+241
+00:11:24,283 --> 00:11:28,125
+Again, using the hierarchy's Create menu
+
+242
+00:11:28,125 --> 00:11:31,294
+make a new UI text game object.
+
+243
+00:11:32,290 --> 00:11:34,498
+Rename it WinText.
+
+244
+00:11:37,865 --> 00:11:40,849
+Note how the new UI text element is
+
+245
+00:11:40,849 --> 00:11:43,743
+automatically added to our canvas.
+
+246
+00:11:43,743 --> 00:11:45,743
+We want this text to display
+
+247
+00:11:45,743 --> 00:11:48,520
+in the centre of the game space
+
+248
+00:11:48,520 --> 00:11:50,520
+but up a little bit so it doesn't
+
+249
+00:11:50,520 --> 00:11:52,520
+cover the Player game object.
+
+250
+00:11:53,200 --> 00:11:56,385
+To do this let's adjust the rect transform's
+
+251
+00:11:56,385 --> 00:11:59,065
+position Y element as by default
+
+252
+00:11:59,065 --> 00:12:01,065
+this UI text element is anchored
+
+253
+00:12:01,065 --> 00:12:03,065
+to the centre of the canvas.
+
+254
+00:12:08,518 --> 00:12:12,029
+A value of about 75 feels good.
+
+255
+00:12:13,948 --> 00:12:15,948
+Let's also adjust the
+
+256
+00:12:15,948 --> 00:12:17,948
+paragraph alignment
+
+257
+00:12:18,438 --> 00:12:20,438
+in the text component.
+
+258
+00:12:21,876 --> 00:12:23,956
+Next let's adjust the colour
+
+259
+00:12:24,651 --> 00:12:26,651
+and set it to the same yellow
+
+260
+00:12:26,651 --> 00:12:29,321
+we used for our previous text element.
+
+261
+00:12:30,538 --> 00:12:33,159
+Let's make the text a little larger
+
+262
+00:12:33,159 --> 00:12:36,029
+by setting the font size to 24.
+
+263
+00:12:36,819 --> 00:12:39,915
+Finally let's add some place holder text
+
+264
+00:12:39,915 --> 00:12:42,472
+and replace the string New Text
+
+265
+00:12:42,472 --> 00:12:44,472
+with Win Text.
+
+266
+00:12:45,910 --> 00:12:47,910
+Let's save the scene and swap
+
+267
+00:12:47,910 --> 00:12:49,910
+back to our scripting editor.
+
+268
+00:12:52,818 --> 00:12:54,818
+We need to add a reference for
+
+269
+00:12:54,818 --> 00:12:56,818
+this UI text element.
+
+270
+00:12:56,818 --> 00:12:58,818
+Let's create a new public text
+
+271
+00:12:58,818 --> 00:13:01,621
+variable and call it WinText.
+
+272
+00:13:03,316 --> 00:13:07,286
+Type public Text winText.
+
+273
+00:13:09,120 --> 00:13:11,831
+Now let's set the starting value
+
+274
+00:13:11,831 --> 00:13:14,420
+for WinText's text property.
+
+275
+00:13:15,179 --> 00:13:17,751
+This is set to an empty string
+
+276
+00:13:17,751 --> 00:13:19,751
+or two double quote marks
+
+277
+00:13:19,751 --> 00:13:21,879
+with no content.
+
+278
+00:13:21,879 --> 00:13:24,644
+This text property will start empty
+
+279
+00:13:24,644 --> 00:13:27,896
+then in the SetCountText function
+
+280
+00:13:27,896 --> 00:13:34,553
+let's write if count is greater than or equal to 12,
+
+281
+00:13:35,090 --> 00:13:37,090
+which is the total number of objects we have
+
+282
+00:13:37,090 --> 00:13:39,090
+in the game to collect,
+
+283
+00:13:39,090 --> 00:13:42,621
+then our winText.Text
+
+284
+00:13:42,621 --> 00:13:44,621
+equals You Win!
+
+285
+00:13:45,822 --> 00:13:53,189
+Type if count is greater than or equal to 12
+
+286
+00:13:57,788 --> 00:14:02,284
+winText.Text = YouWin!
+
+287
+00:14:04,861 --> 00:14:07,337
+Let's save this script and return to Unity.
+
+288
+00:14:12,046 --> 00:14:14,379
+Again on our Player our player
+
+289
+00:14:14,379 --> 00:14:17,320
+controller has a new UI text property.
+
+290
+00:14:17,936 --> 00:14:19,936
+We can associate the component again
+
+291
+00:14:19,936 --> 00:14:21,936
+by dragging the WinText
+
+292
+00:14:21,936 --> 00:14:24,428
+game object in to the new slot.
+
+293
+00:14:25,723 --> 00:14:27,550
+Let's save the scene and play.
+
+294
+00:14:34,774 --> 00:14:36,774
+So we're picking up our game objects,
+
+295
+00:14:36,774 --> 00:14:38,774
+we're counting our collectables
+
+296
+00:14:38,774 --> 00:14:40,250
+and we win!
+
+297
+00:14:40,250 --> 00:14:42,250
+And as we can see when we have
+
+298
+00:14:42,250 --> 00:14:46,024
+collected 12 objects we display the You Win! text.
+
+299
+00:14:46,830 --> 00:14:48,830
+In the next and last assignment
+
+300
+00:14:48,830 --> 00:14:50,830
+of this series we will build
+
+301
+00:14:50,830 --> 00:14:52,830
+the game and deploy it
+
+302
+00:14:52,830 --> 00:14:55,052
+using a stand alone player.

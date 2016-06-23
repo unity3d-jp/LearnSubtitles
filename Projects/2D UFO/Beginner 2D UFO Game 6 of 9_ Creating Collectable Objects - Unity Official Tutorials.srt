@@ -1,0 +1,811 @@
+1
+00:00:02,372 --> 00:00:05,599
+So far we have created a play field
+
+2
+00:00:05,599 --> 00:00:07,807
+and a Player game object
+
+3
+00:00:07,807 --> 00:00:09,807
+and we have the player moving
+
+4
+00:00:09,807 --> 00:00:11,807
+under our control.
+
+5
+00:00:11,807 --> 00:00:13,807
+In this lesson we'll create
+
+6
+00:00:13,807 --> 00:00:16,112
+the collectable objects
+
+7
+00:00:16,112 --> 00:00:18,112
+for our player to pick up.
+
+8
+00:00:19,097 --> 00:00:21,097
+First open the Sprites folder.
+
+9
+00:00:22,026 --> 00:00:24,026
+Drag the sprite Pickup
+
+10
+00:00:24,026 --> 00:00:26,026
+in to the hierarchy.
+
+11
+00:00:30,353 --> 00:00:32,353
+You'll notice after dragging in
+
+12
+00:00:32,353 --> 00:00:34,353
+the Pickup sprite that we
+
+13
+00:00:34,353 --> 00:00:35,795
+still can't see it.
+
+14
+00:00:36,811 --> 00:00:38,811
+That's because it's being rendered
+
+15
+00:00:38,811 --> 00:00:42,359
+behind both the Player
+
+16
+00:00:42,359 --> 00:00:44,359
+and Background sprites.
+
+17
+00:00:44,359 --> 00:00:46,359
+To bring it forward we
+
+18
+00:00:46,359 --> 00:00:49,267
+need to set the sorting layer
+
+19
+00:00:49,267 --> 00:00:51,267
+in the sprite renderer component.
+
+20
+00:00:53,042 --> 00:00:56,442
+Set the sorting layer to Pickups.
+
+21
+00:00:58,952 --> 00:01:00,952
+Now the Player game object
+
+22
+00:01:00,952 --> 00:01:02,952
+is still in the way.
+
+23
+00:01:03,604 --> 00:01:06,121
+This is because the Player
+
+24
+00:01:06,121 --> 00:01:08,121
+sorting layer is in front
+
+25
+00:01:08,121 --> 00:01:10,121
+of the Pickups sorting layer.
+
+26
+00:01:11,092 --> 00:01:13,995
+Let's temporarily deactivate
+
+27
+00:01:13,995 --> 00:01:15,995
+the Player game object.
+
+28
+00:01:16,342 --> 00:01:18,342
+Select the Player game object
+
+29
+00:01:18,342 --> 00:01:20,342
+and deselect the checkbox
+
+30
+00:01:20,342 --> 00:01:22,342
+in front of the Name field.
+
+31
+00:01:22,911 --> 00:01:25,866
+This is the game object's Active checkbox.
+
+32
+00:01:26,254 --> 00:01:28,422
+Deselecting it will deactivate
+
+33
+00:01:28,422 --> 00:01:30,615
+the game object in the scene.
+
+34
+00:01:30,615 --> 00:01:32,615
+This will give us a clear working space
+
+35
+00:01:32,615 --> 00:01:34,615
+for our new pickup object
+
+36
+00:01:34,615 --> 00:01:36,172
+which we can now see.
+
+37
+00:01:37,031 --> 00:01:39,031
+Focus the scene view camera on the
+
+38
+00:01:39,031 --> 00:01:41,031
+pickup object by highlighting it
+
+39
+00:01:41,031 --> 00:01:43,031
+and pressing the F key whilst
+
+40
+00:01:43,031 --> 00:01:45,031
+the cursor is over the scene view.
+
+41
+00:01:46,043 --> 00:01:48,043
+So that we can collide with the pickup
+
+42
+00:01:48,043 --> 00:01:50,858
+let's add a circle collider 2D 
+
+43
+00:01:50,858 --> 00:01:52,509
+component to it.
+
+44
+00:01:52,509 --> 00:01:54,509
+With the pickup highlighted click
+
+45
+00:01:54,509 --> 00:01:58,109
+Add Component - Physics 2D 
+
+46
+00:01:58,109 --> 00:02:00,597
+then Circle Collider 2D.
+
+47
+00:02:01,968 --> 00:02:03,968
+Adjust the Radius property
+
+48
+00:02:03,968 --> 00:02:05,968
+of the circle collider 2D
+
+49
+00:02:05,968 --> 00:02:09,292
+so that it fits the sprite artwork visually b
+
+50
+00:02:09,618 --> 00:02:11,887
+by dragging in the Radius field.
+
+51
+00:02:13,454 --> 00:02:15,454
+To be effective the collectable
+
+52
+00:02:15,454 --> 00:02:18,071
+must attract the attention of the player.
+
+53
+00:02:18,778 --> 00:02:21,141
+So let's make the object more attractive.
+
+54
+00:02:22,012 --> 00:02:24,012
+There's one thing I feel certainly
+
+55
+00:02:24,012 --> 00:02:26,012
+attracts the attention of a player
+
+56
+00:02:26,012 --> 00:02:27,803
+and that is movement.
+
+57
+00:02:27,803 --> 00:02:29,540
+So let's rotate our pickup.
+
+58
+00:02:29,969 --> 00:02:32,384
+One way to do this is with a script.
+
+59
+00:02:33,397 --> 00:02:35,924
+With the pickup object still selected
+
+60
+00:02:35,924 --> 00:02:37,924
+use the Add Component button
+
+61
+00:02:37,924 --> 00:02:39,924
+in the inspector.
+
+62
+00:02:40,423 --> 00:02:43,294
+Let's create a new script called Rotator.
+
+63
+00:02:44,365 --> 00:02:46,365
+Click Create and Add to confirm
+
+64
+00:02:46,365 --> 00:02:48,365
+and let's organise the script by
+
+65
+00:02:48,365 --> 00:02:50,365
+placing it in the Scripts folder.
+
+66
+00:02:52,445 --> 00:02:54,445
+Open the Scripts folder and
+
+67
+00:02:54,445 --> 00:02:56,445
+double click to open it for editing.
+
+68
+00:02:58,775 --> 00:03:00,775
+We want the sprite to spin and we want
+
+69
+00:03:00,775 --> 00:03:02,775
+to do it with this script.
+
+70
+00:03:02,775 --> 00:03:04,775
+Let's remove the sample code
+
+71
+00:03:04,775 --> 00:03:06,775
+ we don't need.
+
+72
+00:03:07,718 --> 00:03:09,718
+We will not be using forces
+
+73
+00:03:09,718 --> 00:03:11,718
+so we can use Update
+
+74
+00:03:11,718 --> 00:03:13,718
+rather than Fixed Update.
+
+75
+00:03:14,176 --> 00:03:17,362
+We want to rotate the object every frame.
+
+76
+00:03:17,362 --> 00:03:19,362
+To make the pickups spin we
+
+77
+00:03:19,362 --> 00:03:22,025
+don't want to set the transform rotation
+
+78
+00:03:22,025 --> 00:03:24,679
+but we want to rotate the transform.
+
+79
+00:03:25,581 --> 00:03:28,757
+Type Transform inside Update.
+
+80
+00:03:31,767 --> 00:03:33,767
+Select it and hold down the 
+
+81
+00:03:33,767 --> 00:03:36,168
+control key on windows or the command 
+
+82
+00:03:36,168 --> 00:03:38,684
+key on mac and type '
+
+83
+00:03:40,512 --> 00:03:42,512
+Again this brings up the page
+
+84
+00:03:42,512 --> 00:03:44,329
+with a search term Transform.
+
+85
+00:03:44,845 --> 00:03:46,845
+Select Transform.
+
+86
+00:03:48,953 --> 00:03:53,046
+Scroll down until you see Transform's public functions.
+
+87
+00:03:54,656 --> 00:03:57,930
+There are two main ways to affect the transform. 
+
+88
+00:03:57,930 --> 00:04:00,390
+These are Translate and Rotate.
+
+89
+00:04:01,194 --> 00:04:03,194
+Translate moves the game object
+
+90
+00:04:03,194 --> 00:04:05,194
+using it's transform.
+
+91
+00:04:06,317 --> 00:04:08,582
+Rotate rotates the game object
+
+92
+00:04:08,582 --> 00:04:10,582
+using it's transform.
+
+93
+00:04:11,511 --> 00:04:13,511
+We will use rotate.
+
+94
+00:04:14,357 --> 00:04:16,357
+So let's click on the link.
+
+95
+00:04:16,357 --> 00:04:19,694
+This brings up the page for Transform.Rotate.
+
+96
+00:04:20,901 --> 00:04:23,482
+Note again the two signatures.
+
+97
+00:04:24,342 --> 00:04:27,381
+One is using a vector3
+
+98
+00:04:27,381 --> 00:04:29,381
+and the other is using 3
+
+99
+00:04:29,381 --> 00:04:33,697
+float values for X, Y or Z.
+
+100
+00:04:34,501 --> 00:04:36,501
+Both have the optional parameter
+
+101
+00:04:36,501 --> 00:04:38,501
+Space which we will
+
+102
+00:04:38,501 --> 00:04:40,501
+leave at default for this lesson.
+
+103
+00:04:41,153 --> 00:04:43,153
+Again we will choose the most simple
+
+104
+00:04:43,153 --> 00:04:46,603
+form that only uses the vector3 for direction.
+
+105
+00:04:47,497 --> 00:04:49,497
+Let's return to our code.
+
+106
+00:04:51,633 --> 00:04:53,633
+After transform,
+
+107
+00:04:53,633 --> 00:04:55,633
+making sure that transform is written to
+
+108
+00:04:55,633 --> 00:04:57,245
+begin with a lowercase t,
+
+109
+00:04:57,910 --> 00:05:06,416
+write .rotate (new Vector3 (0, 0, 45))
+
+110
+00:05:07,747 --> 00:05:09,747
+This means we'll rotate
+
+111
+00:05:09,747 --> 00:05:12,179
+around the Z axis.
+
+112
+00:05:12,857 --> 00:05:14,857
+Now this action also needs
+
+113
+00:05:14,857 --> 00:05:17,596
+to be smooth and frame rate independent
+
+114
+00:05:18,109 --> 00:05:21,049
+so we need to multiply the vector3 value
+
+115
+00:05:21,049 --> 00:05:23,932
+by Time.deltaTime.
+
+116
+00:05:25,430 --> 00:05:27,430
+It is worth noting that even
+
+117
+00:05:27,430 --> 00:05:29,430
+though we are working with a 2D
+
+118
+00:05:29,430 --> 00:05:32,066
+sprite we are using a vector3
+
+119
+00:05:32,066 --> 00:05:34,846
+to rotate the collectable's transform.
+
+120
+00:05:35,373 --> 00:05:37,373
+This is because the transform
+
+121
+00:05:37,373 --> 00:05:39,373
+of the 2D sprite
+
+122
+00:05:39,373 --> 00:05:42,274
+still exists in the 3D volume.
+
+123
+00:05:43,037 --> 00:05:45,037
+When using the transform component
+
+124
+00:05:45,037 --> 00:05:47,037
+with 2D objects we simply
+
+125
+00:05:47,037 --> 00:05:49,908
+ignore the axis we don't need.
+
+126
+00:05:50,657 --> 00:05:53,317
+Now that we are done with our Rotator script
+
+127
+00:05:53,317 --> 00:05:55,944
+save this script and return to Unity.
+
+128
+00:05:56,859 --> 00:05:59,371
+Let's test by entering play mode.
+
+129
+00:06:00,052 --> 00:06:03,368
+And we can see our pickup object rotates.
+
+130
+00:06:04,909 --> 00:06:06,909
+Let's exit play mode.
+
+131
+00:06:07,838 --> 00:06:10,551
+Okay, we have the start of a working
+
+132
+00:06:10,551 --> 00:06:12,256
+pickup object.
+
+133
+00:06:12,256 --> 00:06:14,256
+Next we want to place these pickups
+
+134
+00:06:14,256 --> 00:06:16,062
+around the game area.
+
+135
+00:06:16,672 --> 00:06:18,672
+But before we do this we need to do
+
+136
+00:06:18,672 --> 00:06:20,142
+one important step.
+
+137
+00:06:20,880 --> 00:06:22,880
+We need to make our pickup object
+
+138
+00:06:22,880 --> 00:06:24,271
+in to a prefab.
+
+139
+00:06:25,102 --> 00:06:27,102
+Remember, a prefab is an
+
+140
+00:06:27,102 --> 00:06:29,102
+asset that contains a template
+
+141
+00:06:29,102 --> 00:06:31,768
+or blueprint of a game object
+
+142
+00:06:31,768 --> 00:06:33,768
+or game object family.
+
+143
+00:06:34,378 --> 00:06:36,378
+We create a prefab from an
+
+144
+00:06:36,378 --> 00:06:39,650
+existing game object or game object family
+
+145
+00:06:40,122 --> 00:06:42,122
+and once we create it
+
+146
+00:06:42,122 --> 00:06:44,122
+we can use it in any scene
+
+147
+00:06:44,122 --> 00:06:46,122
+in our current project.
+
+148
+00:06:47,107 --> 00:06:49,107
+With a prefab of our pickup object
+
+149
+00:06:49,107 --> 00:06:51,107
+we will be able to make changes to
+
+150
+00:06:51,107 --> 00:06:53,107
+a single instance in our scene
+
+151
+00:06:53,107 --> 00:06:55,387
+or to the prefab asset itself.
+
+152
+00:06:55,886 --> 00:06:57,886
+And all of the pickup objects in our
+
+153
+00:06:57,886 --> 00:07:00,883
+game will be updated with those changes.
+
+154
+00:07:01,758 --> 00:07:03,758
+You'll notice we already have a folder
+
+155
+00:07:03,758 --> 00:07:05,437
+to hold our prefabs.
+
+156
+00:07:05,980 --> 00:07:07,980
+Let's drag the Pickup game object
+
+157
+00:07:07,980 --> 00:07:09,980
+from our hierarchy and place
+
+158
+00:07:09,980 --> 00:07:12,415
+it in to our Prefabs folder.
+
+159
+00:07:13,395 --> 00:07:15,395
+When we drag and item from our hierarchy
+
+160
+00:07:15,395 --> 00:07:17,395
+in to our project view
+
+161
+00:07:17,395 --> 00:07:19,395
+we create a new prefab
+
+162
+00:07:19,395 --> 00:07:21,395
+asset in our project.
+
+163
+00:07:22,560 --> 00:07:24,560
+Before we spread our collectables
+
+164
+00:07:24,560 --> 00:07:26,560
+around the game area we should create
+
+165
+00:07:26,560 --> 00:07:28,560
+a new game object
+
+166
+00:07:28,560 --> 00:07:30,560
+to hold our pickups and
+
+167
+00:07:30,560 --> 00:07:32,560
+to help organise our hierarchy.
+
+168
+00:07:33,101 --> 00:07:35,101
+Let's create a new game object.
+
+169
+00:07:37,126 --> 00:07:39,126
+And call it Pickups.
+
+170
+00:07:41,443 --> 00:07:43,443
+Check the transform to make sure our
+
+171
+00:07:43,443 --> 00:07:45,443
+Pickups holder object
+
+172
+00:07:45,443 --> 00:07:48,122
+is at origin, or (0, 0, 0).
+
+173
+00:07:48,553 --> 00:07:50,553
+And if not use the component
+
+174
+00:07:50,553 --> 00:07:52,553
+context menu to reset it.
+
+175
+00:07:53,274 --> 00:07:57,259
+Next drag our Pickup game object on to it.
+
+176
+00:07:58,077 --> 00:08:00,077
+Now we want to spread a
+
+177
+00:08:00,077 --> 00:08:02,077
+number of these pickup objects
+
+178
+00:08:02,077 --> 00:08:03,524
+around the play area.
+
+179
+00:08:03,524 --> 00:08:05,524
+Make sure the pickup game object is
+
+180
+00:08:05,524 --> 00:08:07,524
+selected, and not the parent.
+
+181
+00:08:09,008 --> 00:08:11,008
+Now let's back out a little
+
+182
+00:08:11,008 --> 00:08:13,008
+so we can see the entire game area.
+
+183
+00:08:15,033 --> 00:08:17,033
+Click and drag the pickup game object
+
+184
+00:08:17,033 --> 00:08:19,033
+to move it in to the 
+
+185
+00:08:19,033 --> 00:08:21,033
+first pickup position.
+
+186
+00:08:21,033 --> 00:08:23,957
+I'm going to place mine at the top of the playing area.
+
+187
+00:08:24,678 --> 00:08:26,678
+With the game object still selected
+
+188
+00:08:27,122 --> 00:08:28,555
+duplicate it.
+
+189
+00:08:28,555 --> 00:08:30,555
+This can be done either by selecting
+
+190
+00:08:30,555 --> 00:08:34,786
+Edit - Duplicate, or by using the hot key combination.
+
+191
+00:08:35,369 --> 00:08:37,369
+This is command-D on mac,
+
+192
+00:08:37,369 --> 00:08:39,369
+or control-D on windows.
+
+193
+00:08:40,895 --> 00:08:42,895
+Now let's position the
+
+194
+00:08:42,895 --> 00:08:44,895
+second instance of the prefab.
+
+195
+00:08:47,558 --> 00:08:49,558
+Using the hot keys we will
+
+196
+00:08:49,558 --> 00:08:51,558
+create a few more, placing them
+
+197
+00:08:51,558 --> 00:08:53,558
+around the play area.
+
+198
+00:09:08,400 --> 00:09:10,400
+Okay, I've created 12.
+
+199
+00:09:11,135 --> 00:09:13,135
+Let's hit play and test.
+
+200
+00:09:14,522 --> 00:09:16,522
+Excellent, these pickup prefabs
+
+201
+00:09:16,522 --> 00:09:18,118
+are working great.
+
+202
+00:09:18,118 --> 00:09:20,118
+In the next assignment we'll learn how to
+
+203
+00:09:20,118 --> 00:09:22,524
+pick them up and to count them.

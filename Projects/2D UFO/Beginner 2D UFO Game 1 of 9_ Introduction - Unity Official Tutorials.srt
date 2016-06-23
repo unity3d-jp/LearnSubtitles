@@ -1,0 +1,567 @@
+1
+00:00:03,606 --> 00:00:05,573
+In this beginner assignment we're going to make a
+
+2
+00:00:05,573 --> 00:00:08,064
+very simple but playable 2D game
+
+3
+00:00:08,064 --> 00:00:10,064
+to use many of the basic concepts
+
+4
+00:00:10,064 --> 00:00:12,064
+from the beginner tutorial modules.
+
+5
+00:00:12,369 --> 00:00:14,369
+We'll be making a 2D UFO game
+
+6
+00:00:14,369 --> 00:00:16,940
+where we'll be collecting gold nuggets.
+
+7
+00:00:18,077 --> 00:00:20,629
+We'll see how to create new game objects,
+
+8
+00:00:20,629 --> 00:00:22,893
+add components to these game objects,
+
+9
+00:00:22,893 --> 00:00:25,664
+set the values on their properties,
+
+10
+00:00:25,664 --> 00:00:27,955
+and position these game objects in the scene
+
+11
+00:00:27,955 --> 00:00:29,955
+to create a game.
+
+12
+00:00:30,718 --> 00:00:32,718
+In our game the player will control
+
+13
+00:00:32,718 --> 00:00:34,718
+a UFO flying around the game board in a
+
+14
+00:00:34,718 --> 00:00:36,606
+top-down 2D view.
+
+15
+00:00:36,606 --> 00:00:39,423
+We'll move the UFO using physics and forces.
+
+16
+00:00:39,423 --> 00:00:41,423
+We'll look at the input from the player
+
+17
+00:00:41,423 --> 00:00:43,423
+through the keyboard and we'll use those inputs
+
+18
+00:00:43,423 --> 00:00:44,976
+to apply forces to the UFO,
+
+19
+00:00:44,976 --> 00:00:46,976
+making it move in our scene.
+
+20
+00:00:47,628 --> 00:00:49,628
+We'll see how to detect contact between
+
+21
+00:00:49,628 --> 00:00:52,293
+the UFO and the pickup game objects
+
+22
+00:00:52,293 --> 00:00:54,600
+and use these events to collect
+
+23
+00:00:54,600 --> 00:00:56,323
+the pickup game objects.
+
+24
+00:00:56,919 --> 00:00:58,919
+When we've done we'll have made a simple
+
+25
+00:00:58,919 --> 00:01:00,919
+UFO game where the player controls the
+
+26
+00:01:00,919 --> 00:01:03,390
+UFO with the keyboard, picks up and counts
+
+27
+00:01:03,390 --> 00:01:05,390
+special collectable objects,
+
+28
+00:01:05,390 --> 00:01:07,390
+displays the current count,
+
+29
+00:01:07,390 --> 00:01:09,725
+and ends the game when all of the
+
+30
+00:01:09,725 --> 00:01:11,725
+game objects have been picked up.
+
+31
+00:01:13,043 --> 00:01:15,043
+To complete this project we'll use custom
+
+32
+00:01:15,043 --> 00:01:17,043
+created 2D art assets
+
+33
+00:01:17,043 --> 00:01:19,043
+which can be downloaded from the 
+
+34
+00:01:19,043 --> 00:01:21,043
+Unity Asset Store.
+
+35
+00:01:21,043 --> 00:01:23,854
+Let's begin by creating a new project.
+
+36
+00:01:24,866 --> 00:01:26,866
+First open the Unity editor
+
+37
+00:01:26,866 --> 00:01:28,866
+if you haven't done that already.
+
+38
+00:01:28,866 --> 00:01:30,866
+You can create a new project by
+
+39
+00:01:30,866 --> 00:01:33,847
+choosing File - New Project.
+
+40
+00:01:36,357 --> 00:01:38,357
+This will bring us to the home screen.
+
+41
+00:01:39,369 --> 00:01:41,369
+On the home screen you can create a
+
+42
+00:01:41,369 --> 00:01:43,369
+new project either by hitting the
+
+43
+00:01:43,369 --> 00:01:45,369
+blue Create New Project button
+
+44
+00:01:45,369 --> 00:01:47,369
+in the centre of the window,
+
+45
+00:01:47,369 --> 00:01:49,369
+or by clicking the New button
+
+46
+00:01:49,369 --> 00:01:51,369
+at the top of the window.
+
+47
+00:01:53,103 --> 00:01:55,103
+The first thing that we need to do is
+
+48
+00:01:55,103 --> 00:01:56,367
+to give our project a name, 
+
+49
+00:01:56,367 --> 00:01:58,896
+I'm going to call the project UFO Game.
+
+50
+00:02:01,753 --> 00:02:03,753
+The next thing we need to do is set the
+
+51
+00:02:03,753 --> 00:02:05,753
+destination, or path, to our new project.
+
+52
+00:02:06,530 --> 00:02:08,839
+I'm going to put this new project on my desktop.
+
+53
+00:02:16,922 --> 00:02:18,922
+You'll see we have a choice
+
+54
+00:02:18,922 --> 00:02:20,922
+to set the project preferences
+
+55
+00:02:20,922 --> 00:02:24,004
+to either 3D or 2D mode.
+
+56
+00:02:24,004 --> 00:02:25,797
+Since we're working in 2D
+
+57
+00:02:25,797 --> 00:02:27,797
+I'm going to click 2D.
+
+58
+00:02:30,058 --> 00:02:32,352
+This will set the preferences for the Unity editor
+
+59
+00:02:32,352 --> 00:02:35,488
+to useful defaults for creating 2D game.s
+
+60
+00:02:36,724 --> 00:02:39,614
+For more information on working in 2D,
+
+61
+00:02:39,614 --> 00:02:41,614
+please see the information linked below.
+
+62
+00:02:43,958 --> 00:02:47,067
+Now click the Create Project button
+
+63
+00:02:47,067 --> 00:02:49,067
+to create our new project.
+
+64
+00:02:49,816 --> 00:02:51,816
+Unity will create a new empty scene
+
+65
+00:02:51,816 --> 00:02:53,816
+for us to work in.
+
+66
+00:02:54,371 --> 00:02:56,371
+The first thing we'll need to do is to download
+
+67
+00:02:56,371 --> 00:02:58,371
+and import our art assets
+
+68
+00:02:58,371 --> 00:03:00,566
+from the Unity Asset Store.
+
+69
+00:03:01,009 --> 00:03:03,009
+To access the Asset Store choose
+
+70
+00:03:03,009 --> 00:03:05,732
+Window - Asset Store.
+
+71
+00:03:05,732 --> 00:03:07,732
+Or use the keyboard shortcut
+
+72
+00:03:07,732 --> 00:03:09,732
+command + 9  on mac,
+
+73
+00:03:09,732 --> 00:03:12,388
+or control + 9 on windows.
+
+74
+00:03:13,373 --> 00:03:15,373
+The Asset Store is a service that
+
+75
+00:03:15,373 --> 00:03:17,373
+Unity Technologies provides
+
+76
+00:03:17,373 --> 00:03:19,373
+where creators can both buy and sell
+
+77
+00:03:19,373 --> 00:03:21,373
+assets to make games.
+
+78
+00:03:21,373 --> 00:03:25,643
+These include art, music, scripts, effects,
+
+79
+00:03:25,643 --> 00:03:28,748
+all the way up to complete games and projects.
+
+80
+00:03:30,316 --> 00:03:32,316
+Unity also publishes content
+
+81
+00:03:32,316 --> 00:03:34,316
+to the Asset Store, including teaching
+
+82
+00:03:34,316 --> 00:03:36,316
+projects like this one to help
+
+83
+00:03:36,316 --> 00:03:38,316
+you learn how to make games.
+
+84
+00:03:39,328 --> 00:03:41,328
+By default the Asset Store is
+
+85
+00:03:41,328 --> 00:03:43,328
+opened as a docked tab.
+
+86
+00:03:44,077 --> 00:03:46,077
+Let's undock the tab so that we can
+
+87
+00:03:46,077 --> 00:03:48,077
+expand the window.
+
+88
+00:03:58,326 --> 00:04:00,326
+In the upper-right corner of
+
+89
+00:04:00,326 --> 00:04:02,326
+the expanded Asset Store window
+
+90
+00:04:02,326 --> 00:04:05,264
+we'll see a listing of asset categories.
+
+91
+00:04:05,916 --> 00:04:07,916
+At the bottom we should find 
+
+92
+00:04:07,916 --> 00:04:09,916
+Unity Essentials.
+
+93
+00:04:09,916 --> 00:04:11,916
+Expand this category and we'll find
+
+94
+00:04:11,916 --> 00:04:15,387
+a subcategory called Sample Projects.
+
+95
+00:04:16,538 --> 00:04:18,538
+Within Sample Projects we'll find
+
+96
+00:04:18,538 --> 00:04:21,558
+an item called 2D UFO tutorial.
+
+97
+00:04:22,473 --> 00:04:25,007
+Click on the item title to open it.
+
+98
+00:04:26,158 --> 00:04:28,158
+Once the page loads we'll see a
+
+99
+00:04:28,158 --> 00:04:31,364
+download button in the upper-left corner.
+
+100
+00:04:31,364 --> 00:04:33,364
+Click on the Download button to begin
+
+101
+00:04:33,364 --> 00:04:35,364
+downloading the assets.
+
+102
+00:04:35,752 --> 00:04:37,752
+The Download button will be replaced
+
+103
+00:04:37,752 --> 00:04:39,752
+by the percentage of the download completed
+
+104
+00:04:39,752 --> 00:04:41,752
+once we click on it.
+
+105
+00:04:42,307 --> 00:04:44,307
+Once the download is complete we'll see
+
+106
+00:04:44,307 --> 00:04:47,574
+a dialogue labelled Importing Complete Project.
+
+107
+00:04:48,434 --> 00:04:50,434
+This warns us that importing a
+
+108
+00:04:50,434 --> 00:04:52,855
+complete project will overwrite
+
+109
+00:04:52,855 --> 00:04:54,855
+our current project settings.
+
+110
+00:04:55,382 --> 00:04:57,382
+In this case, because we've just created a
+
+111
+00:04:57,382 --> 00:04:59,382
+new project this is fine.
+
+112
+00:05:00,242 --> 00:05:02,960
+Click the Import button to continue.
+
+113
+00:05:03,820 --> 00:05:05,820
+Next we'll be given a choice
+
+114
+00:05:05,820 --> 00:05:07,820
+of which assets we would like to
+
+115
+00:05:07,820 --> 00:05:09,820
+import in to our project.
+
+116
+00:05:09,820 --> 00:05:12,827
+The default is All, which is what we want,
+
+117
+00:05:12,827 --> 00:05:14,827
+so go ahead and click Import.
+
+118
+00:05:16,325 --> 00:05:18,325
+Close the Asset Store window.
+
+119
+00:05:19,310 --> 00:05:22,059
+We now have our new project with our assets imported.
+
+120
+00:05:22,059 --> 00:05:24,339
+And the default new empty scene open.
+
+121
+00:05:25,432 --> 00:05:27,432
+Before creating anything in the new scene
+
+122
+00:05:27,432 --> 00:05:29,432
+we need to save our scene.
+
+123
+00:05:29,432 --> 00:05:31,432
+We can save our scene by choosing
+
+124
+00:05:31,432 --> 00:05:33,432
+File - Save Scene,
+
+125
+00:05:33,432 --> 00:05:36,715
+or by using the keyboard shortcut 
+
+126
+00:05:36,715 --> 00:05:38,492
+command + S on mac,
+
+127
+00:05:38,492 --> 00:05:40,492
+or control + S on windows.
+
+128
+00:05:42,850 --> 00:05:44,850
+I'm going to save this scene
+
+129
+00:05:44,850 --> 00:05:46,850
+in the Assets directory in the
+
+130
+00:05:46,850 --> 00:05:48,850
+folder called Scenes.
+
+131
+00:05:53,329 --> 00:05:55,329
+I'm going to call the scene Main.
+
+132
+00:06:00,003 --> 00:06:02,003
+We can now see in our Scenes folder
+
+133
+00:06:02,003 --> 00:06:04,003
+the scene called Main.
+
+134
+00:06:05,445 --> 00:06:07,445
+It's worth noting that the
+
+135
+00:06:07,445 --> 00:06:11,271
+Completed, Prefabs, Scenes, Scripts
+
+136
+00:06:11,271 --> 00:06:13,271
+and Sprites folders
+
+137
+00:06:13,271 --> 00:06:17,395
+were all created when we imported our asset package.
+
+138
+00:06:19,586 --> 00:06:21,586
+The Completed folder contains
+
+139
+00:06:21,586 --> 00:06:24,857
+a completed version of the project,
+
+140
+00:06:24,857 --> 00:06:27,447
+which you can refer to if you get stuck.
+
+141
+00:06:29,575 --> 00:06:31,575
+Great, that's the end of our first lesson.
+
+142
+00:06:32,282 --> 00:06:35,648
+In our next lesson we're going to lay out our play field.

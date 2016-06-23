@@ -1,0 +1,623 @@
+1
+00:00:03,131 --> 00:00:05,131
+In this lesson we're going to get the
+
+2
+00:00:05,131 --> 00:00:07,131
+camera moving and following the player.
+
+3
+00:00:07,839 --> 00:00:10,138
+Currently the camera is stationary.
+
+4
+00:00:10,594 --> 00:00:12,684
+We need to tie the camera to
+
+5
+00:00:12,684 --> 00:00:14,475
+the Player game object.
+
+6
+00:00:14,902 --> 00:00:17,321
+We can do this by making our camera
+
+7
+00:00:17,321 --> 00:00:20,199
+a child of the Player game object.
+
+8
+00:00:22,336 --> 00:00:24,336
+Drag the Camera in the hierarchy
+
+9
+00:00:24,793 --> 00:00:26,793
+on to the Player.
+
+10
+00:00:27,470 --> 00:00:30,162
+In simply terms we can think of the parent/child
+
+11
+00:00:30,162 --> 00:00:33,476
+relationship as attaching the child to the parent
+
+12
+00:00:33,476 --> 00:00:35,150
+in a one way connection.
+
+13
+00:00:35,657 --> 00:00:38,073
+If the parent moves the child will move
+
+14
+00:00:38,073 --> 00:00:40,631
+and maintain it's relationship to the parent.
+
+15
+00:00:41,282 --> 00:00:43,178
+If the child moves however the
+
+16
+00:00:43,178 --> 00:00:45,178
+parent will not be moved.
+
+17
+00:00:45,590 --> 00:00:47,590
+This is a fairly typical setup with the
+
+18
+00:00:47,590 --> 00:00:49,474
+camera as a child of the Player.
+
+19
+00:00:49,925 --> 00:00:51,925
+If we move the Player in the editor
+
+20
+00:00:52,808 --> 00:00:55,207
+we can see that the camera's field of view
+
+21
+00:00:55,207 --> 00:00:57,207
+represented by the grey box,
+
+22
+00:00:57,207 --> 00:00:59,207
+moves with it.
+
+23
+00:01:01,047 --> 00:01:02,904
+If we change the Player's rotation the
+
+24
+00:01:02,904 --> 00:01:04,657
+camera rotates as well.
+
+25
+00:01:04,993 --> 00:01:06,993
+Let's test this in play mode.
+
+26
+00:01:09,982 --> 00:01:11,634
+We enter play mode and use the
+
+27
+00:01:11,634 --> 00:01:13,634
+arrow keys to move.
+
+28
+00:01:15,642 --> 00:01:17,642
+But when we hit the wall the UFO
+
+29
+00:01:17,642 --> 00:01:20,223
+begins to spin and things go a little crazy.
+
+30
+00:01:20,865 --> 00:01:22,117
+What's happening here?
+
+31
+00:01:22,556 --> 00:01:25,914
+Well, with the camera as a child of the player,
+
+32
+00:01:26,424 --> 00:01:28,424
+even though the camera is not moving at all
+
+33
+00:01:28,424 --> 00:01:30,609
+relative to the Player's game object.
+
+34
+00:01:31,053 --> 00:01:33,529
+The Player's game object is rotating 
+
+35
+00:01:33,809 --> 00:01:35,964
+so the camera's point of view rotates with it.
+
+36
+00:01:36,779 --> 00:01:39,823
+This may make us, or our audience, queazy.
+
+37
+00:01:41,028 --> 00:01:43,028
+This is clearly not an ideal
+
+38
+00:01:43,028 --> 00:01:45,028
+setup for this particular game.
+
+39
+00:01:45,825 --> 00:01:47,825
+In a typical setup the camera,
+
+40
+00:01:47,825 --> 00:01:49,825
+as a child of the Player game object,
+
+41
+00:01:49,825 --> 00:01:51,719
+will always be in a position
+
+42
+00:01:52,083 --> 00:01:54,083
+relative to it's immediate parent,
+
+43
+00:01:54,703 --> 00:01:56,519
+and this position will be the parent's
+
+44
+00:01:56,519 --> 00:01:58,153
+position in the game, 
+
+45
+00:01:58,153 --> 00:02:00,321
+modified or offset by any 
+
+46
+00:02:00,321 --> 00:02:02,598
+values in the child's transform.
+
+47
+00:02:03,367 --> 00:02:05,367
+In our case we can't have the camera
+
+48
+00:02:05,367 --> 00:02:06,940
+as a child of the Player,
+
+49
+00:02:06,940 --> 00:02:09,273
+so let's detach it by dragging it
+
+50
+00:02:09,273 --> 00:02:11,273
+above the Player in the hierarchy.
+
+51
+00:02:12,306 --> 00:02:14,306
+Our offset value will
+
+52
+00:02:14,306 --> 00:02:16,716
+be the difference between the Player game object
+
+53
+00:02:16,716 --> 00:02:18,429
+and the camera.
+
+54
+00:02:19,218 --> 00:02:21,218
+Now we need to associate
+
+55
+00:02:21,218 --> 00:02:23,424
+the camera with the Player game object
+
+56
+00:02:23,963 --> 00:02:26,751
+not as a child but with a script.
+
+57
+00:02:28,287 --> 00:02:30,287
+With the main camera still highlighted
+
+58
+00:02:30,618 --> 00:02:32,618
+let's use the Add Component button
+
+59
+00:02:32,936 --> 00:02:34,936
+to add a new script.
+
+60
+00:02:35,649 --> 00:02:38,590
+And let's name the script CameraController.
+
+61
+00:02:39,891 --> 00:02:41,891
+If we type the name of a component in
+
+62
+00:02:41,891 --> 00:02:44,305
+the search box and it's not found
+
+63
+00:02:44,704 --> 00:02:47,700
+it will prompt us with the New Script button.
+
+64
+00:02:48,372 --> 00:02:50,372
+This is a shortcut which allows us to
+
+65
+00:02:50,372 --> 00:02:52,975
+quickly create scripts by typing their name
+
+66
+00:02:53,254 --> 00:02:55,254
+and clicking New Script.
+
+67
+00:02:56,799 --> 00:02:58,868
+Click Create and Add, 
+
+68
+00:02:58,868 --> 00:03:00,977
+or simply the return
+
+69
+00:03:00,977 --> 00:03:03,473
+or enter key to confirm our selection.
+
+70
+00:03:04,817 --> 00:03:06,546
+As we saw earlier,
+
+71
+00:03:06,546 --> 00:03:08,546
+this way of creating a script will create
+
+72
+00:03:08,546 --> 00:03:10,546
+that script asset on the root
+
+73
+00:03:10,546 --> 00:03:12,546
+or top level of our project view.
+
+74
+00:03:13,815 --> 00:03:15,815
+Let's put CameraController in the
+
+75
+00:03:15,815 --> 00:03:17,815
+Scripts folder and then 
+
+76
+00:03:17,815 --> 00:03:19,318
+open it for editing.
+
+77
+00:03:21,560 --> 00:03:23,560
+We need two variables here.
+
+78
+00:03:23,560 --> 00:03:26,779
+A public game object reference to the Player,
+
+79
+00:03:27,467 --> 00:03:29,532
+and a private vector3
+
+80
+00:03:29,891 --> 00:03:31,891
+to hold our offset value.
+
+81
+00:03:32,584 --> 00:03:36,572
+Type public GameObject player.
+
+82
+00:03:40,768 --> 00:03:45,416
+Then type private vector3 offset.
+
+83
+00:03:47,247 --> 00:03:49,247
+Offset is private because
+
+84
+00:03:49,247 --> 00:03:51,619
+we can set that value here
+
+85
+00:03:51,619 --> 00:03:52,746
+in the script.
+
+86
+00:03:53,358 --> 00:03:55,358
+For our offset value we will
+
+87
+00:03:55,358 --> 00:03:57,416
+take the current transform position
+
+88
+00:03:57,416 --> 00:03:59,416
+of the camera and
+
+89
+00:03:59,416 --> 00:04:01,416
+subtract the transform position
+
+90
+00:04:01,416 --> 00:04:03,416
+of the Player to find
+
+91
+00:04:03,416 --> 00:04:05,416
+the difference between the two.
+
+92
+00:04:06,417 --> 00:04:08,850
+This will be the offset value.
+
+93
+00:04:09,544 --> 00:04:11,544
+So in Start we can make
+
+94
+00:04:11,544 --> 00:04:13,544
+offset equal to our
+
+95
+00:04:13,544 --> 00:04:15,544
+transform position
+
+96
+00:04:15,544 --> 00:04:18,700
+minus the Player's transform position.
+
+97
+00:04:20,619 --> 00:04:30,658
+Type offset = transform.position - player.transform.position
+
+98
+00:04:32,193 --> 00:04:33,940
+When written like this
+
+99
+00:04:33,940 --> 00:04:35,940
+transform references the transform
+
+100
+00:04:35,940 --> 00:04:37,940
+of the game object that this
+
+101
+00:04:37,940 --> 00:04:39,940
+script is attached to.
+
+102
+00:04:39,940 --> 00:04:41,940
+It's worth noting that as this
+
+103
+00:04:41,940 --> 00:04:43,940
+script is attached to the same game object
+
+104
+00:04:43,940 --> 00:04:45,940
+as the camera component
+
+105
+00:04:45,940 --> 00:04:47,940
+transform.position references the
+
+106
+00:04:47,940 --> 00:04:50,179
+transform's position for the camera
+
+107
+00:04:50,179 --> 00:04:52,179
+as they are both attached
+
+108
+00:04:52,179 --> 00:04:53,485
+to the same game object.
+
+109
+00:04:53,485 --> 00:04:55,485
+In Update we'll set the
+
+110
+00:04:55,485 --> 00:04:57,485
+transform position of our camera
+
+111
+00:04:58,012 --> 00:05:00,166
+to our Player's transform position
+
+112
+00:05:00,464 --> 00:05:01,760
+plus the offset.
+
+113
+00:05:02,227 --> 00:05:04,304
+This will happen every frame
+
+114
+00:05:04,657 --> 00:05:06,657
+because it's in Update.
+
+115
+00:05:09,267 --> 00:05:20,418
+Type transform.position = player.transform.position + offset
+
+116
+00:05:21,177 --> 00:05:23,177
+This means as we move our
+
+117
+00:05:23,177 --> 00:05:25,177
+Player with the controls on the keyboard
+
+118
+00:05:25,786 --> 00:05:27,786
+that each frame before
+
+119
+00:05:27,786 --> 00:05:29,786
+displaying what the camera can see
+
+120
+00:05:29,786 --> 00:05:31,786
+the camera is moved in to a
+
+121
+00:05:31,786 --> 00:05:34,590
+new position align with the Player object,
+
+122
+00:05:35,327 --> 00:05:37,327
+just as if it were a child of that
+
+123
+00:05:37,327 --> 00:05:39,327
+object except that it will not
+
+124
+00:05:39,327 --> 00:05:41,327
+be spinning around the game board
+
+125
+00:05:41,327 --> 00:05:43,327
+as the parent object spins.
+
+126
+00:05:43,708 --> 00:05:47,719
+However, Update is not the best place for this code.
+
+127
+00:05:48,594 --> 00:05:50,594
+It is true that Update runs
+
+128
+00:05:50,594 --> 00:05:52,594
+every frame and in Update
+
+129
+00:05:52,594 --> 00:05:54,594
+each frame we can track the
+
+130
+00:05:54,594 --> 00:05:56,594
+position of the Player's game object
+
+131
+00:05:56,594 --> 00:05:58,594
+and set the position of the camera.
+
+132
+00:05:59,094 --> 00:06:01,693
+However for follow cameras,
+
+133
+00:06:01,693 --> 00:06:04,266
+procedural animation and gathering last known states
+
+134
+00:06:04,266 --> 00:06:08,331
+it's best to use LateUpdate.
+
+135
+00:06:09,053 --> 00:06:12,584
+Let's change Update to LateUpdate.
+
+136
+00:06:14,063 --> 00:06:16,063
+LateUpdate runs every frame,
+
+137
+00:06:16,063 --> 00:06:17,586
+just like Update, but it is
+
+138
+00:06:17,586 --> 00:06:19,586
+guaranteed to run after all
+
+139
+00:06:19,586 --> 00:06:22,624
+items have been processed in Update.
+
+140
+00:06:23,403 --> 00:06:25,403
+So when we set the position of the camera
+
+141
+00:06:25,403 --> 00:06:28,075
+we know absolutely that the Player
+
+142
+00:06:28,075 --> 00:06:30,075
+has already moved for that frame.
+
+143
+00:06:31,011 --> 00:06:33,775
+So let's test this, let's save our scene
+
+144
+00:06:33,775 --> 00:06:35,775
+and return to Unity.
+
+145
+00:06:38,017 --> 00:06:40,017
+First we need to create a reference
+
+146
+00:06:40,017 --> 00:06:42,017
+to the Player game object by
+
+147
+00:06:42,017 --> 00:06:44,017
+dragging the Player game object
+
+148
+00:06:44,017 --> 00:06:46,017
+on to the Player slot
+
+149
+00:06:46,017 --> 00:06:48,017
+in the CameraController's component.
+
+150
+00:06:49,800 --> 00:06:51,800
+Enter play mode.
+
+151
+00:06:52,938 --> 00:06:54,938
+And now we get the behaviour we want.
+
+152
+00:06:55,954 --> 00:06:57,954
+The camera follows the UFO,
+
+153
+00:06:57,954 --> 00:07:00,698
+without rotating when we collide.
+
+154
+00:07:01,784 --> 00:07:03,784
+In the next assignment we'll finish the
+
+155
+00:07:03,784 --> 00:07:06,252
+basic play area by creating
+
+156
+00:07:06,252 --> 00:07:09,177
+and placing our special pickup objects.

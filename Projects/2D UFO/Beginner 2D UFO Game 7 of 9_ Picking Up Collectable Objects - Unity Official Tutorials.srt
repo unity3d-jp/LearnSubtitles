@@ -1,0 +1,1835 @@
+1
+00:00:03,426 --> 00:00:05,919
+We want to be able to pick up our collectable
+
+2
+00:00:05,919 --> 00:00:07,919
+game objects when our Player game object
+
+3
+00:00:07,919 --> 00:00:09,919
+collides with them.
+
+4
+00:00:10,391 --> 00:00:12,391
+To do this we need to detect
+
+5
+00:00:12,391 --> 00:00:14,391
+our collisions between the
+
+6
+00:00:14,391 --> 00:00:18,108
+Player game object and the Pickup game objects.
+
+7
+00:00:19,498 --> 00:00:21,498
+We will need to have these collisions
+
+8
+00:00:21,498 --> 00:00:23,498
+trigger a new behaviour
+
+9
+00:00:23,498 --> 00:00:25,498
+and we will need to test these collisions
+
+10
+00:00:25,498 --> 00:00:27,498
+to make sure we are picking up the
+
+11
+00:00:27,498 --> 00:00:29,498
+correct objects.
+
+12
+00:00:31,065 --> 00:00:34,135
+The Pickup objects, the Player's UFO
+
+13
+00:00:34,135 --> 00:00:36,859
+and the walls all have colliders that
+
+14
+00:00:36,859 --> 00:00:38,859
+inform us about collisions.
+
+15
+00:00:39,636 --> 00:00:41,636
+If we didn't test our collisions
+
+16
+00:00:41,636 --> 00:00:44,637
+to find out which objects we've collided with
+
+17
+00:00:45,206 --> 00:00:48,415
+we could collect the wrong objects by accident.
+
+18
+00:00:48,415 --> 00:00:50,415
+We could collect the walls for example.
+
+19
+00:00:52,232 --> 00:00:55,493
+First we need to reactivate our Player.
+
+20
+00:00:55,493 --> 00:00:57,493
+Highlight the Player game object
+
+21
+00:00:57,493 --> 00:01:00,366
+and click the Active checkbox
+
+22
+00:01:00,366 --> 00:01:03,176
+to make the player visible once more in the scene.
+
+23
+00:01:04,355 --> 00:01:07,555
+Next let's select the PlayerController script
+
+24
+00:01:08,151 --> 00:01:10,151
+and open it for editing by double clicking
+
+25
+00:01:10,151 --> 00:01:12,151
+on the script name
+
+26
+00:01:12,151 --> 00:01:14,151
+in the PlayerController component.
+
+27
+00:01:15,580 --> 00:01:17,580
+Just a note, we could edit this script
+
+28
+00:01:17,580 --> 00:01:19,580
+regardless of whether the game
+
+29
+00:01:19,580 --> 00:01:21,580
+object is active or not.
+
+30
+00:01:24,132 --> 00:01:26,132
+Now that we have the script open what
+
+31
+00:01:26,132 --> 00:01:27,550
+code are we going to write?
+
+32
+00:01:28,326 --> 00:01:30,326
+We could write collider and then search the
+
+33
+00:01:30,326 --> 00:01:32,968
+documentation using the hot key combination.
+
+34
+00:01:33,713 --> 00:01:35,713
+But there is a different way that we could
+
+35
+00:01:35,713 --> 00:01:37,173
+do this as well.
+
+36
+00:01:37,173 --> 00:01:39,173
+Let's return to Unity and look at the
+
+37
+00:01:39,173 --> 00:01:41,996
+details of our Player game object.
+
+38
+00:01:44,293 --> 00:01:46,293
+What we're interested in here is the 
+
+39
+00:01:46,293 --> 00:01:48,293
+Circle Collider 2D component.
+
+40
+00:01:48,806 --> 00:01:50,806
+In the header of each component on the left
+
+41
+00:01:50,806 --> 00:01:53,876
+is the component's turndown arrow,
+
+42
+00:01:53,876 --> 00:01:55,415
+the icon,
+
+43
+00:01:55,415 --> 00:01:58,322
+the enable checkbox, if it's available,
+
+44
+00:01:58,322 --> 00:02:00,322
+and the type of component.
+
+45
+00:02:01,626 --> 00:02:05,297
+On the right is the context sensitive gear gizmo
+
+46
+00:02:05,297 --> 00:02:07,297
+and an icon of a little book
+
+47
+00:02:07,297 --> 00:02:09,297
+with a question mark.
+
+48
+00:02:09,297 --> 00:02:11,297
+This is what we need.
+
+49
+00:02:11,297 --> 00:02:13,297
+This is the quick link to the 
+
+50
+00:02:13,297 --> 00:02:15,648
+component reference in the Unity manual.
+
+51
+00:02:16,157 --> 00:02:18,157
+If we select this icon we are
+
+52
+00:02:18,157 --> 00:02:20,157
+taken not to the scripting reference
+
+53
+00:02:20,157 --> 00:02:22,157
+but to the component reference in
+
+54
+00:02:22,157 --> 00:02:23,739
+the Unity manual.
+
+55
+00:02:24,545 --> 00:02:26,545
+We would read this document to find
+
+56
+00:02:26,545 --> 00:02:28,545
+out more about how to use this
+
+57
+00:02:28,545 --> 00:02:31,117
+component in the context of the editor.
+
+58
+00:02:32,029 --> 00:02:34,029
+We however want to find out how to
+
+59
+00:02:34,029 --> 00:02:36,265
+script to this component's class.
+
+60
+00:02:36,944 --> 00:02:39,526
+To do this we simply switch to scripting 
+
+61
+00:02:39,526 --> 00:02:41,526
+and we are taken to the scripting reference
+
+62
+00:02:41,526 --> 00:02:43,805
+for the circle collider 2D.
+
+63
+00:02:44,760 --> 00:02:46,760
+We want to detect and
+
+64
+00:02:46,760 --> 00:02:48,760
+test our collisions.
+
+65
+00:02:48,760 --> 00:02:50,760
+For this project we are going to use
+
+66
+00:02:50,760 --> 00:02:53,328
+OnTriggerEnter2D.
+
+67
+00:02:55,007 --> 00:02:57,007
+You'll find this at the bottom of
+
+68
+00:02:57,007 --> 00:02:59,007
+the documentation page under
+
+69
+00:02:59,007 --> 00:03:01,007
+Messages.
+
+70
+00:03:01,007 --> 00:03:03,007
+Just imagine if we were,
+
+71
+00:03:03,007 --> 00:03:05,007
+say, a daring plumber and we
+
+72
+00:03:05,007 --> 00:03:07,007
+jumped up to collect a perfect
+
+73
+00:03:07,007 --> 00:03:09,007
+arch of coins and bounced
+
+74
+00:03:09,007 --> 00:03:11,007
+off the very first one as we 
+
+75
+00:03:11,007 --> 00:03:13,326
+collected it and fell back to the ground.
+
+76
+00:03:14,075 --> 00:03:16,075
+Not very elegant.
+
+77
+00:03:16,075 --> 00:03:18,075
+This code will give us the ability to detect
+
+78
+00:03:18,075 --> 00:03:20,075
+the contact between our Player game object
+
+79
+00:03:20,075 --> 00:03:23,006
+and our Pickup game object
+
+80
+00:03:23,006 --> 00:03:25,006
+without actually creating
+
+81
+00:03:25,006 --> 00:03:26,641
+a physical collision.
+
+82
+00:03:27,394 --> 00:03:29,394
+Click on OnTriggerEnter2D
+
+83
+00:03:29,394 --> 00:03:31,394
+to learn more.
+
+84
+00:03:32,379 --> 00:03:34,379
+The code example on this page is
+
+85
+00:03:34,379 --> 00:03:36,379
+not exactly what we're looking for
+
+86
+00:03:36,379 --> 00:03:38,379
+but that's okay, we can change it.
+
+87
+00:03:39,059 --> 00:03:41,059
+First let's copy a portion
+
+88
+00:03:41,059 --> 00:03:42,644
+of this example code.
+
+89
+00:03:43,323 --> 00:03:45,419
+We'll copy from the line
+
+90
+00:03:45,419 --> 00:03:47,866
+public bool charcterInQuicksand
+
+91
+00:03:48,781 --> 00:03:50,781
+to the closing bracket of our 
+
+92
+00:03:50,781 --> 00:03:52,781
+OnTriggerEnter2D function.
+
+93
+00:03:59,466 --> 00:04:01,466
+Let's paste this beneath our
+
+94
+00:04:01,466 --> 00:04:03,466
+FixedUpdate function.
+
+95
+00:04:06,379 --> 00:04:08,379
+Next let's look at this code.
+
+96
+00:04:08,781 --> 00:04:11,407
+We're using the function OnTriggerEnter2D.
+
+97
+00:04:12,114 --> 00:04:15,193
+OnTriggerEnter2D will be called by Unity
+
+98
+00:04:15,193 --> 00:04:17,193
+when our Player game object first touches
+
+99
+00:04:17,193 --> 00:04:19,193
+a 2D trigger collider.
+
+100
+00:04:20,455 --> 00:04:22,455
+We're giving as an argument
+
+101
+00:04:22,455 --> 00:04:24,455
+a reference to the 2D trigger collider
+
+102
+00:04:24,455 --> 00:04:26,455
+that we have touched.
+
+103
+00:04:26,455 --> 00:04:29,576
+This is the 2D collider called Other.
+
+104
+00:04:29,576 --> 00:04:31,576
+This reference gives us a way to get
+
+105
+00:04:31,576 --> 00:04:34,587
+a hold of the 2D colliders that we touch.
+
+106
+00:04:35,629 --> 00:04:37,629
+With this code, when we touch another
+
+107
+00:04:37,629 --> 00:04:39,629
+2D trigger collider we will
+
+108
+00:04:39,629 --> 00:04:41,629
+set the boolean variable
+
+109
+00:04:41,629 --> 00:04:44,317
+CharacterInQuicksand to true.
+
+110
+00:04:45,224 --> 00:04:47,224
+This won't change anything in our game,
+
+111
+00:04:47,224 --> 00:04:49,224
+but could be used by another script
+
+112
+00:04:49,224 --> 00:04:51,768
+to make the Player move slowly, for instance.
+
+113
+00:04:52,874 --> 00:04:54,874
+For the sake of this lesson
+
+114
+00:04:54,874 --> 00:04:56,874
+we'll use this to do something different.
+
+115
+00:04:57,165 --> 00:04:59,165
+Previously we deactivated the
+
+116
+00:04:59,165 --> 00:05:01,165
+Player object manually in
+
+117
+00:05:01,165 --> 00:05:03,165
+the editor when we were creating our
+
+118
+00:05:03,165 --> 00:05:04,789
+Pickup objects.
+
+119
+00:05:04,789 --> 00:05:06,789
+Now we will deactivate
+
+120
+00:05:06,789 --> 00:05:09,551
+our Pickup object via a script.
+
+121
+00:05:10,412 --> 00:05:12,412
+First we can remove the
+
+122
+00:05:12,412 --> 00:05:15,887
+two lines containing the characterInQuicksand variable.
+
+123
+00:05:19,336 --> 00:05:21,336
+Next, how will we deactivate
+
+124
+00:05:21,336 --> 00:05:23,336
+our Pickup objects?
+
+125
+00:05:23,336 --> 00:05:25,336
+Well, what clues do we have?
+
+126
+00:05:25,738 --> 00:05:27,626
+We can address the other collider's 
+
+127
+00:05:27,626 --> 00:05:31,411
+game object through other.gameObject.
+
+128
+00:05:32,636 --> 00:05:35,351
+We want to test the other game object
+
+129
+00:05:35,351 --> 00:05:37,351
+and if it's a Pickup object
+
+130
+00:05:37,351 --> 00:05:40,205
+we want to deactivate that game object.
+
+131
+00:05:41,093 --> 00:05:43,287
+So let's look up Game Object
+
+132
+00:05:43,287 --> 00:05:45,287
+with our hot key combination
+
+133
+00:05:45,287 --> 00:05:47,287
+and see what we can find.
+
+134
+00:05:50,213 --> 00:05:52,656
+In the documentation page for Game Object
+
+135
+00:05:52,656 --> 00:05:54,656
+there are a few important items
+
+136
+00:05:54,656 --> 00:05:56,178
+that we want.
+
+137
+00:05:56,178 --> 00:05:58,178
+The first is Tag.
+
+138
+00:05:58,178 --> 00:06:00,178
+Tag allows us to identify the game object
+
+139
+00:06:00,178 --> 00:06:02,178
+by comparing the Tag value
+
+140
+00:06:02,178 --> 00:06:04,178
+to a string.
+
+141
+00:06:04,178 --> 00:06:06,178
+The second is Set Active.
+
+142
+00:06:06,719 --> 00:06:08,719
+This is how we activate or deactivate
+
+143
+00:06:08,719 --> 00:06:11,773
+a game object through code.
+
+144
+00:06:12,633 --> 00:06:14,633
+The last item we need to know about is
+
+145
+00:06:14,633 --> 00:06:16,218
+CompareTag.
+
+146
+00:06:16,218 --> 00:06:18,218
+CompareTag allows us to efficiently
+
+147
+00:06:18,218 --> 00:06:21,267
+compare the tag of any game object
+
+148
+00:06:21,267 --> 00:06:23,267
+to a string value.
+
+149
+00:06:23,572 --> 00:06:25,572
+Let's open up these three items,
+
+150
+00:06:25,572 --> 00:06:27,572
+each in their own tab.
+
+151
+00:06:33,799 --> 00:06:35,799
+Tag allows us to identify a game object
+
+152
+00:06:35,799 --> 00:06:37,799
+by a tag value.
+
+153
+00:06:38,257 --> 00:06:40,257
+We must declare our tags in the
+
+154
+00:06:40,257 --> 00:06:43,422
+Tags And Layers panel before using them.
+
+155
+00:06:44,426 --> 00:06:46,094
+Once the tag has been declared
+
+156
+00:06:46,094 --> 00:06:49,325
+we can use this tag in our code.
+
+157
+00:06:49,325 --> 00:06:51,325
+In this example the game object's
+
+158
+00:06:51,325 --> 00:06:54,994
+tag is being set to Player.
+
+159
+00:06:58,600 --> 00:07:01,539
+To test, check, or compare a tag
+
+160
+00:07:01,539 --> 00:07:04,854
+there is an efficient built-in way and that
+
+161
+00:07:04,854 --> 00:07:06,854
+is CompareTag.
+
+162
+00:07:06,854 --> 00:07:08,854
+With CompareTag we can efficiently 
+
+163
+00:07:08,854 --> 00:07:10,854
+compare the tag of any game object
+
+164
+00:07:10,854 --> 00:07:12,854
+with a string value.
+
+165
+00:07:13,409 --> 00:07:15,409
+Let's copy the sample code and
+
+166
+00:07:15,409 --> 00:07:17,409
+paste it in to our working pallet.
+
+167
+00:07:27,561 --> 00:07:30,295
+Now GameObject.SetActive
+
+168
+00:07:31,669 --> 00:07:34,304
+This is how we activate or deactivate
+
+169
+00:07:34,304 --> 00:07:36,304
+a game object.
+
+170
+00:07:36,304 --> 00:07:38,304
+This is the code equivalent of
+
+171
+00:07:38,304 --> 00:07:40,304
+clicking the Active checkbox next to
+
+172
+00:07:40,304 --> 00:07:42,304
+the Name field in the inspector.
+
+173
+00:07:42,817 --> 00:07:44,817
+In our case, just like the code snippet,
+
+174
+00:07:44,817 --> 00:07:48,064
+we will call GameObject.SetActive
+
+175
+00:07:48,064 --> 00:07:51,115
+to deactivate our Pickup game objects.
+
+176
+00:07:52,380 --> 00:07:54,380
+Let's copy this code and returning
+
+177
+00:07:54,380 --> 00:07:56,380
+to our script editor, paste it in
+
+178
+00:07:56,380 --> 00:07:58,380
+to our pallet as well.
+
+179
+00:08:03,692 --> 00:08:05,692
+I feel we have enough pieces to write our code
+
+180
+00:08:05,692 --> 00:08:08,093
+let's delete the game object
+
+181
+00:08:08,093 --> 00:08:10,093
+that we previously typed and let's
+
+182
+00:08:10,093 --> 00:08:13,711
+modify the following line to read
+
+183
+00:08:14,049 --> 00:08:18,352
+if (other.gameObject.CompareTag("Pickup")
+
+184
+00:08:19,475 --> 00:08:21,475
+The Pickup tag has
+
+185
+00:08:21,475 --> 00:08:23,475
+already been defined in the
+
+186
+00:08:23,475 --> 00:08:25,475
+project that you downloaded.
+
+187
+00:08:25,475 --> 00:08:27,475
+But we'll take a look at how to
+
+188
+00:08:27,475 --> 00:08:29,475
+add your own tag to the
+
+189
+00:08:29,475 --> 00:08:31,475
+Tags And Layers panel.
+
+190
+00:08:32,904 --> 00:08:34,555
+We can also delete the
+
+191
+00:08:34,555 --> 00:08:37,280
+Destroy (other.gameObject) line.
+
+192
+00:08:38,580 --> 00:08:40,580
+We are going to add braces
+
+193
+00:08:40,580 --> 00:08:42,580
+to our If statement.
+
+194
+00:08:42,580 --> 00:08:44,580
+This code will work without braces.
+
+195
+00:08:44,580 --> 00:08:46,580
+Without braces however,
+
+196
+00:08:46,580 --> 00:08:48,580
+only the next line of code is
+
+197
+00:08:48,580 --> 00:08:50,580
+associated with the If statement.
+
+198
+00:08:50,927 --> 00:08:52,927
+All remaining lines of code will be
+
+199
+00:08:52,927 --> 00:08:54,927
+executed regardless of how the
+
+200
+00:08:54,927 --> 00:08:56,927
+conditions in the If statement are met.
+
+201
+00:08:57,537 --> 00:08:59,537
+To associate multiple lines of code with
+
+202
+00:08:59,537 --> 00:09:01,537
+an If statement they must be
+
+203
+00:09:01,537 --> 00:09:03,537
+enclosed in braces.
+
+204
+00:09:03,842 --> 00:09:05,842
+For clarity in this case we will
+
+205
+00:09:05,842 --> 00:09:09,748
+enclose our gameObject.SetActive (false) line
+
+206
+00:09:10,109 --> 00:09:12,109
+inside a set of braces
+
+207
+00:09:12,109 --> 00:09:15,061
+making sure that the code is properly indented.
+
+208
+00:09:15,061 --> 00:09:17,061
+Remember, indenting code has
+
+209
+00:09:17,061 --> 00:09:19,061
+no meaning to the compiler.
+
+210
+00:09:20,157 --> 00:09:22,157
+Creating braces around our code
+
+211
+00:09:22,157 --> 00:09:24,157
+now not only makes the association
+
+212
+00:09:24,157 --> 00:09:26,157
+with the If statement clear,
+
+213
+00:09:26,157 --> 00:09:28,157
+but will allow us to easily update
+
+214
+00:09:28,157 --> 00:09:30,841
+this block of code in later lessons.
+
+215
+00:09:31,613 --> 00:09:33,613
+With the script as it's currently written
+
+216
+00:09:33,613 --> 00:09:35,613
+we would be setting the Player's game object
+
+217
+00:09:35,613 --> 00:09:37,473
+to Inactive.
+
+218
+00:09:37,473 --> 00:09:39,473
+Instead we want to deactivate
+
+219
+00:09:39,473 --> 00:09:42,045
+the "other" game object.
+
+220
+00:09:42,680 --> 00:09:45,360
+So let's change our second line to
+
+221
+00:09:45,360 --> 00:09:49,625
+other.gameObject.SetActive (false).
+
+222
+00:09:50,388 --> 00:09:52,388
+Now this code will be called
+
+223
+00:09:52,388 --> 00:09:54,388
+every time we touch a
+
+224
+00:09:54,388 --> 00:09:56,388
+2D trigger collider.
+
+225
+00:09:57,234 --> 00:10:00,246
+We're given a reference to the collider we touch
+
+226
+00:10:00,246 --> 00:10:01,372
+in "other",
+
+227
+00:10:01,372 --> 00:10:03,372
+we test it's tag and if
+
+228
+00:10:03,372 --> 00:10:05,372
+the tag is the same as the
+
+229
+00:10:05,372 --> 00:10:07,372
+string value Pickup we will
+
+230
+00:10:07,372 --> 00:10:09,372
+take the other game object and
+
+231
+00:10:09,372 --> 00:10:12,534
+we will called SetActive (false)
+
+232
+00:10:12,936 --> 00:10:15,820
+which will deactivate that game object.
+
+233
+00:10:16,624 --> 00:10:19,346
+Let's save the script and return to Unity
+
+234
+00:10:19,346 --> 00:10:21,346
+to check for errors.
+
+235
+00:10:23,607 --> 00:10:25,607
+The first thing we need to do is
+
+236
+00:10:25,607 --> 00:10:27,607
+to set the Tag Value
+
+237
+00:10:27,607 --> 00:10:30,025
+for our Pickup prefab.
+
+238
+00:10:31,979 --> 00:10:34,118
+Navigate to the Prefabs folder
+
+239
+00:10:34,534 --> 00:10:37,094
+and highlight the Pickup prefab
+
+240
+00:10:37,094 --> 00:10:38,634
+in the project window.
+
+241
+00:10:39,455 --> 00:10:41,455
+With the Pickup highlighted click on the
+
+242
+00:10:41,455 --> 00:10:43,968
+Tag List at the top of the inspector.
+
+243
+00:10:45,383 --> 00:10:47,383
+We'll see that the Pickup
+
+244
+00:10:47,383 --> 00:10:49,383
+tag has been predefined
+
+245
+00:10:49,383 --> 00:10:51,383
+as part of the project.
+
+246
+00:10:52,645 --> 00:10:54,645
+If we needed to define and additional
+
+247
+00:10:54,645 --> 00:10:56,645
+tag we could choose
+
+248
+00:10:57,394 --> 00:10:59,043
+Add Tag.
+
+249
+00:11:00,185 --> 00:11:03,053
+This opens the Tags And Layers panel.
+
+250
+00:11:03,636 --> 00:11:06,433
+Here we can hit the + button
+
+251
+00:11:06,433 --> 00:11:08,433
+to add a new tag to our
+
+252
+00:11:08,433 --> 00:11:09,976
+list of tags.
+
+253
+00:11:11,113 --> 00:11:14,054
+To delete a tag highlight it
+
+254
+00:11:14,054 --> 00:11:16,054
+and hit -
+
+255
+00:11:18,454 --> 00:11:21,261
+Next highlight the Pickup prefab
+
+256
+00:11:21,841 --> 00:11:23,841
+and let's assign the 
+
+257
+00:11:23,841 --> 00:11:25,841
+Pickup tag to it
+
+258
+00:11:25,841 --> 00:11:27,841
+using the Tag menu.
+
+259
+00:11:29,256 --> 00:11:31,256
+Select Pickup.
+
+260
+00:11:35,777 --> 00:11:37,777
+Now through the power of prefabs
+
+261
+00:11:37,777 --> 00:11:39,777
+if we highlight a Pickup in
+
+262
+00:11:39,777 --> 00:11:41,777
+the hierarchy we'll see
+
+263
+00:11:41,777 --> 00:11:43,777
+that it too has
+
+264
+00:11:43,777 --> 00:11:45,777
+been tagged Pickup.
+
+265
+00:11:47,233 --> 00:11:49,233
+Now let's test our game.
+
+266
+00:11:49,483 --> 00:11:52,326
+Save the scene and enter play mode.
+
+267
+00:11:54,853 --> 00:11:56,853
+Okay, our tag is set to
+
+268
+00:11:56,853 --> 00:11:58,853
+Pickup but we're still colliding
+
+269
+00:11:58,853 --> 00:12:00,853
+with the Pickup objects.
+
+270
+00:12:01,130 --> 00:12:03,130
+Just like we are with the walls.
+
+271
+00:12:03,130 --> 00:12:04,624
+So let's exit play mode.
+
+272
+00:12:05,352 --> 00:12:07,352
+Before we discuss why we are
+
+273
+00:12:07,352 --> 00:12:09,352
+bouncing off the Pickup objects rather than
+
+274
+00:12:09,352 --> 00:12:11,352
+picking them up we need to have a
+
+275
+00:12:11,352 --> 00:12:13,866
+brief discussion about Unity's physics system.
+
+276
+00:12:14,449 --> 00:12:16,449
+Let's look at one of our pickups
+
+277
+00:12:16,449 --> 00:12:18,449
+and our Player.
+
+278
+00:12:18,449 --> 00:12:20,449
+As an aside, we can select two or
+
+279
+00:12:20,449 --> 00:12:22,449
+more game objects at the same time
+
+280
+00:12:22,449 --> 00:12:24,449
+and inspect them all.
+
+281
+00:12:24,449 --> 00:12:26,449
+We do this by holding down the command key
+
+282
+00:12:26,449 --> 00:12:30,364
+on Mac or the control key on Windows
+
+283
+00:12:30,364 --> 00:12:32,364
+and selecting the game objects.
+
+284
+00:12:33,543 --> 00:12:35,543
+When we select multiple objects
+
+285
+00:12:35,543 --> 00:12:37,543
+note how the inspector changes
+
+286
+00:12:37,543 --> 00:12:39,543
+to show the common components
+
+287
+00:12:39,543 --> 00:12:42,352
+and property values of the selected game objects.
+
+288
+00:12:43,138 --> 00:12:45,138
+The inspector also allows for
+
+289
+00:12:45,138 --> 00:12:47,138
+multi-object editing.
+
+290
+00:12:47,471 --> 00:12:49,471
+Using multi-object editing
+
+291
+00:12:49,471 --> 00:12:51,471
+I'm going to disable the sprite renderer
+
+292
+00:12:51,471 --> 00:12:53,471
+on both the Player's UFO
+
+293
+00:12:53,471 --> 00:12:56,010
+and the selected pickup with a single click.
+
+294
+00:12:57,036 --> 00:12:59,036
+This leaves us with the two green
+
+295
+00:12:59,036 --> 00:13:01,385
+outlines of the 2D collider
+
+296
+00:13:01,385 --> 00:13:03,385
+areas for these two objects.
+
+297
+00:13:03,815 --> 00:13:06,381
+So how do collisions work
+
+298
+00:13:06,381 --> 00:13:08,200
+in Unity's 2D physics engine?
+
+299
+00:13:08,755 --> 00:13:10,755
+The 2D physics engine does not
+
+300
+00:13:10,755 --> 00:13:12,755
+allow two 2D collider
+
+301
+00:13:12,755 --> 00:13:14,364
+areas to overlap.
+
+302
+00:13:15,032 --> 00:13:17,032
+Remember how the Player was ejected
+
+303
+00:13:17,032 --> 00:13:19,032
+from the middle of the background sprite
+
+304
+00:13:19,032 --> 00:13:21,032
+in our previous lesson.
+
+305
+00:13:21,032 --> 00:13:23,032
+When the 2D physics engine detects
+
+306
+00:13:23,032 --> 00:13:25,032
+that any two or more
+
+307
+00:13:25,032 --> 00:13:28,045
+2D colliders will overlap that frame
+
+308
+00:13:28,045 --> 00:13:30,045
+the 2D physics engine will look at the
+
+309
+00:13:30,045 --> 00:13:32,045
+objects and analyse their speed,
+
+310
+00:13:32,045 --> 00:13:34,679
+rotation and shape
+
+311
+00:13:34,679 --> 00:13:36,679
+and calculate a collision.
+
+312
+00:13:37,525 --> 00:13:40,180
+One of the major factors in this calculation
+
+313
+00:13:40,180 --> 00:13:42,180
+is whether the 2D colliders
+
+314
+00:13:42,180 --> 00:13:44,180
+are static or dynamic.
+
+315
+00:13:45,401 --> 00:13:47,401
+Static colliders are usually
+
+316
+00:13:47,401 --> 00:13:49,401
+none moving parts of our scene
+
+317
+00:13:49,401 --> 00:13:51,401
+like the walls, the floor,
+
+318
+00:13:51,401 --> 00:13:53,401
+or other parts of the scenery.
+
+319
+00:13:54,677 --> 00:13:57,395
+Dynamic colliders are things that move,
+
+320
+00:13:57,395 --> 00:13:59,046
+like the Player's UFO,
+
+321
+00:13:59,046 --> 00:14:01,046
+or a car.
+
+322
+00:14:01,046 --> 00:14:03,046
+When calculating a collision
+
+323
+00:14:03,046 --> 00:14:05,046
+the static geometry will not
+
+324
+00:14:05,046 --> 00:14:07,046
+be affected by the collision.
+
+325
+00:14:07,310 --> 00:14:10,034
+But the dynamic objects will be.
+
+326
+00:14:11,282 --> 00:14:13,946
+In our case the Player's UFO
+
+327
+00:14:13,946 --> 00:14:17,044
+is dynamic, or moving geometry,
+
+328
+00:14:17,044 --> 00:14:19,044
+and it is bouncing off the static
+
+329
+00:14:19,044 --> 00:14:21,044
+geometry of the pickups
+
+330
+00:14:21,044 --> 00:14:23,044
+just as it bounces off the static geometry
+
+331
+00:14:23,044 --> 00:14:24,753
+of the walls.
+
+332
+00:14:24,753 --> 00:14:27,480
+However the 2D physics engine
+
+333
+00:14:27,480 --> 00:14:29,480
+can allow the penetration
+
+334
+00:14:29,480 --> 00:14:32,304
+or overlap of 2D collider areas.
+
+335
+00:14:32,748 --> 00:14:34,748
+When it does this the 2D physics
+
+336
+00:14:34,748 --> 00:14:36,748
+engine still calculates the 2D
+
+337
+00:14:36,748 --> 00:14:39,733
+collider areas and keeps track
+
+338
+00:14:39,733 --> 00:14:41,733
+of the collider overlap
+
+339
+00:14:41,733 --> 00:14:43,733
+but it doesn't physically act
+
+340
+00:14:43,733 --> 00:14:45,315
+on the overlapping objects.
+
+341
+00:14:46,024 --> 00:14:48,024
+It doesn't cause a collision.
+
+342
+00:14:48,704 --> 00:14:50,704
+We do this by making our
+
+343
+00:14:50,704 --> 00:14:53,259
+2D colliders in to triggers,
+
+344
+00:14:53,717 --> 00:14:56,094
+or 2D Trigger Colliders.
+
+345
+00:14:56,787 --> 00:14:59,545
+When we make our colliders in to a trigger
+
+346
+00:14:59,545 --> 00:15:01,545
+we can detect the contact with
+
+347
+00:15:01,545 --> 00:15:04,289
+that 2D trigger through the
+
+348
+00:15:04,289 --> 00:15:07,312
+2DOnTrigger event messages.
+
+349
+00:15:08,186 --> 00:15:10,186
+When a 2D collider is a trigger
+
+350
+00:15:10,186 --> 00:15:12,186
+we can do clever things like
+
+351
+00:15:12,186 --> 00:15:14,630
+place a trigger in the middle of a doorway
+
+352
+00:15:14,630 --> 00:15:16,785
+in for example an adventure game,
+
+353
+00:15:17,365 --> 00:15:19,365
+and when the player enters the
+
+354
+00:15:19,365 --> 00:15:22,101
+mini map updates and a message plays
+
+355
+00:15:22,101 --> 00:15:23,823
+'you have discovered this room'.
+
+356
+00:15:24,350 --> 00:15:26,350
+Or every time our player walks
+
+357
+00:15:26,350 --> 00:15:28,350
+in to an area a sound plays
+
+358
+00:15:28,350 --> 00:15:30,350
+because the player has walked through a trigger.
+
+359
+00:15:30,891 --> 00:15:34,002
+For more information on 2DOnCollision
+
+360
+00:15:34,002 --> 00:15:36,927
+and 2DOnTrigger messages
+
+361
+00:15:36,927 --> 00:15:38,927
+see the lessons linked below.
+
+362
+00:15:38,927 --> 00:15:42,940
+We are using OnTriggerEnter2D in our code
+
+363
+00:15:42,940 --> 00:15:46,773
+rather than OnCollisionEnter2D,
+
+364
+00:15:46,773 --> 00:15:48,773
+so we need to change our collider
+
+365
+00:15:48,773 --> 00:15:51,955
+2D areas in to trigger areas.
+
+366
+00:15:52,538 --> 00:15:54,987
+Let's select the prefab asset
+
+367
+00:15:54,987 --> 00:15:57,990
+and look at the circle collider 2D component.
+
+368
+00:15:57,990 --> 00:16:01,404
+I'm going to reactivate the two sprite renderers
+
+369
+00:16:01,404 --> 00:16:03,404
+and highlight the Pickup prefab.
+
+370
+00:16:04,333 --> 00:16:06,333
+In the Circle Collider 2D component
+
+371
+00:16:06,333 --> 00:16:09,053
+we see a property called Is Trigger.
+
+372
+00:16:09,594 --> 00:16:11,594
+Let's set this to True.
+
+373
+00:16:12,967 --> 00:16:15,553
+Now let's enter play mode and test.
+
+374
+00:16:25,911 --> 00:16:27,911
+Excellent, let's exit play mode.
+
+375
+00:16:29,048 --> 00:16:31,048
+So far everything looks great.
+
+376
+00:16:31,048 --> 00:16:32,699
+But we have one issue.
+
+377
+00:16:33,381 --> 00:16:35,117
+We've made a small mistake,
+
+378
+00:16:35,117 --> 00:16:37,117
+which is related to how Unity
+
+379
+00:16:37,117 --> 00:16:40,042
+optimises it's 2D physics.
+
+380
+00:16:40,042 --> 00:16:42,042
+When using 2D physics all
+
+381
+00:16:42,042 --> 00:16:44,042
+of the static, or non-moving
+
+382
+00:16:44,042 --> 00:16:46,042
+colliders are calculated as
+
+383
+00:16:46,042 --> 00:16:47,733
+a single body.
+
+384
+00:16:48,208 --> 00:16:50,208
+This increases performance.
+
+385
+00:16:50,846 --> 00:16:52,846
+If we move a collider that the engine
+
+386
+00:16:52,846 --> 00:16:54,846
+is not expecting to move
+
+387
+00:16:55,165 --> 00:16:58,187
+the static collider or all our
+
+388
+00:16:58,187 --> 00:17:01,381
+non-moving objects will have to be recalculated.
+
+389
+00:17:02,061 --> 00:17:04,061
+If we do this every frame we risk
+
+390
+00:17:04,061 --> 00:17:06,061
+our game losing performance.
+
+391
+00:17:06,838 --> 00:17:08,838
+Where we've made our mistake is
+
+392
+00:17:08,838 --> 00:17:10,838
+by rotating our pickups.
+
+393
+00:17:11,989 --> 00:17:13,989
+We need to indicate to Unity
+
+394
+00:17:13,989 --> 00:17:17,099
+which 2D colliders are dynamic
+
+395
+00:17:17,099 --> 00:17:18,748
+before we move them.
+
+396
+00:17:19,404 --> 00:17:21,404
+We do this by using the 
+
+397
+00:17:21,404 --> 00:17:23,404
+rigidbody2D component.
+
+398
+00:17:24,333 --> 00:17:26,333
+Any game object with a 2D collider
+
+399
+00:17:26,333 --> 00:17:28,333
+and a rigidbody2D
+
+400
+00:17:28,666 --> 00:17:30,499
+is considered dynamic.
+
+401
+00:17:30,915 --> 00:17:33,275
+Any game object with a 2D collider
+
+402
+00:17:33,275 --> 00:17:35,566
+but no rigidbody2D
+
+403
+00:17:35,566 --> 00:17:37,566
+is expected to be static.
+
+404
+00:17:37,982 --> 00:17:39,982
+Currently our Pickup game objects
+
+405
+00:17:39,982 --> 00:17:41,982
+have a circle collider but
+
+406
+00:17:41,982 --> 00:17:43,661
+no rigidbody2D.
+
+407
+00:17:44,190 --> 00:17:46,190
+So Unity is recreating
+
+408
+00:17:46,190 --> 00:17:48,773
+the collider's for the pickups and walls
+
+409
+00:17:48,773 --> 00:17:50,129
+each frame.
+
+410
+00:17:50,129 --> 00:17:53,613
+The solution is to add a rigidbody2D
+
+411
+00:17:53,613 --> 00:17:55,613
+to the Pickup objects.
+
+412
+00:18:04,476 --> 00:18:06,476
+Let's enter play mode and test.
+
+413
+00:18:08,459 --> 00:18:11,468
+As we can see, our Pickups fall off the screen.
+
+414
+00:18:12,231 --> 00:18:14,231
+Gravity pulls them down and
+
+415
+00:18:14,231 --> 00:18:16,231
+because they are triggers they
+
+416
+00:18:16,231 --> 00:18:17,908
+don't collide with the walls.
+
+417
+00:18:18,508 --> 00:18:21,624
+If we look at the rigidbody2D component
+
+418
+00:18:21,624 --> 00:18:23,624
+we see that we could simply set
+
+419
+00:18:23,624 --> 00:18:26,533
+Gravity Scale to 0,
+
+420
+00:18:26,533 --> 00:18:28,533
+which would prevent the Pickups
+
+421
+00:18:28,533 --> 00:18:30,533
+from falling downwards.
+
+422
+00:18:31,573 --> 00:18:33,868
+This is only a partial solution however.
+
+423
+00:18:34,627 --> 00:18:36,627
+If we did this even
+
+424
+00:18:36,627 --> 00:18:38,627
+though our Pickups would not respond to
+
+425
+00:18:38,627 --> 00:18:40,627
+gravity they would still respond
+
+426
+00:18:40,627 --> 00:18:42,627
+to physics forces.
+
+427
+00:18:42,627 --> 00:18:44,085
+There's a better solution.
+
+428
+00:18:45,182 --> 00:18:48,052
+That is to select Is Kinematic.
+
+429
+00:18:48,662 --> 00:18:50,662
+When we do this we set this
+
+430
+00:18:50,662 --> 00:18:52,662
+rigidbody2D component
+
+431
+00:18:52,662 --> 00:18:55,961
+to be a kinematic 2D rigidbody.
+
+432
+00:18:55,961 --> 00:18:57,961
+A kinematic 2D rigidbody
+
+433
+00:18:57,961 --> 00:19:01,124
+will not react to physics forces
+
+434
+00:19:01,124 --> 00:19:03,124
+and can be animated and moved
+
+435
+00:19:03,124 --> 00:19:05,124
+by it's transform.
+
+436
+00:19:05,124 --> 00:19:07,124
+This is great for everything from objects
+
+437
+00:19:07,124 --> 00:19:09,124
+with colliders like elevators and
+
+438
+00:19:09,124 --> 00:19:11,124
+moving platforms to objects
+
+439
+00:19:11,124 --> 00:19:13,124
+with triggers, like our collectables,
+
+440
+00:19:13,124 --> 00:19:15,124
+that need to be animated or moved
+
+441
+00:19:15,124 --> 00:19:17,124
+by their transform.
+
+442
+00:19:17,942 --> 00:19:21,155
+For more information on the rigidbody2D
+
+443
+00:19:21,155 --> 00:19:23,155
+and Is Kinematic
+
+444
+00:19:23,155 --> 00:19:25,155
+see the lessons linked below.
+
+445
+00:19:25,973 --> 00:19:29,298
+Let's save our scene and enter play mode to test.
+
+446
+00:19:30,803 --> 00:19:32,803
+Now our behaviour is identical
+
+447
+00:19:32,803 --> 00:19:34,244
+and performant.
+
+448
+00:19:34,244 --> 00:19:37,267
+So static 2D colliders shouldn't move,
+
+449
+00:19:37,267 --> 00:19:38,989
+like walls and floors,
+
+450
+00:19:38,989 --> 00:19:40,989
+dynamic 2D colliders can move
+
+451
+00:19:40,989 --> 00:19:43,924
+but should have a rigidbody2D attached.
+
+452
+00:19:45,325 --> 00:19:47,325
+Standard 2D rigidbodies like our
+
+453
+00:19:47,325 --> 00:19:50,269
+Player are moved using 2D physics forces.
+
+454
+00:19:50,824 --> 00:19:52,824
+Kinematic 2D rigidbodies are
+
+455
+00:19:52,824 --> 00:19:55,768
+moved using their transform.
+
+456
+00:19:55,768 --> 00:19:57,768
+In the next assignment we will count our
+
+457
+00:19:57,768 --> 00:19:59,768
+collectable objects and make a
+
+458
+00:19:59,768 --> 00:20:01,768
+simple UI to display
+
+459
+00:20:01,768 --> 00:20:03,768
+our score and messages.

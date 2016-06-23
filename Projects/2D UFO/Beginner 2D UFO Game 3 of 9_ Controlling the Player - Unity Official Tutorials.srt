@@ -1,0 +1,1476 @@
+1
+00:00:02,621 --> 00:00:06,774
+Now we're going to move the Player game object.
+
+2
+00:00:06,774 --> 00:00:08,774
+First let's think through how we
+
+3
+00:00:08,774 --> 00:00:10,774
+want this Player game object to behave.
+
+4
+00:00:11,689 --> 00:00:14,475
+We want to have the player fly around the game area,
+
+5
+00:00:14,475 --> 00:00:16,475
+stay on the play field and
+
+6
+00:00:16,475 --> 00:00:18,475
+not fly off in to space.
+
+7
+00:00:18,849 --> 00:00:20,849
+We want to be able to collide with our collectable
+
+8
+00:00:20,849 --> 00:00:23,995
+game objects and pick them up when we do this.
+
+9
+00:00:23,995 --> 00:00:25,995
+This requires physics.
+
+10
+00:00:26,453 --> 00:00:28,453
+Unity has two physics systems.
+
+11
+00:00:28,453 --> 00:00:30,453
+One for 2D and one for 3D.
+
+12
+00:00:31,507 --> 00:00:33,507
+These systems are comparable to each other
+
+13
+00:00:33,507 --> 00:00:35,507
+and compatible with each other in that
+
+14
+00:00:35,507 --> 00:00:37,507
+they can both be in the same scene
+
+15
+00:00:37,979 --> 00:00:39,979
+but importantly they will
+
+16
+00:00:39,979 --> 00:00:41,979
+not interact with each other.
+
+17
+00:00:42,922 --> 00:00:44,922
+For this project we'll be using
+
+18
+00:00:44,922 --> 00:00:46,922
+2D physics.
+
+19
+00:00:47,713 --> 00:00:50,275
+To use 2D physics the game object
+
+20
+00:00:50,275 --> 00:00:53,926
+needs to have a Rigidbody2d component attached.
+
+21
+00:00:55,119 --> 00:00:57,119
+To attach a new component we must
+
+22
+00:00:57,119 --> 00:00:59,119
+first select the game object we want to
+
+23
+00:00:59,119 --> 00:01:01,119
+attach the component to,
+
+24
+00:01:01,119 --> 00:01:04,413
+in this case we'll select our Player game object.
+
+25
+00:01:06,369 --> 00:01:08,369
+Then we can either choose the
+
+26
+00:01:08,369 --> 00:01:10,369
+Component menu and select
+
+27
+00:01:10,369 --> 00:01:12,787
+Physics 2D - Rigidbody2d
+
+28
+00:01:12,787 --> 00:01:14,203
+which would attach this component to the
+
+29
+00:01:14,203 --> 00:01:16,203
+game object we've selected.
+
+30
+00:01:16,203 --> 00:01:18,869
+Or use the Add Component button
+
+31
+00:01:18,869 --> 00:01:22,065
+in the inspector, choosing Rigidbody2d.
+
+32
+00:01:23,494 --> 00:01:25,494
+It's important to be sure that we're adding
+
+33
+00:01:25,494 --> 00:01:28,129
+the physics 2D version of this component
+
+34
+00:01:28,129 --> 00:01:31,123
+not the physics, or 3D version
+
+35
+00:01:31,123 --> 00:01:33,498
+since we can choose between both the Rigidbody 
+
+36
+00:01:33,498 --> 00:01:35,498
+component for 3D physics
+
+37
+00:01:35,498 --> 00:01:38,181
+and the Rigidbody2d component.
+
+38
+00:01:40,134 --> 00:01:42,134
+These component cannot work
+
+39
+00:01:42,134 --> 00:01:44,134
+together so be sure to choose the correct
+
+40
+00:01:44,134 --> 00:01:46,134
+components for our game type.
+
+41
+00:01:47,535 --> 00:01:49,535
+If we choose to we can rearrange
+
+42
+00:01:49,535 --> 00:01:51,535
+the order of the components on the game object
+
+43
+00:01:52,007 --> 00:01:54,284
+using the context sensitive gear menu
+
+44
+00:01:54,284 --> 00:01:56,284
+in the upper-right of the component.
+
+45
+00:01:56,964 --> 00:01:59,796
+Doing this has no effect on the performance of our game,
+
+46
+00:01:59,796 --> 00:02:01,796
+however having a consistent order
+
+47
+00:02:01,796 --> 00:02:03,796
+to the components on our game object
+
+48
+00:02:03,796 --> 00:02:05,796
+may help us speed up our development
+
+49
+00:02:05,796 --> 00:02:07,796
+by keeping or maintaining an
+
+50
+00:02:07,796 --> 00:02:09,796
+organised project and hierarchy.
+
+51
+00:02:10,892 --> 00:02:12,892
+Don't forget we can collapse
+
+52
+00:02:12,892 --> 00:02:14,892
+or expand the component view
+
+53
+00:02:14,892 --> 00:02:17,294
+by linking on the component's title bar
+
+54
+00:02:18,972 --> 00:02:20,972
+Now we need to get the player object
+
+55
+00:02:20,972 --> 00:02:22,972
+moving under our control.
+
+56
+00:02:23,721 --> 00:02:25,721
+To do this we need to get input
+
+57
+00:02:25,721 --> 00:02:27,721
+from our player through the keyboard and we
+
+58
+00:02:27,721 --> 00:02:31,082
+need to apply that input to the Player game object
+
+59
+00:02:31,082 --> 00:02:33,082
+as forces to move 
+
+60
+00:02:33,082 --> 00:02:35,082
+the Player object in the scene.
+
+61
+00:02:36,067 --> 00:02:38,657
+We'll do this by using a script
+
+62
+00:02:38,982 --> 00:02:42,177
+that we attach to the Player game object.
+
+63
+00:02:43,661 --> 00:02:46,229
+Let's create a new C# script.
+
+64
+00:02:47,269 --> 00:02:48,794
+To create a new script
+
+65
+00:02:48,794 --> 00:02:50,386
+we have some choices.
+
+66
+00:02:50,386 --> 00:02:52,750
+We can choose Assets - Create
+
+67
+00:02:52,750 --> 00:02:54,750
+to create our new C# script.
+
+68
+00:02:55,180 --> 00:02:57,864
+Or we can use the Create menu
+
+69
+00:02:57,864 --> 00:02:59,864
+in the project view.
+
+70
+00:02:59,864 --> 00:03:01,864
+But what might be more efficient in this
+
+71
+00:03:01,864 --> 00:03:04,496
+case would be to select the Player game object
+
+72
+00:03:04,496 --> 00:03:07,863
+and use the Add Component button in the inspector.
+
+73
+00:03:09,194 --> 00:03:11,194
+The Add Component menu contains
+
+74
+00:03:11,194 --> 00:03:13,584
+the selection New Script.
+
+75
+00:03:14,165 --> 00:03:16,165
+This allows us to both create
+
+76
+00:03:16,165 --> 00:03:19,301
+and attach a script in one step.
+
+77
+00:03:20,495 --> 00:03:23,055
+First let's name this script
+
+78
+00:03:23,055 --> 00:03:25,055
+PlayerController.
+
+79
+00:03:25,887 --> 00:03:27,887
+We can choose the language of the script,
+
+80
+00:03:27,887 --> 00:03:29,565
+which will be C#,
+
+81
+00:03:29,565 --> 00:03:31,844
+and then click on Create and Add.
+
+82
+00:03:32,369 --> 00:03:35,307
+Or simply hit the return or enter key
+
+83
+00:03:35,307 --> 00:03:37,307
+to confirm our selection.
+
+84
+00:03:37,890 --> 00:03:40,732
+Unity will create, compile
+
+85
+00:03:40,732 --> 00:03:42,732
+and attach this script
+
+86
+00:03:42,732 --> 00:03:44,732
+to the selected game object.
+
+87
+00:03:45,564 --> 00:03:47,426
+We should note that this way of
+
+88
+00:03:47,426 --> 00:03:49,426
+creating a script will create that
+
+89
+00:03:49,426 --> 00:03:51,426
+script asset on the root
+
+90
+00:03:51,426 --> 00:03:54,187
+or top level of our project view.
+
+91
+00:03:55,075 --> 00:03:57,075
+We'll need to move the asset in to the
+
+92
+00:03:57,075 --> 00:03:59,075
+Scripts directory in order to
+
+93
+00:03:59,075 --> 00:04:01,865
+maintain an organised project view.
+
+94
+00:04:02,780 --> 00:04:05,143
+If we select the script in our project view
+
+95
+00:04:05,143 --> 00:04:07,143
+we see a preview of the script asset
+
+96
+00:04:07,143 --> 00:04:09,143
+in the inspector but this
+
+97
+00:04:09,143 --> 00:04:11,143
+text is not editable.
+
+98
+00:04:11,573 --> 00:04:13,573
+Let's open the script for editing.
+
+99
+00:04:14,031 --> 00:04:16,031
+We can do this in a number of ways.
+
+100
+00:04:16,031 --> 00:04:18,031
+When we're inspecting a game object
+
+101
+00:04:18,031 --> 00:04:20,031
+with the script attached we can
+
+102
+00:04:20,031 --> 00:04:22,368
+use the context sensitive gear menu.
+
+103
+00:04:25,457 --> 00:04:27,457
+We can double click on the script asset in
+
+104
+00:04:27,457 --> 00:04:30,321
+the project view, or we can use the
+
+105
+00:04:30,321 --> 00:04:32,321
+Open button in the inspector
+
+106
+00:04:32,321 --> 00:04:34,321
+when we have the script selected
+
+107
+00:04:34,321 --> 00:04:36,321
+in our project view.
+
+108
+00:04:38,692 --> 00:04:40,692
+This will open our script
+
+109
+00:04:40,692 --> 00:04:42,692
+in our preferred script editor.
+
+110
+00:04:43,594 --> 00:04:45,594
+First let's remove the sample
+
+111
+00:04:45,594 --> 00:04:48,395
+code provided in the base script.
+
+112
+00:04:49,213 --> 00:04:51,213
+Next let's think,
+
+113
+00:04:51,213 --> 00:04:53,074
+what do we want to do with this script?
+
+114
+00:04:53,074 --> 00:04:55,074
+We want to check every frame
+
+115
+00:04:55,074 --> 00:04:57,074
+for player input, and then we
+
+116
+00:04:57,074 --> 00:04:59,074
+want to apply that input to the
+
+117
+00:04:59,074 --> 00:05:02,001
+Player game object every frame as movement.
+
+118
+00:05:02,808 --> 00:05:05,585
+Where will we check for and apply this input?
+
+119
+00:05:05,585 --> 00:05:07,305
+We have two choices;
+
+120
+00:05:07,305 --> 00:05:09,305
+Update() and FixedUpdate().
+
+121
+00:05:10,276 --> 00:05:13,118
+Update is called before rendering a frame,
+
+122
+00:05:13,118 --> 00:05:15,118
+and this is where most of our game
+
+123
+00:05:15,118 --> 00:05:16,880
+code will go.
+
+124
+00:05:16,880 --> 00:05:18,880
+FixedUpdate on the other hand is called
+
+125
+00:05:18,880 --> 00:05:20,880
+just before performing any
+
+126
+00:05:20,880 --> 00:05:22,880
+physics calculations
+
+127
+00:05:22,880 --> 00:05:25,575
+and this is where our physics code will go.
+
+128
+00:05:26,047 --> 00:05:28,047
+We'll be moving our UFO by applying
+
+129
+00:05:28,047 --> 00:05:30,047
+forces to the Rigidbody2d
+
+130
+00:05:30,047 --> 00:05:32,379
+meaning that this is physics.
+
+131
+00:05:33,129 --> 00:05:35,129
+The fact that it's 2D physics
+
+132
+00:05:35,129 --> 00:05:37,129
+as distinct from 3D physics
+
+133
+00:05:37,725 --> 00:05:39,725
+in this case is irrelevant.
+
+134
+00:05:40,807 --> 00:05:43,658
+We're going to put our code in FixedUpdate.
+
+135
+00:05:44,457 --> 00:05:46,457
+The next question is what code are we going
+
+136
+00:05:46,457 --> 00:05:48,766
+to want to put in FixedUpdate?
+
+137
+00:05:49,372 --> 00:05:51,077
+We know that we need input
+
+138
+00:05:51,636 --> 00:05:53,636
+but how do we find out more?
+
+139
+00:05:54,385 --> 00:05:56,385
+There's a shortcut in Monodevelop
+
+140
+00:05:56,912 --> 00:05:58,912
+that searches the Unity API.
+
+141
+00:05:59,495 --> 00:06:02,489
+On the Mac it's Command + '
+
+142
+00:06:03,016 --> 00:06:06,187
+and on Windows it's Control + '
+
+143
+00:06:07,116 --> 00:06:09,116
+Select the item we want to research,
+
+144
+00:06:09,116 --> 00:06:10,660
+in our case Input,
+
+145
+00:06:10,660 --> 00:06:12,660
+and hold down the command or control key
+
+146
+00:06:12,660 --> 00:06:14,660
+and then press the ' key.
+
+147
+00:06:16,338 --> 00:06:18,338
+This search brings up every reference
+
+148
+00:06:18,338 --> 00:06:21,348
+in our documentation related to Input.
+
+149
+00:06:22,499 --> 00:06:25,847
+Let's select Input at the top interface
+
+150
+00:06:25,847 --> 00:06:27,847
+in to the Input system.
+
+151
+00:06:28,582 --> 00:06:30,886
+This brings up the page on Input.
+
+152
+00:06:31,607 --> 00:06:34,721
+This is the page on the Input class.
+
+153
+00:06:35,747 --> 00:06:38,232
+We use this class to read the axis setup
+
+154
+00:06:38,232 --> 00:06:40,232
+in the Input Manager and to
+
+155
+00:06:40,232 --> 00:06:43,253
+access multitouch and accelerometer data
+
+156
+00:06:43,683 --> 00:06:45,172
+on mobile devices.
+
+157
+00:06:45,960 --> 00:06:47,960
+We read the text on the top of the page to
+
+158
+00:06:47,960 --> 00:06:49,960
+understand how to use the class.
+
+159
+00:06:49,960 --> 00:06:51,960
+In our case to get Input from the
+
+160
+00:06:51,960 --> 00:06:55,160
+Player on all platforms, including mobile devices.
+
+161
+00:06:56,256 --> 00:06:58,256
+Under the description is a 
+
+162
+00:06:58,256 --> 00:07:01,777
+list of class variables and class functions.
+
+163
+00:07:03,025 --> 00:07:05,025
+The class variables how information
+
+164
+00:07:05,025 --> 00:07:08,343
+like the number of touches in touchCount,
+
+165
+00:07:08,343 --> 00:07:11,795
+or a reference to the default gyroscope with gyro.
+
+166
+00:07:12,502 --> 00:07:15,688
+The class functions do something for us.
+
+167
+00:07:17,491 --> 00:07:19,491
+In our case we'll be using
+
+168
+00:07:19,491 --> 00:07:21,491
+Input.GetAxis.
+
+169
+00:07:22,712 --> 00:07:24,712
+When we find the item we want
+
+170
+00:07:24,712 --> 00:07:26,712
+we click on the link to bring up a page
+
+171
+00:07:26,712 --> 00:07:28,712
+on the function or variable.
+
+172
+00:07:29,419 --> 00:07:31,945
+Let's look at input.GetAxis.
+
+173
+00:07:32,556 --> 00:07:35,496
+This page includes the signature of the function,
+
+174
+00:07:35,496 --> 00:07:37,496
+a description of the function
+
+175
+00:07:37,496 --> 00:07:39,496
+and code snippets showing
+
+176
+00:07:39,496 --> 00:07:41,496
+us how to use it in Unity's 
+
+177
+00:07:41,496 --> 00:07:43,887
+Java Script and C#.
+
+178
+00:07:44,633 --> 00:07:46,900
+We will be using C#.
+
+179
+00:07:46,900 --> 00:07:50,886
+For more information on Input and the Input Manager
+
+180
+00:07:50,886 --> 00:07:52,886
+please see the information linked below.
+
+181
+00:07:54,065 --> 00:07:57,028
+We'll be using Input.GetAxis
+
+182
+00:07:57,028 --> 00:07:59,028
+in a very similar way to the
+
+183
+00:07:59,028 --> 00:08:01,028
+code snippet shown.
+
+184
+00:08:01,028 --> 00:08:03,028
+Let's return to our script
+
+185
+00:08:03,028 --> 00:08:05,028
+and write our code.
+
+186
+00:08:06,970 --> 00:08:15,539
+Type float moveHorizontal = Input.GetAxis (*Horizontal*);
+
+187
+00:08:18,070 --> 00:08:24,314
+float moveVertical = Input.GetAxis (*Vertical*);
+
+188
+00:08:26,394 --> 00:08:30,059
+Now we can delete the Input line.
+
+189
+00:08:31,682 --> 00:08:33,682
+This grabs the input from
+
+190
+00:08:33,682 --> 00:08:35,682
+our Player through the keyboard.
+
+191
+00:08:36,500 --> 00:08:38,500
+The float variables moveHorizontal
+
+192
+00:08:38,500 --> 00:08:40,500
+and moveVertical
+
+193
+00:08:40,500 --> 00:08:42,901
+record the input from the horizontal
+
+194
+00:08:42,901 --> 00:08:45,995
+and vertical axis which are controlled
+
+195
+00:08:45,995 --> 00:08:47,995
+by the keys on the keyboard.
+
+196
+00:08:47,995 --> 00:08:49,995
+These keys are set by default
+
+197
+00:08:49,995 --> 00:08:51,995
+in the InputManager.
+
+198
+00:08:58,804 --> 00:09:00,804
+Our Player game object uses a
+
+199
+00:09:00,804 --> 00:09:02,804
+Rigidbody2d and
+
+200
+00:09:02,804 --> 00:09:05,663
+interacts with the 2D physics engine.
+
+201
+00:09:06,536 --> 00:09:08,826
+We'll use this input to add
+
+202
+00:09:08,826 --> 00:09:10,826
+forces to the Rigidbody2dC
+
+203
+00:09:10,826 --> 00:09:13,579
+and move the Player game object in the scene.
+
+204
+00:09:15,877 --> 00:09:17,877
+To know more about how to apply forces
+
+205
+00:09:17,877 --> 00:09:19,877
+to the Rigidbody2d
+
+206
+00:09:19,877 --> 00:09:21,877
+let's check the documentation.
+
+207
+00:09:21,877 --> 00:09:25,401
+First type Rigidbody2d in to our script.
+
+208
+00:09:25,997 --> 00:09:27,997
+Now select Rigidbody2d and
+
+209
+00:09:27,997 --> 00:09:29,997
+hold down the command key on the Mac
+
+210
+00:09:29,997 --> 00:09:31,997
+or the control key on Windows
+
+211
+00:09:31,997 --> 00:09:33,997
+and type '
+
+212
+00:09:34,649 --> 00:09:37,303
+Again this brings us to a page
+
+213
+00:09:37,303 --> 00:09:40,210
+with a search term Rigidbody2d.
+
+214
+00:09:41,292 --> 00:09:42,692
+Let's click on that.
+
+215
+00:09:43,639 --> 00:09:46,242
+This brings up the Rigidbody2d page.
+
+216
+00:09:46,963 --> 00:09:49,829
+If we want to apply force to our Player game object
+
+217
+00:09:49,829 --> 00:09:51,829
+we need to do something,
+
+218
+00:09:51,829 --> 00:09:53,829
+so let's take a look at the functions
+
+219
+00:09:53,829 --> 00:09:57,083
+available to the Rigidbody2d class.
+
+220
+00:09:58,054 --> 00:10:00,054
+We can read the descriptions until we
+
+221
+00:10:00,054 --> 00:10:01,791
+find the one we want.
+
+222
+00:10:01,791 --> 00:10:04,760
+In this case let's choose AddForce.
+
+223
+00:10:05,537 --> 00:10:07,716
+This adds force to the Rigidbody2d.
+
+224
+00:10:08,312 --> 00:10:10,312
+As a result it will start moving.
+
+225
+00:10:11,158 --> 00:10:13,158
+Click the link and we go to the
+
+226
+00:10:13,158 --> 00:10:14,751
+page on AddForce.
+
+227
+00:10:15,435 --> 00:10:17,435
+We can see the signature of the function
+
+228
+00:10:17,435 --> 00:10:19,142
+at the top of the page.
+
+229
+00:10:19,643 --> 00:10:21,308
+The signature tells us
+
+230
+00:10:21,308 --> 00:10:23,308
+we need a vector2
+
+231
+00:10:23,308 --> 00:10:25,308
+and an optional ForceMode
+
+232
+00:10:25,724 --> 00:10:28,183
+to add force to our Rigidbody2d.
+
+233
+00:10:28,932 --> 00:10:30,560
+What is a vector2?
+
+234
+00:10:30,560 --> 00:10:33,070
+For more detailed information on vector2
+
+235
+00:10:33,070 --> 00:10:35,194
+please see the information linked below.
+
+236
+00:10:35,194 --> 00:10:37,194
+But in simple terms the vector2
+
+237
+00:10:37,194 --> 00:10:39,194
+holds two decimal values
+
+238
+00:10:39,194 --> 00:10:41,194
+in one container.
+
+239
+00:10:41,194 --> 00:10:43,194
+This makes it easy for us to move around
+
+240
+00:10:43,194 --> 00:10:45,194
+and use values for things like a 
+
+241
+00:10:45,194 --> 00:10:47,194
+force in 2D space
+
+242
+00:10:47,194 --> 00:10:49,194
+which requires a value for force
+
+243
+00:10:49,194 --> 00:10:52,436
+on both the X and Y axis.
+
+244
+00:10:53,385 --> 00:10:56,292
+All of our documentation pages are linked together.
+
+245
+00:10:56,292 --> 00:10:58,292
+If we were to click on Vector2
+
+246
+00:10:58,292 --> 00:10:59,885
+we would be taken to the documentation
+
+247
+00:10:59,885 --> 00:11:01,885
+page for Vector2.
+
+248
+00:11:09,542 --> 00:11:11,542
+The next concept that we need to cover is
+
+249
+00:11:11,542 --> 00:11:13,092
+how to get a hold of,
+
+250
+00:11:13,092 --> 00:11:15,092
+or how to reference different
+
+251
+00:11:15,092 --> 00:11:17,092
+components on our game object.
+
+252
+00:11:17,411 --> 00:11:19,411
+We're currently writing a script called
+
+253
+00:11:19,411 --> 00:11:21,411
+PlayerController, which is attached
+
+254
+00:11:21,411 --> 00:11:23,411
+as a script component
+
+255
+00:11:23,411 --> 00:11:24,867
+to our Player game object.
+
+256
+00:11:25,564 --> 00:11:28,344
+From this script we need to add force
+
+257
+00:11:28,344 --> 00:11:30,344
+using the Rigidbody2d component.
+
+258
+00:11:30,899 --> 00:11:32,899
+We want to access that component
+
+259
+00:11:32,899 --> 00:11:34,733
+from this script.
+
+260
+00:11:34,733 --> 00:11:36,733
+There are several ways we can do this,
+
+261
+00:11:36,733 --> 00:11:38,733
+but in our case we'll cover only one
+
+262
+00:11:38,733 --> 00:11:41,013
+of the main ways of accessing
+
+263
+00:11:41,013 --> 00:11:43,885
+another component on the same game object.
+
+264
+00:11:44,703 --> 00:11:46,703
+We'll create a variable to hold
+
+265
+00:11:46,703 --> 00:11:48,703
+this reference in our script
+
+266
+00:11:48,703 --> 00:11:51,826
+and we'll set this reference in the Start function.
+
+267
+00:11:52,672 --> 00:11:54,672
+Let's return to our script.
+
+268
+00:11:55,768 --> 00:11:57,768
+In our script we need to write
+
+269
+00:11:57,768 --> 00:12:02,084
+Private Rigidbody2D rb2d
+
+270
+00:12:02,084 --> 00:12:05,347
+to create the variable to hold the reference.
+
+271
+00:12:06,346 --> 00:12:08,941
+We're going to declare a new Start function
+
+272
+00:12:08,941 --> 00:12:10,646
+and in it we're going to write 
+
+273
+00:12:10,646 --> 00:12:16,300
+rb2d = GetComponent<Rigidbody2d> ();
+
+274
+00:12:17,562 --> 00:12:19,562
+In FixedUpdate let's use
+
+275
+00:12:19,562 --> 00:12:23,863
+Rigidbody2d.AddForce with a vector2
+
+276
+00:12:23,863 --> 00:12:25,863
+and we'll leave the ForceMode at 
+
+277
+00:12:25,863 --> 00:12:28,363
+default by omitting it from our code
+
+278
+00:12:28,904 --> 00:12:30,904
+So in our script we need to type
+
+279
+00:12:30,904 --> 00:12:35,735
+rb2d.AddForce and then some vector2 value.
+
+280
+00:12:37,982 --> 00:12:41,651
+Now how do we get our two float values
+
+281
+00:12:41,651 --> 00:12:43,651
+in to a vector2 value?
+
+282
+00:12:43,984 --> 00:12:45,984
+Let's create a new vector2
+
+283
+00:12:45,984 --> 00:12:47,846
+variable called Movement.
+
+284
+00:12:48,248 --> 00:12:51,339
+This will be equal to a new vector2
+
+285
+00:12:51,339 --> 00:12:54,388
+that's made up of an X and a Y.
+
+286
+00:12:55,109 --> 00:12:57,109
+The X and Y values will determine
+
+287
+00:12:57,109 --> 00:12:59,109
+the direction of the force
+
+288
+00:12:59,109 --> 00:13:01,643
+we will add to our UFO.
+
+289
+00:13:02,551 --> 00:13:04,162
+What is our X value?
+
+290
+00:13:04,162 --> 00:13:06,162
+That would be moveHorizontal.
+
+291
+00:13:06,509 --> 00:13:08,509
+With this our left and right keys will
+
+292
+00:13:08,509 --> 00:13:11,847
+add force moving the UFO to the left or right.
+
+293
+00:13:12,859 --> 00:13:14,349
+What is our Y?
+
+294
+00:13:14,349 --> 00:13:16,349
+That would be moveVertical.
+
+295
+00:13:16,890 --> 00:13:19,318
+Now we use movement,
+
+296
+00:13:19,318 --> 00:13:24,064
+our new vector2 value in rb2d.AddForce
+
+297
+00:13:24,064 --> 00:13:27,628
+as rb2d.AddForce(movement)
+
+298
+00:13:28,446 --> 00:13:31,181
+Let's save this script and return to Unity.
+
+299
+00:13:35,134 --> 00:13:37,134
+We can check for errors in our footer
+
+300
+00:13:37,134 --> 00:13:38,869
+or the console, and there are none.
+
+301
+00:13:39,411 --> 00:13:40,681
+Good.
+
+302
+00:13:41,619 --> 00:13:43,619
+Now let's test what we've written.
+
+303
+00:13:44,229 --> 00:13:45,461
+Hit Play.
+
+304
+00:13:45,461 --> 00:13:47,461
+The first thing we'll notice is that the Player
+
+305
+00:13:47,461 --> 00:13:50,398
+immediately flies downward off the playing field.
+
+306
+00:13:50,994 --> 00:13:54,196
+This is because the default for our Rigidbody2D
+
+307
+00:13:54,196 --> 00:13:56,196
+is to apply gravity downwards
+
+308
+00:13:56,196 --> 00:13:58,196
+along the Y axis.
+
+309
+00:13:58,196 --> 00:13:59,945
+Since our game is designed as a
+
+310
+00:13:59,945 --> 00:14:02,773
+top-down view this doesn't make any sense.
+
+311
+00:14:04,077 --> 00:14:05,773
+Exit Play mode.
+
+312
+00:14:05,773 --> 00:14:07,773
+To illuminate this behaviour we'll
+
+313
+00:14:07,773 --> 00:14:10,216
+set the Gravity Scale property
+
+314
+00:14:10,216 --> 00:14:13,200
+of our Rigidbody2d attached to our Player
+
+315
+00:14:13,200 --> 00:14:14,418
+to 0.
+
+316
+00:14:14,418 --> 00:14:16,418
+This means that no gravity
+
+317
+00:14:16,418 --> 00:14:17,733
+will be applied.
+
+318
+00:14:17,733 --> 00:14:19,733
+This is one reason why making a top-down
+
+319
+00:14:19,733 --> 00:14:21,733
+2D game is a little easier,
+
+320
+00:14:21,733 --> 00:14:24,970
+because we don't have to deal with gravity in our physics.
+
+321
+00:14:26,385 --> 00:14:28,385
+Now play again and test.
+
+322
+00:14:28,995 --> 00:14:30,995
+By using the keys setup in the InputManager
+
+323
+00:14:30,995 --> 00:14:32,995
+the UFO moves in the scene.
+
+324
+00:14:33,578 --> 00:14:35,578
+Gravity is now off, but the player
+
+325
+00:14:35,578 --> 00:14:37,326
+is still very slow.
+
+326
+00:14:37,326 --> 00:14:39,618
+This is probably too slow to be playable
+
+327
+00:14:39,618 --> 00:14:42,756
+but the basic concept works 100%.
+
+328
+00:14:42,756 --> 00:14:44,756
+To stop testing exit Play mode.
+
+329
+00:14:46,171 --> 00:14:48,171
+Let's return to our code and create a
+
+330
+00:14:48,171 --> 00:14:50,171
+tool that will give us control over
+
+331
+00:14:50,171 --> 00:14:52,171
+the speed of the UFO.
+
+332
+00:14:55,292 --> 00:14:57,292
+We need to multiply our movement
+
+333
+00:14:57,292 --> 00:14:59,292
+by some value.
+
+334
+00:14:59,999 --> 00:15:01,999
+We could simply enter that value here
+
+335
+00:15:01,999 --> 00:15:04,952
+on our script, but if we ever needed to make any
+
+336
+00:15:04,952 --> 00:15:06,952
+tweaks or changes we would have
+
+337
+00:15:06,952 --> 00:15:08,952
+to return to our scripting editor
+
+338
+00:15:08,952 --> 00:15:10,952
+and change the value in the script,
+
+339
+00:15:10,952 --> 00:15:12,370
+and then recompile.
+
+340
+00:15:12,370 --> 00:15:14,020
+This would take time.
+
+341
+00:15:14,020 --> 00:15:16,020
+The solution is to create a public
+
+342
+00:15:16,020 --> 00:15:18,020
+variable in our script.
+
+343
+00:15:18,533 --> 00:15:21,855
+Let's create a public float called Speed.
+
+344
+00:15:23,505 --> 00:15:26,289
+By creating a public variable in our script
+
+345
+00:15:26,289 --> 00:15:28,959
+this variable will show up in the inspector
+
+346
+00:15:28,959 --> 00:15:30,959
+as an editable property.
+
+347
+00:15:31,528 --> 00:15:33,528
+When we use a public variable we can
+
+348
+00:15:33,528 --> 00:15:36,234
+make all of our changes in the editor.
+
+349
+00:15:37,650 --> 00:15:41,219
+Let's now multiply movement by speed.
+
+350
+00:15:41,926 --> 00:15:43,926
+We can use this to control
+
+351
+00:15:43,926 --> 00:15:45,926
+our movement value from 
+
+352
+00:15:45,926 --> 00:15:47,926
+inside the editor.
+
+353
+00:15:47,926 --> 00:15:50,930
+Let's save these changes and return to Unity.
+
+354
+00:15:53,712 --> 00:15:55,712
+When we return to the editor we can see
+
+355
+00:15:55,712 --> 00:15:57,712
+our PlayerController script
+
+356
+00:15:57,712 --> 00:15:59,712
+now has a Speed property.
+
+357
+00:16:00,211 --> 00:16:02,211
+Let's set this property to 1000.
+
+358
+00:16:04,083 --> 00:16:06,083
+Play the scene and test.
+
+359
+00:16:10,133 --> 00:16:12,133
+It works, but the Player is moving
+
+360
+00:16:12,133 --> 00:16:14,133
+way too fast!
+
+361
+00:16:14,133 --> 00:16:16,133
+But changes are fast too.
+
+362
+00:16:16,133 --> 00:16:18,133
+Let's exit Play mode and let's
+
+363
+00:16:18,133 --> 00:16:20,133
+change the value to 10.
+
+364
+00:16:32,422 --> 00:16:34,185
+That's better!
+
+365
+00:16:34,185 --> 00:16:36,185
+Congratulations, we can now move our
+
+366
+00:16:36,185 --> 00:16:37,550
+Player character.
+
+367
+00:16:37,550 --> 00:16:39,550
+You'll notice however that the player can just
+
+
+368
+00:16:39,550 --> 00:16:42,165
+fly through the walls, which is not what we want.
+
+369
+00:16:42,872 --> 00:16:46,431
+In the next lesson we'll add collision detection.
