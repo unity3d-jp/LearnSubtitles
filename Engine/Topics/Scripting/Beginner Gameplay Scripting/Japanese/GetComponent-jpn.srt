@@ -180,7 +180,7 @@ otherGameObject.GetComponent を使用して
 
 46
 00:01:47,395 --> 00:01:49,395
-GetComponent 主に他のスクリプトを
+GetComponent は主に他のスクリプトを
 
 47
 00:01:49,395 --> 00:01:51,395
