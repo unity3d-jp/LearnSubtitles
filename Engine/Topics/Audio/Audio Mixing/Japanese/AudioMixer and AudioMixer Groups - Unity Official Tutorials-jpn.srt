@@ -1,0 +1,944 @@
+1
+00:00:00,944 --> 00:00:04,506
+The audio mixer asset in Unity allows us
+
+2
+00:00:04,506 --> 00:00:07,384
+a great deal of control over the signal flow
+
+3
+00:00:07,384 --> 00:00:09,991
+of audio in our projects.
+
+4
+00:00:10,745 --> 00:00:14,011
+By default our main camera
+
+5
+00:00:14,539 --> 00:00:17,793
+is assigned an audio listener component.
+
+6
+00:00:17,793 --> 00:00:21,058
+The audio listener component is where audio
+
+7
+00:00:21,058 --> 00:00:23,058
+is output from the scene
+
+8
+00:00:23,058 --> 00:00:27,142
+to the headphones or the speakers of the listener
+
+9
+00:00:27,142 --> 00:00:31,504
+In Unity all audio starts at an audio source.
+
+10
+00:00:31,504 --> 00:00:34,378
+Here we have a game object called Base
+
+11
+00:00:34,378 --> 00:00:38,068
+and it's got an audio source on it which has a clip
+
+12
+00:00:38,068 --> 00:00:40,629
+of a baseline loaded,
+
+13
+00:00:40,629 --> 00:00:43,174
+which is also set to play on awake and loop.
+
+14
+00:00:43,448 --> 00:00:46,433
+There are 3 other objects
+
+15
+00:00:46,433 --> 00:00:49,375
+which contain other musical parts including
+
+16
+00:00:49,375 --> 00:00:51,375
+an arpeggio kick and percussion.
+
+17
+00:00:51,917 --> 00:00:53,581
+When we play the scene we're going to hear these
+
+18
+00:00:53,581 --> 00:00:57,461
+first 3 parts play directly through
+
+19
+00:00:57,461 --> 00:00:59,461
+the audio listener component.
+
+20
+00:01:05,711 --> 00:01:08,662
+If we want to get more control over how
+
+21
+00:01:08,662 --> 00:01:12,016
+our audio is processed we can create an
+
+22
+00:01:12,016 --> 00:01:16,120
+audio mixer asset, so choose Create
+
+23
+00:01:16,842 --> 00:01:18,620
+Audio Mixer
+
+24
+00:01:18,620 --> 00:01:20,620
+and then we can either double click on it
+
+25
+00:01:20,620 --> 00:01:22,620
+to make it visible
+
+26
+00:01:22,620 --> 00:01:26,489
+or we can go to Window - Audio Mixer
+
+27
+00:01:26,489 --> 00:01:28,489
+or choose command-8
+
+28
+00:01:28,489 --> 00:01:31,288
+on Mac or control-8 on PC.
+
+29
+00:01:32,357 --> 00:01:34,357
+The audio mixer can be docked
+
+30
+00:01:34,357 --> 00:01:35,777
+like many of the other windows,
+
+31
+00:01:35,777 --> 00:01:37,777
+I'm going to dock it down here on the bottom of my screen
+
+32
+00:01:37,777 --> 00:01:40,334
+and I'm going to expand
+
+33
+00:01:40,334 --> 00:01:42,334
+to give myself a little bit more real estate.
+
+34
+00:01:42,334 --> 00:01:44,334
+The default state for an audio mixer
+
+35
+00:01:44,334 --> 00:01:46,334
+is that it's created only
+
+36
+00:01:46,334 --> 00:01:49,524
+with a master group here.
+
+37
+00:01:49,524 --> 00:01:53,039
+In Unity's audio system we refer to channels
+
+38
+00:01:53,039 --> 00:01:55,039
+as groups because they provide a little
+
+39
+00:01:55,039 --> 00:01:57,633
+bit of additional audio functionality
+
+40
+00:01:57,633 --> 00:01:59,633
+that a normal mixer channel would not.
+
+41
+00:02:00,077 --> 00:02:03,020
+Now, we've got our master
+
+42
+00:02:03,020 --> 00:02:05,858
+and currently nothing is assigned to it.
+
+43
+00:02:05,858 --> 00:02:07,635
+If we play we'll see
+
+44
+00:02:09,885 --> 00:02:11,357
+no movement in the meters.
+
+45
+00:02:11,357 --> 00:02:13,746
+If we choose our
+
+
+46
+00:02:15,232 --> 00:02:17,927
+game objects here we can edit
+
+47
+00:02:17,927 --> 00:02:21,633
+for all of them the output parameter here
+
+48
+00:02:21,633 --> 00:02:24,424
+and we can assign it by clicking on it
+
+49
+00:02:24,424 --> 00:02:27,792
+to the master channel of audio mixer 1.
+
+50
+00:02:28,236 --> 00:02:30,056
+Now when we play
+
+51
+00:02:32,667 --> 00:02:34,029
+we've setup some signal flow,
+
+52
+00:02:34,029 --> 00:02:36,029
+our signal is now passing from
+
+53
+00:02:36,029 --> 00:02:39,273
+our audio sources through the master
+
+54
+00:02:39,273 --> 00:02:41,983
+to the audio listener on the main camera.
+
+55
+00:02:41,983 --> 00:02:43,983
+By default the master group
+
+56
+00:02:43,983 --> 00:02:48,486
+is created with an attenuation effect applied to it.
+
+57
+00:02:48,486 --> 00:02:50,486
+The attenuation effect is what allows
+
+58
+00:02:50,486 --> 00:02:52,790
+us to control the volume of the signal
+
+59
+00:02:52,790 --> 00:02:54,790
+passing through the master group.
+
+60
+00:02:54,790 --> 00:02:57,232
+If we want to adjust that while we're playing
+
+61
+00:03:01,344 --> 00:03:04,175
+we're going to need to click Edit In Play Mode.
+
+62
+00:03:05,969 --> 00:03:07,969
+Now we can adjust the volume
+
+63
+00:03:08,608 --> 00:03:11,933
+and we can see in the inspector on the right
+
+64
+00:03:16,697 --> 00:03:18,950
+that the change is being reflected.
+
+65
+00:03:18,950 --> 00:03:20,950
+Changes made while editing
+
+66
+00:03:20,950 --> 00:03:23,682
+during play mode will be saved
+
+67
+00:03:23,682 --> 00:03:25,682
+to the audio mixer asset.
+
+68
+00:03:25,974 --> 00:03:28,983
+Unlike scene changes, which will revert
+
+69
+00:03:28,983 --> 00:03:30,983
+when exiting play mode.
+
+70
+00:03:31,289 --> 00:03:34,967
+Currently audio mixer 1 has only 1 group
+
+71
+00:03:34,967 --> 00:03:36,329
+the master.
+
+72
+00:03:36,329 --> 00:03:39,195
+To create a more flexible signal flow
+
+73
+00:03:39,195 --> 00:03:41,900
+we're going to go over here to the Groups area
+
+74
+00:03:41,900 --> 00:03:44,686
+and click the + button twice.
+
+75
+00:03:45,811 --> 00:03:48,144
+When we click the + button a new group
+
+76
+00:03:48,144 --> 00:03:50,144
+will be created that is the child
+
+77
+00:03:50,144 --> 00:03:52,144
+of the currently selected group.
+
+78
+00:03:53,173 --> 00:03:56,301
+Notice that in the channel strip view
+
+79
+00:03:56,705 --> 00:03:59,080
+group A and group B have appeared.
+
+80
+00:03:59,080 --> 00:04:01,080
+With multiple groups in our mixer we can
+
+81
+00:04:01,080 --> 00:04:04,192
+now assign some of our parts to different groups
+
+82
+00:04:04,192 --> 00:04:06,192
+Let's assign the kick drum
+
+83
+00:04:07,413 --> 00:04:09,211
+by clicking on the output parameter
+
+84
+00:04:09,490 --> 00:04:10,900
+to group A.
+
+85
+00:04:11,977 --> 00:04:13,439
+Now if we play
+
+86
+00:04:15,650 --> 00:04:17,650
+activate Edit In Play Mode.
+
+87
+00:04:24,303 --> 00:04:26,303
+You'll notice that when we turn down group A
+
+88
+00:04:26,303 --> 00:04:28,303
+we can turn down the kick drum independently because
+
+89
+00:04:28,303 --> 00:04:29,993
+it's now on it's own group.
+
+90
+00:04:29,993 --> 00:04:31,522
+And when we turn down the master we can
+
+91
+00:04:31,522 --> 00:04:33,156
+turn down everything.
+
+92
+00:04:33,156 --> 00:04:36,156
+This is because group A is routed
+
+93
+00:04:36,156 --> 00:04:39,368
+through the master so the master controls
+
+94
+00:04:39,368 --> 00:04:41,600
+everything which is routed through it..
+
+95
+00:04:41,600 --> 00:04:43,600
+That's because of the way
+
+96
+00:04:43,600 --> 00:04:45,600
+that the groups are arranged in the groups
+
+97
+00:04:45,600 --> 00:04:47,100
+area down here.
+
+98
+00:04:47,100 --> 00:04:50,937
+We can see that group A is a child 
+
+99
+00:04:50,937 --> 00:04:54,599
+of the master group and group B is in turn
+
+100
+00:04:54,599 --> 00:04:56,406
+a child of group A.
+
+101
+00:04:56,406 --> 00:04:58,406
+So if we assign our arpeggio
+
+102
+00:04:59,243 --> 00:05:01,974
+using it's output to group B
+
+103
+00:05:02,743 --> 00:05:04,482
+we can now test again
+
+104
+00:05:12,243 --> 00:05:15,255
+and we'll see that turning down group A
+
+105
+00:05:15,255 --> 00:05:16,822
+now turns down
+
+106
+00:05:17,543 --> 00:05:20,262
+both the kick and the arpeggio
+
+107
+00:05:20,262 --> 00:05:24,053
+because group B is a child of group A.
+
+108
+00:05:24,053 --> 00:05:26,779
+So here we have what's called a
+
+109
+00:05:26,779 --> 00:05:29,048
+serial signal flow routing,
+
+110
+00:05:29,048 --> 00:05:32,459
+meaning group B passes through group A
+
+111
+00:05:32,459 --> 00:05:34,653
+and then passes through the master.
+
+112
+00:05:34,653 --> 00:05:38,845
+We can also create a parallel signal flow
+
+113
+00:05:38,845 --> 00:05:41,105
+by changing the routing of group B.
+
+114
+00:05:41,105 --> 00:05:43,507
+If we click on group B in the groups area
+
+115
+00:05:43,507 --> 00:05:46,707
+and drag it's name on to the master
+
+116
+00:05:46,707 --> 00:05:48,707
+we can now make group B
+
+117
+00:05:48,707 --> 00:05:52,058
+a child of the master and pass it's signal
+
+118
+00:05:52,058 --> 00:05:55,751
+directly to the master, and we can test that out.
+
+119
+00:06:04,463 --> 00:06:07,327
+So now we have the kick in group A.
+
+120
+00:06:07,837 --> 00:06:10,165
+The arpeggio in group B.
+
+121
+00:06:10,953 --> 00:06:14,222
+And everything being run through the master.
+
+122
+00:06:15,039 --> 00:06:17,473
+While we're working in the mixer we may want to check
+
+123
+00:06:17,473 --> 00:06:19,715
+parts of our mix individually.
+
+124
+00:06:19,715 --> 00:06:24,433
+We can do this using the solo, mute and bypass
+
+125
+00:06:24,433 --> 00:06:26,433
+buttons on each of the groups.
+
+126
+00:06:37,173 --> 00:06:38,846
+When we click solo
+
+127
+00:06:38,846 --> 00:06:41,651
+all the other tracks are temporarily muted
+
+128
+00:06:41,651 --> 00:06:43,651
+so that we can hear that track by itself
+
+129
+00:06:43,651 --> 00:06:45,651
+and make any changes we need to make.
+
+130
+00:06:46,103 --> 00:06:48,536
+When we click mute the opposite happens.
+
+131
+00:06:48,536 --> 00:06:51,161
+The one track we've muted becomes silent
+
+132
+00:06:51,161 --> 00:06:54,224
+and we can hear anything else that we need to hear.
+
+133
+00:06:55,493 --> 00:06:58,587
+Bypass allows us to bypass any
+
+134
+00:06:58,587 --> 00:07:01,245
+audio effects that we've applied to the channel.
+
+135
+00:07:01,582 --> 00:07:03,582
+Let's go down and click Add
+
+136
+00:07:03,880 --> 00:07:05,608
+Low Pass Simple.
+
+137
+00:07:06,082 --> 00:07:08,082
+This is a low pass filter which will remove
+
+138
+00:07:08,082 --> 00:07:11,297
+high frequencies from our arpeggio sound.
+
+139
+00:07:13,659 --> 00:07:15,437
+Here's the arpeggio soloed.
+
+140
+00:07:17,264 --> 00:07:18,568
+Here's the bypass.
+
+141
+00:07:19,802 --> 00:07:21,802
+So if we're having problems with one of our effects
+
+142
+00:07:21,802 --> 00:07:24,598
+or we want to check something we can bypass.
+
+143
+00:07:24,598 --> 00:07:27,540
+It's worth noting that solo, mute and bypass
+
+144
+00:07:27,540 --> 00:07:29,540
+are not intended to be used at runtime
+
+145
+00:07:29,540 --> 00:07:31,540
+they're supposed to be used in
+
+146
+00:07:31,540 --> 00:07:34,458
+setting up your mix and designing your sounds.
+
+147
+00:07:34,458 --> 00:07:36,458
+But not to be controlled by the
+
+148
+00:07:36,458 --> 00:07:38,458
+engine while the game is playing.
+
+149
+00:07:38,458 --> 00:07:42,795
+Additionally each group has it's own pitch control.
+
+150
+00:07:43,838 --> 00:07:46,636
+If we look in the inspector we'll see
+
+151
+00:07:46,636 --> 00:07:48,924
+that the pitch is currently set
+
+152
+00:07:48,924 --> 00:07:50,367
+to 100 for this group,
+
+153
+00:07:50,771 --> 00:07:51,956
+our arpeggio,
+
+154
+00:07:51,956 --> 00:07:54,400
+let's set it to 50%.
+
+155
+00:08:08,477 --> 00:08:10,824
+So we can adjust the pitch not just
+
+156
+00:08:10,824 --> 00:08:13,025
+at the individual sound level using
+
+157
+00:08:13,025 --> 00:08:16,136
+audio source pitch control but also
+
+158
+00:08:16,136 --> 00:08:17,789
+at the group level.
+
+159
+00:08:17,789 --> 00:08:19,789
+In addition to controlling signal flow
+
+160
+00:08:19,789 --> 00:08:22,107
+with groups we can also control
+
+161
+00:08:22,107 --> 00:08:24,300
+signal flow with multiple mixers.
+
+162
+00:08:24,578 --> 00:08:26,578
+By using multiple mixers for each
+
+163
+00:08:26,578 --> 00:08:28,924
+category of sounds in our mix
+
+164
+00:08:28,924 --> 00:08:30,924
+we can then route those mixers
+
+165
+00:08:30,924 --> 00:08:33,617
+to groups in audio mixer 1
+
+166
+00:08:33,617 --> 00:08:36,174
+to control the overall balance of the mix.
+
+167
+00:08:36,579 --> 00:08:38,782
+If we create another mixer by
+
+168
+00:08:38,782 --> 00:08:40,289
+clicking the + button,
+
+169
+00:08:41,051 --> 00:08:42,246
+we'll call this one
+
+170
+00:08:42,688 --> 00:08:44,348
+Drum Mixer.
+
+171
+00:08:45,948 --> 00:08:49,508
+We can now create two groups within this.
+
+172
+00:08:49,872 --> 00:08:52,364
+We'll configure this in a
+
+173
+00:08:52,738 --> 00:08:54,738
+ parallel routing
+
+174
+00:08:54,738 --> 00:08:58,036
+and we will assign our kick
+
+175
+00:09:00,459 --> 00:09:03,027
+to the drum mixer kick channel
+
+176
+00:09:03,027 --> 00:09:05,714
+and we'll activate our percussion source here
+
+177
+00:09:06,156 --> 00:09:10,291
+and assign that to the percussion channel.
+
+178
+00:09:10,291 --> 00:09:12,291
+In order to be able to control the volume balance
+
+179
+00:09:12,291 --> 00:09:14,291
+between those two sets of elements let's
+
+180
+00:09:14,291 --> 00:09:16,291
+create a third group
+
+181
+00:09:18,329 --> 00:09:20,329
+and route it to the master output.
+
+182
+00:09:20,685 --> 00:09:22,685
+Now if we grab our drum mixer
+
+183
+00:09:22,685 --> 00:09:25,824
+and drop it on to audio mixer 1
+
+184
+00:09:26,305 --> 00:09:29,647
+we can choose drum group as an input.
+
+185
+00:09:31,157 --> 00:09:32,580
+When we play the scene
+
+186
+00:09:44,811 --> 00:09:48,136
+We can see that our entire drum mixer
+
+187
+00:09:48,136 --> 00:09:50,980
+is now being routed through drum group
+
+188
+00:09:51,355 --> 00:09:52,875
+to the master output.
+
+189
+00:09:53,750 --> 00:09:55,750
+As you're working in the mixer and your project's
+
+190
+00:09:55,750 --> 00:09:57,750
+grow more complex you may find
+
+191
+00:09:57,750 --> 00:10:01,165
+that you want to manage the view of the mixer.
+
+192
+00:10:01,165 --> 00:10:03,397
+This can be done using the visibility
+
+193
+00:10:03,397 --> 00:10:05,717
+controls down here, let's say we want to make
+
+194
+00:10:05,717 --> 00:10:08,318
+groups A and B invisible and just view the 
+
+195
+00:10:08,318 --> 00:10:09,992
+drum group and the master,
+
+196
+00:10:09,992 --> 00:10:13,053
+we can do that by clicking these eye icons
+
+197
+00:10:13,053 --> 00:10:15,005
+beside the group names.
+
+198
+00:10:15,005 --> 00:10:18,743
+Once we've made them visible we can save that in a view.
+
+199
+00:10:19,188 --> 00:10:21,188
+Here we currently only have one view,
+
+200
+00:10:21,188 --> 00:10:24,538
+let's click the + button to make another.
+
+201
+00:10:24,894 --> 00:10:26,894
+Now in view View Simple we have
+
+202
+00:10:26,894 --> 00:10:28,894
+these two groups turned off
+
+203
+00:10:28,894 --> 00:10:30,310
+and in our main view
+
+204
+00:10:30,807 --> 00:10:32,807
+we could have them turned back on
+
+205
+00:10:32,807 --> 00:10:35,270
+by clicking on the view name we can toggle
+
+206
+00:10:35,270 --> 00:10:37,270
+between different views of the mixer.
+
+207
+00:10:37,270 --> 00:10:39,270
+Snapshots allow us to store
+
+208
+00:10:39,270 --> 00:10:42,401
+and recall the state of the mixer.
+
+209
+00:10:42,401 --> 00:10:45,747
+We'll cover snapshots in their own dedicated lesson.
+
+210
+00:10:45,747 --> 00:10:48,355
+Please see the link below for more information.
+
+211
+00:10:48,355 --> 00:10:50,355
+So far we've taken a look at
+
+212
+00:10:50,355 --> 00:10:53,431
+controlling our signal flow for our game music.
+
+213
+00:10:53,431 --> 00:10:55,431
+Let's take a look at an example which includes
+
+214
+00:10:55,431 --> 00:10:57,431
+some sound effects as well.
+
+215
+00:10:57,758 --> 00:10:59,758
+Here we have the Nightmares project
+
+216
+00:10:59,758 --> 00:11:02,556
+which is available for download on the asset store.
+
+217
+00:11:02,556 --> 00:11:05,287
+What we've done is we've setup two mixers.
+
+218
+00:11:05,287 --> 00:11:07,469
+One is the master mixer and another
+
+219
+00:11:07,469 --> 00:11:09,594
+is a sound effects mixer.
+
+220
+00:11:09,594 --> 00:11:11,594
+In the master mixer we have two groups,
+
+221
+00:11:11,594 --> 00:11:15,659
+one for music and one for our sound effects.
+
+222
+00:11:15,659 --> 00:11:17,958
+We've also got our vocal effects
+
+223
+00:11:17,958 --> 00:11:19,958
+for when the player gets hurt routed
+
+224
+00:11:19,958 --> 00:11:21,958
+to a vocal effects group also on
+
+225
+00:11:21,958 --> 00:11:23,958
+the sound effects mixer.
+
+226
+00:11:24,660 --> 00:11:28,158
+Our background music is routed directly
+
+227
+00:11:28,158 --> 00:11:30,158
+to the music channel of the master mixer
+
+228
+00:11:30,158 --> 00:11:32,158
+since there's only one channel for the
+
+229
+00:11:32,158 --> 00:11:33,620
+music in this case.
+
+230
+00:11:33,620 --> 00:11:36,171
+If we play our scene we can see this in action.
+
+231
+00:11:48,648 --> 00:11:50,648
+Using this approach we can then
+
+232
+00:11:50,648 --> 00:11:53,351
+balance each separate set of effects,
+
+233
+00:11:53,351 --> 00:11:55,706
+gun shots, vocal effects
+
+234
+00:11:55,706 --> 00:11:58,776
+against our music easily
+
+235
+00:11:58,776 --> 00:12:01,141
+using one overall volume for sound effects
+
+236
+00:12:01,141 --> 00:12:03,857
+and one overall volume for music.
