@@ -308,11 +308,11 @@ deploymentHeight 変数により定義されます。
 
 78
 00:03:08,690 --> 00:03:11,020
-次に Rigidbody の Drag を
+次に Rigidbody の Drag に
 
 79
 00:03:11,020 --> 00:03:13,900
-に parachuteEffectiveness 変数の値をセットします。
+parachuteEffectiveness 変数の値をセットします。
 
 80
 00:03:13,900 --> 00:03:15,900
